@@ -1,6 +1,6 @@
-# [Project name]
+# Pre-Health Advisor
 
-_Replace the heading above with the project's name, and this line with one sentence describing what this app does for users._
+A pre-health advising web app that helps undergraduate and postbac students explore health profession fields, build a target school/program list, and track prerequisite coursework toward applying to graduate health programs.
 
 ## Run & Operate
 
@@ -22,7 +22,15 @@ _Replace the heading above with the project's name, and this line with one sente
 
 ## Where things live
 
-_Populate as you build — short repo map plus pointers to the source-of-truth file for DB schema, API contracts, theme files, etc._
+- API contract (source of truth): `lib/api-spec/openapi.yaml` — run codegen after edits
+- DB schema: `lib/db/src/schema/` (`professions`, `targetSchools`, `prereqCourses`)
+- API routes: `artifacts/api-server/src/routes/` (professions, target-schools, prereq-courses, dashboard)
+- Seed data (incl. all 15 professions): `scripts/src/seed.ts` — run `pnpm --filter @workspace/scripts run seed`
+- Frontend: `artifacts/prehealth-advisor/src/` (theme in `src/index.css`)
+
+## Product
+
+Three core surfaces: (1) Explore Professions — 15 health fields with their official program-search directories and prerequisite tables; (2) Target School List — track programs with status/priority/deadline; (3) Prerequisite Tracker — track required coursework and completion. A Dashboard aggregates progress.
 
 ## Architecture decisions
 

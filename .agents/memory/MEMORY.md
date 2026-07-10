@@ -1,0 +1,1 @@
+- [Timestamp response serialization](timestamp-response-serialization.md) — nullable Drizzle timestamp cols break generated `zod.string()` response schemas; serialize to ISO string in handler + validate incoming dates or you get 500s.

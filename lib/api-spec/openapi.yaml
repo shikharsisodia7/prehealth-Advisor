@@ -10,6 +10,14 @@ servers:
 tags:
   - name: health
     description: Health operations
+  - name: professions
+    description: Health profession fields and their program-search resources
+  - name: targetSchools
+    description: A student's target school / program list
+  - name: prereqCourses
+    description: Prerequisite coursework tracker
+  - name: dashboard
+    description: Aggregated overview data
 paths:
   /healthz:
     get:
@@ -24,6 +32,291 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/HealthStatus"
+
+  /professions:
+    get:
+      operationId: listProfessions
+      tags: [professions]
+      summary: List all health profession fields
+      responses:
+        "200":
+          description: List of professions
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Profession"
+
+  /professions/{slug}:
+    get:
+      operationId: getProfession
+      tags: [professions]
+      summary: Get a single profession by slug
+      parameters:
+        - name: slug
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: The profession
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Profession"
+        "404":
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
+  /target-schools:
+    get:
+      operationId: listTargetSchools
+      tags: [targetSchools]
+      summary: List target schools on the student's list
+      parameters:
+        - name: professionSlug
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: status
+          in: query
+          required: false
+          schema:
+            type: string
+      responses:
+        "200":
+          description: List of target schools
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/TargetSchool"
+    post:
+      operationId: createTargetSchool
+      tags: [targetSchools]
+      summary: Add a school to the target list
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/TargetSchoolInput"
+      responses:
+        "201":
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TargetSchool"
+        "400":
+          description: Invalid input
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
+  /target-schools/{id}:
+    get:
+      operationId: getTargetSchool
+      tags: [targetSchools]
+      summary: Get a single target school
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: The target school
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TargetSchool"
+        "404":
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+    patch:
+      operationId: updateTargetSchool
+      tags: [targetSchools]
+      summary: Update a target school
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/TargetSchoolUpdate"
+      responses:
+        "200":
+          description: Updated
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TargetSchool"
+        "404":
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+    delete:
+      operationId: deleteTargetSchool
+      tags: [targetSchools]
+      summary: Remove a school from the target list
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "204":
+          description: Deleted
+        "404":
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
+  /prereq-courses:
+    get:
+      operationId: listPrereqCourses
+      tags: [prereqCourses]
+      summary: List prerequisite courses being tracked
+      parameters:
+        - name: professionSlug
+          in: query
+          required: false
+          schema:
+            type: string
+      responses:
+        "200":
+          description: List of prerequisite courses
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/PrereqCourse"
+    post:
+      operationId: createPrereqCourse
+      tags: [prereqCourses]
+      summary: Add a prerequisite course to track
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PrereqCourseInput"
+      responses:
+        "201":
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PrereqCourse"
+        "400":
+          description: Invalid input
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
+  /prereq-courses/{id}:
+    patch:
+      operationId: updatePrereqCourse
+      tags: [prereqCourses]
+      summary: Update a tracked prerequisite course
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PrereqCourseUpdate"
+      responses:
+        "200":
+          description: Updated
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PrereqCourse"
+        "404":
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+    delete:
+      operationId: deletePrereqCourse
+      tags: [prereqCourses]
+      summary: Delete a tracked prerequisite course
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "204":
+          description: Deleted
+        "404":
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
+  /dashboard/summary:
+    get:
+      operationId: getDashboardSummary
+      tags: [dashboard]
+      summary: Aggregated overview of the student's progress
+      responses:
+        "200":
+          description: Dashboard summary
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DashboardSummary"
+
+  /dashboard/upcoming-deadlines:
+    get:
+      operationId: getUpcomingDeadlines
+      tags: [dashboard]
+      summary: Target schools with the nearest application deadlines
+      responses:
+        "200":
+          description: Upcoming deadlines
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/TargetSchool"
+
 components:
   schemas:
     HealthStatus:
@@ -34,3 +327,297 @@ components:
       required:
         - status
 
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+      required:
+        - error
+
+    ProfessionResource:
+      type: object
+      required:
+        - label
+        - kind
+      properties:
+        label:
+          type: string
+        kind:
+          type: string
+          description: Kind of resource
+          enum: [directory, prerequisites]
+        note:
+          type: ["string", "null"]
+        url:
+          type: ["string", "null"]
+
+    Profession:
+      type: object
+      required:
+        - id
+        - slug
+        - name
+        - category
+        - tagline
+        - description
+        - degree
+        - resources
+      properties:
+        id:
+          type: integer
+        slug:
+          type: string
+        name:
+          type: string
+        category:
+          type: string
+        tagline:
+          type: string
+        description:
+          type: string
+        degree:
+          type: string
+        typicalTimeline:
+          type: ["string", "null"]
+        resources:
+          type: array
+          items:
+            $ref: "#/components/schemas/ProfessionResource"
+
+    TargetSchool:
+      type: object
+      required:
+        - id
+        - schoolName
+        - programName
+        - professionSlug
+        - status
+        - priority
+        - createdAt
+        - updatedAt
+      properties:
+        id:
+          type: integer
+        schoolName:
+          type: string
+        programName:
+          type: string
+        professionSlug:
+          type: string
+        state:
+          type: ["string", "null"]
+        inState:
+          type: boolean
+        status:
+          type: string
+          enum: [researching, planning, applying, applied, interview, accepted, rejected]
+        priority:
+          type: string
+          enum: [reach, target, safety]
+        deadline:
+          type: ["string", "null"]
+        appPortal:
+          type: ["string", "null"]
+        notes:
+          type: ["string", "null"]
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+
+    TargetSchoolInput:
+      type: object
+      required:
+        - schoolName
+        - programName
+        - professionSlug
+      properties:
+        schoolName:
+          type: string
+          minLength: 1
+        programName:
+          type: string
+          minLength: 1
+        professionSlug:
+          type: string
+          minLength: 1
+        state:
+          type: string
+        inState:
+          type: boolean
+        status:
+          type: string
+          enum: [researching, planning, applying, applied, interview, accepted, rejected]
+        priority:
+          type: string
+          enum: [reach, target, safety]
+        deadline:
+          type: string
+        appPortal:
+          type: string
+        notes:
+          type: string
+
+    TargetSchoolUpdate:
+      type: object
+      properties:
+        schoolName:
+          type: string
+          minLength: 1
+        programName:
+          type: string
+          minLength: 1
+        professionSlug:
+          type: string
+          minLength: 1
+        state:
+          type: ["string", "null"]
+        inState:
+          type: boolean
+        status:
+          type: string
+          enum: [researching, planning, applying, applied, interview, accepted, rejected]
+        priority:
+          type: string
+          enum: [reach, target, safety]
+        deadline:
+          type: ["string", "null"]
+        appPortal:
+          type: ["string", "null"]
+        notes:
+          type: ["string", "null"]
+
+    PrereqCourse:
+      type: object
+      required:
+        - id
+        - professionSlug
+        - name
+        - category
+        - status
+        - createdAt
+        - updatedAt
+      properties:
+        id:
+          type: integer
+        professionSlug:
+          type: string
+        name:
+          type: string
+        category:
+          type: string
+        status:
+          type: string
+          enum: [not_started, in_progress, completed]
+        grade:
+          type: ["string", "null"]
+        credits:
+          type: ["number", "null"]
+        notes:
+          type: ["string", "null"]
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+
+    PrereqCourseInput:
+      type: object
+      required:
+        - professionSlug
+        - name
+      properties:
+        professionSlug:
+          type: string
+          minLength: 1
+        name:
+          type: string
+          minLength: 1
+        category:
+          type: string
+        status:
+          type: string
+          enum: [not_started, in_progress, completed]
+        grade:
+          type: string
+        credits:
+          type: number
+        notes:
+          type: string
+
+    PrereqCourseUpdate:
+      type: object
+      properties:
+        name:
+          type: string
+          minLength: 1
+        category:
+          type: string
+        status:
+          type: string
+          enum: [not_started, in_progress, completed]
+        grade:
+          type: ["string", "null"]
+        credits:
+          type: ["number", "null"]
+        notes:
+          type: ["string", "null"]
+
+    StatusCount:
+      type: object
+      required:
+        - status
+        - count
+      properties:
+        status:
+          type: string
+        count:
+          type: integer
+
+    ProfessionCount:
+      type: object
+      required:
+        - professionSlug
+        - professionName
+        - count
+      properties:
+        professionSlug:
+          type: string
+        professionName:
+          type: string
+        count:
+          type: integer
+
+    DashboardSummary:
+      type: object
+      required:
+        - totalSchools
+        - totalProfessionsExplored
+        - prereqTotal
+        - prereqCompleted
+        - prereqInProgress
+        - statusCounts
+        - professionCounts
+      properties:
+        totalSchools:
+          type: integer
+        totalProfessionsExplored:
+          type: integer
+        prereqTotal:
+          type: integer
+        prereqCompleted:
+          type: integer
+        prereqInProgress:
+          type: integer
+        statusCounts:
+          type: array
+          items:
+            $ref: "#/components/schemas/StatusCount"
+        professionCounts:
+          type: array
+          items:
+            $ref: "#/components/schemas/ProfessionCount"

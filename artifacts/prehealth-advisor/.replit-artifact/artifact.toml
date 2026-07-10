@@ -1,0 +1,27 @@
+kind = "web"
+previewPath = "/"
+title = "Pre-Health Advisor"
+version = "1.0.0"
+id = "artifacts/prehealth-advisor"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 20024
+
+[services.development]
+run = "pnpm --filter @workspace/prehealth-advisor run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/prehealth-advisor", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/prehealth-advisor/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "20024"
+BASE_PATH = "/"
