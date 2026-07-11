@@ -229,7 +229,7 @@ export default function Prerequisites() {
         </div>
       </div>
 
-      {totalCourses > 0 && !loadingSchools && (
+      {totalCourses > 0 && !loadingCourses && (
         <Card className="bg-card/50 backdrop-blur-sm border-none shadow-sm mb-8 overflow-hidden">
           <CardContent className="p-6">
             <div className="flex justify-between text-sm mb-3">
@@ -244,7 +244,7 @@ export default function Prerequisites() {
         </Card>
       )}
 
-      {loadingSchools ? (
+      {loadingCourses ? (
         <div className="space-y-8">
           <Skeleton className="h-40 rounded-2xl" />
           <Skeleton className="h-40 rounded-2xl" />
