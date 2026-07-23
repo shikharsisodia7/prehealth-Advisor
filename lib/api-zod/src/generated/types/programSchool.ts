@@ -5,16 +5,24 @@
  * API specification
  * OpenAPI spec version: 0.1.0
  */
+import type { PrereqItem } from './prereqItem';
+import type { ProgramSchoolVerificationStatus } from './programSchoolVerificationStatus';
 
 export interface ProgramSchool {
   id: number;
   professionSlug: string;
+  /** Official institution name */
   name: string;
+  /** Official professional program name (e.g. "Doctor of Physical Therapy") */
+  programName: string;
+  /** @nullable */
+  city?: string | null;
   state: string;
   /** @nullable */
   degreeType?: string | null;
   sourceUrl: string;
   /** @nullable */
   lastVerified?: string | null;
-  prereqCourses: string[];
+  verificationStatus: ProgramSchoolVerificationStatus;
+  prereqCourses: PrereqItem[];
 }

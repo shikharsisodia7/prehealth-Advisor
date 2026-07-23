@@ -1,1 +1,2 @@
 - [Timestamp response serialization](timestamp-response-serialization.md) — nullable Drizzle timestamp cols break generated `zod.string()` response schemas; serialize to ISO string in handler + validate incoming dates or you get 500s.
+- [jsonb & enum typing](jsonb-and-enum-typing.md) — jsonb optional fields must be `T | null` (not just undefined); drizzle-zod widens text-enum cols to `string`, pass a z.enum override.

@@ -24,12 +24,14 @@ function Router() {
   return (
     <AppShell>
       <Switch>
-        <Route path="/" component={Dashboard} />
+        {/* Primary student-facing route */}
+        <Route path="/" component={ProgramPlanner} />
+        {/* Internal/admin routes — not linked from student nav */}
+        <Route path="/dashboard" component={Dashboard} />
         <Route path="/professions" component={ProfessionsList} />
         <Route path="/professions/:slug" component={ProfessionDetail} />
         <Route path="/schools" component={TargetSchools} />
         <Route path="/prerequisites" component={Prerequisites} />
-        <Route path="/planner" component={ProgramPlanner} />
         <Route component={NotFound} />
       </Switch>
     </AppShell>

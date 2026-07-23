@@ -353,12 +353,24 @@ export const ListProgramSchoolsQueryParams = zod.object({
 export const ListProgramSchoolsResponseItem = zod.object({
   "id": zod.number(),
   "professionSlug": zod.string(),
-  "name": zod.string(),
+  "name": zod.string().describe('Official institution name'),
+  "programName": zod.string().describe('Official professional program name (e.g. \"Doctor of Physical Therapy\")'),
+  "city": zod.string().nullish(),
   "state": zod.string(),
   "degreeType": zod.string().nullish(),
   "sourceUrl": zod.string(),
   "lastVerified": zod.string().nullish(),
-  "prereqCourses": zod.array(zod.string())
+  "verificationStatus": zod.enum(['draft', 'imported', 'needs_review', 'verified', 'rejected', 'outdated']),
+  "prereqCourses": zod.array(zod.object({
+  "name": zod.string().describe('Name of the prerequisite course'),
+  "details": zod.string().nullish().describe('Official wording or conditions from the program source (e.g. \"1 year required, with lab\").\n'),
+  "classification": zod.enum(['required', 'recommended', 'preferred', 'informational', 'unclear', 'needs_review']).describe('How this course is classified by the program'),
+  "labRequired": zod.boolean().nullish().describe('Whether a laboratory component is required'),
+  "courseCount": zod.number().nullish().describe('Number of courses required'),
+  "semesterCredits": zod.number().nullish().describe('Number of semester credit hours required'),
+  "quarterCredits": zod.number().nullish().describe('Number of quarter credit hours required'),
+  "otherConditions": zod.string().nullish().describe('Other specific conditions (e.g. recency requirement, grade requirement, sequence requirement).\n')
+}))
 })
 export const ListProgramSchoolsResponse = zod.array(ListProgramSchoolsResponseItem)
 

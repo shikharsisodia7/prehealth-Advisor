@@ -1,0 +1,1236 @@
+You are working inside an EXISTING Replit project that has already been partially built and deployed at:
+
+https://prehealth-advisor.replit.app
+
+This is not a request to create a new project, start over, generate a second application, or replace the current application with a generic template.
+
+You must inspect the entire existing Replit codebase and improve the current application so it matches the professor’s exact requirements for the Health Professions Program Planner.
+
+The current application is the starting point. Preserve anything that already works and is consistent with the professor’s requirements. Change, simplify, remove, or repair anything that conflicts with the professor’s intended scope.
+
+Do not return only a plan or explanation. After inspecting the project, implement the changes directly in the existing codebase. Continue until the revised application runs correctly, the primary workflow works from beginning to end, the database and data-loading logic work, exports work, and the production deployment can be tested successfully.
+
+Do not create a new repository.
+
+Do not initialize a second project inside the current project.
+
+Do not replace the existing technology stack merely because you prefer another stack.
+
+Do not delete working functionality without first determining whether it can be adapted.
+
+Do not fabricate school information, prerequisites, acceptance rates, or admissions information.
+
+==================================================
+
+1. UNDERSTAND THE PROFESSOR’S ACTUAL REQUEST
+   ==================================================
+
+The professor wants a focused academic-planning application called the:
+
+Health Professions Program Planner
+
+The application’s purpose is to help pre-health students identify the prerequisite courses required by professional schools they are genuinely considering.
+
+The professor does not want a general pre-health admissions dashboard.
+
+The professor does not want a clone of Smarter Premed.
+
+The professor does not want an application that tries to answer every pre-health question.
+
+The professor does not want the system to predict whether a student will be admitted.
+
+The professor does not want an application that overwhelms students with metrics, recommendations, classifications, rankings, and unrelated program information.
+
+The professor wants the application to perform three primary functions accurately:
+
+1. Allow the student to select a health profession.
+2. Allow the student to select approximately 10–15 schools offering that professional degree.
+3. Display each selected school’s required prerequisite courses in a clean list that can be exported to or pasted into Excel.
+
+This is the central product definition.
+
+Everything in the current application must be evaluated against this definition.
+
+The desired product should be:
+
+* Narrow in scope.
+* Easy to understand.
+* Efficient.
+* Completely accurate to the greatest reasonable extent.
+* Based on official program information.
+* Useful for early academic planning.
+* Supportive of advising rather than a replacement for advising.
+* Free from misleading admissions predictions.
+
+The application should help students answer:
+
+“What required prerequisite courses do I need to consider when planning for the professional schools that interest me?”
+
+It should not attempt to answer:
+
+* Which schools should I apply to?
+* Which schools are best for me?
+* What are my chances of admission?
+* Is a school a reach, match, target, or safety?
+* Am I competitive for a school?
+* What schools match my GPA?
+* What schools match my test score?
+* How many schools will accept me?
+* Which school is easiest to enter?
+* What school is most friendly to my residency status?
+* What is my probability of admission?
+* What exact SCU classes should I take every quarter?
+
+==================================================
+2. FIRST AUDIT THE CURRENT APPLICATION
+======================================
+
+Before making changes, inspect the complete existing project.
+
+Review:
+
+* All pages and routes.
+* All frontend components.
+* Current profession-selection functionality.
+* Current school-selection functionality.
+* Current prerequisite-results functionality.
+* Existing navigation.
+* Existing homepage and introductory content.
+* Current forms and filters.
+* Existing school and prerequisite data.
+* Existing database schema.
+* Existing API endpoints.
+* Existing backend services.
+* Existing scraping or data-import logic.
+* Existing export functionality.
+* Existing authentication, if any.
+* Existing administrative tools, if any.
+* Existing responsive behavior.
+* Existing tests.
+* Existing deployment configuration.
+* Existing environment variables and secrets configuration.
+* Existing package scripts.
+* Existing README and setup documentation.
+
+Run the application before editing it.
+
+Test the current primary user flow.
+
+Determine which features are:
+
+1. Correct and should be preserved.
+2. Useful but need modification.
+3. Incomplete or broken.
+4. Outside the professor’s requested scope.
+5. Potentially misleading.
+6. Based on unverified or placeholder information.
+
+Create a private implementation checklist based on the actual current code. Then perform the changes.
+
+Do not stop and ask me to explain the existing app unless the code is genuinely inaccessible. The project itself should be treated as the source of truth for what has already been built.
+
+Do not rebuild the application from zero unless the existing implementation is completely unusable. Even then, preserve useful code, design elements, data, and configuration where possible.
+
+==================================================
+3. KEEP THE PRODUCT FOCUSED
+===========================
+
+The screen recording explains why the professor believes the Smarter Premed example is too broad and potentially misleading.
+
+Do not imitate that site’s multi-tool dashboard structure.
+
+Do not copy its school recommendation system.
+
+Do not reproduce admissions classifications or calculations from that example.
+
+Do not add a collection of unrelated cards such as:
+
+* School list builder.
+* Acceptance chance calculator.
+* Competitiveness calculator.
+* Applicant profile analysis.
+* Course completion tracker.
+* Application readiness score.
+* Admissions statistics comparison.
+* GPA and test-score matching.
+* School ranking system.
+* Experience tracker.
+* Timeline generator.
+* Application countdown.
+* Reach/match/safety analysis.
+
+The revised application should feel like one focused planner, not a marketplace of admissions tools.
+
+If the existing application currently contains features like these, do not automatically delete the underlying code before reviewing it. Remove them from the main student experience or disable them when they conflict with the professor’s requested scope.
+
+The main user experience should be one clear sequence:
+
+Step 1: Select a profession.
+
+Step 2: Select schools.
+
+Step 3: View and export required prerequisites.
+
+==================================================
+4. PRESERVE THE CURRENT APPLICATION WHERE POSSIBLE
+==================================================
+
+This is an improvement project.
+
+Do not unnecessarily change:
+
+* The existing framework.
+* The package manager.
+* The database provider.
+* The deployment architecture.
+* Working API conventions.
+* Working authentication.
+* Existing reusable UI components.
+* The current color system if it is professional and readable.
+* Existing responsive layout utilities.
+* Existing error handling that already works.
+* Existing data records that are verified and properly sourced.
+
+Refactor only where necessary to satisfy the professor’s requirements or correct structural problems.
+
+Before deleting a current feature, determine:
+
+* Whether it directly supports the three-step workflow.
+* Whether it can be simplified.
+* Whether it contains useful data or logic.
+* Whether another part of the application depends on it.
+* Whether removing it would break the deployment.
+
+Do not leave dead navigation links, empty sections, broken buttons, duplicate pages, or unused dashboard cards after simplifying the interface.
+
+==================================================
+5. REQUIRED MAIN PAGE
+=====================
+
+The application should have one obvious primary planner page.
+
+The main page should contain:
+
+Header or title:
+
+Health Professions Program Planner
+
+Introductory description:
+
+“Compare the required prerequisite coursework for the health professional programs you are considering.”
+
+Add a brief scope statement:
+
+“This planner is designed to support early academic planning. It does not rank programs, predict admission, or recommend where you should apply.”
+
+Then display the three-step workflow in order.
+
+The page should not begin with GPA questions, test-score questions, experience questions, demographic questions, or admissions statistics.
+
+The student should be able to understand the purpose of the tool within several seconds.
+
+Use concise text.
+
+Do not add long educational paragraphs above the planner.
+
+Do not create unnecessary onboarding screens.
+
+Do not require an account merely to view the planner unless the existing project has a legitimate authentication requirement that cannot be safely removed.
+
+==================================================
+6. STEP 1 — SELECT A HEALTH PROFESSION
+======================================
+
+Create or improve the first step so the student can select a health profession from a clear dropdown.
+
+Use a label such as:
+
+“Select a health profession”
+
+Do not use vague language such as:
+
+* Select a journey.
+* Choose your path.
+* Build your profile.
+* Find your fit.
+* Discover your future.
+
+The profession selector must be:
+
+* Searchable when the list is long.
+* Keyboard accessible.
+* Mobile friendly.
+* Data-driven.
+* Easy for administrators or developers to expand.
+* Connected to the actual program and school data.
+* Clear about which professional degree is being selected.
+
+Use the existing profession data when it is reliable. Do not hardcode the list separately in multiple components.
+
+Potential professions may include:
+
+* Medicine.
+* Osteopathic Medicine.
+* Dentistry.
+* Physician Assistant.
+* Physical Therapy.
+* Occupational Therapy.
+* Pharmacy.
+* Optometry.
+* Veterinary Medicine.
+* Nursing.
+* Other health professions already supported by verified project data.
+
+Do not claim that this list is complete unless the underlying data actually supports every profession.
+
+Where a profession has multiple distinct professional degree options, add a second selector for the degree or program type.
+
+For Nursing, the professor specifically wants the applicable output limited to:
+
+* Accelerated Bachelor of Science in Nursing, or ABSN.
+* Master’s Entry nursing programs.
+
+Do not include traditional four-year undergraduate BSN programs in the Nursing results unless the professor later requests them.
+
+Do not include ADN programs, nurse practitioner programs, doctoral nursing programs, or unrelated nursing degrees in this specific Nursing workflow.
+
+When Nursing is selected, show a second field such as:
+
+“Select a nursing program type”
+
+With only:
+
+* Accelerated BSN (ABSN).
+* Master’s Entry Nursing.
+
+If the current application already handles Nursing differently, update its filtering and data structure accordingly.
+
+==================================================
+7. STEP 2 — SELECT SCHOOLS OF INTEREST
+======================================
+
+After the student selects a profession and relevant degree type, show only schools or programs that offer that selected degree.
+
+The school selector must support selecting multiple schools.
+
+Use a label such as:
+
+“Select schools of interest”
+
+The selector must be:
+
+* Searchable.
+* Multi-select.
+* Alphabetized by official school or program name.
+* Filtered by selected profession.
+* Filtered by selected degree type when relevant.
+* Easy to use with a keyboard.
+* Usable on desktop and mobile.
+* Capable of handling a nationwide program list.
+* Clear about which programs have been selected.
+
+Do not show irrelevant institutions that do not offer the selected professional degree.
+
+Do not show every university in the country regardless of program availability.
+
+The professor wants the schools offering that degree to appear alphabetically.
+
+Sort by official program or school name, not by:
+
+* Acceptance rate.
+* Popularity.
+* Ranking.
+* GPA.
+* Test score.
+* User profile.
+* Residency statistics.
+* Algorithmic match score.
+* Sponsorship.
+* Featured status.
+
+Where an institution offers multiple relevant programs, display enough information to distinguish them.
+
+For example:
+
+University Name — Doctor of Medicine
+
+University Name — Accelerated BSN
+
+University Name — Master’s Entry Nursing
+
+Do not assume that the institution name alone always identifies the correct professional program.
+
+==================================================
+8. RECOMMEND APPROXIMATELY 10–15 SCHOOLS
+========================================
+
+The professor wants students to research a broad enough selection of schools that the range of prerequisite courses is representative.
+
+Recommend that students select approximately 10–15 programs for curriculum-planning purposes.
+
+Do not force exactly 10 schools.
+
+Do not force exactly 15 schools.
+
+Do not block the results if the student selects fewer than 10 or more than 15.
+
+Display a visible selection count, such as:
+
+“7 programs selected”
+
+“12 programs selected”
+
+“16 programs selected”
+
+Use helper text similar to:
+
+“Select approximately 10–15 programs so your results reflect a useful range of prerequisite requirements.”
+
+Also include the professor’s recommendation that students consider programs in their state of legal residence as well as other schools that genuinely interest them.
+
+Use text similar to:
+
+“Consider including programs in your state of legal residence along with other programs that genuinely interest you.”
+
+This is planning guidance only.
+
+Do not turn residency into an admissions prediction.
+
+Do not calculate an in-state admissions advantage.
+
+Do not show in-state versus out-of-state acceptance rates.
+
+Do not automatically rank in-state programs above other programs.
+
+An optional state-of-residency selector may be included only when it serves the narrow purpose of helping the student identify which programs are in their state.
+
+If included:
+
+* Make the state selector optional.
+* Do not use it to calculate admission probability.
+* Do not hide out-of-state programs.
+* Do not label programs as good or bad options.
+* At most, use a neutral “In your state” indicator.
+* Explain that residency policies must be confirmed with each program.
+
+==================================================
+9. SCHOOL-SELECTION EXPERIENCE
+==============================
+
+Improve the school-selection interface so students can manage 10–15 selections without confusion.
+
+Include:
+
+* A search field.
+* Alphabetized results.
+* Clear school and program names.
+* City and state as secondary identifying information.
+* A visible selected-program counter.
+* A selected-program list or removable chips.
+* An obvious remove action.
+* A clear button to continue to results.
+* A useful empty state.
+* Loading feedback if school data is being fetched.
+
+Use a button label such as:
+
+“View Required Prerequisites”
+
+Do not use a generic label such as:
+
+* Submit.
+* Continue.
+* Generate.
+* Analyze me.
+* Find my schools.
+* Calculate my chances.
+
+When the student changes professions after selecting schools, prevent incompatible selections from remaining silently active.
+
+Either:
+
+* Clear the incompatible selections and clearly notify the student, or
+* Ask the student to confirm before clearing them.
+
+Do not allow a medical school selection to remain when the profession has been changed to physical therapy or nursing.
+
+==================================================
+10. STEP 3 — DISPLAY REQUIRED PREREQUISITES
+===========================================
+
+The output should focus on only two primary pieces of information:
+
+1. School or program name.
+2. Required prerequisite courses.
+
+The professor wants the output in a list form that can be exported or copied into Excel.
+
+Display results grouped by selected school or professional program.
+
+Example structure:
+
+University of Example
+Doctor of Physical Therapy
+
+Required prerequisites:
+
+* General Biology — 2 semesters.
+* General Chemistry — 2 semesters with laboratory.
+* Physics — 2 semesters with laboratory.
+* Human Anatomy — 1 course.
+* Human Physiology — 1 course.
+* Statistics — 1 course.
+* Psychology — 2 courses.
+
+Official source
+Last verified date
+
+Keep the student-facing result compact and readable.
+
+The main result must not be buried beneath:
+
+* Acceptance statistics.
+* Mission statements.
+* Program marketing text.
+* Matriculant profiles.
+* Rankings.
+* Competitiveness analysis.
+* Application tips.
+* School-fit scores.
+* Unrelated program details.
+
+Where the school’s official prerequisite wording contains an important condition, preserve that condition accurately.
+
+Examples include:
+
+* Laboratory required.
+* One year required.
+* Two semesters required.
+* Three quarter courses required.
+* Minimum number of credits.
+* Upper-division course required.
+* Course sequence required.
+* Anatomy and physiology must be separate courses.
+* Combined anatomy and physiology sequence accepted.
+* Minimum grade requirement.
+* Prerequisites must be completed within a specific period.
+* Online coursework restrictions.
+* AP-credit restrictions.
+
+Do not oversimplify a requirement in a way that changes its meaning.
+
+Do not interpret unclear wording as a definite rule.
+
+==================================================
+11. DISPLAY REQUIRED COURSES ONLY
+=================================
+
+This is a non-negotiable requirement.
+
+The default student-facing results must show required prerequisite coursework only.
+
+Do not mix required classes with:
+
+* Strongly recommended classes.
+* Recommended classes.
+* Preferred classes.
+* Suggested preparation.
+* Helpful electives.
+* Courses completed by competitive applicants.
+* Courses the application believes the student should take.
+
+The professor specifically explained that including strongly recommended classes can become problematic because schools may provide long lists that confuse students.
+
+Do not create one combined section called:
+
+“Required and recommended coursework”
+
+Do not place a recommended course in the required list with a small badge.
+
+Do not make recommended classes appear visually mandatory.
+
+Do not automatically convert the following phrases into required courses:
+
+* Strongly recommended.
+* Recommended.
+* Preferred.
+* Suggested.
+* Encouraged.
+* Helpful.
+* Competitive applicants generally complete.
+* Applicants are advised to take.
+
+If the database currently combines required and recommended classes, repair the data model and filtering.
+
+Create a clear requirement classification, such as:
+
+* required
+* recommended
+* preferred
+* informational
+* unclear
+* needs_review
+
+Only records classified as required and verified should appear in the default results.
+
+Recommended information may remain stored internally for future use, but it must not appear in the main student result unless the professor explicitly requests it later.
+
+==================================================
+12. REMOVE OR DISABLE MISLEADING FEATURES
+=========================================
+
+Inspect the existing application for features that conflict with the professor’s intended scope.
+
+Remove, disable, hide, or clearly separate any student-facing feature that provides:
+
+* Acceptance probability.
+* Chance of admission.
+* Competitiveness score.
+* Applicant score.
+* School-fit percentage.
+* Reach classification.
+* Match classification.
+* Target classification.
+* Safety classification.
+* Likely classification.
+* Unlikely classification.
+* School ranking.
+* Recommended school list.
+* “Schools for you.”
+* Automatic application list.
+* GPA-based school suggestions.
+* Test-score-based school suggestions.
+* Experience-based school suggestions.
+* In-state acceptance comparisons.
+* Out-of-state acceptance comparisons.
+* Residency-based admissions recommendations.
+* Matriculant comparisons.
+* Application timeline calculations.
+* Admissions readiness scores.
+* Course-completion scores.
+* Progress circles that imply application eligibility.
+* AI-generated school recommendations.
+
+Do not simply rename these features.
+
+Remove the underlying implication that the application can predict admissions outcomes.
+
+The professor’s problem with the reference application is not just its wording. The problem is that it makes assumptions and recommendations from data that may not adequately explain a school’s actual admissions process.
+
+==================================================
+13. OPTIONAL INFORMATION SHOULD NOT DOMINATE
+============================================
+
+The professor’s document mentions possible optional information such as:
+
+* Average GPA.
+* Test scores.
+* Applicant experience.
+* Matriculating class size.
+* Mission statement.
+* Clinical training.
+* Joint or dual degrees.
+* Program features.
+* Matriculant profiles.
+
+However, the professor also states that students ideally should research this information themselves and that this information may not belong in the planning application.
+
+Therefore, do not add this information to the primary workflow.
+
+If the existing application currently shows it:
+
+* Remove it from the primary results.
+* Do not show it above required prerequisites.
+* Do not use it to rank or filter schools.
+* Do not use it to recommend schools.
+* Do not use it to create admissions classifications.
+* Do not let it distract from prerequisite planning.
+
+If preserving existing optional data is necessary, move it to an internal data model or a clearly secondary future feature that is not enabled by default.
+
+Do not spend development time expanding optional admissions information until the three required functions are complete and accurate.
+
+==================================================
+14. DATA ACCURACY IS MORE IMPORTANT THAN DATA VOLUME
+====================================================
+
+The professor prefers a small, accurate, efficient tool over a broad application containing uncertain information.
+
+Never invent prerequisite requirements.
+
+Never guess based on what similar schools require.
+
+Never treat AI-generated text as an authoritative source.
+
+Never copy a prerequisite from an unofficial blog when an official program source exists.
+
+Never present sample or placeholder data as real school information.
+
+Every published prerequisite should be traceable to an official source, such as:
+
+* The program’s official admissions page.
+* The school’s official prerequisite page.
+* An official university catalog.
+* An official admissions handbook.
+* An official PDF published by the program.
+* An official program directory when identifying which schools offer a degree.
+
+Whenever practical, store:
+
+* Official institution name.
+* Official program name.
+* Profession.
+* Degree type.
+* Requirement name.
+* Requirement details.
+* Number of courses.
+* Semester credits.
+* Quarter credits.
+* Laboratory requirement.
+* Other required conditions.
+* Requirement classification.
+* Official source URL.
+* Date last verified.
+* Verification status.
+
+Use verification states such as:
+
+* draft
+* imported
+* needs_review
+* verified
+* rejected
+* outdated
+
+Only verified required prerequisites should be shown as confirmed student results.
+
+If the current application contains unverified real-school data, do not silently continue displaying it as fact.
+
+Either verify it using official sources or clearly mark that the information is still being reviewed.
+
+Use a student-facing message such as:
+
+“Prerequisite information for this program is still being verified. Review the official program page or consult a health professions advisor.”
+
+Do not fabricate missing information to prevent an empty state.
+
+==================================================
+15. OFFICIAL SOURCES AND VERIFICATION
+=====================================
+
+For every result, include a compact official-source link.
+
+Use a label such as:
+
+“Official program source”
+
+Also include a last-verified date when available.
+
+These details should support trust without overwhelming the student.
+
+Do not paste long source quotations into the student interface.
+
+Internally, preserve enough source evidence for an advisor or administrator to confirm the requirement.
+
+When a source changes or disappears:
+
+* Do not continue presenting the requirement indefinitely as current.
+* Mark it as needing re-verification.
+* Preserve the official program link when possible.
+* Explain the status clearly.
+
+Add a concise disclaimer near the results:
+
+“Professional program requirements can change. Confirm current requirements with the program and consult a health professions advisor before finalizing your academic plan.”
+
+Do not claim that the planner guarantees eligibility.
+
+Do not claim that completing the displayed courses guarantees admission.
+
+==================================================
+16. EXISTING DATA AND NATIONWIDE COVERAGE
+=========================================
+
+The professor wants students to choose from schools across the country that offer the selected professional degree.
+
+Inspect the current project’s school dataset.
+
+Determine:
+
+* Which professions are currently covered.
+* Which degree types are currently covered.
+* How many programs exist.
+* Which program records are duplicates.
+* Which programs have official links.
+* Which programs have verified prerequisite data.
+* Which records use placeholder or generated information.
+* Which records are missing prerequisites.
+* Which records have stale sources.
+* Whether the current application falsely implies complete nationwide coverage.
+
+Do not delete verified data.
+
+Normalize duplicate school and program names.
+
+Do not claim nationwide completeness unless the data actually includes and verifies all relevant programs.
+
+If coverage is incomplete, the interface may say:
+
+“Available programs are being expanded and verified.”
+
+Do not say:
+
+“All programs nationwide”
+
+unless that statement is true.
+
+The application architecture should support a nationwide list, even when data verification is still being completed.
+
+==================================================
+17. DATA IMPORT AND MAINTENANCE
+===============================
+
+Prerequisite information must not require editing frontend components manually.
+
+Preserve an existing data-management system if it works.
+
+Otherwise, create a maintainable import process using the current project’s technology.
+
+At minimum, support importing school and prerequisite information from CSV or JSON.
+
+Recommended import fields:
+
+* profession
+* degree_type
+* school_name
+* program_name
+* city
+* state
+* requirement_name
+* requirement_details
+* course_count
+* semester_credits
+* quarter_credits
+* lab_required
+* classification
+* official_source_url
+* last_verified
+* verification_status
+* internal_notes
+
+Validate imported records.
+
+Flag records that are missing:
+
+* School name.
+* Program name.
+* Profession.
+* Degree type.
+* Requirement text.
+* Requirement classification.
+* Official source.
+* Verification status.
+
+Prevent duplicate schools and duplicate prerequisite rows.
+
+If automated scraping or AI extraction already exists, it may assist data collection, but it must not automatically publish information as verified.
+
+Automatically extracted information should enter a review status.
+
+A human reviewer should be able to compare the stored requirement with the official source before marking it verified.
+
+Do not build a large, complicated administrator dashboard unless the project already has one. A simple protected review page or reliable import-and-review workflow is sufficient.
+
+==================================================
+18. EXPORT REQUIREMENTS
+=======================
+
+The professor specifically wants an Excel-friendly output.
+
+Improve or create the export functionality so students can:
+
+1. Copy the results.
+2. Download a CSV file.
+3. Download an XLSX file if the current stack supports it reliably.
+4. Print or save a clean version.
+
+Use clear buttons such as:
+
+* Copy Results
+* Download CSV
+* Download Excel
+* Print Results
+
+Do not include a nonfunctional export button.
+
+The spreadsheet should use one prerequisite requirement per row.
+
+Recommended export columns:
+
+* Profession
+* Degree Type
+* School
+* Program
+* Required Prerequisite
+* Requirement Details
+* Course Count
+* Semester Credits
+* Quarter Credits
+* Laboratory Required
+* Other Required Conditions
+* Official Source
+* Last Verified
+
+Do not include:
+
+* Recommended courses.
+* Strongly recommended courses.
+* Acceptance rates.
+* GPA statistics.
+* Test-score statistics.
+* Applicant predictions.
+* Rankings.
+* Internal advisor notes.
+* Raw extraction evidence.
+
+The copied version should paste cleanly into Google Sheets or Microsoft Excel.
+
+Do not put all schools and prerequisites into one long unstructured cell.
+
+==================================================
+19. USER-INTERFACE IMPROVEMENTS
+===============================
+
+Improve the existing design rather than replacing it with an unrelated visual concept.
+
+The final interface should feel:
+
+* Professional.
+* Calm.
+* Academic.
+* Trustworthy.
+* Simple.
+* Modern but not flashy.
+* Easy for a first-year student to understand.
+* Appropriate for a university advising context.
+
+Avoid:
+
+* Excessive animations.
+* Gradient-heavy startup styling.
+* Huge marketing headlines.
+* Gamification.
+* Confetti.
+* Admissions score meters.
+* Red, yellow, and green school classifications.
+* Complex dashboards.
+* Too many cards.
+* Dense statistics.
+* Unnecessary charts.
+* Fake testimonials.
+* Promotional claims.
+* AI chatbot language unless a chatbot is genuinely necessary.
+
+Use visible step labels:
+
+1. Profession
+2. Schools
+3. Prerequisites
+
+Use progressive disclosure:
+
+* Do not show the school selector as fully active until a profession is selected.
+* Do not show empty result cards before schools are selected.
+* Keep the interface focused on the student’s current step.
+
+Preserve the current color palette if it is clean and readable. Adjust it only when accessibility or professionalism requires improvement.
+
+Do not use an unofficial Santa Clara University logo.
+
+If official branding assets are not already present and authorized, use a clean text-based title instead.
+
+==================================================
+20. ACCESSIBILITY AND RESPONSIVENESS
+====================================
+
+Ensure the existing application works on:
+
+* Desktop.
+* Tablet.
+* Mobile.
+
+The school multi-select must remain usable on smaller screens.
+
+Implement or repair:
+
+* Proper form labels.
+* Keyboard navigation.
+* Visible focus states.
+* Screen-reader-friendly selection counts.
+* Correct heading hierarchy.
+* Accessible error messages.
+* Sufficient contrast.
+* Buttons with descriptive labels.
+* Non-color status indicators.
+* Large enough touch targets.
+* Responsive results tables or cards.
+
+A student must be able to complete the full three-step workflow without using a mouse.
+
+==================================================
+21. REQUIRED EMPTY AND ERROR STATES
+===================================
+
+Add intentional states for the following situations.
+
+Before profession selection:
+
+“Choose a health profession to view available programs.”
+
+No programs available:
+
+“No verified programs are currently available for this profession and degree type.”
+
+No schools selected:
+
+“Select at least one program to view required prerequisites.”
+
+Program found but prerequisites unverified:
+
+“This program has been identified, but its prerequisite information is still being verified.”
+
+Requirement needs re-verification:
+
+“This information requires re-verification. Review the official program source or consult a health professions advisor.”
+
+Data-loading failure:
+
+“We could not load the program information. Please try again.”
+
+Export attempted with no verified results:
+
+Disable the export controls and explain that verified results are required.
+
+If a student selects 12 schools and only 9 have verified prerequisite data, show all 12 selected schools in the results.
+
+For the 9 verified schools, show the requirements.
+
+For the remaining 3 schools, show their verification status.
+
+Do not silently omit the 3 schools.
+
+==================================================
+22. APPLICATION LOGIC
+=====================
+
+The profession, degree type, school list, selections, results, and export must be connected to the same underlying data.
+
+Do not create a frontend demonstration in which dropdown choices are disconnected from the results.
+
+Required logic:
+
+1. Student selects a profession.
+2. Applicable degree types load.
+3. Student selects the degree type when necessary.
+4. Matching professional programs load.
+5. Programs appear alphabetically.
+6. Student selects multiple programs.
+7. Selection count updates.
+8. Student requests results.
+9. The application retrieves verified required prerequisites for every selected program.
+10. Results appear grouped by program.
+11. Programs with incomplete data display an honest status.
+12. Student can copy or export the verified results.
+
+Prevent:
+
+* Duplicate program selections.
+* Results from the wrong profession.
+* Stale selections after changing professions.
+* Recommended courses appearing in required results.
+* Unverified information appearing as confirmed.
+* School names without program context where ambiguity exists.
+* Empty exports.
+* Broken official-source links where validation is possible.
+
+==================================================
+23. DO NOT OVERENGINEER THE IMPROVEMENT
+=======================================
+
+Do not turn this task into a complete rewrite or enterprise software project.
+
+Do not add:
+
+* Unnecessary microservices.
+* A new frontend framework.
+* A second database.
+* A complex permissions system without a real need.
+* AI chat features.
+* Student social features.
+* Messaging.
+* Appointment booking.
+* Billing.
+* Subscription plans.
+* School sponsorships.
+* Advertisements.
+* Analytics dashboards unrelated to maintaining data quality.
+
+Use the existing architecture and make the simplest reliable changes that fully satisfy the professor.
+
+The most important outcome is that the current application becomes a focused, accurate, easy-to-use prerequisite planner.
+
+==================================================
+24. TEST THE PROFESSOR’S EXACT REQUIREMENTS
+===========================================
+
+Add or update tests based on the existing testing setup.
+
+At minimum, verify:
+
+1. The application loads successfully.
+2. The main page clearly identifies the Health Professions Program Planner.
+3. A profession can be selected.
+4. Applicable degree types appear.
+5. Nursing only displays ABSN and Master’s Entry in the intended workflow.
+6. School options are filtered by profession and degree type.
+7. School options are alphabetized.
+8. Multiple schools can be selected.
+9. The selection count updates.
+10. The interface recommends approximately 10–15 schools.
+11. The application does not force exactly 10–15 schools.
+12. Results appear for every selected school.
+13. Results are grouped by school or program.
+14. Only required prerequisites appear.
+15. Recommended courses do not appear.
+16. Strongly recommended courses do not appear.
+17. Unverified data receives an honest status.
+18. Official source links appear for verified results.
+19. CSV export contains one requirement per row.
+20. Excel export works if offered.
+21. Copy Results produces spreadsheet-friendly text.
+22. Changing the profession removes incompatible selections.
+23. The mobile layout remains usable.
+24. Keyboard navigation works.
+25. No school-ranking language appears.
+26. No admissions prediction appears.
+27. The production build succeeds.
+28. The deployed application loads without console-breaking errors.
+
+Search the student-facing interface and remove prohibited language including:
+
+* Reach school.
+* Match school.
+* Safety school.
+* Target school.
+* Admission probability.
+* Acceptance chance.
+* Competitiveness score.
+* Best schools for you.
+* Recommended schools for you.
+* Likely acceptance.
+* Unlikely acceptance.
+
+The only use of the word “recommended” should relate to the professor’s suggested range of approximately 10–15 selected programs, not to recommending specific schools or courses.
+
+==================================================
+25. FINAL IMPLEMENTATION PROCESS
+================================
+
+Complete the work in this order:
+
+1. Run and inspect the existing application.
+2. Audit the current routes, UI, data, APIs, and database.
+3. Identify which current functionality conflicts with the professor’s scope.
+4. Preserve useful working functionality.
+5. Simplify the main navigation and student experience.
+6. Implement or repair the profession selector.
+7. Implement or repair degree-type filtering.
+8. Correct the Nursing options.
+9. Implement or repair nationwide program selection.
+10. Alphabetize the school list.
+11. Implement or repair multi-selection.
+12. Add the 10–15 program guidance.
+13. Implement or repair required-prerequisite results.
+14. Separate required from recommended coursework.
+15. Remove admissions predictions and misleading classifications.
+16. Add source and verification handling.
+17. Implement or repair copy and export functionality.
+18. Add missing loading, empty, and error states.
+19. Improve responsiveness and accessibility.
+20. Validate existing data.
+21. Add or update tests.
+22. Run linting and formatting.
+23. Run type checking.
+24. Run database migrations if the schema changes.
+25. Run the test suite.
+26. Run the production build.
+27. Fix all errors caused by the changes.
+28. Test the deployed application.
+29. Update the README.
+30. Provide a final completion report.
+
+==================================================
+26. DEFINITION OF DONE
+======================
+
+Do not consider the work complete until:
+
+* The existing project has been improved rather than replaced.
+* The live application opens successfully.
+* The main interface follows the professor’s three-step workflow.
+* The student can select a health profession.
+* The student can select the proper degree type.
+* Nursing is limited to ABSN and Master’s Entry options.
+* The student can search and select multiple applicable programs.
+* Programs are alphabetized.
+* The interface recommends selecting approximately 10–15 schools.
+* The student can view required prerequisites for selected schools.
+* Required prerequisites are grouped by program.
+* Recommended and strongly recommended courses are excluded.
+* Verified requirements include official sources.
+* Unverified data is not presented as confirmed.
+* The results can be copied into a spreadsheet.
+* CSV export works.
+* Excel export works if it is displayed as an option.
+* The student interface contains no admissions prediction system.
+* The student interface contains no reach, match, or safety classification.
+* The interface is responsive and keyboard accessible.
+* The application contains no broken primary buttons.
+* The project builds successfully.
+* Relevant tests pass.
+* The deployment works.
+* The README reflects the current implementation.
+
+==================================================
+27. FINAL REPORT
+================
+
+After completing the code changes, provide a concise but specific report containing:
+
+1. What already existed in the project.
+2. What you preserved.
+3. What you changed.
+4. What you removed or disabled because it conflicted with the professor’s request.
+5. What database or data-model changes were made.
+6. What export functionality now works.
+7. How required and recommended classes are separated.
+8. How prerequisite information is verified.
+9. Which professions and programs currently have verified data.
+10. Which data remains incomplete.
+11. Which files were changed.
+12. Which tests were run.
+13. Whether the production build passed.
+14. Whether the deployed application was tested.
+15. Any genuine limitation that still requires an external decision or verified dataset.
+
+Do not report invented completion.
+
+Do not claim nationwide coverage unless the data is actually complete.
+
+Do not leave the main workflow as a mockup.
+
+Most importantly, do not make the application bigger merely to make it look impressive.
+
+The professor explicitly wants limited scope, complete accuracy, and efficiency.
+
+Improve the existing Prehealth Advisor application into a trustworthy Health Professions Program Planner that does the three required functions extremely well.

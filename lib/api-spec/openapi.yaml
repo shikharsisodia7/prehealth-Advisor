@@ -629,14 +629,52 @@ components:
         count:
           type: integer
 
+    PrereqItem:
+      type: object
+      required:
+        - name
+        - classification
+      properties:
+        name:
+          type: string
+          description: Name of the prerequisite course
+        details:
+          type: ["string", "null"]
+          description: >
+            Official wording or conditions from the program source
+            (e.g. "1 year required, with lab").
+        classification:
+          type: string
+          enum: [required, recommended, preferred, informational, unclear, needs_review]
+          description: How this course is classified by the program
+        labRequired:
+          type: ["boolean", "null"]
+          description: Whether a laboratory component is required
+        courseCount:
+          type: ["integer", "null"]
+          description: Number of courses required
+        semesterCredits:
+          type: ["number", "null"]
+          description: Number of semester credit hours required
+        quarterCredits:
+          type: ["number", "null"]
+          description: Number of quarter credit hours required
+        otherConditions:
+          type: ["string", "null"]
+          description: >
+            Other specific conditions (e.g. recency requirement,
+            grade requirement, sequence requirement).
+
     ProgramSchool:
       type: object
       required:
         - id
         - professionSlug
         - name
+        - programName
         - state
         - sourceUrl
+        - verificationStatus
         - prereqCourses
       properties:
         id:
@@ -645,6 +683,12 @@ components:
           type: string
         name:
           type: string
+          description: Official institution name
+        programName:
+          type: string
+          description: Official professional program name (e.g. "Doctor of Physical Therapy")
+        city:
+          type: ["string", "null"]
         state:
           type: string
         degreeType:
@@ -653,10 +697,13 @@ components:
           type: string
         lastVerified:
           type: ["string", "null"]
+        verificationStatus:
+          type: string
+          enum: [draft, imported, needs_review, verified, rejected, outdated]
         prereqCourses:
           type: array
           items:
-            type: string
+            $ref: "#/components/schemas/PrereqItem"
 
     DashboardSummary:
       type: object

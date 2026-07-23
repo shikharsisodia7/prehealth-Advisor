@@ -248,17 +248,87 @@ export interface ProfessionCount {
   count: number;
 }
 
+/**
+ * How this course is classified by the program
+ */
+export type PrereqItemClassification = typeof PrereqItemClassification[keyof typeof PrereqItemClassification];
+
+
+export const PrereqItemClassification = {
+  required: 'required',
+  recommended: 'recommended',
+  preferred: 'preferred',
+  informational: 'informational',
+  unclear: 'unclear',
+  needs_review: 'needs_review',
+} as const;
+
+export interface PrereqItem {
+  /** Name of the prerequisite course */
+  name: string;
+  /**
+     * Official wording or conditions from the program source (e.g. "1 year required, with lab").
+     * @nullable
+     */
+  details?: string | null;
+  /** How this course is classified by the program */
+  classification: PrereqItemClassification;
+  /**
+     * Whether a laboratory component is required
+     * @nullable
+     */
+  labRequired?: boolean | null;
+  /**
+     * Number of courses required
+     * @nullable
+     */
+  courseCount?: number | null;
+  /**
+     * Number of semester credit hours required
+     * @nullable
+     */
+  semesterCredits?: number | null;
+  /**
+     * Number of quarter credit hours required
+     * @nullable
+     */
+  quarterCredits?: number | null;
+  /**
+     * Other specific conditions (e.g. recency requirement, grade requirement, sequence requirement).
+     * @nullable
+     */
+  otherConditions?: string | null;
+}
+
+export type ProgramSchoolVerificationStatus = typeof ProgramSchoolVerificationStatus[keyof typeof ProgramSchoolVerificationStatus];
+
+
+export const ProgramSchoolVerificationStatus = {
+  draft: 'draft',
+  imported: 'imported',
+  needs_review: 'needs_review',
+  verified: 'verified',
+  rejected: 'rejected',
+  outdated: 'outdated',
+} as const;
+
 export interface ProgramSchool {
   id: number;
   professionSlug: string;
+  /** Official institution name */
   name: string;
+  /** Official professional program name (e.g. "Doctor of Physical Therapy") */
+  programName: string;
+  /** @nullable */
+  city?: string | null;
   state: string;
   /** @nullable */
   degreeType?: string | null;
   sourceUrl: string;
   /** @nullable */
   lastVerified?: string | null;
-  prereqCourses: string[];
+  verificationStatus: ProgramSchoolVerificationStatus;
+  prereqCourses: PrereqItem[];
 }
 
 export interface DashboardSummary {
