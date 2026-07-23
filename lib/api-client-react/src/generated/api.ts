@@ -24,11 +24,13 @@ import type {
   Error,
   HealthStatus,
   ListPrereqCoursesParams,
+  ListProgramSchoolsParams,
   ListTargetSchoolsParams,
   PrereqCourse,
   PrereqCourseInput,
   PrereqCourseUpdate,
   Profession,
+  ProgramSchool,
   TargetSchool,
   TargetSchoolInput,
   TargetSchoolUpdate
@@ -1108,6 +1110,98 @@ export function useGetUpcomingDeadlines<TData = Awaited<ReturnType<typeof getUpc
  ):  UseQueryResult<TData, TError> & { queryKey: QueryKey } {
 
   const queryOptions = getGetUpcomingDeadlinesQueryOptions(options)
+
+  const query = useQuery(queryOptions) as  UseQueryResult<TData, TError> & { queryKey: QueryKey };
+
+  return withQueryKey(query, queryOptions.queryKey);
+}
+
+
+
+
+
+
+
+export const getListProgramSchoolsUrl = (params?: ListProgramSchoolsParams,) => {
+  const normalizedParams = new URLSearchParams();
+
+  Object.entries(params || {}).forEach(([key, value]) => {
+    const explodeParameters = ["degreeType"];
+
+    if (Array.isArray(value) && explodeParameters.includes(key)) {
+      value.forEach((v) => {
+        normalizedParams.append(key, v === null ? 'null' : String(v));
+      });
+      return;
+    }
+
+    if (value !== undefined) {
+      normalizedParams.append(key, value === null ? 'null' : String(value))
+    }
+  });
+
+  const stringifiedParams = normalizedParams.toString();
+
+  return stringifiedParams.length > 0 ? `/api/program-schools?${stringifiedParams}` : `/api/program-schools`
+}
+
+/**
+ * @summary List reference schools for the Program Planner with verified prerequisite lists
+ */
+export const listProgramSchools = async (params?: ListProgramSchoolsParams, options?: RequestInit): Promise<ProgramSchool[]> => {
+
+  return customFetch<ProgramSchool[]>(getListProgramSchoolsUrl(params),
+  {
+    ...options,
+    method: 'GET'
+
+
+  }
+);}
+
+
+
+
+
+export const getListProgramSchoolsQueryKey = (params?: ListProgramSchoolsParams,) => {
+    return [
+    `/api/program-schools`, ...(params ? [params] : [])
+    ] as const;
+    }
+
+
+export const getListProgramSchoolsQueryOptions = <TData = Awaited<ReturnType<typeof listProgramSchools>>, TError = ErrorType<unknown>>(params?: ListProgramSchoolsParams, options?: { query?:UseQueryOptions<Awaited<ReturnType<typeof listProgramSchools>>, TError, TData>, request?: SecondParameter<typeof customFetch>}
+) => {
+
+const {query: queryOptions, request: requestOptions} = options ?? {};
+
+  const queryKey =  queryOptions?.queryKey ?? getListProgramSchoolsQueryKey(params);
+
+
+
+    const queryFn: QueryFunction<Awaited<ReturnType<typeof listProgramSchools>>> = ({ signal }) => listProgramSchools(params, { signal, ...requestOptions });
+
+
+
+
+
+   return  { queryKey, queryFn, ...queryOptions} as UseQueryOptions<Awaited<ReturnType<typeof listProgramSchools>>, TError, TData> & { queryKey: QueryKey }
+}
+
+export type ListProgramSchoolsQueryResult = NonNullable<Awaited<ReturnType<typeof listProgramSchools>>>
+export type ListProgramSchoolsQueryError = ErrorType<unknown>
+
+
+/**
+ * @summary List reference schools for the Program Planner with verified prerequisite lists
+ */
+
+export function useListProgramSchools<TData = Awaited<ReturnType<typeof listProgramSchools>>, TError = ErrorType<unknown>>(
+ params?: ListProgramSchoolsParams, options?: { query?:UseQueryOptions<Awaited<ReturnType<typeof listProgramSchools>>, TError, TData>, request?: SecondParameter<typeof customFetch>}
+
+ ):  UseQueryResult<TData, TError> & { queryKey: QueryKey } {
+
+  const queryOptions = getListProgramSchoolsQueryOptions(params,options)
 
   const query = useQuery(queryOptions) as  UseQueryResult<TData, TError> & { queryKey: QueryKey };
 

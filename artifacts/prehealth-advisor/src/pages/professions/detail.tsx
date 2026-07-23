@@ -1,5 +1,5 @@
 import { useParams, Link } from "wouter";
-import { useGetProfession } from "@workspace/api-client-react";
+import { useGetProfession, getGetProfessionQueryKey } from "@workspace/api-client-react";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -11,6 +11,7 @@ export default function ProfessionDetail() {
   const { slug } = useParams<{ slug: string }>();
   const { data: profession, isLoading, error } = useGetProfession(slug || "", {
     query: {
+      queryKey: getGetProfessionQueryKey(slug || ""),
       enabled: !!slug,
     }
   });

@@ -248,6 +248,19 @@ export interface ProfessionCount {
   count: number;
 }
 
+export interface ProgramSchool {
+  id: number;
+  professionSlug: string;
+  name: string;
+  state: string;
+  /** @nullable */
+  degreeType?: string | null;
+  sourceUrl: string;
+  /** @nullable */
+  lastVerified?: string | null;
+  prereqCourses: string[];
+}
+
 export interface DashboardSummary {
   totalSchools: number;
   totalProfessionsExplored: number;
@@ -265,5 +278,16 @@ status?: string;
 
 export type ListPrereqCoursesParams = {
 professionSlug?: string;
+};
+
+export type ListProgramSchoolsParams = {
+/**
+ * Filter by profession slug (e.g. "medicine", "physical-therapy", "nursing")
+ */
+professionSlug?: string;
+/**
+ * Filter by degree type (e.g. "ABSN", "MEPN"). When professionSlug is "nursing" and this param is omitted the server enforces degreeType IN ("ABSN","MEPN") automatically.
+ */
+degreeType?: string[];
 };
 

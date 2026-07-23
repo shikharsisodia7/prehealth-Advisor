@@ -153,7 +153,9 @@ export default function TargetSchools() {
     // Format deadline if present
     const formattedData = {
       ...data,
-      deadline: data.deadline ? new Date(data.deadline).toISOString() : null,
+      deadline: data.deadline ? new Date(data.deadline).toISOString() : undefined,
+      appPortal: data.appPortal ?? undefined,
+      notes: data.notes ?? undefined,
     };
 
     if (editingSchool) {

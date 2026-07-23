@@ -1,6 +1,6 @@
 import * as React from "react"
 import { Link, useLocation } from "wouter"
-import { LayoutDashboard, Compass, GraduationCap, BookOpenCheck } from "lucide-react"
+import { LayoutDashboard, Compass, GraduationCap, BookOpenCheck, ClipboardList } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 
@@ -16,6 +16,7 @@ export function AppShell({ children }: AppShellProps) {
     { href: "/professions", label: "Explore Professions", icon: Compass },
     { href: "/schools", label: "Target Schools", icon: GraduationCap },
     { href: "/prerequisites", label: "Prerequisites", icon: BookOpenCheck },
+    { href: "/planner", label: "Program Planner", icon: ClipboardList },
   ]
 
   return (

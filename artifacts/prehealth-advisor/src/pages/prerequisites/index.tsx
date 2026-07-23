@@ -129,9 +129,16 @@ export default function Prerequisites() {
   };
 
   const onSubmit = (data: PrereqFormValues) => {
+    // Strip null values — API input types use undefined, not null
+    const cleanedData = {
+      ...data,
+      grade: data.grade ?? undefined,
+      notes: data.notes ?? undefined,
+      credits: data.credits ?? undefined,
+    };
     if (editingCourse) {
       updateMutation.mutate(
-        { id: editingCourse.id, data },
+        { id: editingCourse.id, data: cleanedData },
         {
           onSuccess: () => {
             toast.success("Course updated successfully");
@@ -144,7 +151,7 @@ export default function Prerequisites() {
       );
     } else {
       createMutation.mutate(
-        { data },
+        { data: cleanedData },
         {
           onSuccess: () => {
             toast.success("Course added to tracker");

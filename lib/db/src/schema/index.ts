@@ -20,3 +20,4 @@
 export * from "./professions";
 export * from "./targetSchools";
 export * from "./prereqCourses";
+export * from "./programSchools";

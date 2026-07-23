@@ -342,3 +342,24 @@ export const GetUpcomingDeadlinesResponseItem = zod.object({
 export const GetUpcomingDeadlinesResponse = zod.array(GetUpcomingDeadlinesResponseItem)
 
 
+/**
+ * @summary List reference schools for the Program Planner with verified prerequisite lists
+ */
+export const ListProgramSchoolsQueryParams = zod.object({
+  "professionSlug": zod.coerce.string().optional().describe('Filter by profession slug (e.g. \"medicine\", \"physical-therapy\", \"nursing\")'),
+  "degreeType": zod.array(zod.coerce.string()).optional().describe('Filter by degree type (e.g. \"ABSN\", \"MEPN\"). When professionSlug is \"nursing\" and this param is omitted the server enforces degreeType IN (\"ABSN\",\"MEPN\") automatically.\n')
+})
+
+export const ListProgramSchoolsResponseItem = zod.object({
+  "id": zod.number(),
+  "professionSlug": zod.string(),
+  "name": zod.string(),
+  "state": zod.string(),
+  "degreeType": zod.string().nullish(),
+  "sourceUrl": zod.string(),
+  "lastVerified": zod.string().nullish(),
+  "prereqCourses": zod.array(zod.string())
+})
+export const ListProgramSchoolsResponse = zod.array(ListProgramSchoolsResponseItem)
+
+

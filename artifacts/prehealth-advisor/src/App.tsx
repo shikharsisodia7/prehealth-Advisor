@@ -8,6 +8,7 @@ import ProfessionsList from '@/pages/professions/index';
 import ProfessionDetail from '@/pages/professions/detail';
 import TargetSchools from '@/pages/schools/index';
 import Prerequisites from '@/pages/prerequisites/index';
+import ProgramPlanner from '@/pages/planner/index';
 import NotFound from '@/pages/not-found';
 
 const queryClient = new QueryClient({
@@ -28,6 +29,7 @@ function Router() {
         <Route path="/professions/:slug" component={ProfessionDetail} />
         <Route path="/schools" component={TargetSchools} />
         <Route path="/prerequisites" component={Prerequisites} />
+        <Route path="/planner" component={ProgramPlanner} />
         <Route component={NotFound} />
       </Switch>
     </AppShell>

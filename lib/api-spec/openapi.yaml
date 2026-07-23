@@ -18,6 +18,8 @@ tags:
     description: Prerequisite coursework tracker
   - name: dashboard
     description: Aggregated overview data
+  - name: programSchools
+    description: Program Planner — reference schools with verified prerequisite lists
 paths:
   /healthz:
     get:
@@ -317,6 +319,41 @@ paths:
                 items:
                   $ref: "#/components/schemas/TargetSchool"
 
+  /program-schools:
+    get:
+      operationId: listProgramSchools
+      tags: [programSchools]
+      summary: List reference schools for the Program Planner with verified prerequisite lists
+      parameters:
+        - name: professionSlug
+          in: query
+          required: false
+          schema:
+            type: string
+          description: Filter by profession slug (e.g. "medicine", "physical-therapy", "nursing")
+        - name: degreeType
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+          style: form
+          explode: true
+          description: >
+            Filter by degree type (e.g. "ABSN", "MEPN"). When professionSlug is
+            "nursing" and this param is omitted the server enforces
+            degreeType IN ("ABSN","MEPN") automatically.
+      responses:
+        "200":
+          description: List of program schools with prerequisites
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/ProgramSchool"
+
 components:
   schemas:
     HealthStatus:
@@ -591,6 +628,35 @@ components:
           type: string
         count:
           type: integer
+
+    ProgramSchool:
+      type: object
+      required:
+        - id
+        - professionSlug
+        - name
+        - state
+        - sourceUrl
+        - prereqCourses
+      properties:
+        id:
+          type: integer
+        professionSlug:
+          type: string
+        name:
+          type: string
+        state:
+          type: string
+        degreeType:
+          type: ["string", "null"]
+        sourceUrl:
+          type: string
+        lastVerified:
+          type: ["string", "null"]
+        prereqCourses:
+          type: array
+          items:
+            type: string
 
     DashboardSummary:
       type: object
