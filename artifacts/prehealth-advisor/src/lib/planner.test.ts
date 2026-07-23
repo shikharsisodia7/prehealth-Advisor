@@ -8,11 +8,17 @@ import path from "node:path";
 
 import {
   buildExportRows,
+  buildSelectionExportRows,
   rowToCsv,
   rowToTsv,
   alphabetize,
   requiredPrereqs,
   filterByNursingType,
+  filterSchools,
+  matchesSchoolSearch,
+  directoryDisplayState,
+  selectionsAfterProfessionChange,
+  sanitizeSpreadsheetValue,
   EXPORT_HEADERS,
   type ProgramSchoolLike,
 } from "./planner-utils";
@@ -260,6 +266,166 @@ describe("xlsx export", () => {
     expect(buf[3]).toBe(0x04);
     // Should have at least 2 rows of data (header + 2 prereqs)
     expect(rows).toHaveLength(2);
+  });
+});
+
+// ── Spec: directory vs. verification separation (Step 2) ─────────────────────
+
+describe("Step 2 directory listing is independent of prerequisite verification", () => {
+  const directory = [
+    makeSchool({ id: 1, name: "Alpha University", verificationStatus: "verified", prereqCourses: [{ name: "Biology", classification: "required" }] }),
+    makeSchool({ id: 2, name: "Beta College", verificationStatus: "draft", sourceUrl: null, prereqCourses: [] }),
+    makeSchool({ id: 3, name: "Gamma Institute", verificationStatus: "needs_review", prereqCourses: [{ name: "Chemistry", classification: "required" }] }),
+  ];
+
+  it("a program with no prerequisite records still appears in Step 2", () => {
+    const shown = filterSchools(directory, "", "");
+    expect(shown.some((s) => s.name === "Beta College")).toBe(true);
+  });
+
+  it("a program with needs_review prerequisite status still appears in Step 2", () => {
+    const shown = filterSchools(directory, "", "");
+    expect(shown.some((s) => s.name === "Gamma Institute")).toBe(true);
+  });
+});
+
+// ── Spec: Step 3 honesty about verification status ────────────────────────────
+
+describe("Step 3 does not present unverified data as verified", () => {
+  it("needs_review programs produce a status row, not verified requirement rows", () => {
+    const school = makeSchool({
+      verificationStatus: "needs_review",
+      prereqCourses: [{ name: "Chemistry", classification: "required" }],
+    });
+    const rows = buildSelectionExportRows([school], "Medicine");
+    expect(rows).toHaveLength(1);
+    expect(rows[0].prereqName).toBe(""); // no requirement presented
+    expect(rows[0].details).toContain("not yet verified");
+  });
+});
+
+// ── Spec: all selected programs represented under mixed coverage ─────────────
+
+describe("selection-wide results with mixed prerequisite coverage", () => {
+  const selection = [
+    makeSchool({ id: 1, name: "Verified U", verificationStatus: "verified", prereqCourses: [{ name: "Biology", classification: "required" }, { name: "Physics", classification: "required" }] }),
+    makeSchool({ id: 2, name: "Draft College", verificationStatus: "draft", sourceUrl: null, prereqCourses: [] }),
+    makeSchool({ id: 3, name: "Review State", verificationStatus: "needs_review", prereqCourses: [] }),
+  ];
+
+  it("every selected program is represented in export rows", () => {
+    const rows = buildSelectionExportRows(selection, "Physician Assistant");
+    const schoolsInRows = new Set(rows.map((r) => r.school));
+    expect(schoolsInRows).toEqual(new Set(["Verified U", "Draft College", "Review State"]));
+  });
+
+  it("CSV export indicates status rather than silently omitting programs", () => {
+    const rows = buildSelectionExportRows(selection, "Physician Assistant");
+    const draftRow = rows.find((r) => r.school === "Draft College");
+    expect(draftRow).toBeDefined();
+    expect(draftRow!.details).toContain("not yet verified");
+    // Verified rows are real requirement rows
+    expect(rows.filter((r) => r.school === "Verified U")).toHaveLength(2);
+  });
+});
+
+// ── Spec: profession change clears incompatible selections ───────────────────
+
+describe("selectionsAfterProfessionChange", () => {
+  it("clears selections when the profession changes", () => {
+    const prev = new Set([1, 2, 3]);
+    expect(selectionsAfterProfessionChange("medicine", "dental", prev).size).toBe(0);
+  });
+  it("keeps selections when the profession is unchanged", () => {
+    const prev = new Set([1, 2, 3]);
+    expect(selectionsAfterProfessionChange("medicine", "medicine", prev)).toBe(prev);
+  });
+});
+
+// ── Spec: national-directory search by name and state ────────────────────────
+
+describe("directory search", () => {
+  const directory = [
+    makeSchool({ id: 1, name: "Duke University", state: "NC", city: "Durham", prereqCourses: [] }),
+    makeSchool({ id: 2, name: "Stanford University", state: "CA", city: "Stanford", prereqCourses: [] }),
+    makeSchool({ id: 3, name: "Wake Forest University", state: "NC", city: "Winston-Salem", aliases: ["WFU"], prereqCourses: [] }),
+  ];
+
+  it("finds programs by school name", () => {
+    const result = filterSchools(directory, "duke", "");
+    expect(result).toHaveLength(1);
+    expect(result[0].name).toBe("Duke University");
+  });
+
+  it("finds programs by state", () => {
+    expect(filterSchools(directory, "NC", "")).toHaveLength(2);
+    expect(filterSchools(directory, "", "NC")).toHaveLength(2);
+  });
+
+  it("finds programs by alias", () => {
+    expect(matchesSchoolSearch(directory[2], "wfu")).toBe(true);
+  });
+});
+
+// ── Spec: failure vs. empty vs. unpopulated states ────────────────────────────
+
+describe("directoryDisplayState", () => {
+  it("a query failure is an error state, never shown as 'no programs'", () => {
+    expect(
+      directoryDisplayState({ isLoading: false, isError: true, schoolCount: 0 }),
+    ).toBe("error");
+  });
+  it("zero results without an error is 'unpopulated', a distinct state", () => {
+    expect(
+      directoryDisplayState({ isLoading: false, isError: false, schoolCount: 0 }),
+    ).toBe("unpopulated");
+  });
+  it("loading is distinct from both", () => {
+    expect(
+      directoryDisplayState({ isLoading: true, isError: false, schoolCount: 0 }),
+    ).toBe("loading");
+  });
+  it("programs available is 'ok'", () => {
+    expect(
+      directoryDisplayState({ isLoading: false, isError: false, schoolCount: 12 }),
+    ).toBe("ok");
+  });
+});
+
+// ── Spec: spreadsheet formula-injection safety ────────────────────────────────
+
+describe("sanitizeSpreadsheetValue", () => {
+  it("prefixes formula-leading characters", () => {
+    for (const v of ["=SUM(A1)", "+1234", "-cmd", "@import", "\tx", "\rx"]) {
+      expect(sanitizeSpreadsheetValue(v).startsWith("'")).toBe(true);
+    }
+  });
+  it("leaves normal values untouched", () => {
+    expect(sanitizeSpreadsheetValue("Biology with lab")).toBe("Biology with lab");
+  });
+
+  it("neutralizes formula payloads in .xlsx cell data too", async () => {
+    const XLSX = await import("xlsx");
+    const school = makeSchool({
+      name: "=HYPERLINK(\"http://evil.test\",\"click\")",
+      prereqCourses: [{ name: "+Biology", classification: "required" }],
+    });
+    const rows = buildSelectionExportRows([school], "Medicine");
+    const wsData = [
+      [...EXPORT_HEADERS] as string[],
+      ...rows.map((r) =>
+        [
+          r.profession, r.degreeType, r.school, r.program, r.prereqName,
+          r.details, r.courseCount, r.semesterCredits, r.quarterCredits,
+          r.labRequired, r.otherConditions, r.sourceUrl, r.lastVerified,
+        ].map(sanitizeSpreadsheetValue),
+      ),
+    ];
+    const ws = XLSX.utils.aoa_to_sheet(wsData);
+    // Cell C2 = school name; must be prefixed, stored as text not formula
+    const cell = ws["C2"];
+    expect(cell.v).toBe("'=HYPERLINK(\"http://evil.test\",\"click\")");
+    expect(cell.f).toBeUndefined();
   });
 });
 

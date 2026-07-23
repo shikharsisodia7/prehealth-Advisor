@@ -25,6 +25,7 @@ export * from './professionCount';
 export * from './professionResource';
 export * from './professionResourceKind';
 export * from './programSchool';
+export * from './programSchoolDirectoryStatus';
 export * from './programSchoolVerificationStatus';
 export * from './statusCount';
 export * from './targetSchool';

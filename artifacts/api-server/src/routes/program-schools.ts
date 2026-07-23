@@ -1,5 +1,5 @@
 import { Router, type IRouter } from "express";
-import { and, eq, inArray } from "drizzle-orm";
+import { and, eq, ne, inArray } from "drizzle-orm";
 import { db, programSchoolsTable } from "@workspace/db";
 import {
   ListProgramSchoolsQueryParams,
@@ -15,6 +15,8 @@ function serialize(row: typeof programSchoolsTable.$inferSelect) {
     lastVerified: row.lastVerified ?? null,
     city: row.city ?? null,
     degreeType: row.degreeType ?? null,
+    sourceUrl: row.sourceUrl ?? null,
+    websiteUrl: row.websiteUrl ?? null,
   };
 }
 
@@ -86,6 +88,11 @@ router.get("/program-schools", async (req, res): Promise<void> => {
         effectiveDegreeTypes
           ? inArray(programSchoolsTable.degreeType, effectiveDegreeTypes)
           : undefined,
+        // Directory listing rule: inactive programs (closed / no longer
+        // accredited) are hidden. Programs are listed regardless of
+        // prerequisite verification status — existence and prereq data are
+        // separate concerns.
+        ne(programSchoolsTable.directoryStatus, "inactive"),
       ),
     )
     .orderBy(programSchoolsTable.name);

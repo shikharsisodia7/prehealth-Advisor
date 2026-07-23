@@ -6,6 +6,7 @@
  * OpenAPI spec version: 0.1.0
  */
 import type { PrereqItem } from './prereqItem';
+import type { ProgramSchoolDirectoryStatus } from './programSchoolDirectoryStatus';
 import type { ProgramSchoolVerificationStatus } from './programSchoolVerificationStatus';
 
 export interface ProgramSchool {
@@ -20,9 +21,23 @@ export interface ProgramSchool {
   state: string;
   /** @nullable */
   degreeType?: string | null;
-  sourceUrl: string;
+  /**
+     * Official prerequisite source page; null when prerequisite research has not been completed
+     * @nullable
+     */
+  sourceUrl: string | null;
+  /**
+     * Official program/institution website from the directory source
+     * @nullable
+     */
+  websiteUrl: string | null;
   /** @nullable */
   lastVerified?: string | null;
+  /** Prerequisite verification status — independent of directory listing */
   verificationStatus: ProgramSchoolVerificationStatus;
+  /** Whether the program is an active entry in the national program directory */
+  directoryStatus: ProgramSchoolDirectoryStatus;
+  /** Alternate names/abbreviations for search (e.g. "UCSF") */
+  aliases: string[];
   prereqCourses: PrereqItem[];
 }

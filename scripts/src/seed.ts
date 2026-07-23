@@ -7,6 +7,7 @@ import {
   type InsertProfession,
   type InsertProgramSchool,
 } from "@workspace/db";
+import { eq } from "drizzle-orm";
 
 const professions: InsertProfession[] = [
   {
@@ -1399,12 +1400,54 @@ async function main(): Promise<void> {
     },
   ];
 
-  // Always replace program schools with the latest verified data.
-  // Safe to truncate because this is reference data (no user-owned foreign keys).
-  console.log("Replacing program schools with verified reference data...");
-  await db.delete(programSchoolsTable);
-  await db.insert(programSchoolsTable).values(programSchools);
-  console.log(`  → Inserted ${programSchools.length} program schools.`);
+  // Idempotent upsert of seed prerequisite data. NEVER truncates: the
+  // program_schools table also holds the nationwide program directory, which
+  // is populated by import scripts and must survive every seed/deploy run.
+  // Identity key: professionSlug + name + programName.
+  console.log("Upserting seed program-school prerequisite data (no deletes)...");
+  const existingRows = await db
+    .select({
+      id: programSchoolsTable.id,
+      professionSlug: programSchoolsTable.professionSlug,
+      name: programSchoolsTable.name,
+      programName: programSchoolsTable.programName,
+    })
+    .from(programSchoolsTable);
+  const byKey = new Map(
+    existingRows.map((r) => [
+      `${r.professionSlug}||${r.name}||${r.programName}`,
+      r.id,
+    ]),
+  );
+  let insertedCount = 0;
+  let updatedCount = 0;
+  for (const ps of programSchools) {
+    const key = `${ps.professionSlug}||${ps.name}||${ps.programName}`;
+    const existingId = byKey.get(key);
+    if (existingId != null) {
+      // Update prereq/verification fields only; never touch directory fields
+      // (directoryStatus, directorySource, aliases, externalId, websiteUrl).
+      await db
+        .update(programSchoolsTable)
+        .set({
+          city: ps.city,
+          state: ps.state,
+          degreeType: ps.degreeType,
+          sourceUrl: ps.sourceUrl,
+          lastVerified: ps.lastVerified,
+          verificationStatus: ps.verificationStatus,
+          prereqCourses: ps.prereqCourses,
+        })
+        .where(eq(programSchoolsTable.id, existingId));
+      updatedCount++;
+    } else {
+      await db.insert(programSchoolsTable).values(ps);
+      insertedCount++;
+    }
+  }
+  console.log(
+    `  → Upserted program schools: ${insertedCount} inserted, ${updatedCount} updated (0 deleted).`,
+  );
 
   console.log("Seed complete.");
   process.exit(0);

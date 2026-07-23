@@ -676,6 +676,9 @@ components:
         - sourceUrl
         - verificationStatus
         - prereqCourses
+        - directoryStatus
+        - websiteUrl
+        - aliases
       properties:
         id:
           type: integer
@@ -694,12 +697,26 @@ components:
         degreeType:
           type: ["string", "null"]
         sourceUrl:
-          type: string
+          type: ["string", "null"]
+          description: Official prerequisite source page; null when prerequisite research has not been completed
+        websiteUrl:
+          type: ["string", "null"]
+          description: Official program/institution website from the directory source
         lastVerified:
           type: ["string", "null"]
         verificationStatus:
           type: string
+          description: Prerequisite verification status — independent of directory listing
           enum: [draft, imported, needs_review, verified, rejected, outdated]
+        directoryStatus:
+          type: string
+          description: Whether the program is an active entry in the national program directory
+          enum: [active, inactive, needs_review]
+        aliases:
+          type: array
+          description: Alternate names/abbreviations for search (e.g. "UCSF")
+          items:
+            type: string
         prereqCourses:
           type: array
           items:

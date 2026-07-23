@@ -300,6 +300,9 @@ export interface PrereqItem {
   otherConditions?: string | null;
 }
 
+/**
+ * Prerequisite verification status — independent of directory listing
+ */
 export type ProgramSchoolVerificationStatus = typeof ProgramSchoolVerificationStatus[keyof typeof ProgramSchoolVerificationStatus];
 
 
@@ -310,6 +313,18 @@ export const ProgramSchoolVerificationStatus = {
   verified: 'verified',
   rejected: 'rejected',
   outdated: 'outdated',
+} as const;
+
+/**
+ * Whether the program is an active entry in the national program directory
+ */
+export type ProgramSchoolDirectoryStatus = typeof ProgramSchoolDirectoryStatus[keyof typeof ProgramSchoolDirectoryStatus];
+
+
+export const ProgramSchoolDirectoryStatus = {
+  active: 'active',
+  inactive: 'inactive',
+  needs_review: 'needs_review',
 } as const;
 
 export interface ProgramSchool {
@@ -324,10 +339,24 @@ export interface ProgramSchool {
   state: string;
   /** @nullable */
   degreeType?: string | null;
-  sourceUrl: string;
+  /**
+     * Official prerequisite source page; null when prerequisite research has not been completed
+     * @nullable
+     */
+  sourceUrl: string | null;
+  /**
+     * Official program/institution website from the directory source
+     * @nullable
+     */
+  websiteUrl: string | null;
   /** @nullable */
   lastVerified?: string | null;
+  /** Prerequisite verification status — independent of directory listing */
   verificationStatus: ProgramSchoolVerificationStatus;
+  /** Whether the program is an active entry in the national program directory */
+  directoryStatus: ProgramSchoolDirectoryStatus;
+  /** Alternate names/abbreviations for search (e.g. "UCSF") */
+  aliases: string[];
   prereqCourses: PrereqItem[];
 }
 

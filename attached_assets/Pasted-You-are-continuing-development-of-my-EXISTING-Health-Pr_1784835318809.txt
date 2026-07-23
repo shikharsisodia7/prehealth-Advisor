@@ -1,0 +1,409 @@
+You are continuing development of my EXISTING Health Professions Program Planner application in Replit. This is an existing application that already has frontend code, backend code, data models, styling, routes, and deployment configuration. You are not starting a new project. You are not creating a second version beside the existing application. You are not generating another mockup. You are not replacing the existing application with a generic template. You are modifying and completing the application that is already here.
+
+This prompt supersedes any previous instruction that conflicts with it. You must use the current project as the starting point, inspect everything that has already been implemented, preserve the portions that correctly match the professor’s requirements, correct the portions that do not, and finish the application so the actual deployed product behaves as described below.
+
+The source of truth for the product requirements is the professor’s Health Professions Program Planner document and the professor’s approximately eleven-minute screen-recording walkthrough that was provided when this project was being planned. The professor’s document and video must guide product decisions. Do not expand the product simply because additional features sound useful. Do not copy another pre-health website simply because it has more functionality. The professor specifically used an overly complicated pre-health planning website in the recording to demonstrate why excessive information, unexplained assumptions, recommendations, admissions metrics, and classifications can make a planning application less useful and potentially misleading.
+
+The central purpose of this application is straightforward. A pre-health student needs to know which prerequisite courses are required by the professional programs they are interested in so that the student can plan undergraduate coursework early enough to remain eligible for those programs. The application must make that research dramatically easier while remaining accurate. The student should choose a health profession, browse and select schools that actually offer that profession or degree, ideally choose approximately ten to fifteen schools for a representative curriculum-planning sample, and then see the required prerequisite coursework for the selected programs. The student must also be able to copy or export the results in a spreadsheet-friendly format.
+
+The application is not an admissions prediction platform. It is not a school recommendation algorithm. It is not a ranking website. It is not a Common App replacement. When this prompt refers to making the school selector “similar to Common App,” that means the breadth and usability of the school directory and selection interface. It means a student should be able to search a comprehensive national directory, find the appropriate institution or professional program quickly, select many schools, see what has been selected, and manage the list easily. It does not mean that this application should submit applications, collect essays, gather recommendation letters, calculate admissions chances, create applicant profiles, or imitate Common App’s admissions workflow.
+
+The most important new requirement in this prompt is that the school/program directory must become comprehensive rather than functioning as a small demonstration dataset. The professor’s document says the student should select schools of interest that offer the chosen degree and describes the intended school dropdown as containing the schools in the country in alphabetical order. Treat that as a real functional requirement. For every health profession that is exposed to students in the production profession dropdown, the project must contain or obtain a comprehensive United States directory of the professional programs relevant to that profession.
+
+Do not interpret “every college” as every undergraduate institution regardless of whether it offers the professional degree. That would produce thousands of irrelevant results and would violate the professor’s requested workflow. Interpret it as every legitimate professional program within the supported geographic scope that offers the selected professional pathway. When Physician Assistant is selected, the directory should represent U.S. entry-level Physician Assistant programs. When Physical Therapy is selected, it should represent the applicable professional Physical Therapy programs. When Dentistry is selected, it should represent the applicable entry-level dental programs. When Medicine is selected, the corresponding medical degree types must be handled correctly. When Nursing is selected, only the special nursing pathways requested by the professor should be presented. Apply the same principle to every other profession exposed by the application.
+
+The current screenshot demonstrates an unacceptable implementation problem. A student selects Physician Assistant and Step 2 says, “No verified programs are currently available for this profession and degree type.” You must fix the underlying architecture that causes this behavior. Do not simply rewrite that message. Do not hide the empty state with frontend code. Do not create three sample schools to make the screen appear populated. Fix the actual program directory and queries.
+
+Program existence and prerequisite verification are two separate concepts. A professional program can legitimately exist even when this application has not completed prerequisite research for that program. The school selector must therefore query the professional-program directory, not a database query that requires a program to already possess verified prerequisite records. Verification belongs to prerequisite information. It must not determine whether a legitimate professional program is allowed to appear in Step 2.
+
+Inspect the current database, API routes, query functions, server actions, seed files, frontend filters, and state-management logic. Find exactly why programs are being excluded. If the current query contains a condition equivalent to prerequisite verification status equals verified, remove that condition from the program-directory lookup. Step 2 should retrieve active legitimate programs associated with the selected profession and degree type. Step 3 should separately retrieve the prerequisite information associated with the selected program IDs and determine whether those prerequisite records are verified.
+
+A program with complete verified prerequisites should appear in Step 2 and display its verified prerequisites in Step 3. A program whose prerequisite research is awaiting review should still appear in Step 2 and should show a pending-verification state in Step 3. A program whose prerequisites have not yet been collected should still appear in Step 2 and should show an honest no-data-yet state in Step 3 with its official program or admissions link. A program whose previous prerequisite data has become stale should still appear in Step 2 and should show that the requirements need re-verification in Step 3. Only a program that is closed, invalid, outside the supported pathway, duplicated incorrectly, or otherwise no longer an applicable professional program should be removed from the active school directory.
+
+Build the program directory as a first-class part of the system. Do not store the nationwide school list as random hard-coded arrays scattered through frontend components. Do not manually paste a few famous schools into React code. Do not create a giant switch statement. The professional-program directory must live in a maintainable data layer or database and must be capable of being synchronized, imported, reviewed, and updated independently of prerequisite records.
+
+Every supported program should have a stable internal identifier. Store its official institution name, official professional program name when different from the institution name, profession, degree type, city, state, country, official program website, official admissions page when available, directory source, accreditation or program-directory status when relevant, active status, last directory verification date, and any identifiers necessary to prevent duplicates. Preserve useful alternate names or common aliases for search, but display the official name to students.
+
+Professional programs often have branch campuses, satellite locations, teaching locations, or multiple tracks. Do not create misleading duplicates. If separate campuses represent distinct application choices or have separate prerequisites, they may need separate selectable program records. If multiple teaching locations belong to the same admissions program and share the same prerequisite requirements, do not blindly create duplicate entries merely because a directory lists multiple locations. Research the structure sufficiently to represent what the student is actually selecting. The goal is a professional-program directory, not an unfiltered list of addresses.
+
+Make nationwide directory completeness measurable. Do not rely on somebody saying “I think we have most schools.” Each profession must have a directory-source record or equivalent internal metadata identifying the authoritative source used to establish the national program universe. Track when that source was last checked. Track how many applicable programs the authoritative source contained when synchronized. Track how many active corresponding program records exist in this application. Track records added, removed, changed, or requiring review. The project should be able to report whether its directory coverage for a profession is complete, potentially incomplete, or awaiting reconciliation.
+
+Completeness must be treated as a data-quality property, not marketing language. Do not display “all programs nationwide” to a student unless the application has actually reconciled its current program directory against the relevant authoritative professional or accreditation directory. If a directory has not been completely reconciled, internally mark coverage as incomplete and continue the work instead of falsely claiming completeness.
+
+Use authoritative professional and accreditation sources to establish which programs exist. Prefer public official accreditor directories, professional association directories, official institution directories, or equivalent first-party sources appropriate to each profession. Do not construct the national program universe from Wikipedia, Reddit, rankings, random blogs, admissions consulting websites, SEO articles, or the Smarter Premed website shown in the professor’s video. Third-party sources may help discover a possible program, but they must not be the final authority when a first-party or accreditor source exists.
+
+Respect access restrictions, terms of use, rate limits, and technical limitations. Do not bypass authentication, paywalls, CAPTCHAs, or anti-bot controls. If an authoritative directory supplies a downloadable spreadsheet, CSV, PDF, public search directory, or data table, use the most reliable permissible structured source. If automatic access to a particular authoritative directory is prohibited, create an import method that allows an administrator to load an official exported directory without weakening the rest of the application.
+
+The system must support directory synchronization rather than assuming the national program list never changes. Professional programs open, close, change names, move campuses, change accreditation status, and add new degree pathways. Create a repeatable update process. It may be an authenticated administrative workflow, command-line synchronization script, scheduled import script, CSV import process, or another architecture that fits the current Replit project. Do not introduce an unnecessarily complicated infrastructure stack if the existing project can support this more simply.
+
+When synchronizing program data, do not automatically delete a program because it disappears during one failed network request. Detect discrepancies and mark them for review. Preserve historical records when appropriate. A professional planner needs reproducible data maintenance, not destructive scraping.
+
+Every profession visible in production must be checked. Do not fix Physician Assistant and then assume the entire application is complete. Open the profession dropdown and make an inventory of every selectable profession currently exposed. For every one of those professions, identify the relevant professional degree type or types, identify the authoritative national program source, populate or reconcile the program directory, verify that Step 2 returns real programs, test search, test selection, and record coverage.
+
+If a profession exists in code but the team cannot yet establish a reliable national program directory for it, do not present it as fully supported while letting users reach an empty dead end. Either complete the directory during this development task or clearly treat that profession as unavailable until its underlying program directory is ready. The preferred outcome is to complete every profession currently intended by the professor rather than hiding functionality.
+
+Pay special attention to Medicine. If the existing application treats MD and DO as separate professions, preserve that only if it makes the workflow clearer and is consistent with the existing data structure. If the application treats Medicine as one profession with a degree-type selector containing MD and DO, that is also acceptable. What matters is that the distinction is accurate, that the corresponding nationwide program directories are complete, and that programs are not mixed incorrectly. Do not allow a student selecting an MD pathway to unknowingly receive DO programs or vice versa unless the interface deliberately gives the student the option to include both.
+
+Pay special attention to Nursing because the professor explicitly addressed Nursing in the document. For this planner, Nursing should focus on the post-baccalaureate entry routes the professor requested, specifically Accelerated Bachelor’s programs and Master’s Entry programs. The program directory must therefore identify ABSN or equivalent accelerated bachelor’s pathways and Master’s Entry or equivalent entry-level master’s nursing pathways without flooding the selector with ordinary traditional four-year BSN programs, ADN programs, RN-to-BSN programs, nurse practitioner tracks, DNP programs, or other unrelated nursing pathways.
+
+Because institutions use different terminology for Master’s Entry nursing, build normalization carefully. A school may call such a pathway Master’s Entry Program in Nursing, Direct Entry MSN, Entry-Level MSN, Master’s Entry to Nursing Practice, or another equivalent name. Do not assume that only programs containing one exact phrase qualify. Store the official program name and a normalized degree-type category separately. Apply the same principle to ABSN programs whose official names may vary.
+
+The national directory must behave like a high-quality Common App-style college selector. Once a profession is chosen, the student should not be forced to scroll through hundreds of entries manually. Provide search-as-you-type functionality. Search must work against official institution name, official program name, recognized aliases when stored, city, state name, and state abbreviation. Search should be tolerant of normal capitalization differences. It should not require an exact full-name match.
+
+By default, display programs alphabetically. Alphabetical order is a requirement because the professor explicitly requested it. Do not sort by ranking, acceptance rate, prestige, popularity, number of applications, geographic proximity, sponsored placement, GPA, test scores, or an algorithmic fit score. Search relevance may temporarily prioritize matching results while the student types, but when browsing without a search query the directory should be clearly alphabetical.
+
+The directory should include all U.S. states represented by the selected profession. Include the District of Columbia and relevant U.S. territories when legitimate programs in the authoritative directory belong to the supported national application universe. Store geography explicitly rather than attempting to infer state information from school names.
+
+Provide an optional simple state filter if it improves navigation, especially because the professor recommends that students consider schools in their state of legal residence. A state filter must be a browsing convenience only. It must never calculate that the student is more or less likely to gain admission. It must never hide other states permanently. It must never transform into a residency-based school recommendation algorithm.
+
+The student should be able to search for one school, select it, search for another school, select it, clear the search query, browse a state, select another program, and continue until approximately ten to fifteen programs are selected. Previously selected programs must remain selected while searches and filters change. Do not lose selections when search results rerender.
+
+Create a clear selected-program area similar to a polished multi-school selection flow. It may use removable chips, a compact selected-program tray, a side panel, or another interface that matches the current design. The student must always be able to see how many programs have been selected. The student should be able to remove individual programs without resetting the whole form. A “Clear all” action may be provided but should not be easy to trigger accidentally.
+
+Display text explaining that approximately ten to fifteen programs are recommended because selecting a broad enough range helps reveal the range of prerequisite requirements the student may need to accommodate in academic planning. This is the professor’s rationale. Do not imply that ten to fifteen is the number of applications a student must submit. Do not imply that selecting fewer schools is wrong. Do not imply that selecting more schools damages admission chances.
+
+If a student selects three schools, allow them to continue. If a student selects nine schools, allow them to continue. If a student selects twelve schools, show that they are within the recommended planning range if useful. If a student selects twenty schools, allow them to continue. This tool supports curriculum research; the ten-to-fifteen guidance is not an enforcement mechanism.
+
+The introductory design currently visible in the application is directionally appropriate. The title “Health Professions Program Planner,” the description about comparing required prerequisite coursework, the explanation that the planner supports early academic planning, and the numbered Step 1 and Step 2 presentation align with the professor’s intent. Preserve that professional, academic, uncluttered design unless there is a concrete usability issue. Do not throw away the visual work merely because the data layer is incomplete.
+
+The current empty Step 2 card is the major visible failure. Replace it with a fully functional national program selector after profession selection. The appearance of the selector should remain consistent with the current green academic design. Do not redesign the page into a colorful startup dashboard. Do not add excessive gradients, animations, promotional slogans, testimonials, subscription cards, gamification, or social features.
+
+The main workflow should remain visually obvious. First the student chooses a health profession. Then the student chooses schools of interest. Then the student views the required prerequisites. Do not insert unrelated steps between these. Do not ask for GPA, standardized test scores, race, demographic information, extracurricular hours, clinical experience, recommendation letters, personal statements, application year, or financial information merely to use the prerequisite planner.
+
+The student must not need to create an admissions profile before selecting schools. The professor’s tool is about academic curriculum planning. The amount of personal data collected should be minimal.
+
+After the student has selected programs, provide an obvious “View Required Prerequisites” action. When clicked, retrieve prerequisite information for every selected program. Every selected program must receive a result section. Do not silently omit programs because prerequisite information is incomplete.
+
+For example, if the student selects fifteen programs and eleven have fully verified prerequisites while four are still being researched, the results must contain fifteen program sections. The eleven verified programs should show the required prerequisite information. Each of the four incomplete programs should remain visible with its official name and an honest message that prerequisite information is still being verified, together with the official program or prerequisite page when available.
+
+Never display eleven results and silently drop the remaining four. A student could incorrectly assume the missing schools have no prerequisites or were never selected. The result set must reconcile exactly against the selected-program list.
+
+The core result for each program should remain intentionally simple. Display the official institution or school name, the professional program name when needed, the degree type when needed, and the required prerequisite coursework. Include concise details necessary to interpret each requirement accurately. Include the official source and the date the prerequisite information was last verified. Avoid filling each result card with unrelated admissions information.
+
+Required prerequisite data must come from official school or professional-program sources whenever possible. The national program directory tells the application which programs exist. The program’s own official admissions or prerequisite pages tell the application what that program requires. Do not assume that an accreditor’s existence listing automatically contains the program’s prerequisite requirements.
+
+Never fabricate a prerequisite. Never infer that a program requires general chemistry merely because ninety percent of similar programs require general chemistry. Never infer that a program requires anatomy because the profession usually requires anatomy. Never use an LLM’s general knowledge as a source of truth for a specific institution’s admissions prerequisite.
+
+AI may be used as an extraction assistant behind the scenes when processing an official source, but AI extraction must not automatically equal verification. If an automated process reads an official page and extracts “two semesters of biology with lab,” save the source evidence and mark the extracted record as needing review unless the project has a carefully validated deterministic process. A human or explicitly authorized review process should be able to compare the extracted requirement with the official source before it becomes a confirmed student-facing requirement.
+
+Maintain separate statuses for directory records and prerequisite records. Do not use one ambiguous “verified” boolean for everything. Program-directory verification answers whether this professional program is a legitimate applicable program represented accurately in the directory. Prerequisite verification answers whether the stored prerequisite requirements have been checked against the program’s official source. These are separate states.
+
+A reasonable data model should allow a program to be active and directory-confirmed while having prerequisite status values equivalent to not collected, collecting, needs review, verified, stale, unavailable, or source changed. Adapt these names to the current project conventions rather than introducing needless naming churn.
+
+Required coursework and recommended coursework must also be separate data classifications. The professor specifically explained that including strongly recommended courses becomes problematic because extensive lists of recommendations can confuse students and make students believe every suggested class is mandatory. Therefore the default student-facing output must display required prerequisites only.
+
+Do not display “required and recommended courses” together. Do not show recommended courses directly beneath required courses in a way that makes them visually equivalent. Do not change a course from recommended to required because it seems important. Do not treat “strongly recommended” as synonymous with “required.” Do not treat “preferred” as required. Do not treat “encouraged” as required. Do not treat “competitive applicants typically complete” as required.
+
+Store recommendation information internally only if it is useful for source fidelity or future development. The professor’s current planner should not burden the student with it.
+
+When a requirement has conditions, preserve those conditions. If the official program requires two semesters, display two semesters. If it requires a year, preserve that wording or faithfully normalize it. If laboratories are required, say so. If a specific number of credits is stated, preserve the number. If a minimum grade is explicitly part of prerequisite eligibility, preserve it. If the program distinguishes semester credits from quarter credits, do not silently convert them incorrectly.
+
+Do not over-normalize prerequisite language. Normalized categories such as Biology, General Chemistry, Organic Chemistry, Biochemistry, Physics, Statistics, Psychology, Anatomy, Physiology, Microbiology, English, Writing, Mathematics, Social Sciences, Humanities, or other categories may be useful for database organization, but the official requirement detail must remain available. A normalized category must never erase a school-specific condition.
+
+Handle alternative prerequisite structures accurately. A program may say that either one course in biochemistry or a second course in organic chemistry fulfills a requirement. Another may accept a combined Anatomy and Physiology sequence. Another may require separate Anatomy and Physiology. Another may specify a certain number of upper-division science credits. Represent alternatives and conditions rather than flattening them into misleading individual required courses.
+
+If prerequisite wording cannot be confidently interpreted, do not guess. Flag it for review. The professor’s guiding principle is that a limited application that is completely accurate and efficient is better than a larger application filled with information that might be inaccurate or misconstrued.
+
+Keep optional program information secondary or absent. The professor’s document acknowledges that information such as GPA statistics, test-score statistics, experience expectations, matriculating class size, mission statements, clinical training, joint or dual degrees, program features, and matriculant profiles could theoretically be useful. The professor also explicitly questions whether those details belong in this planning application and emphasizes that students should research programs themselves.
+
+Therefore do not make those optional metrics part of this implementation round unless they are already required for a technical reason. Do not place them above prerequisites. Do not use them to rank schools. Do not use them to filter schools by student competitiveness. Do not use them to create admissions chances.
+
+Do not create reach, match, safety, target, likely, unlikely, competitive, or noncompetitive classifications. Do not calculate admission percentages. Do not create “recommended for you” schools. Do not score schools according to a student profile. Do not create colored red, yellow, and green admissions indicators. Do not tell students where they should apply.
+
+Do not reproduce the problems demonstrated in the professor’s screen recording. The reference site was shown to explain how an application can become less effective by trying to tell students too much. The Health Professions Program Planner should deliberately resist that product direction.
+
+The Common App comparison applies only to the school-selection experience. Think of the desired behavior this way: Common App users can search a large institution directory rather than hoping their school happens to be one of ten hard-coded examples. This planner should offer comparable directory completeness for the specific professional pathway the student selected. The student should not have to wonder whether a missing school means it does not exist, is unsupported, or simply has unverified prerequisites.
+
+Create clear distinctions for those cases. If a professional program legitimately does not exist for the selected profession, it should not appear. If it exists and the application knows it exists, it should appear. If prerequisites are incomplete, explain that only after the school is selected and results are requested. If national directory coverage itself is incomplete, that is a system-data issue that administrators should be able to detect and resolve, not an unexplained blank student screen.
+
+Create or improve a data-coverage and reconciliation process. For every supported profession, the project should be able to answer how many active national programs the authoritative source currently identifies, how many corresponding active program records exist in this application, how many program records require reconciliation, how many have official program URLs, how many have verified prerequisite sets, how many have prerequisite data awaiting review, how many have no prerequisite information collected yet, and how many have stale prerequisite sources.
+
+This coverage information does not need to become a student dashboard. It is an internal quality-control mechanism so that the team can tell whether “every program” actually means every program.
+
+Add a repeatable process for keeping this directory up to date. If scripts already exist, improve them. If an admin page already exists, use it. If nothing exists, create the simplest robust mechanism compatible with the existing project. Do not force future developers to manually edit fifty React files each time a new professional program opens.
+
+When importing a directory, support idempotent updates. Running the same import twice should not duplicate every school. Match on stable source identifiers when available, otherwise use carefully normalized institution/program/degree/location keys and flag ambiguous matches for review.
+
+Do not merge different professional programs merely because they share a university. For example, a university could have multiple health-profession programs. Each professional program needs the correct profession relationship and the appropriate prerequisite data.
+
+Likewise, do not split one program into many duplicates merely because the same institution name appears with slightly different punctuation across sources. Build normalization and alias handling carefully.
+
+The search experience should account for common aliases. A student may type a university’s abbreviated or colloquial name. Where aliases are confidently known and stored, search them while still displaying the official institution name. Do not invent aliases with an LLM.
+
+Make the selector performant. A Common App-like directory may contain hundreds of applicable programs. Do not render a massive uncontrolled list that freezes the browser. Use the appropriate search strategy for the current stack, such as server-side searching, paginated results, virtualized lists, efficient indexed client filtering, or a combination. Do not sacrifice selection persistence.
+
+Search requests should be debounced when appropriate. Loading states should be accurate. Do not display “no programs” during the brief period before a network request finishes.
+
+Use an actual loading message or skeleton while program data is loading. Only display an empty result after a successful query returns zero matching directory entries.
+
+When no search query is entered, alphabetized browsing should be available. When a search query is entered, matching programs should be easy to identify. State should be visible as secondary information. If program type is important, display it too.
+
+The student should be able to reach ten to fifteen selections efficiently. Do not require navigating through one program page at a time.
+
+Do not reload the entire application after every selection. Preserve the profession, selected degree type, selected programs, and current search state appropriately.
+
+If the user accidentally refreshes the page, consider preserving current selections in URL state, session storage, or the existing application state mechanism if this can be done simply and safely. This is useful but should not delay the core workflow.
+
+When a profession changes, any selected programs from the old profession become invalid. Clear them deliberately and notify the student. Also clear old prerequisite results. Do not allow results from one profession to persist under another profession.
+
+When a degree subtype changes, perform the same consistency check.
+
+The application should make the recommendation to select approximately ten to fifteen schools visually clear without turning it into a form-validation rule. Maintain the current text about selecting approximately ten to fifteen programs so the resulting prerequisite range is useful. Preserve the professor’s suggestion that students consider programs in their state of legal residence along with other programs that genuinely interest them.
+
+Do not transform the state-residency suggestion into the kind of acceptance-rate analysis criticized in the professor’s video. The professor’s recommendation to consider in-state schools is simple planning guidance. Keep it simple.
+
+Add a selected count directly in Step 2 once at least one program is selected. For example, the interface may say “12 programs selected.” Do not display a score.
+
+Once programs are selected, the results should be generated efficiently. Fetch prerequisite information in batches rather than firing unnecessary hundreds of independent requests when the architecture supports batching.
+
+Group result sections alphabetically by institution or professional program. Maintain predictable ordering in exports as well.
+
+The results should be copyable and exportable because that is explicitly part of the professor’s intended use case. Implement a working Copy Results action. The copied content must be structured enough to paste into Google Sheets or Microsoft Excel without becoming one giant unreadable paragraph.
+
+Implement CSV export. Make one prerequisite requirement correspond to a useful row rather than placing the entire school’s prerequisite list inside one cell. Include appropriate columns for profession, degree type, school, program, required prerequisite, requirement details, credit or course amount where applicable, laboratory condition, other requirement condition when needed, official source, and last-verified date.
+
+If the existing application already contains a working XLSX/Excel dependency, implement or repair an Excel export as well. If a stable Excel library can be added safely to the current stack, add it. Do not show a “Download Excel” button unless it actually produces a valid workbook.
+
+Programs with incomplete prerequisite data should not create fabricated export rows. If appropriate, include a separate status row indicating that prerequisite verification is incomplete, or omit prerequisite rows while clearly indicating incomplete coverage in an export summary. Choose a design that cannot be mistaken for “this program requires nothing.”
+
+Do not put acceptance rates, rankings, GPA metrics, MCAT scores, GRE scores, DAT scores, admissions chances, or optional program marketing information into the curriculum-planning spreadsheet.
+
+Do not put internal extraction notes or reviewer comments into student exports.
+
+Every verified result should contain an official source link. The official source should lead as directly as reasonably possible to the program’s prerequisite or admissions-requirements page rather than simply linking to a university homepage.
+
+Record a last-verified date. Professional requirements can change. Make stale-data handling possible.
+
+Do not automatically mark information verified simply because the source URL returned HTTP 200. Verification means the stored requirement has been checked against the source content, not merely that the page exists.
+
+Create an appropriate re-verification policy in the data model. You do not need to implement an elaborate scheduling system if one does not fit the project, but the data should support identifying old records and reviewing them periodically.
+
+Where possible, add source-change detection using a content fingerprint, checksum, stored source snapshot metadata, or another reasonable mechanism. If an official prerequisite page materially changes, flag the associated requirements for review rather than silently assuming the old extracted requirements remain correct.
+
+Do not violate website policies to accomplish source-change detection.
+
+Keep the student-facing disclaimer concise. Use language equivalent to: “Professional program requirements can change. Confirm current requirements with the program and consult a health professions advisor before finalizing your academic plan.”
+
+Do not turn the disclaimer into a paragraph that makes the application look unreliable. The application should be accurate enough to be genuinely useful while acknowledging that institutional requirements change.
+
+Review the project’s current accessibility. Profession selection, degree selection, program search, multi-selection, selected-program removal, results, copy, and export must work with keyboard navigation. Fields must have meaningful labels. Focus states must be visible. Screen readers should be able to understand when a program is selected or removed and how many programs are selected.
+
+Do not communicate prerequisite verification status by color alone. Use text.
+
+Maintain responsive behavior. A student may use the Camino assignment from a laptop, tablet, or phone. The directory cannot become unusable on a narrow screen.
+
+Do not create a separate mobile-only workflow that has different data behavior.
+
+Now examine the entire current application for leftover functionality that contradicts the professor’s limited scope. If previous versions of this project contain school-fit tools, admissions probability logic, ranking logic, recommendation logic, GPA filters, test-score filters, application profile components, admissions charts, or other Smarter Premed-style features, remove them from the student-facing planner or disable them if they are no longer part of the intended product.
+
+Do not delete useful underlying infrastructure solely because a previous feature used it. Refactor carefully.
+
+The application should not have confusing navigation links to abandoned features. After the cleanup, the student experience must feel intentionally focused rather than like features are missing.
+
+Do not add fake data to satisfy automated tests. Structural tests may use fictional fixtures in the test environment, but production data representing real schools must come from authoritative sources.
+
+Separate development/test fixture data from production program data explicitly. A school named “Example University” is acceptable in automated tests. It must not appear in the public production directory as though it is real.
+
+Audit the current seed process so deploying the application does not accidentally overwrite the real national directory with a tiny demo seed. This is extremely important. If the project currently resets the database to a few sample programs during deployment or startup, fix that behavior.
+
+Protect existing verified production records during migrations and imports. Do not solve a schema migration by wiping the database unless this is genuinely a disposable development database and you have confirmed no useful production data will be lost.
+
+Back up or export current important data before destructive migrations where the environment permits.
+
+The production application must not depend on a live LLM request for normal school search or normal prerequisite display. Students should receive deterministic database-backed results. An AI service outage must not make Step 2 empty.
+
+Likewise, the nationwide directory should not be fetched from external accreditation websites every single time a student opens the dropdown. Synchronize authoritative directory data into the project’s database or reliable data store. Student searches should query your maintained directory, giving fast and predictable results.
+
+External official sources are for data ingestion and verification. They should not become fragile runtime dependencies for the basic planner.
+
+Create useful database indexes for profession, degree type, institution name, program name, state, active status, and whatever search fields are appropriate to the current database technology. The Common App-like directory must remain responsive as program coverage grows.
+
+Do not prematurely build a full-text search cluster or external search service unless the current database genuinely cannot support the expected data volume. The number of health professional programs is manageable with normal indexed database search in most architectures.
+
+Review security. Do not expose administrative import, verification, or mutation endpoints publicly. If the existing project has authentication, use it. If it does not, secure administrative operations appropriately within the limitations of the existing environment rather than creating fake client-side “admin protection.”
+
+Student directory browsing and prerequisite viewing should remain simple and should not require administrative access.
+
+Validate all IDs and query parameters server-side. Do not trust profession IDs, program IDs, or export selections simply because they came from the frontend.
+
+Prevent users from requesting arbitrary internal records through manipulated API calls.
+
+Do not expose internal reviewer notes or source evidence unnecessarily through public APIs.
+
+Make exports safe against spreadsheet formula injection when data originating from external sources is inserted into CSV or Excel values. Treat fields beginning with dangerous spreadsheet formula characters appropriately. This is an actual production export, not merely a visual mockup.
+
+Review error handling. If the database is unavailable, do not falsely say there are no programs. Say the program directory could not be loaded and provide a retry action.
+
+If the search service fails, do not convert the failure into an empty array and tell the student no programs exist.
+
+If prerequisite retrieval fails for one selected program, do not discard every other result. Show successful results and clearly show the failed program’s temporary error.
+
+If an official source link is missing, indicate that it still needs to be added internally rather than generating a guessed URL.
+
+The application must distinguish “zero results because no such programs exist” from “zero results because the query failed” from “zero results because directory data has not yet been populated.” These are different conditions.
+
+Create automated tests around these distinctions.
+
+Add a test proving that a program with no prerequisite records still appears in Step 2.
+
+Add a test proving that a program with prerequisite status needs_review still appears in Step 2.
+
+Add a test proving that Step 3 does not present needs_review prerequisite records as verified requirements.
+
+Add a test proving that all selected programs are represented in results even when prerequisite coverage is mixed.
+
+Add a test proving that recommended coursework does not appear in the required-prerequisite result.
+
+Add a test proving that changing the profession clears incompatible selections.
+
+Add a test proving that national-directory search can find programs by school name and state.
+
+Add a test proving that the default browse order is alphabetical.
+
+Add a test proving that a search/network/database failure does not display the misleading “no programs” state.
+
+Add a test proving that CSV export creates structured rows and does not silently omit selected programs without indicating their status.
+
+Use the project’s existing test framework rather than introducing several redundant test frameworks without reason.
+
+Then perform end-to-end testing using real production-like data. Begin with Physician Assistant because that is the profession currently demonstrating the failure in the screenshot. Select Physician Assistant and verify that a meaningful nationwide program directory appears. Search multiple program names. Search by state. Select at least ten programs from multiple states. Verify that the selection persists. Verify that the selection counter changes. Verify that no requirement-verification filter prevents a legitimate PA program from appearing.
+
+Then continue to results. Confirm that every selected PA program has a section. Confirm that programs with verified requirements show them. Confirm that programs with incomplete requirements communicate that honestly. Confirm that sources open correctly for the verified records that were tested.
+
+Repeat the directory test for every other profession exposed in production. Do not merely click the first result. Search programs in different states and verify that program types are correct.
+
+For professions where the relevant official directory identifies different degree levels, verify that your application includes only the degree levels appropriate to the professor’s pre-health planning use case.
+
+Run an explicit national-directory completeness audit before declaring the task complete. For each profession, compare the current active application directory with the authoritative source used for that profession. Identify missing records, extra records, duplicated records, changed names, program closures, newly added programs, campuses requiring reconciliation, and records without an official source.
+
+Resolve those discrepancies wherever the authoritative information is available.
+
+Do not declare a profession’s national directory complete merely because the frontend has many results.
+
+Produce a machine-readable coverage report in the repository or administrative system. It should include the profession, source used, source snapshot or retrieval date, source program count when determinable, application active-program count, matched count, unresolved missing count, unresolved extra count, duplicate count, and prerequisite verification counts.
+
+Do not expose technical reconciliation data prominently to students.
+
+After directory coverage has been established, continue prerequisite work. Do not stop merely because the selection interface now looks good. The professor wants actual required prerequisites.
+
+Use official individual-program admissions or prerequisite pages. Work systematically. Store source attribution. Separate required from recommended coursework. Preserve important conditions. Flag ambiguous statements.
+
+Because completing verified prerequisites for every professional program in every supported profession may require a large amount of source research, use an efficient ingestion and review architecture. Parallelize or automate permissible parts where the environment supports it, but never sacrifice factual reliability. The correct final architecture should allow the application to reach and maintain comprehensive prerequisite coverage rather than requiring a developer to manually edit code forever.
+
+Do as much real prerequisite collection and verification as the available official sources and environment permit during this task. Do not stop after designing the schema. Do not stop after creating an import button. Do not stop after writing TODO comments saying data should be added later.
+
+At the same time, do not lie about completion. If a genuinely external constraint prevents obtaining a particular program’s prerequisite information, leave that program selectable, record the exact data status, preserve its official link where available, and continue completing all other programs and engineering work.
+
+The instruction “do not come back until everything is answered” means you must not repeatedly stop to ask me ordinary implementation questions that you can answer by inspecting the repository, the professor’s specifications, the current application, authoritative program sources, or standard engineering practice. Make reasonable implementation decisions yourself. Continue from diagnosis through implementation through data population through tests through deployment verification without waiting for permission at every stage.
+
+Do not stop after giving me an implementation plan. Do not ask me whether you should proceed to the next phase. Proceed.
+
+Do not stop after fixing one component. Continue testing the entire workflow.
+
+Do not stop after writing database migrations. Run them.
+
+Do not stop after writing tests. Run them.
+
+Do not stop after discovering test failures. Fix them and rerun the tests.
+
+Do not stop after producing a successful local build. Test the Replit production deployment.
+
+Do not stop after the page renders. Exercise the interactions.
+
+Do not stop after Step 2 works. Exercise Step 3.
+
+Do not stop after prerequisite results work. Test copy and export.
+
+Do not stop after one profession works. Test every production profession.
+
+Do not stop after importing national programs. Perform the completeness reconciliation.
+
+Do not stop after changing the code if the existing deployment is still serving broken behavior.
+
+There is one exception to this persistence requirement: never bypass a true external restriction such as an inaccessible paid database, authentication you have not been given, prohibited scraping, a CAPTCHA, a third-party service outage, or unavailable credentials. If such a blocker exists, complete every other part of the task that does not require that blocker. Implement the correct architecture and import path so the blocked data can be supplied later. Record the exact blocker, source, profession, and remaining data affected. Do not use the blocker as an excuse to stop unrelated work.
+
+Do not ask me to manually give you school names that can be obtained from authoritative public directories.
+
+Do not ask me whether you should make the directory nationwide. This prompt is the authorization. Make it nationwide for every profession the production planner supports.
+
+Do not ask me whether you should fix the current “No verified programs” behavior. Fix it.
+
+Do not ask me whether you should preserve the current design. Preserve the useful current design while fixing functionality.
+
+Do not ask me whether you should add the ten-to-fifteen guidance. It is already required.
+
+Do not ask me whether required and recommended courses should be separated. They must be separated.
+
+Do not ask me whether exports are necessary. They are necessary.
+
+The professor’s narrow-scope principle remains mandatory even though the directory itself is comprehensive. Comprehensive school coverage does not mean comprehensive admissions functionality. These are different things. The planner should know about every applicable professional program while still doing only a small number of student-facing tasks.
+
+Think of the final product this way. The breadth should resemble Common App’s institution search. The purpose should remain much narrower than Common App or Smarter Premed. The student arrives, chooses the health profession, gets a comprehensive searchable national list of applicable programs, selects approximately ten to fifteen programs, receives their required prerequisite coursework, and exports that prerequisite research for academic planning. That is the product.
+
+A successful student should not need to visit twenty school websites merely to create the first draft of a prerequisite comparison. The planner does that aggregation accurately. The student can then use the official source links and advising for final confirmation and deeper school research.
+
+A successful student should also never be told by this application that a particular school is likely to admit them. That is outside the product.
+
+The finished interface should make these distinctions feel natural rather than requiring students to understand the product philosophy.
+
+Now inspect the current repository and execute the full implementation. Preserve the correct portions of the existing Health Professions Program Planner. Repair the current program-directory architecture. Build comprehensive national program coverage for each production profession using authoritative sources. Make the selector behave like a polished Common App-style multi-school directory. Separate program existence from prerequisite verification. Complete the prerequisite-results workflow. Keep only required prerequisites in the main output. Add or repair official-source attribution. Add copy, CSV, and appropriate Excel export. Add internal coverage reconciliation. Test all professions. Test national directory completeness. Run the build. Fix failures. Test the production Replit deployment.
+
+Before finishing, perform a final product review directly against the professor’s document and the requirements represented in the screen recording. Ask yourself whether the application has remained focused on the professor’s three central functions. Verify that a student can select a profession. Verify that the student can search the complete applicable national program directory rather than encountering an artificial empty list. Verify that programs appear alphabetically when browsing. Verify that the student can comfortably select approximately ten to fifteen. Verify that the student sees school names and required prerequisites. Verify that results can be copied or exported. Verify that strongly recommended coursework has not been mixed into required prerequisites. Verify that the application has not drifted into an admissions recommendation product.
+
+Then inspect every visible student page for unnecessary admissions metrics or classifications. Remove anything that violates the professor’s limited-scope philosophy.
+
+Then inspect every program exposed by the profession selector and confirm that it has a working national directory behind it.
+
+Then inspect the data-quality report and resolve discrepancies that can be resolved.
+
+Then run the complete automated test suite.
+
+Then run static type checking if the stack supports it.
+
+Then run linting.
+
+Then run the production build.
+
+Then start the production application.
+
+Then test the main flow manually or through end-to-end automation.
+
+Then verify the deployed Replit application rather than assuming deployment succeeded because the local build passed.
+
+Do not finish while the public app still shows the current broken Physician Assistant state.
+
+Do not finish while any supported profession produces an unexplained empty program list because prerequisite verification is incomplete.
+
+Do not finish while placeholder production data is masquerading as real information.
+
+Do not finish while an export button is nonfunctional.
+
+Do not finish while recommended coursework is displayed as required.
+
+Do not finish while selected programs disappear silently from the results.
+
+Do not finish while the application claims complete nationwide coverage that the coverage audit contradicts.
+
+Do not finish with major TODO comments in the primary professor-required workflow.
+
+Only after all technically achievable requirements above have been implemented and tested should you return a final report.
+
+Your final report must tell me what caused the original “No verified programs are currently available” problem and exactly how you corrected it. It must tell me every profession currently supported in production. It must tell me the authoritative program-directory source used for each profession. It must tell me how many active programs are stored for each profession and whether that count was reconciled against the authoritative source. It must tell me which professions have complete directory coverage and which, if any, still have an externally blocked reconciliation issue. It must tell me how many programs currently have verified prerequisite data, how many are awaiting review, how many have not yet had prerequisite information collected, and how many are stale or otherwise require attention.
+
+The final report must also tell me what database or data-model changes were made, what search and selection changes were made, how branch campuses and duplicate programs are handled, how required versus recommended coursework is separated, how official prerequisite sources are stored, how source verification works, how the national directory can be refreshed later, how CSV export works, whether Excel export works, what automated tests were run, whether those tests passed, whether type checking and linting passed, whether the production build passed, whether the published Replit deployment was tested, and what exact external blocker remains if anything genuinely could not be completed.
+
+Do not use vague statements such as “most programs were added,” “the feature should work,” “the database is ready,” or “nationwide support was implemented” without giving the factual coverage information that supports those claims.
+
+Do not say everything is complete if it is not.
+
+Do not invent successful test results.
+
+Do not invent program counts.
+
+Do not invent source coverage.
+
+Do not conceal external blockers.
+
+The application is finished only when it genuinely functions as the professor’s Health Professions Program Planner: broad and Common App-like in the comprehensiveness and usability of its professional-program directory, narrow and precise in what it tells the student, accurate in its prerequisite information, transparent about data status, useful for choosing roughly ten to fifteen schools for curriculum planning, and intentionally free from the confusing admissions prediction features criticized in the professor’s video.
+
+Start by inspecting the current Replit project and the behavior producing the Physician Assistant empty state. Then continue through the entire implementation without waiting for another instruction from me.

@@ -6,6 +6,9 @@
  * OpenAPI spec version: 0.1.0
  */
 
+/**
+ * Prerequisite verification status — independent of directory listing
+ */
 export type ProgramSchoolVerificationStatus = typeof ProgramSchoolVerificationStatus[keyof typeof ProgramSchoolVerificationStatus];
 
 

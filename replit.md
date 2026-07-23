@@ -36,8 +36,11 @@ lib/
   api-zod/             Generated Zod validators for API server
   db/                  Drizzle schema + migrations
 scripts/
-  src/seed.ts          Reference data seed (14 verified schools)
-  src/import-programs.ts  CSV/JSON import script for new schools
+  src/seed.ts               Prereq reference seed (idempotent upsert, never deletes)
+  src/import-programs.ts    CSV/JSON import script for new schools
+  src/import-directory.ts   Idempotent nationwide directory import (data/directories/*.json)
+  src/record-blockers.ts    Records blocked accreditor sources in directory_sources
+  src/coverage-report.ts    Writes data/coverage-report.json reconciliation report
 ```
 
 ## Navigation
@@ -80,19 +83,23 @@ Previous routes (`/dashboard`, `/professions`, `/schools`, `/prerequisites`) rem
 }
 ```
 
-### Verification rule
+### Directory vs. prerequisite verification (two separate concerns)
 
-**Only `verificationStatus = "verified"` records with `classification = "required"` prereqs appear in student-facing results.** Unverified records show an honest status message.
+- **Program existence** comes from nationwide accreditor directories (`directory_status`, `directory_source`, `website_url`, `aliases`, `external_id`, `last_directory_verified` columns; `directory_sources` table records each source and its coverage status).
+- **Prerequisite verification** is per-program (`verification_status`, `prereq_courses`, `source_url`, `last_verified`).
+- Step 2 lists ALL active directory programs regardless of prerequisite verification. Step 3 shows verified required prerequisites, or an honest "still being verified" message. Exports represent every selected program (status rows for unverified ones) and are formula-injection-safe.
 
-## Verified data (14 schools, lastVerified 2026-07-23)
+### Directory data (imported 2026-07-23)
 
-| Profession | Count |
-|---|---|
-| Medicine (MD) | 5 |
-| Physical Therapy (DPT) | 7 |
-| Nursing (ABSN / MEPN) | 2 |
+Complete from accreditor sources: medicine (LCME MD 163 + AACOM DO 73), physician-assistant (ARC-PA 330), physical-therapy (CAPTE 308), speech-language-pathology (ASHA CAA 322), pharmacy (ACPE 140), veterinary (AVMA 32), optometry (ASCO 24), podiatry (CPME 11), prosthetics-orthotics (NCOPE 15).
 
-Schools dropped and why are documented in `scripts/src/seed.ts`.
+Blocked (exact blockers recorded in `directory_sources`, coverageStatus='blocked'): dental (CODA JS app), occupational-therapy (ACOTE JS-only data), genetic-counseling (ACGC lists no per-program locations), dietetics (ACEND JS app), nursing ABSN/MEPN (AACN login-gated), postbac (AAMC JS app).
+
+Directory JSON files live in `data/directories/`; machine-readable reconciliation report at `data/coverage-report.json` (regenerate with `coverage-report.ts`).
+
+## Verified prerequisite data (46 programs, lastVerified 2026-07-23)
+
+Schools dropped and why are documented in `scripts/src/seed.ts`. Directory imports never modify or delete verified prerequisite rows.
 
 ## Import script
 

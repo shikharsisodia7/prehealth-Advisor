@@ -34,7 +34,10 @@ import { Label } from "@/components/ui/label";
 import { cn } from "@/lib/utils";
 import {
   EXPORT_HEADERS,
-  buildExportRows,
+  alphabetize,
+  buildSelectionExportRows,
+  filterSchools,
+  sanitizeSpreadsheetValue,
   rowToTsv,
   rowToCsv,
   type ExportRow,
@@ -224,34 +227,54 @@ function SchoolMultiSelect({
   const [query, setQuery] = useState("");
   const inputId = useId();
 
-  const filtered = useMemo(() => {
-    const q = query.toLowerCase();
-    return q
-      ? schools.filter(
-          (s) =>
-            s.name.toLowerCase().includes(q) ||
-            s.programName.toLowerCase().includes(q) ||
-            (s.city ?? "").toLowerCase().includes(q) ||
-            s.state.toLowerCase().includes(q),
-        )
-      : schools;
-  }, [schools, query]);
+  const [stateFilter, setStateFilter] = useState("");
+
+  const states = useMemo(
+    () =>
+      Array.from(new Set(schools.map((s) => s.state).filter(Boolean))).sort(),
+    [schools],
+  );
+
+  const filtered = useMemo(
+    () => filterSchools(schools, query, stateFilter),
+    [schools, query, stateFilter],
+  );
 
   return (
     <div>
-      {/* Search input */}
-      <div className="relative mb-3">
-        <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground pointer-events-none" />
-        <input
-          id={inputId}
-          type="text"
-          className="w-full h-10 pl-9 pr-4 rounded-md border border-input bg-background text-sm focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
-          placeholder="Search programs…"
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          aria-label="Search programs"
-        />
+      {/* Search input + optional state filter */}
+      <div className="flex flex-col sm:flex-row gap-2 mb-3">
+        <div className="relative flex-1">
+          <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground pointer-events-none" />
+          <input
+            id={inputId}
+            type="text"
+            className="w-full h-10 pl-9 pr-4 rounded-md border border-input bg-background text-sm focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
+            placeholder="Search by school, city, or state…"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            aria-label="Search programs"
+          />
+        </div>
+        <select
+          className="h-10 rounded-md border border-input bg-background px-3 text-sm focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 sm:w-44"
+          value={stateFilter}
+          onChange={(e) => setStateFilter(e.target.value)}
+          aria-label="Filter by state (optional)"
+        >
+          <option value="">All states</option>
+          {states.map((st) => (
+            <option key={st} value={st}>
+              {st}
+            </option>
+          ))}
+        </select>
       </div>
+      <p className="text-xs text-muted-foreground mb-2">
+        {filtered.length} of {schools.length} programs shown
+        {stateFilter ? ` (state: ${stateFilter})` : ""} — the state filter is
+        for browsing convenience only; consider programs nationwide.
+      </p>
 
       {/* School list */}
       <div
@@ -408,15 +431,27 @@ function SchoolResult({ school }: { school: ProgramSchool }) {
 
       {/* Source + verification date */}
       <div className="flex flex-wrap items-center gap-3 text-xs text-muted-foreground">
-        <a
-          href={school.sourceUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-1 text-primary hover:underline focus:outline-none focus:underline"
-        >
-          <ExternalLink className="w-3 h-3" />
-          Official program source
-        </a>
+        {school.sourceUrl ? (
+          <a
+            href={school.sourceUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1 text-primary hover:underline focus:outline-none focus:underline"
+          >
+            <ExternalLink className="w-3 h-3" />
+            Official prerequisite source
+          </a>
+        ) : school.websiteUrl ? (
+          <a
+            href={school.websiteUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1 text-primary hover:underline focus:outline-none focus:underline"
+          >
+            <ExternalLink className="w-3 h-3" />
+            Official program website
+          </a>
+        ) : null}
         {school.lastVerified && (
           <span>Last verified {school.lastVerified}</span>
         )}
@@ -473,19 +508,16 @@ export default function ProgramPlanner() {
     },
   });
 
+  // Case-insensitive alphabetical browse order (the API's SQL ordering is
+  // byte-order, which puts e.g. "CUNY" before "California").
   const schools = useMemo(
-    () => allSchools ?? [],
+    () => alphabetize(allSchools ?? []),
     [allSchools],
   );
 
   const selectedSchools = useMemo(
     () => schools.filter((s) => selectedSchoolIds.has(s.id)),
     [schools, selectedSchoolIds],
-  );
-
-  const verifiedSelectedSchools = useMemo(
-    () => selectedSchools.filter((s) => s.verificationStatus === "verified"),
-    [selectedSchools],
   );
 
   // ── profession options ─────────────────────────────────────────────────────
@@ -550,9 +582,9 @@ export default function ProgramPlanner() {
   // ── export handlers ────────────────────────────────────────────────────────
 
   function collectExportRows(): ExportRow[] {
-    return verifiedSelectedSchools.flatMap((s) =>
-      buildExportRows(s, selectedProfessionName),
-    );
+    // Every selected program is represented; those without verified
+    // required-prerequisite records get an explicit status row.
+    return buildSelectionExportRows(selectedSchools, selectedProfessionName);
   }
 
   async function handleCopyResults() {
@@ -594,21 +626,23 @@ export default function ProgramPlanner() {
     const XLSX = await import("xlsx");
     const wsData = [
       EXPORT_HEADERS as unknown as string[],
-      ...rows.map((r) => [
-        r.profession,
-        r.degreeType,
-        r.school,
-        r.program,
-        r.prereqName,
-        r.details,
-        r.courseCount,
-        r.semesterCredits,
-        r.quarterCredits,
-        r.labRequired,
-        r.otherConditions,
-        r.sourceUrl,
-        r.lastVerified,
-      ]),
+      ...rows.map((r) =>
+        [
+          r.profession,
+          r.degreeType,
+          r.school,
+          r.program,
+          r.prereqName,
+          r.details,
+          r.courseCount,
+          r.semesterCredits,
+          r.quarterCredits,
+          r.labRequired,
+          r.otherConditions,
+          r.sourceUrl,
+          r.lastVerified,
+        ].map(sanitizeSpreadsheetValue),
+      ),
     ];
     const ws = XLSX.utils.aoa_to_sheet(wsData);
     const wb = XLSX.utils.book_new();
@@ -627,10 +661,6 @@ export default function ProgramPlanner() {
     selectedProfessionSlug !== "" && nursingTypeSelected;
   const noSchoolsForProfession =
     schoolSelectorActive && !loadingSchools && !isFetching && schools.length === 0 && !schoolsError;
-  const hasVerifiedResults = verifiedSelectedSchools.some(
-    (s) =>
-      s.prereqCourses.filter((p) => p.classification === "required").length > 0,
-  );
   const count = selectedSchoolIds.size;
 
   // ── render ─────────────────────────────────────────────────────────────────
@@ -764,8 +794,9 @@ export default function ProgramPlanner() {
                 </div>
               ) : noSchoolsForProfession ? (
                 <p className="text-sm text-muted-foreground py-4 text-center">
-                  No verified programs are currently available for this
-                  profession and degree type.
+                  The program directory for this profession and degree type has
+                  not been populated yet. This does not mean no programs exist
+                  — check back soon or consult a health professions advisor.
                 </p>
               ) : (
                 <SchoolMultiSelect
@@ -878,7 +909,7 @@ export default function ProgramPlanner() {
 
             {/* Export buttons */}
             <div className="flex flex-wrap gap-2 mb-4 no-print" role="group" aria-label="Export options">
-              {hasVerifiedResults ? (
+              {selectedSchools.length > 0 ? (
                 <>
                   <Button
                     variant="outline"
