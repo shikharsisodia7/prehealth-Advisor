@@ -22,13 +22,37 @@ export type PrereqItem = {
   otherConditions?: string | null;
 };
 
+// Provenance for prerequisite/admissions source documents. `sourceUrl` remains
+// the primary compatibility URL, while this array preserves every official
+// document used to form a program-level record (for example, an admissions
+// page plus a handbook PDF).
+export type PrereqSource = {
+  url: string;
+  title?: string | null;
+  sourceType:
+    | "admissions_page"
+    | "program_page"
+    | "catalog"
+    | "handbook_pdf"
+    | "centralized_service"
+    | "accreditor"
+    | "other_official";
+  retrievedAt: string;
+  contentHash?: string | null;
+  extractionMethod?: "http" | "browser" | "pdf_text" | "manual_review" | null;
+};
+
 export type VerificationStatus =
   | "draft"
   | "imported"
   | "needs_review"
   | "verified"
   | "rejected"
-  | "outdated";
+  | "outdated"
+  | "no_prereqs_published"
+  | "source_blocked"
+  | "unavailable"
+  | "not_published";
 
 // Directory status — whether this professional program is an active,
 // legitimate entry in the national program directory. This is SEPARATE from
@@ -65,6 +89,12 @@ export const programSchoolsTable = pgTable(
       .default("draft"),
     prereqCourses: jsonb("prereq_courses")
       .$type<PrereqItem[]>()
+      .notNull()
+      .default([]),
+    // All official documents used during prerequisite collection. This keeps
+    // source provenance durable without requiring a scrape during page loads.
+    prereqSources: jsonb("prereq_sources")
+      .$type<PrereqSource[]>()
       .notNull()
       .default([]),
     // ── Directory fields (program existence, independent of prereqs) ──────
@@ -133,6 +163,10 @@ export const insertProgramSchoolSchema = createInsertSchema(
         "verified",
         "rejected",
         "outdated",
+        "no_prereqs_published",
+        "source_blocked",
+        "unavailable",
+        "not_published",
       ])
       .optional(),
     directoryStatus: z.enum(["active", "inactive", "needs_review"]).optional(),

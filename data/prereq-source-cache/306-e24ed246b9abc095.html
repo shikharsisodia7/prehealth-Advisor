@@ -1,0 +1,938 @@
+<!DOCTYPE html><html lang="en"><head>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+   <!-- Google Tag Manager - MHJT52M -->
+			<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+			new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+			j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+			'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+			})(window,document,'script','dataLayer','GTM-MHJT52M');</script>
+		  <!-- End Google Tag Manager - MHJT52M -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet" /> 
+<link href="/_resources/css/bootstrap.min.css" rel="stylesheet" media="print" type="text/css" /> 
+<link href="/_resources/css/bootstrap.min.css" rel="stylesheet" /><!-- Magnific Popup core CSS file --> 
+<link href="/_resources/css/magnific-popup.css" rel="stylesheet" /> 
+<!-- 2025 -->
+<link href="/_resources/css/v25.css" rel="stylesheet" />
+<!-- home.css -->
+<link href="/_resources/css/home.css" rel="stylesheet" /> 
+<!-- usa-tn.css -->
+<!--<link href="/_resources/css/usa-tn.css" rel="stylesheet" />-->
+<!-- v25-usa.css -->
+<link href="/_resources/css/v25-usa.css" rel="stylesheet" /> 
+<!-- snippets.css --> 
+<link href="/_resources/css/snippets.css" rel="stylesheet" />
+<!-- components.css --> 
+<link href="/_resources/css/components.css" rel="stylesheet" /> 
+<!-- raleway --> 
+<link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css' />
+<!--Cinzel -->
+<link href='https://fonts.googleapis.com/css?family=Cinzel' rel="stylesheet" type='text/css'/> 
+<!-- new-footer.css-->
+<link href='/_resources/css/new-footer.css' rel='stylesheet' type='text/css' />
+<!-- print.css -->
+<link href='/_resources/css/print.css' rel='stylesheet' type='text/css' media='print' />
+<!-- error_success.css -->
+<link href="/_resources/css/error_success.css" rel="stylesheet" type="text/css" />
+<!-- fb-nav-styles.css -->
+<link href="/_resources/css/fb-nav-styles.css" rel="stylesheet" type="text/css" /> 
+
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries --> 
+<!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]--> <!-- placeholder images -->
+
+<!-- JQuery - Check for updates -->
+<!--
+<script type="text/javascript" src="https://code.jquery.com/jquery.js"></script>
+-->
+<script type="text/javascript" src="/_resources/js/jquery.js"></script>
+
+
+<!-- Farzam's Navigation-->
+<script type="text/javascript" src="/_resources/js/fb-nav-script.js" async="async"></script>
+<script type="text/javascript" src="/_resources/js/fb-navigation.js" async="async"></script>
+<script type="text/javascript" src="/_resources/js/fbbtstbbfix.js" async="async"></script>
+
+<script src="https://www.google.com/recaptcha/api.js" async="async" defer="defer"></script>
+
+<script type="text/javascript" async="async">// <![CDATA[
+var switchTo5x=true;
+// ]]></script>
+
+<script type="text/javascript">
+// <![CDATA[
+function getFocus() {
+    document.getElementById("searchqueryid").focus();
+}
+
+function loseFocus() {
+    document.getElementById("searchqueryid").blur();
+}
+	
+function getFocusM() {
+    document.getElementById("searchqueryid1").focus();
+}
+
+function loseFocusM() {
+    document.getElementById("searchqueryid1").blur();
+}	
+// ]]>
+</script>
+
+<link rel="stylesheet" type="text/css" href="/_resources/css/fbtbmenu.css" />
+<script type="text/javascript" src="/_resources/js/fbtbmenu.js" async="async"></script>
+
+<script type="text/javascript" src="/_resources/js/mob-switch-mn.js"></script>
+
+<script type="text/javascript" async="async">
+$(document).ready(function() {
+
+    $("a[target='_blank']").each(function() {
+
+        // Accessibility - Automatically add 'aria-label'
+        var text = $.trim(this.text);
+        if ($.trim(text) === '') {
+            $(this).children().each(function() {
+                console.log("title: " + this.title);
+                console.log("alt: " + this.alt);
+                if (this.alt != '') {
+                    text = $.trim(this.alt);
+                } else if (this.title != '') {
+                    text = $.trim(this.title);
+                } else {
+                    text = 'auto aria-label target could not be found';
+                }
+            });
+        }
+
+        // Accessibility - Set aria-label based on detected browser
+        if (navigator.userAgent.includes("Chrome") && (!this.ariaLabel || this.ariaLabel === undefined || this.ariaLabel === null)) {
+            $(this).attr("aria-label", text + " opens in a new window");
+            // console.log("Chrome Element HTML: " + this.outerHTML + "\n\nReplaced: " + text);
+        } else if (navigator.userAgent.includes("Firefox") && (!this.getAttribute("aria-label") || this.getAttribute("aria-label") === null)) {
+            $(this).attr("aria-label", text + " opens in a new window");
+            // console.log("Firefox Element HTML: " + this.outerHTML + "\n\nReplaced: " + text);
+        } else {
+            // console.log("Element HTML: " + this.outerHTML + "\n\nDid not Replace! Current aria-label: " + (this.ariaLabel || this.getAttribute("aria-label")));
+        }
+
+        // Security - Automatically add 'rel="noopener"', unless 'noopener' or 'noreferrer' is already present
+        var currentRel = $(this).attr('rel') || '';
+        if (currentRel.indexOf('noopener') === -1 && currentRel.indexOf('noreferrer') === -1) {
+            $(this).attr('rel', function(i, val) {
+                return val ? val + ' noopener' : 'noopener';
+            });
+            // console.log("Updated link with rel='noopener': " + this.href);
+        } else {
+            // console.log("Skipping update for rel='noopener' on link: " + this.href);
+        }
+
+    });
+
+});
+</script><script type="text/javascript" async>
+			var page_id="https://www.southalabama.edu/colleges/alliedhealth/pt/index.html";
+		</script><script src="/_resources/js/directedit.js"></script><script type="text/javascript" src="/_resources/js/lightbox/lightbox.min.js" async></script><link rel="stylesheet" type="text/css" href="/_resources/js/lightbox/lightbox.css" media="screen">
+   <link href="/_resources/css/dept-secondary.css" rel="stylesheet"><script type="text/javascript" async>
+			var page_id="https://www.southalabama.edu/colleges/alliedhealth/pt/index.html";
+		</script><title>Doctor of Physical Therapy - DPT Program | Allied Health</title>
+   <meta name="description" content="The Doctor of Physical Therapy degree program prepares graduates for professional practice through hands-on clinical practical labs and formal lectures/discussions.">
+   
+<script type='text/javascript'>
+			(function() {
+			var sz = document.createElement('script'); sz.type = 'text/javascript'; sz.async = true;
+			sz.src = '//siteimproveanalytics.com/js/siteanalyze_66357330.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(sz, s);
+			})();
+			</script>
+<script type='text/javascript' src='https://www.southalabama.edu/_resources/js/usa-siteimprove.js'></script>
+<script type='text/javascript' src='https://ws.sharethis.com/button/buttons.js'></script>
+<script type='text/javascript'>
+		stLight.options({publisher: 'fb33bec6-214d-4f18-aafa-d362a4492b45', doNotHash: true, doNotCopy: true, hashAddressBar: false});
+		</script>
+<!-- Code modified by Farzam Bayat - bayat@southalabama.edu - Last Updated on:  03-05-2016 - 10:00 AM-CST -->
+
+<script> 
+	$(function(){
+		$("#xlp").load("/alert/_module/publish-module.html #FBAlert"); 
+	});
+</script> 
+    
+<div id="xlp"></div><script type="text/javascript" src="https://www.southalabama.edu/_resources/js/scrolltopcontrol.js">
+//
+
+/***********************************************
+* Scroll To Top Control script- (c) Dynamic Drive DHTML code library (www.dynamicdrive.com)
+* Please keep this notice intact
+* Visit Project Page at https://www.dynamicdrive.com for full source code
+***********************************************/
+
+//
+</script><script type="text/javascript" async>
+				var page_id="https://www.southalabama.edu/colleges/alliedhealth/pt/index.html";
+			</script><style type="text/css" media="screen">			
+				# ___gcse_0:before{display:none;} 
+				# ___gcse_0:after{display:none;}
+				
+			</style>
+</head><body class="department">
+<!-- Google Tag Manager (noscript) - MHJT52M -->
+			<noscript><iframe src='https://www.googletagmanager.com/ns.html?id=GTM-MHJT52M' title='Google Tag Manager - GTM-MHJT52M'
+			 style='display:none;visibility:hidden;width:0px;height:0px;'></iframe></noscript>
+		  <!-- End Google Tag Manager (noscript) - MHJT52M -->
+   <header>
+      <div id="startpage" tabindex="-1" class="skipped-navigation-area">
+         				You have returned to the top of the page and may restart browsing.
+         			</div>
+      <div id="skiptopnav"><a href="#skippedtopnav">Skip Main Navigation</a></div>
+      <div class="helpcontainer v25-header-region-a">
+         <div class="appcontainer hidden-xs hidden-sm"><a href="/" target="_self" class="fbusalogohomego">
+	<img src="/_resources/images/header/v25-south-alabama-flagship-logo.png" alt="University of South Alabama" class="v25-logo-img" />
+</a>
+            <nav role="navigation" aria-label="Search and Logins Navigation" id="v25-nav-help">
+               <ul><li class="hpholder">
+	<button id="loginsmenu" class="dropdown-toggle" type="button" data-toggle="dropdown" aria-label="Select Logins options" aria-haspopup="true" aria-expanded="false">Logins<span class="caret"></span></button>
+	<ul class="dropdown-menu fbseconddrpst" aria-labelledby="loginsmenu">
+		<li><a href="/services/logins/students/">Students</a></li>
+		<li><a href="/services/logins/faculty-staff/">Faculty &amp; Staff</a></li>
+		<li><a href="https://paws.southalabama.edu/" target="_blank" rel="noopener" aria-label="PAWS Login page opens in a new window">PAWS</a></li>
+		<li><a href="https://usaonline.southalabama.edu" target="_blank" rel="noopener" aria-label="USAonline Login page opens in a new window">USAonline</a></li>
+	</ul>
+</li>
+<li><a href="/a-z/">A-Z</a></li>
+<li>
+	<a href="#searchmn" role="button" data-toggle="collapse" aria-label="Search USA website" aria-expanded="false" aria-controls="searchmn" onclick="setTimeout(getFocus,500)">
+	   <img src="/_resources/images/usasearchnv.png" class="v25-helpbar-schic" alt="Search USA" />
+	</a>
+</li></ul>
+            </nav>
+         </div>
+         <div class="appcontainer visible-xs visible-sm">
+            <nav role="navigation" aria-label="Mobile Navigation" id="v25-nav-mobile">
+               <ul>
+                  <li><button 
+	type="button"
+	data-toggle="modal" 
+	data-target="#FullNavigationMenu"
+	aria-controls="FullNavigationMenu"
+	aria-label="Open Main Navigation Menu"
+>
+	<span class="sr-only">Open Main Navigation Menu</span>
+	<span class="v25-mobile-hamburger" aria-hidden="true">
+		<span></span>
+		<span></span>
+		<span></span>
+	</span>
+</button>
+
+</li>
+                  <li><a href="/" target="_self" class="fbusalogohomego">
+	<img src="/_resources/images/header/v25-south-alabama-flagship-logo.png" alt="University of South Alabama" class="v25-logo-img" />
+</a>
+</li>
+                  <li><a title="Search" role="button" data-toggle="collapse" href="#searchmn" aria-expanded="false" aria-controls="searchmn" onclick="setTimeout(getFocus,500)">
+	<img src="/_resources/images/usasearchnv.png" class="v25-helpbar-schic" alt="Search USA">
+</a>
+</li>
+               </ul>
+            </nav>
+         </div>
+      </div>
+      <div class="collapse" id="searchmn" style="background-color:#000000;">
+         <div class="appcontainer">
+            <div class="helpbar-sqarea"><div class="hgt-set-05"></div>
+
+<form id="searchgousa" action="https://www.southalabama.edu/search/searchresults.html">
+	<div class="row rwmgnone">
+		<div class="col-md-9">
+			<input type="hidden" value="015271837967661074870:1bcj4ehmap4" name="cx" /> 
+			<input type="hidden" value="FORID:10" name="cof" /> 
+			<input type="hidden" value="UTF-8" name="ie" /> 
+			<label for="searchqueryid" class="visually-hidden">Search:</label>
+			<input id="searchqueryid" type="text" class="v25-helpbar-squery" placeholder="Type Search Keyword" size="30" name="q" />
+		</div>
+		<div class="col-md-3">
+			<!-- <label class="sr-only" for="submitquery">Submit</label> -->
+			<input type="image" alt="search button" src="/_resources/images/searchusa.png" class="v25-fbsearchsbgo" name="sa" title="search button" onfocusout="CallFBSearch()" />
+		</div>
+	</div>
+</form>
+
+<div class="hgt-set-15"></div>
+
+<script>
+	document.getElementById("searchgousa").addEventListener("submit", function(e) {
+		const input = document.getElementById("searchqueryid");
+		const query = input.value.trim().toLowerCase();
+
+		if (query === "c3polab") {
+			input.value = "South Alabama";
+		}
+	});
+</script></div>
+         </div>
+      </div>
+      <div class="helpcontainer v25-header-region-b">
+         <div class="appcontainer">
+            <nav id="v25-nav-main">
+               <ul class="hidden-xs hidden-sm"><li>
+	<button 
+		id="FullMenuLaunchButton"
+		type="button"
+		data-toggle="modal" 
+		data-target="#FullNavigationMenu"
+		aria-label="Open Full Menu"
+		aria-controls="FullNavigationMenu"
+	>Full Menu
+	</button>
+</li>
+<li><a href="/colleges/">Programs</a></li>
+<li><a href="/departments/admissions/">Admission</a></li>
+<li><a href="/whereboldbegins/">Donate</a></li></ul>
+               <div id="FullNavigationMenu" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                     <div class="modal-content">
+                        <div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span><span>Close</span></button></div>
+                        <div class="modal-body v25-nav-zst">
+                           <div class="v25-full-menu-keyboard-message hidden" role="alert" aria-live="polite">
+                              											You’ve opened the full navigation menu. The close button is the first item
+                              you’ll reach when tabbing. You can press Enter on it or press the Escape key at any
+                              time to close the menu. Continue pressing Tab to browse the navigation links.
+                              										</div>
+                           <nav id="v25-nav-full"><div class="row visible-xs visible-sm">
+<div class="col-md-4 nav-section-programs">
+<ul data-parent="#v25-nav-full">
+<li><a href="/colleges/">Programs</a></li>
+<li><a href="/departments/admissions/">Admission</a></li>
+<li><a href="/whereboldbegins/">Donate</a></li>
+</ul>
+<hr /></div>
+</div>
+<div class="row">
+<div class="col-md-4 nav-section"><button class="visible-xs visible-sm collapsed" type="button" data-toggle="collapse" data-target="#nav-academics" aria-expanded="false" aria-controls="nav-academics"> Academics </button>
+<div class="nav-title hidden-xs hidden-sm">Academics</div>
+<ul id="nav-academics" class="collapse v25-collapse-fix" data-parent="#v25-nav-full">
+<li><a href="/departments/academicaffairs/">Academic Affairs</a></li>
+<li><a href="/undergraduatemajors/">Undergraduate Programs</a></li>
+<li><a href="/graduatemajors/">Graduate Programs</a></li>
+<li><a href="/colleges/">Colleges and Schools</a></li>
+<li><a href="/onlineprograms/">Online Programs</a></li>
+<li><a href="/libraries/">Libraries</a></li>
+<li><a href=" /departments/globalusa/cce/">Continuing Education</a></li>
+<li><a href="/departments/militaryservices/">Military Services</a></li>
+<li><a href="/academiccalendar/">Academic Calendar</a></li>
+<li><a href="/studentservices/">Student Services</a></li>
+<li><a href="/departments/registrar/">Registrar</a></li>
+<li><a href="/departments/globalusa/">International Education</a></li>
+</ul>
+<button class="visible-xs visible-sm collapsed" type="button" data-toggle="collapse" data-target="#nav-research" aria-expanded="false" aria-controls="nav-research"> Research </button>
+<div class="nav-title hidden-xs hidden-sm">Research</div>
+<ul id="nav-research" class="collapse v25-collapse-fix" data-parent="#v25-nav-full">
+<li><a href="/departments/research/">Research and Economic Development</a></li>
+<li><a href="/programs/our/">Undergraduate Research</a></li>
+<li><a href="/departments/research/r2-to-r1/">Pathway to R1</a></li>
+</ul>
+</div>
+<div class="col-md-4 nav-section"><button class="visible-xs visible-sm collapsed" type="button" data-toggle="collapse" data-target="#nav-admissions" aria-expanded="false" aria-controls="nav-admissions"> Admissions and Aid </button>
+<div class="nav-title hidden-xs hidden-sm">Admissions and Aid</div>
+<ul id="nav-admissions" class="collapse v25-collapse-fix" data-parent="#v25-nav-full">
+<li><a href="/departments/admissions/applytousa.html">Apply</a></li>
+<li><a href="/departments/admissions/visitourcampus.html">Visit</a></li>
+<li><a href="/departments/orientation/">New Student Orientation</a></li>
+<li><a href="/departments/financialaffairs/studentaccounting/">Tuition and Payments</a></li>
+<li><a href="/departments/financialaffairs/scholarships/">Scholarships</a></li>
+<li><a href="/departments/finaid/">Financial Aid</a></li>
+<li><a href="/departments/admissions/transfer.html">Transfer to South</a></li>
+<li><a href="/onestop/">One Stop</a></li>
+</ul>
+<button class="visible-xs visible-sm collapsed" type="button" data-toggle="collapse" data-target="#nav-campuslife" aria-expanded="false" aria-controls="nav-campuslife"> Campus Life </button>
+<div class="nav-title hidden-xs hidden-sm">Campus Life</div>
+<ul id="nav-campuslife" class="collapse v25-collapse-fix" data-parent="#v25-nav-full">
+<li><a href="/departments/housing/">Housing</a></li>
+<li><a href="https://usouthal.campusdish.com/" target="_blank" rel="noopener">Dining</a></li>
+<li><a href="/departments/studentorganizations/">Organizations</a></li>
+<li><a href="/departments/counseling/">Counseling and Wellness</a></li>
+<li><a href="/departments/police/">USA Police</a></li>
+<li><a href="/departments/campusrec/">Campus Recreation and Wellness</a></li>
+<li><a href="https://southalabama.bncollege.com/" target="_blank" rel="noopener">USA Bookstore</a></li>
+<li><a href="/departments/communityengagement/">Community Engagement</a></li>
+<li><a href="/specialprojects/sustainability/">Sustainability</a></li>
+</ul>
+</div>
+<div class="col-md-4 nav-section"><button class="visible-xs visible-sm collapsed" type="button" data-toggle="collapse" data-target="#nav-about" aria-expanded="false" aria-controls="nav-about"> About </button>
+<div class="nav-title hidden-xs hidden-sm">About</div>
+<ul id="nav-about" class="collapse v25-collapse-fix" data-parent="#v25-nav-full">
+<li><a href="/departments/presidentsoffice/">President</a></li>
+<li><a href="/departments/academicaffairs/aboutsus.html">EVP Provost</a></li>
+<li><a href="/departments/presidentsoffice/administration.html">University Administration</a></li>
+<li><a href="/departments/trustees/">Board of Trustees</a></li>
+<li><a href="/departments/facultyonestop/">Faculty Resources</a></li>
+<li><a href="/aboutusa/historyofusa.html">USA History</a></li>
+<li><a href="/departments/presidentsoffice/strategicplan/">Strategic Plan</a></li>
+<li><a href="/departments/usabythebay/">Baldwin County Campus</a></li>
+<li><a href="https://www.usahealthsystem.com/" target="_blank" rel="noopener">USA Health</a></li>
+<li><a href="/campusmap/" target="_blank" rel="noopener">Maps</a></li>
+</ul>
+<button class="visible-xs visible-sm collapsed" type="button" data-toggle="collapse" data-target="#nav-alumni" aria-expanded="false" aria-controls="nav-alumni"> Alumni </button>
+<div class="nav-title hidden-xs hidden-sm">Alumni</div>
+<ul id="nav-alumni" class="collapse v25-collapse-fix" data-parent="#v25-nav-full">
+<li><a href="/departments/alumni/">Alumni Relations</a></li>
+<li><a href="/departments/alumni/alumniboard.html">NAA Board of Directors</a></li>
+<li><a href="/departments/alumni/macqueen-rentals.html">MacQueen Alumni Center</a></li>
+</ul>
+<button class="visible-xs visible-sm collapsed" type="button" data-toggle="collapse" data-target="#nav-sports" aria-expanded="false" aria-controls="nav-sports"> Sports </button>
+<div class="nav-title hidden-xs hidden-sm">Sports</div>
+<ul id="nav-sports" class="collapse v25-collapse-fix" data-parent="#v25-nav-full">
+<li><a href="https://www.usajaguars.com/" target="_blank" rel="noopener">Jaguar Athletics</a></li>
+<li><a href="https://usajaguars.com/tickets" target="_blank" rel="noopener">Purchase Tickets</a></li>
+<li><a href="https://usajaguars.com/calendar.aspx" target="_blank" rel="noopener">Athletics Calendar</a></li>
+</ul>
+</div>
+</div>
+<div class="row visible-xs visible-sm">
+<div class="col-md-4 nav-section-logins"><hr /><button class="visible-xs visible-sm collapsed" type="button" data-toggle="collapse" data-target="#nav-logins" aria-expanded="false" aria-controls="nav-logins"> Logins </button>
+<ul id="nav-logins" class="collapse v25-collapse-fix" data-parent="#v25-nav-full">
+<li><a href="/services/logins/students/">Students</a></li>
+<li><a href="/services/logins/faculty-staff/">Faculty &amp; Staff</a></li>
+<li><a href="https://paws.southalabama.edu/" target="_blank" rel="noopener">PAWS</a></li>
+<li><a href="https://usaonline.southalabama.edu/" target="_blank" rel="noopener">USAonline</a></li>
+</ul>
+</div>
+</div>
+<div class="row visible-xs visible-sm">
+<div class="col-md-4 nav-section-a-z">
+<ul data-parent="#v25-nav-full">
+<li><a href="/a-z/">A-Z</a></li>
+</ul>
+</div>
+</div></nav>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </nav>
+            <nav class="visually-hidden" aria-hidden="true"><div class="row visible-xs visible-sm">
+<div class="col-md-4 nav-section-programs">
+<ul data-parent="#v25-nav-full">
+<li><a href="/colleges/">Programs</a></li>
+<li><a href="/departments/admissions/">Admission</a></li>
+<li><a href="/whereboldbegins/">Donate</a></li>
+</ul>
+<hr /></div>
+</div>
+<div class="row">
+<div class="col-md-4 nav-section"><button class="visible-xs visible-sm collapsed" type="button" data-toggle="collapse" data-target="#nav-academics" aria-expanded="false" aria-controls="nav-academics"> Academics </button>
+<div class="nav-title hidden-xs hidden-sm">Academics</div>
+<ul id="nav-academics" class="collapse v25-collapse-fix" data-parent="#v25-nav-full">
+<li><a href="/departments/academicaffairs/">Academic Affairs</a></li>
+<li><a href="/undergraduatemajors/">Undergraduate Programs</a></li>
+<li><a href="/graduatemajors/">Graduate Programs</a></li>
+<li><a href="/colleges/">Colleges and Schools</a></li>
+<li><a href="/onlineprograms/">Online Programs</a></li>
+<li><a href="/libraries/">Libraries</a></li>
+<li><a href=" /departments/globalusa/cce/">Continuing Education</a></li>
+<li><a href="/departments/militaryservices/">Military Services</a></li>
+<li><a href="/academiccalendar/">Academic Calendar</a></li>
+<li><a href="/studentservices/">Student Services</a></li>
+<li><a href="/departments/registrar/">Registrar</a></li>
+<li><a href="/departments/globalusa/">International Education</a></li>
+</ul>
+<button class="visible-xs visible-sm collapsed" type="button" data-toggle="collapse" data-target="#nav-research" aria-expanded="false" aria-controls="nav-research"> Research </button>
+<div class="nav-title hidden-xs hidden-sm">Research</div>
+<ul id="nav-research" class="collapse v25-collapse-fix" data-parent="#v25-nav-full">
+<li><a href="/departments/research/">Research and Economic Development</a></li>
+<li><a href="/programs/our/">Undergraduate Research</a></li>
+<li><a href="/departments/research/r2-to-r1/">Pathway to R1</a></li>
+</ul>
+</div>
+<div class="col-md-4 nav-section"><button class="visible-xs visible-sm collapsed" type="button" data-toggle="collapse" data-target="#nav-admissions" aria-expanded="false" aria-controls="nav-admissions"> Admissions and Aid </button>
+<div class="nav-title hidden-xs hidden-sm">Admissions and Aid</div>
+<ul id="nav-admissions" class="collapse v25-collapse-fix" data-parent="#v25-nav-full">
+<li><a href="/departments/admissions/applytousa.html">Apply</a></li>
+<li><a href="/departments/admissions/visitourcampus.html">Visit</a></li>
+<li><a href="/departments/orientation/">New Student Orientation</a></li>
+<li><a href="/departments/financialaffairs/studentaccounting/">Tuition and Payments</a></li>
+<li><a href="/departments/financialaffairs/scholarships/">Scholarships</a></li>
+<li><a href="/departments/finaid/">Financial Aid</a></li>
+<li><a href="/departments/admissions/transfer.html">Transfer to South</a></li>
+<li><a href="/onestop/">One Stop</a></li>
+</ul>
+<button class="visible-xs visible-sm collapsed" type="button" data-toggle="collapse" data-target="#nav-campuslife" aria-expanded="false" aria-controls="nav-campuslife"> Campus Life </button>
+<div class="nav-title hidden-xs hidden-sm">Campus Life</div>
+<ul id="nav-campuslife" class="collapse v25-collapse-fix" data-parent="#v25-nav-full">
+<li><a href="/departments/housing/">Housing</a></li>
+<li><a href="https://usouthal.campusdish.com/" target="_blank" rel="noopener">Dining</a></li>
+<li><a href="/departments/studentorganizations/">Organizations</a></li>
+<li><a href="/departments/counseling/">Counseling and Wellness</a></li>
+<li><a href="/departments/police/">USA Police</a></li>
+<li><a href="/departments/campusrec/">Campus Recreation and Wellness</a></li>
+<li><a href="https://southalabama.bncollege.com/" target="_blank" rel="noopener">USA Bookstore</a></li>
+<li><a href="/departments/communityengagement/">Community Engagement</a></li>
+<li><a href="/specialprojects/sustainability/">Sustainability</a></li>
+</ul>
+</div>
+<div class="col-md-4 nav-section"><button class="visible-xs visible-sm collapsed" type="button" data-toggle="collapse" data-target="#nav-about" aria-expanded="false" aria-controls="nav-about"> About </button>
+<div class="nav-title hidden-xs hidden-sm">About</div>
+<ul id="nav-about" class="collapse v25-collapse-fix" data-parent="#v25-nav-full">
+<li><a href="/departments/presidentsoffice/">President</a></li>
+<li><a href="/departments/academicaffairs/aboutsus.html">EVP Provost</a></li>
+<li><a href="/departments/presidentsoffice/administration.html">University Administration</a></li>
+<li><a href="/departments/trustees/">Board of Trustees</a></li>
+<li><a href="/departments/facultyonestop/">Faculty Resources</a></li>
+<li><a href="/aboutusa/historyofusa.html">USA History</a></li>
+<li><a href="/departments/presidentsoffice/strategicplan/">Strategic Plan</a></li>
+<li><a href="/departments/usabythebay/">Baldwin County Campus</a></li>
+<li><a href="https://www.usahealthsystem.com/" target="_blank" rel="noopener">USA Health</a></li>
+<li><a href="/campusmap/" target="_blank" rel="noopener">Maps</a></li>
+</ul>
+<button class="visible-xs visible-sm collapsed" type="button" data-toggle="collapse" data-target="#nav-alumni" aria-expanded="false" aria-controls="nav-alumni"> Alumni </button>
+<div class="nav-title hidden-xs hidden-sm">Alumni</div>
+<ul id="nav-alumni" class="collapse v25-collapse-fix" data-parent="#v25-nav-full">
+<li><a href="/departments/alumni/">Alumni Relations</a></li>
+<li><a href="/departments/alumni/alumniboard.html">NAA Board of Directors</a></li>
+<li><a href="/departments/alumni/macqueen-rentals.html">MacQueen Alumni Center</a></li>
+</ul>
+<button class="visible-xs visible-sm collapsed" type="button" data-toggle="collapse" data-target="#nav-sports" aria-expanded="false" aria-controls="nav-sports"> Sports </button>
+<div class="nav-title hidden-xs hidden-sm">Sports</div>
+<ul id="nav-sports" class="collapse v25-collapse-fix" data-parent="#v25-nav-full">
+<li><a href="https://www.usajaguars.com/" target="_blank" rel="noopener">Jaguar Athletics</a></li>
+<li><a href="https://usajaguars.com/tickets" target="_blank" rel="noopener">Purchase Tickets</a></li>
+<li><a href="https://usajaguars.com/calendar.aspx" target="_blank" rel="noopener">Athletics Calendar</a></li>
+</ul>
+</div>
+</div>
+<div class="row visible-xs visible-sm">
+<div class="col-md-4 nav-section-logins"><hr /><button class="visible-xs visible-sm collapsed" type="button" data-toggle="collapse" data-target="#nav-logins" aria-expanded="false" aria-controls="nav-logins"> Logins </button>
+<ul id="nav-logins" class="collapse v25-collapse-fix" data-parent="#v25-nav-full">
+<li><a href="/services/logins/students/">Students</a></li>
+<li><a href="/services/logins/faculty-staff/">Faculty &amp; Staff</a></li>
+<li><a href="https://paws.southalabama.edu/" target="_blank" rel="noopener">PAWS</a></li>
+<li><a href="https://usaonline.southalabama.edu/" target="_blank" rel="noopener">USAonline</a></li>
+</ul>
+</div>
+</div>
+<div class="row visible-xs visible-sm">
+<div class="col-md-4 nav-section-a-z">
+<ul data-parent="#v25-nav-full">
+<li><a href="/a-z/">A-Z</a></li>
+</ul>
+</div>
+</div></nav>
+         </div>
+      </div>
+   </header>
+   <main id="wrap">
+      <div id="skippedtopnav" tabindex="-1" class="skipped-navigation-area">
+         			  You have skipped the global top navigation and may now begin browsing the page.
+         			</div>
+      <div class="helpcontainer v25-helpctst">
+         
+            
+            
+            <section aria-label="Homepage Slideshow">
+               <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                  <div class="carousel-inner"><a href="https://www.youtube.com/watch?v=-qTHH7mS1Qw" title="" target="_blank" class="item active popup-youtube"><img src="/colleges/alliedhealth/pt/images/building.jpg" alt="Allied Health building." class="fb-ttstwthp"><div class="carousel-caption add-to-bottom-left">
+                           <div class="fb-ttrgonst">Physical Therapy</div>
+                           <div class="fb-ttrgtwst">Click for video</div>
+                        </div></a></div>
+               </div>
+            </section>
+         
+      </div>
+      <div class="ovtthrttrg">
+         <div class="appcontainer">
+            <h1 class="ovtttxsts">Doctor of Physical Therapy - DPT Program</h1>
+         </div>
+      </div>
+      <div class="appcontainer">
+         <div class="row">
+            <div class="col-xs-12">
+               <ol class="breadcrumb">
+                  <li><a href="/">Home</a></li>
+                  <li><a href="/colleges/">Colleges </a></li>
+                  <li><a href="/colleges/alliedhealth/">Allied Health </a></li>
+                  <li>Department of Physical Therapy </li>
+               </ol>
+            </div>
+         </div>
+         <div class="row">
+            <div class="col-sm-3" id="leftSidebar">
+               <div id="sidebar">
+                  <div id="skipleftnav"><a href="#content" title="Skip Left Navigation">Skip Left Navigation</a></div>
+                  <div class="navbar-header"><button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#sidebarMenu"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a data-target="#sidebarMenu" data-toggle="collapse" class="navbar-text">Menu</a></div>
+                  <div class="collapse navbar-collapse" id="sidebarMenu"><!--custom-->
+                     <nav aria-label="Left Navigation Menu"><span class="list-unstyled" id="leftNavigation"><div id="fb-nav">
+   
+      
+      <ul>
+         <li class="first "><a href="/colleges/alliedhealth/pt/">Physical Therapy Home</a></li>
+         <li class="has-sub "><a href="#" aria-label="Physical Therapy Admissions dropdown">Admissions</a><ul>
+               <li><a href="/colleges/alliedhealth/pt/apply.html">General Admissions</a></li>
+               <li><a href="/colleges/alliedhealth/pt/technology-requirements.html">Technology Requirements</a></li>
+               <li><a href="/colleges/alliedhealth/pt/courses.html">Curriculum/Courses</a></li>
+               <li><a href="/colleges/alliedhealth/pt/expenses.html">Estimated Expenses</a></li>
+               <li><a href="/colleges/alliedhealth/pt/eap.html">Early Acceptance Program</a></li>
+               <li><a href="/colleges/alliedhealth/pt/scholarships.html" aria-label="PT Scholarships">Scholarships</a></li>
+            </ul>
+         </li>
+         <li class="has-sub "><a href="#" aria-label="Physical Therapy Student Information">Student Information</a><ul>
+               <li><a href="/colleges/alliedhealth/pt/studentinformation.html">General Student Info</a></li>
+               <li><a href="/colleges/alliedhealth/pt/international.html">International Experiences</a></li>
+               <li><a href="/colleges/alliedhealth/pt/prept.html">Pre-Physical Therapy</a></li>
+               <li><a href="/colleges/alliedhealth/pt/awards.html">News, Honors, Awards</a></li>
+               <li><a href="/colleges/alliedhealth/pt/coreperfstands.html">Core Performance Standards</a></li>
+            </ul>
+         </li>
+         <li><a href="/colleges/alliedhealth/pt/studentoutcome.html">Student Outcomes</a></li>
+         <li class="has-sub "><a href="#">Facilities</a><ul>
+               <li><a href="/colleges/alliedhealth/pt/facilities.html">PT Facilities</a></li>
+               <li><a href="/colleges/alliedhealth/pt/mal.html">Motion Analysis Lab</a></li>
+            </ul>
+         </li>
+         <li><a href="/colleges/alliedhealth/pt/faculty.html" aria-label="PT Faculty">Faculty</a></li>
+         <li><a href="/colleges/alliedhealth/pt/alumni.html" aria-label="PT Alumni">Alumni</a></li>
+         <li><a href="/colleges/alliedhealth/pt/ptclined.html">Clinical Education</a></li>
+         <li><a href="/colleges/alliedhealth/pt/ptclinic/">Physical Therapy Clinic</a></li>
+         <li><a href="/colleges/alliedhealth/pt/contactus.html">Contact Physical Therapy</a></li>
+         <li class="last "><a href="/colleges/alliedhealth/pt/resources/2026ptdepartmentceus.pdf" target="_blank" rel="noopener">CEU Courses 2026</a></li>
+      </ul>
+   
+</div><div class="hgt-set-40"></div>
+   
+<div class="hgt-set-40"></div></span></nav>
+                     <address><span>Department of Physical Therapy </span><span>University of South Alabama </span><span>HAHN 2011 </span><span>5721 USA Drive North </span><span>Mobile, Alabama 36688</span><span><em class="glyphicon glyphicon-phone-alt"></em> Ph: (251) 445-9330</span><span><em class="glyphicon glyphicon-link"></em> Fax: (251) 445-9238</span><!--/colleges/alliedhealth/pt/_props.inc--></address>
+                  </div>
+               </div>
+            </div>
+            <div class="col-sm-9" id="dept-main">
+               <section id="content" aria-label="Content section">
+                  
+                     
+                     <div class="expandcontenttlt">&nbsp;</div>
+                     
+                     <div class="expandcontentbrmin"><br>
+                        <!-- SN005VA -->
+                        
+                        <div class="row">
+                           
+                           <div class="col-md-4">
+                              <a href="/colleges/alliedhealth/pt/studentinformation.html" title="Student Information" class="expandcontent" target="_self" style="height:300px; width:100%"><img src="/colleges/alliedhealth/images/index11.jpg" alt="Student Information" class="expandcontentbr" style="margin:auto;"><div class="expandcontenttlt">Student Information</div></a><div class="expandcontentbrmin"></div>
+                              </div>
+                           
+                           <div class="col-md-4">
+                              <a href="/colleges/alliedhealth/pt/apply.html" title="Admissions" class="expandcontent" target="_self" style="height:300px; width:100%"><img src="/colleges/alliedhealth/images/index12.jpg" alt="Admissions" class="expandcontentbr" style="margin:auto;"><div class="expandcontenttlt">Admissions</div></a><div class="expandcontentbrmin"></div>
+                              </div>
+                           
+                           <div class="col-md-4">
+                              <a href="https://bulletin.southalabama.edu/programs-az/allied-health/physical-therapy/" title="Bulletin" class="expandcontent" target="_self" style="height:300px; width:100%"><img src="/colleges/alliedhealth/images/index13.jpg" alt="Bulletin" class="expandcontentbr" style="margin:auto;"><div class="expandcontenttlt">Bulletin</div></a><div class="expandcontentbrmin"></div>
+                              </div>
+                           </div>
+                        </div>
+                     
+                     <h2>Doctor of Physical Therapy Program - DPT Program</h2>
+                     
+                     <p>The Department of Physical Therapy offers the Doctor of Physical Therapy program.
+                        The PT dept. has provided quality physical therapy education for over 40 years with
+                        continuous accreditation. A friendly faculty that is clinically and academically strong
+                        teaches the curriculum leading to the Doctor of Physical Therapy DPT degree.&nbsp;<br><br>The exciting and challenging Doctor of Physical Therapy program is offered in an 8-semester
+                        (32 continuous months) format, a new class entering each Fall semester. The DPT program
+                        curriculum includes a variety of professional training/educational experiences to
+                        prepare students to enter PT practice. Students benefit from significant hands-on
+                        physical therapy clinical practical labs and formal lectures/discussions led by faculty
+                        with experience in each clinical practice area, clinical problem solving activities,
+                        clinical research plus 34 weeks of full-time clinical internship supervised by licensed
+                        physical therapists. The clinical internships are available in over 200 affiliated
+                        general hospitals, rehabilitation centers and various specialty practices representing
+                        a wide variety of educational opportunities for the student. While clinical sites
+                        are spread across the United States, the majority are within the Southeastern region.<br><br>The Doctor of Physical Therapy program at the University of South Alabama prepares
+                        graduates for professional practice and is designed as an entry-level, first Physical
+                        Therapy degree. Throughout the DPT program, students develop necessary communication
+                        skills in addition to professional and manual skills and techniques. Strong emphasis
+                        is placed on gaining clinical reasoning/problem solving skills and the ability to
+                        practice as an independent primary care provider in any employment setting. Graduates
+                        of the DPT program will also have the capability of assuming responsibilities in areas
+                        of administration, consultation and research in physical therapy.</p>
+                     
+                     <p>&nbsp;</p>
+                     
+                     <p><img style="color: #000000;" src="/colleges/alliedhealth/images/learn_lead_love_logo.jpg" alt="Learn Lead Love Logo" width="596" height="437" data-darkreader-inline-color=""></p>
+                     
+                     <h2>Mission Statement</h2>
+                     
+                     <p>The University of South Alabama Department of Physical Therapy develops compassionate
+                        physical therapists, who are movement specialists and primary care leaders in health
+                        and wellness, prepared to provide excellent evidence-based care and service while
+                        engaging in scientific inquiry to meet the healthcare needs of all communities.</p>
+                     
+                     <h2>What Is a Physical Therapist?</h2>
+                     
+                     <div id="accordion-2nc" class="panel-group">
+                        <div class="panel panel-default"><a class="DiscoveringWebBox" href="#collapse1" data-toggle="collapse" data-parent="#accordion"> ▼ &nbsp; What Is a Physical Therapist?</a><div id="collapse1" class="panel-collapse collapse">
+                              <div class="panel-body">
+                                 
+                                 <p>A Physical Therapist (PT) is a healthcare professional who provides direct patient
+                                    care to persons who have disorders of movement, mechanical, physiological and developmental
+                                    impairments and functional limitations, whether caused by injury or disease, to help
+                                    them achieve maximum physical function and mobility. Physical Therapists have the
+                                    necessary training to meet the total range of patient care responsibilities involved
+                                    in preventing disabilities and promoting restoration of function to the physically
+                                    impaired, including musculoskeletal, neuromuscular, cardiovascular/pulmonary and integumentary
+                                    disorders that interfere with physical function.</p>
+                                 </div>
+                           </div>
+                        </div>
+                        <div class="panel panel-default"><a class="DiscoveringWebBox" href="#collapse2" data-toggle="collapse" data-parent="#accordion"> ▼ &nbsp; What does a Physical Therapist do?</a><div id="collapse2" class="panel-collapse collapse">
+                              <div class="panel-body">
+                                 
+                                 <p>Physical Therapists use their minds and hands to:</p>
+                                 
+                                 <ul>
+                                    
+                                    <li>Diagnose and manage movement dysfunction and enhance physical and functional abilities.</li>
+                                    
+                                    <li>Restore, maintain, and promote optimal physical function and optimal wellness and
+                                       fitness and optimal quality of life as it relates to movement and health.</li>
+                                    
+                                    <li>Prevent the onset, symptoms, and progression of impairments, functional limitations,
+                                       and disabilities that may result from diseases, disorders, or injuries.</li>
+                                    </ul>
+                                 </div>
+                           </div>
+                        </div>
+                        <div class="panel panel-default"><a class="DiscoveringWebBox" href="#collapse3" data-toggle="collapse" data-parent="#accordion"> ▼ &nbsp; Where does a Physical Therapist work?</a><div id="collapse3" class="panel-collapse collapse">
+                              <div class="panel-body">
+                                 
+                                 <p>Physical Therapists practice in hospitals and medical centers, rehabilitation centers,
+                                    private practice clinics, home health settings, sports medicine facilities, colleges,
+                                    universities and in various other settings. The broad options in Physical Therapy
+                                    allow PTs to develop and pursue a focus of care in any specific population from children
+                                    and athletes to senior citizens. Physical Therapists also work as educators, researchers,
+                                    consultants and administrators. <br><br>Physical Therapy is a sought-after career with virtually unlimited opportunities.
+                                    It is a profession that offers a lifetime of satisfaction while directly helping people
+                                    move more efficiently and function more effectively.</p>
+                                 </div>
+                           </div>
+                        </div>
+                     </div>
+                     
+                     <p>&nbsp;</p>
+                     
+                     <div class="panel panel-info">
+                        
+                        <div class="panel-body" style="display: flex;">
+                           
+                           <div class="NWS-DW8-Standard">
+                              
+                              <h2><a id="accreditation"></a>Accreditation and Licensure</h2>
+                              
+                              <hr><br>
+                              <!-- SN000VA -->
+                              
+                              <div class="row">
+                                 <div class="col-md-4"><a title="CAPTE License " href="https://api.accredible.com/v1/auth/invite?code=b333e6acab22bc981456&amp;credential_id=64003736-2ffc-4d9b-b0c6-3adcaee4f17d&amp;url=https%3A%2F%2Fwww.credential.net%2F64003736-2ffc-4d9b-b0c6-3adcaee4f17d&amp;ident=483d55d11aaa71cc75c129cba71c1e829a1b2016"><img src="/colleges/alliedhealth/pt/images/capte2026.png" alt="CAPTE" width="168" height="157"></a></div>
+                                 <div class="col-md-4">
+                                    
+                                    <div class="hgt-set-10">&nbsp;</div>
+                                    	<a class="comp-btt25-cs comp-btt25-red  comp-btt25-font-sm comp-btt25-cs-full-width comp-btt25-rounded " href="/colleges/alliedhealth/pt/resources/dptstudentfinancialfactsheet.pdf" target="_self">
+                                       		<span class="comp-btt25-cs-ib-none comp-btt25-rounded">2025-2026 DPT Student Financial Fact Sheet
+                                          		</span>
+                                       	</a>
+                                    
+                                    <div class="hgt-set-10">&nbsp;</div> 
+                                    </div>
+                              </div>
+                              <br>
+                              
+                              <p>&nbsp;</p>
+                              
+                              <h2>General Disclosure</h2>
+                              
+                              <hr><br>
+                              <!-- SN000VA -->
+                              
+                              <div class="row">
+                                 <div class="col-md-4">&nbsp;</div>
+                                 <div class="col-md-4">
+                                    
+                                    <div class="hgt-set-10">&nbsp;</div>
+                                    	<a class="comp-btt25-cs comp-btt25-red  comp-btt25-font-sm comp-btt25-cs-full-width comp-btt25-rounded " href="/colleges/alliedhealth/pt/resources/pt-direct-disclosure-memo.pdf" target="_self">
+                                       		<span class="comp-btt25-cs-ib-none comp-btt25-rounded">General Disclosure
+                                          		</span>
+                                       	</a>
+                                    
+                                    <div class="hgt-set-10">&nbsp;</div> 
+                                    </div>
+                              </div>
+                              <br>The Department of Physical Therapy at the University of South Alabama is accredited
+                              by the Commission on Accreditation in Physical Therapy Education (CAPTE), 3030 Potomac
+                              Ave., Suite 100, Alexandria, Virginia 22305-3085; telephone: 703-706-3245; email:
+                              <a href="mailto:accreditation@apta.org" target="_blank" rel="noopener">accreditation@apta.org</a>; website:<a href="https://www.capteonline.org/" target="_blank" rel="noopener"> https://www.capteonline.org</a>. If needing to contact the program/institution directly, please call <a href="tel:+12514459330" target="_blank" rel="noopener">(251) 445-9330</a> or email <a href="mailto:ptdept@southalabama.edu" target="_blank" rel="noopener">ptdept@southalabama.edu</a>.</div>
+                           </div>
+                        </div>
+                     
+                     <h2>Filing a Complaint or Comment</h2>
+                     
+                     <p>The &nbsp;<a href="/colleges/alliedhealth/pt/resources/filingcomplaintorcomment.pdf">Filing a Complaint or Comment</a> document lists several ways you can submit a complaint or comment regarding the Physical
+                        Therapy Program at the University of South Alabama or the faculty, staff or students.</p>
+                     
+                     <h2>NC-SARA State Professional Licensure Disclosure</h2>
+                     
+                     <p>The Department of Education requires compliance with state regulations of any state
+                        in which the University of South Alabama provides distance education for students.
+                        To facilitate this compliance with state regulations, USA has joined the National
+                        Council for State Authorization Reciprocity Agreements (<a href="https://nc-sara.org/" target="_blank" rel="noopener">NC-SARA</a>). NC-SARA allows USA to offer distance education in 49 states plus the District of
+                        Columbia, Puerto Rico, and the U.S. Virgin Islands (California is not a SARA state).
+                        The USA Department of Physical Therapy Doctor of Physical Therapy program meets all
+                        professional licensure or certification requirements in the 49 SARA states plus the
+                        state of California. It does not meet the requirements in the United States territory,
+                        Puerto Rico.&nbsp;</p>
+                     
+                     <p>&nbsp;</p>
+                     
+                     <h2>Membership in APTA</h2>
+                     
+                     <p><img class="pull-left" style="margin: 10px;" title="goldreach100" src="/colleges/alliedhealth/pt/images/goldreach100.png" alt="goldreach100" width="125" height="67"></p>
+                     
+                     <p>The Department of Physical Therapy promotes membership in the APTA, and annually participates
+                        in the APTA's Reach100 Challenge, always with 100% faculty membership, and often achieving
+                        100% membership among students.&nbsp;&nbsp;</p>
+                     
+                     <p>&nbsp;</p>
+                     
+                     <div class="clearfix"><!-- SN000VC -->
+                        
+                        <div class="row">
+                           <div class="col-md-3">
+                              
+                              <div class="hgt-set-10">&nbsp;</div>
+                              	<a class="comp-btt25-cs comp-btt25-red  comp-btt25-font-sm comp-btt25-cs-full-width comp-btt25-rounded " href="https://www.southalabama.edu/departments/admissions/visitourcampus.html" target="_self">
+                                 		<span class="comp-btt25-cs-ib-none comp-btt25-rounded">Visit South
+                                    		</span>
+                                 	</a>
+                              
+                              <div class="hgt-set-10">&nbsp;</div> 
+                              </div>
+                           <div class="col-md-3">
+                              
+                              <div class="hgt-set-10">&nbsp;</div>
+                              	<a class="comp-btt25-cs comp-btt25-standard  comp-btt25-font-sm comp-btt25-cs-full-width comp-btt25-rounded " href="https://www.southalabama.edu/academiccalendar" target="_self">
+                                 		<span class="comp-btt25-cs-ib-none comp-btt25-rounded">Academic Calendar
+                                    		</span>
+                                 	</a>
+                              
+                              <div class="hgt-set-10">&nbsp;</div> 
+                              </div>
+                           <div class="col-md-3">
+                              
+                              <div class="hgt-set-10">&nbsp;</div>
+                              	<a class="comp-btt25-cs comp-btt25-blue  comp-btt25-font-sm comp-btt25-cs-full-width comp-btt25-rounded " href="https://www.southalabama.edu/colleges/alliedhealth/pt/apply.html" target="_self">
+                                 		<span class="comp-btt25-cs-ib-none comp-btt25-rounded">Apply
+                                    		</span>
+                                 	</a>
+                              
+                              <div class="hgt-set-10">&nbsp;</div> 
+                              </div>
+                           <div class="col-md-3">
+                              
+                              <div class="hgt-set-10">&nbsp;</div>
+                              	<a class="comp-btt25-cs comp-btt25-grey  comp-btt25-font-sm comp-btt25-cs-full-width comp-btt25-rounded " href="https://www.southalabama.edu/colleges/alliedhealth/pt/contactus.html" target="_self">
+                                 		<span class="comp-btt25-cs-ib-none comp-btt25-rounded">Contact Us
+                                    		</span>
+                                 	</a>
+                              
+                              <div class="hgt-set-10">&nbsp;</div> 
+                              </div>
+                        </div>
+                        <br><br></div>
+                  
+                  <div class="clearfix"></div>
+               </section>
+            </div>
+         </div>
+      </div>
+   </main>
+   <div class="v25-footer">
+      <footer>
+         <div class="appcontainer">
+            <div id="skipfooter"><a href="#startpage">Skip Footer and Return to Top</a></div>
+         </div>
+         <div class="v25-footer-main">
+            <div class="appcontainer">
+               <div class="row">
+                  <div class="col-md-3">
+                     <div class="hgt-set-20 hidden-xs hidden-sm"></div>
+                     <a href="/" target="_self" class="v25-footer-lgl">
+	<img src="/_resources/images/v25-footer-logo.png" alt="University of South Alabama"  />
+</a></div>
+                  <div class="col-md-3">
+                     <h2>University of South Alabama</h2>
+                     <p><a href="tel:+12514606101">(251) 460-6101</a></p>
+<p>Mobile, Alabama 36688</p>                     <ul><li><a href="https://www.facebook.com/theuniversityofsouthalabama" target="_blank"><img src="/_resources/images/icons/v25-ico-facebook.png" target="_blank" alt="Connect with University of South Alabama on Facebook" /></a></li>
+<li><a href="https://twitter.com/UofSouthAlabama" target="_blank"><img src="/_resources/images/icons/v25-ico-x.png" target="_blank" alt="Follow University of South Alabama on X" /></a></li>
+<li><a href="https://www.youtube.com/USAPublicRelations" target="_blank"><img src="/_resources/images/icons/v25-ico-youtube.png" target="_blank" alt="Follow University of South Alabama's YouTube Channel" /></a></li>
+<li><a href="http://instagram.com/uofsouthalabama" target="_blank"><img src="/_resources/images/icons/v25-ico-instagram.png" target="_blank" alt="Connect with University of South Alabama on Instagram" /></a></li>
+
+  </ul>
+                  </div>
+                  <nav class="col-md-3" aria-label="Quick Links">
+                     <h2>Quick Links</h2>
+                     <ul><li><a href="/departments/alumni/">Alumni</a></li>
+<li><a href="https://usajaguars.com/" target="_blank">Athletics</a></li>
+<li><a href="/libraries/">Libraries</a></li>
+<li><a href="https://www.usahealthsystem.com/" target="_blank">USA Health</a></li>
+<li><a href="/departments/mitchellcenter/">Mitchell Center</a></li>
+<li><a href="https://southalabama.bncollege.com/" target="_blank">USA Bookstore</a></li>
+
+
+
+
+
+
+</ul>
+                  </nav>
+                  <nav class="col-md-3" aria-label="Resources">
+                     <h2>Resources</h2>
+                     <ul><li><a href="/departments/specialevents/calendar/">Campus Events</a></li>
+<li><a href="/specialprojects/sustainability/">Sustainability</a></li>
+<li><a href="/departments/police/">Campus Safety </a></li>
+<li><a href="/departments/financialaffairs/hr/">Job Opportunities</a></li>
+<li><a href="/departments/militaryservices/">Military Services</a></li>
+<li><a href="/onestop/">One Stop</a></li></ul>
+                  </nav>
+               </div>
+            </div>
+         </div>
+         <div class="v25-footer-copyright">
+            <ul><li><a href="/departments/studentaffairs/titlenine/">Title IX</a></li>
+<li><a href="/accessibility/">Accessibility</a></li>
+<li><a href="/privacy/">Privacy Statement</a></li>
+<li><span id="directedit">&copy;</span><a href="/" title="University of South Alabama Homepage">&nbsp;2026 University of South Alabama</a></li>
+
+
+  </ul>
+         </div>
+         <div class="interestregion" id="getinterests">
+            <div class="container">
+               <div class="col-xs-12">
+                  <div class="hgt-set-15"></div><span class="getinterests"></span><div class="hgt-set-05"></div>
+               </div>
+            </div>
+         </div>
+      </footer>
+   </div>
+   <script type="text/javascript" src="/_resources/js/bootstrap.min.js"></script>
+<!-- Fitvids core JS file -->
+<script type="text/javascript" src="/_resources/js/jquery.fitvids.js" async="async"></script>
+<!-- Magnific Popup core JS file -->
+<script type="text/javascript" src="/_resources/js/magnific.popup.js" async="async"></script>
+<!-- USA JS file -->
+<script type="text/javascript" src="/_resources/js/usa.js" async="async"></script>
+<!-- Optionally enable responsive features in IE8. -->
+<script type="text/javascript" src="/_resources/js/respond.js" async="async"></script>
+
+
+
+<script type="text/javascript" src="/_resources/js/v25.js" async></script><script src="/_resources/js/department3col.js" async>//</script><a id="de" href="https://a.cms.omniupdate.com/11/?skin=oucampus&amp;account=south_alabama&amp;site=www&amp;action=de&amp;path=/colleges/alliedhealth/pt/index.pcf" > </a></body></html>

@@ -17,6 +17,15 @@ describe("program-schools response contract", () => {
     state: "IL",
     degreeType: "MD",
     sourceUrl: "https://alpha.edu/prereqs",
+    prereqSources: [
+      {
+        url: "https://alpha.edu/prereqs",
+        sourceType: "admissions_page",
+        retrievedAt: "2026-08-07",
+        contentHash: null,
+        extractionMethod: "http",
+      },
+    ],
     websiteUrl: "https://alpha.edu",
     lastVerified: "2026-08-07",
     verificationStatus: "verified",
@@ -60,5 +69,11 @@ describe("program-schools response contract", () => {
       },
     ]);
     expect(parsed.success).toBe(true);
+  });
+
+  it("requires and preserves prerequisite provenance records", () => {
+    const parsed = ListProgramSchoolsResponse.parse([baseRow]);
+    expect(parsed[0].prereqSources).toHaveLength(1);
+    expect(parsed[0].prereqSources[0].url).toBe("https://alpha.edu/prereqs");
   });
 });

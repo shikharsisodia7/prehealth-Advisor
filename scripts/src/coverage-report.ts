@@ -13,6 +13,7 @@ import { db, professionsTable, programSchoolsTable, directorySourcesTable } from
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const OUT = path.resolve(__dirname, "../../data/coverage-report.json");
+const OUT_MARKDOWN = path.resolve(__dirname, "../../data/coverage-report.md");
 
 async function main() {
   const professions = await db.select().from(professionsTable);
@@ -34,6 +35,16 @@ async function main() {
         }, 0);
         const anyBlocked = profSources.some((s) => s.coverageStatus === "blocked");
         const anyComplete = profSources.some((s) => s.coverageStatus === "complete");
+        const verified = active.filter((r) => r.verificationStatus === "verified");
+        const noSpecificPrereqs = active.filter(
+          (r) => r.verificationStatus === "no_prereqs_published",
+        );
+        const externallyBlocked = active.filter((r) =>
+          ["source_blocked", "unavailable"].includes(r.verificationStatus),
+        );
+        const unfinished = active.filter((r) =>
+          ["draft", "imported", "needs_review", "outdated"].includes(r.verificationStatus),
+        );
         // Strict reconciliation: directory-attributed active rows must exactly
         // match the summed source counts (international/out-of-scope entries are
         // excluded at import time and documented in source notes). Manual rows
@@ -66,10 +77,13 @@ async function main() {
             acc[r.verificationStatus] = (acc[r.verificationStatus] ?? 0) + 1;
             return acc;
           }, {}),
-          prereqVerifiedCount: active.filter((r) => r.verificationStatus === "verified").length,
+          prereqVerifiedCount: verified.length,
+          prereqNoSpecificPrereqsCount: noSpecificPrereqs.length,
+          prereqBlockedCount: externallyBlocked.length,
+          prereqUnfinishedCount: unfinished.length,
           prereqVerifiedPct: active.length
             ? Math.round(
-                (active.filter((r) => r.verificationStatus === "verified").length /
+                ((verified.length + noSpecificPrereqs.length) /
                   active.length) *
                   1000,
               ) / 10
@@ -96,7 +110,45 @@ async function main() {
 
   fs.mkdirSync(path.dirname(OUT), { recursive: true });
   fs.writeFileSync(OUT, JSON.stringify(report, null, 2));
+  const markdown = [
+    "# Prerequisite Coverage Audit",
+    "",
+    `Generated: ${report.generatedAt}`,
+    "",
+    "| Profession | Active | Verified | No specific courses | Blocked | Unfinished | Final-status coverage | Directory reconciliation |",
+    "|---|---:|---:|---:|---:|---:|---:|---|",
+    ...report.professions.map((p) => {
+      const finalCount = p.prereqVerifiedCount + p.prereqNoSpecificPrereqsCount;
+      const finalPct = p.directoryPrograms
+        ? `${Math.round((finalCount / p.directoryPrograms) * 1000) / 10}%`
+        : "—";
+      return `| ${p.professionName} | ${p.directoryPrograms} | ${p.prereqVerifiedCount} | ${p.prereqNoSpecificPrereqsCount} | ${p.prereqBlockedCount} | ${p.prereqUnfinishedCount} | ${finalPct} | ${p.reconciliation.status} |`;
+    }),
+    "",
+    "## Remaining externally blocked programs",
+    "",
+    ...report.professions.flatMap((p) => {
+      const rows = programs.filter(
+        (r) =>
+          r.professionSlug === p.professionSlug &&
+          r.directoryStatus === "active" &&
+          ["source_blocked", "unavailable"].includes(r.verificationStatus),
+      );
+      return rows.length
+        ? [
+            `### ${p.professionName}`,
+            ...rows.map(
+              (r) =>
+                `- ID ${r.id}: ${r.name} — ${r.programName}; ${r.sourceUrl ?? r.websiteUrl ?? "no official URL recorded"}. ${r.verificationNote ?? ""}`,
+            ),
+            "",
+          ]
+        : [];
+    }),
+  ].join("\n");
+  fs.writeFileSync(OUT_MARKDOWN, markdown);
   console.log(`Wrote ${OUT}`);
+  console.log(`Wrote ${OUT_MARKDOWN}`);
   for (const p of report.professions) {
     console.log(
       `  ${p.professionSlug}: ${p.directoryPrograms} in directory — ${p.reconciliation.status}`,

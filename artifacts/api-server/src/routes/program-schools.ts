@@ -18,6 +18,7 @@ function serialize(row: typeof programSchoolsTable.$inferSelect) {
     sourceUrl: row.sourceUrl ?? null,
     websiteUrl: row.websiteUrl ?? null,
     verificationNote: row.verificationNote ?? null,
+    prereqSources: row.prereqSources ?? [],
   };
 }
 

@@ -7,6 +7,7 @@
  */
 import type { PrereqItem } from './prereqItem';
 import type { ProgramSchoolDirectoryStatus } from './programSchoolDirectoryStatus';
+import type { ProgramSchoolPrereqSourcesItem } from './programSchoolPrereqSourcesItem';
 import type { ProgramSchoolVerificationStatus } from './programSchoolVerificationStatus';
 
 export interface ProgramSchool {
@@ -26,6 +27,8 @@ export interface ProgramSchool {
      * @nullable
      */
   sourceUrl: string | null;
+  /** All official documents discovered or used for prerequisite/admissions research. sourceUrl is the primary compatibility link. */
+  prereqSources: ProgramSchoolPrereqSourcesItem[];
   /**
      * Official program/institution website from the directory source
      * @nullable

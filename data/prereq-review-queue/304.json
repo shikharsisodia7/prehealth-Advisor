@@ -1,0 +1,41 @@
+{
+  "programId": 304,
+  "profession": "physical-therapy",
+  "institution": "Samford University",
+  "programName": "Doctor of Physical Therapy (DPT)",
+  "directoryWebsiteUrl": "https://www.samford.edu/healthprofessions/doctor-of-physical-therapy",
+  "retrievedAt": "2026-08-07",
+  "root": {
+    "url": "https://www.samford.edu/healthprofessions/doctor-of-physical-therapy",
+    "title": "Physical Therapy (DPT) | Samford University",
+    "contentHash": "59e154009d08fe8788d8846afbe9b92abe77f19b3874d22222ae4c0219175575",
+    "cacheFile": "data/prereq-source-cache/304-59e154009d08fe87.html"
+  },
+  "candidateOfficialSources": [
+    {
+      "url": "https://www.samford.edu/healthprofessions/doctor-of-physical-therapy",
+      "title": "Physical Therapy (DPT) | Samford University",
+      "sourceType": "program_page",
+      "retrievedAt": "2026-08-07",
+      "contentHash": "59e154009d08fe8788d8846afbe9b92abe77f19b3874d22222ae4c0219175575",
+      "extractionMethod": "http"
+    },
+    {
+      "url": "https://www.samford.edu/catalog/health-professions-graduate-programs",
+      "title": "Explore the Classes",
+      "sourceType": "admissions_page",
+      "retrievedAt": "2026-08-07",
+      "contentHash": null,
+      "extractionMethod": "http"
+    },
+    {
+      "url": "https://www.samford.edu/admission/graduate/tuition-and-fees",
+      "title": "Estimate Your Cost",
+      "sourceType": "admissions_page",
+      "retrievedAt": "2026-08-07",
+      "contentHash": null,
+      "extractionMethod": "http"
+    }
+  ],
+  "nextAction": "Review cached official page and candidates; extract only explicitly stated requirements into the structured import format. Do not promote status without source evidence."
+}

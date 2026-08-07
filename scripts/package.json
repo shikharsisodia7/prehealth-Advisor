@@ -9,7 +9,8 @@
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "test": "vitest run",
     "import:caa-pa": "tsx ./src/import-programs.ts ../data/prereqs/caa-pa-all-programs.json",
-    "verify:caa-pa": "tsx ./src/verify-caa-pa-import.ts"
+    "verify:caa-pa": "tsx ./src/verify-caa-pa-import.ts",
+    "acquire:prereqs": "tsx ./src/prereq-acquisition.ts"
   },
   "dependencies": {
     "@workspace/db": "workspace:*",

@@ -300,6 +300,44 @@ export interface PrereqItem {
   otherConditions?: string | null;
 }
 
+export type ProgramSchoolPrereqSourcesItemSourceType = typeof ProgramSchoolPrereqSourcesItemSourceType[keyof typeof ProgramSchoolPrereqSourcesItemSourceType];
+
+
+export const ProgramSchoolPrereqSourcesItemSourceType = {
+  admissions_page: 'admissions_page',
+  program_page: 'program_page',
+  catalog: 'catalog',
+  handbook_pdf: 'handbook_pdf',
+  centralized_service: 'centralized_service',
+  accreditor: 'accreditor',
+  other_official: 'other_official',
+} as const;
+
+/**
+ * @nullable
+ */
+export type ProgramSchoolPrereqSourcesItemExtractionMethod = typeof ProgramSchoolPrereqSourcesItemExtractionMethod[keyof typeof ProgramSchoolPrereqSourcesItemExtractionMethod] | null;
+
+
+export const ProgramSchoolPrereqSourcesItemExtractionMethod = {
+  http: 'http',
+  browser: 'browser',
+  pdf_text: 'pdf_text',
+  manual_review: 'manual_review',
+} as const;
+
+export type ProgramSchoolPrereqSourcesItem = {
+  url: string;
+  /** @nullable */
+  title?: string | null;
+  sourceType: ProgramSchoolPrereqSourcesItemSourceType;
+  retrievedAt: string;
+  /** @nullable */
+  contentHash?: string | null;
+  /** @nullable */
+  extractionMethod?: ProgramSchoolPrereqSourcesItemExtractionMethod;
+};
+
 /**
  * Prerequisite verification status — independent of directory listing
  */
@@ -348,6 +386,8 @@ export interface ProgramSchool {
      * @nullable
      */
   sourceUrl: string | null;
+  /** All official documents discovered or used for prerequisite/admissions research. sourceUrl is the primary compatibility link. */
+  prereqSources: ProgramSchoolPrereqSourcesItem[];
   /**
      * Official program/institution website from the directory source
      * @nullable

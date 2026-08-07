@@ -1,0 +1,65 @@
+{
+  "programId": 302,
+  "profession": "physical-therapy",
+  "institution": "Alabama State University",
+  "programName": "Doctor of Physical Therapy (DPT)",
+  "directoryWebsiteUrl": "https://www.alasu.edu/websites/DPT-PhysicalTherapy.php",
+  "retrievedAt": "2026-08-07",
+  "root": {
+    "url": "https://www.alasu.edu/websites/DPT-PhysicalTherapy.php",
+    "title": "Doctorate in Physical Therapy | Alabama State University",
+    "contentHash": "2569516aa0020bac3428d415b1505ab7c079d09f39970e8d90dc4bebd7288639",
+    "cacheFile": "data/prereq-source-cache/302-2569516aa0020bac.html"
+  },
+  "candidateOfficialSources": [
+    {
+      "url": "https://www.alasu.edu/websites/DPT-PhysicalTherapy.php",
+      "title": "Doctorate in Physical Therapy | Alabama State University",
+      "sourceType": "program_page",
+      "retrievedAt": "2026-08-07",
+      "contentHash": "2569516aa0020bac3428d415b1505ab7c079d09f39970e8d90dc4bebd7288639",
+      "extractionMethod": "http"
+    },
+    {
+      "url": "https://www.alasu.edu/_qa/academiccatalog.php",
+      "title": "Academic Catalog",
+      "sourceType": "admissions_page",
+      "retrievedAt": "2026-08-07",
+      "contentHash": null,
+      "extractionMethod": "http"
+    },
+    {
+      "url": "https://www.alasu.edu/websites/undergraduate-admission.php",
+      "title": "Apply Today",
+      "sourceType": "admissions_page",
+      "retrievedAt": "2026-08-07",
+      "contentHash": null,
+      "extractionMethod": "http"
+    },
+    {
+      "url": "https://www.alasu.edu/_qa/undergraduate-admissions-team.php",
+      "title": "Admissions Team",
+      "sourceType": "admissions_page",
+      "retrievedAt": "2026-08-07",
+      "contentHash": null,
+      "extractionMethod": "http"
+    },
+    {
+      "url": "https://www.alasu.edu/_qa/academic-advisement-undergraduate-admissions.php",
+      "title": "Academic Advisement",
+      "sourceType": "admissions_page",
+      "retrievedAt": "2026-08-07",
+      "contentHash": null,
+      "extractionMethod": "http"
+    },
+    {
+      "url": "https://www.alasu.edu/websites/graduate-admission.php",
+      "title": "ℹREQUEST INFO",
+      "sourceType": "admissions_page",
+      "retrievedAt": "2026-08-07",
+      "contentHash": null,
+      "extractionMethod": "http"
+    }
+  ],
+  "nextAction": "Review cached official page and candidates; extract only explicitly stated requirements into the structured import format. Do not promote status without source evidence."
+}

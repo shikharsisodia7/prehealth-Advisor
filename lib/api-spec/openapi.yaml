@@ -674,6 +674,7 @@ components:
         - programName
         - state
         - sourceUrl
+        - prereqSources
         - verificationStatus
         - prereqCourses
         - directoryStatus
@@ -699,6 +700,27 @@ components:
         sourceUrl:
           type: ["string", "null"]
           description: Official prerequisite source page; null when prerequisite research has not been completed
+        prereqSources:
+          type: array
+          description: All official documents discovered or used for prerequisite/admissions research. sourceUrl is the primary compatibility link.
+          items:
+            type: object
+            required: [url, sourceType, retrievedAt]
+            properties:
+              url:
+                type: string
+              title:
+                type: ["string", "null"]
+              sourceType:
+                type: string
+                enum: [admissions_page, program_page, catalog, handbook_pdf, centralized_service, accreditor, other_official]
+              retrievedAt:
+                type: string
+              contentHash:
+                type: ["string", "null"]
+              extractionMethod:
+                type: ["string", "null"]
+                enum: [http, browser, pdf_text, manual_review, null]
         websiteUrl:
           type: ["string", "null"]
           description: Official program/institution website from the directory source

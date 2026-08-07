@@ -359,6 +359,14 @@ export const ListProgramSchoolsResponseItem = zod.object({
   "state": zod.string(),
   "degreeType": zod.string().nullish(),
   "sourceUrl": zod.string().nullable().describe('Official prerequisite source page; null when prerequisite research has not been completed'),
+  "prereqSources": zod.array(zod.object({
+  "url": zod.string(),
+  "title": zod.string().nullish(),
+  "sourceType": zod.enum(['admissions_page', 'program_page', 'catalog', 'handbook_pdf', 'centralized_service', 'accreditor', 'other_official']),
+  "retrievedAt": zod.string(),
+  "contentHash": zod.string().nullish(),
+  "extractionMethod": zod.union([zod.literal('http'),zod.literal('browser'),zod.literal('pdf_text'),zod.literal('manual_review'),zod.literal(null)]).nullish()
+})).describe('All official documents discovered or used for prerequisite\/admissions research. sourceUrl is the primary compatibility link.'),
   "websiteUrl": zod.string().nullable().describe('Official program\/institution website from the directory source'),
   "lastVerified": zod.string().nullish(),
   "verificationStatus": zod.enum(['draft', 'imported', 'needs_review', 'verified', 'rejected', 'outdated', 'no_prereqs_published', 'source_blocked', 'unavailable', 'not_published']).describe('Prerequisite verification status — independent of directory listing'),

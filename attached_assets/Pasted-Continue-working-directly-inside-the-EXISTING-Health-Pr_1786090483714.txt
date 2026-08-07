@@ -1,0 +1,1219 @@
+Continue working directly inside the EXISTING Health Professions Planner project from its current repository, database, ingestion pipeline, frontend, backend, tests, and deployment configuration. This is a continuation of the current application, not a request to create a new project, prototype, branch-only demo, replacement application, planning document, or future task list.
+
+DO NOT ENTER PLAN MODE.
+
+DO NOT ASK ME TO APPROVE A PLAN.
+
+DO NOT CREATE NEW FOLLOW-UP TASKS.
+
+DO NOT STOP AFTER AN AUDIT.
+
+DO NOT RETURN WITH A STATUS UPDATE WHILE MAJOR IMPLEMENTATION WORK REMAINS.
+
+DO NOT SAY “THE REST CAN BE DONE LATER.”
+
+DO NOT TREAT UNFINISHED PREREQUISITE RESEARCH AS AN ACCEPTABLE FINAL STATE.
+
+START IMPLEMENTING IMMEDIATELY AND CONTINUE UNTIL THE EXISTING HEALTH PROFESSIONS PLANNER IS FUNCTIONALLY COMPLETE, DATA-COMPLETE TO THE MAXIMUM EXTENT SUPPORTED BY AUTHORITATIVE PUBLIC SOURCES, TESTED, AND READY ON THE PUBLISHED APPLICATION.
+
+You have already completed substantial work. Preserve all correct existing work, including the reconciled program directories, the Certified Anesthesiologist Assistant programs, Pathologists’ Assistant programs, MD/DO filtering, source URL merge fixes, Excel/XLSX export improvements, database-backed application behavior, verification metadata, current tests, build setup, and existing UI.
+
+However, the application is NOT complete yet because prerequisite coverage remains extremely incomplete across most professions.
+
+The current reported prerequisite coverage includes approximately:
+
+Anesthesiologist Assistant: 25/25 verified.
+
+Pathologists’ Assistant: 19 verified plus one officially confirmed no-specific-prerequisites case.
+
+Medicine: 236 programs but only 5 programs with completed prerequisite research.
+
+Physical Therapy: 308 programs but only 7 with completed prerequisite research.
+
+Dental: 78 programs but only 4 with completed prerequisite research.
+
+Genetic Counseling: 65 programs but only 3.
+
+Optometry: 24 programs but only 3.
+
+Pharmacy: 140 programs but only 3.
+
+Physician Assistant: 330 programs but only 3.
+
+Occupational Therapy: 318 programs but only 3.
+
+Prosthetics-Orthotics: 15 programs but only 3.
+
+Veterinary Medicine: 32 programs but only 3.
+
+Podiatry: 11 programs but only 2.
+
+Speech-Language Pathology: 322 programs but only 2.
+
+Nursing: approximately 446 programs but only 2.
+
+Dietetics: approximately 152 programs but only 2.
+
+Those numbers are nowhere near sufficient for the professor’s requested behavior. The application must not be considered finished merely because the directory itself is complete while most programs still have no prerequisite data.
+
+The central objective of THIS prompt is to COMPLETE PREREQUISITE AND ADMISSIONS-REQUIREMENT COVERAGE ACROSS THE ENTIRE EXISTING PROGRAM DATABASE.
+
+The professor’s requirement is simple from the user’s perspective: a student selects a profession, selects one or more real programs, clicks to view required prerequisites, and the actual program prerequisites should appear whenever those requirements are publicly available. The student should not encounter draft data or generic “still being verified” states for the overwhelming majority of schools.
+
+You must therefore perform a complete prerequisite acquisition, normalization, verification, storage, UI, export, and production synchronization pass for EVERY ACTIVE PROGRAM in EVERY SUPPORTED PROFESSION.
+
+Before making additional changes, inspect the current database and identify every active program that does not have one of the following final statuses:
+
+1. Verified prerequisite requirements from an authoritative source.
+
+2. Verified statement that the program publishes no specific prerequisite coursework.
+
+3. Verified statement that prerequisites are handled through a centralized official prerequisite service and the structured requirements have been captured from that source where accessible.
+
+4. A genuinely externally blocked state after all reasonable authoritative-source retrieval strategies have been exhausted.
+
+Everything else, including `draft`, `imported`, `pending`, `unresearched`, incomplete placeholder prerequisite records, and generic verification messages, represents unfinished work and must be processed during this task.
+
+DO NOT simply rename draft records to verified.
+
+DO NOT mark records verified without evidence.
+
+DO NOT fabricate missing requirements.
+
+DO NOT generate prerequisites from assumptions about what schools “usually require.”
+
+DO NOT use an LLM’s general knowledge as the evidence source.
+
+Every final prerequisite result must be traceable to an authoritative current source.
+
+Use authoritative sources in this priority order where applicable:
+
+The individual program’s current official admissions or prerequisites page.
+
+The institution’s official graduate or professional admissions page.
+
+Official program handbooks, admissions PDFs, catalogs, or prerequisite PDFs.
+
+Official accrediting organization directories.
+
+Official centralized application-service prerequisite sources.
+
+Official professional associations.
+
+Official university catalogs.
+
+Other official institution-hosted documentation.
+
+Third-party websites, commercial pre-health sites, blogs, search snippets, Reddit, random aggregators, and AI-generated summaries must NOT be used as final evidence when an authoritative source exists.
+
+Implement a layered retrieval pipeline rather than relying on one scraper.
+
+For each unfinished program, first try direct HTTP retrieval.
+
+Then inspect the official domain for admissions and prerequisite links.
+
+Follow relevant links with names or URL patterns such as:
+
+prerequisites
+
+admissions
+
+admission requirements
+
+academic requirements
+
+required courses
+
+course requirements
+
+eligibility
+
+requirements
+
+apply
+
+application requirements
+
+prospective students
+
+program requirements
+
+technical standards
+
+curriculum prerequisites
+
+graduate admissions
+
+professional admissions
+
+candidate requirements
+
+If the page is JavaScript-rendered, use Playwright or Selenium.
+
+If requirements are contained in accordions, tabs, dynamically loaded components, or client-side routes, use browser automation to render and extract them.
+
+If requirements are in a PDF, official handbook, university catalog, bulletin, admissions packet, or downloadable guide, extract the relevant content and preserve the PDF URL.
+
+If the program page links to an official centralized service containing prerequisites, follow that official source.
+
+If the primary program page is inaccessible, search other pages on the SAME official domain before marking it blocked.
+
+If an old URL is dead, locate the current official page.
+
+If a program has renamed or relocated its admissions information, update the source URL.
+
+If requirements are distributed across multiple official pages, combine them into one program-level prerequisite record while preserving multiple source URLs.
+
+Do not let one failed source URL automatically result in a blocked record.
+
+A record should only be marked blocked after attempting reasonable fallbacks including static request, browser rendering, official-domain search, PDF discovery, official catalog search, accreditor data, centralized application source, and alternative official university pages.
+
+Build the retrieval process so it can scale through the full program database without requiring one manual prompt per program.
+
+Implement concurrency conservatively with per-domain throttling.
+
+Respect rate limits.
+
+Add retries with exponential backoff where appropriate.
+
+Cache successful official responses.
+
+Persist progress as programs complete so an interrupted run does not lose already collected results.
+
+Make the ingestion resumable.
+
+One failed university must not abort the full batch.
+
+Do not repeatedly scrape the same verified source unnecessarily.
+
+Use batching so the ingestion can process the entire dataset efficiently.
+
+Add or improve commands capable of processing:
+
+one program
+
+one profession
+
+all draft programs
+
+all stale programs
+
+all failed programs
+
+all programs without final prerequisite status
+
+the entire database
+
+The current ingestion architecture should be reused where sound. Extend it rather than replacing it unnecessarily.
+
+For every program, capture prerequisite information in a structured form.
+
+At minimum support, where applicable:
+
+Required course or subject.
+
+Required vs recommended classification.
+
+Number of courses.
+
+Semester hours.
+
+Quarter hours.
+
+Credit minimum.
+
+Lab requirement.
+
+Minimum grade.
+
+Recency or expiration rule.
+
+Online-course policy.
+
+Community-college coursework policy.
+
+AP credit policy.
+
+IB credit policy.
+
+CLEP policy where explicitly addressed.
+
+Pass/fail policy where explicitly addressed.
+
+Bachelor’s degree requirement.
+
+Required degree field, if any.
+
+Minimum cumulative GPA.
+
+Minimum science GPA.
+
+GRE requirement.
+
+MCAT requirement.
+
+DAT requirement.
+
+PCAT or other relevant testing requirement.
+
+CASPer or situational judgment requirement.
+
+Observation hours.
+
+Patient-care hours.
+
+Healthcare experience.
+
+Shadowing.
+
+Research expectations if explicitly required.
+
+Certification requirements.
+
+Anatomy/physiology sequencing.
+
+Microbiology requirement.
+
+Statistics requirement.
+
+Psychology requirement.
+
+Physics requirement.
+
+Chemistry sequence.
+
+Biology sequence.
+
+Organic chemistry.
+
+Biochemistry.
+
+English/composition.
+
+Mathematics.
+
+Social sciences.
+
+Program-specific specialty courses.
+
+Any explicit expiration window for prerequisite coursework.
+
+Any explicit requirement that prerequisites be completed before application, matriculation, or a specific deadline.
+
+Notes about substitutions or equivalent courses.
+
+Do not force every program into the exact same set of requirements. Store only what the official source states.
+
+Distinguish clearly between:
+
+REQUIRED prerequisite coursework.
+
+RECOMMENDED coursework.
+
+GENERAL admissions requirements.
+
+PROGRAM eligibility conditions.
+
+EXPERIENCE requirements.
+
+TEST requirements.
+
+DEGREE requirements.
+
+Do not mix recommended courses into the required list.
+
+Do not interpret preferred coursework as mandatory.
+
+Do not convert general recommendations into prerequisites.
+
+For each completed program store source provenance.
+
+At minimum:
+
+official program URL
+
+specific admissions/prerequisite URL
+
+additional official source URLs if used
+
+source page title
+
+retrieval date
+
+verification date
+
+verification method
+
+extraction method
+
+record status
+
+any verification notes
+
+Do not lose `official_source_url` during update or merge operations. The previously fixed merge bug must remain fixed.
+
+If the incoming update contains no replacement source URL, preserve the existing valid official URL.
+
+Add or preserve regression tests for this behavior.
+
+For programs that genuinely publish NO SPECIFIC COURSE PREREQUISITES, do not leave them as missing.
+
+Store an explicit final status such as `verified_no_specific_prerequisites`.
+
+The UI should say clearly that the official program source does not specify individual prerequisite courses and show the source.
+
+For programs whose requirements are competency-based rather than course-based, represent the competencies accurately instead of pretending specific courses are required.
+
+Now process the COMPLETE ACTIVE PROGRAM DATABASE.
+
+Do not process only the professions already called out in previous testing.
+
+Process every supported profession currently visible in the application.
+
+This includes, at minimum, every active category currently stored in the project, including:
+
+Medicine.
+
+Dental.
+
+Physician Assistant.
+
+Physical Therapy.
+
+Occupational Therapy.
+
+Pharmacy.
+
+Podiatry.
+
+Veterinary Medicine.
+
+Optometry.
+
+Genetic Counseling.
+
+Speech-Language Pathology.
+
+Nursing pathways currently supported.
+
+Dietetics pathways currently supported.
+
+Prosthetics and Orthotics.
+
+Certified Anesthesiologist Assistant.
+
+Pathologists’ Assistant.
+
+Any other profession currently exposed by the production application.
+
+For Medicine, research every active MD and DO program individually or through authoritative structured sources where available.
+
+The current state of only approximately 5 programs with prerequisite data is unacceptable.
+
+Every program with publicly available admissions requirements should receive structured prerequisite data or an explicit verified no-specific-prerequisites result.
+
+Preserve the current MD/DO filter.
+
+Verify all medicine rows have an explicit degree type.
+
+No medical-school record may bypass the filter because its degree type is null.
+
+Test counts for MD-only, DO-only, and both after any data updates.
+
+For Dental, complete prerequisite coverage across the reconciled approximately 78 programs.
+
+Do not stop at the current 4.
+
+Use official dental school admissions pages, official institutional catalogs, and relevant authoritative dental education sources.
+
+Dental prerequisites often include biology, general chemistry, organic chemistry, physics, biochemistry, English, mathematics, laboratory requirements, DAT expectations, and school-specific coursework. Capture what each actual program publishes rather than applying a generic template.
+
+For Physician Assistant programs, complete prerequisite coverage across the approximately 330 active programs.
+
+Capture course prerequisites separately from patient-care, healthcare, shadowing, GRE, CASPer, GPA, certification, and experience requirements.
+
+PA programs vary substantially. Preserve that variability.
+
+For Physical Therapy programs, complete prerequisite coverage across the approximately 308 programs.
+
+Capture anatomy, physiology, biology, chemistry, physics, psychology, statistics, exercise physiology, observation requirements, GPA expectations, and other program-specific requirements where published.
+
+For Occupational Therapy programs, complete prerequisite coverage across the approximately 318 active programs.
+
+Correctly distinguish entry-level master’s and doctoral pathways if the current database stores those differences.
+
+For Pharmacy, complete prerequisite coverage across the approximately 140 programs.
+
+Capture pre-pharmacy coursework, degree expectations, PCAT status if published, chemistry, biology, anatomy, physiology, microbiology, economics, mathematics, English, social sciences, and other program-specific requirements.
+
+For Veterinary Medicine, complete coverage across the active veterinary programs.
+
+Capture biology, chemistry, organic chemistry, biochemistry, physics, math/statistics, animal science, experience expectations, standardized testing when applicable, and institution-specific coursework.
+
+For Optometry, complete coverage across all active programs.
+
+For Podiatry, complete coverage across all active programs.
+
+For Genetic Counseling, complete coverage across all active programs.
+
+Include course prerequisites as well as counseling, advocacy, crisis-support, research, genetics exposure, or other explicit admissions requirements where programs publish them.
+
+For Speech-Language Pathology, complete prerequisite and leveling-course coverage where applicable.
+
+Clearly distinguish programs that accept students without an undergraduate CSD background and require leveling coursework.
+
+For Nursing, preserve the pathway distinctions already implemented.
+
+Do not collapse ABSN, MEPN, direct-entry master’s, accelerated BSN, entry-level MSN, or other pathways incorrectly.
+
+Research prerequisites according to the specific pathway.
+
+The current state of approximately 446 programs with only 2 completed records is not acceptable.
+
+For Dietetics, complete prerequisite and eligibility coverage according to the appropriate ACEND pathway categories already used by the project.
+
+Do not mix program categories incorrectly.
+
+For Prosthetics-Orthotics, complete every active program.
+
+For Certified Anesthesiologist Assistant and Pathologists’ Assistant, preserve the existing high-quality completed work and revalidate it only if required by code changes.
+
+Do not regress their coverage.
+
+For any additional current professions, apply the same process.
+
+If program counts have changed since the previous directory reconciliation, refresh counts from the authoritative directory and reconcile them.
+
+The program directory and prerequisite ingestion pipelines should be separate concerns where appropriate.
+
+A school being present in the directory does not mean its prerequisites are complete.
+
+A prerequisite scrape should not create duplicate directory programs.
+
+Maintain stable program IDs.
+
+Preserve distinct campuses.
+
+Preserve distinct degree pathways.
+
+Preserve distinct program tracks.
+
+Do not incorrectly deduplicate schools with multiple valid professional programs.
+
+Do not overwrite verified prerequisite data with empty values when a subsequent request fails.
+
+Use last-known-good verified data unless the official source demonstrates that the requirement changed.
+
+If a source changed, update the structured record and verification metadata.
+
+Create change tracking if the existing architecture supports it.
+
+At minimum, log when prerequisite content materially changes.
+
+Implement freshness logic.
+
+Each verified program should have a `last_verified_at` or equivalent field.
+
+Create a mechanism for identifying stale verification.
+
+Do not require all programs to be re-scraped during every normal application request.
+
+The live student application must read persisted data quickly.
+
+Scraping should happen through ingestion/admin workflows, not during routine page loading.
+
+Now fix the USER EXPERIENCE so final statuses are clear.
+
+For a program with verified prerequisites, show a clearly visible Verified status and verification date.
+
+For a program with officially verified no-specific-course-prerequisites, show that exact meaning.
+
+For a genuinely blocked program, show a precise message describing the source access issue rather than “still being verified.”
+
+For any program still temporarily unresolved during the ingestion job, it may have a processing state internally, but the final production dataset should not leave large portions of the database in that state when the source information is publicly available.
+
+The professor specifically said the application workflow is excellent but the prerequisites need to actually show up.
+
+Therefore the final production-facing behavior must prioritize prerequisite visibility and reliability.
+
+Preserve one-program results.
+
+Preserve multi-program results.
+
+Every selected program must retain:
+
+institution name
+
+program name
+
+degree type
+
+location
+
+program URL
+
+prerequisite source URL
+
+prerequisite list
+
+general admissions information
+
+verification status
+
+verification date
+
+For MULTIPLE PROGRAMS, never merge prerequisites ambiguously.
+
+Every result must remain associated with its correct program.
+
+The professor specifically noticed source links disappearing when multiple programs were selected.
+
+Ensure that cannot happen.
+
+Add or preserve automated end-to-end coverage for this.
+
+COPY RESULTS must include the complete data.
+
+For one program and multiple programs include:
+
+profession
+
+institution
+
+program
+
+degree type
+
+location
+
+required prerequisites
+
+recommended coursework where relevant
+
+general admissions requirements
+
+experience requirements where relevant
+
+verification status
+
+verification date
+
+official source
+
+prerequisite source
+
+Ensure copied text is readable.
+
+Do not copy only the visually visible collapsed content if hidden structured data exists.
+
+EXCEL/XLSX must remain fully functional.
+
+Preserve the genuine `.xlsx` implementation.
+
+The professor originally downloaded Excel and saw missing prerequisites, so this feature is an explicit acceptance criterion.
+
+The workbook must include selected programs and their real prerequisite records.
+
+At minimum maintain or create:
+
+Programs sheet.
+
+Prerequisites sheet.
+
+Where useful, add Admissions Requirements sheet or place general admissions requirements in well-labeled columns.
+
+The workbook must remain a genuine Excel workbook.
+
+Programmatically reopen the workbook in automated tests.
+
+Assert actual cells.
+
+Do not test only file size.
+
+For representative programs verify:
+
+program names
+
+degree types
+
+required course rows
+
+credit requirements
+
+lab flags
+
+minimum grades
+
+notes
+
+verification statuses
+
+verification dates
+
+official URLs
+
+Multiple-program export must not cross-assign requirements between programs.
+
+Preserve source URLs during export.
+
+Add regression tests for every export issue previously identified.
+
+Now create a COMPLETE COVERAGE AUDIT.
+
+Generate a machine-readable report and a human-readable report.
+
+For every profession include:
+
+authoritative directory source
+
+directory audit date
+
+expected active program count
+
+stored active program count
+
+programs with verified prerequisite data
+
+programs verified as having no specific prerequisite courses
+
+programs with verified general admissions requirements but no course prerequisites
+
+programs genuinely externally blocked
+
+programs still unfinished
+
+percentage prerequisite coverage
+
+The final unfinished count should be ZERO for every program where authoritative prerequisite information is publicly accessible.
+
+A small number of individual externally blocked programs may remain only when every reasonable official-source retrieval method has been exhausted.
+
+Do not accept entire professions with hundreds of draft records as complete.
+
+List every remaining blocked individual record explicitly.
+
+For each blocked record provide:
+
+program ID
+
+institution
+
+program
+
+profession
+
+official URL
+
+attempted alternate official URLs
+
+failure type
+
+retrieval methods attempted
+
+date of failure
+
+fallback behavior
+
+Do not call a record blocked merely because the first scraper received a 403.
+
+Now address the existing AAMC Postbac blocker.
+
+Re-evaluate whether Postbac is actually part of the visible supported application.
+
+If it is visible and intended to remain supported, attempt all reasonable authoritative alternatives.
+
+Check current official AAMC resources, institutional program lists, downloadable official sources, archived official directory assets already legally available in the project’s source history, official program membership lists, and institution-hosted postbac directories where they can be reconciled.
+
+If no complete authoritative directory exists and the AAMC backend is genuinely unreachable, preserve it as the documented external blocker.
+
+Do not fabricate a directory.
+
+If Postbac is NOT actually part of the current supported user-facing professions, do not allow it to hold completion of unrelated professions hostage.
+
+Now validate ALL DIRECTORY COUNTS again.
+
+Previously several directories were incomplete.
+
+Ensure the current data still reconciles against authoritative sources.
+
+Do not assume prior imported counts remain correct after later merge operations.
+
+Check for accidentally deleted programs.
+
+Check for duplicated programs.
+
+Check for inactive programs.
+
+Check for null states.
+
+Check for broken URLs.
+
+Check for degree misclassification.
+
+Check for programs attached to the wrong profession.
+
+Check for Canadian program handling.
+
+Apply a consistent geographic policy.
+
+If Canada is supported for a given profession, make it clear in location filtering.
+
+Do not silently mix countries into US state filtering in a confusing way.
+
+If the application is intended primarily for US students but includes accredited Canadian programs, represent country explicitly.
+
+Now run DATABASE INTEGRITY validation.
+
+Check orphaned prerequisite rows.
+
+Check prerequisites attached to merged-duplicate programs.
+
+Check multiple active duplicate program IDs.
+
+Check missing profession references.
+
+Check source URL integrity.
+
+Check invalid verification statuses.
+
+Check rows marked verified without a source.
+
+Check rows marked no-specific-prerequisites without evidence.
+
+Check null degree type where degree type is required.
+
+Check state/country normalization.
+
+Check URLs.
+
+Check timestamps.
+
+Add appropriate constraints if safe.
+
+Do not reset production data.
+
+Do not delete valid existing data.
+
+Use safe migrations.
+
+Now run the COMPLETE TEST SUITE.
+
+Unit tests.
+
+Importer tests.
+
+API tests.
+
+Database tests.
+
+Integration tests.
+
+Type checks.
+
+Lint checks.
+
+Production builds.
+
+End-to-end Playwright/browser tests.
+
+Excel content tests.
+
+Copy-results tests.
+
+MD/DO filter tests.
+
+State-filter tests.
+
+Directory-count tests.
+
+Prerequisite-status tests.
+
+Multi-program source-link tests.
+
+Regression tests for source URL merge.
+
+Regression tests for merged-duplicate API behavior.
+
+Regression tests for programs with no course prerequisites.
+
+Regression tests for blocked official sources.
+
+Do not skip failing tests merely to obtain green output.
+
+Fix the underlying issue.
+
+Do not weaken assertions that reveal real bugs.
+
+Now perform REAL BROWSER ACCEPTANCE TESTING.
+
+Recreate the professor’s workflow.
+
+Medicine:
+
+Open the profession.
+
+Check All States.
+
+Check MD only.
+
+Check DO only.
+
+Check both.
+
+Select several programs.
+
+View prerequisites.
+
+Confirm actual data is visible.
+
+Confirm source links.
+
+Dental:
+
+Open Dental.
+
+Confirm approximately the reconciled full active directory.
+
+Select multiple schools from different states.
+
+Confirm actual prerequisites.
+
+Physician Assistant:
+
+Open PA.
+
+Select Ohio University and several other schools.
+
+Confirm actual program-specific prerequisites and admissions requirements.
+
+Physical Therapy:
+
+Open PT.
+
+Select Emory and several other programs.
+
+Confirm actual prerequisites.
+
+Nursing:
+
+Check ABSN.
+
+Check MEPN/direct-entry pathways.
+
+Confirm directories are complete.
+
+Select multiple programs beyond Vanderbilt and Samuel Merritt.
+
+Confirm actual prerequisites.
+
+Pharmacy.
+
+Podiatry.
+
+Veterinary.
+
+Occupational Therapy.
+
+Optometry.
+
+Genetic Counseling.
+
+Speech-Language Pathology.
+
+Dietetics.
+
+Prosthetics-Orthotics.
+
+Anesthesiologist Assistant.
+
+Pathologists’ Assistant.
+
+Test representative programs from EVERY profession.
+
+Do not manually test only categories already known to work.
+
+Test Copy Results.
+
+Inspect the copied content.
+
+Test Excel.
+
+Download the actual XLSX.
+
+Reopen it.
+
+Inspect actual cell values.
+
+Test multiple programs.
+
+Test source links.
+
+Test verification dates.
+
+Test no-specific-prerequisite programs.
+
+Test any remaining blocked records.
+
+Now address PRODUCTION.
+
+The current published app reportedly contains old pre-import data.
+
+That means the task is NOT complete until the production database receives the corrected directory and prerequisite data.
+
+Inspect the existing Replit Publish/deployment setup.
+
+Determine the exact supported way to move the current corrected persisted development data into production.
+
+If Replit provides an automated deployment or publish capability available to the agent, use it.
+
+If the Replit UI requires a HUMAN to click Publish and choose Overwrite Data, then prepare everything completely before returning:
+
+production build must pass
+
+database schema must be production-compatible
+
+migrations must be ready
+
+data must be fully ingested
+
+final development database audit must pass
+
+no local-only dependency may exist
+
+deployment environment variables must be validated
+
+production startup command must be validated
+
+data overwrite must contain the completed dataset
+
+Then, and only then, state that the single external action is the Publish/Overwrite Data click.
+
+However, do NOT use this limitation to stop prerequisite research early.
+
+The human Publish click may be the only remaining external action.
+
+Everything else must be completed first.
+
+If publication can be triggered by code or a supported Replit mechanism, publish the app yourself and continue testing the production URL.
+
+AFTER PRODUCTION DATA IS UPDATED, run live acceptance verification against:
+
+https://prehealth-advisor.replit.app
+
+Do not rely only on localhost or the development preview.
+
+Check production API counts.
+
+Check production program counts.
+
+Check production prerequisite counts.
+
+Check representative production program records.
+
+Check production MD/DO filtering.
+
+Check production multi-program results.
+
+Check production Copy Results.
+
+Check production XLSX export.
+
+Check production source URLs.
+
+Check production verification statuses.
+
+The production database must match the completed development dataset.
+
+Do not call the work complete while production still shows 4 dental programs when development shows 78.
+
+FINAL ACCEPTANCE CRITERIA:
+
+The work is complete only when ALL of the following are true:
+
+The existing application still functions.
+
+Every supported profession has a reconciled authoritative directory.
+
+State and profession filtering return complete results.
+
+Medicine is properly classified as MD or DO.
+
+MD/DO/Both filtering works.
+
+Program selection works.
+
+One-program results work.
+
+Multi-program results work.
+
+Every selected program retains its individual official source.
+
+The overwhelming majority of programs no longer have draft prerequisite status.
+
+Every program with publicly available authoritative prerequisite information has structured prerequisite data.
+
+Programs with no specific prerequisites are explicitly verified as such.
+
+Only genuinely externally inaccessible individual programs remain blocked.
+
+No large profession remains mostly draft.
+
+Prerequisite records preserve official source provenance.
+
+Verification statuses are accurate.
+
+Verification dates are stored.
+
+Source URLs survive importer merges.
+
+The merged-duplicate API bug remains fixed.
+
+Copy Results contains program-specific prerequisite data and sources.
+
+Excel is a real XLSX workbook.
+
+Excel contains prerequisites.
+
+Excel contains source URLs.
+
+Excel supports multiple selected programs.
+
+Excel content is reopened and asserted in automated tests.
+
+All tests pass.
+
+Typechecks pass.
+
+Production builds pass.
+
+Coverage reports reconcile.
+
+Database integrity checks pass.
+
+Production data is synchronized or the only remaining action is the unavoidable human Publish/Overwrite Data click.
+
+After synchronization, the published application is manually verified.
+
+MOST IMPORTANTLY:
+
+DO NOT RETURN A RESPONSE LIKE:
+
+“Medicine is 236/5, but the rest can be researched later.”
+
+That is FAILURE.
+
+DO NOT RETURN:
+
+“Prerequisite research is a proposed next step.”
+
+That is FAILURE.
+
+DO NOT RETURN:
+
+“Created follow-up tasks.”
+
+That is FAILURE.
+
+DO NOT RETURN:
+
+“The framework is ready for the rest.”
+
+That is FAILURE.
+
+DO NOT RETURN:
+
+“Directories are complete but prerequisites remain draft.”
+
+That is FAILURE.
+
+DO NOT RETURN UNTIL YOU HAVE ACTUALLY PROCESSED THE REMAINING PROGRAMS.
+
+The target is not merely a technically functional scraper.
+
+The target is a FUNCTIONALLY COMPLETE HEALTH PROFESSIONS PLANNER WITH THE DATA POPULATED.
+
+Use automation to scale the work.
+
+Use official-source discovery.
+
+Use the browser where required.
+
+Use PDFs where required.
+
+Use structured official APIs where available.
+
+Use controlled manual mappings where automation cannot reliably extract a publicly available authoritative requirement.
+
+Do not hardcode requirements into frontend components.
+
+All data must flow through the persistent application data model.
+
+When the complete prerequisite acquisition run is finished, rerun the audit.
+
+If substantial draft records remain, DO NOT STOP.
+
+Investigate why.
+
+Continue processing them.
+
+Repeat until the only remaining unfinished records are narrowly documented genuine external blockers.
+
+Your final response must NOT include a “Next Steps,” “Future Work,” “Recommended Follow-ups,” or “Remaining Engineering Tasks” section.
+
+Your final response must be a COMPLETION REPORT containing:
+
+Final program count by profession.
+
+Final verified prerequisite count by profession.
+
+Final verified-no-specific-prerequisites count by profession.
+
+Final blocked count by profession.
+
+Final unfinished/draft count by profession.
+
+The unfinished/draft count should be zero except for genuinely explained cases that cannot be resolved from public authoritative information.
+
+List every remaining blocker individually.
+
+List the authoritative sources used.
+
+List migrations applied.
+
+List ingestion jobs executed.
+
+List major bugs fixed.
+
+List tests executed and their pass counts.
+
+List build results.
+
+Confirm the XLSX workbook was actually generated, reopened, and inspected.
+
+Confirm source URLs survive merges.
+
+Confirm MD/DO filtering.
+
+Confirm directory reconciliation.
+
+Confirm Copy Results.
+
+Confirm multi-program results.
+
+Confirm production synchronization status.
+
+Confirm live published-site verification after data publication where technically possible.
+
+DO NOT CALL THE TASK DONE IF YOUR OWN COMPLETION TABLE SHOWS HUNDREDS OF DRAFT PROGRAMS.
+
+If your final report shows any profession such as Medicine 236/5, PA 330/3, PT 308/7, Nursing 446/2, or comparable incomplete coverage, KEEP WORKING.
+
+Begin execution immediately from the current repository and current database state.
+
+Do not come back with another plan.
+
+Do not ask for another prompt.
+
+Do not divide this into phases that require me to re-prompt you.
+
+Continue autonomously through ingestion, extraction, source validation, database updates, UI verification, exports, testing, auditing, and production readiness until the Health Professions Planner meets the professor’s requested behavior across the full supported dataset.
