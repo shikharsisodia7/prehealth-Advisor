@@ -1,0 +1,849 @@
+Continue immediately from the exact current persisted state of the EXISTING Health Professions Planner. This is the same already-approved completion task. Do not create a new project, do not enter Plan mode, do not create additional tasks, do not propose follow-up work, do not repeat repository audits that have already been completed, and do not redesign infrastructure that is already functioning.
+
+The previous status report is accepted as the authoritative starting point.
+
+The following work is already substantially complete and should be preserved rather than rebuilt: authoritative profession directories, program-existence versus prerequisite-verification statuses, MD/DO filtering, structured prerequisite schema, prerequisite provenance, official source URLs, database/API consistency protections, source URL merge protections, resumable official-source discovery, caching, retries, hashes, review queues, coverage reports, frontend selection workflow, multi-program result structure, Copy Results, CSV/TSV/print exports, genuine XLSX export, CAA directory and prerequisite work, Pathologists’ Assistant directory and prerequisite work, verified/no-specific-prerequisite handling, UAB persistence verification, and the already completed source-backed PT records.
+
+The project is NOT finished, however, because the professor’s main acceptance criterion remains incomplete across a substantial portion of the directory:
+
+A student must be able to select a real health-professions program and see its real prerequisite and relevant admissions requirements whenever that information is publicly available from authoritative sources.
+
+The remaining draft/unresearched programs are therefore not “future work.” They are the PRIMARY unfinished part of the current task.
+
+From this point forward, prioritize DATA COMPLETION over additional architecture work.
+
+Do not spend substantial execution time adding another generic framework unless a concrete blocker proves the existing pipeline cannot process a specific source type.
+
+Use the working infrastructure that already exists.
+
+Your job now is to take every active program that is not in a legitimate final prerequisite state and process it to completion.
+
+FINAL STATUSES
+
+Every active program must ultimately reach one of these evidence-backed outcomes:
+
+1. Verified structured prerequisite coursework.
+
+2. Verified official statement that no specific prerequisite courses are required.
+
+3. Verified competency-based or non-course admissions requirements where the program does not prescribe a conventional course list.
+
+4. Individually documented genuine external blocker after reasonable authoritative-source retrieval methods have actually been exhausted.
+
+The following are NOT acceptable final states:
+
+draft
+
+research not started
+
+queued
+
+candidate source found
+
+cached
+
+pending extraction
+
+pending verification
+
+source discovered
+
+needs future research
+
+to-do
+
+follow-up
+
+Anything in those states remains unfinished and must continue through the pipeline.
+
+DO NOT change unfinished records to verified simply to improve coverage.
+
+DO NOT invent requirements.
+
+DO NOT infer a generic prerequisite template from other schools.
+
+DO NOT use third-party aggregator content as final evidence.
+
+Every final result must remain traceable to authoritative source material.
+
+PHASE ONE: COMPLETE PHYSICAL THERAPY
+
+Resume Physical Therapy exactly where the previous execution window stopped.
+
+Preserve all PT records already fully verified, including the reported completed records such as:
+
+Alabama State University
+
+Samford University
+
+University of South Alabama
+
+ATSU Arizona
+
+Creighton Arizona
+
+Franklin Pierce Arizona
+
+Midwestern Arizona
+
+UAB
+
+Faulkner
+
+Arcadia
+
+Marquette
+
+Delaware
+
+and any additional PT records already carrying valid final evidence-backed statuses.
+
+Do not waste requests reprocessing those unless an integrity audit shows an actual problem.
+
+Query the current PT directory for the next unfinished program and resume from there.
+
+Use already cached source material first.
+
+If a program already has candidate admissions pages or cached HTML/PDF content, extract from those sources before performing redundant network discovery.
+
+Continue through the ENTIRE active PT directory.
+
+Do not voluntarily stop after five, ten, twenty, or fifty additional programs.
+
+Process PT in controlled resumable batches until the profession has no ordinary unfinished records remaining.
+
+For each PT program:
+
+locate the official program/admissions/prerequisite source,
+
+follow official internal links where needed,
+
+retrieve the source,
+
+render JavaScript pages when needed,
+
+extract PDF/catalog/handbook information where needed,
+
+extract only explicit published requirements,
+
+normalize the requirements,
+
+separate required coursework from recommended coursework,
+
+separate general admissions requirements from prerequisite coursework,
+
+capture credit hours/course counts,
+
+capture laboratory requirements,
+
+capture minimum grades,
+
+capture course-recency limits,
+
+capture GPA requirements,
+
+capture GRE requirements when published,
+
+capture observation/shadowing requirements,
+
+capture degree requirements,
+
+capture application conditions,
+
+preserve all official sources,
+
+persist the record,
+
+perform direct database read-back,
+
+perform API read-back,
+
+compare persisted values with intended values,
+
+and only then assign the program its final status.
+
+If one school is difficult, do not let it block the entire directory. Record its processing stage and continue other schools while alternate official retrieval routes are attempted.
+
+A first-page 403, 404, JavaScript shell, bot response, or dead URL does NOT automatically constitute a blocker.
+
+Before assigning a blocker, attempt appropriate combinations of:
+
+direct HTTP retrieval,
+
+Playwright/Selenium rendering,
+
+official site navigation,
+
+same-domain admissions search,
+
+official university search,
+
+official graduate catalog,
+
+official undergraduate catalog,
+
+official PDF discovery,
+
+official handbook discovery,
+
+official FAQ,
+
+official department pages,
+
+official accreditor information,
+
+official centralized application-service information,
+
+and a current alternate official institutional page.
+
+Once PT reaches final coverage, regenerate the audit.
+
+Physical Therapy is only finished when:
+
+directory count reconciles,
+
+every active PT program has a legitimate final prerequisite status,
+
+ordinary unfinished PT count is zero,
+
+verified programs have official evidence,
+
+final records contain verification dates,
+
+database and API agree,
+
+and representative PT programs work correctly in the frontend and XLSX export.
+
+DO NOT RETURN AFTER PT.
+
+Immediately continue to the next profession.
+
+PHASE TWO: COMPLETE EVERY REMAINING PROFESSION
+
+Use the coverage report to find every unfinished active program across the application.
+
+Continue automatically through all supported categories without asking me which profession to choose next.
+
+At minimum, process:
+
+Medicine
+
+Dental
+
+Physician Assistant
+
+Occupational Therapy
+
+Pharmacy
+
+Veterinary Medicine
+
+Podiatry
+
+Optometry
+
+Genetic Counseling
+
+Speech-Language Pathology
+
+Nursing
+
+Dietetics
+
+Prosthetics-Orthotics
+
+Certified Anesthesiologist Assistant
+
+Pathologists’ Assistant
+
+Postbac if it is an actual supported user-facing profession
+
+and any additional profession exposed by the application.
+
+Do not create one task per profession.
+
+Do not require approval between professions.
+
+Do not stop at profession boundaries.
+
+The approved scope already includes all of them.
+
+MEDICINE
+
+Complete program-specific prerequisite/admissions information for every active MD and DO program whose requirements are publicly available.
+
+Preserve correct MD/DO classification.
+
+There must be no active medical record with an unknown/null degree type that bypasses filtering.
+
+Do not use one generic pre-med prerequisite template.
+
+Capture actual institutional requirements, including explicit statements where a medical school uses competency-based admissions rather than named courses.
+
+DENTAL
+
+Complete the full reconciled dental directory.
+
+Do not leave only a handful of schools populated.
+
+Capture each program’s actual published biology, chemistry, organic chemistry, biochemistry, physics, mathematics, English, laboratory, DAT, credit, grade, and school-specific requirements where stated.
+
+PHYSICIAN ASSISTANT
+
+Complete every active PA program.
+
+Keep prerequisite coursework separate from:
+
+patient-care hours,
+
+healthcare experience,
+
+shadowing,
+
+GRE,
+
+CASPer,
+
+certifications,
+
+GPA,
+
+letters,
+
+and other admissions criteria.
+
+Do not convert these requirements into fake coursework.
+
+OCCUPATIONAL THERAPY
+
+Complete all active programs and preserve entry-level degree/pathway distinctions.
+
+PHARMACY
+
+Complete all supported active programs with their actual pre-pharmacy coursework and admissions requirements.
+
+VETERINARY MEDICINE
+
+Complete the active directory with official institution-specific coursework and experience requirements.
+
+OPTOMETRY
+
+Complete every active program.
+
+PODIATRY
+
+Complete every active program.
+
+GENETIC COUNSELING
+
+Complete every active program.
+
+Keep coursework separate from advocacy, counseling, crisis-support, genetics exposure, research, and other explicit experience requirements.
+
+SPEECH-LANGUAGE PATHOLOGY
+
+Complete prerequisite/leveling information.
+
+Correctly distinguish programs requiring a CSD background from programs accepting non-CSD students through leveling coursework.
+
+NURSING
+
+This must receive particular attention because earlier testing showed incomplete pathway coverage.
+
+Preserve pathway identity.
+
+Do not conflate:
+
+ABSN
+
+MEPN
+
+direct-entry MSN
+
+entry-level MSN
+
+accelerated BSN
+
+or other distinct tracks.
+
+Research requirements against the exact pathway represented by each program record.
+
+DIETETICS
+
+Preserve ACEND pathway distinctions.
+
+Do not merge coordinated, graduate, didactic, internship-only, or other categories incorrectly.
+
+PROSTHETICS-ORTHOTICS
+
+Complete every active program.
+
+CAA AND PATHOLOGISTS’ ASSISTANT
+
+Preserve the strong work already completed.
+
+Do not reprocess verified records without reason.
+
+POSTBAC
+
+Finish Task #6 as part of THIS SAME completion scope.
+
+Do not keep it as a future task.
+
+Re-investigate the AAMC source using reasonable authoritative methods.
+
+If AAMC’s live directory backend is genuinely unavailable, investigate whether an authoritative official AAMC dataset, downloadable resource, cached official source already stored by the project, institution-linked official listing, or another authoritative source can reconcile the directory.
+
+Do not fabricate a Postbac directory.
+
+If Postbac is not actually a supported visible profession in the planner, document that fact and prevent it from blocking completion of unrelated professions.
+
+If it is supported and a complete authoritative source genuinely remains impossible to retrieve, preserve one narrowly documented directory-level external blocker with exact technical evidence.
+
+EVIDENCE RULES
+
+Use authoritative evidence in roughly this order when available:
+
+individual program admissions/prerequisite page,
+
+institutional official admissions page,
+
+official university catalog,
+
+official handbook,
+
+official PDF,
+
+official program FAQ,
+
+official accreditation organization,
+
+official centralized application service,
+
+official professional association,
+
+other official institution-hosted documentation.
+
+Use search engines only to FIND authoritative pages, not as the final evidence source.
+
+Never save a search snippet as prerequisite evidence.
+
+Never use an LLM’s prior knowledge as evidence.
+
+Never use generic assumptions.
+
+DATA QUALITY
+
+For each program, represent only information explicitly supported by sources.
+
+Where published, support:
+
+course/subject,
+
+requirement type,
+
+credits,
+
+semester or quarter amounts,
+
+number of courses,
+
+lab requirement,
+
+minimum grade,
+
+recency,
+
+AP policy,
+
+IB policy,
+
+community-college policy,
+
+online-course policy,
+
+pass/fail policy,
+
+degree requirement,
+
+cumulative GPA,
+
+science GPA,
+
+GRE,
+
+MCAT,
+
+DAT,
+
+PCAT or relevant standardized test,
+
+CASPer or relevant situational assessment,
+
+patient-care experience,
+
+healthcare experience,
+
+observation,
+
+shadowing,
+
+certification,
+
+and other program-specific admissions conditions.
+
+Do not force a field when the official source does not address it.
+
+Persist provenance for every final record.
+
+Preserve:
+
+program source,
+
+specific requirements source,
+
+additional official sources,
+
+retrieval date,
+
+verification date,
+
+extraction method,
+
+verification method,
+
+source hashes or provenance metadata already supported by the schema.
+
+Do not regress the `official_source_url` merge fix.
+
+A failed later scrape must never erase previously valid verified information.
+
+EXECUTION STRATEGY
+
+The main problem is scale.
+
+Do not manually work one program at a time when the existing pipeline can batch safely.
+
+Use parallel source acquisition and extraction across unrelated institutions where safe.
+
+Respect per-domain throttling.
+
+Use retries.
+
+Reuse cache.
+
+Save progress after every completed program.
+
+Keep processing state resumable.
+
+Do not repeatedly fetch unchanged verified programs.
+
+Process batches based on unfinished status.
+
+Suitable commands/workflows should allow:
+
+one program,
+
+one profession,
+
+all unfinished,
+
+all failed,
+
+all stale,
+
+or full-database completion.
+
+If an execution window is ending, maximize data completion rather than spending the remaining window generating an elaborate narrative.
+
+Persist everything completed.
+
+The next run must be able to continue from the exact next unfinished record.
+
+Do not intentionally stop because an arbitrary batch target has been reached.
+
+COVERAGE-DRIVEN COMPLETION
+
+Regenerate the coverage report periodically.
+
+Use the report to drive what gets processed next.
+
+For every profession report:
+
+active count,
+
+verified prerequisite count,
+
+verified-no-specific-prerequisites count,
+
+verified non-course/competency count if modeled separately,
+
+blocked count,
+
+unfinished count,
+
+coverage percentage,
+
+directory reconciliation status.
+
+The final requirement is:
+
+ordinary unfinished count = ZERO for every active program whose relevant official information can reasonably be obtained from authoritative public sources.
+
+A small number of genuine individual blockers may remain.
+
+Every blocker must be individually justified.
+
+“Research has not started” is not a blocker.
+
+“The execution window ended” is not a blocker.
+
+“We cached the page but did not extract it” is not a blocker.
+
+“The first URL returned 403” is not a blocker.
+
+Do not call the project complete if your own final report still contains hundreds or thousands of draft records.
+
+USER-FACING ACCEPTANCE TEST
+
+Remember the professor’s actual test.
+
+A student opens the planner.
+
+They choose a profession.
+
+They see the correct program directory.
+
+They filter by state.
+
+They select one or several schools.
+
+They choose View Required Prerequisites.
+
+They see real school-specific requirements.
+
+They see which requirements are required versus recommended.
+
+They can see the official source.
+
+They can select several programs without source links disappearing.
+
+They can copy the results.
+
+They can download Excel.
+
+The Excel workbook contains the same real prerequisite information.
+
+THAT is the product acceptance criterion.
+
+Everything you build and populate must support this flow.
+
+COPY RESULTS
+
+Preserve and validate complete multi-program copying.
+
+Copied output should include relevant:
+
+profession,
+
+institution,
+
+program,
+
+degree type,
+
+location,
+
+requirements,
+
+admissions conditions,
+
+verification status,
+
+verification date,
+
+and official sources.
+
+XLSX
+
+Preserve the genuine SheetJS/XLSX implementation.
+
+After the broader data population finishes, test XLSX using schools from multiple different professions.
+
+Generate the workbook.
+
+Reopen it programmatically.
+
+Assert actual cells.
+
+Check:
+
+program identity,
+
+prerequisite rows,
+
+credits,
+
+labs,
+
+grades,
+
+statuses,
+
+verification dates,
+
+source URLs,
+
+and correct assignment of prerequisites to programs.
+
+Do not rely only on file existence, file size, or ZIP magic bytes.
+
+FINAL DATABASE INTEGRITY
+
+When data completion is finished, run a full integrity audit.
+
+Verify:
+
+no orphan prerequisite rows,
+
+no prerequisites linked to merged duplicates,
+
+no incorrect duplicate active programs,
+
+no verified records without evidence,
+
+no final records without verification date,
+
+no invalid statuses,
+
+no required null MD/DO values,
+
+no lost source URLs,
+
+no database/API disagreement,
+
+no incorrect pathway relationships,
+
+no incorrect state/country mappings,
+
+and no unexplained large draft population.
+
+FINAL VALIDATION
+
+Run all available:
+
+frontend tests,
+
+API tests,
+
+importer tests,
+
+database tests,
+
+source provenance tests,
+
+post-write persistence tests,
+
+MD/DO tests,
+
+profession filter tests,
+
+state filter tests,
+
+multi-program tests,
+
+source link tests,
+
+Copy Results tests,
+
+XLSX content tests,
+
+no-specific-prerequisite tests,
+
+blocker tests,
+
+typechecks,
+
+lint,
+
+production builds,
+
+directory audits,
+
+coverage audits,
+
+browser end-to-end acceptance tests.
+
+Do not skip or weaken tests to make them pass.
+
+Fix failures.
+
+PRODUCTION
+
+The final production dataset must match the completed development dataset.
+
+Do not request publication while the development database is still materially incomplete.
+
+When the full accessible dataset is complete and all validation passes, prepare the existing Replit publication workflow.
+
+If programmatic deployment is available, publish and then verify the live app.
+
+If Replit requires the human user to click:
+
+Publish → Overwrite Data
+
+that may remain the single unavoidable manual action.
+
+Everything else must already be finished.
+
+Before asking for that click, confirm that:
+
+the development database is final,
+
+directory counts are final,
+
+prerequisite coverage is final,
+
+schema is ready,
+
+production build passes,
+
+deployment configuration is valid,
+
+and the overwrite will contain the completed dataset.
+
+After publication, verify the live production site:
+
+https://prehealth-advisor.replit.app
+
+Check actual production program counts and prerequisite records.
+
+Recreate the professor’s workflow on production.
+
+FINAL RESPONSE RULE
+
+Do NOT send another completion report while broad prerequisite coverage remains unfinished.
+
+Do NOT propose more tasks.
+
+Do NOT say:
+
+“the pipeline is ready for the remaining programs.”
+
+“this will need another phase.”
+
+“PT can continue next.”
+
+“the remaining professions are follow-up work.”
+
+“I completed another pilot.”
+
+“I could continue if you want.”
+
+Continue automatically.
+
+If the platform physically ends the execution window, persist everything and leave a precise resumable state. On the next execution window, resume immediately from that state without re-planning or asking for another approval.
+
+Only call the Health Professions Planner complete when the final coverage report demonstrates that every accessible active program has reached a legitimate final prerequisite status, all genuine blockers are individually documented, all application tests pass, exports contain the final data, the database passes integrity checks, and production is synchronized or the ONLY remaining action is the unavoidable Publish → Overwrite Data click.
+
+Begin now from the saved unfinished-program queue and continue the data-completion run.
