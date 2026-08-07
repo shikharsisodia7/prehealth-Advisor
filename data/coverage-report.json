@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-07T20:19:41.286Z",
+  "generatedAt": "2026-08-07T21:16:29.800Z",
   "professions": [
     {
       "professionSlug": "anesthesiologist-assistant",
@@ -387,14 +387,14 @@
       "manualPrograms": [],
       "inactivePrograms": 4,
       "prereqStatusCounts": {
-        "verified": 16,
-        "draft": 292
+        "verified": 57,
+        "draft": 251
       },
-      "prereqVerifiedCount": 16,
+      "prereqVerifiedCount": 57,
       "prereqNoSpecificPrereqsCount": 0,
       "prereqBlockedCount": 0,
-      "prereqUnfinishedCount": 292,
-      "prereqVerifiedPct": 5.2,
+      "prereqUnfinishedCount": 251,
+      "prereqVerifiedPct": 18.5,
       "sources": [
         {
           "name": "CAPTE Accredited PT Programs Directory",
@@ -484,8 +484,8 @@
     {
       "professionSlug": "postbac",
       "professionName": "Postbaccalaureate Programs",
-      "directoryPrograms": 339,
-      "directoryAttributedPrograms": 338,
+      "directoryPrograms": 1,
+      "directoryAttributedPrograms": 0,
       "manualPrograms": [
         {
           "name": "Johns Hopkins University",
@@ -496,30 +496,29 @@
       ],
       "inactivePrograms": 0,
       "prereqStatusCounts": {
-        "verified": 1,
-        "draft": 338
+        "verified": 1
       },
       "prereqVerifiedCount": 1,
       "prereqNoSpecificPrereqsCount": 0,
       "prereqBlockedCount": 0,
-      "prereqUnfinishedCount": 338,
-      "prereqVerifiedPct": 0.3,
+      "prereqUnfinishedCount": 0,
+      "prereqVerifiedPct": 100,
       "sources": [
         {
           "name": "AAMC Postbaccalaureate Premedical Programs Database",
           "url": "https://mec.aamc.org/postbac/#/index",
           "retrievedAt": "2026-08-07",
-          "sourceProgramCount": "338",
-          "coverageStatus": "complete",
-          "notes": "Retrieved from the AAMC Postbac program API (api.mec.aamc.org/postbac-service/services-rs/programs/), which is the same data backing the mec.aamc.org/postbac Angular SPA. Only active programs (status=A) included; 338 total. The live API was directly accessible despite the SPA shell’s Angular front-end previously failing at TLS level — the underlying REST service at api.mec.aamc.org was reachable on 2026-08-07. externalId is the AAMC program ID."
+          "sourceProgramCount": "unknown",
+          "coverageStatus": "blocked",
+          "notes": "Blocked: the AAMC postbac database (mec.aamc.org/postbac) is an Angular single-page application. The app shell and JS bundles are fetchable, but every backend service endpoint on mec.aamc.org (config-service/services-rs/*, program service paths referenced in the bundles) fails at the network/TLS level from this environment across repeated attempts on 2026-08-07, and the legacy host apps.aamc.org/postbac returns 404. No static export, sitemap, or archived data set of the program list was found. Import path: prepare JSON per scripts/src/import-directory.ts format and run it — idempotent, never deletes."
         }
       ],
       "reconciliation": {
-        "sourceReportedTotal": 338,
-        "inDatabase": 339,
-        "directoryAttributed": 338,
-        "delta": 0,
-        "status": "reconciled"
+        "sourceReportedTotal": null,
+        "inDatabase": 1,
+        "directoryAttributed": 0,
+        "delta": null,
+        "status": "directory-not-populated-source-blocked"
       }
     },
     {
