@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-07T09:23:43.735Z",
+  "generatedAt": "2026-08-07T20:19:41.286Z",
   "professions": [
     {
       "professionSlug": "anesthesiologist-assistant",
@@ -484,18 +484,25 @@
     {
       "professionSlug": "postbac",
       "professionName": "Postbaccalaureate Programs",
-      "directoryPrograms": 338,
+      "directoryPrograms": 339,
       "directoryAttributedPrograms": 338,
-      "manualPrograms": [],
+      "manualPrograms": [
+        {
+          "name": "Johns Hopkins University",
+          "state": "MD",
+          "verificationStatus": "verified",
+          "note": "Active row not attributed to an imported directory source (verified program outside the imported directory scope, or awaiting attribution)."
+        }
+      ],
       "inactivePrograms": 0,
       "prereqStatusCounts": {
         "verified": 1,
-        "draft": 337
+        "draft": 338
       },
       "prereqVerifiedCount": 1,
       "prereqNoSpecificPrereqsCount": 0,
       "prereqBlockedCount": 0,
-      "prereqUnfinishedCount": 337,
+      "prereqUnfinishedCount": 338,
       "prereqVerifiedPct": 0.3,
       "sources": [
         {
@@ -509,7 +516,7 @@
       ],
       "reconciliation": {
         "sourceReportedTotal": 338,
-        "inDatabase": 338,
+        "inDatabase": 339,
         "directoryAttributed": 338,
         "delta": 0,
         "status": "reconciled"
