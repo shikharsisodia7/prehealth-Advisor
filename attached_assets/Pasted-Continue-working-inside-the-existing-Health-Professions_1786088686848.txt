@@ -1,0 +1,91 @@
+Continue working inside the existing Health Professions Planner project from its current state. Do not create a new project, do not rewrite the application, do not return to Plan mode, do not create new follow-up tasks, and do not stop after another status summary. The application is very close, but there are still specific acceptance issues that must be resolved before this can be considered complete.
+
+Your previous update said that program directories are now reconciled, the 45 Certified Anesthesiologist Assistant and Pathologists’ Assistant programs have prerequisite data collected, the importer source-URL merge bug is fixed, 59 tests pass, typechecks are clean, production builds succeed, and browser testing passes. Preserve all of that working functionality. This task is specifically to eliminate the remaining gaps and perform final live-quality verification.
+
+The first remaining issue is prerequisite verification status. The professor’s primary requirement is that prerequisite information actually appear and be trustworthy. Right now, you report that collected prerequisite information is displayed under an amber “pending verification” banner. Do not leave prerequisite records indefinitely in a generic pending state if they were collected directly from current official university, program, accreditor, or official admissions sources and can be programmatically or manually validated from those sources.
+
+Perform a full verification pass over all collected prerequisite records. For every program with prerequisite data, re-open or re-fetch the associated official source and verify that the structured course requirements stored in the database accurately reflect the official page or official PDF. Validate subject names, required versus recommended status, credit or semester counts, labs, minimum grades, recency limits, GPA requirements, bachelor’s-degree requirements, test requirements, observation or clinical requirements, and other admissions details that the application stores. Do not mark information verified merely because a scraper successfully returned text. Verified means the structured records have been matched against the authoritative source.
+
+When a record has been validated against the official source, update its verification status to verified and store the source URL, verification timestamp, extraction or verification method, and any source metadata supported by the existing schema. If the schema distinguishes machine extraction from human or secondary validation, use the appropriate values rather than collapsing everything into one field.
+
+If multiple prerequisite records for one program were extracted from the same official source, verify them as a coherent program-level requirement set. Do not mark only individual easy rows verified while leaving the overall program in a misleading pending state unless there is a specific unresolved requirement. If a portion genuinely cannot be verified, identify exactly which field or requirement remains uncertain.
+
+Do not leave “pending verification” simply because the data was imported recently. If the official page clearly supports the data, complete the verification now.
+
+For programs whose official source is genuinely inaccessible, preserve the truthful blocked state rather than fabricating information. The University of Calgary case may remain source-blocked only if you verify that the official source is still inaccessible using reasonable methods such as direct HTTP, browser automation, official PDF discovery, alternate official department pages, official university admissions pages, and accreditor or professional association sources. If another authoritative official source can verify the same requirements, use that source and resolve the blocker.
+
+Likewise, retain the AAMC Postbac directory blocker only if the directory backend is genuinely unreachable and no authoritative alternative can provide the required complete directory data. Search existing repository notes and source mappings before doing redundant work. A documented external blocker is acceptable, but it must be narrowly scoped and cannot be used as a reason to leave unrelated records pending.
+
+The second remaining issue is export verification. The professor specifically tested the application’s Excel download and found that prerequisites were missing. Your last update only mentioned browser verification of CSV export. Determine what export format the actual existing user-facing application currently offers. If the interface says Excel, Download Excel, XLSX, spreadsheet, or produces an `.xlsx` file, you must test the actual Excel workbook—not substitute a CSV test.
+
+Inspect the export implementation from the UI button all the way through generated file contents. If the intended output is `.xlsx`, make sure the application generates a valid `.xlsx` workbook. Do not simply rename a CSV file with an Excel extension. Use the existing spreadsheet library if appropriate or implement a reliable XLSX export library compatible with the project.
+
+The Excel workbook must contain the actual selected program and prerequisite data. Reopen the generated workbook programmatically during tests and inspect the cells. At minimum verify that the export contains the profession, institution, program name, degree type, city, state, prerequisite category, prerequisite course or subject, required credits or semesters, lab requirement, minimum grade where available, prerequisite notes, requirement status such as required or recommended, verification status, last verified date, and official source URL.
+
+If broader admissions requirements are part of the application’s data model, include them either in clearly labeled workbook columns or in a separate sheet. If the workbook currently contains a Program Summary sheet and a Prerequisites sheet, preserve that useful structure. If not, implement a clean structure that is readable to an academic adviser.
+
+Test Excel export with one selected program and with multiple selected programs. Verify that each selected program appears. Verify that prerequisites belonging to one program are not incorrectly assigned to another. Verify that source URLs survive the export. Verify that verified and genuinely blocked statuses are represented accurately.
+
+Add automated tests that create an Excel export, save it temporarily, reopen it using an XLSX parser, and assert the presence of expected real program names, prerequisite rows, verification statuses, and source URLs. Do not consider a test successful merely because a file exists or has a nonzero byte size.
+
+If the current application intentionally supports both CSV and XLSX, test both. However, Excel/XLSX is the required acceptance path because that is the format the professor explicitly tested.
+
+The third remaining issue is the live published application. The final implementation must be verified against the published version, not only the local Replit development preview. Inspect the project’s existing deployment and Replit Publish configuration. Do not redesign deployment infrastructure if it already exists.
+
+If the environment allows you to publish or deploy using the existing project credentials and controls, publish the completed changes and then run the same browser verification against the published URL.
+
+If Replit itself requires the human user to click the Publish button and does not allow you to perform that final click, then complete every prerequisite to publication first: ensure the production build is clean, migrations are applied where appropriate, persisted data is ready, environment configuration is valid, no unpublished local database state is required, and the deployment artifact is ready. Then clearly state that the only remaining external action is the single Publish click. Do not leave coding, verification, ingestion, migration, export, or data work unfinished behind that limitation.
+
+After publication, or if the published deployment can already be accessed, perform a live verification pass that recreates the professor’s workflow.
+
+Test medical schools with MD only, DO only, and both. Confirm there are no untyped records bypassing the filter.
+
+Test dental and confirm the full reconciled program list appears.
+
+Test master’s-entry nursing and accelerated bachelor’s nursing and confirm that the directories are no longer sample-sized.
+
+Test PA and open Ohio University.
+
+Test PT and open Emory.
+
+Test Certified Anesthesiologist Assistant and Pathologists’ Assistant programs.
+
+Test pharmacy, podiatry, occupational therapy, dietetics, and the other supported profession categories.
+
+For representative programs, confirm that actual prerequisite lists appear rather than a generic “still being verified” message.
+
+For verified programs, confirm that the UI visibly distinguishes verified data.
+
+For genuinely blocked programs, confirm the UI displays a precise truthful source-blocked or unavailable state and retains an official source link where possible.
+
+Select multiple programs simultaneously and confirm that every selected program retains its own prerequisite information and source link.
+
+Use Copy Results and inspect the copied text. Verify that institution, program, prerequisites, verification status, and official source URLs are included.
+
+Use the actual Excel download control. Open the resulting `.xlsx` workbook and inspect the contents, not merely the filename or download event.
+
+Make sure the exact bug previously identified—`official_source_url` being dropped during importer merge updates—has a regression test. Create an existing row with one set of data, run the importer merge path with an official source URL, and assert that the final persisted row retains the expected source URL. Also test duplicate-merge behavior that previously caused the API 500.
+
+Run the entire validation suite again after these changes. Run unit tests, integration tests, typechecks, production build, data-audit commands, prerequisite verification checks, browser end-to-end tests, and Excel-content tests. Fix failures instead of skipping them.
+
+Generate a final coverage audit by profession. For each profession report the number of active programs, the number with verified prerequisite data, the number officially confirmed to have no specific course prerequisites where applicable, the number pending specific review, and the number externally blocked. The goal is to eliminate generic pending records wherever an authoritative source is available.
+
+Do not manipulate the numbers by marking records verified without evidence. The purpose is reliable advising data, not a green dashboard.
+
+Do not return another message saying that verification, Excel testing, or publication should be handled as follow-up work. These are part of the current acceptance criteria.
+
+You are not finished if the majority of collected prerequisite records still display “pending verification” despite having accessible official sources.
+
+You are not finished if only CSV export is tested while the professor-facing application uses Excel/XLSX.
+
+You are not finished if an Excel file downloads but its prerequisite cells are empty.
+
+You are not finished if local tests pass while the production-facing data path is different or incomplete.
+
+You are not finished if source URLs disappear after importer merges.
+
+You are not finished if you propose publication as a future engineering task when the only actual external limitation is the user clicking Replit’s Publish control.
+
+Continue implementation and verification autonomously from the current repository state. Do not come back with a plan. Do not create additional tasks. Do not ask me to send another prompt.
+
+Your final response should only be a completion report after this pass is finished. Include the final verified prerequisite counts by profession, any individual records still blocked and exactly why, confirmation that the real Excel/XLSX file was reopened and inspected, the tests that passed, confirmation of the official-source merge regression fix, and the published-site verification result. Do not include a “next steps” or “follow-up tasks” section.

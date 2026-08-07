@@ -41,6 +41,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { db, programSchoolsTable, type InsertProgramSchool } from "@workspace/db";
 import type { PrereqItem } from "@workspace/db";
+import { mergeDraftRecord } from "./merge-utils.js";
 import { eq, and } from "drizzle-orm";
 
 // ── CSV parser (minimal, handles quoted fields) ────────────────────────────
@@ -300,23 +301,23 @@ async function main() {
     );
 
     if (draftRecord) {
-      // Merge prereqs into existing draft
-      const mergedPrereqs = [
-        ...draftRecord.prereqCourses,
-        ...prereqCourses.filter(
-          (p) =>
-            !draftRecord.prereqCourses.some(
-              (existing) => existing.name === p.name,
-            ),
-        ),
-      ];
+      // Merge prereqs into existing draft (pure logic in merge-utils.ts,
+      // covered by regression tests — source URL must never be dropped).
+      const mergeResult = mergeDraftRecord({
+        existingPrereqs: draftRecord.prereqCourses,
+        existingSourceUrl: draftRecord.sourceUrl,
+        existingLastVerified: draftRecord.lastVerified,
+        incomingPrereqs: prereqCourses,
+        incomingSourceUrl: first.sourceUrl,
+        incomingLastVerified: first.lastVerified ?? null,
+      });
       await db
         .update(programSchoolsTable)
         .set({
-          prereqCourses: mergedPrereqs,
+          prereqCourses: mergeResult.prereqCourses,
           verificationStatus: "imported",
-          sourceUrl: first.sourceUrl || draftRecord.sourceUrl,
-          lastVerified: first.lastVerified ?? draftRecord.lastVerified,
+          sourceUrl: mergeResult.sourceUrl,
+          lastVerified: mergeResult.lastVerified,
         })
         .where(eq(programSchoolsTable.id, draftRecord.id));
       console.log(`  ↳ Merged "${schoolKey}" into existing draft (id=${draftRecord.id})`);

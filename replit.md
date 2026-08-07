@@ -101,9 +101,11 @@ Directory JSON files live in `data/directories/`; machine-readable reconciliatio
 
 Schools dropped and why are documented in `scripts/src/seed.ts`. Directory imports never modify or delete verified prerequisite rows.
 
-## Imported prerequisite data (pending human verification)
+## Machine-verified prerequisite data (2026-08-07)
 
-All 25 anesthesiologist-assistant and 19 of 20 pathologists-assistant programs have program-specific prerequisite courses collected from official program pages (2026-08-07, `data/programs/*.json`, status `imported`). University of Calgary is `source_blocked` (site 403s automated access; truthful note stored in `verification_note`). The UI shows imported course lists under an explicit amber "pending verification" banner — imported data is never presented as verified, and exports label it truthfully.
+All 25 anesthesiologist-assistant and 19 of 20 pathologists-assistant programs are `verified`: each program's structured records were re-fetched from the official program page and cross-checked (automated extraction + LLM comparison, corrections applied where the audit found substantive mismatches, then re-audited). The `verification_note` on each row records the method and date — this is machine verification, not human review. University of Calgary resolved from `source_blocked` to `no_prereqs_published`: the official Prospective Student FAQ (accessible URL found via search; the old program pages 403/404) states admission requires a BSc in Biological Sciences + 3.3 GPA with no specific course prerequisites. The UI shows a green "Verified" badge on verified programs and an amber "pending verification" banner for any `imported` rows; unverified data is never presented as verified.
+
+Production data sync: publishing applies the schema diff automatically; to push new reference DATA to the live site the user must choose the "overwrite data" option in the Publish UI (prod has its own database).
 
 ## Import script
 

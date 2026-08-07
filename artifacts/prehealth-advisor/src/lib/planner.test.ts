@@ -462,6 +462,111 @@ describe("imported status shows collected courses labeled as pending verificatio
   });
 });
 
+// ── Spec: real Excel workbook reopen — professor acceptance path ─────────────
+
+describe("xlsx export — reopened workbook contains real program + prerequisite data", () => {
+  it("verified, pending, and blocked programs all appear correctly in the reopened workbook", async () => {
+    const XLSX = await import("xlsx");
+    const emory = makeSchool({
+      id: 10,
+      name: "Emory University-Executive Park",
+      programName: "Master of Medical Science in Anesthesiology",
+      degreeType: null,
+      city: "Atlanta",
+      state: "GA",
+      verificationStatus: "verified",
+      sourceUrl: "https://med.emory.edu/departments/anesthesiology/education/masters/apply/prereq.html",
+      lastVerified: "2026-08-07",
+      prereqCourses: [
+        { name: "Biochemistry", classification: "required", semesterCredits: 3 },
+        { name: "Human Physiology", classification: "required", labRequired: true },
+      ],
+    });
+    const duke = makeSchool({
+      id: 11,
+      name: "Duke University",
+      programName: "Pathologists' Assistant Program",
+      state: "NC",
+      verificationStatus: "imported",
+      sourceUrl: "https://pathology.duke.edu/education/pathologists-assistant-program/admissions-application",
+      prereqCourses: [{ name: "General Biology", classification: "required", otherConditions: "grade C or better" }],
+    });
+    const blocked = makeSchool({
+      id: 12,
+      name: "Blocked College",
+      programName: "PathA Program",
+      state: "AB",
+      verificationStatus: "source_blocked",
+      sourceUrl: null,
+      websiteUrl: "https://blocked.example",
+      prereqCourses: [],
+    });
+    const selection = [emory, duke, blocked];
+    const professionName = "Anesthesiologist Assistant";
+
+    const programsData = [
+      [...PROGRAMS_EXPORT_HEADERS] as string[],
+      ...selection.map((s) => {
+        const row = buildProgramsSheetRow(s, professionName);
+        return [
+          row.profession, row.institution, row.program, row.degreeType,
+          row.city, row.state, row.verificationStatus, row.verificationNote,
+          row.lastVerified, row.sourceUrl, row.websiteUrl,
+        ].map(sanitizeSpreadsheetValue);
+      }),
+    ];
+    const prereqRows = selection.flatMap((s) => buildPrereqsSheetRows(s, professionName));
+    const prereqsData = [
+      [...PREREQS_EXPORT_HEADERS] as string[],
+      ...prereqRows.map((row) =>
+        [
+          row.profession, row.institution, row.program, row.degreeType,
+          row.city, row.state, row.prereqName, row.details, row.courseCount,
+          row.semesterCredits, row.quarterCredits, row.labRequired,
+          row.otherConditions, row.requirementType, row.verificationStatus,
+          row.lastVerified, row.sourceUrl,
+        ].map(sanitizeSpreadsheetValue),
+      ),
+    ];
+    const wb = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, XLSX.utils.aoa_to_sheet(programsData), "Programs");
+    XLSX.utils.book_append_sheet(wb, XLSX.utils.aoa_to_sheet(prereqsData), "Prerequisites");
+    const buf: Buffer = XLSX.write(wb, { type: "buffer", bookType: "xlsx" });
+
+    // Reopen and inspect actual cells — not just file existence/size
+    const read = XLSX.read(buf, { type: "buffer" });
+    const prereqCells = XLSX.utils.sheet_to_json<string[]>(read.Sheets["Prerequisites"], { header: 1 }) as string[][];
+    const body = prereqCells.slice(1);
+
+    // Every selected program appears
+    const institutions = new Set(body.map((r) => r[1]));
+    expect(institutions).toEqual(new Set(["Emory University-Executive Park", "Duke University", "Blocked College"]));
+
+    // Prerequisite cells are NOT empty for programs with data
+    const emoryRows = body.filter((r) => r[1] === "Emory University-Executive Park");
+    expect(emoryRows.map((r) => r[6])).toEqual(["Biochemistry", "Human Physiology"]);
+    expect(emoryRows[0][9]).toBe("3"); // semester credits survive
+    expect(emoryRows[1][11]).toBe("Yes"); // lab requirement survives
+
+    // Prerequisites are not cross-assigned between programs
+    const dukeRows = body.filter((r) => r[1] === "Duke University");
+    expect(dukeRows.map((r) => r[6])).toEqual(["General Biology"]);
+    expect(dukeRows[0][12]).toContain("grade C or better");
+
+    // Source URLs survive the export
+    expect(emoryRows[0][16]).toContain("med.emory.edu");
+    expect(dukeRows[0][16]).toContain("pathology.duke.edu");
+
+    // Blocked program gets a truthful status row, not fabricated courses
+    const blockedRows = body.filter((r) => r[1] === "Blocked College");
+    expect(blockedRows).toHaveLength(1);
+    expect(blockedRows[0][6] ?? "").toBe(""); // no prereq name
+    // Verification statuses represented accurately
+    expect(emoryRows[0][14]).toBe("Verified");
+    expect(blockedRows[0][14]).not.toBe("Verified");
+  });
+});
+
 // ── Spec: all selected programs represented under mixed coverage ─────────────
 
 describe("selection-wide results with mixed prerequisite coverage", () => {

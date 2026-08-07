@@ -396,7 +396,15 @@ function SchoolResult({ school }: { school: ProgramSchool }) {
     <div className="py-4 first:pt-0">
       {/* School + program heading */}
       <div className="mb-2">
-        <h3 className="font-semibold text-base text-foreground">{school.name}</h3>
+        <div className="flex items-center gap-2 flex-wrap">
+          <h3 className="font-semibold text-base text-foreground">{school.name}</h3>
+          {school.verificationStatus === "verified" && (
+            <Badge className="text-xs py-0 shrink-0 bg-emerald-100 text-emerald-800 border border-emerald-300 hover:bg-emerald-100">
+              <Check className="w-3 h-3 mr-1" />
+              Verified
+            </Badge>
+          )}
+        </div>
         <p className="text-sm text-muted-foreground">{school.programName}</p>
       </div>
 
