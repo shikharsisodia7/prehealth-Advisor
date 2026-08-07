@@ -26,10 +26,14 @@
  *                         informational | unclear | needs_review
  *   official_source_url – required
  *   last_verified       – optional (YYYY-MM-DD)
- *   verification_status – optional; always overridden to "imported" on import
- *                         EXCEPTION: when ALL prereq rows for a school have
- *                         classification="informational", the record is set to
- *                         "needs_review" instead (used for blocked/inaccessible sites).
+ *   verification_status – optional; controls how the record status is set:
+ *                         • "no_prereqs_published" → record status set to
+ *                           "no_prereqs_published" on both inserts and merges
+ *                           (use for programs with a confirmed empty prereq list).
+ *                         • any other value, or absent → "imported" normally;
+ *                           EXCEPTION: when ALL prereq rows for a school have
+ *                           classification="informational", the record is set to
+ *                           "needs_review" instead (blocked/inaccessible sites).
  *   internal_notes      – optional (stored in details if requirement_details absent)
  *   external_id         – optional; when provided, used as the primary lookup key
  *                         to match the existing directory record instead of name
@@ -150,6 +154,9 @@ interface ParsedRow {
   labRequired?: boolean;
   otherConditions?: string;
   classification: Classification;
+  /** When "no_prereqs_published", the record status is set to that value
+   *  on both inserts and merges, regardless of prerequisite classification. */
+  inputVerificationStatus?: "no_prereqs_published";
   sourceUrl: string;
   lastVerified?: string;
 }
@@ -241,6 +248,10 @@ async function main() {
       labRequired: coerceBool(row.lab_required),
       otherConditions: row.other_conditions || undefined,
       classification,
+      inputVerificationStatus:
+        row.verification_status === "no_prereqs_published"
+          ? "no_prereqs_published"
+          : undefined,
       sourceUrl: row.official_source_url,
       lastVerified: row.last_verified || undefined,
     });
@@ -339,17 +350,30 @@ async function main() {
     }));
 
     const draftRecord = existing.find(
-      (r) => r.verificationStatus === "imported" || r.verificationStatus === "draft" || r.verificationStatus === "needs_review",
+      (r) =>
+        r.verificationStatus === "imported" ||
+        r.verificationStatus === "draft" ||
+        r.verificationStatus === "needs_review" ||
+        r.verificationStatus === "no_prereqs_published",
     );
 
-    // Determine the target status:
-    // - If ALL prereqs are informational, this is a blocked/inaccessible source
-    //   that needs manual resolution → needs_review
-    // - Otherwise → imported (pending human verification of real prereq data)
+    // Determine the target status (priority order):
+    // 1. If the input rows carry verification_status="no_prereqs_published",
+    //    use that — the program is confirmed to not publish specific prerequisites.
+    //    This also preserves the status when an existing DB record has it.
+    // 2. If ALL incoming prereqs are informational → "needs_review"
+    //    (blocked/inaccessible source needing manual resolution).
+    // 3. Otherwise → "imported" (real prereq data pending human verification).
     const allInformational =
       prereqCourses.length > 0 &&
       prereqCourses.every((p) => p.classification === "informational");
-    const targetStatus = allInformational ? "needs_review" : "imported";
+    const targetStatus =
+      first.inputVerificationStatus === "no_prereqs_published" ||
+      draftRecord?.verificationStatus === "no_prereqs_published"
+        ? "no_prereqs_published"
+        : allInformational
+          ? "needs_review"
+          : "imported";
 
     if (draftRecord) {
       // Replace prereqs (full overwrite on re-import, deduplicating by name)
