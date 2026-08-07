@@ -1,0 +1,57 @@
+{
+  "programId": 338,
+  "profession": "physical-therapy",
+  "institution": "Western University of Health Sciences-California",
+  "programName": "Doctor of Physical Therapy (DPT)",
+  "directoryWebsiteUrl": "https://www.westernu.edu/health-sciences/dpt/",
+  "retrievedAt": "2026-08-07",
+  "root": {
+    "url": "https://www.westernu.edu/health-sciences/dpt/",
+    "title": "Doctor of Physical Therapy-California",
+    "contentHash": "dbc948749438ee686db33b44f3a78b0a72e2d03a9dd4c36883abf46ef7aa62ac",
+    "cacheFile": "data/prereq-source-cache/338-dbc948749438ee68.html"
+  },
+  "candidateOfficialSources": [
+    {
+      "url": "https://www.westernu.edu/health-sciences/dpt/",
+      "title": "Doctor of Physical Therapy-California",
+      "sourceType": "program_page",
+      "retrievedAt": "2026-08-07",
+      "contentHash": "dbc948749438ee686db33b44f3a78b0a72e2d03a9dd4c36883abf46ef7aa62ac",
+      "extractionMethod": "http"
+    },
+    {
+      "url": "https://www.westernu.edu/admissions/",
+      "title": "Admissions",
+      "sourceType": "admissions_page",
+      "retrievedAt": "2026-08-07",
+      "contentHash": null,
+      "extractionMethod": "http"
+    },
+    {
+      "url": "https://www.westernu.edu/registrar/catalog/",
+      "title": "Catalog",
+      "sourceType": "admissions_page",
+      "retrievedAt": "2026-08-07",
+      "contentHash": null,
+      "extractionMethod": "http"
+    },
+    {
+      "url": "https://www.westernu.edu/academic-programs/",
+      "title": "Apply",
+      "sourceType": "admissions_page",
+      "retrievedAt": "2026-08-07",
+      "contentHash": null,
+      "extractionMethod": "http"
+    },
+    {
+      "url": "https://www.westernu.edu/health-sciences/admissions-information/",
+      "title": "Admissions Information",
+      "sourceType": "admissions_page",
+      "retrievedAt": "2026-08-07",
+      "contentHash": null,
+      "extractionMethod": "http"
+    }
+  ],
+  "nextAction": "Review cached official page and candidates; extract only explicitly stated requirements into the structured import format. Do not promote status without source evidence."
+}

@@ -1,0 +1,65 @@
+{
+  "programId": 315,
+  "profession": "physical-therapy",
+  "institution": "Arkansas Colleges of Health Education",
+  "programName": "Doctor of Physical Therapy (DPT)",
+  "directoryWebsiteUrl": "https://physical-therapy.achehealth.edu/",
+  "retrievedAt": "2026-08-07",
+  "root": {
+    "url": "https://physicaltherapy.achehealth.edu/",
+    "title": "ACHE - School of Physical Therapy",
+    "contentHash": "8fba85e309f458050f363626200735ede78dbff13332d3c17a0b7041bc9e4cc2",
+    "cacheFile": "data/prereq-source-cache/315-8fba85e309f45805.html"
+  },
+  "candidateOfficialSources": [
+    {
+      "url": "https://physicaltherapy.achehealth.edu/",
+      "title": "ACHE - School of Physical Therapy",
+      "sourceType": "program_page",
+      "retrievedAt": "2026-08-07",
+      "contentHash": "8fba85e309f458050f363626200735ede78dbff13332d3c17a0b7041bc9e4cc2",
+      "extractionMethod": "http"
+    },
+    {
+      "url": "https://physicaltherapy.achehealth.edu/admissions/",
+      "title": "Admissions",
+      "sourceType": "admissions_page",
+      "retrievedAt": "2026-08-07",
+      "contentHash": null,
+      "extractionMethod": "http"
+    },
+    {
+      "url": "https://physicaltherapy.achehealth.edu/admission-requirements/",
+      "title": "Admission Requirements-Traditional Pathway",
+      "sourceType": "admissions_page",
+      "retrievedAt": "2026-08-07",
+      "contentHash": null,
+      "extractionMethod": "http"
+    },
+    {
+      "url": "https://physicaltherapy.achehealth.edu/admission-requirements-professional-pathway/",
+      "title": "Admission Requirements-Professional Pathway",
+      "sourceType": "admissions_page",
+      "retrievedAt": "2026-08-07",
+      "contentHash": null,
+      "extractionMethod": "http"
+    },
+    {
+      "url": "https://physicaltherapy.achehealth.edu/apply/",
+      "title": "Apply Now!",
+      "sourceType": "admissions_page",
+      "retrievedAt": "2026-08-07",
+      "contentHash": null,
+      "extractionMethod": "http"
+    },
+    {
+      "url": "https://physicaltherapy.achehealth.edu/2026/06/05/ache-school-of-physical-therapy-announces-new-admissions-pathway/",
+      "title": "ACHE School of Physical Therapy Announces New Admissions Pathway",
+      "sourceType": "admissions_page",
+      "retrievedAt": "2026-08-07",
+      "contentHash": null,
+      "extractionMethod": "http"
+    }
+  ],
+  "nextAction": "Review cached official page and candidates; extract only explicitly stated requirements into the structured import format. Do not promote status without source evidence."
+}

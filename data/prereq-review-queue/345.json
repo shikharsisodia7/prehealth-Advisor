@@ -1,0 +1,49 @@
+{
+  "programId": 345,
+  "profession": "physical-therapy",
+  "institution": "Howard University",
+  "programName": "Doctor of Physical Therapy (DPT)",
+  "directoryWebsiteUrl": "https://cnahs.howard.edu/departments/physical-therapy",
+  "retrievedAt": "2026-08-07",
+  "root": {
+    "url": "https://cnahs.howard.edu/departments/physical-therapy",
+    "title": "Physical Therapy | Howard University College of Nursing and Allied Health Sciences",
+    "contentHash": "5ad5e7022f2bf3e858209b2a33fc77080040392248ff961473eff3aec1fc26e5",
+    "cacheFile": "data/prereq-source-cache/345-5ad5e7022f2bf3e8.html"
+  },
+  "candidateOfficialSources": [
+    {
+      "url": "https://cnahs.howard.edu/departments/physical-therapy",
+      "title": "Physical Therapy | Howard University College of Nursing and Allied Health Sciences",
+      "sourceType": "program_page",
+      "retrievedAt": "2026-08-07",
+      "contentHash": "5ad5e7022f2bf3e858209b2a33fc77080040392248ff961473eff3aec1fc26e5",
+      "extractionMethod": "http"
+    },
+    {
+      "url": "https://cnahs.howard.edu/sites/cnahs.howard.edu/files/2025-07/2024-2025_HBook%5B27%5D.pdf",
+      "title": "HU Student Handbook",
+      "sourceType": "admissions_page",
+      "retrievedAt": "2026-08-07",
+      "contentHash": null,
+      "extractionMethod": "http"
+    },
+    {
+      "url": "https://cnahs.howard.edu/sites/cnahs.howard.edu/files/2025-08/HU%20DPT%20handbook%202025-2026%5B77%5D.pdf",
+      "title": "PT Student Handbook",
+      "sourceType": "admissions_page",
+      "retrievedAt": "2026-08-07",
+      "contentHash": null,
+      "extractionMethod": "http"
+    },
+    {
+      "url": "https://cnahs.howard.edu/sites/cnahs.howard.edu/files/2024-05/Updated_PreRequisite%20Courses_PT%20%5B99%5D_1.pdf",
+      "title": "Prerequisite Worksheet",
+      "sourceType": "admissions_page",
+      "retrievedAt": "2026-08-07",
+      "contentHash": null,
+      "extractionMethod": "http"
+    }
+  ],
+  "nextAction": "Review cached official page and candidates; extract only explicitly stated requirements into the structured import format. Do not promote status without source evidence."
+}

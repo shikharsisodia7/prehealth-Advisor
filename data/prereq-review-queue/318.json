@@ -1,0 +1,41 @@
+{
+  "programId": 318,
+  "profession": "physical-therapy",
+  "institution": "University of Arkansas for Medical Sciences",
+  "programName": "Doctor of Physical Therapy (DPT)",
+  "directoryWebsiteUrl": "https://healthprofessions.uams.edu/programs/physical-therapy",
+  "retrievedAt": "2026-08-07",
+  "root": {
+    "url": "https://healthprofessions.uams.edu/physical-therapy/",
+    "title": "Department of Physical Therapy | UAMS College of Health Professions",
+    "contentHash": "69154491ed981d39ce5dbb62c6f753f4a591a02250ce6d63dc8071262aca7432",
+    "cacheFile": "data/prereq-source-cache/318-69154491ed981d39.html"
+  },
+  "candidateOfficialSources": [
+    {
+      "url": "https://healthprofessions.uams.edu/physical-therapy/",
+      "title": "Department of Physical Therapy | UAMS College of Health Professions",
+      "sourceType": "program_page",
+      "retrievedAt": "2026-08-07",
+      "contentHash": "69154491ed981d39ce5dbb62c6f753f4a591a02250ce6d63dc8071262aca7432",
+      "extractionMethod": "http"
+    },
+    {
+      "url": "https://healthprofessions.uams.edu/physical-therapy/doctor-of-physical-therapy/about/admission-requirements/",
+      "title": "Admission Requirements",
+      "sourceType": "admissions_page",
+      "retrievedAt": "2026-08-07",
+      "contentHash": null,
+      "extractionMethod": "http"
+    },
+    {
+      "url": "https://healthprofessions.uams.edu/physical-therapy/doctor-of-physical-therapy/about/apply/",
+      "title": "How to Apply",
+      "sourceType": "admissions_page",
+      "retrievedAt": "2026-08-07",
+      "contentHash": null,
+      "extractionMethod": "http"
+    }
+  ],
+  "nextAction": "Review cached official page and candidates; extract only explicitly stated requirements into the structured import format. Do not promote status without source evidence."
+}

@@ -1,0 +1,41 @@
+{
+  "programId": 350,
+  "profession": "physical-therapy",
+  "institution": "Florida International University",
+  "programName": "Doctor of Physical Therapy (DPT)",
+  "directoryWebsiteUrl": "https://cnhs.fiu.edu/academics/physical-therapy/index.html",
+  "retrievedAt": "2026-08-07",
+  "root": {
+    "url": "https://cnhs.fiu.edu/academics/physical-therapy/index.html",
+    "title": "Physical Therapy | FIU Nicole Wertheim College of Nursing &amp; Health Sciences",
+    "contentHash": "6ff0754deba579327854da0aacf84e0442bb6b1075e399ae709628a01d77c453",
+    "cacheFile": "data/prereq-source-cache/350-6ff0754deba57932.html"
+  },
+  "candidateOfficialSources": [
+    {
+      "url": "https://cnhs.fiu.edu/academics/physical-therapy/index.html",
+      "title": "Physical Therapy | FIU Nicole Wertheim College of Nursing &amp; Health Sciences",
+      "sourceType": "program_page",
+      "retrievedAt": "2026-08-07",
+      "contentHash": "6ff0754deba579327854da0aacf84e0442bb6b1075e399ae709628a01d77c453",
+      "extractionMethod": "http"
+    },
+    {
+      "url": "https://cnhs.fiu.edu/academics/apply-now.html",
+      "title": "Apply Now",
+      "sourceType": "admissions_page",
+      "retrievedAt": "2026-08-07",
+      "contentHash": null,
+      "extractionMethod": "http"
+    },
+    {
+      "url": "https://cnhs.fiu.edu/_assets/docs/resources/dpt-handbook.pdf",
+      "title": "DPT Student Handbook",
+      "sourceType": "admissions_page",
+      "retrievedAt": "2026-08-07",
+      "contentHash": null,
+      "extractionMethod": "http"
+    }
+  ],
+  "nextAction": "Review cached official page and candidates; extract only explicitly stated requirements into the structured import format. Do not promote status without source evidence."
+}

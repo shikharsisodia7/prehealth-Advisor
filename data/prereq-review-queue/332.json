@@ -1,0 +1,41 @@
+{
+  "programId": 332,
+  "profession": "physical-therapy",
+  "institution": "University of Southern California - (Expansion)",
+  "programName": "Doctor of Physical Therapy (DPT)",
+  "directoryWebsiteUrl": "https://pt.usc.edu/programs/doctor-of-physical-therapy-dpt/",
+  "retrievedAt": "2026-08-07",
+  "root": {
+    "url": "https://pt.usc.edu/programs/doctor-of-physical-therapy-dpt/",
+    "title": "Doctor of Physical Therapy DPT - USC Division of Biokinesiology and Physical Therapy",
+    "contentHash": "e3a744814051a2ee8643270b17cae7a702f1d3ed367389bd621703e62295e4ee",
+    "cacheFile": "data/prereq-source-cache/332-e3a744814051a2ee.html"
+  },
+  "candidateOfficialSources": [
+    {
+      "url": "https://pt.usc.edu/programs/doctor-of-physical-therapy-dpt/",
+      "title": "Doctor of Physical Therapy DPT - USC Division of Biokinesiology and Physical Therapy",
+      "sourceType": "program_page",
+      "retrievedAt": "2026-08-07",
+      "contentHash": "e3a744814051a2ee8643270b17cae7a702f1d3ed367389bd621703e62295e4ee",
+      "extractionMethod": "http"
+    },
+    {
+      "url": "https://pt.usc.edu/programs/request-information-residential-pathway/",
+      "title": "Prospective Students: Learn More About USC's Doctor of Physical Therapy Program",
+      "sourceType": "admissions_page",
+      "retrievedAt": "2026-08-07",
+      "contentHash": null,
+      "extractionMethod": "http"
+    },
+    {
+      "url": "https://pt.usc.edu/wp-content/uploads/DPT-Student-Handbook-2025-2026-1.pdf",
+      "title": "DPT Student Handbook 2025-2026",
+      "sourceType": "admissions_page",
+      "retrievedAt": "2026-08-07",
+      "contentHash": null,
+      "extractionMethod": "http"
+    }
+  ],
+  "nextAction": "Review cached official page and candidates; extract only explicitly stated requirements into the structured import format. Do not promote status without source evidence."
+}
