@@ -4,69 +4,56 @@
  * nationwide directory could NOT be ingested, with the exact blocker and the
  * documented import path (import-directory.ts JSON format).
  * Idempotent: upserts by (professionSlug, sourceName).
+ *
+ * Also removes STALE blocker rows for sources that have since been unlocked
+ * and imported (CODA dental, ACOTE OT, ACGC genetic counseling, ACEND
+ * dietetics, AACN nursing — all ingested 2026-08-07; see
+ * data/directories/*.json source notes for the working access paths).
  */
-import { eq } from "drizzle-orm";
+import { and, eq } from "drizzle-orm";
 import { db, directorySourcesTable } from "@workspace/db";
 
-const RETRIEVED = "2026-07-23";
+const RETRIEVED = "2026-08-07";
 const IMPORT_PATH =
   "Import path: prepare JSON per scripts/src/import-directory.ts format and run it — idempotent, never deletes.";
 
 const blockers = [
   {
-    professionSlug: "dental",
-    degreeType: null,
-    sourceName: "CODA Find-a-Program (predoctoral DDS/DMD)",
-    sourceUrl: "https://coda.ada.org/find-a-program",
-    notes: `Blocked: coda.ada.org/find-a-program is a JavaScript search application; program data is loaded client-side with no static HTML, JSON endpoint, or exportable list discovered (HTML contains no embedded program data; /api probing returned 404). ADEA institution listings (dim.adea.org/institutions-by-state/) are likewise a JS form without static results. ${IMPORT_PATH}`,
-  },
-  {
-    professionSlug: "occupational-therapy",
-    degreeType: null,
-    sourceName: "ACOTE School Directory (OT Masters + OT Doctorate)",
-    sourceUrl: "https://acoteonline.org/schools/",
-    notes: `Blocked: acoteonline.org school directory renders program data (degree level, status, location) client-side via JavaScript; the WP REST API exposes 670 'school' posts but with empty content/ACF fields, and individual school pages contain no server-rendered program details. Facet counts confirm ~516 accredited programs across OT/OTA levels. ${IMPORT_PATH}`,
-  },
-  {
-    professionSlug: "genetic-counseling",
-    degreeType: null,
-    sourceName: "ACGC Program Directory",
-    sourceUrl: "https://www.gceducation.org/find-a-program/",
-    notes: `Partially blocked: ACGC's find-a-program page lists accredited program names and website links (~57 programs) but provides NO per-program city/state in the served HTML; the older /program-directory/ URL returns 404/502. Program existence is confirmable but location data (required by our schema) is not available from the source page. ${IMPORT_PATH}`,
-  },
-  {
-    professionSlug: "dietetics",
-    degreeType: null,
-    sourceName: "ACEND Accredited Programs Directory",
-    sourceUrl:
-      "https://www.eatrightpro.org/acend/accredited-programs/accredited-education-programs",
-    notes: `Blocked: ACEND's accredited-programs directory on eatrightpro.org is a JavaScript application (fetched HTML contains navigation only, no program list). ${IMPORT_PATH}`,
-  },
-  {
-    professionSlug: "nursing",
-    degreeType: "ABSN",
-    sourceName: "AACN Program Directory (accelerated baccalaureate)",
-    sourceUrl:
-      "https://www.aacnnursing.org/students/nursing-education-pathways/accelerated-programs",
-    notes: `Blocked: AACN's institutional program directory requires a MyAACN login (fetch returned a login form); the public accelerated-programs page is descriptive only, with no program list. ${IMPORT_PATH}`,
-  },
-  {
-    professionSlug: "nursing",
-    degreeType: "MEPN",
-    sourceName: "AACN Program Directory (master's entry)",
-    sourceUrl: "https://www.aacnnursing.org/about-aacn/member-schools",
-    notes: `Blocked: same as ABSN — AACN directory is behind MyAACN login; no public machine-readable list of master's-entry (MEPN) programs found. ${IMPORT_PATH}`,
-  },
-  {
     professionSlug: "postbac",
     degreeType: null,
     sourceName: "AAMC Postbaccalaureate Premedical Programs Database",
     sourceUrl: "https://mec.aamc.org/postbac/#/index",
-    notes: `Blocked: the AAMC postbac database (mec.aamc.org) is a JavaScript single-page application; fetched HTML contains no program data and no public API was identified. ${IMPORT_PATH}`,
+    notes: `Blocked: the AAMC postbac database (mec.aamc.org/postbac) is an Angular single-page application. The app shell and JS bundles are fetchable, but every backend service endpoint on mec.aamc.org (config-service/services-rs/*, program service paths referenced in the bundles) fails at the network/TLS level from this environment across repeated attempts on 2026-08-07, and the legacy host apps.aamc.org/postbac returns 404. No static export, sitemap, or archived data set of the program list was found. ${IMPORT_PATH}`,
   },
 ] as const;
 
+/** Blocker rows recorded on 2026-07-23 that are now superseded by successful imports. */
+const staleBlockers: Array<{ professionSlug: string; sourceName: string }> = [
+  { professionSlug: "dental", sourceName: "CODA Find-a-Program (predoctoral DDS/DMD)" },
+  { professionSlug: "occupational-therapy", sourceName: "ACOTE School Directory (OT Masters + OT Doctorate)" },
+  { professionSlug: "genetic-counseling", sourceName: "ACGC Program Directory" },
+  { professionSlug: "dietetics", sourceName: "ACEND Accredited Programs Directory" },
+  { professionSlug: "nursing", sourceName: "AACN Program Directory (accelerated baccalaureate)" },
+  { professionSlug: "nursing", sourceName: "AACN Program Directory (master's entry)" },
+];
+
 async function main() {
+  for (const s of staleBlockers) {
+    const rows = await db
+      .select()
+      .from(directorySourcesTable)
+      .where(eq(directorySourcesTable.professionSlug, s.professionSlug));
+    const match = rows.find(
+      (r) => r.sourceName === s.sourceName && r.coverageStatus === "blocked",
+    );
+    if (match) {
+      await db
+        .delete(directorySourcesTable)
+        .where(eq(directorySourcesTable.id, match.id));
+      console.log(`removed stale blocker: ${s.professionSlug} / ${s.sourceName}`);
+    }
+  }
+
   for (const b of blockers) {
     const rows = await db
       .select()

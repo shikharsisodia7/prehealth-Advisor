@@ -19,4 +19,8 @@ export const ProgramSchoolVerificationStatus = {
   verified: 'verified',
   rejected: 'rejected',
   outdated: 'outdated',
+  no_prereqs_published: 'no_prereqs_published',
+  source_blocked: 'source_blocked',
+  unavailable: 'unavailable',
+  not_published: 'not_published',
 } as const;

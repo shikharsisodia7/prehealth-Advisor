@@ -315,6 +315,7 @@ async function main() {
         .set({
           prereqCourses: mergedPrereqs,
           verificationStatus: "imported",
+          sourceUrl: first.sourceUrl || draftRecord.sourceUrl,
           lastVerified: first.lastVerified ?? draftRecord.lastVerified,
         })
         .where(eq(programSchoolsTable.id, draftRecord.id));

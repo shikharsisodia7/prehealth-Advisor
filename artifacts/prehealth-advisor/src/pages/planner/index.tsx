@@ -10,6 +10,7 @@ import {
   Check,
   Search,
   AlertCircle,
+  AlertTriangle,
   Info,
 } from "lucide-react";
 import { toast } from "sonner";
@@ -34,11 +35,18 @@ import { Label } from "@/components/ui/label";
 import { cn } from "@/lib/utils";
 import {
   EXPORT_HEADERS,
+  PROGRAMS_EXPORT_HEADERS,
+  PREREQS_EXPORT_HEADERS,
   alphabetize,
   buildSelectionExportRows,
+  buildProgramsSheetRow,
+  buildPrereqsSheetRows,
   filterByDegreeTypes,
   filterSchools,
+  formatSelectionForCopy,
+  isPositiveStatus,
   sanitizeSpreadsheetValue,
+  verificationStatusMessage,
   rowToTsv,
   rowToCsv,
   type ExportRow,
@@ -357,31 +365,29 @@ function SchoolMultiSelect({
 
 function VerificationMessage({
   status,
+  note,
 }: {
   status: string;
+  note?: string | null;
 }) {
-  const messages: Record<string, string> = {
-    needs_review:
-      "This information requires re-verification. Review the official program source or consult a health professions advisor.",
-    outdated:
-      "This information requires re-verification. Review the official program source or consult a health professions advisor.",
-    draft:
-      "This program has been identified, but its prerequisite information is still being verified.",
-    imported:
-      "This program has been identified, but its prerequisite information is still being verified.",
-    rejected:
-      "Prerequisite information for this program is still being verified. Review the official program page or consult a health professions advisor.",
-  };
+  const message = verificationStatusMessage(status);
   return (
     <div className="flex items-start gap-2 p-3 rounded-md bg-amber-50 border border-amber-200 text-amber-800 text-sm">
       <AlertCircle className="w-4 h-4 shrink-0 mt-0.5" />
-      <span>{messages[status] ?? "Prerequisite information for this program is still being verified. Review the official program page or consult a health professions advisor."}</span>
+      <span>
+        {message}
+        {note && (
+          <span className="block mt-1 text-amber-700 text-xs italic">{note}</span>
+        )}
+      </span>
     </div>
   );
 }
 
 function SchoolResult({ school }: { school: ProgramSchool }) {
-  const isVerified = school.verificationStatus === "verified";
+  const positive = isPositiveStatus(school.verificationStatus);
+  const pendingVerification = school.verificationStatus === "imported";
+  const noPrereqsPublished = school.verificationStatus === "no_prereqs_published";
   const requiredPrereqs = school.prereqCourses.filter(
     (p) => p.classification === "required",
   );
@@ -394,11 +400,34 @@ function SchoolResult({ school }: { school: ProgramSchool }) {
         <p className="text-sm text-muted-foreground">{school.programName}</p>
       </div>
 
-      {isVerified ? (
+      {noPrereqsPublished ? (
+        <div className="mb-3 flex items-start gap-2 p-3 rounded-md bg-emerald-50 border border-emerald-200 text-emerald-800 text-sm">
+          <Check className="w-4 h-4 shrink-0 mt-0.5" />
+          <span>
+            The official program source states no specific course prerequisites are required for this program.
+            {school.verificationNote && (
+              <span className="block mt-1 text-emerald-700 text-xs italic">{school.verificationNote}</span>
+            )}
+          </span>
+        </div>
+      ) : positive || pendingVerification ? (
         requiredPrereqs.length > 0 ? (
           <>
+            {pendingVerification && (
+              <div className="mb-2 flex items-start gap-2 p-3 rounded-md bg-amber-50 border border-amber-200 text-amber-800 text-sm">
+                <AlertTriangle className="w-4 h-4 shrink-0 mt-0.5" />
+                <span>
+                  Collected from the official program source but not yet human-verified. Confirm against the linked source before relying on it.
+                  {school.verificationNote && (
+                    <span className="block mt-1 text-amber-700 text-xs italic">{school.verificationNote}</span>
+                  )}
+                </span>
+              </div>
+            )}
             <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground mb-1.5">
-              Required prerequisites:
+              {pendingVerification
+                ? "Required prerequisites (pending verification):"
+                : "Required prerequisites:"}
             </p>
             <ul className="space-y-1 mb-3">
               {requiredPrereqs.map((prereq, i) => (
@@ -426,11 +455,11 @@ function SchoolResult({ school }: { school: ProgramSchool }) {
         )
       ) : (
         <div className="mb-3">
-          <VerificationMessage status={school.verificationStatus} />
+          <VerificationMessage status={school.verificationStatus} note={school.verificationNote} />
         </div>
       )}
 
-      {/* Source + verification date */}
+      {/* Source + verification date — always show program's own source link */}
       <div className="flex flex-wrap items-center gap-3 text-xs text-muted-foreground">
         {school.sourceUrl ? (
           <a
@@ -621,13 +650,11 @@ export default function ProgramPlanner() {
   }
 
   async function handleCopyResults() {
-    const rows = collectExportRows();
-    if (rows.length === 0) return;
-    const tsv =
-      EXPORT_HEADERS.join("\t") + "\n" + rows.map(rowToTsv).join("\n");
+    if (selectedSchools.length === 0) return;
+    const text = formatSelectionForCopy(selectedSchools, selectedProfessionName);
     try {
-      await navigator.clipboard.writeText(tsv);
-      toast.success("Copied! Paste directly into Excel or Google Sheets.");
+      await navigator.clipboard.writeText(text);
+      toast.success("Copied! Paste into any document or notes app.");
     } catch {
       toast.error("Could not access clipboard. Try the CSV download instead.");
     }
@@ -653,33 +680,63 @@ export default function ProgramPlanner() {
   }
 
   async function handleDownloadExcel() {
-    const rows = collectExportRows();
-    if (rows.length === 0) return;
+    if (selectedSchools.length === 0) return;
     // Dynamically import SheetJS to keep the initial bundle lean
     const XLSX = await import("xlsx");
-    const wsData = [
-      EXPORT_HEADERS as unknown as string[],
-      ...rows.map((r) =>
+
+    // --- Programs sheet ---
+    const programsData = [
+      [...PROGRAMS_EXPORT_HEADERS] as string[],
+      ...selectedSchools.map((s) => {
+        const row = buildProgramsSheetRow(s, selectedProfessionName);
+        return [
+          row.profession,
+          row.institution,
+          row.program,
+          row.degreeType,
+          row.city,
+          row.state,
+          row.verificationStatus,
+          row.verificationNote,
+          row.lastVerified,
+          row.sourceUrl,
+          row.websiteUrl,
+        ].map(sanitizeSpreadsheetValue);
+      }),
+    ];
+
+    // --- Prerequisites sheet ---
+    const prereqRows = selectedSchools.flatMap((s) =>
+      buildPrereqsSheetRows(s, selectedProfessionName),
+    );
+    const prereqsData = [
+      [...PREREQS_EXPORT_HEADERS] as string[],
+      ...prereqRows.map((row) =>
         [
-          r.profession,
-          r.degreeType,
-          r.school,
-          r.program,
-          r.prereqName,
-          r.details,
-          r.courseCount,
-          r.semesterCredits,
-          r.quarterCredits,
-          r.labRequired,
-          r.otherConditions,
-          r.sourceUrl,
-          r.lastVerified,
+          row.profession,
+          row.institution,
+          row.program,
+          row.degreeType,
+          row.city,
+          row.state,
+          row.prereqName,
+          row.details,
+          row.courseCount,
+          row.semesterCredits,
+          row.quarterCredits,
+          row.labRequired,
+          row.otherConditions,
+          row.requirementType,
+          row.verificationStatus,
+          row.lastVerified,
+          row.sourceUrl,
         ].map(sanitizeSpreadsheetValue),
       ),
     ];
-    const ws = XLSX.utils.aoa_to_sheet(wsData);
+
     const wb = XLSX.utils.book_new();
-    XLSX.utils.book_append_sheet(wb, ws, "Prerequisites");
+    XLSX.utils.book_append_sheet(wb, XLSX.utils.aoa_to_sheet(programsData), "Programs");
+    XLSX.utils.book_append_sheet(wb, XLSX.utils.aoa_to_sheet(prereqsData), "Prerequisites");
     XLSX.writeFile(wb, "program-planner-prerequisites.xlsx");
     toast.success("Excel file downloaded");
   }

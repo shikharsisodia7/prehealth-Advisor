@@ -1,0 +1,16 @@
+[
+  {
+    "school_name": "University of Calgary",
+    "state": "AB",
+    "reason": "The given URL (https://cumming.ucalgary.ca/dev/gse-2020/programs/pathologists-assistant) returns HTTP 403 Forbidden. All alternate URLs tried (cumming.ucalgary.ca/programs/pathologists-assistant, /admissions, /programs/pathologists-assistant/admission/requirements, /education/graduate/pathologists-assistant, /education/graduate-science-education/programs, grad.ucalgary.ca/future-students/explore-programs/pathologists-assistant-msc-course-based) return 404 not found. The UCalgary Pathology Department education page states 'there are no formal graduate programs within the Department of Pathology & Laboratory Medicine' and directs to Faculty of Graduate Studies — but the program page URL itself remains inaccessible via curl. Could not verify official prerequisite coursework from any accessible UCalgary page.",
+    "url_tried": [
+      "https://cumming.ucalgary.ca/dev/gse-2020/programs/pathologists-assistant",
+      "https://cumming.ucalgary.ca/programs/pathologists-assistant",
+      "https://cumming.ucalgary.ca/programs/pathologists-assistant/admission/requirements",
+      "https://cumming.ucalgary.ca/education/graduate/pathologists-assistant",
+      "https://cumming.ucalgary.ca/education/graduate-science-education/programs",
+      "https://cumming.ucalgary.ca/departments/pathology/education",
+      "https://grad.ucalgary.ca/future-students/explore-programs/pathologists-assistant-msc-course-based"
+    ]
+  }
+]

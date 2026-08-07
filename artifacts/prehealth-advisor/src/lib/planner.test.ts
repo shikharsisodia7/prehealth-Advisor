@@ -9,6 +9,8 @@ import path from "node:path";
 import {
   buildExportRows,
   buildSelectionExportRows,
+  buildProgramsSheetRow,
+  buildPrereqsSheetRows,
   rowToCsv,
   rowToTsv,
   alphabetize,
@@ -19,7 +21,13 @@ import {
   directoryDisplayState,
   selectionsAfterProfessionChange,
   sanitizeSpreadsheetValue,
+  verificationStatusLabel,
+  verificationStatusMessage,
+  formatProgramForCopy,
+  formatSelectionForCopy,
   EXPORT_HEADERS,
+  PROGRAMS_EXPORT_HEADERS,
+  PREREQS_EXPORT_HEADERS,
   type ProgramSchoolLike,
 } from "./planner-utils";
 import type { PrereqItem } from "@workspace/api-client-react";
@@ -228,9 +236,126 @@ describe("rowToTsv", () => {
   });
 });
 
-// ── Excel (.xlsx) generation ──────────────────────────────────────────────────
+// ── Excel (.xlsx) generation — two-sheet workbook ─────────────────────────────
 
-describe("xlsx export", () => {
+describe("xlsx export — two-sheet workbook", () => {
+  it("workbook has Programs and Prerequisites sheets with correct content", async () => {
+    const XLSX = await import("xlsx");
+
+    const school1 = makeSchool({
+      id: 1,
+      name: "Alpha University",
+      programName: "Doctor of Medicine (MD)",
+      degreeType: "MD",
+      city: "Springfield",
+      state: "IL",
+      verificationStatus: "verified",
+      sourceUrl: "https://alpha.edu/prereqs",
+      websiteUrl: "https://alpha.edu",
+      lastVerified: "2026-07-23",
+      prereqCourses: [
+        { name: "Biology", classification: "required", labRequired: true, semesterCredits: 8 },
+        { name: "Chemistry", classification: "required", labRequired: true, semesterCredits: 8 },
+      ],
+    });
+
+    const school2 = makeSchool({
+      id: 2,
+      name: "Beta College",
+      programName: "Doctor of Medicine (MD)",
+      degreeType: "MD",
+      city: "Shelbyville",
+      state: "IL",
+      verificationStatus: "needs_review",
+      sourceUrl: null,
+      websiteUrl: "https://beta.edu",
+      lastVerified: null,
+      prereqCourses: [],
+    });
+
+    const professionName = "Medicine";
+    const selection = [school1, school2];
+
+    // Build Programs sheet data
+    const programsData = [
+      [...PROGRAMS_EXPORT_HEADERS] as string[],
+      ...selection.map((s) => {
+        const row = buildProgramsSheetRow(s, professionName);
+        return [
+          row.profession, row.institution, row.program, row.degreeType,
+          row.city, row.state, row.verificationStatus, row.verificationNote,
+          row.lastVerified, row.sourceUrl, row.websiteUrl,
+        ].map(sanitizeSpreadsheetValue);
+      }),
+    ];
+
+    // Build Prerequisites sheet data
+    const prereqRows = selection.flatMap((s) => buildPrereqsSheetRows(s, professionName));
+    const prereqsData = [
+      [...PREREQS_EXPORT_HEADERS] as string[],
+      ...prereqRows.map((row) =>
+        [
+          row.profession, row.institution, row.program, row.degreeType,
+          row.city, row.state, row.prereqName, row.details, row.courseCount,
+          row.semesterCredits, row.quarterCredits, row.labRequired,
+          row.otherConditions, row.requirementType, row.verificationStatus,
+          row.lastVerified, row.sourceUrl,
+        ].map(sanitizeSpreadsheetValue),
+      ),
+    ];
+
+    const wb = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, XLSX.utils.aoa_to_sheet(programsData), "Programs");
+    XLSX.utils.book_append_sheet(wb, XLSX.utils.aoa_to_sheet(prereqsData), "Prerequisites");
+
+    // Write to buffer and re-read to verify
+    const buf: Buffer = XLSX.write(wb, { type: "buffer", bookType: "xlsx" });
+
+    // Magic bytes: PK\x03\x04 (zip format)
+    expect(buf[0]).toBe(0x50);
+    expect(buf[1]).toBe(0x4b);
+    expect(buf[2]).toBe(0x03);
+    expect(buf[3]).toBe(0x04);
+
+    // Re-read and assert sheet names
+    const wbRead = XLSX.read(buf, { type: "buffer" });
+    expect(wbRead.SheetNames).toEqual(["Programs", "Prerequisites"]);
+
+    // Programs sheet assertions
+    const programsSheet = wbRead.Sheets["Programs"];
+    const programsRows = XLSX.utils.sheet_to_json<Record<string, string>>(programsSheet, { header: 1 }) as string[][];
+    expect(programsRows[0]).toContain("Institution");
+    expect(programsRows[0]).toContain("Verification Status");
+    expect(programsRows[0]).toContain("Source URL");
+    const programNames = programsRows.slice(1).map((r) => r[1]); // Institution column
+    expect(programNames).toContain("Alpha University");
+    expect(programNames).toContain("Beta College");
+
+    // Prerequisites sheet assertions
+    const prereqsSheet = wbRead.Sheets["Prerequisites"];
+    const prereqsRows = XLSX.utils.sheet_to_json<Record<string, string>>(prereqsSheet, { header: 1 }) as string[][];
+    expect(prereqsRows[0]).toContain("Prerequisite Name");
+    expect(prereqsRows[0]).toContain("Verification Status");
+    expect(prereqsRows[0]).toContain("Source URL");
+
+    // Alpha University should have Biology and Chemistry rows
+    const prereqInstitutions = prereqsRows.slice(1).map((r) => r[1]);
+    expect(prereqInstitutions.filter((n) => n === "Alpha University")).toHaveLength(2);
+
+    // Beta College should have a status row (needs_review)
+    const betaRows = prereqsRows.slice(1).filter((r) => r[1] === "Beta College");
+    expect(betaRows).toHaveLength(1);
+    expect(betaRows[0][6]).toBe(""); // prereqName is empty for status row
+
+    // Verification status labels
+    const alphaRow = programsRows.find((r) => r[1] === "Alpha University");
+    expect(alphaRow).toBeDefined();
+    expect(alphaRow![6]).toBe("Verified");
+
+    // Source URLs
+    expect(alphaRow![9]).toBe("https://alpha.edu/prereqs");
+  });
+
   it("generateXlsxBuffer returns a valid .xlsx zip magic bytes (PK\\x03\\x04)", async () => {
     // Import SheetJS the same way the planner does
     const XLSX = await import("xlsx");
@@ -301,6 +426,39 @@ describe("Step 3 does not present unverified data as verified", () => {
     expect(rows).toHaveLength(1);
     expect(rows[0].prereqName).toBe(""); // no requirement presented
     expect(rows[0].details).toContain("not yet verified");
+  });
+});
+
+// ── Spec: imported (pending verification) data is shown, labeled truthfully ──
+
+describe("imported status shows collected courses labeled as pending verification", () => {
+  const imported = makeSchool({
+    name: "Imported Tech",
+    verificationStatus: "imported",
+    prereqCourses: [
+      { name: "Organic Chemistry", details: "2 semesters with lab", classification: "required" },
+      { name: "Genetics", classification: "recommended" },
+    ],
+  });
+
+  it("export rows include the collected required courses (never presented as verified)", () => {
+    const rows = buildSelectionExportRows([imported], "Pathologists' Assistant");
+    expect(rows).toHaveLength(1);
+    expect(rows[0].prereqName).toBe("Organic Chemistry");
+  });
+
+  it("copy output lists courses under an explicit pending-verification heading", () => {
+    const text = formatProgramForCopy(imported, "Pathologists' Assistant");
+    expect(text).toContain("pending verification");
+    expect(text).toContain("Organic Chemistry");
+    expect(text).toContain("Verification status: Pending verification");
+  });
+
+  it("imported program with no course data still gets a truthful status row", () => {
+    const empty = makeSchool({ name: "Empty U", verificationStatus: "imported", prereqCourses: [] });
+    const rows = buildSelectionExportRows([empty], "Medicine");
+    expect(rows).toHaveLength(1);
+    expect(rows[0].prereqName).toBe("");
   });
 });
 
@@ -400,21 +558,6 @@ describe("sanitizeSpreadsheetValue", () => {
       expect(sanitizeSpreadsheetValue(v).startsWith("'")).toBe(true);
     }
   });
-  it("filters MD/DO degree types without hiding untyped programs", async () => {
-    const { filterByDegreeTypes } = await import("./planner-utils");
-    const md = makeSchool({ id: 1, degreeType: "MD" });
-    const doProg = makeSchool({ id: 2, degreeType: "DO" });
-    const untyped = makeSchool({ id: 3, degreeType: null });
-    const all = [md, doProg, untyped];
-    expect(filterByDegreeTypes(all, ["MD", "DO"]).map((s) => s.id)).toEqual([1, 2, 3]);
-    expect(filterByDegreeTypes(all, ["MD"]).map((s) => s.id)).toEqual([1, 3]);
-    expect(filterByDegreeTypes(all, ["DO"]).map((s) => s.id)).toEqual([2, 3]);
-    // empty selection shows nothing rather than something wrong
-    expect(filterByDegreeTypes(all, [])).toEqual([]);
-    // must not treat other doctoral degrees as MD/DO
-    const dds = makeSchool({ id: 4, degreeType: "DDS" });
-    expect(filterByDegreeTypes([dds], ["MD", "DO"]).length).toBe(0);
-  });
 
   it("leaves normal values untouched", () => {
     expect(sanitizeSpreadsheetValue("Biology with lab")).toBe("Biology with lab");
@@ -442,6 +585,253 @@ describe("sanitizeSpreadsheetValue", () => {
     const cell = ws["C2"];
     expect(cell.v).toBe("'=HYPERLINK(\"http://evil.test\",\"click\")");
     expect(cell.f).toBeUndefined();
+  });
+});
+
+// ── Spec: MD/DO filter is now STRICT — untyped records are excluded ───────────
+
+describe("filterByDegreeTypes — strict mode (no null passthrough)", () => {
+  it("active empty → returns [] (no data shown)", async () => {
+    const { filterByDegreeTypes } = await import("./planner-utils");
+    const md = makeSchool({ id: 1, degreeType: "MD", prereqCourses: [] });
+    expect(filterByDegreeTypes([md], [])).toEqual([]);
+  });
+
+  it("excludes programs with null degreeType when a filter is active", async () => {
+    const { filterByDegreeTypes } = await import("./planner-utils");
+    const md = makeSchool({ id: 1, degreeType: "MD", prereqCourses: [] });
+    const doProg = makeSchool({ id: 2, degreeType: "DO", prereqCourses: [] });
+    const untyped = makeSchool({ id: 3, degreeType: null, prereqCourses: [] });
+    const all = [md, doProg, untyped];
+
+    // Both MD and DO selected — untyped excluded
+    expect(filterByDegreeTypes(all, ["MD", "DO"]).map((s) => s.id)).toEqual([1, 2]);
+    // MD only — only MD programs
+    expect(filterByDegreeTypes(all, ["MD"]).map((s) => s.id)).toEqual([1]);
+    // DO only — only DO programs
+    expect(filterByDegreeTypes(all, ["DO"]).map((s) => s.id)).toEqual([2]);
+  });
+
+  it("excludes DDS and other non-MD/DO degree types", async () => {
+    const { filterByDegreeTypes } = await import("./planner-utils");
+    const dds = makeSchool({ id: 4, degreeType: "DDS", prereqCourses: [] });
+    expect(filterByDegreeTypes([dds], ["MD", "DO"]).length).toBe(0);
+  });
+
+  it("untyped programs are excluded for any active filter", async () => {
+    const { filterByDegreeTypes } = await import("./planner-utils");
+    const untyped = makeSchool({ id: 1, degreeType: null, prereqCourses: [] });
+    expect(filterByDegreeTypes([untyped], ["MD"])).toHaveLength(0);
+    expect(filterByDegreeTypes([untyped], ["DO"])).toHaveLength(0);
+    expect(filterByDegreeTypes([untyped], ["MD", "DO"])).toHaveLength(0);
+  });
+});
+
+// ── Spec: verification status messages ────────────────────────────────────────
+
+describe("verificationStatusLabel", () => {
+  it("returns specific label for each known status", () => {
+    expect(verificationStatusLabel("verified")).toBe("Verified");
+    expect(verificationStatusLabel("no_prereqs_published")).toBe("No specific prerequisites published");
+    expect(verificationStatusLabel("needs_review")).toBe("Needs review");
+    expect(verificationStatusLabel("source_blocked")).toBe("Source blocked");
+    expect(verificationStatusLabel("unavailable")).toBe("Source temporarily unavailable");
+    expect(verificationStatusLabel("not_published")).toBe("Prerequisites not publicly published");
+    expect(verificationStatusLabel("draft")).toBe("Not yet verified");
+    expect(verificationStatusLabel("imported")).toBe("Pending verification");
+    expect(verificationStatusLabel("rejected")).toBe("Could not be confirmed");
+    expect(verificationStatusLabel("outdated")).toBe("Requires re-verification");
+  });
+
+  it("handles unknown status gracefully", () => {
+    const label = verificationStatusLabel("some_future_status");
+    expect(typeof label).toBe("string");
+    expect(label.length).toBeGreaterThan(0);
+  });
+});
+
+describe("verificationStatusMessage", () => {
+  it("no_prereqs_published is a positive statement, not 'missing data'", () => {
+    const msg = verificationStatusMessage("no_prereqs_published");
+    expect(msg.toLowerCase()).toContain("no specific course prerequisites");
+    // Must NOT suggest data is missing
+    expect(msg.toLowerCase()).not.toContain("not yet verified");
+    expect(msg.toLowerCase()).not.toContain("still being verified");
+  });
+
+  it("returns distinct messages for source_blocked, unavailable, not_published", () => {
+    const blocked = verificationStatusMessage("source_blocked");
+    const unavail = verificationStatusMessage("unavailable");
+    const notPub = verificationStatusMessage("not_published");
+    expect(blocked).not.toBe(unavail);
+    expect(blocked).not.toBe(notPub);
+    expect(unavail).not.toBe(notPub);
+  });
+
+  it("handles unknown status gracefully", () => {
+    const msg = verificationStatusMessage("some_future_status");
+    expect(typeof msg).toBe("string");
+    expect(msg.length).toBeGreaterThan(0);
+  });
+});
+
+// ── Spec: copy output completeness ────────────────────────────────────────────
+
+describe("formatProgramForCopy", () => {
+  it("includes institution, program, degree type, city/state", () => {
+    const school = makeSchool({
+      name: "Alpha University",
+      programName: "Doctor of Medicine (MD)",
+      degreeType: "MD",
+      city: "Springfield",
+      state: "IL",
+      prereqCourses: [],
+    });
+    const text = formatProgramForCopy(school, "Medicine");
+    expect(text).toContain("Alpha University");
+    expect(text).toContain("Doctor of Medicine (MD)");
+    expect(text).toContain("MD");
+    expect(text).toContain("Springfield");
+    expect(text).toContain("IL");
+  });
+
+  it("includes each prerequisite with name, details, credits, lab", () => {
+    const school = makeSchool({
+      prereqCourses: [
+        {
+          name: "Biology",
+          details: "with lab",
+          classification: "required",
+          labRequired: true,
+          semesterCredits: 8,
+          courseCount: 2,
+        },
+      ],
+    });
+    const text = formatProgramForCopy(school, "Medicine");
+    expect(text).toContain("Biology");
+    expect(text).toContain("with lab");
+    expect(text).toContain("8 semester credits");
+    expect(text).toContain("lab required");
+    expect(text).toContain("2 course(s)");
+  });
+
+  it("includes verification status and source URL", () => {
+    const school = makeSchool({
+      verificationStatus: "needs_review",
+      sourceUrl: "https://example.edu/prereqs",
+      prereqCourses: [],
+    });
+    const text = formatProgramForCopy(school, "Medicine");
+    expect(text).toContain("Needs review");
+    expect(text).toContain("https://example.edu/prereqs");
+  });
+
+  it("includes verificationNote when present", () => {
+    const school = makeSchool({
+      verificationNote: "Source was updated Jan 2026",
+      prereqCourses: [],
+    });
+    const text = formatProgramForCopy(school, "Medicine");
+    expect(text).toContain("Source was updated Jan 2026");
+  });
+
+  it("includes last verified date", () => {
+    const school = makeSchool({
+      lastVerified: "2026-07-23",
+      prereqCourses: [],
+    });
+    const text = formatProgramForCopy(school, "Medicine");
+    expect(text).toContain("2026-07-23");
+  });
+});
+
+describe("formatSelectionForCopy", () => {
+  it("includes all selected programs separated by dividers", () => {
+    const schools = [
+      makeSchool({ id: 1, name: "Alpha U", prereqCourses: [] }),
+      makeSchool({ id: 2, name: "Beta College", prereqCourses: [] }),
+    ];
+    const text = formatSelectionForCopy(schools, "Medicine");
+    expect(text).toContain("Alpha U");
+    expect(text).toContain("Beta College");
+  });
+
+  it("returns empty string for empty selection", () => {
+    expect(formatSelectionForCopy([], "Medicine")).toBe("");
+  });
+});
+
+// ── Spec: Programs sheet row fields ───────────────────────────────────────────
+
+describe("buildProgramsSheetRow", () => {
+  it("includes all required fields", () => {
+    const school = makeSchool({
+      name: "Test University",
+      programName: "Doctor of Medicine (MD)",
+      degreeType: "MD",
+      city: "Springfield",
+      state: "IL",
+      verificationStatus: "verified",
+      verificationNote: "Checked against LCME",
+      sourceUrl: "https://test.edu/prereqs",
+      websiteUrl: "https://test.edu",
+      lastVerified: "2026-07-23",
+      prereqCourses: [],
+    });
+    const row = buildProgramsSheetRow(school, "Medicine");
+    expect(row.profession).toBe("Medicine");
+    expect(row.institution).toBe("Test University");
+    expect(row.program).toBe("Doctor of Medicine (MD)");
+    expect(row.degreeType).toBe("MD");
+    expect(row.city).toBe("Springfield");
+    expect(row.state).toBe("IL");
+    expect(row.verificationStatus).toBe("Verified");
+    expect(row.verificationNote).toBe("Checked against LCME");
+    expect(row.lastVerified).toBe("2026-07-23");
+    expect(row.sourceUrl).toBe("https://test.edu/prereqs");
+    expect(row.websiteUrl).toBe("https://test.edu");
+  });
+});
+
+// ── Spec: Prerequisites sheet rows ────────────────────────────────────────────
+
+describe("buildPrereqsSheetRows", () => {
+  it("verified school with prereqs: one row per required prereq", () => {
+    const school = makeSchool({
+      verificationStatus: "verified",
+      prereqCourses: [
+        { name: "Biology", classification: "required", labRequired: true, semesterCredits: 8 },
+        { name: "Statistics", classification: "recommended" },
+      ],
+    });
+    const rows = buildPrereqsSheetRows(school, "Medicine");
+    expect(rows).toHaveLength(1);
+    expect(rows[0].prereqName).toBe("Biology");
+    expect(rows[0].labRequired).toBe("Yes");
+    expect(rows[0].semesterCredits).toBe("8");
+  });
+
+  it("unverified school: one status row with empty prereqName", () => {
+    const school = makeSchool({
+      verificationStatus: "source_blocked",
+      prereqCourses: [],
+    });
+    const rows = buildPrereqsSheetRows(school, "Medicine");
+    expect(rows).toHaveLength(1);
+    expect(rows[0].prereqName).toBe("");
+    expect(rows[0].details.length).toBeGreaterThan(0);
+    expect(rows[0].verificationStatus).toBe("Source blocked");
+  });
+
+  it("no_prereqs_published: status row with positive message", () => {
+    const school = makeSchool({
+      verificationStatus: "no_prereqs_published",
+      prereqCourses: [],
+    });
+    const rows = buildPrereqsSheetRows(school, "Medicine");
+    expect(rows).toHaveLength(1);
+    expect(rows[0].verificationStatus).toBe("No specific prerequisites published");
   });
 });
 

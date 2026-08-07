@@ -1,14 +1,18 @@
 {
-  "generatedAt": "2026-08-07T01:05:15.604Z",
+  "generatedAt": "2026-08-07T02:14:09.365Z",
   "professions": [
     {
       "professionSlug": "anesthesiologist-assistant",
       "professionName": "Certified Anesthesiologist Assistant (CAA)",
       "directoryPrograms": 25,
+      "directoryAttributedPrograms": 25,
+      "manualPrograms": [],
       "inactivePrograms": 0,
       "prereqStatusCounts": {
-        "draft": 25
+        "imported": 25
       },
+      "prereqVerifiedCount": 0,
+      "prereqVerifiedPct": 0,
       "sources": [
         {
           "name": "CAAHEP Find an Accredited Program (Anesthesiologist Assistant)",
@@ -22,90 +26,132 @@
       "reconciliation": {
         "sourceReportedTotal": 25,
         "inDatabase": 25,
+        "directoryAttributed": 25,
+        "delta": 0,
         "status": "reconciled"
       }
     },
     {
       "professionSlug": "dental",
       "professionName": "Dental School (DDS/DMD)",
-      "directoryPrograms": 4,
-      "inactivePrograms": 0,
+      "directoryPrograms": 78,
+      "directoryAttributedPrograms": 78,
+      "manualPrograms": [],
+      "inactivePrograms": 2,
       "prereqStatusCounts": {
-        "verified": 4
+        "verified": 4,
+        "draft": 74
       },
+      "prereqVerifiedCount": 4,
+      "prereqVerifiedPct": 5.1,
       "sources": [
         {
-          "name": "CODA Find-a-Program (predoctoral DDS/DMD)",
-          "url": "https://coda.ada.org/find-a-program",
-          "retrievedAt": "2026-07-23",
-          "sourceProgramCount": "unknown",
-          "coverageStatus": "blocked",
-          "notes": "Blocked: coda.ada.org/find-a-program is a JavaScript search application; program data is loaded client-side with no static HTML, JSON endpoint, or exportable list discovered (HTML contains no embedded program data; /api probing returned 404). ADEA institution listings (dim.adea.org/institutions-by-state/) are likewise a JS form without static results. Import path: prepare JSON per scripts/src/import-directory.ts format and run it — idempotent, never deletes."
+          "name": "CODA Find-a-Program — Predoctoral (DDS/DMD) Dental Education Programs",
+          "url": "https://coda.ada.org/find-a-program/search-dental-programs",
+          "retrievedAt": "2026-08-07",
+          "sourceProgramCount": "78",
+          "coverageStatus": "complete",
+          "notes": "Retrieved via the ADA site's public Coveo search API (coda.ada.org/coveo/rest/search/v2) filtered to @codatype==\"Predoctoral (DDS/DMD) Dental Education Programs\" (80 total). Included 78 US programs; excluded 2 international CODA-accredited programs outside the US: PREDOC ITL - King Abdulaziz University Dental School; PREDOC ITL - Yeditepe University Faculty of Dentistry. State names mapped to USPS codes. Program URLs are the CODA program detail pages."
         }
       ],
       "reconciliation": {
-        "sourceReportedTotal": null,
-        "inDatabase": 4,
-        "status": "directory-not-populated-source-blocked"
+        "sourceReportedTotal": 78,
+        "inDatabase": 78,
+        "directoryAttributed": 78,
+        "delta": 0,
+        "status": "reconciled"
       }
     },
     {
       "professionSlug": "dietetics",
       "professionName": "Dietetics (RD/RDN)",
-      "directoryPrograms": 2,
+      "directoryPrograms": 152,
+      "directoryAttributedPrograms": 151,
+      "manualPrograms": [
+        {
+          "name": "University of Massachusetts Amherst",
+          "state": "MA",
+          "verificationStatus": "verified",
+          "note": "Active row not attributed to an imported directory source (verified program outside the imported directory scope, or awaiting attribution)."
+        }
+      ],
       "inactivePrograms": 0,
       "prereqStatusCounts": {
+        "draft": 150,
         "verified": 2
       },
+      "prereqVerifiedCount": 2,
+      "prereqVerifiedPct": 1.3,
       "sources": [
         {
-          "name": "ACEND Accredited Programs Directory",
-          "url": "https://www.eatrightpro.org/acend/accredited-programs/accredited-education-programs",
-          "retrievedAt": "2026-07-23",
-          "sourceProgramCount": "unknown",
-          "coverageStatus": "blocked",
-          "notes": "Blocked: ACEND's accredited-programs directory on eatrightpro.org is a JavaScript application (fetched HTML contains navigation only, no program list). Import path: prepare JSON per scripts/src/import-directory.ts format and run it — idempotent, never deletes."
+          "name": "ACEND Accredited Program Directory — Graduate Program in Nutrition and Dietetics (US)",
+          "url": "https://www.eatrightpro.org/acend/accredited-programs/program-directory",
+          "retrievedAt": "2026-08-07",
+          "sourceProgramCount": "98",
+          "coverageStatus": "complete",
+          "notes": "Retrieved from the ACEND directory application at acendportal.org (Directory.aspx, WebForms postbacks) filtered to country=United States and program type \"Graduate Program in Nutrition and Dietetics\". These are the entry-to-RDN pathway types (Graduate Programs under the Future Education Model, and Coordinated Programs combining didactic + supervised practice). Didactic-only (DPD), Dietetic Internships, Dietetic Technician, APD, and international programs excluded from this planner's scope."
+        },
+        {
+          "name": "ACEND Accredited Program Directory — Coordinated Program in Dietetics (US)",
+          "url": "https://www.eatrightpro.org/acend/accredited-programs/program-directory",
+          "retrievedAt": "2026-08-07",
+          "sourceProgramCount": "53",
+          "coverageStatus": "complete",
+          "notes": "Retrieved from the ACEND directory application at acendportal.org (Directory.aspx, WebForms postbacks) filtered to country=United States and program type \"Coordinated Program in Dietetics\". These are the entry-to-RDN pathway types (Graduate Programs under the Future Education Model, and Coordinated Programs combining didactic + supervised practice). Didactic-only (DPD), Dietetic Internships, Dietetic Technician, APD, and international programs excluded from this planner's scope."
         }
       ],
       "reconciliation": {
-        "sourceReportedTotal": null,
-        "inDatabase": 2,
-        "status": "directory-not-populated-source-blocked"
+        "sourceReportedTotal": 151,
+        "inDatabase": 152,
+        "directoryAttributed": 151,
+        "delta": 0,
+        "status": "reconciled"
       }
     },
     {
       "professionSlug": "genetic-counseling",
       "professionName": "Genetic Counseling (MS)",
-      "directoryPrograms": 3,
-      "inactivePrograms": 0,
+      "directoryPrograms": 65,
+      "directoryAttributedPrograms": 65,
+      "manualPrograms": [],
+      "inactivePrograms": 2,
       "prereqStatusCounts": {
-        "verified": 3
+        "verified": 3,
+        "draft": 62
       },
+      "prereqVerifiedCount": 3,
+      "prereqVerifiedPct": 4.6,
       "sources": [
         {
-          "name": "ACGC Program Directory",
+          "name": "ACGC Accredited Genetic Counseling Programs Directory",
           "url": "https://www.gceducation.org/find-a-program/",
-          "retrievedAt": "2026-07-23",
-          "sourceProgramCount": "unknown",
-          "coverageStatus": "blocked",
-          "notes": "Partially blocked: ACGC's find-a-program page lists accredited program names and website links (~57 programs) but provides NO per-program city/state in the served HTML; the older /program-directory/ URL returns 404/502. Program existence is confirmable but location data (required by our schema) is not available from the source page. Import path: prepare JSON per scripts/src/import-directory.ts format and run it — idempotent, never deletes."
+          "retrievedAt": "2026-08-07",
+          "sourceProgramCount": "65",
+          "coverageStatus": "complete",
+          "notes": "Server-rendered program list on the ACGC Find-a-Program page (li.item-program entries with data-states attributes). Includes accredited and \"Accredited, New Program\" entries; per-program state comes from the data-states attribute, modality and status from the rendered card. All entries are US programs."
         }
       ],
       "reconciliation": {
-        "sourceReportedTotal": null,
-        "inDatabase": 3,
-        "status": "directory-not-populated-source-blocked"
+        "sourceReportedTotal": 65,
+        "inDatabase": 65,
+        "directoryAttributed": 65,
+        "delta": 0,
+        "status": "reconciled"
       }
     },
     {
       "professionSlug": "medicine",
       "professionName": "Medical School (MD/DO)",
       "directoryPrograms": 236,
+      "directoryAttributedPrograms": 236,
+      "manualPrograms": [],
       "inactivePrograms": 0,
       "prereqStatusCounts": {
         "draft": 231,
         "verified": 5
       },
+      "prereqVerifiedCount": 5,
+      "prereqVerifiedPct": 2.1,
       "sources": [
         {
           "name": "LCME Accredited U.S. MD Programs",
@@ -127,74 +173,102 @@
       "reconciliation": {
         "sourceReportedTotal": 236,
         "inDatabase": 236,
+        "directoryAttributed": 236,
+        "delta": 0,
         "status": "reconciled"
       }
     },
     {
       "professionSlug": "nursing",
       "professionName": "Nursing (ABSN/MEPN)",
-      "directoryPrograms": 2,
+      "directoryPrograms": 446,
+      "directoryAttributedPrograms": 446,
+      "manualPrograms": [],
       "inactivePrograms": 0,
       "prereqStatusCounts": {
-        "verified": 2
+        "verified": 2,
+        "draft": 444
       },
+      "prereqVerifiedCount": 2,
+      "prereqVerifiedPct": 0.4,
       "sources": [
         {
-          "name": "AACN Program Directory (accelerated baccalaureate)",
-          "url": "https://www.aacnnursing.org/students/nursing-education-pathways/accelerated-programs",
-          "retrievedAt": "2026-07-23",
-          "sourceProgramCount": "unknown",
-          "coverageStatus": "blocked",
-          "notes": "Blocked: AACN's institutional program directory requires a MyAACN login (fetch returned a login form); the public accelerated-programs page is descriptive only, with no program list. Import path: prepare JSON per scripts/src/import-directory.ts format and run it — idempotent, never deletes."
+          "name": "AACN Member School Directory — Accelerated Bachelor's (ABSN)",
+          "url": "https://www.aacnnursing.org/about-aacn/member-schools",
+          "retrievedAt": "2026-08-07",
+          "sourceProgramCount": "342",
+          "coverageStatus": "complete",
+          "notes": "Retrieved from AACN's member-school directory search (cvweb organizationdll List) filtered to program-offered \"BSN_Accel\". AACN membership directory is the source the planner cites for entry-to-practice nursing; program URLs are the schools' nursing sites listed by AACN. Note: directory covers AACN member schools; a small number of non-member accredited programs may not appear."
         },
         {
-          "name": "AACN Program Directory (master's entry)",
+          "name": "AACN Member School Directory — Entry-Level Master's (MEPN)",
           "url": "https://www.aacnnursing.org/about-aacn/member-schools",
-          "retrievedAt": "2026-07-23",
-          "sourceProgramCount": "unknown",
-          "coverageStatus": "blocked",
-          "notes": "Blocked: same as ABSN — AACN directory is behind MyAACN login; no public machine-readable list of master's-entry (MEPN) programs found. Import path: prepare JSON per scripts/src/import-directory.ts format and run it — idempotent, never deletes."
+          "retrievedAt": "2026-08-07",
+          "sourceProgramCount": "104",
+          "coverageStatus": "complete",
+          "notes": "Retrieved from AACN's member-school directory search (cvweb organizationdll List) filtered to program-offered \"Masters_Entry\". AACN membership directory is the source the planner cites for entry-to-practice nursing; program URLs are the schools' nursing sites listed by AACN. Note: directory covers AACN member schools; a small number of non-member accredited programs may not appear."
         }
       ],
       "reconciliation": {
-        "sourceReportedTotal": null,
-        "inDatabase": 2,
-        "status": "directory-not-populated-source-blocked"
+        "sourceReportedTotal": 446,
+        "inDatabase": 446,
+        "directoryAttributed": 446,
+        "delta": 0,
+        "status": "reconciled"
       }
     },
     {
       "professionSlug": "occupational-therapy",
       "professionName": "Occupational Therapy (OTD/MOT)",
-      "directoryPrograms": 3,
-      "inactivePrograms": 0,
+      "directoryPrograms": 318,
+      "directoryAttributedPrograms": 318,
+      "manualPrograms": [],
+      "inactivePrograms": 1,
       "prereqStatusCounts": {
-        "verified": 3
+        "verified": 3,
+        "draft": 315
       },
+      "prereqVerifiedCount": 3,
+      "prereqVerifiedPct": 0.9,
       "sources": [
         {
-          "name": "ACOTE School Directory (OT Masters + OT Doctorate)",
+          "name": "ACOTE Accredited Entry-Level OT Doctorate Programs",
           "url": "https://acoteonline.org/schools/",
-          "retrievedAt": "2026-07-23",
-          "sourceProgramCount": "unknown",
-          "coverageStatus": "blocked",
-          "notes": "Blocked: acoteonline.org school directory renders program data (degree level, status, location) client-side via JavaScript; the WP REST API exposes 670 'school' posts but with empty content/ACF fields, and individual school pages contain no server-rendered program details. Facet counts confirm ~516 accredited programs across OT/OTA levels. Import path: prepare JSON per scripts/src/import-directory.ts format and run it — idempotent, never deletes."
+          "retrievedAt": "2026-08-07",
+          "sourceProgramCount": "158",
+          "coverageStatus": "complete",
+          "notes": "Retrieved from ACOTE's FacetWP JSON endpoint (wp-json/facetwp/v1/refresh, template \"schools\", 14 pages, 667 total rows incl. OTA). Included: Degree Level \"OT Doctorate\" with Status \"Accreditation\" or \"Probationary Accreditation\". Excluded: OTA associate/baccalaureate programs, -Inactive statuses, Applicant/Candidacy/Preaccreditation/Provisional (not yet accredited). City/state from the directory's address fields."
+        },
+        {
+          "name": "ACOTE Accredited Entry-Level OT Masters Programs",
+          "url": "https://acoteonline.org/schools/",
+          "retrievedAt": "2026-08-07",
+          "sourceProgramCount": "160",
+          "coverageStatus": "complete",
+          "notes": "Retrieved from ACOTE's FacetWP JSON endpoint (wp-json/facetwp/v1/refresh, template \"schools\", 14 pages, 667 total rows incl. OTA). Included: Degree Level \"OT Masters\" with Status \"Accreditation\" or \"Probationary Accreditation\". Excluded: OTA associate/baccalaureate programs, -Inactive statuses, Applicant/Candidacy/Preaccreditation/Provisional (not yet accredited). City/state from the directory's address fields."
         }
       ],
       "reconciliation": {
-        "sourceReportedTotal": null,
-        "inDatabase": 3,
-        "status": "directory-not-populated-source-blocked"
+        "sourceReportedTotal": 318,
+        "inDatabase": 318,
+        "directoryAttributed": 318,
+        "delta": 0,
+        "status": "reconciled"
       }
     },
     {
       "professionSlug": "optometry",
       "professionName": "Optometry (OD)",
-      "directoryPrograms": 26,
-      "inactivePrograms": 0,
+      "directoryPrograms": 24,
+      "directoryAttributedPrograms": 24,
+      "manualPrograms": [],
+      "inactivePrograms": 2,
       "prereqStatusCounts": {
-        "verified": 3,
-        "draft": 23
+        "draft": 21,
+        "verified": 3
       },
+      "prereqVerifiedCount": 3,
+      "prereqVerifiedPct": 12.5,
       "sources": [
         {
           "name": "ASCO Member Schools and Colleges of Optometry",
@@ -207,7 +281,9 @@
       ],
       "reconciliation": {
         "sourceReportedTotal": 24,
-        "inDatabase": 26,
+        "inDatabase": 24,
+        "directoryAttributed": 24,
+        "delta": 0,
         "status": "reconciled"
       }
     },
@@ -215,10 +291,15 @@
       "professionSlug": "pathologists-assistant",
       "professionName": "Pathologists' Assistant (PathA)",
       "directoryPrograms": 20,
+      "directoryAttributedPrograms": 20,
+      "manualPrograms": [],
       "inactivePrograms": 0,
       "prereqStatusCounts": {
-        "draft": 20
+        "imported": 19,
+        "source_blocked": 1
       },
+      "prereqVerifiedCount": 0,
+      "prereqVerifiedPct": 0,
       "sources": [
         {
           "name": "NAACLS Accredited Program Search (Pathologists Assistant)",
@@ -232,6 +313,8 @@
       "reconciliation": {
         "sourceReportedTotal": 20,
         "inDatabase": 20,
+        "directoryAttributed": 20,
+        "delta": 0,
         "status": "reconciled"
       }
     },
@@ -239,11 +322,15 @@
       "professionSlug": "pharmacy",
       "professionName": "Pharmacy (PharmD)",
       "directoryPrograms": 140,
+      "directoryAttributedPrograms": 140,
+      "manualPrograms": [],
       "inactivePrograms": 0,
       "prereqStatusCounts": {
         "draft": 137,
         "verified": 3
       },
+      "prereqVerifiedCount": 3,
+      "prereqVerifiedPct": 2.1,
       "sources": [
         {
           "name": "ACPE Program Lookup — PharmD Programs",
@@ -257,18 +344,24 @@
       "reconciliation": {
         "sourceReportedTotal": 140,
         "inDatabase": 140,
+        "directoryAttributed": 140,
+        "delta": 0,
         "status": "reconciled"
       }
     },
     {
       "professionSlug": "physical-therapy",
       "professionName": "Physical Therapy (DPT)",
-      "directoryPrograms": 312,
-      "inactivePrograms": 0,
+      "directoryPrograms": 308,
+      "directoryAttributedPrograms": 308,
+      "manualPrograms": [],
+      "inactivePrograms": 4,
       "prereqStatusCounts": {
         "verified": 7,
-        "draft": 305
+        "draft": 301
       },
+      "prereqVerifiedCount": 7,
+      "prereqVerifiedPct": 2.3,
       "sources": [
         {
           "name": "CAPTE Accredited PT Programs Directory",
@@ -281,19 +374,25 @@
       ],
       "reconciliation": {
         "sourceReportedTotal": 308,
-        "inDatabase": 312,
+        "inDatabase": 308,
+        "directoryAttributed": 308,
+        "delta": 0,
         "status": "reconciled"
       }
     },
     {
       "professionSlug": "physician-assistant",
       "professionName": "Physician Assistant (PA)",
-      "directoryPrograms": 332,
-      "inactivePrograms": 0,
+      "directoryPrograms": 330,
+      "directoryAttributedPrograms": 330,
+      "manualPrograms": [],
+      "inactivePrograms": 2,
       "prereqStatusCounts": {
-        "verified": 3,
-        "draft": 329
+        "draft": 327,
+        "verified": 3
       },
+      "prereqVerifiedCount": 3,
+      "prereqVerifiedPct": 0.9,
       "sources": [
         {
           "name": "ARC-PA Currently Accredited Entry-Level PA Programs",
@@ -306,7 +405,9 @@
       ],
       "reconciliation": {
         "sourceReportedTotal": 330,
-        "inDatabase": 332,
+        "inDatabase": 330,
+        "directoryAttributed": 330,
+        "delta": 0,
         "status": "reconciled"
       }
     },
@@ -314,11 +415,15 @@
       "professionSlug": "podiatry",
       "professionName": "Podiatric Medicine (DPM)",
       "directoryPrograms": 11,
+      "directoryAttributedPrograms": 11,
+      "manualPrograms": [],
       "inactivePrograms": 0,
       "prereqStatusCounts": {
         "draft": 9,
         "verified": 2
       },
+      "prereqVerifiedCount": 2,
+      "prereqVerifiedPct": 18.2,
       "sources": [
         {
           "name": "CPME List of Accredited Podiatric Medical Colleges",
@@ -332,6 +437,8 @@
       "reconciliation": {
         "sourceReportedTotal": 11,
         "inDatabase": 11,
+        "directoryAttributed": 11,
+        "delta": 0,
         "status": "reconciled"
       }
     },
@@ -339,35 +446,52 @@
       "professionSlug": "postbac",
       "professionName": "Postbaccalaureate Programs",
       "directoryPrograms": 1,
+      "directoryAttributedPrograms": 0,
+      "manualPrograms": [
+        {
+          "name": "Johns Hopkins University",
+          "state": "MD",
+          "verificationStatus": "verified",
+          "note": "Active row not attributed to an imported directory source (verified program outside the imported directory scope, or awaiting attribution)."
+        }
+      ],
       "inactivePrograms": 0,
       "prereqStatusCounts": {
         "verified": 1
       },
+      "prereqVerifiedCount": 1,
+      "prereqVerifiedPct": 100,
       "sources": [
         {
           "name": "AAMC Postbaccalaureate Premedical Programs Database",
           "url": "https://mec.aamc.org/postbac/#/index",
-          "retrievedAt": "2026-07-23",
+          "retrievedAt": "2026-08-07",
           "sourceProgramCount": "unknown",
           "coverageStatus": "blocked",
-          "notes": "Blocked: the AAMC postbac database (mec.aamc.org) is a JavaScript single-page application; fetched HTML contains no program data and no public API was identified. Import path: prepare JSON per scripts/src/import-directory.ts format and run it — idempotent, never deletes."
+          "notes": "Blocked: the AAMC postbac database (mec.aamc.org/postbac) is an Angular single-page application. The app shell and JS bundles are fetchable, but every backend service endpoint on mec.aamc.org (config-service/services-rs/*, program service paths referenced in the bundles) fails at the network/TLS level from this environment across repeated attempts on 2026-08-07, and the legacy host apps.aamc.org/postbac returns 404. No static export, sitemap, or archived data set of the program list was found. Import path: prepare JSON per scripts/src/import-directory.ts format and run it — idempotent, never deletes."
         }
       ],
       "reconciliation": {
         "sourceReportedTotal": null,
         "inDatabase": 1,
+        "directoryAttributed": 0,
+        "delta": null,
         "status": "directory-not-populated-source-blocked"
       }
     },
     {
       "professionSlug": "prosthetics-orthotics",
       "professionName": "Prosthetics & Orthotics (MSPO)",
-      "directoryPrograms": 18,
-      "inactivePrograms": 0,
+      "directoryPrograms": 15,
+      "directoryAttributedPrograms": 15,
+      "manualPrograms": [],
+      "inactivePrograms": 3,
       "prereqStatusCounts": {
         "verified": 3,
-        "draft": 15
+        "draft": 12
       },
+      "prereqVerifiedCount": 3,
+      "prereqVerifiedPct": 20,
       "sources": [
         {
           "name": "NCOPE Accredited Practitioner (O&P Master's) Programs",
@@ -380,7 +504,9 @@
       ],
       "reconciliation": {
         "sourceReportedTotal": 15,
-        "inDatabase": 18,
+        "inDatabase": 15,
+        "directoryAttributed": 15,
+        "delta": 0,
         "status": "reconciled"
       }
     },
@@ -388,11 +514,15 @@
       "professionSlug": "speech-language-pathology",
       "professionName": "Speech-Language Pathology (MS/MA)",
       "directoryPrograms": 322,
+      "directoryAttributedPrograms": 322,
+      "manualPrograms": [],
       "inactivePrograms": 0,
       "prereqStatusCounts": {
         "draft": 320,
         "verified": 2
       },
+      "prereqVerifiedCount": 2,
+      "prereqVerifiedPct": 0.6,
       "sources": [
         {
           "name": "ASHA CAA Accredited SLP Master's Programs",
@@ -406,18 +536,24 @@
       "reconciliation": {
         "sourceReportedTotal": 322,
         "inDatabase": 322,
+        "directoryAttributed": 322,
+        "delta": 0,
         "status": "reconciled"
       }
     },
     {
       "professionSlug": "veterinary",
       "professionName": "Veterinary Medicine (DVM)",
-      "directoryPrograms": 34,
-      "inactivePrograms": 0,
+      "directoryPrograms": 32,
+      "directoryAttributedPrograms": 32,
+      "manualPrograms": [],
+      "inactivePrograms": 2,
       "prereqStatusCounts": {
-        "draft": 31,
+        "draft": 29,
         "verified": 3
       },
+      "prereqVerifiedCount": 3,
+      "prereqVerifiedPct": 9.4,
       "sources": [
         {
           "name": "AVMA Accredited Veterinary Colleges (U.S.)",
@@ -430,7 +566,9 @@
       ],
       "reconciliation": {
         "sourceReportedTotal": 32,
-        "inDatabase": 34,
+        "inDatabase": 32,
+        "directoryAttributed": 32,
+        "delta": 0,
         "status": "reconciled"
       }
     }

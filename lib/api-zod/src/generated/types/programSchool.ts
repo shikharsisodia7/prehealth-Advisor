@@ -35,6 +35,11 @@ export interface ProgramSchool {
   lastVerified?: string | null;
   /** Prerequisite verification status — independent of directory listing */
   verificationStatus: ProgramSchoolVerificationStatus;
+  /**
+     * Human-readable note about the verification status (e.g. why it is blocked or unavailable)
+     * @nullable
+     */
+  verificationNote?: string | null;
   /** Whether the program is an active entry in the national program directory */
   directoryStatus: ProgramSchoolDirectoryStatus;
   /** Alternate names/abbreviations for search (e.g. "UCSF") */

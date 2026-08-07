@@ -76,6 +76,7 @@ export const programSchoolsTable = pgTable(
     externalId: text("external_id"), // stable ID from the directory source, when available
     aliases: jsonb("aliases").$type<string[]>().notNull().default([]),
     lastDirectoryVerified: date("last_directory_verified"), // nullable
+    verificationNote: text("verification_note"), // nullable — human-readable note about verification status
   },
   (t) => [
     index("program_schools_profession_idx").on(t.professionSlug),

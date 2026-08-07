@@ -89,17 +89,21 @@ Previous routes (`/dashboard`, `/professions`, `/schools`, `/prerequisites`) rem
 - **Prerequisite verification** is per-program (`verification_status`, `prereq_courses`, `source_url`, `last_verified`).
 - Step 2 lists ALL active directory programs regardless of prerequisite verification. Step 3 shows verified required prerequisites, or an honest "still being verified" message. Exports represent every selected program (status rows for unverified ones) and are formula-injection-safe.
 
-### Directory data (imported 2026-07-23)
+### Directory data (imported 2026-07-23 and 2026-08-07)
 
-Complete from accreditor sources: medicine (LCME MD 163 + AACOM DO 73; 5 records untyped — the MD/DO browse filter never hides untyped programs), physician-assistant (ARC-PA 330), physical-therapy (CAPTE 308), speech-language-pathology (ASHA CAA 322), pharmacy (ACPE 140), veterinary (AVMA 32), optometry (ASCO 24), podiatry (CPME 11), prosthetics-orthotics (NCOPE 15), anesthesiologist-assistant (CAAHEP 25, imported 2026-08-07 via its public search API), pathologists-assistant (NAACLS 20 incl. 4 Canadian, imported 2026-08-07; NAACLS REST for existence, AAPA pathassist.org official list for city/state — the two match 1:1).
+Complete from accreditor sources: medicine (LCME MD 163+5 typed MD in Aug + AACOM DO 73), physician-assistant (ARC-PA 330), physical-therapy (CAPTE 308), speech-language-pathology (ASHA CAA 322), pharmacy (ACPE 140), veterinary (AVMA 32), optometry (ASCO 24), podiatry (CPME 11), prosthetics-orthotics (NCOPE 15), anesthesiologist-assistant (CAAHEP 25), pathologists-assistant (NAACLS 20 incl. 4 Canadian; AAPA list for city/state), dental (CODA 78 US predoctoral via Coveo API), occupational-therapy (ACOTE 318 entry-level OTD+MOT via FacetWP), genetic-counseling (ACGC 65), dietetics (ACEND 151 US Graduate + Coordinated programs via acendportal.org WebForms; UMass Amherst MSDI kept as a manual verified row outside that scope), nursing (AACN 446: 342 ABSN + 104 MEPN via public cvweb directory).
 
-Blocked (exact blockers recorded in `directory_sources`, coverageStatus='blocked'): dental (CODA JS app), occupational-therapy (ACOTE JS-only data), genetic-counseling (ACGC lists no per-program locations), dietetics (ACEND JS app), nursing ABSN/MEPN (AACN login-gated), postbac (AAMC JS app).
+Blocked (recorded in `directory_sources`, coverageStatus='blocked'): postbac only (AAMC mec.aamc.org backend unreachable at network level; SPA has no static data).
 
 Directory JSON files live in `data/directories/`; machine-readable reconciliation report at `data/coverage-report.json` (regenerate with `coverage-report.ts`).
 
 ## Verified prerequisite data (46 programs, lastVerified 2026-07-23)
 
 Schools dropped and why are documented in `scripts/src/seed.ts`. Directory imports never modify or delete verified prerequisite rows.
+
+## Imported prerequisite data (pending human verification)
+
+All 25 anesthesiologist-assistant and 19 of 20 pathologists-assistant programs have program-specific prerequisite courses collected from official program pages (2026-08-07, `data/programs/*.json`, status `imported`). University of Calgary is `source_blocked` (site 403s automated access; truthful note stored in `verification_note`). The UI shows imported course lists under an explicit amber "pending verification" banner — imported data is never presented as verified, and exports label it truthfully.
 
 ## Import script
 

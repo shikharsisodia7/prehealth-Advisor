@@ -361,7 +361,8 @@ export const ListProgramSchoolsResponseItem = zod.object({
   "sourceUrl": zod.string().nullable().describe('Official prerequisite source page; null when prerequisite research has not been completed'),
   "websiteUrl": zod.string().nullable().describe('Official program\/institution website from the directory source'),
   "lastVerified": zod.string().nullish(),
-  "verificationStatus": zod.enum(['draft', 'imported', 'needs_review', 'verified', 'rejected', 'outdated']).describe('Prerequisite verification status — independent of directory listing'),
+  "verificationStatus": zod.enum(['draft', 'imported', 'needs_review', 'verified', 'rejected', 'outdated', 'no_prereqs_published', 'source_blocked', 'unavailable', 'not_published']).describe('Prerequisite verification status — independent of directory listing'),
+  "verificationNote": zod.string().nullish().describe('Human-readable note about the verification status (e.g. why it is blocked or unavailable)'),
   "directoryStatus": zod.enum(['active', 'inactive', 'needs_review']).describe('Whether the program is an active entry in the national program directory'),
   "aliases": zod.array(zod.string()).describe('Alternate names\/abbreviations for search (e.g. \"UCSF\")'),
   "prereqCourses": zod.array(zod.object({

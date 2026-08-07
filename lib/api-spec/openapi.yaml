@@ -707,7 +707,10 @@ components:
         verificationStatus:
           type: string
           description: Prerequisite verification status — independent of directory listing
-          enum: [draft, imported, needs_review, verified, rejected, outdated]
+          enum: [draft, imported, needs_review, verified, rejected, outdated, no_prereqs_published, source_blocked, unavailable, not_published]
+        verificationNote:
+          type: ["string", "null"]
+          description: Human-readable note about the verification status (e.g. why it is blocked or unavailable)
         directoryStatus:
           type: string
           description: Whether the program is an active entry in the national program directory

@@ -17,6 +17,7 @@ function serialize(row: typeof programSchoolsTable.$inferSelect) {
     degreeType: row.degreeType ?? null,
     sourceUrl: row.sourceUrl ?? null,
     websiteUrl: row.websiteUrl ?? null,
+    verificationNote: row.verificationNote ?? null,
   };
 }
 
@@ -89,10 +90,11 @@ router.get("/program-schools", async (req, res): Promise<void> => {
           ? inArray(programSchoolsTable.degreeType, effectiveDegreeTypes)
           : undefined,
         // Directory listing rule: inactive programs (closed / no longer
-        // accredited) are hidden. Programs are listed regardless of
-        // prerequisite verification status — existence and prereq data are
-        // separate concerns.
-        ne(programSchoolsTable.directoryStatus, "inactive"),
+        // accredited) and merged-duplicate rows (seed rows folded into
+        // authoritative directory rows) are hidden. Programs are listed
+        // regardless of prerequisite verification status — existence and
+        // prereq data are separate concerns.
+        inArray(programSchoolsTable.directoryStatus, ["active", "needs_review"]),
       ),
     )
     .orderBy(programSchoolsTable.name);
