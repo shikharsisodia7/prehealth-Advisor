@@ -1,0 +1,456 @@
+Continue directly from the exact current state of the existing Health Professions Planner project. Do not enter Plan mode, do not create a new task, do not provide another audit-only response, and do not stop after fixing only the UAB issue. The current work is still part of the same approved master completion task.
+
+Your previous response confirms that the prerequisite acquisition infrastructure is now in place, source provenance is persisted, the coverage report exists, tests pass, and the pipeline can discover and cache official prerequisite sources. However, the application is still NOT complete because approximately 2,432 active programs remain in draft status and you discovered a critical database-integrity issue where a UAB update reported `UPDATE 1` but the live API still returned the unchanged program row.
+
+The immediate first priority is to diagnose and permanently fix that database persistence/integrity problem before any further bulk prerequisite promotion occurs.
+
+Do not merely retry the UAB update. Determine exactly why a database write can report success while the subsequent database/API read returns stale or unchanged data.
+
+Inspect all possible causes, including:
+
+development database versus runtime database mismatch
+
+multiple SQLite database files
+
+different `DATABASE_URL` values between scripts, API, frontend, and Replit workflows
+
+relative SQLite paths resolving from different working directories
+
+a local `data/critpath.db` versus another generated/cached database
+
+Drizzle connection configuration
+
+transaction boundaries
+
+uncommitted transactions
+
+connection pooling
+
+read replicas
+
+stale API process connections
+
+API-level caching
+
+query caching
+
+in-memory caches
+
+React Query caching where relevant
+
+duplicate program rows
+
+merged-duplicate records
+
+incorrect program ID selection
+
+slug versus ID mismatches
+
+updates targeting a different duplicate row
+
+foreign key relationships
+
+database triggers
+
+generated schemas
+
+migration mismatches
+
+the acquisition script importing a different DB package/config than the API
+
+environment-variable differences between `pnpm --filter` commands and running services
+
+workspace package resolution
+
+Replit development database configuration
+
+production versus development data bindings
+
+any database copy created during tests or migrations
+
+Do not assume the SQL statement itself is correct merely because it reported one affected row.
+
+Create a deterministic database identity check.
+
+At application startup, ingestion-script startup, and audit-script startup, expose or log a safe non-secret database identity containing enough information to prove that all components are using the same database. For SQLite, this may include the fully resolved absolute database file path, schema version, and a stable database-instance fingerprint. Do not expose secrets publicly.
+
+Write a regression/integration test that:
+
+1. Creates or identifies a known test program.
+2. Reads its current prerequisite status and source metadata.
+3. Performs an update through the same persistence function used by prerequisite ingestion.
+4. Immediately reads the row directly from the database.
+5. Reads the same row through the API.
+6. Asserts that both contain the updated status, requirements, and provenance.
+7. Restarts or recreates the API database connection and confirms the change persists.
+8. Confirms that no second copy of the row/database received the update instead.
+
+This test must fail under the previously observed UAB behavior and pass only after the root cause is fixed.
+
+Inspect UAB specifically after fixing the persistence path. Determine whether the previous update modified:
+
+the correct UAB row
+
+a duplicate UAB row
+
+a merged-duplicate row
+
+a different database
+
+or a transaction that was not visible to the running API.
+
+Repair any incorrect duplicate relationships without deleting valid program records.
+
+Once database writes are proven reliable, complete UAB’s prerequisite persistence using the already extracted official-source requirements. Re-fetch the UAB official prerequisite page if necessary and ensure the final stored row contains the correct structured requirements, source provenance, verification status, and verification date.
+
+Then resume the full prerequisite completion pipeline.
+
+Do NOT stop after UAB works.
+
+The current coverage report showing approximately 2,432 draft programs represents unfinished work. Continue processing those programs using the scalable acquisition and extraction infrastructure you already created.
+
+The required workflow for each unfinished program is:
+
+Discover the program’s authoritative official admissions/prerequisite sources.
+
+Fetch and cache the official evidence.
+
+Extract only explicit requirements from the official source.
+
+Normalize them into the existing structured prerequisite/admissions model.
+
+Validate the normalized result against the source content.
+
+Persist the structured records and complete source provenance.
+
+Immediately perform a post-write database read.
+
+Confirm the API returns the same persisted data.
+
+Only then promote the program to its appropriate final status.
+
+A program must finish in one of these statuses:
+
+verified prerequisite data
+
+verified no specific course prerequisites
+
+verified competency-based or non-course admissions requirements
+
+genuinely externally blocked after all reasonable official-source methods fail
+
+Do not leave accessible programs in draft merely because automated extraction is inconvenient.
+
+Use the existing layered retrieval approach:
+
+direct HTTP
+
+same-domain admissions discovery
+
+browser automation with Playwright/Selenium where necessary
+
+official PDFs
+
+official catalogs
+
+official handbooks
+
+official accreditor sources
+
+official centralized application sources
+
+alternate official university pages
+
+controlled source-backed manual mappings when needed
+
+Continue in resumable batches.
+
+The acquisition job already supports persistence and resume behavior. Improve it where necessary so it can safely process the remaining thousands of rows without repeatedly fetching completed records.
+
+Add a durable per-program processing state so interrupted runs resume from the last completed stage rather than restarting everything. Suitable stages may include:
+
+source discovery complete
+
+source fetch complete
+
+extraction complete
+
+validation complete
+
+persistence complete
+
+API confirmation complete
+
+finalized
+
+Do not mark a program finalized until the persisted database and API both return the intended final data.
+
+Add automatic post-write verification to the ingestion pipeline itself. Every persistence operation should be followed by a direct database read of the updated row. If the persisted result does not match the intended write, stop promotion for that specific program, log the discrepancy, and continue safely with unrelated programs where appropriate. Do not silently treat `UPDATE 1` as proof of success.
+
+Add an integrity failure report containing:
+
+program ID
+
+institution
+
+profession
+
+intended update status
+
+database identity
+
+rows affected
+
+post-write row state
+
+API row state
+
+timestamp
+
+failure category
+
+This report should make future database-targeting problems immediately visible.
+
+Now continue prerequisite completion across EVERY supported profession.
+
+Do not stop at a five-program PT pilot.
+
+Do not stop at one successful Faulkner record.
+
+Do not return while thousands of programs remain draft.
+
+Continue through:
+
+Medicine
+
+Dental
+
+Physician Assistant
+
+Physical Therapy
+
+Occupational Therapy
+
+Pharmacy
+
+Veterinary Medicine
+
+Podiatry
+
+Optometry
+
+Genetic Counseling
+
+Speech-Language Pathology
+
+Nursing
+
+Dietetics
+
+Prosthetics-Orthotics
+
+Anesthesiologist Assistant
+
+Pathologists’ Assistant
+
+and every other profession exposed by the application.
+
+Use profession-level batches and periodically regenerate the coverage audit.
+
+After each substantial batch, inspect the unfinished count.
+
+The goal is that programs with publicly accessible authoritative information no longer remain draft.
+
+Do not mistake framework completion for data completion.
+
+The professor does not care that the acquisition command exists if a student clicks a school and still sees missing prerequisites.
+
+The final user-facing result must actually contain the requirements.
+
+Preserve all previously completed AA and Pathologists’ Assistant data.
+
+Do not regress verified records.
+
+Do not overwrite verified records with empty or lower-confidence values.
+
+Use freshness/update logic when current official sources differ from previously verified data.
+
+After completing each profession, validate representative real programs through the API and UI.
+
+For Physical Therapy specifically, continue from the current pilot and complete the queued programs including Alabama State, Samford, UAB, South Alabama, ATSU, Creighton, Franklin Pierce–Arizona, and Midwestern–Arizona, then continue through the entire PT directory rather than stopping at those records.
+
+For every final program result ensure the user receives:
+
+institution
+
+official program name
+
+profession
+
+degree type
+
+location
+
+required prerequisites
+
+recommended coursework where applicable
+
+general admissions requirements
+
+experience requirements where applicable
+
+verification status
+
+verification date
+
+official program URL
+
+specific prerequisite/admissions source URL
+
+all additional source provenance where stored
+
+Continue preserving individual source links in multi-program results.
+
+Continue preserving full data in Copy Results.
+
+Continue preserving genuine XLSX export behavior.
+
+Once substantial new prerequisite records are populated, rerun XLSX tests using newly completed programs to ensure the new structured records export correctly rather than relying only on previously completed AA/PathA records.
+
+Regenerate the coverage reports continuously.
+
+The final human-readable coverage report must show for every profession:
+
+active program count
+
+verified prerequisite count
+
+verified-no-specific-prerequisites count
+
+blocked count
+
+draft/unfinished count
+
+coverage percentage
+
+directory reconciliation status
+
+Do not call the project complete while the final report contains hundreds or thousands of draft records whose official admissions requirements are publicly obtainable.
+
+The previous state of approximately 2,432 draft records is specifically unacceptable.
+
+Continue until the unfinished count is reduced to zero for records whose official requirements are accessible, leaving only individually documented genuine external blockers.
+
+After the data run is complete, run full database-integrity checks:
+
+no orphaned prerequisite rows
+
+no prerequisites attached to merged-duplicate rows
+
+no accidental duplicate active programs
+
+no verified rows missing source evidence
+
+no final rows missing verification dates
+
+no invalid status values
+
+no wrong database path usage
+
+no differing DB identity between ingestion, API, and audit processes
+
+no null MD/DO classifications for active medical programs
+
+no source URL loss during merges
+
+no API/database disagreement
+
+Then run all automated validation again:
+
+frontend tests
+
+API tests
+
+importer tests
+
+database integration tests
+
+database identity test
+
+post-write persistence regression test
+
+typechecks
+
+lint
+
+production builds
+
+coverage audit
+
+directory reconciliation audit
+
+browser acceptance tests
+
+copy-results tests
+
+XLSX content tests
+
+multi-program source-link tests
+
+MD/DO filtering tests
+
+state filtering tests
+
+blocked/no-prerequisite state tests
+
+Do not skip failing tests.
+
+Then prepare the production data synchronization.
+
+The live application currently has old data until Publish with Overwrite Data occurs. If Replit still requires me to click that button manually, complete absolutely everything else first and provide the exact final instruction to click Publish → Overwrite Data.
+
+Do not use the human Publish click as a reason to stop processing development data.
+
+Before returning, the development database must contain the completed prerequisite dataset and its audit must pass.
+
+Your final response may only occur after:
+
+the database persistence mismatch is fully explained and fixed
+
+the UAB persistence regression passes
+
+direct DB reads and API reads agree
+
+the full prerequisite acquisition/extraction/persistence run has been completed to the maximum extent supported by authoritative public sources
+
+the coverage report no longer shows thousands of ordinary draft records
+
+remaining blockers are individually documented
+
+all tests pass
+
+production build passes
+
+the application is ready for the single unavoidable Publish/Overwrite Data action, or publication has been completed if you have access
+
+Do not return with:
+
+“the scalable pipeline is ready”
+
+“the remaining programs can now be processed”
+
+“we completed a pilot”
+
+“the job is resumable”
+
+“the framework is in place”
+
+“2,000+ programs remain draft”
+
+or another follow-up proposal.
+
+Those mean the task is unfinished.
+
+Fix the persistence problem first, prove it with automated database/API consistency tests, then continue running the pipeline against the entire remaining dataset until the professor’s actual user-facing requirement is satisfied.
+
+Begin implementation immediately from the current repository and database state.
