@@ -1,0 +1,729 @@
+Continue immediately inside the EXISTING Health Professions Planner from the exact current persisted state.
+
+This is not another manual research session.
+
+The current bottleneck is that approximately 2,761 real programs still need finalized prerequisite data. Previous runs have been completing only dozens of schools per Agent execution window. That approach will not finish this project efficiently.
+
+The project now has access to external retrieval/extraction services through Replit Secrets.
+
+First inspect which of the following environment variables are available WITHOUT printing or exposing their values:
+
+`FIRECRAWL_API_KEY`
+`OPENAI_API_KEY`
+`BROWSERBASE_API_KEY`
+
+Never log, display, commit, return, or expose any secret value.
+
+Use the services that are actually configured.
+
+The new objective is to turn the existing prerequisite acquisition system into an AUTOMATED FULL-DATABASE COMPLETION WORKER and execute it against the entire unfinished queue.
+
+Do not manually research programs one by one through the Agent conversation when the same process can be automated.
+
+Do not create another architectural prototype.
+
+Integrate this into the existing ingestion, persistence, provenance, and verification architecture.
+
+The authoritative-source requirement remains unchanged:
+
+Every prerequisite or admissions requirement stored in the database must be supported by an official program, university, accreditor, centralized application-service, official catalog, handbook, FAQ, or official PDF source.
+
+An LLM may structure and classify retrieved official text.
+
+An LLM may NOT invent missing prerequisite information.
+
+==================================================
+PRIMARY RETRIEVAL: FIRECRAWL
+============================
+
+If `FIRECRAWL_API_KEY` exists, integrate Firecrawl as the primary scalable discovery and content-retrieval layer for unfinished programs.
+
+Use Firecrawl for:
+
+official-domain search
+
+URL discovery
+
+page mapping where helpful
+
+page scraping
+
+admissions-page retrieval
+
+prerequisite-page retrieval
+
+official FAQ retrieval
+
+official catalog retrieval
+
+PDF parsing
+
+links extraction
+
+dynamic page content where supported
+
+structured content retrieval
+
+For each unfinished program, begin with the official program URL already stored in the database.
+
+Discover likely requirement URLs using terms such as:
+
+prerequisites
+
+admission requirements
+
+admissions requirements
+
+academic requirements
+
+required courses
+
+course requirements
+
+how to apply
+
+eligibility
+
+prospective students
+
+application requirements
+
+program requirements
+
+graduate admissions
+
+professional admissions
+
+FAQ
+
+catalog
+
+handbook
+
+Use OFFICIAL domains only for final evidence.
+
+The system may use web search to locate the authoritative page, but do not store search-engine snippets as evidence.
+
+Prefer specific prerequisite/admissions pages over generic university homepages.
+
+Use Firecrawl PDF parsing when official prerequisite information is contained in PDFs, handbooks, checksheets, catalogs, or admission guides.
+
+Cache successful retrievals using the project's existing source cache and source hashing system.
+
+Do not repeatedly consume Firecrawl credits for unchanged cached documents.
+
+==================================================
+STRUCTURED EXTRACTION
+=====================
+
+If `OPENAI_API_KEY` exists, use the OpenAI API to transform ALREADY RETRIEVED OFFICIAL SOURCE TEXT into the application's exact prerequisite/admissions JSON schema.
+
+Use strict structured output/schema validation.
+
+The extraction request must include only source material associated with the specific program currently being processed.
+
+Never combine text from different schools in one extraction context in a way that could cross-assign requirements.
+
+The extraction model must distinguish:
+
+required coursework
+
+recommended coursework
+
+general admissions requirements
+
+degree requirements
+
+GPA requirements
+
+testing requirements
+
+experience requirements
+
+observation/shadowing requirements
+
+patient-care requirements
+
+healthcare-experience requirements
+
+certification requirements
+
+application conditions
+
+For coursework, extract where explicitly stated:
+
+subject/course
+
+course count
+
+semester credits
+
+quarter credits
+
+lab requirement
+
+minimum grade
+
+recency limit
+
+AP policy
+
+IB policy
+
+community-college policy
+
+online-course policy
+
+pass/fail policy
+
+Do not infer unspecified values.
+
+Missing information must remain null/unknown rather than being guessed.
+
+Every structured field must be traceable to the retrieved official evidence.
+
+Save the raw official source reference/hash alongside the extraction.
+
+The extraction response alone is NOT evidence. The official source is evidence.
+
+If `OPENAI_API_KEY` is unavailable but the existing extraction system works, continue using the existing extractor instead. Do not stop merely because OpenAI is absent.
+
+==================================================
+BROWSER FALLBACK
+================
+
+If `BROWSERBASE_API_KEY` exists, integrate Browserbase as the fallback for official sites that cannot be successfully retrieved through ordinary HTTP or Firecrawl.
+
+Use it only when necessary for:
+
+JavaScript-rendered pages
+
+client-side routing
+
+dynamic admissions pages
+
+accordions/tabs requiring interaction
+
+pages whose meaningful content appears only after browser rendering
+
+Use Playwright or Selenium through Browserbase according to whichever integrates cleanly with the existing project.
+
+Do not use Browserbase to bypass authentication, CAPTCHA challenges, private systems, or access controls.
+
+Do not treat Browserbase as the first retrieval method when a cached/static source already exists.
+
+==================================================
+AUTOMATED COMPLETION WORKER
+===========================
+
+Create or extend ONE durable completion command capable of processing the entire remaining dataset automatically.
+
+For example, the existing workspace could expose something conceptually similar to:
+
+`pnpm --filter @workspace/scripts complete:prereqs -- --all-unfinished`
+
+Use the project's actual package structure and naming conventions.
+
+The command must:
+
+query all active unfinished programs
+
+skip legitimately finalized programs
+
+reuse cached source data
+
+discover authoritative sources
+
+fetch authoritative content
+
+extract structured requirements
+
+validate extraction shape
+
+persist source provenance
+
+persist prerequisite/admissions records
+
+perform direct database post-write verification
+
+confirm the API-visible record when appropriate
+
+assign a legitimate final status
+
+save checkpoint state
+
+continue to the next program
+
+The worker must NOT require an Agent prompt for each program.
+
+The worker must NOT stop because one institution fails.
+
+Failures should be isolated per program.
+
+Use bounded concurrency.
+
+Process unrelated domains concurrently.
+
+Apply per-domain rate limits.
+
+Use retries with backoff.
+
+Respect reasonable crawl behavior.
+
+Persist after every completed program.
+
+Make the job resumable.
+
+If the process is interrupted at program 1,284, the next invocation should continue from the next appropriate unfinished/checkpointed record rather than starting from program one.
+
+==================================================
+FINAL STATES
+============
+
+Every active program should eventually resolve to one of:
+
+`verified`
+
+`verified_no_specific_prerequisites`
+
+an equivalent verified competency/non-course admissions status
+
+or a narrowly documented external blocker.
+
+These are NOT final:
+
+draft
+
+queued
+
+cached
+
+source_discovered
+
+pending_extraction
+
+pending_verification
+
+research_not_started
+
+Do not convert records to verified merely to lower the draft count.
+
+==================================================
+PROCESS ALL 2,761 CURRENTLY UNFINISHED PROGRAMS
+===============================================
+
+The latest reported unfinished counts are approximately:
+
+Dental: 74
+Dietetics: 150
+Genetic Counseling: 62
+Medicine: 231
+Nursing: 444
+Occupational Therapy: 315
+Optometry: 21
+Pharmacy: 137
+Physical Therapy: 292
+Physician Assistant: 327
+Podiatry: 9
+Postbac: 338
+Prosthetics & Orthotics: 12
+Speech-Language Pathology: 320
+Veterinary Medicine: 29
+
+Total approximately: 2,761.
+
+Use the DATABASE as the authority for the exact current unfinished queue instead of hardcoding those counts.
+
+CAA and Pathologists' Assistant are already effectively complete and should not be unnecessarily reprocessed.
+
+Physical Therapy already contains verified records and cached sources. Resume from the unfinished PT records.
+
+But DO NOT make PT completion a stopping point.
+
+The worker must continue across every unfinished profession automatically.
+
+==================================================
+DO NOT DEPEND ON THE AGENT EXECUTION WINDOW
+===========================================
+
+This is critical.
+
+The previous approach has repeatedly stopped because the Replit Agent execution window ended.
+
+The data-processing operation must therefore exist as executable APPLICATION/SCRIPT INFRASTRUCTURE rather than requiring the Agent itself to perform every extraction interactively.
+
+Once the worker is implemented and validated on a controlled batch, RUN THE ACTUAL WORKER against the unfinished queue.
+
+If Replit's normal workspace process can run the full job reliably, execute it there.
+
+If a deployment/job mechanism is required for reliable background execution, configure the appropriate Replit data-processing execution path using the existing project infrastructure.
+
+Do not alter the public web application deployment unnecessarily.
+
+The completion worker must write to the intended development database used for the final Publish → Overwrite Data operation.
+
+Do not accidentally process a test database.
+
+Add a database identity check before the bulk run.
+
+==================================================
+PROGRESS AND FAILURE RECOVERY
+=============================
+
+Maintain durable processing state for every program.
+
+Useful states include:
+
+unstarted
+
+source discovery
+
+source fetched
+
+extracted
+
+validated
+
+persisted
+
+read-back confirmed
+
+finalized
+
+blocked
+
+Store last attempt timestamp and failure information.
+
+A retry should continue from the earliest incomplete safe stage.
+
+Generate a failure queue containing only programs that actually failed automated completion.
+
+Once the main queue has been processed, automatically make additional passes through the failure queue using alternate official-source methods.
+
+Do not stop after the first pass.
+
+==================================================
+BLOCKER RULE
+============
+
+Do not mark a program externally blocked merely because:
+
+the first page returns 403
+
+the original URL is dead
+
+Firecrawl fails once
+
+the page is JavaScript-rendered
+
+the requirement page moved
+
+a PDF is linked separately
+
+the generic homepage has no requirements
+
+Before blocker status, attempt reasonable official alternatives including:
+
+Firecrawl search/discovery
+
+same-domain navigation
+
+official admissions pages
+
+official catalogs
+
+official PDFs
+
+official handbooks
+
+official FAQs
+
+official accreditor resources
+
+official centralized application resources
+
+Browserbase rendering if configured and appropriate
+
+Only after those methods fail may an individual blocker be recorded.
+
+==================================================
+KNOWN RELIABILITY ITEMS
+=======================
+
+Complete the remaining known product/reliability items during this same pass:
+
+1. Detect when a previously verified official source materially changes using the existing content hashes.
+
+2. Preserve the last-known-good verified requirements while flagging changed sources for re-verification.
+
+3. Preserve a review/status transition trail for formerly blocked programs that later become verified.
+
+4. Make imports of `no prerequisites published` results idempotent and prevent duplicates.
+
+5. Fix South Alabama so its complete persisted prerequisite list is displayed in the UI.
+
+6. Add/maintain periodic Postbac directory refresh support.
+
+7. Complete program-level prerequisites for all new Postbac records.
+
+8. Change deployment monitoring/health configuration to use `/api/healthz` when appropriate instead of misleading `/api` startup checks.
+
+==================================================
+DATA CONSISTENCY
+================
+
+Resolve the current reported inconsistencies before the final audit.
+
+A prior PT report showed one verified count and a later API query showed a different verified count.
+
+Determine the actual reason.
+
+The database, coverage report, and API must use the same status semantics and return reconciled counts.
+
+A prior Postbac report showed hundreds of active programs while another report described Postbac as unpopulated/source-blocked.
+
+Resolve that discrepancy as well.
+
+Do not simply choose whichever number looks better.
+
+Identify whether the cause is:
+
+stale report
+
+different status definitions
+
+different database
+
+directory-source metadata
+
+filtered records
+
+duplicate rows
+
+or another concrete cause.
+
+Then fix it.
+
+==================================================
+FINAL VERIFICATION
+==================
+
+Once the automated completion worker has exhausted the unfinished queue and reasonable retries:
+
+regenerate coverage-report.json
+
+regenerate coverage-report.md
+
+For every profession report:
+
+active count
+
+verified prerequisite count
+
+verified-no-specific-prerequisite count
+
+verified competency/non-course count where applicable
+
+external blocker count
+
+unfinished count
+
+coverage percentage
+
+authoritative directory source
+
+directory reconciliation state
+
+Ordinary unfinished count should be zero for programs whose official information can reasonably be obtained.
+
+List individual genuine blockers.
+
+Do not hide them inside aggregate statistics.
+
+Run the complete test suite:
+
+frontend tests
+
+API tests
+
+importer tests
+
+database tests
+
+source provenance tests
+
+hash/change detection tests
+
+review-history tests
+
+no-prerequisite idempotency tests
+
+post-write consistency tests
+
+South Alabama regression test
+
+MD/DO tests
+
+state filtering tests
+
+directory reconciliation tests
+
+single-program tests
+
+multi-program tests
+
+source-link tests
+
+Copy Results tests
+
+XLSX content tests
+
+blocked-state tests
+
+no-specific-prerequisite tests
+
+workspace typechecks
+
+lint
+
+production builds
+
+database integrity audit
+
+browser acceptance tests
+
+Fix failures rather than skipping them.
+
+==================================================
+PROFESSOR ACCEPTANCE TEST
+=========================
+
+Reproduce the professor's actual workflow.
+
+Test Medicine.
+
+MD only.
+
+DO only.
+
+Both.
+
+Test Dental.
+
+Test PA including Ohio University.
+
+Test PT including Emory and several newly processed records.
+
+Test Nursing with multiple ABSN/MEPN/direct-entry programs rather than only Vanderbilt or Samuel Merritt.
+
+Test Pharmacy.
+
+Podiatry.
+
+Veterinary Medicine.
+
+Occupational Therapy.
+
+Optometry.
+
+Genetic Counseling.
+
+Speech-Language Pathology.
+
+Dietetics.
+
+Prosthetics-Orthotics.
+
+CAA.
+
+Pathologists' Assistant.
+
+Postbac.
+
+For representative programs:
+
+select one
+
+select multiple
+
+View Required Prerequisites
+
+confirm full school-specific requirements
+
+confirm source URL
+
+confirm verification status/date
+
+Copy Results
+
+download real XLSX
+
+reopen the XLSX and inspect its cells
+
+==================================================
+PUBLICATION
+===========
+
+Do not ask me to publish while the bulk data worker is still incomplete.
+
+Complete the development database first.
+
+When all accessible records have reached legitimate final states, run the final production build and integrity audit.
+
+If the Replit UI requires me to perform the final:
+
+Publish → Overwrite Data
+
+then that may be the only remaining human action.
+
+Tell me only when the database being published is actually the completed dataset.
+
+==================================================
+CREDENTIAL RULE
+===============
+
+Do not request additional API keys unless the configured Firecrawl/OpenAI/Browserbase setup is genuinely insufficient.
+
+If another credential is absolutely necessary, report:
+
+exact service
+
+exact environment variable name
+
+exact programs/functionality blocked without it
+
+why existing tools cannot solve that case
+
+Do not expose any existing secret.
+
+==================================================
+MOST IMPORTANT
+==============
+
+Do not spend another execution window manually researching 20–40 schools and then telling me the remaining thousands require another run.
+
+BUILD AND RUN THE AUTOMATED BULK COMPLETION SYSTEM.
+
+The goal is not to demonstrate that individual programs can be researched.
+
+That has already been proven.
+
+The goal is to process the entire unfinished database.
+
+Do not return with:
+
+“41 more programs completed”
+
+“the next batch is ready”
+
+“the pipeline can now continue”
+
+“sources have been cached”
+
+“follow-up tasks were proposed”
+
+while thousands of ordinary unfinished records remain.
+
+Use the APIs and automated worker to process the queue programmatically.
+
+Begin now.

@@ -11,7 +11,8 @@
     "import:caa-pa": "tsx ./src/import-programs.ts ../data/prereqs/caa-pa-all-programs.json",
     "verify:caa-pa": "tsx ./src/verify-caa-pa-import.ts",
     "upsert:pt-prereqs": "tsx ./src/upsert-pt-prereqs.ts",
-    "acquire:prereqs": "tsx ./src/prereq-acquisition.ts"
+    "acquire:prereqs": "tsx ./src/prereq-acquisition.ts",
+    "complete:prereqs": "tsx ./src/complete-prereqs.ts"
   },
   "dependencies": {
     "@workspace/db": "workspace:*",
