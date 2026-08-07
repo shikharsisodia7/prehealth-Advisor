@@ -7,8 +7,9 @@
  *
  * Also removes STALE blocker rows for sources that have since been unlocked
  * and imported (CODA dental, ACOTE OT, ACGC genetic counseling, ACEND
- * dietetics, AACN nursing — all ingested 2026-08-07; see
- * data/directories/*.json source notes for the working access paths).
+ * dietetics, AACN nursing — all ingested 2026-08-07; AAMC postbac — ingested
+ * 2026-08-07 via the REST API at api.mec.aamc.org/postbac-service/services-rs;
+ * see data/directories/*.json source notes for the working access paths).
  */
 import { and, eq } from "drizzle-orm";
 import { db, directorySourcesTable } from "@workspace/db";
@@ -17,17 +18,16 @@ const RETRIEVED = "2026-08-07";
 const IMPORT_PATH =
   "Import path: prepare JSON per scripts/src/import-directory.ts format and run it — idempotent, never deletes.";
 
-const blockers = [
-  {
-    professionSlug: "postbac",
-    degreeType: null,
-    sourceName: "AAMC Postbaccalaureate Premedical Programs Database",
-    sourceUrl: "https://mec.aamc.org/postbac/#/index",
-    notes: `Blocked: the AAMC postbac database (mec.aamc.org/postbac) is an Angular single-page application. The app shell and JS bundles are fetchable, but every backend service endpoint on mec.aamc.org (config-service/services-rs/*, program service paths referenced in the bundles) fails at the network/TLS level from this environment across repeated attempts on 2026-08-07, and the legacy host apps.aamc.org/postbac returns 404. No static export, sitemap, or archived data set of the program list was found. ${IMPORT_PATH}`,
-  },
-] as const;
+/** No currently-blocked professions — all directories have been successfully imported. */
+const blockers: Array<{
+  professionSlug: string;
+  degreeType: string | null;
+  sourceName: string;
+  sourceUrl: string;
+  notes: string;
+}> = [];
 
-/** Blocker rows recorded on 2026-07-23 that are now superseded by successful imports. */
+/** Blocker rows that are now superseded by successful imports. */
 const staleBlockers: Array<{ professionSlug: string; sourceName: string }> = [
   { professionSlug: "dental", sourceName: "CODA Find-a-Program (predoctoral DDS/DMD)" },
   { professionSlug: "occupational-therapy", sourceName: "ACOTE School Directory (OT Masters + OT Doctorate)" },
@@ -35,6 +35,10 @@ const staleBlockers: Array<{ professionSlug: string; sourceName: string }> = [
   { professionSlug: "dietetics", sourceName: "ACEND Accredited Programs Directory" },
   { professionSlug: "nursing", sourceName: "AACN Program Directory (accelerated baccalaureate)" },
   { professionSlug: "nursing", sourceName: "AACN Program Directory (master's entry)" },
+  // AAMC postbac: originally blocked at the Angular SPA level, but the underlying
+  // REST API at api.mec.aamc.org/postbac-service/services-rs/programs/ was
+  // accessible and ingested on 2026-08-07 (338 programs).
+  { professionSlug: "postbac", sourceName: "AAMC Postbaccalaureate Premedical Programs Database" },
 ];
 
 async function main() {

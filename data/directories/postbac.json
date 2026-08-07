@@ -1,0 +1,2718 @@
+{
+  "professionSlug": "postbac",
+  "degreeType": null,
+  "source": {
+    "name": "AAMC Postbaccalaureate Premedical Programs Database",
+    "url": "https://mec.aamc.org/postbac/#/index",
+    "retrievedAt": "2026-08-07",
+    "sourceProgramCount": 338,
+    "coverageStatus": "complete",
+    "notes": "Retrieved from the AAMC Postbac program API (api.mec.aamc.org/postbac-service/services-rs/programs/), which is the same data backing the mec.aamc.org/postbac Angular SPA. Only active programs (status=A) included; 338 total. The live API was directly accessible despite the SPA shell\u2019s Angular front-end previously failing at TLS level \u2014 the underlying REST service at api.mec.aamc.org was reachable on 2026-08-07. externalId is the AAMC program ID."
+  },
+  "programs": [
+    {
+      "name": "Drexel University College of Medicine",
+      "programName": "Drexel Pathway to Medical School (DPMS) program",
+      "city": "Philadelphia",
+      "state": "PA",
+      "websiteUrl": "http://drexel.edu/medicine/pathway",
+      "externalId": "240"
+    },
+    {
+      "name": "Drexel University College of Medicine",
+      "programName": "Interdisciplinary Health Sciences (IHS) program",
+      "city": "Philadelphia",
+      "state": "PA",
+      "websiteUrl": "http://drexel.edu/medicine/health-sciences",
+      "externalId": "241"
+    },
+    {
+      "name": "University of Southern California",
+      "programName": "USC Postbaccalaureate Premedical Program",
+      "city": "Los Angeles",
+      "state": "CA",
+      "websiteUrl": "https://dornsife.usc.edu/postbaccalaureate-premedical-program",
+      "externalId": "232"
+    },
+    {
+      "name": "University of Michigan Medical School",
+      "programName": "M.S. Program in Physiology",
+      "city": "Ann Arbor",
+      "state": "MI",
+      "websiteUrl": "http://medicine.umich.edu/dept/molecular-integrative-physiology/education/masters-program",
+      "externalId": "264"
+    },
+    {
+      "name": "University of Virginia",
+      "programName": "U.Va. Post-Baccalaureate Pre-Medical Program",
+      "city": "Charlottesville",
+      "state": "VA",
+      "websiteUrl": "http://www.scps.virginia.edu/programs/program-detail/post-baccalaureate-pre-medical-program",
+      "externalId": "143"
+    },
+    {
+      "name": "Rider University",
+      "programName": "Post-baccalaureate Premedical Studies",
+      "city": "Lawrenceville",
+      "state": "NJ",
+      "websiteUrl": "https://www.rider.edu/academics/colleges-schools/college-liberal-arts-sciences/continuing-education/pre-medical-vet-dental",
+      "externalId": "157"
+    },
+    {
+      "name": "University of Minnesota Medical School",
+      "programName": "M.S. Program in Physiology",
+      "city": "Minneapolis",
+      "state": "MN",
+      "websiteUrl": "https://med.umn.edu/physiology/education-training/graduate-program/masters-program",
+      "externalId": "4180"
+    },
+    {
+      "name": "Georgetown University",
+      "programName": "MS Integrative Medicine and Health Sciences (IMHS) Program",
+      "city": "Washington",
+      "state": "DC",
+      "websiteUrl": "https://integrativemedicine.georgetown.edu",
+      "externalId": "162"
+    },
+    {
+      "name": "Temple University School of Medicine",
+      "programName": "Advanced Core in Medical Science Post Baccalaureate PreMedical Program",
+      "city": "Philadelphia",
+      "state": "PA",
+      "websiteUrl": "http://www.temple.edu/medicine/ppp",
+      "externalId": "254"
+    },
+    {
+      "name": "UC Berkeley Extension",
+      "programName": "Post-Baccalaureate Health Professions Certificate Program",
+      "city": "Berkeley",
+      "state": "CA",
+      "websiteUrl": "http://extension.berkeley.edu/spos/premed.html",
+      "externalId": "171"
+    },
+    {
+      "name": "University of Oregon",
+      "programName": "Postbac Premed Program",
+      "city": "Eugene",
+      "state": "OR",
+      "websiteUrl": "https://cas.uoregon.edu/advising/pre-health/explore-post-bacc-uo",
+      "externalId": "173"
+    },
+    {
+      "name": "University of Miami",
+      "programName": "Pre-Health Post-Baccalaureate Program",
+      "city": "Coral Gables",
+      "state": "FL",
+      "websiteUrl": "http://www.miami.edu/prehealth",
+      "externalId": "186"
+    },
+    {
+      "name": "Colorado State University",
+      "programName": "Master of Science in Biomedical Sciences (1 year)",
+      "city": "Fort Collins",
+      "state": "CO",
+      "websiteUrl": "http://csu-cvmbs.colostate.edu/academics/bms/Pages/graduate-programs.aspx",
+      "externalId": "192"
+    },
+    {
+      "name": "University of South Carolina School of Medicine",
+      "programName": "Graduate Certificate in Biomedical Studies",
+      "city": "Columbia",
+      "state": "SC",
+      "websiteUrl": "http://www.med.sc.edu/Post.Baccalaureate.Certificates.asp",
+      "externalId": "1120"
+    },
+    {
+      "name": "Cooper Medical School of Rowan University",
+      "programName": "Advanced Premedical Studies Post Baccalaureate Program",
+      "city": "Camden",
+      "state": "NJ",
+      "websiteUrl": "http://www.rowan.edu/coopermed/education/postbacc/",
+      "externalId": "1200"
+    },
+    {
+      "name": "Icahn School of Medicine at Mount Sinai",
+      "programName": "Master of Science in Clinical Research",
+      "city": "New York",
+      "state": "NY",
+      "websiteUrl": "http://icahn.mssm.edu/education/masters/clinical-research/education",
+      "externalId": "1225"
+    },
+    {
+      "name": "Icahn School of Medicine at Mount Sinai",
+      "programName": "Clinical Research Training Program (Certificate)",
+      "city": "New York",
+      "state": "NY",
+      "websiteUrl": "http://icahn.mssm.edu/education/non-degree/crtp",
+      "externalId": "1226"
+    },
+    {
+      "name": "Charles R. Drew University of Medicine and Science",
+      "programName": "Graduate Biomedical Sciences (Master of Science)",
+      "city": "Los Angeles",
+      "state": "CA",
+      "websiteUrl": "https://www.cdrewu.edu/academics/program/master-of-science-biomedical-sciences/",
+      "externalId": "1400"
+    },
+    {
+      "name": "Morehouse School of Medicine",
+      "programName": "Master of Science in Medical Sciences (MSMS) Degree",
+      "city": "Atlanta",
+      "state": "GA",
+      "websiteUrl": "http://www.msm.edu/Education/GEBS/MSMS.php",
+      "externalId": "1740"
+    },
+    {
+      "name": "Loyola Univeristy New Orleans",
+      "programName": "Pre-health PostBac",
+      "city": "New Orleans",
+      "state": "LA",
+      "websiteUrl": "http://cas.loyno.edu/pre-health/post-baccalaureate-program",
+      "externalId": "1920"
+    },
+    {
+      "name": "Cleveland State University",
+      "programName": "Military Veteran Individualized Post Baccalaureate Option",
+      "city": "Cleveland",
+      "state": "OH",
+      "websiteUrl": "https://www.clestatecareers.com/militaryveteranindividualizedpreprofessioalpostbaccalaureateprogram",
+      "externalId": "3761"
+    },
+    {
+      "name": "Washington University School of Medicine in St. Louis",
+      "programName": "Postbaccalaureate Program in Developmental Biology, Cell Biology, and Regenerative Medicine",
+      "city": "St. Louis",
+      "state": "MO",
+      "websiteUrl": "http://https://sites.wustl.edu/devbioregenmedpostbacc/",
+      "externalId": "4000"
+    },
+    {
+      "name": "Harvard University Division of Continuing Education",
+      "programName": "Premedical Program",
+      "city": "Cambridge",
+      "state": "MA",
+      "websiteUrl": "http://www.extension.harvard.edu/degrees-programs/premedical-program",
+      "externalId": "233"
+    },
+    {
+      "name": "University of Colorado Anschutz Medical Campus",
+      "programName": "Master of Science in Modern Human Anatomy",
+      "city": "Aurora",
+      "state": "CO",
+      "websiteUrl": "https://medschool.cuanschutz.edu/ms-modern-human-anatomy",
+      "externalId": "310"
+    },
+    {
+      "name": "The Ohio State University",
+      "programName": "MEDPATH Post Baccalaureate Program",
+      "city": "Columbus",
+      "state": "OH",
+      "websiteUrl": "http://go.osu.edu/medpath",
+      "externalId": "188"
+    },
+    {
+      "name": "The City College of New York",
+      "programName": "The Program In Pre-Health Post-Baccalaureate Certificate in Health Professions Preparation",
+      "city": "New York",
+      "state": "NY",
+      "websiteUrl": "https://www.ccny.cuny.edu/science/postbaccalaureate-certificate-health-professions-preparation",
+      "externalId": "159"
+    },
+    {
+      "name": "Mississippi College",
+      "programName": "Masters of Medical Sciences",
+      "city": "Clinton",
+      "state": "MS",
+      "websiteUrl": "https://www.mc.edu/academics/departments/biology/graduate-programs/medical-sciences",
+      "externalId": "251"
+    },
+    {
+      "name": "Rosalind Franklin University of Medicine & Science",
+      "programName": "Master of Science in Biomedical Sciences (BMS)",
+      "city": "North Chicago",
+      "state": "IL",
+      "websiteUrl": "https://www.rosalindfranklin.edu/academics/college-of-health-professions/degree-programs/biomedical-sciences-ms/",
+      "externalId": "199"
+    },
+    {
+      "name": "Columbia University Irving Medical Center",
+      "programName": "Institute of Human Nutrition",
+      "city": "New York",
+      "state": "NY",
+      "websiteUrl": "https://www.ihn.cuimc.columbia.edu/education/ms-human-nutrition",
+      "externalId": "172"
+    },
+    {
+      "name": "Midwestern University - Glendale AZ",
+      "programName": "Master of Arts in Biomedical Science",
+      "city": "Glendale",
+      "state": "AZ",
+      "websiteUrl": "https://www.midwestern.edu/academics/degrees-programs/college-graduate-studies/master-arts-biomedical-sciences/master-arts-biomedical-sciences-glendale-campus",
+      "externalId": "183"
+    },
+    {
+      "name": "Regis University",
+      "programName": "Regis University - Biomedical Sciences Certificate",
+      "city": "Denver",
+      "state": "CO",
+      "websiteUrl": "https://www.regis.edu/academics/majors-and-programs/certificate/biomedical-sciences-certificate",
+      "externalId": "1080"
+    },
+    {
+      "name": "Midwestern University",
+      "programName": "Master of Biomedical Sciences",
+      "city": "Glendale",
+      "state": "AZ",
+      "websiteUrl": "https://www.midwestern.edu/academics/degrees-programs/college-graduate-studies/master-biomedical-sciences-program",
+      "externalId": "1160"
+    },
+    {
+      "name": "California State University, Fullerton",
+      "programName": "Pre-Health Postbaccalaureate Program",
+      "city": "Fullerton",
+      "state": "CA",
+      "websiteUrl": "https://extension.fullerton.edu/prehealth/",
+      "externalId": "203"
+    },
+    {
+      "name": "Drew University",
+      "programName": "Pre-Medical Preparation Program",
+      "city": "Madison",
+      "state": "NJ",
+      "websiteUrl": "http://www.drew.edu/cue/non-matriculation-programs/pre-medical",
+      "externalId": "212"
+    },
+    {
+      "name": "University of Wisconsin-Madison Center for Patient Partnerships",
+      "programName": "Center For Patient Partnerships",
+      "city": "Madison",
+      "state": "WI",
+      "websiteUrl": "http://www.patientpartnerships.org",
+      "externalId": "309"
+    },
+    {
+      "name": "Salus at Drexel University",
+      "programName": "Post-baccalaureate Program in Speech Langauge Pathology",
+      "city": "Elkins Park",
+      "state": "PA",
+      "websiteUrl": "https://www.salus.edu/colleges/education-rehabilitation/post-baccalaureate-programs/post-baccalaureate-program-in-health-sciences-spee/index.html",
+      "externalId": "4340"
+    },
+    {
+      "name": "Syracuse University",
+      "programName": "M.S. in Biomedical Forensic Sciences",
+      "city": "Syracuse",
+      "state": "NY",
+      "websiteUrl": "http://forensics.syr.edu/graduate/biomedical.html",
+      "externalId": "442"
+    },
+    {
+      "name": "Drexel University College of Medicine",
+      "programName": "Evening Post-Baccalaureate Pre-Medical (PMED) program",
+      "city": "Philadelphia",
+      "state": "PA",
+      "websiteUrl": "https://drexel.edu/medicine/academics/graduate-school/evening-post-baccalaureate-pre-medical/",
+      "externalId": "242"
+    },
+    {
+      "name": "Keck Graduate Institute",
+      "programName": "Post-baccalaureate Premedical Certificate Program",
+      "city": "Claremont",
+      "state": "CA",
+      "websiteUrl": "http://www.kgi.edu/academic-programs/postbac-premedical-certificate-program-%28ppc%29.html",
+      "externalId": "485"
+    },
+    {
+      "name": "Georgetown University",
+      "programName": "Special Master's Program - MS in Physiology",
+      "city": "Washington",
+      "state": "DC",
+      "websiteUrl": "http://smp.georgetown.edu",
+      "externalId": "245"
+    },
+    {
+      "name": "Avila University",
+      "programName": "Avila University Postbaccalaureate Program",
+      "city": "Kansas City",
+      "state": "MO",
+      "websiteUrl": "http://www.avila.edu/PreHealth/post.asp",
+      "externalId": "246"
+    },
+    {
+      "name": "John Carroll University",
+      "programName": "Pre-Medical Post-Baccalaureate Program",
+      "city": "University Heights",
+      "state": "OH",
+      "websiteUrl": "http://sites.jcu.edu/graduatestudies/pages/graduate-programs/post-baccalaureate-programs/pre-medicial/",
+      "externalId": "249"
+    },
+    {
+      "name": "Hampton University",
+      "programName": "Medical Science Masters Program",
+      "city": "Hampton",
+      "state": "VA",
+      "websiteUrl": "http://science.hamptonu.edu/prehealth/",
+      "externalId": "250"
+    },
+    {
+      "name": "Georgetown University",
+      "programName": "Post-Baccalaureate Pre-Medical Certificate Program",
+      "city": "Washington",
+      "state": "DC",
+      "websiteUrl": "http://premed.georgetown.edu/postbac/potential-students/",
+      "externalId": "484"
+    },
+    {
+      "name": "Wake Forest University Graduate School, Biomedical Programs",
+      "programName": "Biomedical Science MS",
+      "city": "Winston-Salem",
+      "state": "NC",
+      "websiteUrl": "https://school.wakehealth.edu/Education-and-Training/Graduate-Programs/Biomedical-Science-PreHealth-Track",
+      "externalId": "486"
+    },
+    {
+      "name": "Tulane University School of Medicine",
+      "programName": "One-Year Masters Program in Biochemistry & Molecular Biology",
+      "city": "New Orleans",
+      "state": "LA",
+      "websiteUrl": "https://medicine.tulane.edu/departments/biochemistry-molecular-biology/academic-programs/masters-1-year",
+      "externalId": "306"
+    },
+    {
+      "name": "Drexel University College of Medicine",
+      "programName": "Master of Biomedical Studies (MBS) Program",
+      "city": "Philadelphia",
+      "state": "PA",
+      "websiteUrl": "https://drexel.edu/medicine/academics/graduate-school/biomedical-studies/",
+      "externalId": "300"
+    },
+    {
+      "name": "New Jersey Institute of Technology (NJIT)",
+      "programName": "Master of Science in Biology of Health",
+      "city": "Newark",
+      "state": "NJ",
+      "websiteUrl": "https://www.njit.edu/academics/degree/ms-biology-health",
+      "externalId": "3500"
+    },
+    {
+      "name": "Albany College of Pharmacy and Health Sciences",
+      "programName": "Online Master's in Biomedical Sciences (MBSO)",
+      "city": "Albany",
+      "state": "NY",
+      "websiteUrl": "https://www.acphs.edu/biomedical-science-masters-online",
+      "externalId": "4400"
+    },
+    {
+      "name": "Northeastern State University",
+      "programName": "Postbaccalaureate Prehealth Certificate Program",
+      "city": "Tahlequah",
+      "state": "OK",
+      "websiteUrl": "http://academics.nsuok.edu/prehealth",
+      "externalId": "263"
+    },
+    {
+      "name": "New York Medical College",
+      "programName": "Accelerated Interdisciplinary Biomedical Sciences Master's Program",
+      "city": "Valhalla",
+      "state": "NY",
+      "websiteUrl": "https://www.nymc.edu/gsbms/admissions--aid/contact/",
+      "externalId": "247"
+    },
+    {
+      "name": "New York Medical College",
+      "programName": "Interdisciplinary Biomedical Sciences Master's Program",
+      "city": "Valhalla",
+      "state": "NY",
+      "websiteUrl": "https://www.nymc.edu/gsbms/admissions--aid/contact/",
+      "externalId": "202"
+    },
+    {
+      "name": "UC Davis School of Medicine",
+      "programName": "Postbaccalaureate Program",
+      "city": "Sacramento",
+      "state": "CA",
+      "websiteUrl": "https://health.ucdavis.edu/med-pathways/postbaccalaureate/index.html",
+      "externalId": "483"
+    },
+    {
+      "name": "Tulane University",
+      "programName": "Cell and Molecular Biology One Year Masters",
+      "city": "New Orleans",
+      "state": "LA",
+      "websiteUrl": "https://sse.tulane.edu/cell/masters-program",
+      "externalId": "211"
+    },
+    {
+      "name": "University of Minnesota Medical School, Duluth Campus",
+      "programName": "Biomedical Sciences MS - Gateways to Medicine & Research",
+      "city": "Duluth",
+      "state": "MN",
+      "websiteUrl": "http://z.umn.edu/gateways",
+      "externalId": "4160"
+    },
+    {
+      "name": "Loyola University Chicago",
+      "programName": "Master of Science in Medical Physiology",
+      "city": "Maywood",
+      "state": "IL",
+      "websiteUrl": "https://ssom.luc.edu/physio/graduateprograms/msmp/",
+      "externalId": "308"
+    },
+    {
+      "name": "University of Northern Colorado",
+      "programName": "Master's in Biomedical Science",
+      "city": "Greeley",
+      "state": "CO",
+      "websiteUrl": "https://www.unco.edu/nhs/biology/programs/graduate/mbs/",
+      "externalId": "259"
+    },
+    {
+      "name": "Bennington College",
+      "programName": "Post Baccalaureate Premedical Program",
+      "city": "Bennington",
+      "state": "VT",
+      "websiteUrl": "http://www.bennington.edu/postbac",
+      "externalId": "262"
+    },
+    {
+      "name": "Florida State University College of Medicine",
+      "programName": "Bridge to Clinical Medicine Program",
+      "city": "Tallahassee",
+      "state": "FL",
+      "websiteUrl": "http://med.fsu.edu/index.cfm?page=AdvisingOutreach.masters",
+      "externalId": "307"
+    },
+    {
+      "name": "Tulane University School of Medicine",
+      "programName": "One Year Masters in Pharmacology Program",
+      "city": "New Orleans",
+      "state": "LA",
+      "websiteUrl": "http://tulane.edu/som/departments/pharmacology/masters/index.cfm",
+      "externalId": "258"
+    },
+    {
+      "name": "University of Cincinnati, College of Medicine",
+      "programName": "Special Master's Program (SMP) in Physiology",
+      "city": "Cincinnati",
+      "state": "OH",
+      "websiteUrl": "http://med.uc.edu/msinphysiology",
+      "externalId": "260"
+    },
+    {
+      "name": "Touro College of Osteopathic Medicine",
+      "programName": "MS in Interdisciplinary Studies in Biological and Physical Sciences",
+      "city": "New York",
+      "state": "NY",
+      "websiteUrl": "https://tourocom.touro.edu/ms/",
+      "externalId": "278"
+    },
+    {
+      "name": "LaSalle University",
+      "programName": "Postbaccalaureate Premedcial Certificate Program",
+      "city": "Philadelphia",
+      "state": "PA",
+      "websiteUrl": "http://www.lasalle.edu/schools/cpcs/content.php?section=post_bac_certificates&group=prehealth&page=o",
+      "externalId": "280"
+    },
+    {
+      "name": "Farmingdale State College SUNY",
+      "programName": "Certificate in the Sciences for Health Professions",
+      "city": "Farmingdale",
+      "state": "NY",
+      "websiteUrl": "https://www.farmingdale.edu/curriculum/cert-health.shtml",
+      "externalId": "283"
+    },
+    {
+      "name": "Liberty University School of Health Sciences",
+      "programName": "Master of Science in Biomedical Sciences",
+      "city": "Lynchburg",
+      "state": "VA",
+      "websiteUrl": "http://www.liberty.edu/index.cfm?PID=28683",
+      "externalId": "500"
+    },
+    {
+      "name": "University of Mississippi Medical Center",
+      "programName": "Master of Science in Biomedical Sciences",
+      "city": "Jackson",
+      "state": "MS",
+      "websiteUrl": "https://www.umc.edu/graduateschool/Degree-Programs/MS-Biomedical-Sciences/MS-Biomedical-Sciences.html",
+      "externalId": "501"
+    },
+    {
+      "name": "Johns Hopkins University",
+      "programName": "Master of Health Science, Biochemistry and Molecular Biology, Bloomberg School of Public Health",
+      "city": "Baltimore",
+      "state": "MD",
+      "websiteUrl": "https://www.jhsph.edu/departments/biochemistry-and-molecular-biology/for-prospective-students/apply-to-the-bmb-masters-program.html",
+      "externalId": "482"
+    },
+    {
+      "name": "Macon & Joan Brock Virginia Health Sciences at Old Dominion University",
+      "programName": "Biomedical Sciences - Medical Master's Program (1-year option)",
+      "city": "Norfolk",
+      "state": "VA",
+      "websiteUrl": "https://www.evms.edu/education/masters_programs/biomedical_sciences_medical/",
+      "externalId": "36"
+    },
+    {
+      "name": "University of Louisville",
+      "programName": "Postbaccalaureate Pre-medical Program",
+      "city": "Louisville",
+      "state": "KY",
+      "websiteUrl": "http://louisville.edu/postbacpremed",
+      "externalId": "489"
+    },
+    {
+      "name": "George Washington University School of Medicine and Health Sciences",
+      "programName": "Graduate Certificate in Anatomical and Translational Sciences",
+      "city": "Washington",
+      "state": "DC",
+      "websiteUrl": "http://smhs.gwu.edu/anatomy/education/gcats",
+      "externalId": "505"
+    },
+    {
+      "name": "Colorado State University",
+      "programName": "Master of Science in Toxicology",
+      "city": "Fort Collins",
+      "state": "CO",
+      "websiteUrl": "http://csu-cvmbs.colostate.edu/academics/erhs/cem/",
+      "externalId": "506"
+    },
+    {
+      "name": "Guilford College",
+      "programName": "Post-Baccalaureate Pre-Medical and Pre-Health Studies",
+      "city": "Greensboro",
+      "state": "NC",
+      "websiteUrl": "https://www.guilford.edu/post-baccalaureate-pre-medical-and-pre-health-studies",
+      "externalId": "510"
+    },
+    {
+      "name": "UC Irvine School of Medicine",
+      "programName": "UC Irvine School of Medicine Postbaccalaureate Program",
+      "city": "Irvine",
+      "state": "CA",
+      "websiteUrl": "http://www.meded.uci.edu/admissions/postbaccalaureate.asp",
+      "externalId": "514"
+    },
+    {
+      "name": "Case Western Reserve University",
+      "programName": "Master of Science in Nutrition",
+      "city": "Cleveland",
+      "state": "OH",
+      "websiteUrl": "https://case.edu/medicine/nutrition/",
+      "externalId": "542"
+    },
+    {
+      "name": "University of Colorado Boulder",
+      "programName": "Post Baccalaureate Health Professions Program for Career Changers (Pre-Med, Dent, Vet, PT, PA, Optometry, etc.)",
+      "city": "Boulder",
+      "state": "CO",
+      "websiteUrl": "https://www.colorado.edu/ceprehealth/admissions-structured-cohort",
+      "externalId": "460"
+    },
+    {
+      "name": "Hofstra University",
+      "programName": "Premedical Post-Baccalaureate Certificate",
+      "city": "Hempstead",
+      "state": "NY",
+      "websiteUrl": "http://www.hofstra.edu/Academics/grad/grad_postbacc_premed.html",
+      "externalId": "461"
+    },
+    {
+      "name": "Loyola University Chicago",
+      "programName": "Master of Arts in Medical Sciences",
+      "city": "Chicago, IL 60660",
+      "state": "IL",
+      "websiteUrl": "http://www.luc.edu/biology/mams/",
+      "externalId": "478"
+    },
+    {
+      "name": "University of Pittsburgh",
+      "programName": "Biomedical Masters Program",
+      "city": "Pittsburgh",
+      "state": "PA",
+      "websiteUrl": "https://www.bmp.pitt.edu/",
+      "externalId": "1320"
+    },
+    {
+      "name": "Lehigh University",
+      "programName": "Healthcare Systems Engineering, MEng, Pre-Medical Post Baccalaureate",
+      "city": "Bethlehem",
+      "state": "PA",
+      "websiteUrl": "https://www.lehigh.edu/hse",
+      "externalId": "507"
+    },
+    {
+      "name": "University of New England",
+      "programName": "Science Prerequisite for Health Professions (SPHP)",
+      "city": "Portland",
+      "state": "ME",
+      "websiteUrl": "https://online.une.edu/science-prerequisites/courses/",
+      "externalId": "4121"
+    },
+    {
+      "name": "Indiana University School of Medicine",
+      "programName": "Indiana University School of Medicine Master of Science Pre-Professional Degree Program",
+      "city": "Indianapolis",
+      "state": "IN",
+      "websiteUrl": "https://medicine.iu.edu/anatomy-cell-biology-physiology/education/graduate-degrees/masters/preprofessional",
+      "externalId": "508"
+    },
+    {
+      "name": "Johns Hopkins University School of Medicine",
+      "programName": "Doctoral Diversity Program",
+      "city": "Baltimore",
+      "state": "MD",
+      "websiteUrl": "https://ddp.cellbio.jhmi.edu",
+      "externalId": "3940"
+    },
+    {
+      "name": "Case Western Reserve University",
+      "programName": "Master of Science in Molecular & Cellular Biology of Disease",
+      "city": "Cleveland",
+      "state": "OH",
+      "websiteUrl": "https://case.edu/medicine/pathology/training/ms-programs",
+      "externalId": "445"
+    },
+    {
+      "name": "Rutgers School of Graduate Studies, Newark Health Science Campus",
+      "programName": "Masters in Biomedical Sciences",
+      "city": "Newark",
+      "state": "NJ",
+      "websiteUrl": "http://njms.rutgers.edu/gsbs/",
+      "externalId": "276"
+    },
+    {
+      "name": "Loyola Marymount University-Los Angeles",
+      "programName": "LMU Pre-Medical/Pre-Dental Post-Baccalaureate Program",
+      "city": "Los Angeles",
+      "state": "CA",
+      "websiteUrl": "http://cse.lmu.edu/centerforstudentsuccess/hpa/pre-medicalpost-baccalaureateprogram",
+      "externalId": "274"
+    },
+    {
+      "name": "University of California, San Francisco",
+      "programName": "UCSF Interprofessional Health Post Baccalaureate Program",
+      "city": "San Francisco",
+      "state": "CA",
+      "websiteUrl": "https://meded.ucsf.edu/post-baccalaureate-program",
+      "externalId": "439"
+    },
+    {
+      "name": "Texas Tech University Health Sciences Center, Graduate School of Biomedical Sciences",
+      "programName": "Graduate Medical Education Sciences M.S.",
+      "city": "Lubbock",
+      "state": "TX",
+      "websiteUrl": "https://www.ttuhsc.edu/biomedical-sciences/program/graduate-medical-sciences.aspx",
+      "externalId": "279"
+    },
+    {
+      "name": "University of Maryland",
+      "programName": "Science in the Evening",
+      "city": "College Park",
+      "state": "MD",
+      "websiteUrl": "https://oes.umd.edu/graduates-post-baccalaureates-professionals/post-baccalaureate-programs/science-evening",
+      "externalId": "503"
+    },
+    {
+      "name": "Georgetown University",
+      "programName": "Regular MS in Physiology",
+      "city": "Washington",
+      "state": "DC",
+      "websiteUrl": "http://physiology.georgetown.edu",
+      "externalId": "509"
+    },
+    {
+      "name": "UC San Diego",
+      "programName": "UC San Diego Post Baccalaureate Premedical Program",
+      "city": "La Jolla",
+      "state": "CA",
+      "websiteUrl": "http://postbacpremed.ucsd.edu/",
+      "externalId": "432"
+    },
+    {
+      "name": "Tufts University School of Medicine",
+      "programName": "MS in Biomedical Sciences (MBS)",
+      "city": "Boston",
+      "state": "MA",
+      "websiteUrl": "http://go.tufts.edu/mbs",
+      "externalId": "451"
+    },
+    {
+      "name": "Fordham University, Fordham School of Professional and Continuing Studies",
+      "programName": "Fordham Post-Baccalaureate Pre-Medical/Pre-Health Program",
+      "city": "Bronx",
+      "state": "NY",
+      "websiteUrl": "https://www.fordham.edu/info/21774/fordham_post_baccalaureate_pre-medicalpre-health_program",
+      "externalId": "454"
+    },
+    {
+      "name": "UCSF",
+      "programName": "Masters of Science in Biomedical Imaging (MSBI) Graduate Program",
+      "city": "San Francisco",
+      "state": "CA",
+      "websiteUrl": "http://radiology.ucsf.edu/education/graduate-programs/msbi-program",
+      "externalId": "455"
+    },
+    {
+      "name": "University of North Texas Health Science Center",
+      "programName": "Master of Medical Science",
+      "city": "Fort Worth",
+      "state": "TX",
+      "websiteUrl": "https://www.unthsc.edu/graduate-school-of-biomedical-sciences/medical-sciences",
+      "externalId": "467"
+    },
+    {
+      "name": "Drexel University College of Medicine",
+      "programName": "Master of Medical Science (MMS) Program",
+      "city": "Philadelphia",
+      "state": "PA",
+      "websiteUrl": "https://drexel.edu/medicine/academics/graduate-school/medical-science/",
+      "externalId": "469"
+    },
+    {
+      "name": "University of Vermont",
+      "programName": "Post-Baccalaureate Premedical Program",
+      "city": "Burlington",
+      "state": "VT",
+      "websiteUrl": "http://learn.uvm.edu/program/post-baccalaureate-premedical-program/",
+      "externalId": "474"
+    },
+    {
+      "name": "Cleveland State University and Northeast Ohio Medical University",
+      "programName": "NEOMED-CSU Partnership for Urban Health Postbacc/M.D.",
+      "city": "Cleveland",
+      "state": "OH",
+      "websiteUrl": "http://www.neomed.edu/admissions/medicine/csu",
+      "externalId": "476"
+    },
+    {
+      "name": "University of Pennsylvania",
+      "programName": "Pre-Health Post-Baccalaureate Programs (Core Studies and Specialized Studies)",
+      "city": "Philadelphia",
+      "state": "PA",
+      "websiteUrl": "https://www.lps.upenn.edu/non-degree-programs/pre-health",
+      "externalId": "457"
+    },
+    {
+      "name": "Thomas Jefferson University",
+      "programName": "Postbaccalaureate Pre-Professional Program (P4) One-Year Track",
+      "city": "Philadelphia",
+      "state": "PA",
+      "websiteUrl": "https://www.jefferson.edu/academics/colleges-schools-institutes/life-sciences/degrees-programs/postbaccalaureate-pre-professional.html",
+      "externalId": "303"
+    },
+    {
+      "name": "Indiana University School of Medicine",
+      "programName": "Master of Science in Medical Science",
+      "city": "Indianapolis",
+      "state": "IN",
+      "websiteUrl": "http://www.msms.iu.edu",
+      "externalId": "464"
+    },
+    {
+      "name": "Arizona State University",
+      "programName": "Master of Science in the Science of Health Care Delivery",
+      "city": "Phoenix",
+      "state": "AZ",
+      "websiteUrl": "https://chs.asu.edu/shcd",
+      "externalId": "465"
+    },
+    {
+      "name": "North Carolina State University",
+      "programName": "Physiology Graduate Program",
+      "city": "Raleigh",
+      "state": "NC",
+      "websiteUrl": "http://physiology.grad.ncsu.edu/",
+      "externalId": "468"
+    },
+    {
+      "name": "Chatham University",
+      "programName": "Master of Arts in Biomedical Studies (MABS)",
+      "city": "Pittsburgh",
+      "state": "PA",
+      "websiteUrl": "http://www.chatham.edu/mabs",
+      "externalId": "480"
+    },
+    {
+      "name": "Tulane University School of Medicine",
+      "programName": "One-Year Masters Program in Microbiology and Immunology",
+      "city": "New Orleans",
+      "state": "LA",
+      "websiteUrl": "https://medicine.tulane.edu/microbiology-immunology/masters",
+      "externalId": "452"
+    },
+    {
+      "name": "Purchase College SUNY",
+      "programName": "Premedical Studies",
+      "city": "Purchase",
+      "state": "NY",
+      "websiteUrl": "https://www.purchase.edu/academics/school-of-natural-social-sciences/premedical-studies/index.php",
+      "externalId": "470"
+    },
+    {
+      "name": "Marian University College of Osteopathic Medicine",
+      "programName": "Master of Science in Biomedical Sciences (BMS)",
+      "city": "Indianapolis",
+      "state": "IN",
+      "websiteUrl": "http://www.marian.edu/osteopathic-medical-school/curriculum/master-of-science-in-biomedical-sciences",
+      "externalId": "495"
+    },
+    {
+      "name": "Larkin University",
+      "programName": "Masters of Science in Biomedical Sciences",
+      "city": "Miami",
+      "state": "FL",
+      "websiteUrl": "http://ularkin.org/college-of-biomedical-sciences/",
+      "externalId": "496"
+    },
+    {
+      "name": "Lewis University",
+      "programName": "B.S. Biomedical Sciences Program",
+      "city": "Romeoville",
+      "state": "IL",
+      "websiteUrl": "http://www.lewisu.edu/academics/post-bac-pre-med/",
+      "externalId": "498"
+    },
+    {
+      "name": "Worcester State University",
+      "programName": "Worcester State University Postbaccalaureate Pre-Medical Program",
+      "city": "Worcester",
+      "state": "MA",
+      "websiteUrl": "http://www.worcester.edu/PreMed",
+      "externalId": "60"
+    },
+    {
+      "name": "Touro University California",
+      "programName": "MS in Medical Health Sciences",
+      "city": "Vallejo",
+      "state": "CA",
+      "websiteUrl": "https://com.tu.edu/academics/msmhs/",
+      "externalId": "3620"
+    },
+    {
+      "name": "University of Connecticut",
+      "programName": "Pre-Medical and Health Professions Post-Baccalaureate Program",
+      "city": "Storrs Manfld",
+      "state": "CT",
+      "websiteUrl": "https://med-dent.postbac.uconn.edu/",
+      "externalId": "493"
+    },
+    {
+      "name": "Northwestern Health Sciences University",
+      "programName": "Postbaccalaureate Pre-health",
+      "city": "Bloomington",
+      "state": "MN",
+      "websiteUrl": "http://www.nwhealth.edu/undergraduate-health-sciences/post-bacc/",
+      "externalId": "497"
+    },
+    {
+      "name": "University of Houston - Central",
+      "programName": "Masters in Biology with Graduate Certificate in Biomedical Sciences",
+      "city": "Houston",
+      "state": "TX",
+      "websiteUrl": "https://www.uh.edu/nsm/biology-biochemistry/graduate/prospective-students/bio-sci-certificate/",
+      "externalId": "3660"
+    },
+    {
+      "name": "George Mason University/Georgetown University",
+      "programName": "Advanced Biomedical Sciences Graduate Certificate Program",
+      "city": "Manassas",
+      "state": "VA",
+      "websiteUrl": "http://cos.gmu.edu/georgesquared/",
+      "externalId": "488"
+    },
+    {
+      "name": "Medical University of South Carolina",
+      "programName": "Master of Science in Medical Sciences",
+      "city": "Charleston",
+      "state": "SC",
+      "websiteUrl": "https://gradstudies.musc.edu/programs/masters/medical-science",
+      "externalId": "456"
+    },
+    {
+      "name": "Scripps College",
+      "programName": "Post-Baccalaureate Premedical Program",
+      "city": "Claremont",
+      "state": "CA",
+      "websiteUrl": "http://www.scrippscollege.edu/postbac/",
+      "externalId": "66"
+    },
+    {
+      "name": "School of Medicine, Virginia Commonwealth University",
+      "programName": "Premedical Graduate Health Sciences Certificate (CERT) Program",
+      "city": "Richmond",
+      "state": "VA",
+      "websiteUrl": "https://medschool.vcu.edu/education/certificate_programs/cert/",
+      "externalId": "67"
+    },
+    {
+      "name": "American University",
+      "programName": "Postbaccalaureate Premedical Certificate Program",
+      "city": "Washington",
+      "state": "DC",
+      "websiteUrl": "http://www.american.edu/cas/premed/CERT-GPMD.cfm",
+      "externalId": "87"
+    },
+    {
+      "name": "Boston University",
+      "programName": "Postbaccalaureate Certificate in Pre-Medical Studies",
+      "city": "Boston",
+      "state": "MA",
+      "websiteUrl": "http://www.bu.edu/met/programs/undergraduate/pre-medical-studies-post-baccalaureate-certificate/",
+      "externalId": "90"
+    },
+    {
+      "name": "Boston University Chobanian& Avedisian School of Medicine",
+      "programName": "Master of Science in Medical Sciences Program",
+      "city": "Boston",
+      "state": "MA",
+      "websiteUrl": "http://www.bumc.bu.edu/gms/mams",
+      "externalId": "111"
+    },
+    {
+      "name": "Tulane University School of Medicine",
+      "programName": "One Year Masters in Medical Genetics and Genomics",
+      "city": "New Orleans",
+      "state": "LA",
+      "websiteUrl": "https://medicine.tulane.edu/centers-institutes/hayward-genetics-center/masters-medical-genetics-genomics",
+      "externalId": "115"
+    },
+    {
+      "name": "Creighton University",
+      "programName": "Creighton University Premedical Post baccalaureate",
+      "city": "Omaha",
+      "state": "NE",
+      "websiteUrl": "https://healthsciences.creighton.edu/diversity/pre-medical-post-baccalaureate-program",
+      "externalId": "126"
+    },
+    {
+      "name": "Mills College",
+      "programName": "Postbaccalaureate Program",
+      "city": "Oakland",
+      "state": "CA",
+      "websiteUrl": "https://inside.mills.edu/academics/graduate/pmc_gr/program/index.php",
+      "externalId": "4"
+    },
+    {
+      "name": "Johns Hopkins University",
+      "programName": "Post-Baccalaureate Premedical Program",
+      "city": "Baltimore",
+      "state": "MD",
+      "websiteUrl": "http://www.jhu.edu/postbac",
+      "externalId": "5"
+    },
+    {
+      "name": "Geisel School of Medicine at Dartmouth - The Dartmouth Institute for Health Policy and Clinical Practice",
+      "programName": "MPH, MS in Healthcare Research",
+      "city": "Hanover",
+      "state": "NH",
+      "websiteUrl": "http://tdi.dartmouth.edu/education/degree-programs",
+      "externalId": "19"
+    },
+    {
+      "name": "Seattle University",
+      "programName": "Postbaccalaureate Premedical Program",
+      "city": "Seattle",
+      "state": "WA",
+      "websiteUrl": "https://www.seattleu.edu/prehealth",
+      "externalId": "37"
+    },
+    {
+      "name": "Western University of Health Sciences",
+      "programName": "Master of Science in Medical Sciences",
+      "city": "Pomona",
+      "state": "CA",
+      "websiteUrl": "http://prospective.westernu.edu/medical-sciences/welcome",
+      "externalId": "217"
+    },
+    {
+      "name": "Carson-Newman University",
+      "programName": "Postbaccalaureate Program",
+      "city": "Jefferson City",
+      "state": "TN",
+      "websiteUrl": "http://www.cn.edu/undergraduate/programs/health-pre-professions/post-baccalaureate-program",
+      "externalId": "223"
+    },
+    {
+      "name": "University of South Florida Morsani College of Medicine",
+      "programName": "Master of Science in Medical Sciences (one-year)",
+      "city": "Tampa",
+      "state": "FL",
+      "websiteUrl": "http://health.usf.edu/medicine/graduatestudies/",
+      "externalId": "227"
+    },
+    {
+      "name": "Charles R. Drew University of Medicine and Science",
+      "programName": "CDU Enhanced Post Baccalaureate Certificate Program in Pre-Medicine",
+      "city": "Los Angeles",
+      "state": "CA",
+      "websiteUrl": "https://www.cdrewu.edu/com/PBPMProgram",
+      "externalId": "504"
+    },
+    {
+      "name": "Drexel University College of Medicine",
+      "programName": "Intensive Medical Sciences (IMS) Program",
+      "city": "Philadelphia",
+      "state": "PA",
+      "websiteUrl": "http://www.drexel.edu/medicine/intensive",
+      "externalId": "238"
+    },
+    {
+      "name": "VCOM/Bluefield University",
+      "programName": "Master of Arts in Biomedical Sciences (MABS)",
+      "city": "Blacksburg",
+      "state": "VA",
+      "websiteUrl": "https://www.bluefield.edu/academics/programs-of-study/biomedical-sciences/",
+      "externalId": "3860"
+    },
+    {
+      "name": "Tufts University",
+      "programName": "Post-baccalaureate Premedical Program",
+      "city": "Medford",
+      "state": "MA",
+      "websiteUrl": "http://go.tufts.edu/PostbacPremed",
+      "externalId": "70"
+    },
+    {
+      "name": "Bryn Mawr College",
+      "programName": "Postbaccalaureate Premedical Program",
+      "city": "Bryn Mawr",
+      "state": "PA",
+      "websiteUrl": "https://www.brynmawr.edu/postbac",
+      "externalId": "28"
+    },
+    {
+      "name": "Elms College",
+      "programName": "Postbaccalaureate Premedical Studies Certificate Program",
+      "city": "Chicopee",
+      "state": "MA",
+      "websiteUrl": "http://www.elms.edu/graduate-studies/postbaccalaureate-programs/postbaccalaureate-premedical-program/",
+      "externalId": "222"
+    },
+    {
+      "name": "Northwestern University School of Professional Studies",
+      "programName": "Professional Health Careers Premedicine Program",
+      "city": "Chicago",
+      "state": "IL",
+      "websiteUrl": "http://sps.northwestern.edu/program-areas/post-baccalaureate/premedicine/index.php",
+      "externalId": "69"
+    },
+    {
+      "name": "San Francisco State University",
+      "programName": "Pre-Health Professions Certificate Program",
+      "city": "San Francisco",
+      "state": "CA",
+      "websiteUrl": "https://cpage.sfsu.edu/prehealth",
+      "externalId": "107"
+    },
+    {
+      "name": "University of North Carolina - Greensboro",
+      "programName": "Post-Baccalaureate Pre-Professional Program",
+      "city": "Greensboro",
+      "state": "NC",
+      "websiteUrl": "https://biology.uncg.edu/undergraduate/post-bacc/",
+      "externalId": "43"
+    },
+    {
+      "name": "University of California, Santa Cruz",
+      "programName": "Premed Postbacc Program",
+      "city": "Santa Clara",
+      "state": "CA",
+      "websiteUrl": "https://www.ucsc-extension.edu/Premed-Postbaccalaureate-Program/",
+      "externalId": "4280"
+    },
+    {
+      "name": "Goucher College",
+      "programName": "Post-Baccalaureate Premedical Program",
+      "city": "Baltimore",
+      "state": "MD",
+      "websiteUrl": "http://www.goucher.edu/postbac",
+      "externalId": "7"
+    },
+    {
+      "name": "California State University, East Bay",
+      "programName": "Post-Baccalaureate Health Professions Academic Program",
+      "city": "Hayward",
+      "state": "CA",
+      "websiteUrl": "https://ce.csueastbay.edu/ce/programs/pre-professional-health/",
+      "externalId": "219"
+    },
+    {
+      "name": "Rosemont College",
+      "programName": "Post-Baccalaureate Pre-Medical Certificate",
+      "city": "Rosemont",
+      "state": "PA",
+      "websiteUrl": "http://https://www.rosemont.edu/academics/academic-opportunities/post-bacc-medical/",
+      "externalId": "3900"
+    },
+    {
+      "name": "Louisiana State University Health Shreveport",
+      "programName": "Medical Sciences Master of Science Degree Program",
+      "city": "Shreveport",
+      "state": "LA",
+      "websiteUrl": "https://www.lsuhs.edu/our-schools/school-of-graduate-studies/master-of-science/medical-sciences",
+      "externalId": "3460"
+    },
+    {
+      "name": "University of New England",
+      "programName": "Post Baccalaureate Pre Health Certificate",
+      "city": "Portland",
+      "state": "ME",
+      "websiteUrl": "https://online.une.edu/post-baccalaureate-pre-health/",
+      "externalId": "4120"
+    },
+    {
+      "name": "Concordia College",
+      "programName": "Post Baccalaureate Premedical Program",
+      "city": "Moorhead",
+      "state": "MN",
+      "websiteUrl": "https://concordiacontinuingstudies.com/graduate-accelerated-post-bacc/post-baccalaureate-premedical/",
+      "externalId": "2200"
+    },
+    {
+      "name": "Eastern Mennonite University",
+      "programName": "Biomedicine Certificate (1 year)",
+      "city": "Harrisonburg",
+      "state": "VA",
+      "websiteUrl": "https://emu.edu/ms-biomed/",
+      "externalId": "2260"
+    },
+    {
+      "name": "University at Buffalo, State University of New York",
+      "programName": "Masters Program (SMP) in Biological Sciences",
+      "city": "Buffalo",
+      "state": "NY",
+      "websiteUrl": "https://arts-sciences.buffalo.edu/biological-sciences/graduate/overview/ma.html",
+      "externalId": "1060"
+    },
+    {
+      "name": "Manhattanville College",
+      "programName": "Post-Baccalaureate Pre-Health Professions (PBPH)",
+      "city": "Purchase",
+      "state": "NY",
+      "websiteUrl": "http://www.mville.edu/programs/post-baccalaureate-pre-health",
+      "externalId": "1161"
+    },
+    {
+      "name": "Thomas Jefferson University",
+      "programName": "Thomas Jefferson University Postbaccalaureate Pre-Professional (P4) Two-Year Track Program",
+      "city": "Philadelphia",
+      "state": "PA",
+      "websiteUrl": "https://www.jefferson.edu/academics/colleges-schools-institutes/life-sciences/degrees-programs/postbaccalaureate-pre-professional.html",
+      "externalId": "4360"
+    },
+    {
+      "name": "Des Moines University",
+      "programName": "Master of Science in Biomedical Sciences",
+      "city": "West Des Moines",
+      "state": "IA",
+      "websiteUrl": "https://www.dmu.edu/mbs/",
+      "externalId": "2040"
+    },
+    {
+      "name": "Icahn School of Medicine at Mount Sinai",
+      "programName": "Master of Science in Biomedical Sciences",
+      "city": "New York",
+      "state": "NY",
+      "websiteUrl": "https://icahn.mssm.edu/education/masters/biomedical-sciences",
+      "externalId": "2300"
+    },
+    {
+      "name": "Nova Southeastern University",
+      "programName": "MS, Biological Sciences with a concentration in Health Studies",
+      "city": "Fort Lauderdale",
+      "state": "FL",
+      "websiteUrl": "https://hcas.nova.edu/degrees/masters/biological-sciences-health-studies.html",
+      "externalId": "2480"
+    },
+    {
+      "name": "Georgetown University",
+      "programName": "Master's in Systems Medicine",
+      "city": "Washington",
+      "state": "DC",
+      "websiteUrl": "https://systemsmedicine.georgetown.edu/",
+      "externalId": "2680"
+    },
+    {
+      "name": "George Washington University",
+      "programName": "Post Baccalaureate Certificate in Blood Banking",
+      "city": "Washington",
+      "state": "DC",
+      "websiteUrl": "https://healthsciencesprograms.gwu.edu/program/the-george-washington-university-blood-banking-for-medical-laboratory-science-certificate-1530302421186",
+      "externalId": "3086"
+    },
+    {
+      "name": "Georgia State University",
+      "programName": "Masters Degree in Biology Medical Science",
+      "city": "Atlanta",
+      "state": "GA",
+      "websiteUrl": "https://biology.gsu.edu/academics/graduate/masters-program/medical-science/#1573760672635-52b63d86-5ee4",
+      "externalId": "1540"
+    },
+    {
+      "name": "UMKC College of Arts and Sciences",
+      "programName": "Pre-Health Program",
+      "city": "Kansas City",
+      "state": "MO",
+      "websiteUrl": "https://catalog.umkc.edu/pre-medicine-pre-health-home-page/",
+      "externalId": "1760"
+    },
+    {
+      "name": "Rowan University",
+      "programName": "Pre-Health Studies Post-Baccalaureate",
+      "city": "Glassboro",
+      "state": "NJ",
+      "websiteUrl": "https://rowanu.com/programs/765",
+      "externalId": "1780"
+    },
+    {
+      "name": "University of Alabama at Birmingham",
+      "programName": "MS Program in Multidisciplinary Biomedical Science (MBS)",
+      "city": "Birmingham",
+      "state": "AL",
+      "websiteUrl": "https://www.uab.edu/graduate/programs/msmbs",
+      "externalId": "4380"
+    },
+    {
+      "name": "Illinois Institute of Technology",
+      "programName": "Post-baccalaureate premedical program",
+      "city": "Chicago",
+      "state": "IL",
+      "websiteUrl": "https://science.iit.edu/premedicine-programs-post-baccalaureate-premed-program",
+      "externalId": "2080"
+    },
+    {
+      "name": "Johnson & Wales University",
+      "programName": "Pre-Medical & Pre-Health Professions Certificate",
+      "city": "Providence",
+      "state": "RI",
+      "websiteUrl": "https://www.jwu.edu/academics/majors-and-programs/pre-medical-pre-health-professions-certificate.html",
+      "externalId": "2980"
+    },
+    {
+      "name": "University of Texas Health Science Center at San Antonio",
+      "programName": "Pre-Professional Program",
+      "city": "San Antonio",
+      "state": "TX",
+      "websiteUrl": "https://lsom.uthscsa.edu/dcsa/education/postbac/",
+      "externalId": "3200"
+    },
+    {
+      "name": "Virginia Commonwealth University",
+      "programName": "Undergraduate Post-Baccalaureate Health Sciences Certificate Program",
+      "city": "Richmond",
+      "state": "VA",
+      "websiteUrl": "https://khs.vcu.edu/programs/educational-certificates/undergraduate-post-bacc-health-sciences-certificate/",
+      "externalId": "3240"
+    },
+    {
+      "name": "Agnes Scott College",
+      "programName": "Post-Baccalaureate Pre-Medical Accelerated Certificate",
+      "city": "Decatur",
+      "state": "GA",
+      "websiteUrl": "https://www.agnesscott.edu/graduate-studies/graduate-programs/post-baccalaureate-pre-medical-accelerated-program/index.html",
+      "externalId": "536"
+    },
+    {
+      "name": "Harvard Medical School",
+      "programName": "Master of Medical Sciences in Immunology",
+      "city": "Boston",
+      "state": "MA",
+      "websiteUrl": "https://hms.harvard.edu/mmscimmunology",
+      "externalId": "526"
+    },
+    {
+      "name": "Macon & Joan Brock Virginia Health Sciences at Old Dominion University",
+      "programName": "Biomedical Sciences - Medical Master's Program (2-year option)",
+      "city": "Norfolk",
+      "state": "VA",
+      "websiteUrl": "https://www.evms.edu/education/masters_programs/biomedical_sciences_medical/",
+      "externalId": "519"
+    },
+    {
+      "name": "Campbell University Jerry M. Wallace School of Osteopathic Medicine (CUSOM)",
+      "programName": "Master of Science in Biomedical Sciences (MSBS)",
+      "city": "Lillington",
+      "state": "NC",
+      "websiteUrl": "https://medicine.campbell.edu/msbs",
+      "externalId": "1300"
+    },
+    {
+      "name": "Heritage University",
+      "programName": "Master of Arts in Medical Sciences",
+      "city": "Toppenish",
+      "state": "WA",
+      "websiteUrl": "http://www.heritage.edu/AcademicPrograms/GraduateDegrees/MasterofArtsinMedicalSciences.aspx",
+      "externalId": "512"
+    },
+    {
+      "name": "Rocky Vista University",
+      "programName": "Master of Science in Biomedical Sciences (MSBS)",
+      "city": "Englewood",
+      "state": "CO",
+      "websiteUrl": "https://www.rvu.edu/master-of-science-in-biomedical-sciences/",
+      "externalId": "2160"
+    },
+    {
+      "name": "The City College of New York",
+      "programName": "The City College of New York Health Professions Preparation Program",
+      "city": "New York",
+      "state": "NY",
+      "websiteUrl": "https://www.ccny.cuny.edu/premed",
+      "externalId": "2380"
+    },
+    {
+      "name": "University of Rochester School of Medicine and Dentistry",
+      "programName": "M.S. degree in Medical Pharmacology",
+      "city": "Rochester",
+      "state": "NY",
+      "websiteUrl": "http://www.medpharm.urmc.edu/",
+      "externalId": "3120"
+    },
+    {
+      "name": "Loyola Marymount University - Los Angeles",
+      "programName": "LMU Pre-Allied Health Certificate Program",
+      "city": "Los Angeles",
+      "state": "CA",
+      "websiteUrl": "https://cse.lmu.edu/centerforstudentsuccess/postbac/",
+      "externalId": "3160"
+    },
+    {
+      "name": "Arkansas Colleges of Health Education",
+      "programName": "Master of Science in Biomedicine",
+      "city": "Fort Smith",
+      "state": "AR",
+      "websiteUrl": "https://biomedicine.achehealth.edu/",
+      "externalId": "3241"
+    },
+    {
+      "name": "Vanderbilt University School of Medicine",
+      "programName": "Master of Imaging Science",
+      "city": "Nashville",
+      "state": "TN",
+      "websiteUrl": "https://medicine.vanderbilt.edu/mis",
+      "externalId": "4320"
+    },
+    {
+      "name": "Shoreline Community College",
+      "programName": "Post Baccalaureate Services for the Health Professions",
+      "city": "Shoreline",
+      "state": "WA",
+      "websiteUrl": "http://www.shoreline.edu/postbacc",
+      "externalId": "2740"
+    },
+    {
+      "name": "Lipscomb University",
+      "programName": "Master of Science in Biomolecular Science",
+      "city": "Nashville",
+      "state": "TN",
+      "websiteUrl": "https://lipscomb.edu/bms",
+      "externalId": "527"
+    },
+    {
+      "name": "Manchester University",
+      "programName": "Graduate Certificate in Pharmacogenomics",
+      "city": "Fort Wayne",
+      "state": "IN",
+      "websiteUrl": "https://www.manchester.edu/academics/programs/graduate-pharmacogenomics-pgx/",
+      "externalId": "4040"
+    },
+    {
+      "name": "New York University",
+      "programName": "Postbaccalaureate Prehealth Studies Program",
+      "city": "New York",
+      "state": "NY",
+      "websiteUrl": "https://cas.nyu.edu/postbacc.html",
+      "externalId": "4080"
+    },
+    {
+      "name": "Ponce Health Sciences University - School of Medicine",
+      "programName": "Master of Science in Medical Sciences",
+      "city": "Ponce",
+      "state": "PR",
+      "websiteUrl": "https://www.psm.edu/school-of-medicine/msms/",
+      "externalId": "540"
+    },
+    {
+      "name": "Quinnipiac University",
+      "programName": "Graduate Biomedical Sciences",
+      "city": "Hamden",
+      "state": "CT",
+      "websiteUrl": "http://www.quinnipiac.edu/school-of-health-sciences/graduate-programs/master-of-health-science-medical-laboratory-sciences/",
+      "externalId": "518"
+    },
+    {
+      "name": "Rush University",
+      "programName": "MS in Biotechnology",
+      "city": "Chicago",
+      "state": "IL",
+      "websiteUrl": "http://www.rushu.rush.edu/sp/Pages/Home.aspx",
+      "externalId": "520"
+    },
+    {
+      "name": "UCLA Extension",
+      "programName": "Pre-Medical and General Science Studies Certificate",
+      "city": "Los Angeles",
+      "state": "CA",
+      "websiteUrl": "http://health.uclaextension.edu/premedcert/",
+      "externalId": "523"
+    },
+    {
+      "name": "Keck Graduate Institute",
+      "programName": "Post-baccalaureate Pre-Physician Assistant Certificate Program",
+      "city": "Claremont",
+      "state": "CA",
+      "websiteUrl": "https://www.kgi.edu/academics/degrees-certificates/postbaccalaureate-pre-pa-certificate/",
+      "externalId": "3560"
+    },
+    {
+      "name": "Cleveland State University",
+      "programName": "Individualized Post Baccalaureate Option",
+      "city": "Cleveland",
+      "state": "OH",
+      "websiteUrl": "https://www.clestatecareers.com/postbaccalaureateoptions",
+      "externalId": "3760"
+    },
+    {
+      "name": "Wright State University",
+      "programName": "Pre-Medical Studies Certificate (PMESC) Post-Baccalaureate Program",
+      "city": "Dayton",
+      "state": "OH",
+      "websiteUrl": "https://www.wright.edu/pre-professional-health-program/pre-med-studies-core-certificate",
+      "externalId": "3800"
+    },
+    {
+      "name": "UC Irvine",
+      "programName": "UC Irvine School of Medicine Postbaccalaureate Program",
+      "city": "Irvine",
+      "state": "CA",
+      "websiteUrl": "https://medschool.uci.edu/education/summer-programs/education-summer-programs-postbaccalaureate-program",
+      "externalId": "4260"
+    },
+    {
+      "name": "University of Michigan Medical School, Office of Graduate & Postdoctoral Studies (OGPS)",
+      "programName": "Postbac MEDPREP Program: Post-Baccalaureate Premedical Program",
+      "city": "Ann Arbor",
+      "state": "MI",
+      "websiteUrl": "http://www.medicine.umich.edu/postbac",
+      "externalId": "530"
+    },
+    {
+      "name": "West Virginia University",
+      "programName": "Master of Science in the Health Sciences",
+      "city": "Morgantown",
+      "state": "WV",
+      "websiteUrl": "https://www.hsc.wvu.edu/resoff/graduate-education/ms-programs/health-sciences/",
+      "externalId": "1040"
+    },
+    {
+      "name": "Emory University",
+      "programName": "Master of Arts in Bioethics",
+      "city": "Atlanta",
+      "state": "GA",
+      "websiteUrl": "http://ethics.emory.edu/mabioethics/",
+      "externalId": "2100"
+    },
+    {
+      "name": "George Washington University",
+      "programName": "Post Baccalaureate Certificate in Hematology",
+      "city": "Washington",
+      "state": "DC",
+      "websiteUrl": "https://healthsciencesprograms.gwu.edu/program/the-george-washington-university-hematology-for-medical-laboratory-science-certificate-1530303558000",
+      "externalId": "3087"
+    },
+    {
+      "name": "Benedictine University",
+      "programName": "Master of Science in Integrative Physiology",
+      "city": "Lisle",
+      "state": "IL",
+      "websiteUrl": "http://www.ben.edu/college-of-science/msip/index.cfm",
+      "externalId": "2340"
+    },
+    {
+      "name": "University of Vermont",
+      "programName": "Master of Medical Science",
+      "city": "Burlington",
+      "state": "VT",
+      "websiteUrl": "https://learn.uvm.edu/com/program/master-of-medical-science-degree/",
+      "externalId": "1100"
+    },
+    {
+      "name": "Northwest Native American Center of Excellence",
+      "programName": "Wy'east Post-Baccalaureate Pathway",
+      "city": "Portland",
+      "state": "OR",
+      "websiteUrl": "http://www.ohsu.edu/nativehealth",
+      "externalId": "2460"
+    },
+    {
+      "name": "Johns Hopkins Bloomberg School of Public Health",
+      "programName": "Master of Health Science (MHS) - Molecular Microbiology and Immunology Dept.",
+      "city": "Baltimore",
+      "state": "MD",
+      "websiteUrl": "https://www.jhsph.edu/departments/w-harry-feinstone-department-of-molecular-microbiology-and-immunology/academics-and-degree-programs/mhs-program/",
+      "externalId": "2580"
+    },
+    {
+      "name": "California Northstate University, College of Health Sciences",
+      "programName": "Pre-Medical Post-Baccalaureate (PMPB)",
+      "city": "Rancho Cordova",
+      "state": "CA",
+      "websiteUrl": "https://healthsciences.cnsu.edu/academics/programs-pathways/pmpb.php",
+      "externalId": "2800"
+    },
+    {
+      "name": "Case Western Reserve University",
+      "programName": "Master of Science in Clinical Research",
+      "city": "Cleveland",
+      "state": "OH",
+      "websiteUrl": "https://case.edu/medicine/pqhs/education/clinical-research/ms-clinical-research",
+      "externalId": "3180"
+    },
+    {
+      "name": "Louisiana State University Shreveport",
+      "programName": "Master of Science in Biological Sciences with a Health Sciences Concentration",
+      "city": "Shreveport",
+      "state": "LA",
+      "websiteUrl": "http://www.lsus.edu/academics/graduate-studies/graduate-programs/master-of-science-in-biological-sciences",
+      "externalId": "1140"
+    },
+    {
+      "name": "Loyola University Chicago",
+      "programName": "MS in Infectious Disease and Immunology",
+      "city": "Maywood",
+      "state": "IL",
+      "websiteUrl": "http://ssom.luc.edu/indiri/",
+      "externalId": "1180"
+    },
+    {
+      "name": "Illinois Institute of Technology",
+      "programName": "MS in Biology for the Health Professions",
+      "city": "Chicago",
+      "state": "IL",
+      "websiteUrl": "http://science.iit.edu/programs/graduate/master-science-biology-health-professions",
+      "externalId": "1223"
+    },
+    {
+      "name": "Case Western Reserve University",
+      "programName": "Post-baccalaureate Readiness Instruction for Medical Education (PRIME)",
+      "city": "Cleveland",
+      "state": "OH",
+      "websiteUrl": "https://case.edu/medicine/prime/",
+      "externalId": "1601"
+    },
+    {
+      "name": "University of Denver",
+      "programName": "Professional Science Master's in Biomedical Science",
+      "city": "Denver",
+      "state": "CO",
+      "websiteUrl": "https://science.du.edu/psmbiomed",
+      "externalId": "1661"
+    },
+    {
+      "name": "Eastern Mennonite University",
+      "programName": "Gap Year Certificate",
+      "city": "Harrisonburg",
+      "state": "VA",
+      "websiteUrl": "https://emu.edu/ms-biomed/",
+      "externalId": "2261"
+    },
+    {
+      "name": "SUNY Upstate Medical University",
+      "programName": "MedPrep Academic Enhancement MS in Medical Technology",
+      "city": "Syracuse",
+      "state": "NY",
+      "websiteUrl": "http://www.upstate.edu/medprep",
+      "externalId": "2560"
+    },
+    {
+      "name": "George Washington University",
+      "programName": "MSHS in Biomedical Laboratory Sciences",
+      "city": "Washington",
+      "state": "DC",
+      "websiteUrl": "https://healthsciencesprograms.gwu.edu/programs/mshs-in-biomedical-laboratory-science",
+      "externalId": "3084"
+    },
+    {
+      "name": "George Washington University",
+      "programName": "Post Baccalaureate Certificate in Microbiology",
+      "city": "Washington",
+      "state": "DC",
+      "websiteUrl": "https://healthsciencesprograms.gwu.edu/program/the-george-washington-university-microbiology-for-medical-laboratory-science-certificate-1530380973296",
+      "externalId": "3088"
+    },
+    {
+      "name": "University of Northern Colorado",
+      "programName": "Master's in Biomedical Science Online",
+      "city": "Greeley",
+      "state": "CO",
+      "websiteUrl": "https://extended.unco.edu/programs/biomedical-science-mbs-masters/",
+      "externalId": "1221"
+    },
+    {
+      "name": "Tulane University School of Medicine",
+      "programName": "One Year Masters Program in Physiology",
+      "city": "New Orleans",
+      "state": "LA",
+      "websiteUrl": "http://tulane.edu/som/departments/physiology/graduateprogram/program-info-2014/physiology-masters.cfm",
+      "externalId": "1260"
+    },
+    {
+      "name": "University of the Incarnate Word School of Osteopathic Medicine",
+      "programName": "Master of Biomedical Sciences",
+      "city": "San Antonio",
+      "state": "TX",
+      "websiteUrl": "http://www.uiw.edu/mbs/",
+      "externalId": "1461"
+    },
+    {
+      "name": "College of Science & Technology (CST): Temple University",
+      "programName": "Advanced Core in Health Professions (ACHS) Post Baccalaureate Pre-Health Program",
+      "city": "Philadelphia",
+      "state": "PA",
+      "websiteUrl": "http://postbac.cst.temple.edu",
+      "externalId": "1241"
+    },
+    {
+      "name": "University of Louisville",
+      "programName": "Master of Science in Physiology",
+      "city": "Louisville",
+      "state": "KY",
+      "websiteUrl": "http://louisville.edu/medicine/departments/physiology",
+      "externalId": "2000"
+    },
+    {
+      "name": "Rutgers School of Graduate Studies New Brunswick-Piscataway",
+      "programName": "Master of Biomedical Science",
+      "city": "Piscataway",
+      "state": "NJ",
+      "websiteUrl": "https://grad.rutgers.edu/academics/graduate-programs/biomedical-and-health-sciences-all-degree-programs/masters-programs/mbs",
+      "externalId": "2240"
+    },
+    {
+      "name": "Brown University, Warren Alpert Medical School, Master of Science in Medical Sciences",
+      "programName": "Brown University, Warren Alpert Medical School",
+      "city": "Providence",
+      "state": "RI",
+      "websiteUrl": "https://www.brown.edu/medical-gateways",
+      "externalId": "1381"
+    },
+    {
+      "name": "Miami University",
+      "programName": "Biomedical Science",
+      "city": "Oxford",
+      "state": "OH",
+      "websiteUrl": "https://miamioh.edu/cas/graduate-studies/medical-sciences/biomedical-science/index.html",
+      "externalId": "3980"
+    },
+    {
+      "name": "Midwestern University",
+      "programName": "Master of Arts in Biomedical Sciences",
+      "city": "Downers Grove",
+      "state": "IL",
+      "websiteUrl": "https://www.midwestern.edu/academics/degrees-programs/college-graduate-studies/master-arts-biomedical-sciences",
+      "externalId": "539"
+    },
+    {
+      "name": "George Washington University",
+      "programName": "George Washington University School of Medicine & Health Sciences: Masters in Anatomical & Translational Sciences",
+      "city": "Washington",
+      "state": "DC",
+      "websiteUrl": "https://smhs.gwu.edu/anatomy/education/m-ats",
+      "externalId": "1581"
+    },
+    {
+      "name": "George Washington University",
+      "programName": "GW Post-baccalaureate Pre-medicine Program",
+      "city": "Ashburn",
+      "state": "VA",
+      "websiteUrl": "https://smhs.gwu.edu/postbac-premed/",
+      "externalId": "2640"
+    },
+    {
+      "name": "University of Colorado Boulder",
+      "programName": "Individually Designed Post-Baccalaureate Studies (Pre-Med, Dent, Vet, PT, PA, Optometry, Pharmacy, etc.)",
+      "city": "Boulder",
+      "state": "CO",
+      "websiteUrl": "https://www.colorado.edu/ceprehealth/admissions-individually-designed-studies",
+      "externalId": "2820"
+    },
+    {
+      "name": "George Washington University",
+      "programName": "Post-baccalaureate Certificate in Medical Genetics and Molecular Biology",
+      "city": "Washington",
+      "state": "DC",
+      "websiteUrl": "https://healthsciencesprograms.gwu.edu/programs/post-baccalaureate-certificate-in-medical-genetics-and-molecular-biology-online",
+      "externalId": "3081"
+    },
+    {
+      "name": "University of Alabama at Birmingham",
+      "programName": "Master of Science Biomedical and Health Science",
+      "city": "Birmingham",
+      "state": "AL",
+      "websiteUrl": "http://www.uab.edu/msbhs",
+      "externalId": "1222"
+    },
+    {
+      "name": "Lehman College of the City University of New York",
+      "programName": "HealthBridge",
+      "city": "Bronx",
+      "state": "NY",
+      "websiteUrl": "https://www.lehman.edu/academics/pre-health-advising/healthbridge-certificate.php",
+      "externalId": "3600"
+    },
+    {
+      "name": "Quinnipiac University",
+      "programName": "Master of Science in Molecular and Cell Biology",
+      "city": "Hamden",
+      "state": "CT",
+      "websiteUrl": "https://www.qu.edu/schools/arts-and-sciences/programs/masters-degree/molecular-cell-biology/",
+      "externalId": "4060"
+    },
+    {
+      "name": "Iowa State University",
+      "programName": "1-Year, Non-Thesis Master of Science in Biomedical Sciences",
+      "city": "Ames",
+      "state": "IA",
+      "websiteUrl": "https://vetmed.iastate.edu/bms/academics/one-year-masters",
+      "externalId": "1280"
+    },
+    {
+      "name": "Northeastern University",
+      "programName": "Post-Baccalaureate Pre-Medical",
+      "city": "Boston",
+      "state": "MA",
+      "websiteUrl": "https://cps.northeastern.edu/academics/program/post-baccalaureate-pre-medical",
+      "externalId": "1360"
+    },
+    {
+      "name": "Colorado State University",
+      "programName": "Assisted Reproductive Technologies",
+      "city": "Fort Collins",
+      "state": "CO",
+      "websiteUrl": "http://csu-cvmbs.colostate.edu/academics/bms/Pages/one-year-masters-reproductive-technologies.aspx",
+      "externalId": "1420"
+    },
+    {
+      "name": "University of Northern Colorado",
+      "programName": "Online Master's in Biology, non-thesis",
+      "city": "Greeley",
+      "state": "CO",
+      "websiteUrl": "https://extended.unco.edu/programs/biological-sciences-masters/",
+      "externalId": "2760"
+    },
+    {
+      "name": "SUNY College at Old Westbury",
+      "programName": "Post-baccalaureate Premedical Studies",
+      "city": "Old Westbury",
+      "state": "NY",
+      "websiteUrl": "https://www.oldwestbury.edu/schools/arts-sciences/pre-med",
+      "externalId": "1460"
+    },
+    {
+      "name": "George Washington University",
+      "programName": "Post Baccalaureate Certificate in Medical Laboratory Science",
+      "city": "Washington",
+      "state": "DC",
+      "websiteUrl": "https://healthsciencesprograms.gwu.edu/program/the-george-washington-university-medical-laboratory-science-certificate-1530306131127",
+      "externalId": "3085"
+    },
+    {
+      "name": "California Northstate University (CNU)",
+      "programName": "MPS to MD Pathway",
+      "city": "Elk Grove",
+      "state": "CA",
+      "websiteUrl": "https://pharmasciences.cnsu.edu/about/MPS-to-MD-Pathways.php",
+      "externalId": "2400"
+    },
+    {
+      "name": "University of Wisconsin",
+      "programName": "Cytotechnology Certificate",
+      "city": "Madison",
+      "state": "WI",
+      "websiteUrl": "https://cytotechprogram.wisc.edu/",
+      "externalId": "2620"
+    },
+    {
+      "name": "University of Northern Colorado",
+      "programName": "Master's in Biology, non-thesis",
+      "city": "Greeley",
+      "state": "CO",
+      "websiteUrl": "https://www.unco.edu/nhs/biology/programs/graduate/ms-nt/",
+      "externalId": "2780"
+    },
+    {
+      "name": "George Washington University",
+      "programName": "Post Baccalaureate Certificate in Clinical Chemistry",
+      "city": "Washington",
+      "state": "DC",
+      "websiteUrl": "https://healthsciencesprograms.gwu.edu/program/the-george-washington-university-post-baccalaureate-certificate-in-chemistry-certificate-1530298280047",
+      "externalId": "3062"
+    },
+    {
+      "name": "California University of Science and Medicine",
+      "programName": "Master of Biomedical Sciences Program",
+      "city": "Colton",
+      "state": "CA",
+      "websiteUrl": "https://www.cusm.edu/academics/mbs/index.php",
+      "externalId": "2440"
+    },
+    {
+      "name": "Northwestern University",
+      "programName": "Program in Public Health",
+      "city": "Chicago",
+      "state": "IL",
+      "websiteUrl": "http://publichealth.northwestern.edu",
+      "externalId": "2840"
+    },
+    {
+      "name": "Albion College",
+      "programName": "Post-baccalaureate Certificate in Premedical Studies",
+      "city": "Albion",
+      "state": "MI",
+      "websiteUrl": "https://campus.albion.edu/premedpostbac/",
+      "externalId": "3220"
+    },
+    {
+      "name": "DePaul University",
+      "programName": "Post-Baccalaureate Pre-Health Program",
+      "city": "Chicago",
+      "state": "IL",
+      "websiteUrl": "http://csh.depaul.edu/academics/pre-health-program/post-baccalaureate/Pages/default.aspx",
+      "externalId": "1442"
+    },
+    {
+      "name": "NYU School of Medicine's Sackler Institute of Graduate Biomedical Sciences",
+      "programName": "Masters in Biomedical Informatics",
+      "city": "New York",
+      "state": "NY",
+      "websiteUrl": "https://med.nyu.edu/research/sackler-institute-graduate-biomedical-sciences/ms-biomedical-informatics",
+      "externalId": "1800"
+    },
+    {
+      "name": "Tulane University School of Medicine",
+      "programName": "Structural & Cellular Biology ~ Masters Degree Program ~ MS Anatomy",
+      "city": "New Orleans",
+      "state": "LA",
+      "websiteUrl": "https://medicine.tulane.edu/departments/structural-cellular-biology/academic-programs/masters-programs/ms-anatomy",
+      "externalId": "1941"
+    },
+    {
+      "name": "Wayne State University",
+      "programName": "PreMedical Post Baccalaureate Program",
+      "city": "Detroit",
+      "state": "MI",
+      "websiteUrl": "http://diversity.med.wayne.edu/postbac/index.php",
+      "externalId": "1960"
+    },
+    {
+      "name": "Des Moines University",
+      "programName": "Master of Science in Anatomy",
+      "city": "West Des Moines",
+      "state": "IA",
+      "websiteUrl": "https://www.dmu.edu/msa/",
+      "externalId": "2020"
+    },
+    {
+      "name": "Lake Erie College of Osteopathic Medicine",
+      "programName": "Health Sciences Post Baccalaureate Program",
+      "city": "Erie",
+      "state": "PA",
+      "websiteUrl": "https://lecom.edu/academics/health-sciences-post-baccalaureate-program/health-sciences-post-baccalaureateprogram/",
+      "externalId": "2060"
+    },
+    {
+      "name": "Johns Hopkins Bloomberg School of Public Health",
+      "programName": "Master of Health Science, Environmental Health and Engineering",
+      "city": "Baltimore",
+      "state": "MD",
+      "websiteUrl": "https://ehe.jhu.edu/graduate/masters-programs/master-of-health-science-in-environmental-health/index.html",
+      "externalId": "2180"
+    },
+    {
+      "name": "Arizona State University",
+      "programName": "Master of Science in Medical Nutrition",
+      "city": "Phoenix",
+      "state": "AZ",
+      "websiteUrl": "https://asuonline.asu.edu/online-degree-programs/graduate/medical-nutrition-ms/",
+      "externalId": "2660"
+    },
+    {
+      "name": "Marymount Manhattan College",
+      "programName": "Biology Post-Baccalaureate Program",
+      "city": "New York",
+      "state": "NY",
+      "websiteUrl": "https://www.mmm.edu/departments/natural-sciences/post-baccalaureate.php",
+      "externalId": "2880"
+    },
+    {
+      "name": "Albany College of Pharmacy and Health Sciences",
+      "programName": "Master's in Biomedical Sciences (MBS)",
+      "city": "Albany",
+      "state": "NY",
+      "websiteUrl": "https://www.acphs.edu/biomedical-sciences",
+      "externalId": "3100"
+    },
+    {
+      "name": "California State University, Los Angeles",
+      "programName": "Post-Baccalaureate Certificate Program for Pre-Health Professionals",
+      "city": "Los Angeles",
+      "state": "CA",
+      "websiteUrl": "http://www.calstatela.edu/academic/biol/certificate-program-pre-health-professionals-option-1-biological-sciences",
+      "externalId": "1880"
+    },
+    {
+      "name": "University at Buffalo, State University of New York",
+      "programName": "Biomedical Sciences MS",
+      "city": "Buffalo",
+      "state": "NY",
+      "websiteUrl": "http://medicine.buffalo.edu/education/nsim.html",
+      "externalId": "2900"
+    },
+    {
+      "name": "Mississippi College",
+      "programName": "Health Science Certificate Program",
+      "city": "Clinton",
+      "state": "MS",
+      "websiteUrl": "https://www.mc.edu/academics/departments/biology/graduate-programs/health-science-certificate",
+      "externalId": "2860"
+    },
+    {
+      "name": "Elms College",
+      "programName": "Master of Biomedical Sciences Degree Program (1 year program; both online and in person programs)",
+      "city": "Chicopee",
+      "state": "MA",
+      "websiteUrl": "https://www.elms.edu/graduate-studies/biomedical-sciences/professional-science-masters-degree-in-biomedical-sciences/",
+      "externalId": "1562"
+    },
+    {
+      "name": "Florida International University Herbert Wertheim College of Medicine",
+      "programName": "Graduate Certificate in Molecular and Biomedical Sciences",
+      "city": "Miami",
+      "state": "FL",
+      "websiteUrl": "https://medicine.fiu.edu/academics/degrees-and-programs/certificate-in-molecular-and-biomedical-sciences/index.html",
+      "externalId": "1224"
+    },
+    {
+      "name": "Indiana University Indianapolis",
+      "programName": "Pre-Professional Non-Thesis (PPNT) MS Program",
+      "city": "Indianapolis",
+      "state": "IN",
+      "websiteUrl": "https://biology.iupui.edu/biology-ms-pre-professional-non-thesis",
+      "externalId": "1840"
+    },
+    {
+      "name": "Midwestern University",
+      "programName": "Master of Biomedical Sciences",
+      "city": "Downers Grove",
+      "state": "IL",
+      "websiteUrl": "https://www.midwestern.edu/academics/degrees-programs/college-graduate-studies/master-biomedical-sciences-program",
+      "externalId": "2120"
+    },
+    {
+      "name": "Manchester University",
+      "programName": "Master of Science in Pharmacogenomics",
+      "city": "Fort Wayne",
+      "state": "IN",
+      "websiteUrl": "https://www.manchester.edu/academics/programs/graduate-pharmacogenomics-pgx/",
+      "externalId": "2600"
+    },
+    {
+      "name": "Geisinger College of Health Sciences",
+      "programName": "Master of Biomedical Sciences",
+      "city": "Scranton",
+      "state": "PA",
+      "websiteUrl": "https://www.geisinger.edu/gchs/education/school-graduate-education/master-biomedical-sciences-program",
+      "externalId": "1720"
+    },
+    {
+      "name": "George Washington University",
+      "programName": "MSHS in Molecular Diagnostic Sciences",
+      "city": "Washington",
+      "state": "DC",
+      "websiteUrl": "https://smhs.gwu.edu/biomedical-laboratory-sciences/programs",
+      "externalId": "3061"
+    },
+    {
+      "name": "Lake Erie College of Osteopathic Medicine, Bradenton Campus",
+      "programName": "Masters of Medical Science",
+      "city": "Bradenton",
+      "state": "FL",
+      "websiteUrl": "https://lecom.edu/admissions/apply/master-of-medical-science-application-procedures/",
+      "externalId": "1980"
+    },
+    {
+      "name": "Eastern Mennonite University",
+      "programName": "Master of Science in Biomedicine (2 years)",
+      "city": "Harrisonburg",
+      "state": "VA",
+      "websiteUrl": "https://emu.edu/ms-biomed/",
+      "externalId": "2140"
+    },
+    {
+      "name": "Kansas State University College of Veterinary Medicine",
+      "programName": "One Year Master's in Biomedical Science",
+      "city": "Manhattan",
+      "state": "KS",
+      "websiteUrl": "https://www.vet.k-state.edu/academics/graduate-programs/Programs/one-year-masters/",
+      "externalId": "3000"
+    },
+    {
+      "name": "UC Davis College of Biological Sciences",
+      "programName": "UC Davis Health Professions Post-Baccalaureate Program",
+      "city": "Davis",
+      "state": "CA",
+      "websiteUrl": "http://hpa.ucdavis.edu/postbac",
+      "externalId": "3020"
+    },
+    {
+      "name": "Tulane University School of Medicine",
+      "programName": "One Year Master of Science in Molecular Medicine and Health Sciences (with thesis option)",
+      "city": "New Orleans",
+      "state": "LA",
+      "websiteUrl": "https://: https://medicine.tulane.edu/pathology-laboratory-medicine/masters",
+      "externalId": "1500"
+    },
+    {
+      "name": "Marshall University",
+      "programName": "Master of Science in Biomedical Sciences with an area of emphasis in Medical Sciences",
+      "city": "Huntington",
+      "state": "WV",
+      "websiteUrl": "https://jcesom.marshall.edu/research/med-scimasters",
+      "externalId": "1560"
+    },
+    {
+      "name": "University of Kentucky",
+      "programName": "Master of Science in Medical Sciences",
+      "city": "Lexington",
+      "state": "KY",
+      "websiteUrl": "http://graduate.med.uky.edu/master-science-medical-sciences",
+      "externalId": "1700"
+    },
+    {
+      "name": "Loras College",
+      "programName": "Postbaccalaureate Pre-Medical/Pre-Health Program",
+      "city": "Dubuque",
+      "state": "IA",
+      "websiteUrl": "http://www.loras.edu/academics/graduate/postbaccalaureatepremed/",
+      "externalId": "1860"
+    },
+    {
+      "name": "Albright College",
+      "programName": "ADVANCE",
+      "city": "Reading",
+      "state": "PA",
+      "websiteUrl": "https://www.albright.edu/academic/advance-certificate-program/",
+      "externalId": "3380"
+    },
+    {
+      "name": "Miami University",
+      "programName": "Premedical and Pre-Health Studies Certificate",
+      "city": "Oxford",
+      "state": "OH",
+      "websiteUrl": "https://www.miamioh.edu/cas/academics/programs/mwche/academics/certificate/",
+      "externalId": "4100"
+    },
+    {
+      "name": "Liberty University",
+      "programName": "Master of Art In Medical Sciences",
+      "city": "Lynchburg",
+      "state": "VA",
+      "websiteUrl": "https://www.liberty.edu/online/health-sciences/masters/medical-sciences/",
+      "externalId": "2500"
+    },
+    {
+      "name": "LSU Health New Orleans School of Public Health",
+      "programName": "Master of Public Health",
+      "city": "New Orleans",
+      "state": "LA",
+      "websiteUrl": "https://sph.lsuhsc.edu/",
+      "externalId": "2540"
+    },
+    {
+      "name": "Baylor College of Medicine",
+      "programName": "Post-Baccalaureate Certificate in Biomedical Sciences and Health Equity",
+      "city": "Houston",
+      "state": "TX",
+      "websiteUrl": "https://www.bcm.edu/gsbshealth",
+      "externalId": "3280"
+    },
+    {
+      "name": "University of Cincinnati, College of Medicine",
+      "programName": "MS in Molecular Cellular & Biochemical Pharmacology - Applied Pharmacology & Drug Toxicology",
+      "city": "Cincinnati",
+      "state": "OH",
+      "websiteUrl": "https://med.uc.edu/landing-pages/recruitment/uc-pharmacology",
+      "externalId": "1680"
+    },
+    {
+      "name": "Eastern Mennonite University",
+      "programName": "Master of Science in Premedicine (2 years)",
+      "city": "Harrisonburg",
+      "state": "VA",
+      "websiteUrl": "https://emu.edu/ms-biomed/masters-premedicine",
+      "externalId": "2280"
+    },
+    {
+      "name": "South Dakota State University",
+      "programName": "Human Biology",
+      "city": "Brookings",
+      "state": "SD",
+      "websiteUrl": "https://catalog.sdstate.edu/preview_program.php?catoid=43&poid=10182&returnto=7068",
+      "externalId": "2360"
+    },
+    {
+      "name": "Russell Sage College",
+      "programName": "Post-Baccalaureate Premedical Studies",
+      "city": "Troy",
+      "state": "NY",
+      "websiteUrl": "https://www.sage.edu/academics/programs/post-baccalaureate-pre-medical-studies/",
+      "externalId": "3260"
+    },
+    {
+      "name": "Bethel University",
+      "programName": "M.S. in Medical Sciences",
+      "city": "St. Paul",
+      "state": "MN",
+      "websiteUrl": "https://www.bethel.edu/graduate/academics/medical-sciences/",
+      "externalId": "3580"
+    },
+    {
+      "name": "The University of Iowa",
+      "programName": "Master of Clinical Anatomy",
+      "city": "Iowa City",
+      "state": "IA",
+      "websiteUrl": "https://medicine.uiowa.edu/acb/education/master-clinical-anatomy-program",
+      "externalId": "3700"
+    },
+    {
+      "name": "Indiana University School of Medicine",
+      "programName": "Pre-Professional MS- Masters in Anatomy, Cell Biology and Physiology",
+      "city": "Indianapolis",
+      "state": "IN",
+      "websiteUrl": "https://medicine.iu.edu/anatomy-cell-biology-physiology/education/graduate-degrees/masters/preprofessional",
+      "externalId": "3820"
+    },
+    {
+      "name": "Cedars-Sinai Medical Center",
+      "programName": "Master of Science in Health Systems",
+      "city": "West Hollywood",
+      "state": "CA",
+      "websiteUrl": "https://www.cedars-sinai.edu/education/graduate-school/masters/mshs.html",
+      "externalId": "3920"
+    },
+    {
+      "name": "University of Rochester School of Medicine & Dentistry",
+      "programName": "MS in Medical Humanities [Health Humanities & Bioethics]",
+      "city": "Rochester",
+      "state": "NY",
+      "websiteUrl": "https://www.urmc.rochester.edu/education/graduate/masters-degrees/medical-humanities.aspx",
+      "externalId": "4222"
+    },
+    {
+      "name": "Hampton University",
+      "programName": "Master's of Medical Science",
+      "city": "Hampton",
+      "state": "VA",
+      "websiteUrl": "https://science.hamptonu.edu/prehealth/mprograms.cfm",
+      "externalId": "3420"
+    },
+    {
+      "name": "High Point University",
+      "programName": "Masters of Science in Biomedical Sciences",
+      "city": "High Point University",
+      "state": "NC",
+      "websiteUrl": "https://www.highpoint.edu/biomedical-science/",
+      "externalId": "3640"
+    },
+    {
+      "name": "Medical College of Wisconsin",
+      "programName": "Master's in Medical Physiology",
+      "city": "Milwaukee",
+      "state": "WI",
+      "websiteUrl": "https://www.mcw.edu/mmp",
+      "externalId": "3480"
+    },
+    {
+      "name": "Southern Illinois University Carbondale",
+      "programName": "Master of Biomedical Science",
+      "city": "Carbondale",
+      "state": "IL",
+      "websiteUrl": "https://www.siumed.edu/mbbs/masters-degree-biomedical-sciences",
+      "externalId": "3841"
+    },
+    {
+      "name": "Agnes Scott College",
+      "programName": "Medical Sciences Accelerated (M.S.)",
+      "city": "Decatur",
+      "state": "GA",
+      "websiteUrl": "https://www.agnesscott.edu/graduate-studies/graduate-programs/medical-sciences/index.html",
+      "externalId": "3402"
+    },
+    {
+      "name": "Agnes Scott College",
+      "programName": "Post-Baccalaureate Pre-Allied Health",
+      "city": "Decatur",
+      "state": "GA",
+      "websiteUrl": "https://www.agnesscott.edu/graduate-studies/post-baccalaureate-pre-medical-program/post-bacc-pre-allied-health-program.html",
+      "externalId": "3401"
+    },
+    {
+      "name": "Agnes Scott College",
+      "programName": "Post-Baccalaureate Pre-Medical Bridge",
+      "city": "Decatur",
+      "state": "GA",
+      "websiteUrl": "https://www.agnesscott.edu/graduate-studies/graduate-programs/post-baccalaureate-pre-medical-bridge-program/index.html",
+      "externalId": "3400"
+    },
+    {
+      "name": "University of Toledo",
+      "programName": "Master of Science in Biomedical Science in Medical Sciences (MSBS-MS)",
+      "city": "Toledo",
+      "state": "OH",
+      "websiteUrl": "https://www.utoledo.edu/med/grad/biomedical/ms/",
+      "externalId": "2320"
+    },
+    {
+      "name": "Elms College (Our Lady of the Elms College)",
+      "programName": "Master of Arts in Bioethics and Medical Humanities",
+      "city": "Chicopee",
+      "state": "MA",
+      "websiteUrl": "https://www.elms.edu/academics/humanities/master-of-arts-in-bioethics-and-medical-humanities/",
+      "externalId": "4020"
+    },
+    {
+      "name": "University of Hawaii John A. Burns School of Medicine",
+      "programName": "\u02bbImi Ho\u02bb\u014dla Post-Baccalaureate Program",
+      "city": "Honolulu",
+      "state": "HI",
+      "websiteUrl": "https://jabsom.hawaii.edu/offices-programs/imi-hoola/index.html",
+      "externalId": "2920"
+    },
+    {
+      "name": "Furman University",
+      "programName": "Master of Science in Community Engaged Medicine",
+      "city": "Greenville",
+      "state": "SC",
+      "websiteUrl": "https://www.furman.edu/graduate-studies/community-engaged-medicine/",
+      "externalId": "2520"
+    },
+    {
+      "name": "Roosevelt University",
+      "programName": "Master of Arts in Biomedical Sciences (MABS)",
+      "city": "Chicago",
+      "state": "IL",
+      "websiteUrl": "https://www.roosevelt.edu/academics/programs/masters-in-biomedical-science-ms",
+      "externalId": "3440"
+    },
+    {
+      "name": "Barry University",
+      "programName": "BMS - Master of Science in Biomedical Sciences",
+      "city": "Hollywood",
+      "state": "FL",
+      "websiteUrl": "https://prod01-www.barry.edu/en/academics/health-sciences/biomedical-sciences-ms/",
+      "externalId": "3740"
+    },
+    {
+      "name": "Manchester University",
+      "programName": "Master of Science in Pharmacogenomics Online Program",
+      "city": "Fort Wayne",
+      "state": "IN",
+      "websiteUrl": "https://www.manchester.edu/academics/programs/graduate-pharmacogenomics-pgx/",
+      "externalId": "2601"
+    },
+    {
+      "name": "George Washington University",
+      "programName": "MSHS in Clinical Microbiology",
+      "city": "Washington",
+      "state": "DC",
+      "websiteUrl": "https://smhs.gwu.edu/biomedical-laboratory-sciences/programs",
+      "externalId": "3060"
+    },
+    {
+      "name": "Keck Graduate Institute",
+      "programName": "Master of Science in Applied Life Sciences (Premedical Track) MSPHT",
+      "city": "Claremont",
+      "state": "CA",
+      "websiteUrl": "https://www.kgi.edu/academics/degrees-certificates/master-of-science-in-applied-life-sciences/",
+      "externalId": "3520"
+    },
+    {
+      "name": "Salus at Drexel University",
+      "programName": "Post-baccalaureate Program in Health Sciences",
+      "city": "Elkins Park",
+      "state": "PA",
+      "websiteUrl": "https://www.salus.edu/colleges/optometry/health-sciences-track/index.html",
+      "externalId": "3780"
+    },
+    {
+      "name": "Marquette University",
+      "programName": "MS in Biomedical Scienes",
+      "city": "Milwaukee",
+      "state": "WI",
+      "websiteUrl": "https://www.marquette.edu/grad/biomedical-sciences-masters.php",
+      "externalId": "4140"
+    },
+    {
+      "name": "Wayne State University School of Medicine",
+      "programName": "Master's of Science in Basic Medical Sciences Program",
+      "city": "Detroit",
+      "state": "MI",
+      "websiteUrl": "https://gradprograms.med.wayne.edu/ms-bms",
+      "externalId": "4240"
+    },
+    {
+      "name": "Rocky Vista University",
+      "programName": "Master of Medical Sciences",
+      "city": "Billings",
+      "state": "MT",
+      "websiteUrl": "https://www.rvu.edu/master-of-medical-sciences/",
+      "externalId": "4425"
+    },
+    {
+      "name": "University of California, Irvine",
+      "programName": "UC Irvine Charlie Dunlop School of Biological Sciences Postbaccalaureate Premedical Program",
+      "city": "Irvine",
+      "state": "CA",
+      "websiteUrl": "https://www.bio.uci.edu/students/post-baccalaureate-program/",
+      "externalId": "1141"
+    },
+    {
+      "name": "Lawrence Technological University",
+      "programName": "Post-Baccalaureate Certificate in Premedical Studies",
+      "city": "Southfield",
+      "state": "MI",
+      "websiteUrl": "http://ltu.edu/arts_sciences/naturalsciences/cert_premed.asp",
+      "externalId": "434"
+    },
+    {
+      "name": "College of Science & Technology (CST); Temple University",
+      "programName": "Basic Core in Health Sciences (BCHS) Post Baccalaureat Pre-Health Program",
+      "city": "Philadelphia",
+      "state": "PA",
+      "websiteUrl": "http://postbac.cst.temple.edu",
+      "externalId": "1240"
+    },
+    {
+      "name": "Ponce Health Sciences University",
+      "programName": "Master of Science in Medical Sciences",
+      "city": null,
+      "state": "MO",
+      "websiteUrl": "https://stlouis.psm.edu/programs/msms-campus/",
+      "externalId": "4426"
+    },
+    {
+      "name": "Meredith College",
+      "programName": "Master of Arts in Biomedical Sciences (MABMS)",
+      "city": "Raleigh",
+      "state": "NC",
+      "websiteUrl": "https://www.meredith.edu/master-of-biomedical-sciences/",
+      "externalId": "4427"
+    },
+    {
+      "name": "Southern Illinois University School of Medicine",
+      "programName": "Medical and Dental Education Preparatory Program (MEDPREP)",
+      "city": "Carbondale",
+      "state": "IL",
+      "websiteUrl": "https://www.siumed.edu/medprep",
+      "externalId": "3840"
+    },
+    {
+      "name": "Dominican University",
+      "programName": "Dominican University Post-Baccalaureate Medical Studies Program",
+      "city": "River Forest",
+      "state": "IL",
+      "websiteUrl": "http://www.dom.edu/pbmedical",
+      "externalId": "471"
+    },
+    {
+      "name": "Nova Southeastern University",
+      "programName": "NSU\u2019s Dr. Kiran C. Patel College of Allopathic Medicine (NSU MD) Master of Biomedical Sciences",
+      "city": "Fort Lauderdale",
+      "state": "FL",
+      "websiteUrl": "https://md.nova.edu/masters/biomedical-sciences/index.html",
+      "externalId": "4429"
+    },
+    {
+      "name": "Agnes Scott College",
+      "programName": "Medical Sciences Online Accelerated (M.S.)",
+      "city": "Decatur",
+      "state": "GA",
+      "websiteUrl": "https://www.agnesscott.edu/graduate-studies/graduate-programs/medical-sciences-accelerated-online/index.html",
+      "externalId": "4221"
+    },
+    {
+      "name": "Case Western Reserve University",
+      "programName": "Master of Arts in Bioethics and Medical Humanities",
+      "city": "Cleveland",
+      "state": "OH",
+      "websiteUrl": "https://case.edu/medicine/bioethics/education/masters-degree-program",
+      "externalId": "538"
+    },
+    {
+      "name": "Case Western Reserve University",
+      "programName": "Master of Science in Medical Physiology",
+      "city": "Cleveland",
+      "state": "OH",
+      "websiteUrl": "https://physiology.case.edu/education/graduate-programs/master/post-baccalaureate-program-ms-in-medical-physiology/",
+      "externalId": "261"
+    },
+    {
+      "name": "Case Western Reserve University",
+      "programName": "Master of Public Health",
+      "city": "Cleveland",
+      "state": "OH",
+      "websiteUrl": "https://case.edu/medicine/pqhs/education/public-health/master-public-health",
+      "externalId": "3181"
+    },
+    {
+      "name": "Case Western Reserve University",
+      "programName": "Master of Science in Applied Anatomy",
+      "city": "Cleveland",
+      "state": "OH",
+      "websiteUrl": "https://case.edu/medicine/anatomy/",
+      "externalId": "430"
+    },
+    {
+      "name": "University at Buffalo",
+      "programName": "Physiology MS",
+      "city": "Buffalo",
+      "state": "NY",
+      "websiteUrl": "https://medicine.buffalo.edu/departments/physiology/education.html",
+      "externalId": "4200"
+    },
+    {
+      "name": "California Northstate University",
+      "programName": "Master of Healthcare Administration",
+      "city": "Rancho Cordova",
+      "state": "CA",
+      "websiteUrl": "https://www.mha.cnsu.edu/",
+      "externalId": "4462"
+    },
+    {
+      "name": "IOWA STATE UNIVERSITY",
+      "programName": "MASTER OF DIGITAL HEALTH",
+      "city": "Ames",
+      "state": "IA",
+      "websiteUrl": "https://iowastateonline.iastate.edu/programs-and-courses/analytics/master-of-digital-health/",
+      "externalId": "4463"
+    },
+    {
+      "name": "University of Arizona College of Medicine - Tucson",
+      "programName": "Pathway to Medicine Postbaccalaureate Program (PMPP)",
+      "city": "Tucson",
+      "state": "AZ",
+      "websiteUrl": "https://medicine.arizona.edu/education/degree-programs/md-program/admissions",
+      "externalId": "4498"
+    },
+    {
+      "name": "Regis University",
+      "programName": "Master of Science in Biomedical Sciences",
+      "city": "Denver",
+      "state": "CO",
+      "websiteUrl": "https://www.regis.edu/academics/majors-and-programs/graduate/biomedical-sciences-ms",
+      "externalId": "248"
+    },
+    {
+      "name": "Rockhurst University",
+      "programName": "Rockhurst University Pre-med Post-Baccalaureate Program",
+      "city": "Kansas City",
+      "state": "MO",
+      "websiteUrl": "https://www.rockhurst.edu/pre-med/post-baccalaureate",
+      "externalId": "4500"
+    },
+    {
+      "name": "Northeastern Illinois University",
+      "programName": "Post-Baccalaureate Certificate in Pre-Health",
+      "city": "Chicago",
+      "state": "IL",
+      "websiteUrl": "https://catalog.neiu.edu/arts-sciences/biology/post-baccalaureate-certificate-pre-health/",
+      "externalId": "4533"
+    },
+    {
+      "name": "Saint Louis University",
+      "programName": "MS in Medical Science (MSMS)",
+      "city": "St. Louis",
+      "state": "MO",
+      "websiteUrl": "https://www.slu.edu/medicine/medical-education/graduate-programs/masters-medical-science.php",
+      "externalId": "4464"
+    },
+    {
+      "name": "University of New England",
+      "programName": "Master of Biomedical Science",
+      "city": null,
+      "state": "ME",
+      "websiteUrl": "https://online.une.edu/master-of-biomedical-science/",
+      "externalId": "4566"
+    },
+    {
+      "name": "Duquesne University",
+      "programName": "Duquesne University Post-Baccalaureate Pre-Medical and Health Professions Program",
+      "city": "Pittsburgh",
+      "state": "PA",
+      "websiteUrl": "http://www.duq.edu/pmhpp",
+      "externalId": "290"
+    },
+    {
+      "name": "Western Michigan University Homer Stryker MD School of Medicine",
+      "programName": "Hal B Jenson Masters Degree in Biomedical Science",
+      "city": "Kalamazoo",
+      "state": "MI",
+      "websiteUrl": "https://www.med.wmich.edu/node/268",
+      "externalId": "4424"
+    },
+    {
+      "name": "Boston University Chobanian & Avedisian School of Medicine, Graduate Medical Sciences",
+      "programName": "MS in Oral Health Sciences Program",
+      "city": "Boston",
+      "state": "MA",
+      "websiteUrl": "http://www.bumc.bu.edu/gms/ohs/",
+      "externalId": "2420"
+    },
+    {
+      "name": "Lewis University",
+      "programName": "B.A. Biomedical Sciences Program",
+      "city": "Romeoville",
+      "state": "IL",
+      "websiteUrl": "https://www.lewisu.edu/academics/Post-Bac-Pre-Med/index.htm",
+      "externalId": "3720"
+    },
+    {
+      "name": "Mercer University School of Medicine",
+      "programName": "Master of Science in Preclinical Sciences",
+      "city": "Macon",
+      "state": "GA",
+      "websiteUrl": "https://medicine.mercer.edu/admissions/preclinical-sciences-ms/",
+      "externalId": "3960"
+    },
+    {
+      "name": "Duke University School of Medicine",
+      "programName": "Master of Biomedical Sciences",
+      "city": "Durham",
+      "state": "NC",
+      "websiteUrl": "http://medschool.duke.edu/education/degree-programs/mbs",
+      "externalId": "532"
+    },
+    {
+      "name": "Meredith College",
+      "programName": "Pre-Health Post Baccalureate Certificate Program",
+      "city": "Raleigh",
+      "state": "NC",
+      "websiteUrl": "http://www.meredith.edu/graduate/pre-health",
+      "externalId": "441"
+    },
+    {
+      "name": "Baylor College of Medicine",
+      "programName": "Master of Science in Biomedical Sciences",
+      "city": "Houston",
+      "state": "TX",
+      "websiteUrl": "https://www.bcm.edu/biomedms",
+      "externalId": "4599"
+    },
+    {
+      "name": "George Washington University",
+      "programName": "MSHS in Laboratory Medicine",
+      "city": "Ashburn",
+      "state": "VA",
+      "websiteUrl": "https://healthsciencesprograms.gwu.edu/programs/mshs-in-laboratory-medicine-online",
+      "externalId": "3083"
+    },
+    {
+      "name": "Rowan University",
+      "programName": "Master of Translational Orthopedic Device Engineering",
+      "city": "Glassboro",
+      "state": "NJ",
+      "websiteUrl": "https://www.rowan.edu/tbes/graduate-programs/masters-translational-orthopedic-device/",
+      "externalId": "4465"
+    },
+    {
+      "name": "Middle Tennessee State University",
+      "programName": "Biomedical Sciences",
+      "city": "Murfreesboro",
+      "state": "TN",
+      "websiteUrl": "https://www.mtsu.edu/program/biomedical-sciences-m-s/#requirementsSec",
+      "externalId": "4600"
+    },
+    {
+      "name": "Baylor University",
+      "programName": "Master of Science in Medical Science",
+      "city": "Waco",
+      "state": "TX",
+      "websiteUrl": "https://hhpr.robbins.baylor.edu/masters/master-science-medical-science",
+      "externalId": "4601"
+    },
+    {
+      "name": "Pacific Northwest University of Health Sciences",
+      "programName": "Master of Science in Biomedical Sciences",
+      "city": "Yakima",
+      "state": "WA",
+      "websiteUrl": "https://www.pnwu.edu/academics/master-of-arts-medical-science/",
+      "externalId": "4602"
+    },
+    {
+      "name": "Samuel Merritt University",
+      "programName": "Master of Biomedical Sciences (MBS)",
+      "city": "Oakland",
+      "state": "CA",
+      "websiteUrl": "https://www.samuelmerritt.edu/college-health-sciences/master-biomedical-sciences",
+      "externalId": "4635"
+    },
+    {
+      "name": "Oregon State University",
+      "programName": "OSU Postbac Premed Program",
+      "city": "Corvallis",
+      "state": "OR",
+      "websiteUrl": "https://science.oregonstate.edu/premed",
+      "externalId": "216"
+    },
+    {
+      "name": "University of Nevada, Reno School of Medicine",
+      "programName": "Preparatory Post-Baccalaureate Program",
+      "city": "Reno",
+      "state": "NV",
+      "websiteUrl": "https://med.unr.edu/education/medical-education/post-baccalaureate-pathway",
+      "externalId": "4668"
+    },
+    {
+      "name": "George Washington University",
+      "programName": "BSHS in Clinical Embryology and Assisted Reproductive Technology",
+      "city": "Washington",
+      "state": "DC",
+      "websiteUrl": "https://healthsciencesprograms.gwu.edu/programs/bshs-clinical-embryology-reproductive-tech",
+      "externalId": "4703"
+    },
+    {
+      "name": "George Washington University",
+      "programName": "BSHS in Medical Laboratory Sciences",
+      "city": "Washington",
+      "state": "DC",
+      "websiteUrl": "https://healthsciencesprograms.gwu.edu/programs/bshs-medical-laboratory-sciences",
+      "externalId": "4704"
+    },
+    {
+      "name": "George Washington University",
+      "programName": "BSHS in Medical Genetics and Molecular Biology",
+      "city": "Washington",
+      "state": "DC",
+      "websiteUrl": "https://healthsciencesprograms.gwu.edu/programs/bshs-medical-genetics-and-molecular-biology",
+      "externalId": "4705"
+    },
+    {
+      "name": "George Washington University",
+      "programName": "MSHS in Clinical Laboratory Management",
+      "city": "Washington",
+      "state": "DC",
+      "websiteUrl": "https://healthsciencesprograms.gwu.edu/programs/mshs-in-clinical-laboratory-management",
+      "externalId": "4702"
+    },
+    {
+      "name": "Georgetown University School of Medicine",
+      "programName": "Georgetown Experimental Medical Studies (GEMS) Program",
+      "city": "Washington",
+      "state": "DC",
+      "websiteUrl": "https://www.gems.georgetown.edu",
+      "externalId": "4738"
+    }
+  ]
+}

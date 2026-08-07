@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-07T08:42:47.313Z",
+  "generatedAt": "2026-08-07T09:23:43.735Z",
   "professions": [
     {
       "professionSlug": "anesthesiologist-assistant",
@@ -484,41 +484,35 @@
     {
       "professionSlug": "postbac",
       "professionName": "Postbaccalaureate Programs",
-      "directoryPrograms": 1,
-      "directoryAttributedPrograms": 0,
-      "manualPrograms": [
-        {
-          "name": "Johns Hopkins University",
-          "state": "MD",
-          "verificationStatus": "verified",
-          "note": "Active row not attributed to an imported directory source (verified program outside the imported directory scope, or awaiting attribution)."
-        }
-      ],
+      "directoryPrograms": 338,
+      "directoryAttributedPrograms": 338,
+      "manualPrograms": [],
       "inactivePrograms": 0,
       "prereqStatusCounts": {
-        "verified": 1
+        "verified": 1,
+        "draft": 337
       },
       "prereqVerifiedCount": 1,
       "prereqNoSpecificPrereqsCount": 0,
       "prereqBlockedCount": 0,
-      "prereqUnfinishedCount": 0,
-      "prereqVerifiedPct": 100,
+      "prereqUnfinishedCount": 337,
+      "prereqVerifiedPct": 0.3,
       "sources": [
         {
           "name": "AAMC Postbaccalaureate Premedical Programs Database",
           "url": "https://mec.aamc.org/postbac/#/index",
           "retrievedAt": "2026-08-07",
-          "sourceProgramCount": "unknown",
-          "coverageStatus": "blocked",
-          "notes": "Blocked: the AAMC postbac database (mec.aamc.org/postbac) is an Angular single-page application. The app shell and JS bundles are fetchable, but every backend service endpoint on mec.aamc.org (config-service/services-rs/*, program service paths referenced in the bundles) fails at the network/TLS level from this environment across repeated attempts on 2026-08-07, and the legacy host apps.aamc.org/postbac returns 404. No static export, sitemap, or archived data set of the program list was found. Import path: prepare JSON per scripts/src/import-directory.ts format and run it — idempotent, never deletes."
+          "sourceProgramCount": "338",
+          "coverageStatus": "complete",
+          "notes": "Retrieved from the AAMC Postbac program API (api.mec.aamc.org/postbac-service/services-rs/programs/), which is the same data backing the mec.aamc.org/postbac Angular SPA. Only active programs (status=A) included; 338 total. The live API was directly accessible despite the SPA shell’s Angular front-end previously failing at TLS level — the underlying REST service at api.mec.aamc.org was reachable on 2026-08-07. externalId is the AAMC program ID."
         }
       ],
       "reconciliation": {
-        "sourceReportedTotal": null,
-        "inDatabase": 1,
-        "directoryAttributed": 0,
-        "delta": null,
-        "status": "directory-not-populated-source-blocked"
+        "sourceReportedTotal": 338,
+        "inDatabase": 338,
+        "directoryAttributed": 338,
+        "delta": 0,
+        "status": "reconciled"
       }
     },
     {

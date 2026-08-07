@@ -33,7 +33,7 @@ import { eq } from "drizzle-orm";
  * and "must have active programs" requirements.
  * Changing this list requires updating record-blockers.ts in lockstep.
  */
-const APPROVED_BLOCKED = new Set(["postbac"]);
+const APPROVED_BLOCKED = new Set<string>();
 
 /** Tolerate up to this many extra programs in the source count vs DB count
  *  (international, inactive, or duplicate-campus rows the source includes
