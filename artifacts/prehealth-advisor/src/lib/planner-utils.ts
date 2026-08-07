@@ -274,3 +274,24 @@ export function filterByNursingType<T extends { degreeType: string | null }>(
 ): T[] {
   return schools.filter((s) => s.degreeType === type);
 }
+
+// ── Degree-type filter (e.g. MD/DO for medicine) ─────────────────────────────
+
+/**
+ * Filter programs by selected degree types.
+ * - `active` empty → returns [] (nothing selected means show nothing —
+ *   the UI never lets that state persist but must not show wrong data).
+ * - Programs with a null degreeType are always kept (never hide a real
+ *   program simply because its degree metadata is missing).
+ */
+export function filterByDegreeTypes<
+  T extends { degreeType?: string | null },
+>(
+  schools: T[],
+  active: string[],
+): T[] {
+  if (active.length === 0) return [];
+  return schools.filter(
+    (s) => s.degreeType == null || active.includes(s.degreeType),
+  );
+}

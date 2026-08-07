@@ -36,6 +36,7 @@ import {
   EXPORT_HEADERS,
   alphabetize,
   buildSelectionExportRows,
+  filterByDegreeTypes,
   filterSchools,
   sanitizeSpreadsheetValue,
   rowToTsv,
@@ -466,6 +467,10 @@ export default function ProgramPlanner() {
   const [selectedProfessionSlug, setSelectedProfessionSlug] =
     useState<string>("");
   const [nursingType, setNursingType] = useState<NursingType>("");
+  // MD/DO filter for medicine — default both selected (preserves prior behavior)
+  const [medicalDegrees, setMedicalDegrees] = useState<Set<"MD" | "DO">>(
+    () => new Set(["MD", "DO"]),
+  );
   const [selectedSchoolIds, setSelectedSchoolIds] = useState<Set<number>>(
     new Set(),
   );
@@ -515,6 +520,19 @@ export default function ProgramPlanner() {
     [allSchools],
   );
 
+  const isMedicine = selectedProfessionSlug === "medicine";
+
+  // Browse list shown in Step 2 — for medicine, narrowed by the MD/DO filter.
+  // Selections are derived from the FULL list so switching the filter never
+  // silently drops an already-selected program.
+  const browseSchools = useMemo(
+    () =>
+      isMedicine
+        ? filterByDegreeTypes(schools, Array.from(medicalDegrees))
+        : schools,
+    [schools, isMedicine, medicalDegrees],
+  );
+
   const selectedSchools = useMemo(
     () => schools.filter((s) => selectedSchoolIds.has(s.id)),
     [schools, selectedSchoolIds],
@@ -543,8 +561,23 @@ export default function ProgramPlanner() {
     }
     setSelectedProfessionSlug(slug);
     setNursingType("");
+    setMedicalDegrees(new Set(["MD", "DO"]));
     setSelectedSchoolIds(new Set());
     setShowResults(false);
+  }
+
+  function toggleMedicalDegree(deg: "MD" | "DO") {
+    setMedicalDegrees((prev) => {
+      const next = new Set(prev);
+      if (next.has(deg)) {
+        // never allow an empty selection — flip to only the other degree
+        if (next.size === 1) return new Set<"MD" | "DO">([deg === "MD" ? "DO" : "MD"]);
+        next.delete(deg);
+      } else {
+        next.add(deg);
+      }
+      return next;
+    });
   }
 
   function handleNursingTypeChange(type: NursingType) {
@@ -714,6 +747,63 @@ export default function ProgramPlanner() {
               />
             )}
 
+            {/* Medicine MD/DO filter */}
+            {isMedicine && (
+              <div className="mt-4 space-y-2">
+                <Label className="text-sm font-medium text-foreground">
+                  Degree type
+                </Label>
+                <div
+                  className="flex flex-col sm:flex-row gap-2 mt-1"
+                  role="group"
+                  aria-label="Medical degree type filter"
+                >
+                  {(
+                    [
+                      { value: "MD", label: "MD (Allopathic)" },
+                      { value: "DO", label: "DO (Osteopathic)" },
+                    ] as const
+                  ).map((opt) => {
+                    const checked = medicalDegrees.has(opt.value);
+                    return (
+                      <button
+                        key={opt.value}
+                        type="button"
+                        role="checkbox"
+                        aria-checked={checked}
+                        onClick={() => toggleMedicalDegree(opt.value)}
+                        className={cn(
+                          "flex items-center gap-2 px-4 py-2.5 rounded-md border text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2",
+                          checked
+                            ? "border-primary bg-primary/10 text-primary"
+                            : "border-border hover:bg-accent hover:text-accent-foreground",
+                        )}
+                      >
+                        <span
+                          className={cn(
+                            "w-4 h-4 rounded-sm border-2 flex items-center justify-center shrink-0",
+                            checked ? "border-primary bg-primary" : "border-muted-foreground",
+                          )}
+                        >
+                          {checked && (
+                            <svg viewBox="0 0 12 12" className="w-3 h-3 text-primary-foreground" fill="none" stroke="currentColor" strokeWidth="2.5">
+                              <path d="M2 6l3 3 5-6" />
+                            </svg>
+                          )}
+                        </span>
+                        {opt.label}
+                      </button>
+                    );
+                  })}
+                </div>
+                <p className="text-xs text-muted-foreground">
+                  Both are shown by default. Unselect one to browse only MD or
+                  only DO programs — programs you have already selected stay
+                  selected.
+                </p>
+              </div>
+            )}
+
             {/* Nursing sub-selector */}
             {isNursing && (
               <div className="mt-4 space-y-2">
@@ -800,7 +890,7 @@ export default function ProgramPlanner() {
                 </p>
               ) : (
                 <SchoolMultiSelect
-                  schools={schools}
+                  schools={browseSchools}
                   selectedIds={selectedSchoolIds}
                   onToggle={toggleSchool}
                 />

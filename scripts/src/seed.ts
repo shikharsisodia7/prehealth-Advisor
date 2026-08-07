@@ -269,6 +269,42 @@ const professions: InsertProfession[] = [
     ],
   },
   {
+    slug: "anesthesiologist-assistant",
+    name: "Certified Anesthesiologist Assistant (CAA)",
+    category: "Medicine & Surgery",
+    tagline: "Work on the anesthesia care team under physician anesthesiologists.",
+    description:
+      "Anesthesiologist Assistant programs award master's degrees (e.g., MSA, MHS, MMSc) and are accredited by CAAHEP on recommendation of ARC-AA. Applications generally go through CASAA.",
+    degree: "Master's (MSA/MMSc/MHS)",
+    typicalTimeline: "24-28 months",
+    resources: [
+      {
+        label: "CAAHEP - Find an Accredited Program",
+        kind: "directory",
+        note: "Official directory of accredited Anesthesiologist Assistant programs",
+        url: "https://www.caahep.org/students/find-an-accredited-program",
+      },
+    ],
+  },
+  {
+    slug: "pathologists-assistant",
+    name: "Pathologists' Assistant (PathA)",
+    category: "Laboratory Sciences",
+    tagline: "Perform gross examination of surgical specimens and assist at autopsy.",
+    description:
+      "Pathologists' Assistant programs award master's degrees and are accredited by NAACLS. The AAPA (pathassist.org) also lists all NAACLS-accredited training programs.",
+    degree: "Master's (MHS/MS)",
+    typicalTimeline: "22-24 months",
+    resources: [
+      {
+        label: "NAACLS Program Search",
+        kind: "directory",
+        note: "Official directory of NAACLS-accredited Pathologists' Assistant programs",
+        url: "https://naacls.org/naacls-program-search/",
+      },
+    ],
+  },
+  {
     slug: "postbac",
     name: "Postbaccalaureate Programs",
     category: "Preparation",

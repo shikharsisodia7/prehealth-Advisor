@@ -400,6 +400,22 @@ describe("sanitizeSpreadsheetValue", () => {
       expect(sanitizeSpreadsheetValue(v).startsWith("'")).toBe(true);
     }
   });
+  it("filters MD/DO degree types without hiding untyped programs", async () => {
+    const { filterByDegreeTypes } = await import("./planner-utils");
+    const md = makeSchool({ id: 1, degreeType: "MD" });
+    const doProg = makeSchool({ id: 2, degreeType: "DO" });
+    const untyped = makeSchool({ id: 3, degreeType: null });
+    const all = [md, doProg, untyped];
+    expect(filterByDegreeTypes(all, ["MD", "DO"]).map((s) => s.id)).toEqual([1, 2, 3]);
+    expect(filterByDegreeTypes(all, ["MD"]).map((s) => s.id)).toEqual([1, 3]);
+    expect(filterByDegreeTypes(all, ["DO"]).map((s) => s.id)).toEqual([2, 3]);
+    // empty selection shows nothing rather than something wrong
+    expect(filterByDegreeTypes(all, [])).toEqual([]);
+    // must not treat other doctoral degrees as MD/DO
+    const dds = makeSchool({ id: 4, degreeType: "DDS" });
+    expect(filterByDegreeTypes([dds], ["MD", "DO"]).length).toBe(0);
+  });
+
   it("leaves normal values untouched", () => {
     expect(sanitizeSpreadsheetValue("Biology with lab")).toBe("Biology with lab");
   });

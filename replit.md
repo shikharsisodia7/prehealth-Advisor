@@ -91,7 +91,7 @@ Previous routes (`/dashboard`, `/professions`, `/schools`, `/prerequisites`) rem
 
 ### Directory data (imported 2026-07-23)
 
-Complete from accreditor sources: medicine (LCME MD 163 + AACOM DO 73), physician-assistant (ARC-PA 330), physical-therapy (CAPTE 308), speech-language-pathology (ASHA CAA 322), pharmacy (ACPE 140), veterinary (AVMA 32), optometry (ASCO 24), podiatry (CPME 11), prosthetics-orthotics (NCOPE 15).
+Complete from accreditor sources: medicine (LCME MD 163 + AACOM DO 73; 5 records untyped — the MD/DO browse filter never hides untyped programs), physician-assistant (ARC-PA 330), physical-therapy (CAPTE 308), speech-language-pathology (ASHA CAA 322), pharmacy (ACPE 140), veterinary (AVMA 32), optometry (ASCO 24), podiatry (CPME 11), prosthetics-orthotics (NCOPE 15), anesthesiologist-assistant (CAAHEP 25, imported 2026-08-07 via its public search API), pathologists-assistant (NAACLS 20 incl. 4 Canadian, imported 2026-08-07; NAACLS REST for existence, AAPA pathassist.org official list for city/state — the two match 1:1).
 
 Blocked (exact blockers recorded in `directory_sources`, coverageStatus='blocked'): dental (CODA JS app), occupational-therapy (ACOTE JS-only data), genetic-counseling (ACGC lists no per-program locations), dietetics (ACEND JS app), nursing ABSN/MEPN (AACN login-gated), postbac (AAMC JS app).
 

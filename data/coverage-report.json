@@ -1,6 +1,30 @@
 {
-  "generatedAt": "2026-07-23T20:06:01.589Z",
+  "generatedAt": "2026-08-07T01:05:15.604Z",
   "professions": [
+    {
+      "professionSlug": "anesthesiologist-assistant",
+      "professionName": "Certified Anesthesiologist Assistant (CAA)",
+      "directoryPrograms": 25,
+      "inactivePrograms": 0,
+      "prereqStatusCounts": {
+        "draft": 25
+      },
+      "sources": [
+        {
+          "name": "CAAHEP Find an Accredited Program (Anesthesiologist Assistant)",
+          "url": "https://www.caahep.org/students/find-an-accredited-program",
+          "retrievedAt": "2026-08-07",
+          "sourceProgramCount": "25",
+          "coverageStatus": "complete",
+          "notes": "Retrieved from CAAHEP public search API (professionId=1); includes programs with Initial and Continuing Accreditation. Seven records lack a CAAHEP-listed address; their states were resolved from the official program name/campus website and are noted here: South University Orlando/West Palm Beach (FL), KCU-Joplin (MO), UNM (NM), Bluefield/VCOM-Carolinas (Spartanburg SC per official pages), UTHealth Houston (TX), Medical College of Wisconsin (WI)."
+        }
+      ],
+      "reconciliation": {
+        "sourceReportedTotal": 25,
+        "inDatabase": 25,
+        "status": "reconciled"
+      }
+    },
     {
       "professionSlug": "dental",
       "professionName": "Dental School (DDS/DMD)",
@@ -188,6 +212,30 @@
       }
     },
     {
+      "professionSlug": "pathologists-assistant",
+      "professionName": "Pathologists' Assistant (PathA)",
+      "directoryPrograms": 20,
+      "inactivePrograms": 0,
+      "prereqStatusCounts": {
+        "draft": 20
+      },
+      "sources": [
+        {
+          "name": "NAACLS Accredited Program Search (Pathologists Assistant)",
+          "url": "https://naacls.org/naacls-program-search/",
+          "retrievedAt": "2026-08-07",
+          "sourceProgramCount": "20",
+          "coverageStatus": "complete",
+          "notes": "Program existence taken from the NAACLS WordPress REST records (program-type: pathologists-assistant, 20 programs). NAACLS does not expose program addresses via its API, so city/state and program URLs were cross-referenced from the AAPA official list of NAACLS-accredited training programs (pathassist.org/page/AboutUs_NAACLS), which matches the NAACLS set 1:1. Includes 4 Canadian programs (AB/ON). Anderson University and Carroll University hold Serious Applicant status per NAACLS."
+        }
+      ],
+      "reconciliation": {
+        "sourceReportedTotal": 20,
+        "inDatabase": 20,
+        "status": "reconciled"
+      }
+    },
+    {
       "professionSlug": "pharmacy",
       "professionName": "Pharmacy (PharmD)",
       "directoryPrograms": 140,
@@ -268,8 +316,8 @@
       "directoryPrograms": 11,
       "inactivePrograms": 0,
       "prereqStatusCounts": {
-        "verified": 2,
-        "draft": 9
+        "draft": 9,
+        "verified": 2
       },
       "sources": [
         {
@@ -342,8 +390,8 @@
       "directoryPrograms": 322,
       "inactivePrograms": 0,
       "prereqStatusCounts": {
-        "verified": 2,
-        "draft": 320
+        "draft": 320,
+        "verified": 2
       },
       "sources": [
         {
