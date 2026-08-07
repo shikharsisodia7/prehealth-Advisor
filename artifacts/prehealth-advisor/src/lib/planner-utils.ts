@@ -570,14 +570,27 @@ export function buildSelectionExportRows(
   professionName: string,
 ): ExportRow[] {
   return schools.flatMap((school) => {
-    const rows = showsCourseList(school.verificationStatus)
-      ? buildExportRows(school, professionName)
-      : [];
+    // Show real prerequisite rows for verified and imported records
+    const showPrereqs =
+      school.verificationStatus === "verified" ||
+      school.verificationStatus === "imported";
+    const rows = showPrereqs ? buildExportRows(school, professionName) : [];
     if (rows.length > 0) return rows;
-    const statusNote =
-      school.verificationStatus === "verified"
-        ? "No required prerequisites listed in the current data"
-        : `Prerequisite information not yet verified for this program (${verificationStatusLabel(school.verificationStatus)})`;
+
+    // Fallback status row — include specific blocker note for needs_review
+    const isNeedsReview = school.verificationStatus === "needs_review";
+    const blockerNote =
+      isNeedsReview &&
+      school.prereqCourses.length > 0 &&
+      school.prereqCourses[0].classification === "informational"
+        ? school.prereqCourses[0].details
+        : null;
+    const statusNote = showPrereqs
+      ? "No required prerequisites listed in the current data"
+      : isNeedsReview && blockerNote
+        ? `Prerequisite verification pending — ${blockerNote}`
+        : "Prerequisite information not yet collected for this program";
+
     return [
       {
         profession: professionName,

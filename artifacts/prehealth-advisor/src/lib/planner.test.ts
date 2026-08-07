@@ -425,7 +425,70 @@ describe("Step 3 does not present unverified data as verified", () => {
     const rows = buildSelectionExportRows([school], "Medicine");
     expect(rows).toHaveLength(1);
     expect(rows[0].prereqName).toBe(""); // no requirement presented
-    expect(rows[0].details).toContain("not yet verified");
+    expect(rows[0].details).toContain("not yet collected");
+  });
+
+  it("needs_review with informational blocker note surfaces the specific blocker reason", () => {
+    const blockerNote = "Page blocked by cookie consent overlay; no content accessible.";
+    const school = makeSchool({
+      verificationStatus: "needs_review",
+      prereqCourses: [{
+        name: "Prerequisite verification pending",
+        classification: "informational",
+        details: blockerNote,
+      }],
+    });
+    const rows = buildSelectionExportRows([school], "Medicine");
+    expect(rows).toHaveLength(1);
+    expect(rows[0].prereqName).toBe(""); // no course name presented
+    expect(rows[0].details).toContain(blockerNote);
+  });
+
+  it("needs_review export row includes source URL for manual verification", () => {
+    const school = makeSchool({
+      verificationStatus: "needs_review",
+      sourceUrl: "https://example.edu/admissions",
+      prereqCourses: [],
+    });
+    const rows = buildSelectionExportRows([school], "Medicine");
+    expect(rows[0].sourceUrl).toBe("https://example.edu/admissions");
+  });
+});
+
+// ── Spec: imported programs are treated as real data, not placeholders ─────────
+
+describe("imported programs display real prerequisite data", () => {
+  const importedSchool = makeSchool({
+    verificationStatus: "imported",
+    sourceUrl: "https://example.edu/prereqs",
+    prereqCourses: [
+      { name: "General Chemistry", classification: "required", labRequired: true },
+      { name: "General Biology",   classification: "required" },
+      { name: "Biochemistry",      classification: "recommended" },
+    ],
+  });
+
+  it("imported programs produce real prereq rows in export, not placeholder rows", () => {
+    const rows = buildSelectionExportRows([importedSchool], "Anesthesiologist Assistant");
+    // Should get one row per real prereq (required + recommended)
+    expect(rows.length).toBeGreaterThan(0);
+    // Each row should have a prereq name, not a status placeholder
+    const prereqNames = rows.map((r) => r.prereqName).filter(Boolean);
+    expect(prereqNames).toContain("General Chemistry");
+    expect(prereqNames).toContain("General Biology");
+  });
+
+  it("imported program export rows carry the official source URL", () => {
+    const rows = buildSelectionExportRows([importedSchool], "Anesthesiologist Assistant");
+    for (const row of rows) {
+      expect(row.sourceUrl).toBe("https://example.edu/prereqs");
+    }
+  });
+
+  it("imported programs do not produce a 'not yet collected' placeholder row", () => {
+    const rows = buildSelectionExportRows([importedSchool], "Anesthesiologist Assistant");
+    const hasPlaceholder = rows.some((r) => r.details?.includes("not yet collected") || r.details?.includes("not yet verified"));
+    expect(hasPlaceholder).toBe(false);
   });
 });
 
@@ -571,24 +634,31 @@ describe("xlsx export — reopened workbook contains real program + prerequisite
 
 describe("selection-wide results with mixed prerequisite coverage", () => {
   const selection = [
-    makeSchool({ id: 1, name: "Verified U", verificationStatus: "verified", prereqCourses: [{ name: "Biology", classification: "required" }, { name: "Physics", classification: "required" }] }),
-    makeSchool({ id: 2, name: "Draft College", verificationStatus: "draft", sourceUrl: null, prereqCourses: [] }),
-    makeSchool({ id: 3, name: "Review State", verificationStatus: "needs_review", prereqCourses: [] }),
+    makeSchool({ id: 1, name: "Verified U",  verificationStatus: "verified",  prereqCourses: [{ name: "Biology", classification: "required" }, { name: "Physics", classification: "required" }] }),
+    makeSchool({ id: 2, name: "Imported U",  verificationStatus: "imported",  prereqCourses: [{ name: "Chemistry", classification: "required" }] }),
+    makeSchool({ id: 3, name: "Draft College", verificationStatus: "draft",   sourceUrl: null, prereqCourses: [] }),
+    makeSchool({ id: 4, name: "Review State", verificationStatus: "needs_review", prereqCourses: [] }),
   ];
 
   it("every selected program is represented in export rows", () => {
     const rows = buildSelectionExportRows(selection, "Physician Assistant");
     const schoolsInRows = new Set(rows.map((r) => r.school));
-    expect(schoolsInRows).toEqual(new Set(["Verified U", "Draft College", "Review State"]));
+    expect(schoolsInRows).toEqual(new Set(["Verified U", "Imported U", "Draft College", "Review State"]));
   });
 
-  it("CSV export indicates status rather than silently omitting programs", () => {
+  it("imported and verified programs produce real prereq rows; draft and needs_review produce status rows", () => {
     const rows = buildSelectionExportRows(selection, "Physician Assistant");
     const draftRow = rows.find((r) => r.school === "Draft College");
     expect(draftRow).toBeDefined();
-    expect(draftRow!.details).toContain("not yet verified");
+    expect(draftRow!.details).toContain("not yet collected");
+
     // Verified rows are real requirement rows
     expect(rows.filter((r) => r.school === "Verified U")).toHaveLength(2);
+
+    // Imported rows are also real requirement rows
+    const importedRows = rows.filter((r) => r.school === "Imported U");
+    expect(importedRows).toHaveLength(1);
+    expect(importedRows[0].prereqName).toBe("Chemistry");
   });
 });
 

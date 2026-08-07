@@ -27,13 +27,19 @@
  *   official_source_url – required
  *   last_verified       – optional (YYYY-MM-DD)
  *   verification_status – optional; always overridden to "imported" on import
+ *                         EXCEPTION: when ALL prereq rows for a school have
+ *                         classification="informational", the record is set to
+ *                         "needs_review" instead (used for blocked/inaccessible sites).
  *   internal_notes      – optional (stored in details if requirement_details absent)
+ *   external_id         – optional; when provided, used as the primary lookup key
+ *                         to match the existing directory record instead of name
  *
  * Rules:
  *   - Rows missing any required field are flagged and skipped.
  *   - Duplicate school+profession rows are merged (prereqs appended).
- *   - Imported rows always receive verificationStatus = "imported"
- *     (never auto-verified; a human reviewer must set it to "verified").
+ *   - Imported rows receive verificationStatus = "imported".
+ *     EXCEPTION: schools where every prereq row is informational get
+ *     verificationStatus = "needs_review" (blocked/inaccessible source).
  *   - Existing "verified" records for the same school are not overwritten.
  */
 
@@ -41,8 +47,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { db, programSchoolsTable, type InsertProgramSchool } from "@workspace/db";
 import type { PrereqItem } from "@workspace/db";
-import { mergeDraftRecord } from "./merge-utils.js";
-import { eq, and } from "drizzle-orm";
+import { eq, and, isNull } from "drizzle-orm";
 
 // ── CSV parser (minimal, handles quoted fields) ────────────────────────────
 
@@ -130,6 +135,7 @@ function coerceInt(v: string | undefined): number | undefined {
 // ── Import logic ───────────────────────────────────────────────────────────
 
 interface ParsedRow {
+  externalId?: string;
   profession: string;
   degreeType?: string;
   schoolName: string;
@@ -219,6 +225,7 @@ async function main() {
       : "required";
 
     valid.push({
+      externalId: row.external_id || undefined,
       profession: row.profession,
       degreeType: row.degree_type || undefined,
       schoolName: row.school_name,
@@ -245,10 +252,12 @@ async function main() {
     process.exit(0);
   }
 
-  // Group by school (profession + school_name + program_name)
+  // Group by stable identity: prefer externalId, else profession+schoolName+programName
   const bySchool = new Map<string, ParsedRow[]>();
   for (const row of valid) {
-    const key = `${row.profession}||${row.schoolName}||${row.programName}`;
+    const key = row.externalId
+      ? `extid:${row.externalId}`
+      : `${row.profession}||${row.schoolName}||${row.programName}`;
     const existing = bySchool.get(key) ?? [];
     existing.push(row);
     bySchool.set(key, existing);
@@ -262,16 +271,49 @@ async function main() {
     const first = rows[0];
     const schoolKey = `${first.profession}/${first.schoolName}`;
 
-    // Check if a verified record already exists for this school+profession
-    const existing = await db
-      .select()
-      .from(programSchoolsTable)
-      .where(
-        and(
-          eq(programSchoolsTable.professionSlug, first.profession),
-          eq(programSchoolsTable.name, first.schoolName),
-        ),
-      );
+    // Look up the existing record — by externalId first (stable), then by name
+    let existing;
+    if (first.externalId) {
+      // Scope lookup by BOTH profession and externalId — externalIds are not
+      // globally unique across professions (two different accreditors can issue
+      // the same code for different programs).
+      existing = await db
+        .select()
+        .from(programSchoolsTable)
+        .where(
+          and(
+            eq(programSchoolsTable.professionSlug, first.profession),
+            eq(programSchoolsTable.externalId, first.externalId),
+          ),
+        );
+
+      if (existing.length === 0) {
+        // externalId not found — fall back to name so we can still match
+        console.warn(
+          `  ⚠ externalId "${first.externalId}" not in DB — falling back to name match for "${schoolKey}"`,
+        );
+        existing = await db
+          .select()
+          .from(programSchoolsTable)
+          .where(
+            and(
+              eq(programSchoolsTable.professionSlug, first.profession),
+              eq(programSchoolsTable.name, first.schoolName),
+              isNull(programSchoolsTable.externalId),
+            ),
+          );
+      }
+    } else {
+      existing = await db
+        .select()
+        .from(programSchoolsTable)
+        .where(
+          and(
+            eq(programSchoolsTable.professionSlug, first.profession),
+            eq(programSchoolsTable.name, first.schoolName),
+          ),
+        );
+    }
 
     const verifiedRecord = existing.find(
       (r) => r.verificationStatus === "verified",
@@ -297,35 +339,40 @@ async function main() {
     }));
 
     const draftRecord = existing.find(
-      (r) => r.verificationStatus === "imported" || r.verificationStatus === "draft",
+      (r) => r.verificationStatus === "imported" || r.verificationStatus === "draft" || r.verificationStatus === "needs_review",
     );
 
+    // Determine the target status:
+    // - If ALL prereqs are informational, this is a blocked/inaccessible source
+    //   that needs manual resolution → needs_review
+    // - Otherwise → imported (pending human verification of real prereq data)
+    const allInformational =
+      prereqCourses.length > 0 &&
+      prereqCourses.every((p) => p.classification === "informational");
+    const targetStatus = allInformational ? "needs_review" : "imported";
+
     if (draftRecord) {
-      // Merge prereqs into existing draft (pure logic in merge-utils.ts,
-      // covered by regression tests — source URL must never be dropped).
-      const mergeResult = mergeDraftRecord({
-        existingPrereqs: draftRecord.prereqCourses,
-        existingSourceUrl: draftRecord.sourceUrl,
-        existingLastVerified: draftRecord.lastVerified,
-        incomingPrereqs: prereqCourses,
-        incomingSourceUrl: first.sourceUrl,
-        incomingLastVerified: first.lastVerified ?? null,
-      });
+      // Replace prereqs (full overwrite on re-import, deduplicating by name)
+      const dedupedPrereqs = prereqCourses.reduce<PrereqItem[]>((acc, p) => {
+        if (!acc.some((e) => e.name === p.name)) acc.push(p);
+        return acc;
+      }, []);
       await db
         .update(programSchoolsTable)
         .set({
-          prereqCourses: mergeResult.prereqCourses,
-          verificationStatus: "imported",
-          sourceUrl: mergeResult.sourceUrl,
-          lastVerified: mergeResult.lastVerified,
+          prereqCourses: dedupedPrereqs,
+          verificationStatus: targetStatus,
+          sourceUrl: first.sourceUrl,
+          lastVerified: first.lastVerified ?? draftRecord.lastVerified,
         })
         .where(eq(programSchoolsTable.id, draftRecord.id));
-      console.log(`  ↳ Merged "${schoolKey}" into existing draft (id=${draftRecord.id})`);
+      console.log(`  ↳ Merged "${schoolKey}" into existing draft (id=${draftRecord.id}) → ${targetStatus}`);
       merged++;
     } else {
-      // Insert new record
+      // Insert new record — only reached when no directory record exists at all
       const insertData: InsertProgramSchool = {
         professionSlug: first.profession,
+        externalId: first.externalId ?? null,
         name: first.schoolName,
         programName: first.programName,
         city: first.city,
@@ -333,11 +380,11 @@ async function main() {
         degreeType: first.degreeType ?? null,
         sourceUrl: first.sourceUrl,
         lastVerified: first.lastVerified ?? null,
-        verificationStatus: "imported",
+        verificationStatus: targetStatus,
         prereqCourses,
       };
       await db.insert(programSchoolsTable).values(insertData);
-      console.log(`  ↳ Inserted "${schoolKey}" with ${prereqCourses.length} prerequisite(s)`);
+      console.log(`  ↳ Inserted "${schoolKey}" with ${prereqCourses.length} prerequisite(s) → ${targetStatus}`);
       inserted++;
     }
   }
@@ -348,10 +395,10 @@ async function main() {
   console.log(`  Skipped (verified): ${skippedVerified}`);
   console.log(`  Skipped (invalid):  ${skipped}`);
   console.log(
-    `\nAll imported records are set to verificationStatus="imported".`,
+    `\nImported records are set to "imported" (real prereqs) or "needs_review" (blocked sources).`,
   );
   console.log(
-    `A human reviewer must confirm requirements against official sources`,
+    `A human reviewer must confirm "imported" requirements against official sources`,
   );
   console.log(`before setting verificationStatus="verified".`);
 

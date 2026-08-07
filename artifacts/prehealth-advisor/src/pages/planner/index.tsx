@@ -363,33 +363,71 @@ function SchoolMultiSelect({
 
 // ─── Results section ──────────────────────────────────────────────────────────
 
+/**
+ * Shown for statuses where we have NO course data at all (draft, rejected,
+ * needs_review without a specific blocker message, outdated).
+ */
 function VerificationMessage({
   status,
-  note,
+  blockerNote,
 }: {
   status: string;
-  note?: string | null;
+  blockerNote?: string | null;
 }) {
-  const message = verificationStatusMessage(status);
+  const defaultMessage =
+    status === "needs_review" && blockerNote
+      ? blockerNote
+      : status === "needs_review"
+        ? "Prerequisite information for this program could not be retrieved from the official website. Check the official program source or consult a health professions advisor."
+        : status === "outdated"
+          ? "This information requires re-verification. Review the official program source or consult a health professions advisor."
+          : status === "draft"
+            ? "This program has been identified, but its prerequisite information is still being collected."
+            : status === "rejected"
+              ? "Prerequisite information for this program is still being verified. Review the official program page or consult a health professions advisor."
+              : "Prerequisite information for this program is still being verified. Review the official program page or consult a health professions advisor.";
+
   return (
     <div className="flex items-start gap-2 p-3 rounded-md bg-amber-50 border border-amber-200 text-amber-800 text-sm">
       <AlertCircle className="w-4 h-4 shrink-0 mt-0.5" />
-      <span>
-        {message}
-        {note && (
-          <span className="block mt-1 text-amber-700 text-xs italic">{note}</span>
-        )}
-      </span>
+      <span>{defaultMessage}</span>
     </div>
   );
 }
 
+/**
+ * Inline notice shown above prerequisite lists for `imported` records —
+ * course data is real but has not yet been confirmed by a human reviewer.
+ */
+function ImportedNotice() {
+  return (
+    <div className="flex items-start gap-2 p-2.5 rounded-md bg-blue-50 border border-blue-200 text-blue-800 text-xs mb-2">
+      <AlertCircle className="w-3.5 h-3.5 shrink-0 mt-0.5" />
+      <span>
+        Extracted from official program website — pending human review. Verify
+        against the source before making application decisions.
+      </span>
+    </div>
+  );
+}
 function SchoolResult({ school }: { school: ProgramSchool }) {
-  const positive = isPositiveStatus(school.verificationStatus);
-  const pendingVerification = school.verificationStatus === "imported";
-  const noPrereqsPublished = school.verificationStatus === "no_prereqs_published";
+  const showPrereqs =
+    school.verificationStatus === "verified" ||
+    school.verificationStatus === "imported";
+
+  // For needs_review, the first prereqCourse is an informational blocker note
+  const blockerNote =
+    school.verificationStatus === "needs_review" &&
+    school.prereqCourses.length > 0 &&
+    school.prereqCourses[0].classification === "informational"
+      ? school.prereqCourses[0].details
+      : null;
+
   const requiredPrereqs = school.prereqCourses.filter(
     (p) => p.classification === "required",
+  );
+  const recommendedPrereqs = school.prereqCourses.filter(
+    (p) => p.classification === "recommended" || p.classification === "preferred",
   );
 
   return (
@@ -408,53 +446,55 @@ function SchoolResult({ school }: { school: ProgramSchool }) {
         <p className="text-sm text-muted-foreground">{school.programName}</p>
       </div>
 
-      {noPrereqsPublished ? (
-        <div className="mb-3 flex items-start gap-2 p-3 rounded-md bg-emerald-50 border border-emerald-200 text-emerald-800 text-sm">
-          <Check className="w-4 h-4 shrink-0 mt-0.5" />
-          <span>
-            The official program source states no specific course prerequisites are required for this program.
-            {school.verificationNote && (
-              <span className="block mt-1 text-emerald-700 text-xs italic">{school.verificationNote}</span>
-            )}
-          </span>
-        </div>
-      ) : positive || pendingVerification ? (
-        requiredPrereqs.length > 0 ? (
+      {showPrereqs ? (
+        requiredPrereqs.length > 0 || recommendedPrereqs.length > 0 ? (
           <>
-            {pendingVerification && (
-              <div className="mb-2 flex items-start gap-2 p-3 rounded-md bg-amber-50 border border-amber-200 text-amber-800 text-sm">
-                <AlertTriangle className="w-4 h-4 shrink-0 mt-0.5" />
-                <span>
-                  Collected from the official program source but not yet human-verified. Confirm against the linked source before relying on it.
-                  {school.verificationNote && (
-                    <span className="block mt-1 text-amber-700 text-xs italic">{school.verificationNote}</span>
-                  )}
-                </span>
-              </div>
-            )}
-            <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground mb-1.5">
-              {pendingVerification
-                ? "Required prerequisites (pending verification):"
-                : "Required prerequisites:"}
-            </p>
-            <ul className="space-y-1 mb-3">
-              {requiredPrereqs.map((prereq, i) => (
-                <li key={i} className="flex items-start gap-2 text-sm">
-                  <span className="text-primary mt-1 shrink-0" aria-hidden="true">•</span>
-                  <span>
-                    <span className="font-medium">{prereq.name}</span>
-                    {prereq.details && (
-                      <span className="text-muted-foreground"> — {prereq.details}</span>
-                    )}
-                    {prereq.otherConditions && (
-                      <span className="text-muted-foreground italic">
-                        {" "}({prereq.otherConditions})
+            {school.verificationStatus === "imported" && <ImportedNotice />}
+            {requiredPrereqs.length > 0 && (
+              <>
+                <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground mb-1.5">
+                  Required prerequisites:
+                </p>
+                <ul className="space-y-1 mb-3">
+                  {requiredPrereqs.map((prereq, i) => (
+                    <li key={i} className="flex items-start gap-2 text-sm">
+                      <span className="text-primary mt-1 shrink-0" aria-hidden="true">•</span>
+                      <span>
+                        <span className="font-medium">{prereq.name}</span>
+                        {prereq.details && (
+                          <span className="text-muted-foreground"> — {prereq.details}</span>
+                        )}
+                        {prereq.otherConditions && (
+                          <span className="text-muted-foreground italic">
+                            {" "}({prereq.otherConditions})
+                          </span>
+                        )}
                       </span>
-                    )}
-                  </span>
-                </li>
-              ))}
-            </ul>
+                    </li>
+                  ))}
+                </ul>
+              </>
+            )}
+            {recommendedPrereqs.length > 0 && (
+              <>
+                <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground mb-1.5">
+                  Recommended:
+                </p>
+                <ul className="space-y-1 mb-3">
+                  {recommendedPrereqs.map((prereq, i) => (
+                    <li key={i} className="flex items-start gap-2 text-sm">
+                      <span className="text-muted-foreground mt-1 shrink-0" aria-hidden="true">◦</span>
+                      <span>
+                        <span className="font-medium">{prereq.name}</span>
+                        {prereq.details && (
+                          <span className="text-muted-foreground"> — {prereq.details}</span>
+                        )}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </>
+            )}
           </>
         ) : (
           <p className="text-sm text-muted-foreground mb-3">
@@ -463,11 +503,14 @@ function SchoolResult({ school }: { school: ProgramSchool }) {
         )
       ) : (
         <div className="mb-3">
-          <VerificationMessage status={school.verificationStatus} note={school.verificationNote} />
+          <VerificationMessage
+            status={school.verificationStatus}
+            blockerNote={blockerNote}
+          />
         </div>
       )}
 
-      {/* Source + verification date — always show program's own source link */}
+      {/* Source + verification date */}
       <div className="flex flex-wrap items-center gap-3 text-xs text-muted-foreground">
         {school.sourceUrl ? (
           <a

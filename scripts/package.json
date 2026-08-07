@@ -7,7 +7,9 @@
     "hello": "tsx ./src/hello.ts",
     "seed": "tsx ./src/seed.ts",
     "typecheck": "tsc -p tsconfig.json --noEmit",
-    "test": "vitest run"
+    "test": "vitest run",
+    "import:caa-pa": "tsx ./src/import-programs.ts ../data/prereqs/caa-pa-all-programs.json",
+    "verify:caa-pa": "tsx ./src/verify-caa-pa-import.ts"
   },
   "dependencies": {
     "@workspace/db": "workspace:*",
