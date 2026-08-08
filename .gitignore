@@ -47,3 +47,10 @@ Thumbs.db
 # Replit
 .cache/
 .local/
+
+# Prerequisite acquisition worker runtime artifacts
+# The existing committed snapshots remain available for auditability; newly
+# fetched pages and resumable checkpoints are local runtime state.
+data/completion-worker.log
+data/completion-state.json
+data/prereq-source-cache/
