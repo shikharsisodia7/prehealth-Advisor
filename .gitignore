@@ -48,6 +48,14 @@ Thumbs.db
 .cache/
 .local/
 
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
+# Vercel
+.vercel
+
 # Prerequisite acquisition worker runtime artifacts
 # The existing committed snapshots remain available for auditability; newly
 # fetched pages and resumable checkpoints are local runtime state.

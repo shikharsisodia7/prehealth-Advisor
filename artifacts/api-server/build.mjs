@@ -14,8 +14,7 @@ async function buildAll() {
   const distDir = path.resolve(artifactDir, "dist");
   await rm(distDir, { recursive: true, force: true });
 
-  await esbuild({
-    entryPoints: [path.resolve(artifactDir, "src/index.ts")],
+  const common = {
     platform: "node",
     bundle: true,
     format: "esm",
@@ -117,6 +116,24 @@ globalThis.__filename = __bannerUrl.fileURLToPath(import.meta.url);
 globalThis.__dirname = __bannerPath.dirname(globalThis.__filename);
     `,
     },
+  };
+
+  // dist/index.mjs — local/container entry: builds the Express app and calls
+  // app.listen(). Used by `pnpm start`.
+  await esbuild({
+    ...common,
+    entryPoints: [path.resolve(artifactDir, "src/index.ts")],
+  });
+
+  // dist/app.mjs — serverless entry: the Express app with NO listen() side
+  // effect, for platforms (Vercel) that invoke the app as a request handler
+  // rather than binding a port. Bundled (not left as raw TS) so the
+  // platform's own function bundler only has to trace one self-contained
+  // JS file instead of resolving workspace TypeScript across package
+  // boundaries.
+  await esbuild({
+    ...common,
+    entryPoints: [path.resolve(artifactDir, "src/app.ts")],
   });
 }
 
