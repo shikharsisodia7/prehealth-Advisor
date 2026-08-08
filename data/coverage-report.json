@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-07T21:16:29.800Z",
+  "generatedAt": "2026-08-08T02:48:47.510Z",
   "professions": [
     {
       "professionSlug": "anesthesiologist-assistant",
@@ -40,7 +40,7 @@
       "directoryPrograms": 78,
       "directoryAttributedPrograms": 78,
       "manualPrograms": [],
-      "inactivePrograms": 2,
+      "inactivePrograms": 0,
       "prereqStatusCounts": {
         "verified": 4,
         "draft": 74
@@ -93,20 +93,20 @@
       "prereqVerifiedPct": 1.3,
       "sources": [
         {
-          "name": "ACEND Accredited Program Directory — Graduate Program in Nutrition and Dietetics (US)",
-          "url": "https://www.eatrightpro.org/acend/accredited-programs/program-directory",
-          "retrievedAt": "2026-08-07",
-          "sourceProgramCount": "98",
-          "coverageStatus": "complete",
-          "notes": "Retrieved from the ACEND directory application at acendportal.org (Directory.aspx, WebForms postbacks) filtered to country=United States and program type \"Graduate Program in Nutrition and Dietetics\". These are the entry-to-RDN pathway types (Graduate Programs under the Future Education Model, and Coordinated Programs combining didactic + supervised practice). Didactic-only (DPD), Dietetic Internships, Dietetic Technician, APD, and international programs excluded from this planner's scope."
-        },
-        {
           "name": "ACEND Accredited Program Directory — Coordinated Program in Dietetics (US)",
           "url": "https://www.eatrightpro.org/acend/accredited-programs/program-directory",
           "retrievedAt": "2026-08-07",
           "sourceProgramCount": "53",
           "coverageStatus": "complete",
           "notes": "Retrieved from the ACEND directory application at acendportal.org (Directory.aspx, WebForms postbacks) filtered to country=United States and program type \"Coordinated Program in Dietetics\". These are the entry-to-RDN pathway types (Graduate Programs under the Future Education Model, and Coordinated Programs combining didactic + supervised practice). Didactic-only (DPD), Dietetic Internships, Dietetic Technician, APD, and international programs excluded from this planner's scope."
+        },
+        {
+          "name": "ACEND Accredited Program Directory — Graduate Program in Nutrition and Dietetics (US)",
+          "url": "https://www.eatrightpro.org/acend/accredited-programs/program-directory",
+          "retrievedAt": "2026-08-07",
+          "sourceProgramCount": "98",
+          "coverageStatus": "complete",
+          "notes": "Retrieved from the ACEND directory application at acendportal.org (Directory.aspx, WebForms postbacks) filtered to country=United States and program type \"Graduate Program in Nutrition and Dietetics\". These are the entry-to-RDN pathway types (Graduate Programs under the Future Education Model, and Coordinated Programs combining didactic + supervised practice). Didactic-only (DPD), Dietetic Internships, Dietetic Technician, APD, and international programs excluded from this planner's scope."
         }
       ],
       "reconciliation": {
@@ -123,7 +123,7 @@
       "directoryPrograms": 65,
       "directoryAttributedPrograms": 65,
       "manualPrograms": [],
-      "inactivePrograms": 2,
+      "inactivePrograms": 0,
       "prereqStatusCounts": {
         "verified": 3,
         "draft": 62
@@ -159,8 +159,8 @@
       "manualPrograms": [],
       "inactivePrograms": 0,
       "prereqStatusCounts": {
-        "draft": 231,
-        "verified": 5
+        "verified": 5,
+        "draft": 231
       },
       "prereqVerifiedCount": 5,
       "prereqNoSpecificPrereqsCount": 0,
@@ -169,20 +169,20 @@
       "prereqVerifiedPct": 2.1,
       "sources": [
         {
-          "name": "LCME Accredited U.S. MD Programs",
-          "url": "https://lcme.org/directory/accredited-u-s-programs/",
-          "retrievedAt": "2026-07-23",
-          "sourceProgramCount": "163",
-          "coverageStatus": "complete",
-          "notes": "Full table extracted from LCME directory page (updated July 21, 2026)."
-        },
-        {
           "name": "AACOM U.S. Colleges of Osteopathic Medicine Directory (PDF)",
           "url": "https://www.aacom.org/docs/default-source/become-doctor/us-com-directory.pdf",
           "retrievedAt": "2026-07-23",
           "sourceProgramCount": "73",
           "coverageStatus": "complete",
           "notes": "Includes branch/additional campuses as separate entries per AACOM directory."
+        },
+        {
+          "name": "LCME Accredited U.S. MD Programs",
+          "url": "https://lcme.org/directory/accredited-u-s-programs/",
+          "retrievedAt": "2026-07-23",
+          "sourceProgramCount": "163",
+          "coverageStatus": "complete",
+          "notes": "Full table extracted from LCME directory page (updated July 21, 2026)."
         }
       ],
       "reconciliation": {
@@ -241,10 +241,10 @@
       "directoryPrograms": 318,
       "directoryAttributedPrograms": 318,
       "manualPrograms": [],
-      "inactivePrograms": 1,
+      "inactivePrograms": 0,
       "prereqStatusCounts": {
-        "verified": 3,
-        "draft": 315
+        "draft": 315,
+        "verified": 3
       },
       "prereqVerifiedCount": 3,
       "prereqNoSpecificPrereqsCount": 0,
@@ -253,20 +253,20 @@
       "prereqVerifiedPct": 0.9,
       "sources": [
         {
-          "name": "ACOTE Accredited Entry-Level OT Doctorate Programs",
-          "url": "https://acoteonline.org/schools/",
-          "retrievedAt": "2026-08-07",
-          "sourceProgramCount": "158",
-          "coverageStatus": "complete",
-          "notes": "Retrieved from ACOTE's FacetWP JSON endpoint (wp-json/facetwp/v1/refresh, template \"schools\", 14 pages, 667 total rows incl. OTA). Included: Degree Level \"OT Doctorate\" with Status \"Accreditation\" or \"Probationary Accreditation\". Excluded: OTA associate/baccalaureate programs, -Inactive statuses, Applicant/Candidacy/Preaccreditation/Provisional (not yet accredited). City/state from the directory's address fields."
-        },
-        {
           "name": "ACOTE Accredited Entry-Level OT Masters Programs",
           "url": "https://acoteonline.org/schools/",
           "retrievedAt": "2026-08-07",
           "sourceProgramCount": "160",
           "coverageStatus": "complete",
           "notes": "Retrieved from ACOTE's FacetWP JSON endpoint (wp-json/facetwp/v1/refresh, template \"schools\", 14 pages, 667 total rows incl. OTA). Included: Degree Level \"OT Masters\" with Status \"Accreditation\" or \"Probationary Accreditation\". Excluded: OTA associate/baccalaureate programs, -Inactive statuses, Applicant/Candidacy/Preaccreditation/Provisional (not yet accredited). City/state from the directory's address fields."
+        },
+        {
+          "name": "ACOTE Accredited Entry-Level OT Doctorate Programs",
+          "url": "https://acoteonline.org/schools/",
+          "retrievedAt": "2026-08-07",
+          "sourceProgramCount": "158",
+          "coverageStatus": "complete",
+          "notes": "Retrieved from ACOTE's FacetWP JSON endpoint (wp-json/facetwp/v1/refresh, template \"schools\", 14 pages, 667 total rows incl. OTA). Included: Degree Level \"OT Doctorate\" with Status \"Accreditation\" or \"Probationary Accreditation\". Excluded: OTA associate/baccalaureate programs, -Inactive statuses, Applicant/Candidacy/Preaccreditation/Provisional (not yet accredited). City/state from the directory's address fields."
         }
       ],
       "reconciliation": {
@@ -283,7 +283,7 @@
       "directoryPrograms": 24,
       "directoryAttributedPrograms": 24,
       "manualPrograms": [],
-      "inactivePrograms": 2,
+      "inactivePrograms": 0,
       "prereqStatusCounts": {
         "draft": 21,
         "verified": 3
@@ -319,8 +319,8 @@
       "manualPrograms": [],
       "inactivePrograms": 0,
       "prereqStatusCounts": {
-        "verified": 19,
-        "no_prereqs_published": 1
+        "no_prereqs_published": 1,
+        "verified": 19
       },
       "prereqVerifiedCount": 19,
       "prereqNoSpecificPrereqsCount": 1,
@@ -353,8 +353,8 @@
       "manualPrograms": [],
       "inactivePrograms": 0,
       "prereqStatusCounts": {
-        "draft": 137,
-        "verified": 3
+        "verified": 3,
+        "draft": 137
       },
       "prereqVerifiedCount": 3,
       "prereqNoSpecificPrereqsCount": 0,
@@ -385,16 +385,16 @@
       "directoryPrograms": 308,
       "directoryAttributedPrograms": 308,
       "manualPrograms": [],
-      "inactivePrograms": 4,
+      "inactivePrograms": 0,
       "prereqStatusCounts": {
-        "verified": 57,
-        "draft": 251
+        "verified": 53,
+        "draft": 255
       },
-      "prereqVerifiedCount": 57,
+      "prereqVerifiedCount": 53,
       "prereqNoSpecificPrereqsCount": 0,
       "prereqBlockedCount": 0,
-      "prereqUnfinishedCount": 251,
-      "prereqVerifiedPct": 18.5,
+      "prereqUnfinishedCount": 255,
+      "prereqVerifiedPct": 17.2,
       "sources": [
         {
           "name": "CAPTE Accredited PT Programs Directory",
@@ -419,10 +419,10 @@
       "directoryPrograms": 330,
       "directoryAttributedPrograms": 330,
       "manualPrograms": [],
-      "inactivePrograms": 2,
+      "inactivePrograms": 0,
       "prereqStatusCounts": {
-        "draft": 327,
-        "verified": 3
+        "verified": 3,
+        "draft": 327
       },
       "prereqVerifiedCount": 3,
       "prereqNoSpecificPrereqsCount": 0,
@@ -455,14 +455,13 @@
       "manualPrograms": [],
       "inactivePrograms": 0,
       "prereqStatusCounts": {
-        "draft": 9,
-        "verified": 2
+        "verified": 11
       },
-      "prereqVerifiedCount": 2,
+      "prereqVerifiedCount": 11,
       "prereqNoSpecificPrereqsCount": 0,
       "prereqBlockedCount": 0,
-      "prereqUnfinishedCount": 9,
-      "prereqVerifiedPct": 18.2,
+      "prereqUnfinishedCount": 0,
+      "prereqVerifiedPct": 100,
       "sources": [
         {
           "name": "CPME List of Accredited Podiatric Medical Colleges",
@@ -484,41 +483,35 @@
     {
       "professionSlug": "postbac",
       "professionName": "Postbaccalaureate Programs",
-      "directoryPrograms": 1,
-      "directoryAttributedPrograms": 0,
-      "manualPrograms": [
-        {
-          "name": "Johns Hopkins University",
-          "state": "MD",
-          "verificationStatus": "verified",
-          "note": "Active row not attributed to an imported directory source (verified program outside the imported directory scope, or awaiting attribution)."
-        }
-      ],
+      "directoryPrograms": 336,
+      "directoryAttributedPrograms": 336,
+      "manualPrograms": [],
       "inactivePrograms": 0,
       "prereqStatusCounts": {
+        "draft": 335,
         "verified": 1
       },
       "prereqVerifiedCount": 1,
       "prereqNoSpecificPrereqsCount": 0,
       "prereqBlockedCount": 0,
-      "prereqUnfinishedCount": 0,
-      "prereqVerifiedPct": 100,
+      "prereqUnfinishedCount": 335,
+      "prereqVerifiedPct": 0.3,
       "sources": [
         {
           "name": "AAMC Postbaccalaureate Premedical Programs Database",
           "url": "https://mec.aamc.org/postbac/#/index",
           "retrievedAt": "2026-08-07",
-          "sourceProgramCount": "unknown",
-          "coverageStatus": "blocked",
-          "notes": "Blocked: the AAMC postbac database (mec.aamc.org/postbac) is an Angular single-page application. The app shell and JS bundles are fetchable, but every backend service endpoint on mec.aamc.org (config-service/services-rs/*, program service paths referenced in the bundles) fails at the network/TLS level from this environment across repeated attempts on 2026-08-07, and the legacy host apps.aamc.org/postbac returns 404. No static export, sitemap, or archived data set of the program list was found. Import path: prepare JSON per scripts/src/import-directory.ts format and run it — idempotent, never deletes."
+          "sourceProgramCount": "338",
+          "coverageStatus": "complete",
+          "notes": "Retrieved from the AAMC Postbac program API (api.mec.aamc.org/postbac-service/services-rs/programs/), which is the same data backing the mec.aamc.org/postbac Angular SPA. Only active programs (status=A) included; 338 total. The live API was directly accessible despite the SPA shell’s Angular front-end previously failing at TLS level — the underlying REST service at api.mec.aamc.org was reachable on 2026-08-07. externalId is the AAMC program ID."
         }
       ],
       "reconciliation": {
-        "sourceReportedTotal": null,
-        "inDatabase": 1,
-        "directoryAttributed": 0,
-        "delta": null,
-        "status": "directory-not-populated-source-blocked"
+        "sourceReportedTotal": 338,
+        "inDatabase": 336,
+        "directoryAttributed": 336,
+        "delta": -2,
+        "status": "under-source-count"
       }
     },
     {
@@ -527,16 +520,16 @@
       "directoryPrograms": 15,
       "directoryAttributedPrograms": 15,
       "manualPrograms": [],
-      "inactivePrograms": 3,
+      "inactivePrograms": 0,
       "prereqStatusCounts": {
-        "verified": 3,
-        "draft": 12
+        "draft": 9,
+        "verified": 6
       },
-      "prereqVerifiedCount": 3,
+      "prereqVerifiedCount": 6,
       "prereqNoSpecificPrereqsCount": 0,
       "prereqBlockedCount": 0,
-      "prereqUnfinishedCount": 12,
-      "prereqVerifiedPct": 20,
+      "prereqUnfinishedCount": 9,
+      "prereqVerifiedPct": 40,
       "sources": [
         {
           "name": "NCOPE Accredited Practitioner (O&P Master's) Programs",
@@ -563,8 +556,8 @@
       "manualPrograms": [],
       "inactivePrograms": 0,
       "prereqStatusCounts": {
-        "draft": 320,
-        "verified": 2
+        "verified": 2,
+        "draft": 320
       },
       "prereqVerifiedCount": 2,
       "prereqNoSpecificPrereqsCount": 0,
@@ -595,10 +588,10 @@
       "directoryPrograms": 32,
       "directoryAttributedPrograms": 32,
       "manualPrograms": [],
-      "inactivePrograms": 2,
+      "inactivePrograms": 0,
       "prereqStatusCounts": {
-        "draft": 29,
-        "verified": 3
+        "verified": 3,
+        "draft": 29
       },
       "prereqVerifiedCount": 3,
       "prereqNoSpecificPrereqsCount": 0,
