@@ -1008,6 +1008,26 @@ describe("buildPrereqsSheetRows", () => {
     expect(rows).toHaveLength(1);
     expect(rows[0].verificationStatus).toBe("No specific prerequisites published");
   });
+
+  it("South Alabama-sized list (15 required courses): every row is emitted, none dropped", () => {
+    // Regression test: a prior build silently truncated large prerequisite
+    // lists. University of South Alabama PT has 15 real prereqCourses rows —
+    // this fixture mirrors that shape.
+    const prereqCourses: PrereqItem[] = Array.from({ length: 15 }, (_, i) => ({
+      name: `Course ${i + 1}`,
+      classification: "required",
+    }));
+    const school = makeSchool({
+      name: "University of South Alabama",
+      programName: "Doctor of Physical Therapy (DPT)",
+      professionSlug: "physical-therapy",
+      prereqCourses,
+    });
+    const rows = buildPrereqsSheetRows(school, "Physical Therapy");
+    expect(rows).toHaveLength(15);
+    expect(rows[14].prereqName).toBe("Course 15");
+    expect(requiredPrereqs(school.prereqCourses)).toHaveLength(15);
+  });
 });
 
 // ── Prohibited language audit ─────────────────────────────────────────────────

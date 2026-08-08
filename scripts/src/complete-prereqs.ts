@@ -227,6 +227,30 @@ async function discoverCandidates(program: ProgramRow): Promise<string[]> {
       candidates.push(...urls.filter((u) => u.includes(host)));
     } catch { /* search failure is non-fatal */ }
   }
+  // 4. Domain-agnostic Firecrawl search. Several accreditor directory sources
+  // (LCME MD, ACPE pharmacy, ASCO optometry, CPME podiatry, NCOPE P&O, AVMA
+  // veterinary) do not publish a websiteUrl at all, so step 3 above can never
+  // run for those programs — without this fallback discoverCandidates()
+  // returns [] and the program fails immediately with "no official candidate
+  // URLs" regardless of how many times the worker is rerun. This searches by
+  // institution/program name alone to locate the official domain.
+  if (FIRECRAWL_KEY && !program.websiteUrl) {
+    try {
+      const urls = await firecrawlSearch(
+        `${program.name} ${program.programName} official admissions prerequisites`,
+      );
+      candidates.push(...urls);
+      // Persist the first plausible result as websiteUrl so future runs (and
+      // the directory itself) don't repeat this search, and so the frontend
+      // can eventually show a program homepage link.
+      if (urls[0] && !program.sourceUrl) {
+        await db
+          .update(programSchoolsTable)
+          .set({ websiteUrl: new URL(urls[0]).origin })
+          .where(eq(programSchoolsTable.id, program.id));
+      }
+    } catch { /* search failure is non-fatal */ }
+  }
   return [...new Set(candidates)];
 }
 

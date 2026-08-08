@@ -7,13 +7,22 @@
  * verificationStatus = "verified" with an explicit machine-verification note,
  * and performs a post-write read-back assertion (status, sourceUrl, course count).
  *
- * Run: pnpm --filter @workspace/scripts exec tsx src/upsert-prereq-batch.ts <batch-file.json>
+ * The batch file's numeric `id` is the ORIGINAL database's row id at the time
+ * of extraction — it is NOT portable across a rebuilt/reseeded database where
+ * auto-increment ids are assigned in a different order. Rows are therefore
+ * looked up by exact (professionSlug, name) match, the same identity import-
+ * directory.ts relies on; `id` is retained only for log messages. When more
+ * than one batch row maps to a single reconciled directory row (duplicate
+ * campus entries later consolidated), only the first is applied and the rest
+ * are logged as skipped rather than guessed at.
+ *
+ * Run: pnpm --filter @workspace/scripts exec tsx src/upsert-prereq-batch.ts <batch-file.json> [professionSlug]
  * Safe to re-run.
  */
 import fs from "node:fs";
 import path from "node:path";
 import { db, programSchoolsTable, type PrereqItem, type PrereqSource } from "@workspace/db";
-import { eq } from "drizzle-orm";
+import { and, eq } from "drizzle-orm";
 
 const TODAY = new Date().toISOString().slice(0, 10);
 
@@ -67,25 +76,43 @@ function toItem(c: BatchCourse): PrereqItem {
 
 async function main() {
   const file = process.argv[2];
-  if (!file) throw new Error("Usage: tsx src/upsert-prereq-batch.ts <batch-file.json>");
+  const professionSlug = process.argv[3] ?? "physical-therapy";
+  if (!file) throw new Error("Usage: tsx src/upsert-prereq-batch.ts <batch-file.json> [professionSlug]");
   const batch: BatchProgram[] = JSON.parse(fs.readFileSync(path.resolve(file), "utf8"));
 
+  const appliedNames = new Set<string>();
   let ok = 0;
   for (const p of batch) {
     if (!p.hasPrereqList || p.courses.length === 0) {
       console.log(`SKIP ${p.id} ${p.institution} — no prereq list extracted`);
       continue;
     }
-    const [row] = await db
+    const matches = await db
       .select()
       .from(programSchoolsTable)
-      .where(eq(programSchoolsTable.id, p.id));
-    if (!row) {
-      console.log(`MISSING ${p.id} ${p.institution} — no DB row`);
+      .where(
+        and(
+          eq(programSchoolsTable.professionSlug, professionSlug),
+          eq(programSchoolsTable.name, p.institution),
+        ),
+      );
+    if (matches.length === 0) {
+      console.log(`MISSING ${p.id} ${p.institution} — no DB row matches this name in ${professionSlug}`);
+      continue;
+    }
+    if (matches.length > 1) {
+      console.log(
+        `AMBIGUOUS ${p.id} ${p.institution} — ${matches.length} rows share this name; applying to the first (id=${matches[0].id}) only`,
+      );
+    }
+    const row = matches[0];
+    if (appliedNames.has(p.institution)) {
+      console.log(`DUPLICATE ${p.id} ${p.institution} — directory has a single reconciled row already updated by an earlier batch entry; skipping`);
       continue;
     }
     if (row.verificationStatus === "verified" && (row.prereqCourses?.length ?? 0) > 0) {
       console.log(`ALREADY VERIFIED ${p.id} ${row.name} (${row.prereqCourses!.length} courses) — leaving intact`);
+      appliedNames.add(p.institution);
       continue;
     }
     const items = p.courses.map(toItem);
@@ -114,13 +141,13 @@ async function main() {
           "Machine-verified from official source, no human review. " +
           (p.otherConditions ? `Page conditions: ${p.otherConditions}` : ""),
       })
-      .where(eq(programSchoolsTable.id, p.id));
+      .where(eq(programSchoolsTable.id, row.id));
 
     // Post-write read-back assertion
     const [check] = await db
       .select()
       .from(programSchoolsTable)
-      .where(eq(programSchoolsTable.id, p.id));
+      .where(eq(programSchoolsTable.id, row.id));
     const good =
       check?.verificationStatus === "verified" &&
       check?.sourceUrl === p.sourceUrl &&
@@ -131,7 +158,8 @@ async function main() {
       );
     }
     ok++;
-    console.log(`OK ${p.id} ${row.name}: ${items.length} courses, verified`);
+    appliedNames.add(p.institution);
+    console.log(`OK ${p.id} -> db id=${row.id} ${row.name}: ${items.length} courses, verified`);
   }
   console.log(`Done — ${ok} program(s) upserted and read-back verified.`);
   process.exit(0);
