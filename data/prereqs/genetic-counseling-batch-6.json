@@ -1,0 +1,66 @@
+[
+  {
+    "id": 327,
+    "institution": "Vanderbilt University",
+    "sourceUrl": "https://medschool.vanderbilt.edu/mgc/admissions/",
+    "hasPrereqList": true,
+    "otherConditions": "It is highly recommended that these courses be completed by the fall preceding the matriculation year. Coursework must come from an accredited U.S. institution, with limited exceptions for study abroad and AP courses. Applicants may explain their plans if prerequisites are not yet complete at application time.",
+    "courses": [
+      { "name": "Biology", "classification": "required" },
+      { "name": "Chemistry", "classification": "required" },
+      { "name": "Biochemistry", "classification": "required" },
+      { "name": "General or Human Genetics", "classification": "required" },
+      { "name": "Statistics", "classification": "required" },
+      { "name": "Psychology", "classification": "required" }
+    ]
+  },
+  {
+    "id": 328,
+    "institution": "Emory University School of Medicine",
+    "sourceUrl": "https://med.emory.edu/departments/human-genetics/education/genetic-counseling-training/admissions/eligibility.html",
+    "hasPrereqList": true,
+    "otherConditions": "Genetics coursework must be completed by the Fall semester of the application year. One additional prerequisite may be taken the following Spring with demonstrated enrollment and satisfactory progress. GRE scores are optional.",
+    "courses": [
+      { "name": "Genetics", "classification": "required", "details": "One semester or quarter; must be completed by the fall semester of the application year." },
+      { "name": "Psychology", "classification": "required", "details": "One semester or quarter." },
+      { "name": "Statistics", "classification": "required", "details": "One semester or quarter." },
+      { "name": "Biochemistry", "classification": "required", "details": "One semester or quarter." }
+    ]
+  },
+  {
+    "id": 329,
+    "institution": "Medical University of South Carolina",
+    "sourceUrl": "https://chp.musc.edu/academics/genetic-counseling/admissions",
+    "hasPrereqList": true,
+    "otherConditions": "Total of 24 semester hours of prerequisite coursework required at a regionally accredited institution. Coursework does not need to be complete to apply, but a reasonable plan must be in place to complete it before matriculation. Both in-person and online courses accepted; AP and dual-enrollment credit acceptable if it appears on the college transcript.",
+    "courses": [
+      { "name": "Biochemistry", "classification": "required", "semesterCredits": "3" },
+      { "name": "General Biology", "classification": "required", "semesterCredits": "6" },
+      { "name": "General Chemistry", "classification": "required", "semesterCredits": "6" },
+      { "name": "General Psychology", "classification": "required", "semesterCredits": "3" },
+      { "name": "Genetics", "classification": "required", "semesterCredits": "3" },
+      { "name": "Statistics", "classification": "required", "semesterCredits": "3" }
+    ]
+  },
+  {
+    "id": 330,
+    "institution": "University of Kansas School of Health Professionals",
+    "sourceUrl": "https://www.kumc.edu/school-of-health-professions/academics/departments/clinical-laboratory-sciences/academics/masters-degree-in-genetic-counseling/eligibility-and-requirements.html",
+    "hasPrereqList": true,
+    "otherConditions": "Each prerequisite course requires a minimum grade of C, with an overall prerequisite GPA of 3.0 or higher prior to enrollment.",
+    "courses": [
+      { "name": "Biology", "classification": "required", "details": "Two semesters." },
+      { "name": "Chemistry", "classification": "required", "details": "One semester." },
+      { "name": "Biochemistry", "classification": "required", "details": "One semester." },
+      { "name": "Genetics", "classification": "required", "details": "One semester." },
+      { "name": "Psychology", "classification": "required", "details": "One semester." },
+      { "name": "Statistics", "classification": "required", "details": "One semester." },
+      { "name": "Embryology", "classification": "recommended" },
+      { "name": "Anatomy and Physiology", "classification": "recommended" },
+      { "name": "Developmental Biology", "classification": "recommended" },
+      { "name": "Organic Chemistry", "classification": "recommended" },
+      { "name": "Sociology", "classification": "recommended" },
+      { "name": "Public Health", "classification": "recommended" }
+    ]
+  }
+]

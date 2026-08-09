@@ -1,0 +1,68 @@
+[
+  {
+    "id": 72,
+    "institution": "California Northstate University College of Dental Medicine",
+    "sourceUrl": "https://dentalmedicine.cnsu.edu/admissions/requirements.php",
+    "hasPrereqList": true,
+    "otherConditions": "Minimum of 90 semester credits or 135 quarter credits required from an accredited US or Canadian college (or equivalent foreign institution); baccalaureate degree preferred. Minimum science and total GPA of 2.80 (3.20 preferred).",
+    "courses": [
+      { "name": "Human Anatomy", "classification": "required", "semesterCredits": "1 semester" },
+      { "name": "College-Level English", "classification": "required", "details": "2 semesters / 1 year." },
+      { "name": "Biology", "classification": "required", "labRequired": true, "details": "2 semesters / 1 year." },
+      { "name": "Inorganic (General) Chemistry", "classification": "required", "labRequired": true, "details": "2 semesters / 1 year." },
+      { "name": "Organic Chemistry", "classification": "required", "labRequired": true, "details": "2 semesters / 1 year." }
+    ]
+  },
+  {
+    "id": 73,
+    "institution": "Pacific Northwest University of Health Science School of Dental Medicine",
+    "sourceUrl": "https://www.pnwu.edu/academics/school-of-dental-medicine/how-to-apply/admission-requirements/",
+    "hasPrereqList": true,
+    "otherConditions": "All prerequisite courses must be lecture-based (labs alone do not count), completed within 7 years of matriculation, and finished by spring of the enrollment year. Overall GPA minimum 2.85; prerequisite GPA minimum 3.0. No more than 3 prerequisite courses may be in progress/outstanding at application. DAT not required.",
+    "courses": [
+      { "name": "General Chemistry", "classification": "required", "semesterCredits": "6" },
+      { "name": "Organic Chemistry", "classification": "required", "semesterCredits": "6" },
+      { "name": "General Biology or Zoology", "classification": "required", "semesterCredits": "6" },
+      { "name": "Human Anatomy and Physiology", "classification": "required", "semesterCredits": "6", "details": "Combined or separate courses." },
+      { "name": "General Biochemistry", "classification": "required", "semesterCredits": "3", "details": "One of five secondary-requirement options; applicants choose from Biochemistry, Microbiology, Physics, English, or Social/Behavioral Science." },
+      { "name": "General Microbiology", "classification": "required", "semesterCredits": "3", "details": "Secondary requirement option." },
+      { "name": "General Physics", "classification": "required", "semesterCredits": "3", "details": "Secondary requirement option." },
+      { "name": "English", "classification": "required", "semesterCredits": "3", "details": "Secondary requirement option." },
+      { "name": "Social/Behavioral Science", "classification": "required", "semesterCredits": "3", "details": "Secondary requirement option." }
+    ]
+  },
+  {
+    "id": 74,
+    "institution": "Herman Ostrow School of Dentistry of the University of Southern California",
+    "sourceUrl": "https://dentistry.usc.edu/admission/doctor-of-dental-surgery-dds/",
+    "hasPrereqList": true,
+    "otherConditions": "Minimum of 60 semester units with a grade of C or better must be completed or in progress at time of application. Coursework must be from a US or Canadian accredited institution; accelerated science programs not accepted; hybrid courses allowed but lab components must be in person. DAT required, taken within 3 years of admission year sought.",
+    "courses": [
+      { "name": "General Biology", "classification": "required", "labRequired": true, "details": "1 year." },
+      { "name": "General Chemistry", "classification": "required", "labRequired": true, "details": "1 year." },
+      { "name": "Organic Chemistry", "classification": "required", "labRequired": true, "details": "1 year." },
+      { "name": "Physics", "classification": "required", "labRequired": true, "details": "1 year." },
+      { "name": "English Composition", "classification": "required", "details": "1 year." },
+      { "name": "Biochemistry", "classification": "recommended" },
+      { "name": "Anatomy", "classification": "recommended" },
+      { "name": "Histology", "classification": "recommended" },
+      { "name": "Physiology", "classification": "recommended" }
+    ]
+  },
+  {
+    "id": 75,
+    "institution": "The Dental College of Georgia at Augusta University",
+    "sourceUrl": "https://www.augusta.edu/dentalmedicine/admit/requirementsandprerequisites.php",
+    "hasPrereqList": true,
+    "otherConditions": "Minimum 90 semester hours (135 quarter hours) required at an accredited American college or university, with preference for a completed baccalaureate degree. All required courses must use a graduated grading scale (A-F), not pass/fail. Grade of C or better required in all required courses.",
+    "courses": [
+      { "name": "Principles of Biology", "classification": "required", "labRequired": true, "details": "One academic year (two semesters, or three quarters, or one semester and two quarters)." },
+      { "name": "Principles of Chemistry", "classification": "required", "labRequired": true, "details": "One academic year." },
+      { "name": "Organic Chemistry I", "classification": "required", "labRequired": true, "details": "Part of the required academic year of advanced chemistry." },
+      { "name": "Biochemistry I", "classification": "required", "details": "Part of the required academic year of advanced chemistry; lab optional." },
+      { "name": "Organic Chemistry II", "classification": "recommended", "details": "Optional but highly recommended." },
+      { "name": "Physics", "classification": "required", "labRequired": true, "details": "One semester (or two quarters)." },
+      { "name": "English", "classification": "required", "details": "One academic year (or the portion required for the baccalaureate degree)." }
+    ]
+  }
+]

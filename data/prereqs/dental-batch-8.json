@@ -1,0 +1,89 @@
+[
+  {
+    "id": 102,
+    "institution": "Texas A&M University College of Dentistry",
+    "sourceUrl": "https://dentistry.tamu.edu/admissions/dds-admissions.html",
+    "hasPrereqList": true,
+    "otherConditions": "Minimum 90 semester hours required; degree completion strongly recommended. DAT required. Grade of C or better required in all coursework.",
+    "courses": [
+      { "name": "General Biology", "classification": "required", "labRequired": true, "semesterCredits": "8" },
+      { "name": "General Chemistry", "classification": "required", "labRequired": true, "semesterCredits": "8" },
+      { "name": "Organic Chemistry", "classification": "required", "labRequired": true, "semesterCredits": "8" },
+      { "name": "College Writing I and II", "classification": "required", "semesterCredits": "6", "details": "3 hours each." },
+      { "name": "Physics I and II for Science Majors", "classification": "required", "semesterCredits": "8", "details": "4 hours each." },
+      { "name": "Mathematics", "classification": "required", "semesterCredits": "3", "details": "Elementary Probability and Statistics." },
+      { "name": "Biochemistry", "classification": "required", "semesterCredits": "3" },
+      { "name": "Additional Biology (incl. Human A&P I/II and Microbiology)", "classification": "required", "labRequired": true, "semesterCredits": "18", "details": "Minimum 15 lecture hours plus 3 lab hours; must include Human Anatomy & Physiology I and II (4 hrs each) and Microbiology (4 hrs)." }
+    ]
+  },
+  {
+    "id": 103,
+    "institution": "Indiana University School of Dentistry",
+    "sourceUrl": "https://bulletin.iu.edu/iu/dentistry/2025-2026/dds/admission/predental-req.shtml",
+    "hasPrereqList": true,
+    "otherConditions": "All courses required and must be completed before matriculation, along with a bachelor's degree. AP and Dual Credit courses not acceptable for Biology, Chemistry, and Physics prerequisites.",
+    "courses": [
+      { "name": "Microbiology or Immunology", "classification": "required", "semesterCredits": "3" },
+      { "name": "Cell Biology, Biochemistry, or Molecular Biology", "classification": "required", "semesterCredits": "3" },
+      { "name": "Anatomy or Histology", "classification": "required", "labRequired": true, "semesterCredits": "4", "details": "Human, Mammalian, or Comparative." },
+      { "name": "Physiology", "classification": "required", "semesterCredits": "3", "details": "Human, Mammalian, or Comparative; alternatively, combined Anatomy & Physiology I & II with labs (8 credits total) may substitute for the Anatomy/Histology and Physiology requirements." },
+      { "name": "General or Inorganic Chemistry I & II", "classification": "required", "labRequired": true, "semesterCredits": "8" },
+      { "name": "Organic Chemistry", "classification": "required", "labRequired": true, "semesterCredits": "4" },
+      { "name": "General Physics I & II", "classification": "required", "labRequired": true, "semesterCredits": "8" },
+      { "name": "Psychology or Communication Studies", "classification": "required", "semesterCredits": "3" },
+      { "name": "Humanities Elective", "classification": "required", "semesterCredits": "3", "details": "History, Literature, Philosophy, Foreign Language, or English Composition." }
+    ]
+  },
+  {
+    "id": 104,
+    "institution": "University of Alabama School of Dentistry at UAB",
+    "sourceUrl": "https://www.uab.edu/dentistry/home/academics/dmd/admissions",
+    "hasPrereqList": true,
+    "otherConditions": "All required courses must be taken within the last 5 years. Pass/fail grades accepted (standard letter grades preferred); online and pass/fail courses honored due to COVID-19 policy adjustments.",
+    "courses": [
+      { "name": "General Biology or Zoology", "classification": "required", "semesterCredits": "12" },
+      { "name": "General Inorganic Chemistry", "classification": "required", "labRequired": true, "semesterCredits": "8", "details": "Includes qualitative analysis." },
+      { "name": "Organic Chemistry", "classification": "required", "labRequired": true, "semesterCredits": "8" },
+      { "name": "Physics", "classification": "required", "labRequired": true, "semesterCredits": "8", "details": "Mechanics, heat, light, sound, and electricity." },
+      { "name": "Non-Science Coursework", "classification": "required", "semesterCredits": "30", "details": "English (6 hours) and social sciences/humanities strongly recommended within this total." },
+      { "name": "Mathematics", "classification": "recommended", "semesterCredits": "6", "details": "Analytic geometry and differential/integral calculus." },
+      { "name": "Cell Biology", "classification": "recommended" },
+      { "name": "Physiology", "classification": "recommended" },
+      { "name": "Anatomy", "classification": "recommended" },
+      { "name": "Microbiology", "classification": "recommended" },
+      { "name": "Biochemistry", "classification": "recommended" }
+    ]
+  },
+  {
+    "id": 121,
+    "institution": "Boston University Henry M. Goldman School of Dental Medicine",
+    "sourceUrl": "https://www.bu.edu/dental/admissions/dmd/req/",
+    "hasPrereqList": true,
+    "otherConditions": "Total minimum of 45 semester credit hours across prerequisites. At least 30 of those credits must come from a four-year institution. The same course cannot be used to fulfill two different prerequisite requirements. Community college credits accepted only if paired with a 200-level+ course in that discipline at a four-year institution. AP, IB, and test-exemption credits are not accepted.",
+    "courses": [
+      { "name": "Biology", "classification": "required", "labRequired": true, "semesterCredits": "12-13", "details": "3 courses." },
+      { "name": "General Chemistry", "classification": "required", "labRequired": true, "semesterCredits": "8-10", "details": "2 courses." },
+      { "name": "Organic Chemistry", "classification": "required", "labRequired": true, "semesterCredits": "8-10", "details": "2 courses." },
+      { "name": "Physics", "classification": "required", "labRequired": true, "semesterCredits": "8-10", "details": "2 courses." },
+      { "name": "Biochemistry", "classification": "required", "semesterCredits": "3-4", "details": "1 course." },
+      { "name": "Upper-Level Science Electives", "classification": "required", "semesterCredits": "6", "details": "Two additional upper-level science courses." }
+    ]
+  },
+  {
+    "id": 122,
+    "institution": "University of Pennsylvania School of Dental Medicine",
+    "sourceUrl": "https://www.dental.upenn.edu/admissions-academics/dmd-program/admissions/",
+    "hasPrereqList": true,
+    "otherConditions": "Minimum 64 credit hours required at time of application (32 must be prerequisites); minimum 96 total credit hours before matriculation. Minimum grade of C (2.0) or higher required in all prerequisites.",
+    "courses": [
+      { "name": "General Biology", "classification": "required", "labRequired": true, "details": "Two semesters/three quarters." },
+      { "name": "Chemistry", "classification": "required", "labRequired": true, "details": "Three semesters/five quarters: two semesters general + one semester organic, or two semesters organic + one semester general." },
+      { "name": "Biochemistry", "classification": "required", "details": "One semester/quarter; no lab required." },
+      { "name": "Physics", "classification": "required", "labRequired": true, "details": "Two semesters/three quarters, covering basic principles of classical physics." },
+      { "name": "Mathematics", "classification": "required", "details": "One semester/two quarters; calculus preferred, statistics or any college-level math course accepted." },
+      { "name": "English Composition", "classification": "required", "details": "Two semesters/three quarters; composition, literature, humanities, freshman writing seminars, or technical/business writing accepted." },
+      { "name": "Anatomy, Microbiology, or Physiology", "classification": "recommended", "details": "Advanced courses recommended but do not fulfill the general biology requirement." },
+      { "name": "Physical Chemistry", "classification": "recommended" }
+    ]
+  }
+]

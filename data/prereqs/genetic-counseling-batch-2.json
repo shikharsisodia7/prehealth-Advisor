@@ -1,0 +1,91 @@
+[
+  {
+    "id": 304,
+    "institution": "Columbia University",
+    "sourceUrl": "https://www.vagelos.columbia.edu/education/academic-programs/program-genetic-counseling/admission/application-requirements",
+    "hasPrereqList": true,
+    "otherConditions": "Applicants may apply while lacking one or two prerequisites but courses must be completed prior to enrollment. Program also requires a minimum of 40 hours of interactive client experience (not coursework).",
+    "courses": [
+      { "name": "Biology", "classification": "required", "details": "One year." },
+      { "name": "Chemistry", "classification": "required", "details": "One year." },
+      { "name": "Biochemistry", "classification": "required", "semesterCredits": "1 semester" },
+      { "name": "Genetics", "classification": "required", "semesterCredits": "1 semester", "details": "Human or molecular genetics." },
+      { "name": "Psychology", "classification": "required", "semesterCredits": "1 semester" },
+      { "name": "Writing-Intensive Course", "classification": "required", "semesterCredits": "1 semester" },
+      { "name": "Statistics", "classification": "required", "semesterCredits": "1 semester", "details": "Must include probability; business and economic statistics do not typically fulfill this requirement." },
+      { "name": "Humanities/Social Science Electives", "classification": "required", "details": "Three additional courses covering a broad range of humanities/social science subjects." }
+    ]
+  },
+  {
+    "id": 305,
+    "institution": "Long Island University (LIU) Post",
+    "sourceUrl": "https://www.liu.edu/CWPost/Academics/Schools/CLAS/Dept/Biology/Graduate-Programs/MS-Genetic.aspx",
+    "hasPrereqList": true,
+    "otherConditions": "Laboratory sections for Organic Chemistry are optional but recommended.",
+    "courses": [
+      { "name": "Biology", "classification": "required", "labRequired": true, "details": "Two semesters including laboratory sections." },
+      { "name": "Chemistry", "classification": "required", "labRequired": true, "details": "Two semesters including laboratory sections." },
+      { "name": "Organic Chemistry", "classification": "required", "details": "Two semesters, OR one semester Organic Chemistry plus one semester Biochemistry." },
+      { "name": "Genetics", "classification": "required", "semesterCredits": "1 semester" },
+      { "name": "Statistics", "classification": "required", "semesterCredits": "1 semester" },
+      { "name": "Psychology", "classification": "required", "semesterCredits": "1 semester" },
+      { "name": "Medical Embryology", "classification": "recommended" },
+      { "name": "Calculus", "classification": "recommended" },
+      { "name": "Epidemiology", "classification": "recommended" },
+      { "name": "Physiology", "classification": "recommended" }
+    ]
+  },
+  {
+    "id": 306,
+    "institution": "The Ohio State University",
+    "sourceUrl": "https://medicine.osu.edu/education/masters/ms-genetic-counseling/admissions",
+    "hasPrereqList": true,
+    "otherConditions": "AP credit from high school courses does not count toward these requirements. All coursework must be completed in good standing by the end of the spring semester before matriculation. Program references a separate 'Prerequisite Content Requirements' document with further detail not captured here.",
+    "courses": [
+      { "name": "Biochemistry", "classification": "required" },
+      { "name": "Genetics", "classification": "required" },
+      { "name": "Statistics", "classification": "required" },
+      { "name": "Psychology", "classification": "required" }
+    ]
+  },
+  {
+    "id": 307,
+    "institution": "University of Washington",
+    "sourceUrl": "https://genetic-counseling-masters.uw.edu/admissions/prerequisites",
+    "hasPrereqList": true,
+    "otherConditions": "Courses may be in progress at time of application but must be completed by December 31st. Genetics and Biochemistry must be upper-level; Psychology and Statistics may be introductory-level.",
+    "courses": [
+      { "name": "Genetics", "classification": "required", "details": "Upper-level, one semester/quarter: Mendelian inheritance, gene expression/transcription/translation, chromosomes, population genetics, genetic variation." },
+      { "name": "Biochemistry", "classification": "required", "details": "Upper-level, one semester: membranes/signal transduction, amino acids/protein synthesis, enzymes, carbohydrates/lipids, metabolism, nucleic acids/DNA/RNA." },
+      { "name": "Psychology", "classification": "required", "details": "Introductory-level, one semester/quarter." },
+      { "name": "Statistics", "classification": "required", "details": "Introductory-level, one semester/quarter: probability, sampling, descriptive statistics." },
+      { "name": "Laboratory Coursework", "classification": "required", "labRequired": true, "details": "Two semesters/quarters in any scientific discipline, demonstrating experience with the scientific method, analytical methods, experimental design, and lab reports." }
+    ]
+  },
+  {
+    "id": 308,
+    "institution": "Rutgers University",
+    "sourceUrl": "https://gcmp.rutgers.edu/admissions/prerequisites",
+    "hasPrereqList": true,
+    "otherConditions": "Prerequisite courses (Genetics, Statistics, Biochemistry) must be taken prior to applying; applications lacking documentation of completion may not be reviewed. Embryology must be completed online prior to program start if not taken previously.",
+    "courses": [
+      { "name": "Genetics", "classification": "required", "semesterCredits": "1 semester" },
+      { "name": "Statistics", "classification": "required", "semesterCredits": "1 semester" },
+      { "name": "Biochemistry", "classification": "required", "semesterCredits": "1 semester" },
+      { "name": "Embryology", "classification": "required", "details": "May be completed online prior to program start if not taken previously." },
+      { "name": "Anatomy/Physiology", "classification": "recommended" }
+    ]
+  },
+  {
+    "id": 309,
+    "institution": "University of Wisconsin-Madison",
+    "sourceUrl": "https://www.med.wisc.edu/education/genetic-counseling-program/how-to-apply/",
+    "hasPrereqList": true,
+    "otherConditions": "An introductory genetics course intended for non-science majors is explicitly stated as not sufficient; advanced/upper-level coursework is required. Biochemistry generally requires at least one semester each of chemistry and organic chemistry as its own prerequisite.",
+    "courses": [
+      { "name": "Statistics", "classification": "required", "details": "A statistics course designed for math or life science majors (e.g., Introductory Applied Statistics for the Life Sciences)." },
+      { "name": "Biochemistry", "classification": "required", "details": "E.g., Introduction to Biochemistry; requires prior chemistry and organic chemistry." },
+      { "name": "Advanced Genetics", "classification": "required", "details": "Life-science-major-level genetics course (e.g., General Genetics 1 and 2); an introductory genetics course for non-majors is not sufficient." }
+    ]
+  }
+]

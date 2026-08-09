@@ -1,0 +1,49 @@
+[
+  {
+    "id": 321,
+    "institution": "University of Colorado Denver",
+    "sourceUrl": "https://www.cuanschutz.edu/docs/librariesprovider233/genetic-counseling/genetic-counseling-brochure.pdf",
+    "hasPrereqList": true,
+    "otherConditions": "Prerequisites cannot be waived, taken during the summer term immediately prior to starting the program, or taken concurrently during enrollment. Must be completed or in progress at time of application and taken for a letter grade, not pass/fail. GRE not required for the 2026 cycle. Successful completion of an online clinical embryology course during the first semester of the program is also required (not a prerequisite for admission).",
+    "courses": [
+      { "name": "General/Introductory Biology", "classification": "required", "details": "Full academic year, first-year level course sequence." },
+      { "name": "General/Inorganic Chemistry", "classification": "required", "details": "Full academic year, first-year level course sequence." },
+      { "name": "General Biochemistry", "classification": "required", "details": "Comprehensive upper-level course; either both semesters of a full-year sequence or one comprehensive/accelerated semester. Organic Chemistry is typically its own prerequisite; a combined one-semester Organic/Biochemistry survey course does not satisfy this requirement." },
+      { "name": "General Genetics", "classification": "required", "details": "Upper-level course covering prokaryote/eukaryote genetics, Mendelian principles, molecular genetics, gene expression, recombinant DNA technology, population/quantitative genetics, lab techniques. An upper-division Human Genetics, Molecular Genetics, or Behavioral Genetics course does NOT fulfill this prerequisite. Accompanying genetics lab strongly recommended if not integrated." },
+      { "name": "General/Introductory Psychology", "classification": "required", "details": "One semester course." },
+      { "name": "Introductory Statistics", "classification": "recommended" },
+      { "name": "Anatomy & Physiology", "classification": "recommended" },
+      { "name": "Molecular/Cellular Biology", "classification": "recommended" }
+    ]
+  },
+  {
+    "id": 343,
+    "institution": "University of Toronto",
+    "sourceUrl": "https://moleculargenetics.utoronto.ca/genetic-counselling-admission-requirements",
+    "hasPrereqList": true,
+    "otherConditions": "Molecular Biology and Genetics courses must be completed within the last 5 years or less. All outstanding prerequisites must be completed by April 30. AP courses not accepted. Applicants should contact mscgc.inquiries@sickkids.ca with prerequisite equivalency questions.",
+    "courses": [
+      { "name": "Molecular Biology", "classification": "required", "details": "Foundational knowledge of molecular/cellular mechanisms of gene structure, expression, and function; must be completed within the last 5 years." },
+      { "name": "Genetics", "classification": "required", "details": "Foundational knowledge of inheritance, genetic variation, and human genetics; must be completed within the last 5 years." },
+      { "name": "Biochemistry", "classification": "required", "details": "Equivalent to University of Toronto BCH210H1 (Proteins, Lipids and Metabolism)." },
+      { "name": "Embryology", "classification": "required", "details": "Equivalent to University of Toronto ANA301H1 (Human Embryology); Developmental Biology accepted if heavily focused on development." },
+      { "name": "Statistics", "classification": "required", "details": "An introductory course is acceptable." },
+      { "name": "Psychology", "classification": "required", "details": "An introductory course is acceptable." }
+    ]
+  },
+  {
+    "id": 357,
+    "institution": "University of Manitoba",
+    "sourceUrl": "https://umanitoba.ca/graduate-studies/admissions/programs-of-study/genetic-counselling-msc",
+    "hasPrereqList": true,
+    "otherConditions": "Minimum GPA of 3.7 required in the last 60 credit hours. Practical counselling training and experience (paid or volunteer, typically over one year) also required. Meeting minimum requirements does not guarantee an interview or admission given the competitive applicant pool.",
+    "courses": [
+      { "name": "Genetics", "classification": "required", "semesterCredits": "3", "details": "Minimum 3 undergraduate credits." },
+      { "name": "Psychology", "classification": "required", "semesterCredits": "3", "details": "Minimum 3 undergraduate credits." },
+      { "name": "Statistics", "classification": "recommended" },
+      { "name": "Human Embryology or Developmental Biology", "classification": "recommended" },
+      { "name": "Human Genetics", "classification": "recommended" },
+      { "name": "Molecular Biology", "classification": "recommended" }
+    ]
+  }
+]

@@ -1,0 +1,60 @@
+[
+  {
+    "id": 93,
+    "institution": "The University of Texas at San Antonio School of Dentistry",
+    "sourceUrl": "https://uthscsa.edu/dental/programs/dds-program/admissions",
+    "hasPrereqList": true,
+    "otherConditions": "Minimum 90 semester-hour credits required from a US or Canadian accredited institution, at least 30 of which should be from a 4-year institution. All courses must be completed by end of spring semester before entry, with a grade no lower than C. Minimum GPA of 2.8 in Biology/Chemistry/Physics/Math required; DAT Academic Average of at least 17 required.",
+    "courses": [
+      { "name": "Biological Science", "classification": "required", "labRequired": true, "semesterCredits": "14", "details": "12 hours lecture plus 2 hours formal lab; may include General Biology, Biochemistry, Microbiology, Molecular Biology, Genetics, Ecology, Immunology, Parasitology, Anatomy & Physiology." },
+      { "name": "General Chemistry", "classification": "required", "labRequired": true, "semesterCredits": "8", "details": "As required for college science majors." },
+      { "name": "Organic Chemistry", "classification": "required", "labRequired": true, "semesterCredits": "8" }
+    ]
+  },
+  {
+    "id": 94,
+    "institution": "Medical University of South Carolina James B. Edwards College of Dental Medicine",
+    "sourceUrl": "https://gradstudies.musc.edu/-/sm/dental-medicine/f/cdm-prerequisites.pdf",
+    "hasPrereqList": true,
+    "otherConditions": "All prerequisite coursework must be taken at an accredited US institution; community/technical college and online coursework accepted. Must be completed by the start of the DMD program in June. All science courses should be taken with corresponding labs.",
+    "courses": [
+      { "name": "General Chemistry", "classification": "required", "labRequired": true, "semesterCredits": "8" },
+      { "name": "Organic Chemistry", "classification": "required", "labRequired": true, "semesterCredits": "8" },
+      { "name": "Biology or Zoology", "classification": "required", "labRequired": true, "semesterCredits": "8" },
+      { "name": "Physics", "classification": "required", "labRequired": true, "semesterCredits": "8" },
+      { "name": "Science Electives", "classification": "required", "semesterCredits": "8", "details": "E.g. Microbiology, Biochemistry, Anatomy, Physiology, Genetics." },
+      { "name": "English", "classification": "required", "semesterCredits": "6" },
+      { "name": "Mathematics", "classification": "required", "semesterCredits": "6" }
+    ]
+  },
+  {
+    "id": 95,
+    "institution": "Midwestern University College of Dental Medicine- Arizona",
+    "sourceUrl": "https://www.midwestern.edu/academics/degrees-programs/doctor-dental-medicine-program/college-dental-medicine-arizona",
+    "hasPrereqList": true,
+    "otherConditions": "Bachelor's degree from an accredited institution expected. Both science (biology, chemistry, physics) and total GPA of 3.00+ recommended for competitiveness. Prerequisites may be taken at a community college; AP credit accepted. DAT total score of 410+ recommended for competitiveness.",
+    "courses": [
+      { "name": "General Biology", "classification": "required", "labRequired": true },
+      { "name": "General (Inorganic) Chemistry", "classification": "required", "labRequired": true },
+      { "name": "Organic Chemistry", "classification": "required", "labRequired": true },
+      { "name": "Physics", "classification": "required" },
+      { "name": "Mathematics", "classification": "required" }
+    ]
+  },
+  {
+    "id": 96,
+    "institution": "University of Florida College of Dentistry",
+    "sourceUrl": "https://admissions.dental.ufl.edu/d-m-d/dmd-requirements/prerequisites/",
+    "hasPrereqList": true,
+    "otherConditions": "All lower-level courses must be from regionally accredited US/Canadian institutions (community college credit accepted). Upper-level Microbiology and Biochemistry must be taken at a 4-year institution at the 3000-4000/300-400 course level. All prerequisites must be completed by the end of the spring semester before matriculation, with a minimum grade of C; no pass/fail credit accepted if letter grades were available. In-person coursework strongly recommended.",
+    "courses": [
+      { "name": "English", "classification": "required", "semesterCredits": "6" },
+      { "name": "Biology", "classification": "required", "semesterCredits": "8" },
+      { "name": "General Chemistry", "classification": "required", "semesterCredits": "8" },
+      { "name": "Organic Chemistry", "classification": "required", "semesterCredits": "8" },
+      { "name": "Physics", "classification": "required", "semesterCredits": "8", "details": "With or without calculus." },
+      { "name": "Microbiology", "classification": "required", "semesterCredits": "3", "details": "Upper-level (3000-4000/300-400 level) coursework at a 4-year institution." },
+      { "name": "Biochemistry", "classification": "required", "semesterCredits": "3", "details": "Upper-level (3000-4000/300-400 level) coursework at a 4-year institution." }
+    ]
+  }
+]

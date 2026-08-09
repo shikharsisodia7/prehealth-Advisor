@@ -1,0 +1,111 @@
+[
+  {
+    "id": 331,
+    "institution": "University at Buffalo",
+    "sourceUrl": "https://medicine.buffalo.edu/education/genetic-counseling/apply.html",
+    "hasPrereqList": true,
+    "otherConditions": "Courses must be completed within the past 10 years at an accredited college or university with a grade equivalent to C (2.0/4.0) or better. Up to 2 courses may still be in progress at time of application, not including Genetics (which cannot be in progress).",
+    "courses": [
+      { "name": "Biology", "classification": "required", "details": "At least two courses." },
+      { "name": "Biochemistry", "classification": "required" },
+      { "name": "Genetics", "classification": "required" },
+      { "name": "Psychology", "classification": "required" },
+      { "name": "Probability/Statistics", "classification": "required" }
+    ]
+  },
+  {
+    "id": 332,
+    "institution": "University of Alabama at Birmingham",
+    "sourceUrl": "https://www.uab.edu/shp/cds/genetic-counseling/admissions",
+    "hasPrereqList": true,
+    "otherConditions": "Coursework must be completed or in progress at time of application. AP credit fulfills requirements for Biology I and II, Statistics, and Psychology. Minimum cumulative undergraduate GPA of 3.0 required.",
+    "courses": [
+      { "name": "Biology I", "classification": "required", "labRequired": true, "semesterCredits": "3-4" },
+      { "name": "Biology II", "classification": "required", "labRequired": true, "semesterCredits": "3-4" },
+      { "name": "Biochemistry", "classification": "required", "semesterCredits": "3-4" },
+      { "name": "Genetics", "classification": "required", "semesterCredits": "3-4" },
+      { "name": "Statistics", "classification": "required", "semesterCredits": "3" },
+      { "name": "Psychology", "classification": "required", "semesterCredits": "3-4", "details": "General, developmental, or abnormal psychology." }
+    ]
+  },
+  {
+    "id": 333,
+    "institution": "University of Arkansas Medical Sciences",
+    "sourceUrl": "https://healthprofessions.uams.edu/genetic-counseling/master-of-science/about/admission-requirements/",
+    "hasPrereqList": true,
+    "otherConditions": "A final grade of C or better required in each prerequisite course. Actual course titles may vary among institutions. Applicants with more than one missing prerequisite may not be considered.",
+    "courses": [
+      { "name": "Biology", "classification": "required", "details": "Minimum two quarters or one semester." },
+      { "name": "Chemistry", "classification": "required", "details": "Minimum two quarters or one semester." },
+      { "name": "Psychology", "classification": "required", "details": "Minimum two quarters or one semester." },
+      { "name": "Genetics", "classification": "required", "details": "Must include Mendelian and molecular genetics." },
+      { "name": "Cell or Molecular Biology", "classification": "required" },
+      { "name": "Biochemistry", "classification": "required" },
+      { "name": "Statistics", "classification": "required" },
+      { "name": "Laboratory Course", "classification": "required", "labRequired": true, "details": "Biology, genetics, chemistry, or biochemistry lab." },
+      { "name": "Advanced Genetics/Biology", "classification": "recommended" },
+      { "name": "Abnormal Psychology", "classification": "recommended" },
+      { "name": "Research Methods", "classification": "recommended" },
+      { "name": "Human Anatomy", "classification": "recommended" },
+      { "name": "Physiology", "classification": "recommended" },
+      { "name": "Human Genetics", "classification": "recommended" },
+      { "name": "Child Development", "classification": "recommended" },
+      { "name": "Medical Terminology", "classification": "recommended" },
+      { "name": "Technical Writing", "classification": "recommended" }
+    ]
+  },
+  {
+    "id": 334,
+    "institution": "University of California, Los Angeles",
+    "sourceUrl": "https://medschool.ucla.edu/about/departments/basic-science/human-genetics/genetic-counseling-ms-program/admissions",
+    "hasPrereqList": true,
+    "otherConditions": "AP coursework cannot be counted toward prerequisites. Courses can be fulfilled at community colleges or online if from accredited four-year universities, but must be completed prior to matriculation.",
+    "courses": [
+      { "name": "Biology", "classification": "required", "details": "At least one semester or quarter." },
+      { "name": "Biochemistry", "classification": "required", "details": "Must cover macromolecule structure/function, signal transduction/membrane transport, energy production/metabolism." },
+      { "name": "Genetics", "classification": "required", "details": "Must include Mendelian genetics and molecular biology: DNA structure/function, amplification/sequencing, genome structure, replication/recombination/gene expression." },
+      { "name": "Psychology or Sociology", "classification": "required" },
+      { "name": "Statistics or Biostatistics", "classification": "required" },
+      { "name": "Embryology", "classification": "recommended" },
+      { "name": "Developmental Biology", "classification": "recommended" },
+      { "name": "Anatomy", "classification": "recommended" },
+      { "name": "Physiology", "classification": "recommended" }
+    ]
+  },
+  {
+    "id": 336,
+    "institution": "Bay Path University",
+    "sourceUrl": "https://www.baypath.edu/admissions-aid/graduate-admissions/genetic-counseling-ms-requirements/",
+    "hasPrereqList": true,
+    "otherConditions": "All prerequisite courses must be completed with a grade of B or higher. Embryology is the only prerequisite that does not need to be completed before enrollment; matched applicants may take it during the summer before the program's official September start.",
+    "courses": [
+      { "name": "Biology", "classification": "required", "labRequired": true, "details": "2 semesters." },
+      { "name": "Chemistry", "classification": "required", "labRequired": true, "details": "2 semesters." },
+      { "name": "Organic Chemistry", "classification": "required", "labRequired": true, "semesterCredits": "1 semester" },
+      { "name": "Molecular or Cell Biology", "classification": "required", "semesterCredits": "1 semester" },
+      { "name": "Embryology", "classification": "required", "semesterCredits": "1 semester", "details": "May be completed the summer before the program's September start rather than before application." },
+      { "name": "Biochemistry", "classification": "required", "semesterCredits": "1 semester" },
+      { "name": "Genetics", "classification": "required", "semesterCredits": "1 semester" },
+      { "name": "Psychology", "classification": "required", "semesterCredits": "1 semester" },
+      { "name": "Statistics", "classification": "required", "semesterCredits": "1 semester" }
+    ]
+  },
+  {
+    "id": 337,
+    "institution": "MGH Institute of Health Professions",
+    "sourceUrl": "http://www.mghihp.edu/health-rehabilitation-sciences/departments-programs/genetic-counseling/master-science-genetic-counseling",
+    "hasPrereqList": true,
+    "otherConditions": "All prerequisite courses must be satisfactorily completed prior to the start of the program. AP credit may count for only one Biology or Chemistry course. Pass/Fail grades are not accepted, except under temporary COVID-19 policies. Program offers online prerequisite courses.",
+    "courses": [
+      { "name": "Biology", "classification": "required", "details": "Two courses." },
+      { "name": "Chemistry", "classification": "required", "details": "Two courses, not including Biochemistry." },
+      { "name": "Biochemistry", "classification": "required", "details": "One course." },
+      { "name": "Statistics", "classification": "required", "details": "One course." },
+      { "name": "Psychology", "classification": "required", "details": "One course." },
+      { "name": "Genetics", "classification": "required", "details": "One course." },
+      { "name": "Embryology", "classification": "recommended" },
+      { "name": "Anatomy/Physiology", "classification": "recommended" },
+      { "name": "Molecular Biology", "classification": "recommended" }
+    ]
+  }
+]

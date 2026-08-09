@@ -1,0 +1,60 @@
+[
+  {
+    "id": 310,
+    "institution": "University of Connecticut",
+    "sourceUrl": "https://geneticcounseling.uconn.edu/admission-requirements-overview/",
+    "hasPrereqList": true,
+    "otherConditions": "Applicants who have not previously completed an Embryology or Human Developmental Biology course will complete a 7-week online asynchronous course (ISG 5101: Principles of Human Embryology and Teratology) in the summer prior to matriculation. Baccalaureate or graduate degree from a regionally accredited institution required.",
+    "courses": [
+      { "name": "Biology or Molecular Biology", "classification": "required", "semesterCredits": "1 semester" },
+      { "name": "Psychology", "classification": "required", "semesterCredits": "1 semester" },
+      { "name": "Genetics", "classification": "required", "semesterCredits": "1 semester", "details": "Must cover aspects of Mendelian and molecular genetics." },
+      { "name": "Biochemistry", "classification": "required", "semesterCredits": "1 semester" },
+      { "name": "Statistics", "classification": "required", "semesterCredits": "1 semester" },
+      { "name": "Embryology or Human Developmental Biology", "classification": "required", "semesterCredits": "1 semester", "details": "May be satisfied via a required online course prior to matriculation if not previously completed." }
+    ]
+  },
+  {
+    "id": 311,
+    "institution": "University of California, San Francisco",
+    "sourceUrl": "https://geneticcounseling.ucsf.edu/admissions",
+    "hasPrereqList": true,
+    "otherConditions": "All prerequisites must be graded (not pass/fail), except courses completed spring 2020 through spring 2021 during the COVID-19 quarantine. AP credit acceptable only for general biology, introductory psychology, and introductory statistics, with transcript documentation required.",
+    "courses": [
+      { "name": "Introductory Genetics", "classification": "required", "details": "For science majors." },
+      { "name": "Organic Chemistry or Biochemistry", "classification": "required", "details": "Must include content on structure and function of biomolecules." },
+      { "name": "Biology", "classification": "required", "details": "2 quarters/semesters." },
+      { "name": "Introductory Statistics or Biostatistics", "classification": "required" },
+      { "name": "Introductory Psychology or Counseling", "classification": "required" },
+      { "name": "Cellular and/or Molecular Biology", "classification": "recommended" },
+      { "name": "Anatomy and/or Physiology", "classification": "recommended" },
+      { "name": "Biochemistry", "classification": "recommended", "details": "Highly recommended in addition to the Organic Chemistry/Biochemistry requirement above." }
+    ]
+  },
+  {
+    "id": 312,
+    "institution": "University of Michigan",
+    "sourceUrl": "https://medschool.umich.edu/departments/human-genetics/education/ms-program-genetic-counseling/apply",
+    "hasPrereqList": true,
+    "otherConditions": "The program does not require a laboratory genetics course. Human Genetics must be upper-level (generally 300-400 level) even if the title includes the word 'introduction'. Applicants currently enrolled in a prerequisite course not yet reflected on an official transcript should note this on their application.",
+    "courses": [
+      { "name": "Human Genetics", "classification": "required", "details": "Upper-level, generally 300-400 level." },
+      { "name": "Biochemistry", "classification": "required", "details": "One semester is sufficient." },
+      { "name": "Statistics", "classification": "required", "details": "General, introductory statistics course." }
+    ]
+  },
+  {
+    "id": 315,
+    "institution": "University of Pittsburgh",
+    "sourceUrl": "https://www.publichealth.pitt.edu/gcprogram",
+    "hasPrereqList": true,
+    "otherConditions": "Applicants are not required to complete all prerequisites before submitting their application, but if accepted, must complete all prerequisites prior to enrollment with an official transcript sent to the Office of Student Affairs. Bachelor's degree required with minimum QPA of 3.0.",
+    "courses": [
+      { "name": "Genetics", "classification": "required" },
+      { "name": "Organic Chemistry", "classification": "required" },
+      { "name": "General Biochemistry", "classification": "required" },
+      { "name": "Statistics", "classification": "required" },
+      { "name": "Behavioral or Social Science", "classification": "required" }
+    ]
+  }
+]

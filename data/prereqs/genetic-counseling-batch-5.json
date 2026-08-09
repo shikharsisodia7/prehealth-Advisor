@@ -1,0 +1,63 @@
+[
+  {
+    "id": 322,
+    "institution": "Boise State University",
+    "sourceUrl": "https://www.boisestate.edu/geneticcounseling/admissions/",
+    "hasPrereqList": true,
+    "otherConditions": "All prerequisites must be completed by the application deadline, with grades submitted no later than December 30th. Genetics and Biochemistry require a grade of B- or better; Genetics must have been completed within the last 5 years. AP courses not accepted as a prerequisite without advanced university-level coursework.",
+    "courses": [
+      { "name": "General Biology", "classification": "required", "semesterCredits": "1 semester" },
+      { "name": "General Chemistry", "classification": "required", "labRequired": true, "semesterCredits": "1 semester" },
+      { "name": "Biochemistry", "classification": "required", "semesterCredits": "1 semester", "details": "Grade of B- or better required." },
+      { "name": "Genetics", "classification": "required", "semesterCredits": "1 semester", "details": "Grade of B- or better required; must be completed within the last 5 years." },
+      { "name": "General Psychology", "classification": "required", "semesterCredits": "1 semester" },
+      { "name": "Statistics", "classification": "required", "semesterCredits": "1 semester" },
+      { "name": "Embryology or Developmental Biology", "classification": "recommended", "semesterCredits": "1 semester" }
+    ]
+  },
+  {
+    "id": 324,
+    "institution": "University of Utah",
+    "sourceUrl": "https://uugpgc.genetics.utah.edu/admission-requirements/",
+    "hasPrereqList": true,
+    "otherConditions": "AP classes accepted with grades; CLEP courses not acceptable. Genetics must be completed within the last 8 years. All prerequisites must be completed or in progress at application submission, with documentation of progress if in progress.",
+    "courses": [
+      { "name": "Biochemistry", "classification": "required", "details": "Covering proteins, nucleic acids, carbohydrates, membranes, enzyme mechanisms, metabolism." },
+      { "name": "Biology", "classification": "required" },
+      { "name": "General Chemistry", "classification": "required" },
+      { "name": "Genetics", "classification": "required", "details": "Must be completed within the last 8 years." },
+      { "name": "Psychology", "classification": "required", "details": "Introductory, Abnormal, and/or Developmental." },
+      { "name": "Statistics", "classification": "required" },
+      { "name": "Embryology", "classification": "recommended" },
+      { "name": "Anatomy", "classification": "recommended" }
+    ]
+  },
+  {
+    "id": 325,
+    "institution": "University of Minnesota",
+    "sourceUrl": "https://cbs.umn.edu/genetic-counseling-program/admissions",
+    "hasPrereqList": true,
+    "otherConditions": "All prerequisites should be taken for a letter grade (with COVID-era exceptions); a B- or better is recommended. Statistics and Psychology requirements can be met using AP exam credit. Biochemistry does not require a lab but must be a full course focused on biochemistry only (e.g., a combined Intro to Organic & Biochemistry course does not qualify). One remaining prerequisite may be completed in the spring semester of the application year if needed.",
+    "courses": [
+      { "name": "Genetics", "classification": "required" },
+      { "name": "Psychology", "classification": "required", "details": "Any course covering psychological theories and principles." },
+      { "name": "Biochemistry", "classification": "required", "details": "Must be a full course focused on biochemistry only; combined organic/biochemistry survey courses do not qualify." },
+      { "name": "Statistics", "classification": "required" }
+    ]
+  },
+  {
+    "id": 326,
+    "institution": "Sarah Lawrence College",
+    "sourceUrl": "https://www.sarahlawrence.edu/genetic-counseling/application/index.html",
+    "hasPrereqList": true,
+    "otherConditions": "Prerequisite courses must be completed prior to enrollment. At the time of application review, only one prerequisite may be outstanding, and it cannot be Genetics.",
+    "courses": [
+      { "name": "Genetics", "classification": "required", "details": "Mendelian, Molecular, or Cell Biology." },
+      { "name": "Psychology", "classification": "required" },
+      { "name": "General Biology", "classification": "required" },
+      { "name": "Biochemistry", "classification": "required" },
+      { "name": "Probability and Statistics", "classification": "required" },
+      { "name": "Human Embryology, Developmental Biology, or Equivalent", "classification": "required" }
+    ]
+  }
+]

@@ -1,0 +1,78 @@
+[
+  {
+    "id": 84,
+    "institution": "University of California at Los Angeles School of Dentistry",
+    "sourceUrl": "https://dentistry.ucla.edu/academics-admissions/dds-program/prerequisites",
+    "hasPrereqList": true,
+    "otherConditions": "Minimum 90 semester units (135 quarter units) required, typically over 3-4 years. All required courses must be passed with a grade of C or higher and completed no later than June 30 of the year admission is sought. Accredited community college coursework accepted but limited to 70 semester/105 quarter units; online classes not accepted.",
+    "courses": [
+      { "name": "Inorganic/General Chemistry", "classification": "required", "labRequired": true, "semesterCredits": "8" },
+      { "name": "Organic Chemistry", "classification": "required", "labRequired": true, "semesterCredits": "6" },
+      { "name": "Physics", "classification": "required", "labRequired": true, "semesterCredits": "8" },
+      { "name": "Biology", "classification": "required", "labRequired": true, "semesterCredits": "8" },
+      { "name": "English Composition", "classification": "required", "semesterCredits": "6" },
+      { "name": "Introductory Psychology", "classification": "required", "semesterCredits": "3" },
+      { "name": "Biochemistry", "classification": "required", "semesterCredits": "3" },
+      { "name": "Histology", "classification": "recommended" },
+      { "name": "Physiology", "classification": "recommended" },
+      { "name": "Human or Comparative Anatomy", "classification": "recommended" },
+      { "name": "Microbiology", "classification": "recommended" }
+    ]
+  },
+  {
+    "id": 85,
+    "institution": "Texas Tech University Health Sciences Center El Paso",
+    "sourceUrl": "https://ttuhscep.edu/sdm/admissions/application-requirements.aspx",
+    "hasPrereqList": true,
+    "otherConditions": "All prerequisites must be completed with a grade of C or better at a regionally accredited US or Canadian institution; Pass/Fail or Credit/No Credit grading does not count. Foreign coursework does not count even if transfer credit was granted by a US/Canadian school.",
+    "courses": [
+      { "name": "Biological Science", "classification": "required", "labRequired": true, "semesterCredits": "14", "details": "12 semester hours lecture plus 2 semester hours formal lab." },
+      { "name": "Microbiology", "classification": "required", "semesterCredits": "3", "details": "Separate from, and in addition to, the 14-hour Biological Science requirement." },
+      { "name": "General Chemistry", "classification": "required" },
+      { "name": "Organic Chemistry", "classification": "required" },
+      { "name": "Biochemistry", "classification": "required" },
+      { "name": "Physics", "classification": "required" },
+      { "name": "Molecular Biology", "classification": "recommended" },
+      { "name": "Anatomy", "classification": "recommended" },
+      { "name": "Physiology", "classification": "recommended" },
+      { "name": "Cell Biology", "classification": "recommended" },
+      { "name": "Histology", "classification": "recommended" },
+      { "name": "Immunology", "classification": "recommended" },
+      { "name": "Genetics", "classification": "recommended" },
+      { "name": "Zoology", "classification": "recommended" }
+    ]
+  },
+  {
+    "id": 86,
+    "institution": "University of Nevada Las Vegas School of Dental Medicine",
+    "sourceUrl": "https://www.unlv.edu/dental/app-requirements",
+    "hasPrereqList": true,
+    "otherConditions": "All prerequisite courses and units must be completed by July of the intended enrollment year, though completing them before application/DAT is highly recommended. Transcripts must be submitted from all institutions attended as part of AADSAS, and again prior to matriculation to verify prerequisites and degree completion.",
+    "courses": [
+      { "name": "Cell Biology", "classification": "recommended" },
+      { "name": "Histology", "classification": "recommended" },
+      { "name": "Immunology", "classification": "recommended" },
+      { "name": "Microbiology", "classification": "recommended" },
+      { "name": "Molecular Biology/Genetics", "classification": "recommended" },
+      { "name": "Physiology", "classification": "recommended" },
+      { "name": "Zoology", "classification": "recommended" }
+    ]
+  },
+  {
+    "id": 87,
+    "institution": "University at Buffalo School of Dental Medicine",
+    "sourceUrl": "https://dental.buffalo.edu/education/dds-program1/admissions-info/adm-req.html",
+    "hasPrereqList": true,
+    "otherConditions": "Minimum 60 credit hours (two full years) of study required at an accredited US or Canadian institution prior to application. Prerequisite courses must be completed within 5 years of applying and fully completed before the first day of dental school. Online prerequisite courses are strongly discouraged.",
+    "courses": [
+      { "name": "Chemistry", "classification": "required", "labRequired": true, "details": "One year." },
+      { "name": "Organic Chemistry", "classification": "required", "labRequired": true, "details": "One year." },
+      { "name": "Biology", "classification": "required", "labRequired": true, "details": "One year." },
+      { "name": "Physics", "classification": "required", "labRequired": true, "details": "One year." },
+      { "name": "English", "classification": "required", "details": "One year." },
+      { "name": "Mathematics", "classification": "recommended", "details": "One year." },
+      { "name": "Histology", "classification": "recommended" },
+      { "name": "Microbiology", "classification": "recommended" }
+    ]
+  }
+]

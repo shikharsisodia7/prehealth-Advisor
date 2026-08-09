@@ -1,0 +1,78 @@
+[
+  {
+    "id": 105,
+    "institution": "Midwestern University College of Dental Medicine- Illinois",
+    "sourceUrl": "https://www.midwestern.edu/academics/degrees-programs/doctor-dental-medicine-program/college-dental-medicine-illinois",
+    "hasPrereqList": true,
+    "otherConditions": "Bachelor's degree from an accredited institution expected. Both science (biology, chemistry, physics) and total GPA of 3.00+ recommended for competitiveness. Final official transcripts including all prerequisites must be received by June 1 prior to matriculation. Survey science courses not accepted.",
+    "courses": [
+      { "name": "General Biology", "classification": "required", "labRequired": true },
+      { "name": "General Chemistry", "classification": "required", "labRequired": true },
+      { "name": "Organic Chemistry", "classification": "required", "labRequired": true },
+      { "name": "Physics", "classification": "required", "labRequired": true },
+      { "name": "Biochemistry", "classification": "required" },
+      { "name": "Mathematics", "classification": "required", "details": "Through calculus or statistics." }
+    ]
+  },
+  {
+    "id": 111,
+    "institution": "VCU School of Dentistry",
+    "sourceUrl": "https://dentistry.vcu.edu/programs/doctor-of-dental-surgery/admission-requirements/",
+    "hasPrereqList": true,
+    "otherConditions": "Minimum 90 semester credit hours (145 quarter credit hours) required at a US/Canadian-accredited institution. All prerequisites must be passed with a grade of C or higher; pass/fail grading without a letter grade is not accepted. Preferred that prerequisites be completed no more than 5 years prior to applying.",
+    "courses": [
+      { "name": "Biology", "classification": "required", "labRequired": true, "details": "2 semesters." },
+      { "name": "General Chemistry", "classification": "required", "labRequired": true, "details": "2 semesters." },
+      { "name": "Organic Chemistry", "classification": "required", "labRequired": true, "details": "2 semesters." },
+      { "name": "Physics", "classification": "required", "labRequired": true, "details": "2 semesters." },
+      { "name": "General Microbiology or Bacteriology", "classification": "recommended" },
+      { "name": "Animal Physiology", "classification": "recommended" },
+      { "name": "Human Anatomy", "classification": "recommended" },
+      { "name": "Immunology", "classification": "recommended" },
+      { "name": "Histology", "classification": "recommended" },
+      { "name": "Genetics", "classification": "recommended" },
+      { "name": "Embryology", "classification": "recommended" },
+      { "name": "Behavioral Sciences", "classification": "recommended" }
+    ]
+  },
+  {
+    "id": 112,
+    "institution": "The Ohio State University College of Dentistry",
+    "sourceUrl": "https://dentistry.osu.edu/academics/programs/doctor-dental-surgery/dds-application-process",
+    "hasPrereqList": true,
+    "otherConditions": "At least 8 of the required prerequisite courses must be complete prior to submitting the application; all must be complete before the start of classes if admitted. Minimum grade of C or higher required. All courses must be from an accredited, English-speaking institution in the US or Canada. Where Anatomy and Physiology are offered as a combined sequence, both parts are required.",
+    "courses": [
+      { "name": "Anatomy", "classification": "required" },
+      { "name": "Physiology", "classification": "required" },
+      { "name": "Biochemistry", "classification": "required" },
+      { "name": "Biology", "classification": "required", "details": "Two-course sequence." },
+      { "name": "General Chemistry", "classification": "required", "details": "Two-course sequence." },
+      { "name": "Organic Chemistry", "classification": "required", "details": "Two-course sequence." },
+      { "name": "English/Composition", "classification": "required" },
+      { "name": "Microbiology", "classification": "required" },
+      { "name": "Physics", "classification": "required" }
+    ]
+  },
+  {
+    "id": 113,
+    "institution": "University of New England College of Dental Medicine",
+    "sourceUrl": "https://www.une.edu/dentalmedicine/admissions",
+    "hasPrereqList": true,
+    "otherConditions": "Minimum 90 semester credits (135 quarter credits) required at a regionally accredited US institution; bachelor's degree preferred. All prerequisites must be completed with a grade of C or better (C- not acceptable). AP credits cannot be applied toward any prerequisite. Courses may be in progress or planned at time of application.",
+    "courses": [
+      { "name": "General Biology", "classification": "required", "labRequired": true, "semesterCredits": "4", "details": "Zoology acceptable substitute." },
+      { "name": "Anatomy or Anatomy & Physiology I & II", "classification": "required", "labRequired": true, "semesterCredits": "4-8" },
+      { "name": "Microbiology", "classification": "required", "labRequired": true, "semesterCredits": "4" },
+      { "name": "General Chemistry", "classification": "required", "labRequired": true, "semesterCredits": "4" },
+      { "name": "Organic Chemistry", "classification": "required", "labRequired": true, "semesterCredits": "4" },
+      { "name": "Biochemistry", "classification": "required", "semesterCredits": "3" },
+      { "name": "Additional Biology/Chemistry/Calculus/Physics", "classification": "required", "semesterCredits": "12" },
+      { "name": "English Composition/Technical Writing", "classification": "required", "semesterCredits": "3" },
+      { "name": "Human Physiology", "classification": "recommended" },
+      { "name": "Immunology", "classification": "recommended" },
+      { "name": "Pharmacology", "classification": "recommended" },
+      { "name": "Histology", "classification": "recommended" },
+      { "name": "Genetics", "classification": "recommended" }
+    ]
+  }
+]

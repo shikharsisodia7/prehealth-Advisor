@@ -1,0 +1,61 @@
+[
+  {
+    "id": 97,
+    "institution": "Western University of Health Sciences College of Dental Medicine",
+    "sourceUrl": "https://prospective.westernu.edu/dentistry/dmd/requirements/",
+    "hasPrereqList": true,
+    "otherConditions": "Minimum 90 semester hours (135 quarter hours) at an accredited institution required. Preference given to candidates with a completed or upcoming baccalaureate degree or coursework beyond the minimum. All prerequisites require a grade of C or equivalent or higher. ESL courses do not satisfy the English requirement.",
+    "courses": [
+      { "name": "General Biology", "classification": "required", "labRequired": true, "semesterCredits": "8" },
+      { "name": "General or Inorganic Chemistry", "classification": "required", "labRequired": true, "semesterCredits": "8", "details": "May not be an introductory-level course." },
+      { "name": "Organic Chemistry", "classification": "required", "labRequired": true, "semesterCredits": "8", "details": "May not be an introductory-level course." },
+      { "name": "General Physics", "classification": "required", "labRequired": true, "semesterCredits": "8", "details": "May not be an introductory-level course." },
+      { "name": "English", "classification": "required", "details": "Writing/composition course from the English department, or a course fulfilling the GE writing requirement; literature courses accepted only if they include a writing component." },
+      { "name": "Biochemistry", "classification": "recommended" },
+      { "name": "Genetics", "classification": "recommended" },
+      { "name": "Cell Biology", "classification": "recommended" },
+      { "name": "Human Anatomy & Physiology", "classification": "recommended" },
+      { "name": "Microbiology", "classification": "recommended" },
+      { "name": "Calculus I", "classification": "recommended" },
+      { "name": "Biometrics", "classification": "recommended" },
+      { "name": "Psychology", "classification": "recommended" },
+      { "name": "Conversational Spanish", "classification": "recommended" }
+    ]
+  },
+  {
+    "id": 99,
+    "institution": "The University of Texas School of Dentistry at Houston",
+    "sourceUrl": "https://catalog.uth.edu/dentistry/programs/doctor-dental-surgery/",
+    "hasPrereqList": true,
+    "otherConditions": "Recommended that at least 30 of the required 90 semester hours be completed at a four-year university. Not all prerequisites must be finished to apply, but most should be; all prerequisites and the bachelor's degree must be completed by July of the year the applicant plans to start.",
+    "courses": [
+      { "name": "General (Inorganic) Chemistry", "classification": "required", "labRequired": true, "semesterCredits": "8" },
+      { "name": "Organic Chemistry", "classification": "required", "labRequired": true, "semesterCredits": "8" },
+      { "name": "Physics", "classification": "required", "labRequired": true, "semesterCredits": "8" },
+      { "name": "Microbiology", "classification": "required", "semesterCredits": "3", "details": "Counts toward part of the 14-semester-hour Biological Science requirement." },
+      { "name": "College English", "classification": "required", "semesterCredits": "6" },
+      { "name": "Statistics", "classification": "required", "semesterCredits": "3" },
+      { "name": "Anatomy", "classification": "recommended" },
+      { "name": "Cell Biology", "classification": "recommended" },
+      { "name": "Histology", "classification": "recommended" },
+      { "name": "Immunology", "classification": "recommended" },
+      { "name": "Molecular Biology/Genetics", "classification": "recommended" },
+      { "name": "Physiology", "classification": "recommended" },
+      { "name": "Zoology", "classification": "recommended" }
+    ]
+  },
+  {
+    "id": 100,
+    "institution": "Rutgers School of Dental Medicine",
+    "sourceUrl": "https://sdm.rutgers.edu/admissions/predoctoral-admissions/pre-dental-requirements",
+    "hasPrereqList": true,
+    "otherConditions": "Minimum 90 semester hours of undergraduate coursework required; bachelor's degree strongly preferred. AP courses will not be accepted toward prerequisites. All science courses must include laboratory instruction.",
+    "courses": [
+      { "name": "Biology", "classification": "required", "labRequired": true, "semesterCredits": "8" },
+      { "name": "English", "classification": "required", "semesterCredits": "6" },
+      { "name": "General Chemistry", "classification": "required", "labRequired": true, "semesterCredits": "8" },
+      { "name": "Organic Chemistry", "classification": "required", "labRequired": true, "semesterCredits": "8" },
+      { "name": "Physics", "classification": "required", "labRequired": true, "semesterCredits": "8" }
+    ]
+  }
+]

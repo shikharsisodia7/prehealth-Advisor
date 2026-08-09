@@ -1,0 +1,52 @@
+[
+  {
+    "id": 80,
+    "institution": "Yeshiva University College of Dental Medicine",
+    "sourceUrl": "https://www.dental.yu.edu/hubfs/YUCDM%20Catalog%202026-2027%20012826%20FINAL.pdf?hsLang=en",
+    "hasPrereqList": true,
+    "otherConditions": "Minimum of 90 semester hours (three full years) of acceptable work from an accredited college or university required. DAT scores required. As a newer dental school, admissions requirements may continue to evolve; applicants should monitor official announcements.",
+    "courses": [
+      { "name": "English", "classification": "required", "semesterCredits": "6" },
+      { "name": "General Chemistry", "classification": "required", "semesterCredits": "8" },
+      { "name": "Organic Chemistry", "classification": "required", "semesterCredits": "8" },
+      { "name": "Biology or Zoology", "classification": "required", "semesterCredits": "8" },
+      { "name": "Biochemistry", "classification": "required", "semesterCredits": "3" },
+      { "name": "Physics", "classification": "required", "semesterCredits": "3" }
+    ]
+  },
+  {
+    "id": 81,
+    "institution": "University of Mississippi School of Dentistry",
+    "sourceUrl": "https://umc.edu/sod/Students/Prospective%20Students/Admissions-Criteria.html",
+    "hasPrereqList": true,
+    "otherConditions": "Minimum 90 semester hours required at a fully accredited US or Canadian institution. No specific major required, though strong preference given to applicants completing a baccalaureate degree before entry. Courses taken by correspondence or online, physical/military science, dogmatic religion, and non-major BCPM courses are not accepted.",
+    "courses": [
+      { "name": "General Chemistry", "classification": "required", "details": "Two semesters." },
+      { "name": "Organic Chemistry", "classification": "required", "details": "Two semesters." },
+      { "name": "General Biology", "classification": "required", "details": "Two semesters." },
+      { "name": "General Physics", "classification": "required", "details": "Two semesters." },
+      { "name": "English Composition", "classification": "required", "details": "Two semesters." },
+      { "name": "Microbiology", "classification": "required" },
+      { "name": "Histology (Microscopic Anatomy)", "classification": "recommended" },
+      { "name": "Physiology", "classification": "recommended" },
+      { "name": "Gross Anatomy", "classification": "recommended" },
+      { "name": "Cell Biology", "classification": "recommended" },
+      { "name": "Immunology", "classification": "recommended" },
+      { "name": "Comparative Anatomy", "classification": "recommended" },
+      { "name": "Neuroanatomy", "classification": "recommended" },
+      { "name": "Embryology", "classification": "recommended" }
+    ]
+  },
+  {
+    "id": 82,
+    "institution": "Harvard University School of Dental Medicine",
+    "sourceUrl": "https://www.hsdm.harvard.edu/dmd-admissions-prerequisites",
+    "hasPrereqList": true,
+    "otherConditions": "Prerequisites must be completed prior to matriculation (generally early August). Science courses strongly encouraged to be taken for a letter grade. On-site/in-person coursework strongly preferred; laboratory science requirements should not be taken online. AP credit cannot be used to satisfy the Biology requirement directly, but upper-level Biology courses may satisfy it if AP credit was earned.",
+    "courses": [
+      { "name": "Biology", "classification": "required", "labRequired": true, "details": "One year (two semesters) covering cellular and molecular aspects; upper-level biology courses may also satisfy this requirement." },
+      { "name": "Chemistry", "classification": "required", "details": "Two-year sequence covering inorganic chemistry, organic chemistry, and biochemistry, including foundational physical/inorganic chemistry topics (bonding, molecular structure, reactivity, equilibrium, energetics, thermodynamics)." },
+      { "name": "Physics", "classification": "required", "details": "One year, covering mechanics, kinetics, thermodynamics, properties of matter/quantum theory, wave theory, electricity and magnetism, and optics." }
+    ]
+  }
+]

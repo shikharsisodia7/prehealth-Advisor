@@ -1,0 +1,82 @@
+[
+  {
+    "id": 88,
+    "institution": "New York University College of Dentistry",
+    "sourceUrl": "https://dental.nyu.edu/education/dds-program/admission-requirements.html",
+    "hasPrereqList": true,
+    "otherConditions": "All prerequisite courses must be completed within the past 10 years at an accredited US or Canadian institution with a minimum grade of C. Bachelor's degree from a regionally accredited US or Canadian institution generally required; applicants without a bachelor's degree but with 90+ credits and a 3.5 GPA may be considered pending Admissions Committee approval.",
+    "courses": [
+      { "name": "Biology", "classification": "required", "details": "1 year (2 semesters)." },
+      { "name": "General Chemistry", "classification": "required", "details": "1 year (2 semesters)." },
+      { "name": "Organic Chemistry", "classification": "required", "details": "1 year (2 semesters)." },
+      { "name": "Physics", "classification": "required", "details": "1 year (2 semesters)." },
+      { "name": "English", "classification": "required", "details": "1 year (2 semesters); must be courses offered by the institution's English department." }
+    ]
+  },
+  {
+    "id": 89,
+    "institution": "Lincoln Memorial University College of Dental Medicine",
+    "sourceUrl": "https://cdmcatalog.lmunet.edu/application-process-dmd",
+    "hasPrereqList": true,
+    "otherConditions": "Labs are required in all science prerequisites unless otherwise noted. Required science prerequisites must be completed with a minimum grade of C+, though a B or better is generally expected for competitive applications.",
+    "courses": [
+      { "name": "General Biology", "classification": "required", "labRequired": true, "semesterCredits": "8" },
+      { "name": "Inorganic (General) Chemistry", "classification": "required", "labRequired": true, "semesterCredits": "8" },
+      { "name": "Organic Chemistry", "classification": "required", "labRequired": true, "semesterCredits": "8" },
+      { "name": "Physics", "classification": "required", "labRequired": true, "semesterCredits": "8" },
+      { "name": "English", "classification": "required", "semesterCredits": "8" },
+      { "name": "Anatomy and Physiology", "classification": "recommended", "semesterCredits": "4" },
+      { "name": "Biochemistry", "classification": "recommended", "semesterCredits": "4" },
+      { "name": "Cellular & Molecular Biology", "classification": "recommended", "semesterCredits": "4" },
+      { "name": "Histology", "classification": "recommended", "semesterCredits": "4" }
+    ]
+  },
+  {
+    "id": 90,
+    "institution": "University of Nebraska Medical Center College of Dentistry",
+    "sourceUrl": "https://catalog.unmc.edu/dentistry/program/",
+    "hasPrereqList": true,
+    "otherConditions": "Per the official catalog, these represent the college's recommended predental course plan rather than an absolute fixed list; minimum of 3 years (90 semester hours) of college preparation required. No specific minimum GPA or DAT score is formally mandated, though DAT scores of 390+ on all sections are recommended. Admission is not assured even with degree completion.",
+    "courses": [
+      { "name": "English Composition", "classification": "recommended", "semesterCredits": "6" },
+      { "name": "Inorganic Chemistry", "classification": "recommended", "labRequired": true, "semesterCredits": "8" },
+      { "name": "General Biology", "classification": "recommended", "labRequired": true, "semesterCredits": "8" },
+      { "name": "Organic Chemistry", "classification": "recommended", "labRequired": true, "semesterCredits": "8" },
+      { "name": "General Physics", "classification": "recommended", "labRequired": true, "semesterCredits": "8-10" },
+      { "name": "Anatomy", "classification": "recommended" },
+      { "name": "Biochemistry", "classification": "recommended" },
+      { "name": "Cell Biology", "classification": "recommended" },
+      { "name": "Comparative Anatomy", "classification": "recommended" },
+      { "name": "Embryology", "classification": "recommended" },
+      { "name": "Genetics", "classification": "recommended" },
+      { "name": "Histology", "classification": "recommended" },
+      { "name": "Immunology", "classification": "recommended" },
+      { "name": "Microbiology", "classification": "recommended" },
+      { "name": "Physiology", "classification": "recommended" },
+      { "name": "Psychology", "classification": "recommended" },
+      { "name": "Statistics", "classification": "recommended" }
+    ]
+  },
+  {
+    "id": 91,
+    "institution": "West Virginia University School of Dentistry",
+    "sourceUrl": "https://dentistry.wvu.edu/apply-now/doctor-of-dental-surgery/",
+    "hasPrereqList": true,
+    "otherConditions": "Minimum 90 semester credit hours required at time of application. All prerequisite coursework must be completed before June 1 prior to the semester of enrollment. All science prerequisites must have a letter grade. Online courses are accepted toward prerequisites. Total required: 44 semester credit hours.",
+    "courses": [
+      { "name": "English Composition & Rhetoric", "classification": "required", "semesterCredits": "6" },
+      { "name": "Biology or Zoology", "classification": "required", "labRequired": true, "semesterCredits": "8" },
+      { "name": "General or Inorganic Chemistry", "classification": "required", "labRequired": true, "semesterCredits": "8" },
+      { "name": "Organic Chemistry", "classification": "required", "labRequired": true, "semesterCredits": "8" },
+      { "name": "Physics", "classification": "required", "labRequired": true, "semesterCredits": "8" },
+      { "name": "Anatomy", "classification": "required", "semesterCredits": "3", "details": "Comparative or human anatomy." },
+      { "name": "Biochemistry", "classification": "required", "semesterCredits": "3" },
+      { "name": "Cellular and Molecular Biology", "classification": "recommended" },
+      { "name": "Physiology", "classification": "recommended" },
+      { "name": "Microbiology", "classification": "recommended" },
+      { "name": "Embryology/Developmental Biology", "classification": "recommended" },
+      { "name": "Genetics", "classification": "recommended" },
+      { "name": "Psychology", "classification": "recommended" }
+    ]
+  }
+]
