@@ -922,3 +922,22 @@ async function main() {
 }
 
 main().catch((e) => { console.error(e); process.exit(1); });
+
+// Neon/pg can emit async socket errors that would otherwise kill the whole queue.
+process.on("uncaughtException", (err) => {
+  const msg = err instanceof Error ? err.message : String(err);
+  if (/Connection terminated|ECONNRESET|ECONNREFUSED|read ECONNRESET|Client has encountered a connection error/i.test(msg)) {
+    console.warn(`non-fatal connection exception (continuing): ${msg}`);
+    return;
+  }
+  console.error(err);
+  process.exit(1);
+});
+process.on("unhandledRejection", (reason) => {
+  const msg = reason instanceof Error ? reason.message : String(reason);
+  if (/Connection terminated|ECONNRESET|ECONNREFUSED|read ECONNRESET|Client has encountered a connection error/i.test(msg)) {
+    console.warn(`non-fatal connection rejection (continuing): ${msg}`);
+    return;
+  }
+  console.error(reason);
+});
