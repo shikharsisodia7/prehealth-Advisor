@@ -47,7 +47,7 @@ const KEYWORDS = [
   "admissions", "admission", "requirements", "required-course", "how-to-apply",
   "apply", "eligibility", "prospective", "application-requirements", "catalog", "handbook",
 ];
-const CONCURRENCY = 3;
+const CONCURRENCY = 4;
 const PER_DOMAIN_DELAY_MS = 2500;
 const OPENAI_MODEL = process.env.COMPLETION_MODEL || "gpt-4o-mini";
 
@@ -167,7 +167,12 @@ async function fetchOfficial(url: string): Promise<Fetched> {
         redirect: "follow",
         signal: AbortSignal.timeout(25_000),
       });
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      if (!res.ok) {
+        const err = new Error(`HTTP ${res.status}`);
+        // Do not retry permanent client failures — heuristic paths produce many 404s.
+        if (res.status === 404 || res.status === 410 || res.status === 403 || res.status === 401) throw err;
+        throw err;
+      }
       const contentType = res.headers.get("content-type") ?? "";
       if (contentType.includes("pdf")) {
         if (FIRECRAWL_KEY) return await firecrawlScrape(url);
@@ -181,6 +186,8 @@ async function fetchOfficial(url: string): Promise<Fetched> {
       };
     } catch (e) {
       lastError = e;
+      const msg = e instanceof Error ? e.message : String(e);
+      if (/HTTP (401|403|404|410)\b/.test(msg)) throw e instanceof Error ? e : new Error(msg);
       await new Promise((r) => setTimeout(r, 1000 * 2 ** attempt));
     }
   }
@@ -238,7 +245,7 @@ async function duckDuckGoSearch(query: string): Promise<string[]> {
       accept: "text/html",
     },
     body: `q=${encodeURIComponent(query)}`,
-    signal: AbortSignal.timeout(30_000),
+    signal: AbortSignal.timeout(10_000),
     redirect: "follow",
   });
   if (!res.ok) throw new Error(`DuckDuckGo search HTTP ${res.status}`);
@@ -267,6 +274,23 @@ async function duckDuckGoSearch(query: string): Promise<string[]> {
   return [...new Set(urls)].slice(0, 8);
 }
 
+function normalizeDiscoveredUrl(raw: string): string | null {
+  // Bing cites often use "›" breadcrumb separators instead of "/".
+  let text = stripHtml(raw).replace(/\s+/g, "").replace(/›/g, "/").replace(/…/g, "");
+  if (!/^https?:\/\//i.test(text)) {
+    if (/^[a-z0-9.-]+\.[a-z]{2,}/i.test(text)) text = `https://${text}`;
+    else return null;
+  }
+  try {
+    const u = new URL(text);
+    u.hash = "";
+    if (!/^https?:$/i.test(u.protocol)) return null;
+    return u.toString();
+  } catch {
+    return null;
+  }
+}
+
 async function bingSearch(query: string): Promise<string[]> {
   const res = await fetch(`https://www.bing.com/search?q=${encodeURIComponent(query)}`, {
     headers: {
@@ -281,16 +305,16 @@ async function bingSearch(query: string): Promise<string[]> {
   const html = await res.text();
   const urls: string[] = [];
   for (const m of html.matchAll(/<cite[^>]*>([\s\S]*?)<\/cite>/gi)) {
-    const text = stripHtml(m[1]).replace(/\s+/g, "");
-    if (/^https?:\/\//i.test(text)) urls.push(text);
-    else if (/^[a-z0-9.-]+\.[a-z]{2,}\//i.test(text)) urls.push(`https://${text}`);
+    const normalized = normalizeDiscoveredUrl(m[1]);
+    if (normalized) urls.push(normalized);
   }
   for (const m of html.matchAll(/href="(https?:\/\/[^"]+)"/gi)) {
     const u = m[1];
     if (/bing\.|microsoft\.|msn\.|live\.com|aka\.ms|creativecommons/i.test(u)) continue;
-    urls.push(u);
+    const normalized = normalizeDiscoveredUrl(u);
+    if (normalized) urls.push(normalized);
   }
-  return [...new Set(urls)].slice(0, 10);
+  return [...new Set(urls)].slice(0, 12);
 }
 
 async function webSearch(query: string): Promise<string[]> {
@@ -301,11 +325,16 @@ async function webSearch(query: string): Promise<string[]> {
         if (urls.length) return urls;
       } catch { /* fall through */ }
     }
+    // Prefer Bing first: DuckDuckGo HTML often connect-times-out from this host.
     try {
-      const ddg = await duckDuckGoSearch(query);
-      if (ddg.length) return ddg;
+      const bing = await bingSearch(query);
+      if (bing.length) return bing;
     } catch { /* fall through */ }
-    return bingSearch(query);
+    try {
+      return await duckDuckGoSearch(query);
+    } catch {
+      return [];
+    }
   });
 }
 
@@ -426,6 +455,45 @@ function keywordLinks(html: string, base: string, professionTerms: string[]): st
   return [...scored.entries()].sort((a, b) => b[1] - a[1]).slice(0, 8).map(([u]) => u);
 }
 
+function heuristicPrereqPaths(baseUrl: string, _program: ProgramRow): string[] {
+  try {
+    const base = new URL(baseUrl);
+    if (isDirectoryHubUrl(baseUrl)) return [];
+    const origin = base.origin;
+    const dir = base.pathname.replace(/\/[^/]*\.[a-z0-9]+$/i, "").replace(/\/$/, "") || "";
+    // Keep this small: only same-path variants. Broad origin/slug guesses create many 404s.
+    const suffixes = [
+      "/prerequisites", "/prerequisite-courses", "/admission-requirements",
+      "/admissions/prerequisites", "/admissions/requirements", "/admissions",
+      "/requirements", "/how-to-apply",
+    ];
+    const out: string[] = [];
+    if (dir) {
+      for (const suffix of suffixes) out.push(`${origin}${dir}${suffix}`);
+      const parent = dir.split("/").slice(0, -1).join("/");
+      if (parent) {
+        out.push(`${origin}${parent}/admissions`);
+        out.push(`${origin}${parent}/prerequisites`);
+        out.push(`${origin}${parent}/admissions/prerequisites`);
+      }
+    }
+    return [...new Set(out)];
+  } catch {
+    return [];
+  }
+}
+
+async function expandKeywordCandidates(seedUrl: string, program: ProgramRow): Promise<string[]> {
+  if (!seedUrl || seedUrl.startsWith("cache:") || isDirectoryHubUrl(seedUrl)) return [];
+  if (/\.pdf($|\?)/i.test(seedUrl) && !FIRECRAWL_KEY) return [];
+  try {
+    const page = await fetchOfficial(seedUrl);
+    return keywordLinks(page.html, page.url, professionKeywords(program.professionSlug));
+  } catch {
+    return [];
+  }
+}
+
 async function discoverCandidates(program: ProgramRow): Promise<string[]> {
   const candidates: string[] = [];
   try {
@@ -443,21 +511,37 @@ async function discoverCandidates(program: ProgramRow): Promise<string[]> {
 
   const usableWebsite =
     program.websiteUrl && !isDirectoryHubUrl(program.websiteUrl) ? program.websiteUrl : null;
+  const seedPages = [usableWebsite, program.sourceUrl].filter((u): u is string => !!u && !isDirectoryHubUrl(u));
+
+  // Expand same-domain admissions/prereq links from known program pages BEFORE search.
+  // Landing pages rarely list courses; linked admissions pages often do.
+  for (const seed of seedPages.slice(0, 2)) {
+    candidates.push(...heuristicPrereqPaths(seed, program));
+    const links = await expandKeywordCandidates(seed, program);
+    candidates.push(...links);
+    if (candidates.filter((c) => /prereq|requirement|admiss/i.test(c)).length >= 4) break;
+  }
 
   // Always try same-domain prereq search when a real website exists — generic
   // landing pages rarely contain the course list.
   if (usableWebsite) {
     try {
       const host = new URL(usableWebsite).hostname.replace(/^www\./, "");
+      const professionLabel = professionKeywords(program.professionSlug)[0] ?? program.professionSlug;
       const queries = [
+        `"${program.name}" "${professionLabel}" prerequisites site:${host}`,
         `${program.name} ${program.programName} prerequisites site:${host}`,
         `${program.name} admission requirements prerequisites site:${host}`,
-        `"prerequisite" ${program.programName} site:${host}`,
+        `"prerequisite coursework" ${program.name} site:${host}`,
       ];
       for (const q of queries) {
         const urls = await webSearch(q);
-        candidates.push(...urls.filter((u) => u.includes(host) && looksLikeOfficialProgramUrl(u, program)));
-        if (candidates.filter((c) => /prereq|requirement|admiss/i.test(c)).length >= 3) break;
+        candidates.push(...urls.filter((u) => {
+          try {
+            return new URL(u).hostname.replace(/^www\./, "").endsWith(host) && looksLikeOfficialProgramUrl(u, program);
+          } catch { return false; }
+        }));
+        if (candidates.filter((c) => /prereq|requirement|admiss/i.test(c)).length >= 5) break;
       }
     } catch { /* non-fatal */ }
   }
@@ -483,9 +567,16 @@ async function discoverCandidates(program: ProgramRow): Promise<string[]> {
     } catch { /* non-fatal */ }
   }
 
-  return [...new Set(candidates)].sort(
+  // Prefer HTML candidates when Firecrawl is unavailable (PDFs need it).
+  const ranked = [...new Set(candidates)].sort(
     (a, b) => scoreCandidateUrl(b, program) - scoreCandidateUrl(a, program),
   );
+  if (!FIRECRAWL_KEY) {
+    const htmlFirst = ranked.filter((u) => !/\.pdf($|\?)/i.test(u));
+    const pdfs = ranked.filter((u) => /\.pdf($|\?)/i.test(u));
+    return [...htmlFirst, ...pdfs];
+  }
+  return ranked;
 }
 
 // ── OpenAI structured extraction ─────────────────────────────────────────────
@@ -674,6 +765,31 @@ async function persistResult(
 
 // ── Per-program pipeline ─────────────────────────────────────────────────────
 
+async function fetchWithFallback(url: string): Promise<Fetched> {
+  // Prefer fast direct HTTP; use Firecrawl for PDFs, blocks, JS shells, and fetch failures.
+  if (/\.pdf($|\?)/i.test(url)) {
+    if (!FIRECRAWL_KEY) throw new Error("PDF source requires Firecrawl parsing (key not configured)");
+    return firecrawlScrape(url);
+  }
+  try {
+    const fetched = await fetchOfficial(url);
+    if (fetched.text.length >= 300) return fetched;
+    if (FIRECRAWL_KEY) {
+      try { return await firecrawlScrape(url); } catch { return fetched; }
+    }
+    return fetched;
+  } catch (e) {
+    const msg = e instanceof Error ? e.message : String(e);
+    if (FIRECRAWL_KEY && /HTTP 403|HTTP 401|HTTP 429|timeout|fetch failed|too little text/i.test(msg)) {
+      return firecrawlScrape(url);
+    }
+    if (FIRECRAWL_KEY) {
+      try { return await firecrawlScrape(url); } catch { throw e; }
+    }
+    throw e;
+  }
+}
+
 async function processProgram(program: ProgramRow): Promise<string> {
   setState(program.id, { stage: "source_discovery", attempts: (state[program.id]?.attempts ?? 0) + 1, error: undefined });
   const candidates = await discoverCandidates(program);
@@ -684,7 +800,10 @@ async function processProgram(program: ProgramRow): Promise<string> {
 
   let best: { fetched: Fetched; ex: Extraction } | null = null;
   const errors: string[] = [];
-  for (const candidate of candidates.slice(0, 5)) {
+  const tryCandidates = candidates
+    .filter((c) => FIRECRAWL_KEY || !/\.pdf($|\?)/i.test(c))
+    .slice(0, 6);
+  for (const candidate of tryCandidates) {
     try {
       let fetched: Fetched;
       if (candidate.startsWith("cache:")) {
@@ -692,7 +811,7 @@ async function processProgram(program: ProgramRow): Promise<string> {
         const html = fs.readFileSync(path.join(ROOT, file), "utf8");
         fetched = { url, html, text: stripHtml(html).slice(0, 160_000), hash: crypto.createHash("sha256").update(html).digest("hex"), contentType: "text/html" };
       } else {
-        fetched = FIRECRAWL_KEY ? await firecrawlScrape(candidate).catch(() => fetchOfficial(candidate)) : await fetchOfficial(candidate);
+        fetched = await fetchWithFallback(candidate);
       }
       setState(program.id, { stage: "source_fetched", sourceUrl: fetched.url });
       if (fetched.text.length < 300) { errors.push(`${candidate}: too little text`); continue; }
@@ -709,13 +828,13 @@ async function processProgram(program: ProgramRow): Promise<string> {
   }
 
   if (!best) {
-    for (const candidate of candidates.slice(0, 2)) {
+    for (const candidate of tryCandidates.slice(0, 3)) {
       if (candidate.startsWith("cache:") || isDirectoryHubUrl(candidate)) continue;
       try {
-        const rootPage = await fetchOfficial(candidate);
-        for (const link of keywordLinks(rootPage.html, rootPage.url, professionKeywords(program.professionSlug)).slice(0, 5)) {
+        const rootPage = await fetchWithFallback(candidate);
+        for (const link of keywordLinks(rootPage.html, rootPage.url, professionKeywords(program.professionSlug)).slice(0, 6)) {
           try {
-            const fetched = await fetchOfficial(link);
+            const fetched = await fetchWithFallback(link);
             if (fetched.text.length < 300) continue;
             const ex = await extractWithOpenAI(program, fetched.text, fetched.url);
             if (validExtraction(ex, fetched.text, program)) { best = { fetched, ex }; break; }
