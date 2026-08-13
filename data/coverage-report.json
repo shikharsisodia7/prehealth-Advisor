@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-08T02:48:47.510Z",
+  "generatedAt": "2026-08-13T01:00:40.042Z",
   "professions": [
     {
       "professionSlug": "anesthesiologist-assistant",
@@ -42,14 +42,15 @@
       "manualPrograms": [],
       "inactivePrograms": 0,
       "prereqStatusCounts": {
-        "verified": 4,
-        "draft": 74
+        "verified": 43,
+        "draft": 34,
+        "no_prereqs_published": 1
       },
-      "prereqVerifiedCount": 4,
-      "prereqNoSpecificPrereqsCount": 0,
+      "prereqVerifiedCount": 43,
+      "prereqNoSpecificPrereqsCount": 1,
       "prereqBlockedCount": 0,
-      "prereqUnfinishedCount": 74,
-      "prereqVerifiedPct": 5.1,
+      "prereqUnfinishedCount": 34,
+      "prereqVerifiedPct": 56.4,
       "sources": [
         {
           "name": "CODA Find-a-Program — Predoctoral (DDS/DMD) Dental Education Programs",
@@ -83,14 +84,15 @@
       ],
       "inactivePrograms": 0,
       "prereqStatusCounts": {
-        "draft": 150,
-        "verified": 2
+        "draft": 142,
+        "verified": 9,
+        "no_prereqs_published": 1
       },
-      "prereqVerifiedCount": 2,
-      "prereqNoSpecificPrereqsCount": 0,
+      "prereqVerifiedCount": 9,
+      "prereqNoSpecificPrereqsCount": 1,
       "prereqBlockedCount": 0,
-      "prereqUnfinishedCount": 150,
-      "prereqVerifiedPct": 1.3,
+      "prereqUnfinishedCount": 142,
+      "prereqVerifiedPct": 6.6,
       "sources": [
         {
           "name": "ACEND Accredited Program Directory — Coordinated Program in Dietetics (US)",
@@ -120,19 +122,20 @@
     {
       "professionSlug": "genetic-counseling",
       "professionName": "Genetic Counseling (MS)",
-      "directoryPrograms": 65,
-      "directoryAttributedPrograms": 65,
+      "directoryPrograms": 64,
+      "directoryAttributedPrograms": 64,
       "manualPrograms": [],
-      "inactivePrograms": 0,
+      "inactivePrograms": 1,
       "prereqStatusCounts": {
-        "verified": 3,
-        "draft": 62
+        "verified": 61,
+        "draft": 2,
+        "no_prereqs_published": 1
       },
-      "prereqVerifiedCount": 3,
-      "prereqNoSpecificPrereqsCount": 0,
+      "prereqVerifiedCount": 61,
+      "prereqNoSpecificPrereqsCount": 1,
       "prereqBlockedCount": 0,
-      "prereqUnfinishedCount": 62,
-      "prereqVerifiedPct": 4.6,
+      "prereqUnfinishedCount": 2,
+      "prereqVerifiedPct": 96.9,
       "sources": [
         {
           "name": "ACGC Accredited Genetic Counseling Programs Directory",
@@ -145,10 +148,10 @@
       ],
       "reconciliation": {
         "sourceReportedTotal": 65,
-        "inDatabase": 65,
-        "directoryAttributed": 65,
-        "delta": 0,
-        "status": "reconciled"
+        "inDatabase": 64,
+        "directoryAttributed": 64,
+        "delta": -1,
+        "status": "under-source-count"
       }
     },
     {
@@ -159,14 +162,14 @@
       "manualPrograms": [],
       "inactivePrograms": 0,
       "prereqStatusCounts": {
-        "verified": 5,
-        "draft": 231
+        "verified": 34,
+        "draft": 202
       },
-      "prereqVerifiedCount": 5,
+      "prereqVerifiedCount": 34,
       "prereqNoSpecificPrereqsCount": 0,
       "prereqBlockedCount": 0,
-      "prereqUnfinishedCount": 231,
-      "prereqVerifiedPct": 2.1,
+      "prereqUnfinishedCount": 202,
+      "prereqVerifiedPct": 14.4,
       "sources": [
         {
           "name": "AACOM U.S. Colleges of Osteopathic Medicine Directory (PDF)",
@@ -201,14 +204,14 @@
       "manualPrograms": [],
       "inactivePrograms": 0,
       "prereqStatusCounts": {
-        "verified": 2,
-        "draft": 444
+        "verified": 7,
+        "draft": 439
       },
-      "prereqVerifiedCount": 2,
+      "prereqVerifiedCount": 7,
       "prereqNoSpecificPrereqsCount": 0,
       "prereqBlockedCount": 0,
-      "prereqUnfinishedCount": 444,
-      "prereqVerifiedPct": 0.4,
+      "prereqUnfinishedCount": 439,
+      "prereqVerifiedPct": 1.6,
       "sources": [
         {
           "name": "AACN Member School Directory — Accelerated Bachelor's (ABSN)",
@@ -243,14 +246,14 @@
       "manualPrograms": [],
       "inactivePrograms": 0,
       "prereqStatusCounts": {
-        "draft": 315,
-        "verified": 3
+        "draft": 303,
+        "verified": 15
       },
-      "prereqVerifiedCount": 3,
+      "prereqVerifiedCount": 15,
       "prereqNoSpecificPrereqsCount": 0,
       "prereqBlockedCount": 0,
-      "prereqUnfinishedCount": 315,
-      "prereqVerifiedPct": 0.9,
+      "prereqUnfinishedCount": 303,
+      "prereqVerifiedPct": 4.7,
       "sources": [
         {
           "name": "ACOTE Accredited Entry-Level OT Masters Programs",
@@ -285,14 +288,13 @@
       "manualPrograms": [],
       "inactivePrograms": 0,
       "prereqStatusCounts": {
-        "draft": 21,
-        "verified": 3
+        "verified": 24
       },
-      "prereqVerifiedCount": 3,
+      "prereqVerifiedCount": 24,
       "prereqNoSpecificPrereqsCount": 0,
       "prereqBlockedCount": 0,
-      "prereqUnfinishedCount": 21,
-      "prereqVerifiedPct": 12.5,
+      "prereqUnfinishedCount": 0,
+      "prereqVerifiedPct": 100,
       "sources": [
         {
           "name": "ASCO Member Schools and Colleges of Optometry",
@@ -353,14 +355,14 @@
       "manualPrograms": [],
       "inactivePrograms": 0,
       "prereqStatusCounts": {
-        "verified": 3,
-        "draft": 137
+        "verified": 17,
+        "draft": 123
       },
-      "prereqVerifiedCount": 3,
+      "prereqVerifiedCount": 17,
       "prereqNoSpecificPrereqsCount": 0,
       "prereqBlockedCount": 0,
-      "prereqUnfinishedCount": 137,
-      "prereqVerifiedPct": 2.1,
+      "prereqUnfinishedCount": 123,
+      "prereqVerifiedPct": 12.1,
       "sources": [
         {
           "name": "ACPE Program Lookup — PharmD Programs",
@@ -387,14 +389,14 @@
       "manualPrograms": [],
       "inactivePrograms": 0,
       "prereqStatusCounts": {
-        "verified": 53,
-        "draft": 255
+        "verified": 77,
+        "draft": 231
       },
-      "prereqVerifiedCount": 53,
+      "prereqVerifiedCount": 77,
       "prereqNoSpecificPrereqsCount": 0,
       "prereqBlockedCount": 0,
-      "prereqUnfinishedCount": 255,
-      "prereqVerifiedPct": 17.2,
+      "prereqUnfinishedCount": 231,
+      "prereqVerifiedPct": 25,
       "sources": [
         {
           "name": "CAPTE Accredited PT Programs Directory",
@@ -421,14 +423,14 @@
       "manualPrograms": [],
       "inactivePrograms": 0,
       "prereqStatusCounts": {
-        "verified": 3,
-        "draft": 327
+        "verified": 4,
+        "draft": 326
       },
-      "prereqVerifiedCount": 3,
+      "prereqVerifiedCount": 4,
       "prereqNoSpecificPrereqsCount": 0,
       "prereqBlockedCount": 0,
-      "prereqUnfinishedCount": 327,
-      "prereqVerifiedPct": 0.9,
+      "prereqUnfinishedCount": 326,
+      "prereqVerifiedPct": 1.2,
       "sources": [
         {
           "name": "ARC-PA Currently Accredited Entry-Level PA Programs",
@@ -488,14 +490,15 @@
       "manualPrograms": [],
       "inactivePrograms": 0,
       "prereqStatusCounts": {
-        "draft": 335,
-        "verified": 1
+        "draft": 325,
+        "verified": 10,
+        "no_prereqs_published": 1
       },
-      "prereqVerifiedCount": 1,
-      "prereqNoSpecificPrereqsCount": 0,
+      "prereqVerifiedCount": 10,
+      "prereqNoSpecificPrereqsCount": 1,
       "prereqBlockedCount": 0,
-      "prereqUnfinishedCount": 335,
-      "prereqVerifiedPct": 0.3,
+      "prereqUnfinishedCount": 325,
+      "prereqVerifiedPct": 3.3,
       "sources": [
         {
           "name": "AAMC Postbaccalaureate Premedical Programs Database",
@@ -522,14 +525,14 @@
       "manualPrograms": [],
       "inactivePrograms": 0,
       "prereqStatusCounts": {
-        "draft": 9,
-        "verified": 6
+        "verified": 14,
+        "draft": 1
       },
-      "prereqVerifiedCount": 6,
+      "prereqVerifiedCount": 14,
       "prereqNoSpecificPrereqsCount": 0,
       "prereqBlockedCount": 0,
-      "prereqUnfinishedCount": 9,
-      "prereqVerifiedPct": 40,
+      "prereqUnfinishedCount": 1,
+      "prereqVerifiedPct": 93.3,
       "sources": [
         {
           "name": "NCOPE Accredited Practitioner (O&P Master's) Programs",
@@ -556,14 +559,14 @@
       "manualPrograms": [],
       "inactivePrograms": 0,
       "prereqStatusCounts": {
-        "verified": 2,
-        "draft": 320
+        "verified": 8,
+        "draft": 314
       },
-      "prereqVerifiedCount": 2,
+      "prereqVerifiedCount": 8,
       "prereqNoSpecificPrereqsCount": 0,
       "prereqBlockedCount": 0,
-      "prereqUnfinishedCount": 320,
-      "prereqVerifiedPct": 0.6,
+      "prereqUnfinishedCount": 314,
+      "prereqVerifiedPct": 2.5,
       "sources": [
         {
           "name": "ASHA CAA Accredited SLP Master's Programs",
@@ -590,14 +593,13 @@
       "manualPrograms": [],
       "inactivePrograms": 0,
       "prereqStatusCounts": {
-        "verified": 3,
-        "draft": 29
+        "verified": 32
       },
-      "prereqVerifiedCount": 3,
+      "prereqVerifiedCount": 32,
       "prereqNoSpecificPrereqsCount": 0,
       "prereqBlockedCount": 0,
-      "prereqUnfinishedCount": 29,
-      "prereqVerifiedPct": 9.4,
+      "prereqUnfinishedCount": 0,
+      "prereqVerifiedPct": 100,
       "sources": [
         {
           "name": "AVMA Accredited Veterinary Colleges (U.S.)",
