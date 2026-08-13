@@ -355,17 +355,49 @@ function looksLikeOfficialProgramUrl(url: string, program: ProgramRow): boolean 
     if (!/^https?:$/i.test(u.protocol)) return false;
     if (BLOCKED_SEARCH_HOSTS.test(u.hostname)) return false;
     if (isDirectoryHubUrl(url)) return false;
+    // Reject generic state/federal portals that match a token like "illinois"/"georgia".
+    if (/\.(gov)$/i.test(u.hostname) && !/\.edu$/i.test(u.hostname)) {
+      if (/^(www\.)?(usa|usa\.gov|[a-z]{2})\.gov$/i.test(u.hostname) ||
+          /(myflorida|illinois\.gov|georgia\.gov|ny\.gov|ca\.gov|texas\.gov)/i.test(u.hostname)) {
+        return false;
+      }
+    }
     const hay = `${u.hostname} ${u.pathname}`.toLowerCase();
     const tokens = institutionTokens(program.name);
     const nameHit = tokens.length === 0 || tokens.some((t) => hay.includes(t));
     const professionHit = professionKeywords(program.professionSlug).some((k) =>
       hay.includes(normalize(k).replace(/ /g, "-")) || hay.includes(normalize(k)),
     );
-    const eduLike = /\.edu($|\/)|\.ac\.|\.gov($|\/)|edu\./i.test(u.hostname) ||
-      /admissions|prerequisite|catalog|handbook|apply/i.test(hay);
-    return nameHit && (professionHit || eduLike);
+    const eduHost = /\.edu$/i.test(u.hostname) || /\.ac\.[a-z.]+$/i.test(u.hostname);
+    const pathHint = /admissions|prerequisite|catalog|handbook|apply|requirements/i.test(hay);
+    // Require institution match plus either profession signal or admissions/prereq path.
+    // Bare .edu homepages still pass when profession appears in host/path.
+    return nameHit && (professionHit || (eduHost && pathHint));
   } catch {
     return false;
+  }
+}
+
+function scoreCandidateUrl(url: string, program: ProgramRow): number {
+  try {
+    const u = new URL(url.startsWith("cache:") ? url.split("|")[1] : url);
+    const hay = `${u.hostname}${u.pathname}`.toLowerCase();
+    let score = 0;
+    if (/\.edu$/i.test(u.hostname)) score += 5;
+    if (/prereq|pre-requisite/.test(hay)) score += 8;
+    if (/requirement/.test(hay)) score += 4;
+    if (/admiss|apply|prospective/.test(hay)) score += 3;
+    if (/catalog|handbook|checksheet/.test(hay)) score += 3;
+    if (professionKeywords(program.professionSlug).some((k) => hay.includes(normalize(k).replace(/ /g, "-")))) score += 4;
+    if (program.websiteUrl) {
+      try {
+        const host = new URL(program.websiteUrl).hostname.replace(/^www\./, "");
+        if (u.hostname.replace(/^www\./, "").endsWith(host.replace(/^www\./, ""))) score += 6;
+      } catch { /* ignore */ }
+    }
+    return score;
+  } catch {
+    return 0;
   }
 }
 
@@ -412,24 +444,36 @@ async function discoverCandidates(program: ProgramRow): Promise<string[]> {
   const usableWebsite =
     program.websiteUrl && !isDirectoryHubUrl(program.websiteUrl) ? program.websiteUrl : null;
 
+  // Always try same-domain prereq search when a real website exists — generic
+  // landing pages rarely contain the course list.
   if (usableWebsite) {
     try {
       const host = new URL(usableWebsite).hostname.replace(/^www\./, "");
-      const urls = await webSearch(
-        `${program.name} ${program.programName} prerequisite courses admission requirements site:${host}`,
-      );
-      candidates.push(...urls.filter((u) => u.includes(host) && looksLikeOfficialProgramUrl(u, program)));
+      const queries = [
+        `${program.name} ${program.programName} prerequisites site:${host}`,
+        `${program.name} admission requirements prerequisites site:${host}`,
+        `"prerequisite" ${program.programName} site:${host}`,
+      ];
+      for (const q of queries) {
+        const urls = await webSearch(q);
+        candidates.push(...urls.filter((u) => u.includes(host) && looksLikeOfficialProgramUrl(u, program)));
+        if (candidates.filter((c) => /prereq|requirement|admiss/i.test(c)).length >= 3) break;
+      }
     } catch { /* non-fatal */ }
   }
 
-  const needsOpenSearch = !usableWebsite || candidates.filter((c) => !c.startsWith("cache:")).length < 2;
-  if (needsOpenSearch) {
+  // Domain-agnostic search when website missing/hub-only, or when we still lack
+  // prereq-looking URLs after same-domain search.
+  const hasPrereqish = candidates.some((c) => /prereq|requirement|admiss|catalog|handbook/i.test(c));
+  if (!usableWebsite || !hasPrereqish) {
     try {
       const urls = (await webSearch(
-        `${program.name} ${program.programName} official admissions prerequisites`,
+        `${program.name} ${program.programName} official admissions prerequisites coursework`,
       )).filter((u) => looksLikeOfficialProgramUrl(u, program));
       candidates.push(...urls);
-      const validated = urls.find((u) => looksLikeOfficialProgramUrl(u, program));
+      const validated = urls
+        .filter((u) => /\.edu$/i.test(new URL(u).hostname))
+        .sort((a, b) => scoreCandidateUrl(b, program) - scoreCandidateUrl(a, program))[0];
       if (validated && (!program.websiteUrl || isDirectoryHubUrl(program.websiteUrl))) {
         await db
           .update(programSchoolsTable)
@@ -438,7 +482,10 @@ async function discoverCandidates(program: ProgramRow): Promise<string[]> {
       }
     } catch { /* non-fatal */ }
   }
-  return [...new Set(candidates)];
+
+  return [...new Set(candidates)].sort(
+    (a, b) => scoreCandidateUrl(b, program) - scoreCandidateUrl(a, program),
+  );
 }
 
 // ── OpenAI structured extraction ─────────────────────────────────────────────
