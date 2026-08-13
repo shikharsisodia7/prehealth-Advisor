@@ -1,0 +1,73 @@
+[
+  {
+    "id": 2489,
+    "institution": "University of New England",
+    "sourceUrl": "https://online.une.edu/master-of-biomedical-science/",
+    "hasPrereqList": true,
+    "otherConditions": null,
+    "courses": [
+      { "name": "Biology 1", "classification": "required" },
+      { "name": "Biology 2", "classification": "required" },
+      { "name": "Chemistry 1", "classification": "required" },
+      { "name": "Chemistry 2", "classification": "required" },
+      { "name": "Organic Chemistry 1", "classification": "required" },
+      { "name": "Biochemistry", "classification": "recommended" },
+      { "name": "Physics 1", "classification": "recommended" },
+      { "name": "Physics 2", "classification": "recommended" },
+      { "name": "Organic Chemistry 2", "classification": "recommended" }
+    ]
+  },
+  {
+    "id": 2176,
+    "institution": "Drexel University College of Medicine",
+    "sourceUrl": "https://drexel.edu/medicine/academics/graduate-programs/drexel-pathway-to-medical-school/how-to-apply/",
+    "hasPrereqList": true,
+    "otherConditions": "Applicants must have completed traditional pre-med coursework and the MCAT before applying.",
+    "courses": [
+      { "name": "Biology", "classification": "required", "labRequired": true, "details": "One year of biology with laboratory." },
+      { "name": "Chemistry", "classification": "required", "labRequired": true, "details": "One year of chemistry with laboratory." },
+      { "name": "Physics", "classification": "required", "labRequired": true, "details": "One year of physics with laboratory." },
+      { "name": "Organic Chemistry", "classification": "required", "labRequired": true, "details": "One year of organic chemistry with laboratory." },
+      { "name": "Genetics", "classification": "recommended" },
+      { "name": "Molecular Biology", "classification": "recommended" },
+      { "name": "Biochemistry", "classification": "recommended" }
+    ]
+  },
+  {
+    "id": 2178,
+    "institution": "University of Southern California",
+    "sourceUrl": "https://dornsife.usc.edu/postbaccalaureate-premedical-program/postbacc-core-courses/",
+    "hasPrereqList": true,
+    "otherConditions": "The nine core courses in USC's Postbacc program fulfill the science prerequisites for all medical schools in the US.",
+    "courses": [
+      { "name": "General Biology 1", "classification": "required", "labRequired": true },
+      { "name": "General Biology 2", "classification": "required", "labRequired": true },
+      { "name": "General Chemistry 1", "classification": "required", "labRequired": true },
+      { "name": "General Chemistry 2", "classification": "required", "labRequired": true },
+      { "name": "General Physics 1", "classification": "required", "labRequired": true },
+      { "name": "General Physics 2", "classification": "required", "labRequired": true },
+      { "name": "Organic Chemistry 1", "classification": "required", "labRequired": true },
+      { "name": "Organic Chemistry 2", "classification": "required", "labRequired": true },
+      { "name": "Biochemistry", "classification": "required", "semesterCredits": "1" }
+    ]
+  },
+  {
+    "id": 2180,
+    "institution": "University of Virginia",
+    "sourceUrl": "https://www.scps.virginia.edu/programs/post-baccalaureate-pre-medical-program",
+    "hasPrereqList": true,
+    "otherConditions": "Fixed one-year, 38-credit structured postbaccalaureate curriculum taken Summer/Fall/Spring; admission requires a bachelor's degree and excellent academic record.",
+    "courses": [
+      { "name": "Chemistry 1410/1411 (General Chemistry I with lab)", "classification": "required", "labRequired": true, "details": "Summer term." },
+      { "name": "Chemistry 1420/1421 (General Chemistry II with lab)", "classification": "required", "labRequired": true, "details": "Summer term." },
+      { "name": "Biology 2100 (with lab)", "classification": "required", "labRequired": true, "details": "Fall term." },
+      { "name": "Organic Chemistry 2410/2311 (with lab)", "classification": "required", "labRequired": true, "details": "Fall term." },
+      { "name": "Physics 2010/2030 (with lab)", "classification": "required", "labRequired": true, "details": "Fall term." },
+      { "name": "PSHP 2040 US Health Care", "classification": "required", "details": "Fall term." },
+      { "name": "Biochemistry 4410", "classification": "required", "details": "Spring term." },
+      { "name": "Biology 2200 (with lab)", "classification": "required", "labRequired": true, "details": "Spring term." },
+      { "name": "Organic Chemistry 2420/2321 (with lab)", "classification": "required", "labRequired": true, "details": "Spring term." },
+      { "name": "Physics 2020/2040 (with lab)", "classification": "required", "labRequired": true, "details": "Spring term." }
+    ]
+  }
+]

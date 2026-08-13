@@ -1,0 +1,78 @@
+[
+  {
+    "id": 2177,
+    "institution": "Drexel University College of Medicine",
+    "sourceUrl": "https://drexel.edu/medicine/academics/graduate-programs/interdisciplinary-health-sciences/curriculum/",
+    "hasPrereqList": true,
+    "otherConditions": "Fixed required curriculum for the Interdisciplinary Health Sciences (IHS) MS program; minimum 48 total credit hours to graduate, 12-18 credits/semester.",
+    "courses": [
+      { "name": "Career Development in the Health Sciences Seminar I & II", "classification": "required" },
+      { "name": "Introduction to Biostatistics", "classification": "required" },
+      { "name": "Scientific Writing for Health Care Professionals", "classification": "required" },
+      { "name": "Community Dimension of Medicine", "classification": "required" },
+      { "name": "Capstone Project (Proposal, Presentation, Paper)", "classification": "required" },
+      { "name": "MCAT Preparatory Course", "classification": "required" }
+    ]
+  },
+  {
+    "id": 2181,
+    "institution": "Rider University",
+    "sourceUrl": "https://www.rider.edu/academics/colleges-schools/college-arts-sciences/science-technology-math/programs-opportunities/pre-med/course-studies",
+    "hasPrereqList": true,
+    "otherConditions": "Suggested 2-year course of study for post-baccalaureate premedical students; must receive a B or better in all science courses.",
+    "courses": [
+      { "name": "BIO115/BIO115L General Biology I (with lab)", "classification": "required", "labRequired": true, "details": "Freshman Fall." },
+      { "name": "CHE120/CHE121 General Chemistry I", "classification": "required", "details": "Freshman Fall." },
+      { "name": "MTH105 or MTH210", "classification": "required", "details": "Freshman Fall." },
+      { "name": "BIO116/BIO116L General Biology II (with lab)", "classification": "required", "labRequired": true, "details": "Freshman Spring." },
+      { "name": "CHE122/CHE123 General Chemistry II", "classification": "required", "details": "Freshman Spring." },
+      { "name": "BIO117/BIO117L (with lab)", "classification": "required", "labRequired": true, "details": "Sophomore Fall." },
+      { "name": "CHE211/CHE213", "classification": "required", "details": "Sophomore Fall." },
+      { "name": "CHE214/CHE216", "classification": "required", "details": "Sophomore Spring." },
+      { "name": "PHY100/PHY100L or PHY200/PHY200L General Physics I (with lab)", "classification": "required", "labRequired": true, "details": "Junior Fall." },
+      { "name": "PHY101/PHY101L or PHY201/PHY201L General Physics II (with lab)", "classification": "required", "labRequired": true, "details": "Junior Spring." }
+    ]
+  },
+  {
+    "id": 2182,
+    "institution": "University of Minnesota Medical School",
+    "sourceUrl": "https://med.umn.edu/physiology/education-training/graduate-program/masters-program",
+    "hasPrereqList": true,
+    "otherConditions": "30-credit MS in Physiology; GRE not required; PHSL 5061 required unless waived by prior undergraduate physiology coursework.",
+    "courses": [
+      { "name": "PHSL 5115: Clinical Physiology I", "classification": "required", "semesterCredits": "3" },
+      { "name": "PHSL 5116: Clinical Physiology II", "classification": "required", "semesterCredits": "3" },
+      { "name": "PHSL 5300: Professional Development in the Biomedical Sciences", "classification": "required", "semesterCredits": "3" },
+      { "name": "PHSL 5061: Principles of Physiology", "classification": "required", "semesterCredits": "4", "details": "Required unless waived if applicant completed an upper-level physiology systems course as an undergraduate." }
+    ]
+  },
+  {
+    "id": 2183,
+    "institution": "Georgetown University",
+    "sourceUrl": "https://integrativemedicine.georgetown.edu/admissions/",
+    "hasPrereqList": true,
+    "otherConditions": "Admissions page states category-level coursework requirement only (no individual course numbers published); bachelor's degree with minimum 3.0 GPA required.",
+    "courses": [
+      { "name": "Mathematics", "classification": "required", "details": "Category-level requirement only; specific course number not published on official admissions page." },
+      { "name": "Physics", "classification": "required", "details": "Category-level requirement only; specific course number not published on official admissions page." },
+      { "name": "Biology", "classification": "required", "details": "Category-level requirement only; specific course number not published on official admissions page." },
+      { "name": "Chemistry", "classification": "required", "details": "Category-level requirement only; specific course number not published on official admissions page." }
+    ]
+  },
+  {
+    "id": 2184,
+    "institution": "Temple University School of Medicine",
+    "sourceUrl": "https://medicine.temple.edu/education/advanced-core-medical-sciences-acms-postbaccalaureate-program",
+    "hasPrereqList": true,
+    "otherConditions": "Fixed required curriculum for the Advanced Core in Medical Sciences (ACMS) postbaccalaureate program; applicants must have already completed foundational pre-med science coursework in their undergraduate program.",
+    "courses": [
+      { "name": "Fundamentals of Physiology", "classification": "required", "details": "Fall." },
+      { "name": "Medical Pharmacology", "classification": "required", "details": "Fall." },
+      { "name": "Microbiology and Immunology", "classification": "required", "details": "Fall." },
+      { "name": "Case-Based Clinical Problem Solving", "classification": "required", "details": "Spring." },
+      { "name": "Fundamentals of Biochemistry", "classification": "required", "details": "Spring." },
+      { "name": "Human Anatomy", "classification": "required", "details": "Spring." },
+      { "name": "Special Topics in Medicine", "classification": "required", "details": "Spring." }
+    ]
+  }
+]

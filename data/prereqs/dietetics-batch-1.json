@@ -1,0 +1,70 @@
+[
+  {
+    "id": 148,
+    "institution": "University of Alabama at Birmingham",
+    "sourceUrl": "https://www.uab.edu/shp/nutrition/education/masters/dietitian-education-track/admissions",
+    "hasPrereqList": true,
+    "otherConditions": "Minimum grade of C or better required for prerequisite courses; competitive students have GPA well above 3.0. Minimum cumulative GPA of 3.0 on a 4.0 scale required. Prerequisites cannot be completed concurrently with this degree program; all prerequisites must be completed prior to the program start date.",
+    "courses": [
+      { "name": "Introductory Biology", "classification": "required", "semesterCredits": "3", "labRequired": false },
+      { "name": "Organic Chemistry", "classification": "required", "semesterCredits": "3", "labRequired": false },
+      { "name": "Microbiology", "classification": "required", "semesterCredits": "3", "labRequired": false },
+      { "name": "Physiology", "classification": "required", "semesterCredits": "3", "labRequired": false },
+      { "name": "NTR222 Nutrition and Health (Intro to Nutrition)", "classification": "required", "semesterCredits": "3" },
+      { "name": "NTR232 Lifecycle Nutrition", "classification": "required", "semesterCredits": "3" },
+      { "name": "NTR320 Nutrition and the Consumer", "classification": "required", "semesterCredits": "3" },
+      { "name": "NTR330 Nutrition and Metabolism", "classification": "required", "semesterCredits": "3" },
+      { "name": "NTR420 Nutrition Genetics", "classification": "required", "semesterCredits": "3" },
+      { "name": "NTR421 Nutrition Assessment and the Nutrition Care Process", "classification": "required", "semesterCredits": "3" }
+    ]
+  },
+  {
+    "id": 149,
+    "institution": "University of Montevallo",
+    "sourceUrl": "https://www.montevallo.edu/grad-programs/coordinated-program-in-dietetics-and-master-of-science-in-nutrition/",
+    "hasPrereqList": true,
+    "otherConditions": "Total of 27 prerequisite credit hours across the listed courses (course names not spelled out on this page beyond course codes).",
+    "courses": [
+      { "name": "BIO 202", "classification": "required" },
+      { "name": "BIO 300", "classification": "required" },
+      { "name": "FCS 477", "classification": "required" },
+      { "name": "FCS 281", "classification": "required" },
+      { "name": "CHEM 102", "classification": "required" },
+      { "name": "MATH 147", "classification": "required" },
+      { "name": "EXNS 373", "classification": "required" },
+      { "name": "EXNS 382", "classification": "required" }
+    ]
+  },
+  {
+    "id": 152,
+    "institution": "Loma Linda University",
+    "sourceUrl": "https://llucatalog.llu.edu/allied-health-professions/nutrition-dietetics-coordinated-programs/",
+    "hasPrereqList": true,
+    "otherConditions": "Minimum 3.0 GPA (science and non-science) required for all tracks. Prior B.S./B.A. Track requires an earned baccalaureate degree from a U.S. accredited institution; an interview is also required. Two other admission tracks (B.S./M.S. and Post-DPD) exist with overlapping prerequisites.",
+    "courses": [
+      { "name": "College Algebra, Pre-Calculus, or Calculus", "classification": "required" },
+      { "name": "Human Anatomy with Laboratory", "classification": "required", "labRequired": true, "details": "Complete two-term sequence together with Human Physiology." },
+      { "name": "Human Physiology with Laboratory", "classification": "required", "labRequired": true, "details": "Complete two-term sequence together with Human Anatomy." },
+      { "name": "General Chemistry with Laboratory", "classification": "required", "labRequired": true, "details": "3 quarters / 2 semesters." },
+      { "name": "Microbiology with Laboratory", "classification": "required", "labRequired": true },
+      { "name": "Human Nutrition", "classification": "required" },
+      { "name": "Medical Terminology", "classification": "required", "details": "Certificate or course; required for Prior B.S./B.A. Track." }
+    ]
+  },
+  {
+    "id": 156,
+    "institution": "Colorado State University",
+    "sourceUrl": "https://www.chhs.colostate.edu/fshn/programs-and-degrees/coordinated-masters-program-in-dietetics/application-and-admission-requirements/",
+    "hasPrereqList": true,
+    "otherConditions": "Applicant must be a current graduate student pursuing the MS degree in the Department of Food Science and Human Nutrition; acceptance into the MS program does not guarantee acceptance into the Coordinated Master's Program in Dietetics (CMPD). Applicants must confirm completion (or planned completion) of all ACEND-required courses.",
+    "courses": [
+      { "name": "General Chemistry with lab (CHEM 107, 108)", "classification": "required", "labRequired": true },
+      { "name": "Organic Chemistry with lab (CHEM 245, 246)", "classification": "required", "labRequired": true },
+      { "name": "Biology with lab (LIFE 102 or BZ 110/111)", "classification": "required", "labRequired": true },
+      { "name": "Physiology (BMS 300, and lab 302)", "classification": "required", "labRequired": true },
+      { "name": "Biochemistry (BC 351)", "classification": "required" },
+      { "name": "Microbiology with lab (LIFE 205, 206 or MIP 300, 302)", "classification": "required", "labRequired": true },
+      { "name": "Human Nutrition (FSHN 350 or FSHN 530)", "classification": "recommended", "details": "Recommended for nutrition students without a background in nutrition or biochemistry." }
+    ]
+  }
+]

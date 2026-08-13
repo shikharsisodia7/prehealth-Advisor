@@ -1,0 +1,61 @@
+[
+  {
+    "id": 151,
+    "institution": "Arkansas State University",
+    "sourceUrl": "https://degree.astate.edu/online-programs/healthcare/ms-nutrition-and-dietetics/registered-dietitian/",
+    "hasPrereqList": true,
+    "otherConditions": "Undergraduate cumulative GPA of 3.0 or better on a 4.0 scale across all courses taken required. If foundation courses are not reflected on transcripts, applicants are required to take them prior to enrolling in the MS Nutrition and Dietetics program (offered through A-State Online).",
+    "courses": [
+      { "name": "Community Nutrition", "classification": "required" },
+      { "name": "Lifecycle Nutrition", "classification": "required" },
+      { "name": "Nutritional Biochemistry", "classification": "required" },
+      { "name": "Nutrition Assessment", "classification": "required" },
+      { "name": "Food Science", "classification": "required" },
+      { "name": "Nutrition Counseling", "classification": "required" },
+      { "name": "Medical Nutrition Therapy", "classification": "required" },
+      { "name": "Applied Statistics", "classification": "required", "details": "Junior level or higher." }
+    ]
+  },
+  {
+    "id": 153,
+    "institution": "USC Leonard Davis School of Gerontology",
+    "sourceUrl": "https://gero.usc.edu/admissions/wp-content/uploads/2025/12/USC-CP-Program-Description-12.2025.pdf",
+    "hasPrereqList": true,
+    "otherConditions": "Master of Science in Nutrition, Healthspan and Longevity (MS NHL), a Coordinated Program (CP) in Nutrition and Dietetics. All prerequisites must be completed within 10 years of program application, except mathematics, speech/communication and psychology/sociology which are not time restricted. GRE not required unless undergraduate GPA is below 3.0. Course prerequisite grid required for all applicants regardless of DPD status.",
+    "courses": [
+      { "name": "General Chemistry with lab", "classification": "required", "labRequired": true, "semesterCredits": "4", "details": "USC-equivalent CHEM 105aL." },
+      { "name": "Organic Chemistry with lab", "classification": "required", "labRequired": true, "semesterCredits": "4", "details": "USC-equivalent CHEM 322aL." },
+      { "name": "Biochemistry with lab", "classification": "required", "labRequired": true, "semesterCredits": "4", "details": "USC-equivalent BISC 330L." },
+      { "name": "Cellular Biology with lab", "classification": "required", "labRequired": true, "semesterCredits": "4", "details": "USC-equivalent BISC 101Lgx, 120L, 220Lg." },
+      { "name": "Physiology with lab", "classification": "required", "labRequired": true, "semesterCredits": "4", "details": "USC-equivalent BISC104Lgx, 307L; GERO 310." },
+      { "name": "Microbiology with lab", "classification": "required", "labRequired": true, "semesterCredits": "4", "details": "USC-equivalent BISC 300L." },
+      { "name": "General Psychology or Sociology", "classification": "required", "semesterCredits": "3", "details": "USC-equivalent PSYC 100, SOCI 200." },
+      { "name": "Algebra, pre-Calculus, Calculus or Statistics", "classification": "required", "semesterCredits": "3", "details": "USC-equivalent Math 108, 125, 208." },
+      { "name": "Speech/Communication", "classification": "required", "semesterCredits": "3", "details": "USC-equivalent COMM 204." },
+      { "name": "Basic Human Nutrition", "classification": "required", "semesterCredits": "2", "details": "USC-equivalent GERO 411; HP 230; HBIO 302L." },
+      { "name": "Introductory Food Science/Experimental Foods", "classification": "required", "semesterCredits": "3", "details": "USC-equivalent BISC 115Lxg (Spring)." }
+    ]
+  },
+  {
+    "id": 157,
+    "institution": "The University of Connecticut",
+    "sourceUrl": "https://alliedhealth.uconn.edu/apply/dietetics/graduate/",
+    "hasPrereqList": true,
+    "otherConditions": "For applicants with a non-DPD Bachelor's degree. Minimum 3.0+ cumulative undergraduate GPA (or 3.0+ GPA for final two years of undergraduate work) required.",
+    "courses": [
+      { "name": "Fundamentals of Nutrition (NUSC 1165)", "classification": "required" },
+      { "name": "Food, Culture, and Society (NUSC 1167)", "classification": "required" },
+      { "name": "Nutrition and Human Development (NUSC 2200)", "classification": "required" },
+      { "name": "General Biology I (BIOL 1107)", "classification": "required" },
+      { "name": "General Chemistry with lab, two semesters (CHEM 1124Q & 1125Q)", "classification": "required", "labRequired": true },
+      { "name": "Organic Chemistry (CHEM 2241, or CHEM 2443 & CHEM 2444)", "classification": "required" },
+      { "name": "Biochemistry (MCB 2000)", "classification": "required" },
+      { "name": "Microbiology (MCB 2610)", "classification": "required" },
+      { "name": "Anatomy & Physiology with lab, 8 credits (PNB 2264 & PNB 2265)", "classification": "required", "labRequired": true, "semesterCredits": "8" },
+      { "name": "Management for the Health Professional (AH 4244)", "classification": "required" },
+      { "name": "English Composition (ENGL 1010 or ENGL 1011)", "classification": "required" },
+      { "name": "Sociology or Psychology (one course)", "classification": "required" },
+      { "name": "Statistics (STAT 1000QC or 1100QC)", "classification": "required" }
+    ]
+  }
+]

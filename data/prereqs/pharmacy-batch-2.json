@@ -1,0 +1,120 @@
+[
+  {
+    "id": 1403,
+    "institution": "California Northstate University College of Pharmacy",
+    "sourceUrl": "https://pharmacy.cnsu.edu/admissions/",
+    "hasPrereqList": true,
+    "otherConditions": "Minimum of 40 semester units (54 quarter units) of prerequisite credit required prior to matriculation. Science and math courses (and AP exams) must have been completed no more than nine years from planned matriculation. A minimum cumulative GPA of 2.7 is preferred (holistic review). No bachelor's degree or PCAT required. Applicants without a bachelor's degree must also complete 12 semester units (18 quarter units) of general education courses.",
+    "courses": [
+      { "name": "General Chemistry I with lab", "classification": "required", "labRequired": true, "semesterCredits": "4", "quarterCredits": "6", "minGrade": "C-" },
+      { "name": "General Chemistry II with lab", "classification": "required", "labRequired": true, "semesterCredits": "4", "quarterCredits": "6", "minGrade": "C-" },
+      { "name": "Organic Chemistry I", "classification": "required", "semesterCredits": "3", "quarterCredits": "4", "minGrade": "C-" },
+      { "name": "Organic Chemistry II", "classification": "required", "semesterCredits": "3", "quarterCredits": "4", "minGrade": "C-" },
+      { "name": "Organic Chemistry I or II Lab", "classification": "required", "labRequired": true, "semesterCredits": "1", "quarterCredits": "1", "minGrade": "C-" },
+      { "name": "General Biology I", "classification": "required", "semesterCredits": "3", "quarterCredits": "4", "minGrade": "C-" },
+      { "name": "General Biology II", "classification": "required", "semesterCredits": "3", "quarterCredits": "4", "minGrade": "C-" },
+      { "name": "General Biology I or II Lab", "classification": "required", "labRequired": true, "semesterCredits": "1", "quarterCredits": "1", "minGrade": "C-" },
+      { "name": "Human Physiology", "classification": "required", "semesterCredits": "3", "quarterCredits": "4", "minGrade": "C-" },
+      { "name": "Calculus or Statistics", "classification": "required", "semesterCredits": "3", "quarterCredits": "4", "minGrade": "C-" },
+      { "name": "Public Speaking/Oral Communication", "classification": "required", "semesterCredits": "3", "quarterCredits": "4", "minGrade": "C-" },
+      { "name": "English Composition I", "classification": "required", "semesterCredits": "3", "quarterCredits": "4", "minGrade": "C-" },
+      { "name": "Psychology or Humanities/Social Sciences", "classification": "required", "semesterCredits": "3", "quarterCredits": "4", "minGrade": "C-" },
+      { "name": "Economics or Humanities/Social Sciences", "classification": "required", "semesterCredits": "3", "quarterCredits": "4", "minGrade": "C-" }
+    ]
+  },
+  {
+    "id": 1404,
+    "institution": "Campbell University College of Pharmacy and Health Sciences",
+    "sourceUrl": "https://cphs.campbell.edu/academic-programs/pharmacy/doctor-of-pharmacy/requirements/",
+    "hasPrereqList": true,
+    "otherConditions": "Minimum 59 prerequisite credit hours required before enrollment (60 hours of math/science core coursework). All required pre-professional academic work must be completed with a letter grade of C or higher; survey courses are not accepted. Minimum recommended overall and prerequisite GPA is 2.75. Applicants who already hold a bachelor's degree only need to complete the math/science prerequisites; the non-science general-education requirements below are waived for them.",
+    "courses": [
+      { "name": "College Algebra or Calculus", "classification": "required", "semesterCredits": "3-4", "minGrade": "C" },
+      { "name": "General Chemistry with lab", "classification": "required", "labRequired": true, "semesterCredits": "8", "minGrade": "C" },
+      { "name": "Organic Chemistry I with lab", "classification": "required", "labRequired": true, "semesterCredits": "4", "minGrade": "C" },
+      { "name": "Organic Chemistry II or Biochemistry", "classification": "required", "labRequired": false, "semesterCredits": "3-4", "minGrade": "C", "details": "Lab not required for this course." },
+      { "name": "General Biology with lab", "classification": "required", "labRequired": true, "semesterCredits": "4", "minGrade": "C" },
+      { "name": "Anatomy & Physiology with lab", "classification": "required", "labRequired": true, "semesterCredits": "8", "minGrade": "C" },
+      { "name": "Microbiology with lab", "classification": "required", "labRequired": true, "semesterCredits": "4", "minGrade": "C" },
+      { "name": "Statistics", "classification": "required", "semesterCredits": "3", "minGrade": "C" },
+      { "name": "English Composition", "classification": "required", "semesterCredits": "6", "minGrade": "C", "details": "Applies only to applicants without a bachelor's degree." },
+      { "name": "Humanities/Fine Arts or Social/Behavioral Science", "classification": "required", "semesterCredits": "8", "minGrade": "C", "details": "Applies only to applicants without a bachelor's degree." },
+      { "name": "Electives", "classification": "required", "semesterCredits": "8", "minGrade": "C", "details": "Applies only to applicants without a bachelor's degree." }
+    ]
+  },
+  {
+    "id": 1405,
+    "institution": "Cedarville University School of Pharmacy",
+    "sourceUrl": "https://www.cedarville.edu/academic-schools-and-departments/pharmacy/pharm-d/admission-postbaccalaureate",
+    "hasPrereqList": true,
+    "otherConditions": "Minimum of 64 semester credits required for students entering the PharmD program without a bachelor's degree. Minimum grade of C required in all prerequisite courses, with an exception allowing a C- in one semester of a two-semester sequence (General Chemistry, Organic Chemistry, Human Anatomy/Physiology) if at least a C+ is earned in the complementary semester. Cumulative undergraduate GPA of at least 2.75 desired (lower GPAs may still be considered).",
+    "courses": [
+      { "name": "College-level Composition", "classification": "required", "minGrade": "C" },
+      { "name": "Speech or Communication", "classification": "required", "minGrade": "C" },
+      { "name": "Biology elective", "classification": "required", "minGrade": "C" },
+      { "name": "General Chemistry (2 courses) with laboratory", "classification": "required", "labRequired": true, "courseCount": "2", "minGrade": "C" },
+      { "name": "Organic Chemistry (2 courses) with laboratory", "classification": "required", "labRequired": true, "courseCount": "2", "minGrade": "C" },
+      { "name": "Calculus", "classification": "required", "minGrade": "C" },
+      { "name": "Introduction to Biology with laboratory", "classification": "required", "labRequired": true, "minGrade": "C" },
+      { "name": "Human Anatomy and Physiology (2 courses) with laboratory", "classification": "required", "labRequired": true, "courseCount": "2", "minGrade": "C" },
+      { "name": "Microbiology with laboratory", "classification": "required", "labRequired": true, "minGrade": "C" },
+      { "name": "General education courses", "classification": "required", "semesterCredits": "18", "minGrade": "C" }
+    ]
+  },
+  {
+    "id": 1407,
+    "institution": "Chicago State University College of Health Sciences and Pharmacy School of Pharmacy",
+    "sourceUrl": "https://www.csu.edu/pharmacy/studentaffairs/admissions_requirements.htm",
+    "hasPrereqList": true,
+    "otherConditions": "Minimum 60 semester hours of non-remedial prerequisite coursework required from a regionally accredited US college/university. It is preferred (not required) that science and math prerequisite coursework be completed within the last 5 years. PCAT is not required. An interview is required, by invitation only.",
+    "courses": [
+      { "name": "English (composition or writing intensive)", "classification": "required", "semesterCredits": "6", "minGrade": "C-" },
+      { "name": "Biology", "classification": "required", "labRequired": true, "semesterCredits": "8", "minGrade": "C-", "details": "Must include General Biology with laboratory." },
+      { "name": "Human Anatomy + Physiology", "classification": "required", "semesterCredits": "6", "minGrade": "C-", "details": "Human or mammalian." },
+      { "name": "General Chemistry with laboratory", "classification": "required", "labRequired": true, "semesterCredits": "8", "minGrade": "C-" },
+      { "name": "Organic Chemistry with laboratory", "classification": "required", "labRequired": true, "semesterCredits": "8", "minGrade": "C-" },
+      { "name": "Physics", "classification": "required", "semesterCredits": "3", "minGrade": "C-", "details": "May be for business or life sciences." },
+      { "name": "Calculus", "classification": "required", "semesterCredits": "3", "minGrade": "C-", "details": "May include business or life sciences calculus." },
+      { "name": "Oral Communication (speech)", "classification": "required", "semesterCredits": "3", "minGrade": "C-" },
+      { "name": "Statistics", "classification": "required", "semesterCredits": "3", "minGrade": "C-" },
+      { "name": "Other General Education", "classification": "required", "semesterCredits": "12-14", "minGrade": "C-", "details": "Recommended: economics and social science." }
+    ]
+  },
+  {
+    "id": 1408,
+    "institution": "Concordia University Wisconsin School of Pharmacy",
+    "sourceUrl": "https://www.cuw.edu/academics/schools/pharmacy/admissions/application-process.html",
+    "hasPrereqList": true,
+    "otherConditions": "Total pre-pharmacy credits: 56 (science minimum 32, non-science minimum 24). All pre-pharmacy requirements must be completed with a grade of C- or better. AP and dual-enrollment courses may be used to fulfill requirements. Bachelor's degree not required to begin the program. Applicants must maintain a 3.0 cumulative GPA and receive a C- or better in all pre-pharmacy courses before submitting the PharmCAS application.",
+    "courses": [
+      { "name": "Biology with labs", "classification": "required", "labRequired": true, "semesterCredits": "8", "minGrade": "C-" },
+      { "name": "General Chemistry with labs", "classification": "required", "labRequired": true, "semesterCredits": "8", "minGrade": "C-" },
+      { "name": "Organic Chemistry with labs", "classification": "required", "labRequired": true, "semesterCredits": "8", "minGrade": "C-" },
+      { "name": "Advanced Science Electives (2 or more courses)", "classification": "required", "courseCount": "2", "semesterCredits": "8-10", "minGrade": "C-", "details": "Examples include Physics II, Physiology, Anatomy, Anatomy and Physiology, Microbiology, Biochemistry, Cell Biology, Molecular Biology, or Genetics." },
+      { "name": "Calculus or Advanced Algebra", "classification": "required", "semesterCredits": "3", "minGrade": "C-" },
+      { "name": "Statistics", "classification": "required", "semesterCredits": "3", "minGrade": "C-" },
+      { "name": "English Composition", "classification": "required", "semesterCredits": "3", "minGrade": "C-" },
+      { "name": "Interpersonal Communication or Public Speaking", "classification": "required", "semesterCredits": "3", "minGrade": "C-" },
+      { "name": "General Education Electives", "classification": "required", "semesterCredits": "12", "minGrade": "C-" }
+    ]
+  },
+  {
+    "id": 1409,
+    "institution": "Creighton University School of Pharmacy and Health Professions",
+    "sourceUrl": "https://catalog.creighton.edu/undergraduate/student-success/pre-professional-advising-communities/pre-pharmacy-general-requirements/pre-pharmacy-general-requirements.pdf",
+    "hasPrereqList": true,
+    "otherConditions": "Minimum of 63 semester hours (95 quarter hours) required before entering the program. The Admission Committee will not review applications until a grade of C or better is earned in Organic Chemistry I. All prerequisite coursework must be completed by August 1 of the desired year of entry. PCAT is not required for admission consideration.",
+    "courses": [
+      { "name": "General Biology I & II with labs (BIO 201/BIO 205 and BIO 202/BIO 206)", "classification": "required", "labRequired": true, "semesterCredits": "8", "minGrade": "C" },
+      { "name": "Human Anatomy (PHA 310 or EXS 331)", "classification": "required", "semesterCredits": "3", "minGrade": "C" },
+      { "name": "General Chemistry I & II with labs (CHM 203/204 and 205/206)", "classification": "required", "labRequired": true, "semesterCredits": "8", "minGrade": "C" },
+      { "name": "Organic Chemistry I & II with labs (CHM 321/322 and 323/324)", "classification": "required", "labRequired": true, "semesterCredits": "8", "minGrade": "C" },
+      { "name": "Calculus (MTH 231 or MTH 245)", "classification": "required", "semesterCredits": "3-4", "minGrade": "C" },
+      { "name": "English (ENG 150, and ENG 221/223/225/226/227/229)", "classification": "required", "semesterCredits": "6", "minGrade": "C" },
+      { "name": "Speech (COM 101 plus one Magis Core Critical Issues in Human Inquiry course)", "classification": "required", "semesterCredits": "4", "minGrade": "C" },
+      { "name": "Psychology (PSY 201)", "classification": "required", "semesterCredits": "3", "minGrade": "C" },
+      { "name": "Microeconomics (ECO 203) or Macroeconomics (ECO 205)", "classification": "required", "semesterCredits": "3", "minGrade": "C" },
+      { "name": "Electives", "classification": "required", "semesterCredits": "18", "minGrade": "C", "details": "At least 9 semester hours must come from humanities or behavioral/social sciences; Creighton undergraduates must include 6 hours of Theology among the elective hours." }
+    ]
+  }
+]
