@@ -5,8 +5,8 @@
  *
  * Pipeline per program (resumable, checkpointed in data/completion-state.json):
  *   1. discover  — candidate official URLs (stored sourceUrl/websiteUrl, cached
- *                  queue candidates, same-domain keyword links, Firecrawl
- *                  search when FIRECRAWL_API_KEY is configured)
+ *                  queue candidates, same-domain keyword links, Firecrawl or
+ *                  DuckDuckGo/Bing search fallback)
  *   2. fetch     — retrieve official page(s), cache HTML with content hash
  *   3. extract   — OpenAI structured output (strict JSON schema) over the
  *                  retrieved OFFICIAL text only; never invents requirements
@@ -47,9 +47,11 @@ const KEYWORDS = [
   "admissions", "admission", "requirements", "required-course", "how-to-apply",
   "apply", "eligibility", "prospective", "application-requirements", "catalog", "handbook",
 ];
-const CONCURRENCY = 4;
+const CONCURRENCY = 3;
 const PER_DOMAIN_DELAY_MS = 2500;
 const OPENAI_MODEL = process.env.COMPLETION_MODEL || "gpt-4o-mini";
+
+const normalize = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
 
 // ── Durable per-program state ────────────────────────────────────────────────
 
@@ -75,8 +77,31 @@ function loadState(): StateMap {
   }
 }
 let state: StateMap = loadState();
+function sleepSync(ms: number) {
+  const end = Date.now() + ms;
+  while (Date.now() < end) { /* spin — keep saveState sync for callers */ }
+}
 function saveState() {
-  fs.writeFileSync(STATE_FILE, JSON.stringify(state, null, 1));
+  // Desktop/OneDrive/AV can briefly lock this file on Windows; retry instead of killing the queue.
+  const data = JSON.stringify(state, null, 1);
+  const tmp = `${STATE_FILE}.${process.pid}.tmp`;
+  let lastErr: unknown;
+  for (let attempt = 0; attempt < 8; attempt++) {
+    try {
+      fs.writeFileSync(tmp, data);
+      try {
+        fs.renameSync(tmp, STATE_FILE);
+      } catch {
+        fs.copyFileSync(tmp, STATE_FILE);
+        try { fs.unlinkSync(tmp); } catch { /* ignore */ }
+      }
+      return;
+    } catch (e) {
+      lastErr = e;
+      sleepSync(40 * 2 ** attempt);
+    }
+  }
+  console.warn(`warning: failed to persist completion-state.json after retries: ${lastErr instanceof Error ? lastErr.message : lastErr}`);
 }
 function setState(id: number, patch: Partial<ProgramState>) {
   const prev = state[id] ?? { stage: "unstarted", lastAttempt: "", attempts: 0 };
@@ -109,39 +134,6 @@ async function politeDelay(url: string) {
 
 interface Fetched { url: string; html: string; text: string; hash: string; contentType: string }
 
-async function fetchOfficial(url: string): Promise<Fetched> {
-  await politeDelay(url);
-  let lastError: unknown;
-  for (let attempt = 0; attempt < 3; attempt++) {
-    try {
-      const res = await fetch(url, {
-        headers: { "user-agent": USER_AGENT, accept: "text/html,application/pdf;q=0.9,*/*;q=0.5" },
-        redirect: "follow",
-        signal: AbortSignal.timeout(25_000),
-      });
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
-      const contentType = res.headers.get("content-type") ?? "";
-      if (contentType.includes("pdf")) {
-        // PDFs need a document extractor; route through Firecrawl when available.
-        if (FIRECRAWL_KEY) return await firecrawlScrape(url);
-        throw new Error("PDF source requires Firecrawl parsing (key not configured)");
-      }
-      const html = await res.text();
-      return {
-        url: res.url, html, text: stripHtml(html).slice(0, 160_000),
-        hash: crypto.createHash("sha256").update(html).digest("hex"),
-        contentType,
-      };
-    } catch (e) {
-      lastError = e;
-      await new Promise((r) => setTimeout(r, 1000 * 2 ** attempt));
-    }
-  }
-  throw lastError instanceof Error ? lastError : new Error(String(lastError));
-}
-
-// ── Firecrawl (primary retrieval when configured) ────────────────────────────
-
 async function firecrawlScrape(url: string): Promise<Fetched> {
   const res = await fetch("https://api.firecrawl.dev/v1/scrape", {
     method: "POST",
@@ -160,6 +152,41 @@ async function firecrawlScrape(url: string): Promise<Fetched> {
   };
 }
 
+async function fetchOfficial(url: string): Promise<Fetched> {
+  await politeDelay(url);
+  let lastError: unknown;
+  for (let attempt = 0; attempt < 3; attempt++) {
+    try {
+      const res = await fetch(url, {
+        headers: {
+          "user-agent": USER_AGENT,
+          accept: "text/html,application/xhtml+xml,application/pdf;q=0.9,*/*;q=0.5",
+          "accept-language": "en-US,en;q=0.9",
+          "cache-control": "no-cache",
+        },
+        redirect: "follow",
+        signal: AbortSignal.timeout(25_000),
+      });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const contentType = res.headers.get("content-type") ?? "";
+      if (contentType.includes("pdf")) {
+        if (FIRECRAWL_KEY) return await firecrawlScrape(url);
+        throw new Error("PDF source requires Firecrawl parsing (key not configured)");
+      }
+      const html = await res.text();
+      return {
+        url: res.url, html, text: stripHtml(html).slice(0, 160_000),
+        hash: crypto.createHash("sha256").update(html).digest("hex"),
+        contentType,
+      };
+    } catch (e) {
+      lastError = e;
+      await new Promise((r) => setTimeout(r, 1000 * 2 ** attempt));
+    }
+  }
+  throw lastError instanceof Error ? lastError : new Error(String(lastError));
+}
+
 async function firecrawlSearch(query: string): Promise<string[]> {
   const res = await fetch("https://api.firecrawl.dev/v1/search", {
     method: "POST",
@@ -172,6 +199,176 @@ async function firecrawlSearch(query: string): Promise<string[]> {
   return (body.data ?? []).map((d) => d.url).filter((u): u is string => !!u);
 }
 
+const BLOCKED_SEARCH_HOSTS =
+  /reddit\.com|facebook\.com|twitter\.com|x\.com|youtube\.com|tiktok\.com|quora\.com|studentdoctor\.net|collegevine\.com|niche\.com|gradschools\.com|petersons\.com|wikipedia\.org|linkedin\.com|indeed\.com|glassdoor\.com|nextgenmedprep\.com|skillnation\.|admitva\.com|myworkdaysite\.com|collegexpress|cappex\.com|princetonreview|shemmassian|accepted\.com|prospectivedoctor|beatthegmat/i;
+
+const DIRECTORY_HUB_HOSTS =
+  /ada\.org|adea\.org|lcme\.org|aacom\.org|aacomas\.|acpe-accredit\.org|aae\.org|optometriceducation\.org|aaopt\.org|caspa\.liaison|otcas\.|ptcas\.|pharmacycas\.|aavmc\.org|liaisoncas\.|ncope\.org|capteonline\.org|acoteonline\.org|caahep\.org|caahi?m\.org|naacls\.org|acend\.|eatright\.org|aamc\.org|students-residents\.aamc/i;
+
+function isDirectoryHubUrl(url: string | null | undefined): boolean {
+  if (!url) return false;
+  try {
+    const u = new URL(url);
+    return DIRECTORY_HUB_HOSTS.test(`${u.hostname}${u.pathname}`);
+  } catch {
+    return false;
+  }
+}
+
+let searchChain: Promise<void> = Promise.resolve();
+async function withSearchLock<T>(fn: () => Promise<T>): Promise<T> {
+  const prev = searchChain;
+  let release!: () => void;
+  searchChain = new Promise<void>((r) => { release = r; });
+  await prev;
+  try {
+    await new Promise((r) => setTimeout(r, 1200));
+    return await fn();
+  } finally {
+    release();
+  }
+}
+
+async function duckDuckGoSearch(query: string): Promise<string[]> {
+  const res = await fetch("https://html.duckduckgo.com/html/", {
+    method: "POST",
+    headers: {
+      "user-agent": USER_AGENT,
+      "content-type": "application/x-www-form-urlencoded",
+      accept: "text/html",
+    },
+    body: `q=${encodeURIComponent(query)}`,
+    signal: AbortSignal.timeout(30_000),
+    redirect: "follow",
+  });
+  if (!res.ok) throw new Error(`DuckDuckGo search HTTP ${res.status}`);
+  const html = await res.text();
+  const urls: string[] = [];
+  for (const m of html.matchAll(/uddg=([^&"]+)/gi)) {
+    try {
+      const decoded = decodeURIComponent(m[1]);
+      if (/^https?:\/\//i.test(decoded)) urls.push(decoded);
+    } catch { /* skip */ }
+  }
+  for (const m of html.matchAll(/class="result__a"[^>]*href="([^"]+)"/gi)) {
+    const href = m[1];
+    if (href.startsWith("http")) urls.push(href);
+    else {
+      try {
+        const u = new URL(href, "https://duckduckgo.com");
+        const uddg = u.searchParams.get("uddg");
+        if (uddg) urls.push(uddg);
+      } catch { /* skip */ }
+    }
+  }
+  for (const m of html.matchAll(/href="([^"]+)"[^>]*class="result__a"/gi)) {
+    if (m[1].startsWith("http")) urls.push(m[1]);
+  }
+  return [...new Set(urls)].slice(0, 8);
+}
+
+async function bingSearch(query: string): Promise<string[]> {
+  const res = await fetch(`https://www.bing.com/search?q=${encodeURIComponent(query)}`, {
+    headers: {
+      "user-agent": USER_AGENT,
+      accept: "text/html,application/xhtml+xml",
+      "accept-language": "en-US,en;q=0.9",
+    },
+    signal: AbortSignal.timeout(30_000),
+    redirect: "follow",
+  });
+  if (!res.ok) throw new Error(`Bing search HTTP ${res.status}`);
+  const html = await res.text();
+  const urls: string[] = [];
+  for (const m of html.matchAll(/<cite[^>]*>([\s\S]*?)<\/cite>/gi)) {
+    const text = stripHtml(m[1]).replace(/\s+/g, "");
+    if (/^https?:\/\//i.test(text)) urls.push(text);
+    else if (/^[a-z0-9.-]+\.[a-z]{2,}\//i.test(text)) urls.push(`https://${text}`);
+  }
+  for (const m of html.matchAll(/href="(https?:\/\/[^"]+)"/gi)) {
+    const u = m[1];
+    if (/bing\.|microsoft\.|msn\.|live\.com|aka\.ms|creativecommons/i.test(u)) continue;
+    urls.push(u);
+  }
+  return [...new Set(urls)].slice(0, 10);
+}
+
+async function webSearch(query: string): Promise<string[]> {
+  return withSearchLock(async () => {
+    if (FIRECRAWL_KEY) {
+      try {
+        const urls = await firecrawlSearch(query);
+        if (urls.length) return urls;
+      } catch { /* fall through */ }
+    }
+    try {
+      const ddg = await duckDuckGoSearch(query);
+      if (ddg.length) return ddg;
+    } catch { /* fall through */ }
+    return bingSearch(query);
+  });
+}
+
+function professionKeywords(slug: string): string[] {
+  const map: Record<string, string[]> = {
+    "physical-therapy": ["physical therapy", "dpt"],
+    "occupational-therapy": ["occupational therapy", "otd", "msot"],
+    "physician-assistant": ["physician assistant", "physician associate"],
+    "anesthesiologist-assistant": ["anesthesiologist assistant", "anesthesia"],
+    "pathologists-assistant": ["pathologist"],
+    medicine: ["medicine", "medical", "md program", "m.d.", "osteopathic"],
+    "osteopathic-medicine": ["osteopathic", "d.o."],
+    dental: ["dental", "dentistry"],
+    optometry: ["optometry"],
+    pharmacy: ["pharmacy", "pharmd"],
+    veterinary: ["veterinary", "dvm"],
+    podiatry: ["podiatr"],
+    postbac: ["post-bac", "postbac", "post bac"],
+    nursing: ["nursing", "bsn", "msn", "absn", "mepn"],
+    dietetics: ["dietetic", "nutrition", "rdn"],
+    "genetic-counseling": ["genetic counseling"],
+    "speech-language-pathology": ["speech", "language pathology", "slp", "communication sciences"],
+    "prosthetics-orthotics": ["prosthetic", "orthotic", "o&p"],
+  };
+  return map[slug] ?? slug.split("-").filter((w) => w.length > 3);
+}
+
+function institutionTokens(name: string): string[] {
+  const stop = new Set([
+    "university", "college", "school", "institute", "health", "sciences", "science",
+    "medical", "medicine", "center", "campus", "the", "of", "and", "at", "for",
+    "state", "system", "program", "programs", "graduate", "professional",
+  ]);
+  return normalize(name).split(" ").filter((t) => t.length >= 4 && !stop.has(t));
+}
+
+interface ProgramRow {
+  id: number; name: string; professionSlug: string; programName: string;
+  websiteUrl: string | null; sourceUrl: string | null;
+  prereqSources: PrereqSource[] | null; verificationStatus: string;
+  prereqCourses: PrereqItem[] | null;
+}
+
+function looksLikeOfficialProgramUrl(url: string, program: ProgramRow): boolean {
+  try {
+    const u = new URL(url);
+    if (!/^https?:$/i.test(u.protocol)) return false;
+    if (BLOCKED_SEARCH_HOSTS.test(u.hostname)) return false;
+    if (isDirectoryHubUrl(url)) return false;
+    const hay = `${u.hostname} ${u.pathname}`.toLowerCase();
+    const tokens = institutionTokens(program.name);
+    const nameHit = tokens.length === 0 || tokens.some((t) => hay.includes(t));
+    const professionHit = professionKeywords(program.professionSlug).some((k) =>
+      hay.includes(normalize(k).replace(/ /g, "-")) || hay.includes(normalize(k)),
+    );
+    const eduLike = /\.edu($|\/)|\.ac\.|\.gov($|\/)|edu\./i.test(u.hostname) ||
+      /admissions|prerequisite|catalog|handbook|apply/i.test(hay);
+    return nameHit && (professionHit || eduLike);
+  } catch {
+    return false;
+  }
+}
+
 // ── Discovery ────────────────────────────────────────────────────────────────
 
 function keywordLinks(html: string, base: string, professionTerms: string[]): string[] {
@@ -181,7 +378,7 @@ function keywordLinks(html: string, base: string, professionTerms: string[]): st
   for (const m of html.matchAll(/<a\b[^>]*href=["']([^"']+)["'][^>]*>([\s\S]*?)<\/a>/gi)) {
     try {
       const u = new URL(m[1], baseUrl);
-      if (!u.hostname.endsWith(rootDomain)) continue; // stay on the institution's domain
+      if (!u.hostname.endsWith(rootDomain)) continue;
       const hay = `${u.pathname} ${stripHtml(m[2])}`.toLowerCase();
       if (!KEYWORDS.some((k) => hay.includes(k))) continue;
       u.hash = "";
@@ -197,59 +394,49 @@ function keywordLinks(html: string, base: string, professionTerms: string[]): st
   return [...scored.entries()].sort((a, b) => b[1] - a[1]).slice(0, 8).map(([u]) => u);
 }
 
-interface ProgramRow {
-  id: number; name: string; professionSlug: string; programName: string;
-  websiteUrl: string | null; sourceUrl: string | null;
-  prereqSources: PrereqSource[] | null; verificationStatus: string;
-  prereqCourses: PrereqItem[] | null;
-}
-
 async function discoverCandidates(program: ProgramRow): Promise<string[]> {
   const candidates: string[] = [];
-  // 1. queue file candidates from prior acquisition runs
   try {
     const queue = JSON.parse(fs.readFileSync(path.join(QUEUE_DIR, `${program.id}.json`), "utf8"));
     if (queue.root?.cacheFile) candidates.push(`cache:${queue.root.cacheFile}|${queue.root.url}`);
     for (const s of queue.candidateOfficialSources ?? []) {
-      if (s.url && /prereq|requirement|admission|apply|prospective/i.test(s.url)) candidates.push(s.url);
+      if (s.url && /prereq|requirement|admission|apply|prospective/i.test(s.url) && !isDirectoryHubUrl(s.url)) {
+        candidates.push(s.url);
+      }
     }
   } catch { /* no queue file */ }
-  // 2. stored URLs
-  if (program.sourceUrl) candidates.push(program.sourceUrl);
-  if (program.websiteUrl) candidates.push(program.websiteUrl);
-  // 3. Firecrawl official-domain search when configured
-  if (FIRECRAWL_KEY && program.websiteUrl) {
+
+  if (program.sourceUrl && !isDirectoryHubUrl(program.sourceUrl)) candidates.push(program.sourceUrl);
+  if (program.websiteUrl && !isDirectoryHubUrl(program.websiteUrl)) candidates.push(program.websiteUrl);
+
+  const usableWebsite =
+    program.websiteUrl && !isDirectoryHubUrl(program.websiteUrl) ? program.websiteUrl : null;
+
+  if (usableWebsite) {
     try {
-      const host = new URL(program.websiteUrl).hostname.replace(/^www\./, "");
-      const urls = await firecrawlSearch(
+      const host = new URL(usableWebsite).hostname.replace(/^www\./, "");
+      const urls = await webSearch(
         `${program.name} ${program.programName} prerequisite courses admission requirements site:${host}`,
       );
-      candidates.push(...urls.filter((u) => u.includes(host)));
-    } catch { /* search failure is non-fatal */ }
+      candidates.push(...urls.filter((u) => u.includes(host) && looksLikeOfficialProgramUrl(u, program)));
+    } catch { /* non-fatal */ }
   }
-  // 4. Domain-agnostic Firecrawl search. Several accreditor directory sources
-  // (LCME MD, ACPE pharmacy, ASCO optometry, CPME podiatry, NCOPE P&O, AVMA
-  // veterinary) do not publish a websiteUrl at all, so step 3 above can never
-  // run for those programs — without this fallback discoverCandidates()
-  // returns [] and the program fails immediately with "no official candidate
-  // URLs" regardless of how many times the worker is rerun. This searches by
-  // institution/program name alone to locate the official domain.
-  if (FIRECRAWL_KEY && !program.websiteUrl) {
+
+  const needsOpenSearch = !usableWebsite || candidates.filter((c) => !c.startsWith("cache:")).length < 2;
+  if (needsOpenSearch) {
     try {
-      const urls = await firecrawlSearch(
+      const urls = (await webSearch(
         `${program.name} ${program.programName} official admissions prerequisites`,
-      );
+      )).filter((u) => looksLikeOfficialProgramUrl(u, program));
       candidates.push(...urls);
-      // Persist the first plausible result as websiteUrl so future runs (and
-      // the directory itself) don't repeat this search, and so the frontend
-      // can eventually show a program homepage link.
-      if (urls[0] && !program.sourceUrl) {
+      const validated = urls.find((u) => looksLikeOfficialProgramUrl(u, program));
+      if (validated && (!program.websiteUrl || isDirectoryHubUrl(program.websiteUrl))) {
         await db
           .update(programSchoolsTable)
-          .set({ websiteUrl: new URL(urls[0]).origin })
+          .set({ websiteUrl: new URL(validated).origin })
           .where(eq(programSchoolsTable.id, program.id));
       }
-    } catch { /* search failure is non-fatal */ }
+    } catch { /* non-fatal */ }
   }
   return [...new Set(candidates)];
 }
@@ -305,46 +492,56 @@ const EXTRACTION_SCHEMA = {
 } as const;
 
 async function extractWithOpenAI(program: ProgramRow, pageText: string, url: string): Promise<Extraction> {
-  const res = await fetch("https://api.openai.com/v1/chat/completions", {
-    method: "POST",
-    headers: { authorization: `Bearer ${OPENAI_KEY}`, "content-type": "application/json" },
-    body: JSON.stringify({
-      model: OPENAI_MODEL,
-      temperature: 0,
-      response_format: {
-        type: "json_schema",
-        json_schema: { name: "prereq_extraction", strict: true, schema: EXTRACTION_SCHEMA },
+  const payload = {
+    model: OPENAI_MODEL,
+    temperature: 0,
+    response_format: {
+      type: "json_schema",
+      json_schema: { name: "prereq_extraction", strict: true, schema: EXTRACTION_SCHEMA },
+    },
+    messages: [
+      {
+        role: "system",
+        content:
+          "You extract admission prerequisite coursework from OFFICIAL university program pages. " +
+          "NEVER invent, infer, or borrow requirements not explicitly present in the provided text. " +
+          "Missing values must be null. Set hasPrereqList=true only when the text contains an actual prerequisite " +
+          "coursework list for THIS program. Set statesNoPrereqs=true only when the text explicitly states there are " +
+          "no specific course prerequisites — and then noPrereqsEvidenceQuote MUST contain the exact sentence from the " +
+          "text making that statement. Course names must be the actual subjects as written (e.g. 'Human Anatomy with lab'); " +
+          "NEVER emit placeholders like 'Prerequisite Course 1'. If the page only links to prerequisites elsewhere without " +
+          "listing them, set hasPrereqList=false. Include non-course admission items (GPA, GRE, hours, degree) only when " +
+          "presented as prerequisites, using classification per the text.",
       },
-      messages: [
-        {
-          role: "system",
-          content:
-            "You extract admission prerequisite coursework from OFFICIAL university program pages. " +
-            "NEVER invent, infer, or borrow requirements not explicitly present in the provided text. " +
-            "Missing values must be null. Set hasPrereqList=true only when the text contains an actual prerequisite " +
-            "coursework list for THIS program. Set statesNoPrereqs=true only when the text explicitly states there are " +
-            "no specific course prerequisites — and then noPrereqsEvidenceQuote MUST contain the exact sentence from the " +
-            "text making that statement. Course names must be the actual subjects as written (e.g. 'Human Anatomy with lab'); " +
-            "NEVER emit placeholders like 'Prerequisite Course 1'. If the page only links to prerequisites elsewhere without " +
-            "listing them, set hasPrereqList=false. Include non-course admission items (GPA, GRE, hours, degree) only when " +
-            "presented as prerequisites, using classification per the text.",
-        },
-        {
-          role: "user",
-          content:
-            `Program: ${program.programName} at ${program.name} (profession: ${program.professionSlug}).\n` +
-            `Official source URL: ${url}\n\nOFFICIAL PAGE TEXT:\n${pageText.slice(0, 100_000)}`,
-        },
-      ],
-    }),
-    signal: AbortSignal.timeout(120_000),
-  });
-  if (!res.ok) {
+      {
+        role: "user",
+        content:
+          `Program: ${program.programName} at ${program.name} (profession: ${program.professionSlug}).\n` +
+          `Official source URL: ${url}\n\nOFFICIAL PAGE TEXT:\n${pageText.slice(0, 100_000)}`,
+      },
+    ],
+  };
+  let lastError: Error | null = null;
+  for (let attempt = 0; attempt < 4; attempt++) {
+    const res = await fetch("https://api.openai.com/v1/chat/completions", {
+      method: "POST",
+      headers: { authorization: `Bearer ${OPENAI_KEY}`, "content-type": "application/json" },
+      body: JSON.stringify(payload),
+      signal: AbortSignal.timeout(120_000),
+    });
+    if (res.ok) {
+      const body = (await res.json()) as { choices: Array<{ message: { content: string } }> };
+      return JSON.parse(body.choices[0].message.content) as Extraction;
+    }
     const errBody = await res.text().catch(() => "");
-    throw new Error(`OpenAI HTTP ${res.status}: ${errBody.slice(0, 300)}`);
+    lastError = new Error(`OpenAI HTTP ${res.status}: ${errBody.slice(0, 300)}`);
+    if (res.status === 429 || res.status >= 500) {
+      await new Promise((r) => setTimeout(r, 5000 * 2 ** attempt));
+      continue;
+    }
+    throw lastError;
   }
-  const body = (await res.json()) as { choices: Array<{ message: { content: string } }> };
-  return JSON.parse(body.choices[0].message.content) as Extraction;
+  throw lastError ?? new Error("OpenAI extraction failed");
 }
 
 // ── Validation + persistence ─────────────────────────────────────────────────
@@ -366,49 +563,22 @@ function toPrereqItem(c: ExtractedCourse): PrereqItem {
 
 const PLACEHOLDER_NAME = /^(prerequisite|required)?\s*course\s*\d*$|^(course|subject|requirement)\s+\d+$/i;
 const SUBJECT_HINT = /biolog|chem|physic|anatom|physiol|psych|stat|math|calc|english|writ|composit|sociolog|microbio|genetic|biochem|kinesiol|nutrit|exercise|humanit|social|science|communicat|econom|algebra|literature|history|language|medical|terminolog|gpa|gre|degree|bachelor|experience|hours|observ|shadow|cpr|certif/i;
-
-const normalize = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
-// The quote must genuinely assert that prerequisites are absent, not be any random page sentence.
 const NO_PREREQ_ASSERTION =
   /(no|not\s+require|not\s+have|without)[^.]{0,60}prerequis|prerequis[^.]{0,60}(are\s+not|not\s+required|none)/i;
-
-function professionKeywords(slug: string): string[] {
-  const map: Record<string, string[]> = {
-    "physical-therapy": ["physical therapy", "dpt"],
-    "occupational-therapy": ["occupational therapy", "otd", "msot"],
-    "physician-assistant": ["physician assistant", "physician associate"],
-    "anesthesiologist-assistant": ["anesthesiologist assistant", "anesthesia"],
-    "pathologists-assistant": ["pathologist"],
-    medicine: ["medicine", "medical", "md program", "m.d."],
-    "osteopathic-medicine": ["osteopathic", "d.o."],
-    dental: ["dental", "dentistry"],
-    optometry: ["optometry"],
-    pharmacy: ["pharmacy", "pharmd"],
-    veterinary: ["veterinary", "dvm"],
-    podiatry: ["podiatr"],
-    postbac: ["post-bac", "postbac", "post bac"],
-  };
-  return map[slug] ?? slug.split("-").filter((w) => w.length > 3);
-}
 
 function validExtraction(ex: Extraction, pageText: string, program: ProgramRow): boolean {
   const pageNorm = normalize(pageText);
   const onTopic = professionKeywords(program.professionSlug).some((k) => pageNorm.includes(normalize(k)));
   if (ex.statesNoPrereqs) {
-    // A "no prerequisites" claim requires (a) a verbatim quote that appears in the
-    // retrieved page, (b) the quote actually asserting absence of prerequisites,
-    // and (c) the page being about this profession's program at all.
     const quote = ex.noPrereqsEvidenceQuote?.trim() ?? "";
     return quote.length >= 15 && pageNorm.includes(normalize(quote)) &&
       NO_PREREQ_ASSERTION.test(quote) && onTopic;
   }
   if (!ex.hasPrereqList || !onTopic) return false;
-  if (!Array.isArray(ex.courses) || ex.courses.length < 3) return false; // health programs list several; fewer = wrong page
+  if (!Array.isArray(ex.courses) || ex.courses.length < 3) return false;
   const names = ex.courses.map((c) => c.name ?? "");
   if (names.some((n) => typeof n !== "string" || n.length < 2 || n.length > 300)) return false;
-  // Reject placeholder-style extractions ("Prerequisite Course 1", "Course 3"...)
   if (names.some((n) => PLACEHOLDER_NAME.test(n.trim()))) return false;
-  // At least half of the entries must look like real subjects/requirements.
   const plausible = names.filter((n) => SUBJECT_HINT.test(n)).length;
   return plausible >= Math.ceil(names.length / 2);
 }
@@ -429,7 +599,6 @@ async function persistResult(
     ? existing.map((s) => (s.url === entry.url ? { ...s, retrievedAt: TODAY, contentHash: source.hash } : s))
     : [...existing, entry];
 
-  // cache raw content for change detection
   fs.mkdirSync(CACHE_DIR, { recursive: true });
   const cacheFile = path.join(CACHE_DIR, `${program.id}-${source.hash.slice(0, 16)}.html`);
   if (!fs.existsSync(cacheFile)) fs.writeFileSync(cacheFile, source.html);
@@ -448,7 +617,6 @@ async function persistResult(
       (ex.otherConditions ? ` Page conditions: ${ex.otherConditions}` : ""),
   }).where(eq(programSchoolsTable.id, program.id));
 
-  // read-back assertion
   const [check] = await db.select().from(programSchoolsTable).where(eq(programSchoolsTable.id, program.id));
   if (!check || check.verificationStatus !== status || check.sourceUrl !== source.url ||
       (check.prereqCourses?.length ?? 0) !== items.length) {
@@ -486,18 +654,16 @@ async function processProgram(program: ProgramRow): Promise<string> {
       setState(program.id, { stage: "extracted" });
       if (!validExtraction(ex, fetched.text, program)) { errors.push(`${candidate}: no usable prereq list`); continue; }
 
-      // keyword-link second hop: if root page had no list, try its prereq-ish links
       best = { fetched, ex };
-      if (ex.hasPrereqList && ex.courses.length >= 4) break; // good enough — stop crawling
+      if (ex.hasPrereqList && ex.courses.length >= 4) break;
     } catch (e) {
       errors.push(`${candidate}: ${e instanceof Error ? e.message : String(e)}`);
     }
   }
 
-  // Second hop through same-domain keyword links from the best failed page
   if (!best) {
     for (const candidate of candidates.slice(0, 2)) {
-      if (candidate.startsWith("cache:")) continue;
+      if (candidate.startsWith("cache:") || isDirectoryHubUrl(candidate)) continue;
       try {
         const rootPage = await fetchOfficial(candidate);
         for (const link of keywordLinks(rootPage.html, rootPage.url, professionKeywords(program.professionSlug)).slice(0, 5)) {
@@ -515,7 +681,6 @@ async function processProgram(program: ProgramRow): Promise<string> {
 
   if (!best) {
     setState(program.id, { stage: "failed", error: errors.slice(0, 4).join(" || ").slice(0, 500) });
-    // do NOT mark source_blocked here — failure queue gets retried with alternate methods
     await db.update(programSchoolsTable).set({
       verificationNote: `Automated completion attempt ${TODAY} did not find a usable official prerequisite list yet. Errors: ${errors.slice(0, 2).join("; ").slice(0, 300)}`,
     }).where(eq(programSchoolsTable.id, program.id));
@@ -542,14 +707,13 @@ async function main() {
   }
   if (!OPENAI_KEY) throw new Error("OPENAI_API_KEY is required for structured extraction");
 
-  // Database identity check before bulk writes
   const [{ count, dbName }] = await db
     .select({
       count: sql<number>`count(*)::int`,
       dbName: sql<string>`current_database()`,
     })
     .from(programSchoolsTable);
-  console.log(`Database identity: ${dbName}, ${count} program rows. Firecrawl: ${FIRECRAWL_KEY ? "on" : "off (direct HTTP)"}.`);
+  console.log(`Database identity: ${dbName}, ${count} program rows. Firecrawl: ${FIRECRAWL_KEY ? "on" : "off (DDG/Bing search)"}.`);
   if (count < 100) throw new Error("Refusing bulk run: program_schools has <100 rows — wrong database?");
 
   const rows = await db.select().from(programSchoolsTable).where(and(
@@ -562,7 +726,7 @@ async function main() {
     const s = state[r.id];
     if (s?.stage === "finalized") return false;
     if (retryFailures) return s?.stage === "failed";
-    if (s?.stage === "failed" && (s.attempts ?? 0) >= 3) return false; // failure queue — separate pass
+    if (s?.stage === "failed" && (s.attempts ?? 0) >= 3) return false;
     return true;
   });
   queue = queue.slice(0, Number.isFinite(limit) ? Number(limit) : queue.length);
