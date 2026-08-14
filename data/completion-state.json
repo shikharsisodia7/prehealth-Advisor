@@ -285,10 +285,11 @@
   "sourceUrl": "https://corp.delaware.gov/"
  },
  "159": {
-  "stage": "source_discovery",
-  "lastAttempt": "2026-08-14T02:01:08.376Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-14T02:01:31.672Z",
   "attempts": 1,
-  "sourceUrl": "https://cnahs.howard.edu/departments/nutritional-sciences/prerequisites"
+  "sourceUrl": "https://cnahs.howard.edu/departments/nutritional-sciences/prerequisites",
+  "error": "https://cnahs.howard.edu/departments/nutritional-sciences/coordinated-program-dietetics-cp/admissions/prerequisites: HTTP 404 || https://cnahs.howard.edu/departments/nutritional-sciences/admissions/prerequisites: HTTP 404 || https://cnahs.howard.edu/departments/nutritional-sciences/coordinated-program-dietetics-cp/prerequisites: HTTP 404 || https://cnahs.howard.edu/departments/nutritional-sciences/coordinated-program-dietetics-cp/prerequisite-courses: HTTP 404"
  },
  "160": {
   "stage": "failed",
@@ -311,15 +312,16 @@
   "sourceUrl": "https://lewis.gsu.edu/nutrition/"
  },
  "163": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T22:51:16.811Z",
-  "attempts": 0,
-  "sourceUrl": "http://www.eiu.edu/dietetics/admissions/requirements"
+  "stage": "failed",
+  "lastAttempt": "2026-08-14T02:03:26.056Z",
+  "attempts": 1,
+  "sourceUrl": "http://www.eiu.edu/dietetics/admissions/requirements",
+  "error": "http://www.eiu.edu/dietetics/admissions/prerequisites: HTTP 404 || http://www.eiu.edu/dietetics/prerequisites: HTTP 404 || http://www.eiu.edu/dietetics/prerequisite-courses: HTTP 404 || http://www.eiu.edu/dietetics/admission-requirements: HTTP 404"
  },
  "164": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T22:52:37.394Z",
-  "attempts": 0,
+  "stage": "source_discovery",
+  "lastAttempt": "2026-08-14T02:01:26.523Z",
+  "attempts": 1,
   "sourceUrl": "http://www.ahs.uic.edu/kn/requirements"
  },
  "165": {
@@ -330,16 +332,18 @@
   "finalStatus": "verified"
  },
  "166": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T22:52:50.269Z",
-  "attempts": 0,
-  "sourceUrl": "https://www.dom.edu/admission/request-information"
+  "stage": "failed",
+  "lastAttempt": "2026-08-14T02:03:04.287Z",
+  "attempts": 1,
+  "sourceUrl": "https://www.dom.edu/admission/request-information",
+  "error": "https://www.dom.edu/cares-act-reporting-requirements: no usable prereq list || https://www.dom.edu/admission: no usable prereq list || https://www.dom.edu/admission/office-financial-aid: no usable prereq list || https://www.dom.edu/admission/scholarships-dominican: no usable prereq list"
  },
  "167": {
-  "stage": "source_discovery",
-  "lastAttempt": "2026-08-14T02:01:15.436Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-14T02:03:01.109Z",
   "attempts": 1,
-  "sourceUrl": "https://visitindiana.in.gov/"
+  "sourceUrl": "https://visitindiana.in.gov/",
+  "error": "https://shhs.iui.edu/academics/nutrition-dietetics/doctorate-nutrition-dietetics/admissions/prerequisites: Firecrawl scrape HTTP 402 || https://shhs.iui.edu/academics/nutrition-dietetics/admissions/prerequisites: Firecrawl scrape HTTP 402 || https://shhs.iui.edu/academics/nutrition-dietetics/doctorate-nutrition-dietetics/prerequisites: Firecrawl scrape HTTP 402 || https://shhs.iui.edu/academics/nutrition-dietetics/doctorate-nutrition-dietetics/prerequisite-courses: Firecrawl scrape HTTP 402"
  },
  "168": {
   "stage": "unstarted",
@@ -403,9 +407,9 @@
   "finalStatus": "verified"
  },
  "177": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T22:53:03.138Z",
-  "attempts": 0,
+  "stage": "extracted",
+  "lastAttempt": "2026-08-14T02:03:02.634Z",
+  "attempts": 1,
   "sourceUrl": "https://olemiss.edu/admissions/graduate-admissions/"
  },
  "178": {
@@ -441,10 +445,11 @@
   "finalStatus": "verified"
  },
  "183": {
-  "stage": "source_discovery",
-  "lastAttempt": "2026-08-14T02:01:03.038Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-14T02:01:26.446Z",
   "attempts": 1,
-  "sourceUrl": "https://www.ndsu.edu/hnes/undergraduate_programs/nutrition_science/prerequisites"
+  "sourceUrl": "https://www.ndsu.edu/hnes/undergraduate_programs/nutrition_science/prerequisites",
+  "error": "https://www.ndsu.edu/hnes/undergraduate_programs/nutrition_science/coordinated_program_in_dietetics/admissions/prerequisites: HTTP 404 || https://www.ndsu.edu/hnes/undergraduate_programs/nutrition_science/admissions/prerequisites: HTTP 404 || https://www.ndsu.edu/hnes/undergraduate_programs/nutrition_science/coordinated_program_in_dietetics/prerequisites: HTTP 404 || https://www.ndsu.edu/hnes/undergraduate_programs/nutrition_science/coordinated_program_in_dietetics/prerequisite-courses: HTTP 404"
  },
  "184": {
   "stage": "finalized",
@@ -556,9 +561,9 @@
   "sourceUrl": "http://www.viterbo.edu/nutr/admissions/requirements"
  },
  "201": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T22:53:41.708Z",
-  "attempts": 0,
+  "stage": "extracted",
+  "lastAttempt": "2026-08-14T02:03:20.619Z",
+  "attempts": 1,
   "sourceUrl": "https://www.samford.edu/publichealth/admissions/prerequisites"
  },
  "202": {
@@ -1953,10 +1958,11 @@
   "finalStatus": "verified"
  },
  "464": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-14T02:00:05.871Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-14T02:02:39.423Z",
   "attempts": 1,
-  "sourceUrl": "https://www.nova.edu/"
+  "sourceUrl": "https://www.nova.edu/",
+  "error": "https://undergrad.nova.edu/admissions/index.html: Firecrawl scrape HTTP 429 || https://grad.nova.edu/admissions/index.html: Firecrawl scrape HTTP 429 || https://www.nova.edu/apply-now/index.html: no usable prereq list || https://www.nova.edu: no usable prereq list"
  },
  "465": {
   "stage": "finalized",
@@ -4757,9 +4763,9 @@
   "sourceUrl": "https://www.utica.edu/academics/programs/nursing"
  },
  "910": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T22:53:53.773Z",
-  "attempts": 0,
+  "stage": "source_discovery",
+  "lastAttempt": "2026-08-14T02:03:26.133Z",
+  "attempts": 1,
   "sourceUrl": "http://www.valdosta.edu/nursing/requirements"
  },
  "911": {
