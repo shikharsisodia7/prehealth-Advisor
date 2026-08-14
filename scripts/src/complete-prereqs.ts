@@ -41,7 +41,14 @@ const TODAY = new Date().toISOString().slice(0, 10);
 const USER_AGENT =
   "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36 HealthProfessionsPlanner/1.0";
 const OPENAI_KEY = process.env.OPENAI_API_KEY ?? "";
-const FIRECRAWL_KEY = process.env.FIRECRAWL_API_KEY ?? "";
+let FIRECRAWL_KEY = process.env.FIRECRAWL_API_KEY ?? "";
+let firecrawlDisabledReason = "";
+function disableFirecrawl(reason: string) {
+  if (!FIRECRAWL_KEY) return;
+  console.warn(`Firecrawl disabled for this run: ${reason}`);
+  firecrawlDisabledReason = reason;
+  FIRECRAWL_KEY = "";
+}
 const KEYWORDS = [
   "prerequisite", "pre-requisite", "admission-requirements", "admission_requirements",
   "admissions", "admission", "requirements", "required-course", "how-to-apply",
@@ -135,12 +142,22 @@ async function politeDelay(url: string) {
 interface Fetched { url: string; html: string; text: string; hash: string; contentType: string }
 
 async function firecrawlScrape(url: string): Promise<Fetched> {
+  if (!FIRECRAWL_KEY) throw new Error(firecrawlDisabledReason || "Firecrawl not configured");
   const res = await fetch("https://api.firecrawl.dev/v1/scrape", {
     method: "POST",
     headers: { authorization: `Bearer ${FIRECRAWL_KEY}`, "content-type": "application/json" },
     body: JSON.stringify({ url, formats: ["markdown"], onlyMainContent: true }),
     signal: AbortSignal.timeout(60_000),
   });
+  if (res.status === 402 || res.status === 401) {
+    disableFirecrawl(`scrape HTTP ${res.status}`);
+    throw new Error(`Firecrawl scrape HTTP ${res.status}`);
+  }
+  if (res.status === 429) {
+    // Transient rate limit — wait and let caller fall back; do not permanently disable.
+    await new Promise((r) => setTimeout(r, 5000));
+    throw new Error(`Firecrawl scrape HTTP 429`);
+  }
   if (!res.ok) throw new Error(`Firecrawl scrape HTTP ${res.status}`);
   const body = (await res.json()) as { data?: { markdown?: string } };
   const md = body.data?.markdown ?? "";
@@ -150,6 +167,23 @@ async function firecrawlScrape(url: string): Promise<Fetched> {
     hash: crypto.createHash("sha256").update(md).digest("hex"),
     contentType: "text/markdown",
   };
+}
+
+async function firecrawlSearch(query: string): Promise<string[]> {
+  if (!FIRECRAWL_KEY) return [];
+  const res = await fetch("https://api.firecrawl.dev/v1/search", {
+    method: "POST",
+    headers: { authorization: `Bearer ${FIRECRAWL_KEY}`, "content-type": "application/json" },
+    body: JSON.stringify({ query, limit: 5 }),
+    signal: AbortSignal.timeout(45_000),
+  });
+  if (res.status === 402 || res.status === 401) {
+    disableFirecrawl(`search HTTP ${res.status}`);
+    return [];
+  }
+  if (!res.ok) throw new Error(`Firecrawl search HTTP ${res.status}`);
+  const body = (await res.json()) as { data?: Array<{ url?: string }> };
+  return (body.data ?? []).map((d) => d.url).filter((u): u is string => !!u);
 }
 
 async function fetchOfficial(url: string): Promise<Fetched> {
@@ -192,18 +226,6 @@ async function fetchOfficial(url: string): Promise<Fetched> {
     }
   }
   throw lastError instanceof Error ? lastError : new Error(String(lastError));
-}
-
-async function firecrawlSearch(query: string): Promise<string[]> {
-  const res = await fetch("https://api.firecrawl.dev/v1/search", {
-    method: "POST",
-    headers: { authorization: `Bearer ${FIRECRAWL_KEY}`, "content-type": "application/json" },
-    body: JSON.stringify({ query, limit: 5 }),
-    signal: AbortSignal.timeout(45_000),
-  });
-  if (!res.ok) throw new Error(`Firecrawl search HTTP ${res.status}`);
-  const body = (await res.json()) as { data?: Array<{ url?: string }> };
-  return (body.data ?? []).map((d) => d.url).filter((u): u is string => !!u);
 }
 
 const BLOCKED_SEARCH_HOSTS =
