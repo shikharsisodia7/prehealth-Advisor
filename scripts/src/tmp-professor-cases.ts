@@ -14,3 +14,6 @@ const rows = await db.execute(sql`
 `);
 console.log(JSON.stringify(rows.rows ?? rows, null, 2));
 process.exit(0);
+
+export {}
+

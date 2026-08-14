@@ -109,8 +109,8 @@
  },
  "129": {
   "stage": "failed",
-  "lastAttempt": "2026-08-13T22:49:57.705Z",
-  "attempts": 3,
+  "lastAttempt": "2026-08-14T01:59:38.999Z",
+  "attempts": 1,
   "error": "no official candidate URLs"
  },
  "130": {
@@ -138,11 +138,10 @@
   "finalStatus": "verified"
  },
  "134": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T21:21:30.729Z",
-  "attempts": 2,
-  "sourceUrl": "https://admissions.temple.edu/apply",
-  "error": "https://www.temple.edu/admissions: no usable prereq list || https://www.temple.edu/admissions/graduate-professional: no usable prereq list || https://www.temple.edu/admissions/international-admissions: no usable prereq list || https://admissions.temple.edu/: no usable prereq list"
+  "attempts": 0,
+  "sourceUrl": "https://admissions.temple.edu/apply"
  },
  "135": {
   "stage": "unstarted",
@@ -178,10 +177,10 @@
  },
  "140": {
   "stage": "failed",
-  "lastAttempt": "2026-08-13T22:51:38.288Z",
-  "attempts": 3,
-  "error": "https://phsu.edu/admissions-and-aid/tuition-fees-scholarships/cost-of-attendance.php: no usable prereq list || https://phsu.edu/apply.php: no usable prereq list || https://catalog.phsu.edu/: no usable prereq list || https://phsu.edu: no usable prereq list",
-  "sourceUrl": "https://phsu.edu/"
+  "lastAttempt": "2026-08-14T02:00:39.761Z",
+  "attempts": 1,
+  "sourceUrl": "https://phsu.edu/",
+  "error": "https://phsu.edu/admissions-and-aid/tuition-fees-scholarships/cost-of-attendance.php: no usable prereq list || https://phsu.edu/apply.php: no usable prereq list || https://catalog.phsu.edu/: no usable prereq list || https://phsu.edu: no usable prereq list"
  },
  "141": {
   "stage": "unstarted",
@@ -202,8 +201,8 @@
  },
  "144": {
   "stage": "failed",
-  "lastAttempt": "2026-08-13T22:51:30.289Z",
-  "attempts": 4,
+  "lastAttempt": "2026-08-14T02:01:08.300Z",
+  "attempts": 1,
   "sourceUrl": "https://www.northeastern.edu/",
   "error": "https://www.northeastern.edu/admissions/: no usable prereq list || https://admissions.northeastern.edu/: no usable prereq list || https://graduate.northeastern.edu/admissions-information/how-to-apply/the-process: no usable prereq list || https://law.northeastern.edu/admissions/: no usable prereq list"
  },
@@ -214,8 +213,8 @@
  },
  "146": {
   "stage": "failed",
-  "lastAttempt": "2026-08-13T22:50:49.675Z",
-  "attempts": 4,
+  "lastAttempt": "2026-08-14T02:00:19.669Z",
+  "attempts": 1,
   "sourceUrl": "https://gov.louisiana.gov/form/10",
   "error": "https://www.louisiana.gov: no usable prereq list || http://www.gov.louisiana.gov/index.cfm/form/home/10: no usable prereq list"
  },
@@ -238,10 +237,10 @@
  },
  "150": {
   "stage": "failed",
-  "lastAttempt": "2026-08-13T22:50:22.082Z",
-  "attempts": 3,
-  "error": "http://www.nhm.ches.ua.edu/coordinated-program-in-dietetics.html: HTTP 404",
-  "sourceUrl": "http://www.nhm.ches.ua.edu/coordinated-program-in-dietetics.html"
+  "lastAttempt": "2026-08-14T01:59:51.892Z",
+  "attempts": 1,
+  "sourceUrl": "http://www.nhm.ches.ua.edu/coordinated-program-in-dietetics.html",
+  "error": "http://www.nhm.ches.ua.edu/coordinated-program-in-dietetics.html: HTTP 404"
  },
  "151": {
   "stage": "unstarted",
@@ -286,18 +285,17 @@
   "sourceUrl": "https://corp.delaware.gov/"
  },
  "159": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-13T22:53:00.567Z",
-  "attempts": 3,
-  "sourceUrl": "https://cnahs.howard.edu/departments/nutritional-sciences/prerequisites",
-  "error": "https://cnahs.howard.edu/departments/nutritional-sciences/coordinated-program-dietetics-cp/admissions/prerequisites: HTTP 404 || https://cnahs.howard.edu/departments/nutritional-sciences/admissions/prerequisites: HTTP 404 || https://cnahs.howard.edu/departments/nutritional-sciences/coordinated-program-dietetics-cp/prerequisites: HTTP 404 || https://cnahs.howard.edu/departments/nutritional-sciences/coordinated-program-dietetics-cp/prerequisite-courses: HTTP 404"
+  "stage": "source_discovery",
+  "lastAttempt": "2026-08-14T02:01:08.376Z",
+  "attempts": 1,
+  "sourceUrl": "https://cnahs.howard.edu/departments/nutritional-sciences/prerequisites"
  },
  "160": {
   "stage": "failed",
-  "lastAttempt": "2026-08-13T22:51:57.653Z",
-  "attempts": 3,
+  "lastAttempt": "2026-08-14T02:00:52.490Z",
+  "attempts": 1,
   "sourceUrl": "https://www.keiseruniversity.edu/graduate-school/admissions/requirements/",
-  "error": "https://www.keiseruniversity.edu/clinical-nutrition-ms/admissions/prerequisites: Firecrawl scrape HTTP 402 || https://www.keiseruniversity.edu/clinical-nutrition-ms/prerequisites: Firecrawl scrape HTTP 402 || https://www.keiseruniversity.edu/clinical-nutrition-ms/prerequisite-courses: Firecrawl scrape HTTP 402 || https://www.keiseruniversity.edu/clinical-nutrition-ms/admission-requirements: Firecrawl scrape HTTP 402"
+  "error": "https://www.keiseruniversity.edu/clinical-nutrition-ms/admissions/prerequisites: HTTP 404 || https://www.keiseruniversity.edu/clinical-nutrition-ms/prerequisites: Firecrawl scrape HTTP 429 || https://www.keiseruniversity.edu/clinical-nutrition-ms/prerequisite-courses: HTTP 404 || https://www.keiseruniversity.edu/clinical-nutrition-ms/admission-requirements: Firecrawl scrape HTTP 402"
  },
  "161": {
   "stage": "finalized",
@@ -313,17 +311,15 @@
   "sourceUrl": "https://lewis.gsu.edu/nutrition/"
  },
  "163": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T22:51:16.811Z",
-  "attempts": 3,
-  "sourceUrl": "http://www.eiu.edu/dietetics/admissions/requirements",
-  "error": "http://www.eiu.edu/dietetics/admissions/prerequisites: HTTP 404 || http://www.eiu.edu/dietetics/prerequisites: HTTP 404 || http://www.eiu.edu/dietetics/prerequisite-courses: HTTP 404 || http://www.eiu.edu/dietetics/admission-requirements: HTTP 404"
+  "attempts": 0,
+  "sourceUrl": "http://www.eiu.edu/dietetics/admissions/requirements"
  },
  "164": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T22:52:37.394Z",
-  "attempts": 3,
-  "error": "http://www.ahs.uic.edu/kn/admissions/prerequisites: Firecrawl scrape HTTP 402 || http://www.ahs.uic.edu/kn/prerequisites: Firecrawl scrape HTTP 402 || http://www.ahs.uic.edu/kn/prerequisite-courses: Firecrawl scrape HTTP 429 || http://www.ahs.uic.edu/kn/admission-requirements: Firecrawl scrape HTTP 429",
+  "attempts": 0,
   "sourceUrl": "http://www.ahs.uic.edu/kn/requirements"
  },
  "165": {
@@ -334,18 +330,16 @@
   "finalStatus": "verified"
  },
  "166": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T22:52:50.269Z",
-  "attempts": 3,
-  "sourceUrl": "https://www.dom.edu/admission/request-information",
-  "error": "https://www.dom.edu/cares-act-reporting-requirements: no usable prereq list || https://www.dom.edu/admission: no usable prereq list || https://www.dom.edu/admission/office-financial-aid: no usable prereq list || https://www.dom.edu/admission/scholarships-dominican: no usable prereq list"
+  "attempts": 0,
+  "sourceUrl": "https://www.dom.edu/admission/request-information"
  },
  "167": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-13T22:54:02.083Z",
-  "attempts": 3,
-  "sourceUrl": "https://visitindiana.in.gov/",
-  "error": "https://shhs.iui.edu/academics/nutrition-dietetics/doctorate-nutrition-dietetics/admissions/prerequisites: Firecrawl scrape HTTP 429 || https://shhs.iui.edu/academics/nutrition-dietetics/admissions/prerequisites: Firecrawl scrape HTTP 429 || https://shhs.iui.edu/academics/nutrition-dietetics/doctorate-nutrition-dietetics/prerequisites: Firecrawl scrape HTTP 429 || https://shhs.iui.edu/academics/nutrition-dietetics/doctorate-nutrition-dietetics/prerequisite-courses: Firecrawl scrape HTTP 429"
+  "stage": "source_discovery",
+  "lastAttempt": "2026-08-14T02:01:15.436Z",
+  "attempts": 1,
+  "sourceUrl": "https://visitindiana.in.gov/"
  },
  "168": {
   "stage": "unstarted",
@@ -362,8 +356,8 @@
  },
  "170": {
   "stage": "failed",
-  "lastAttempt": "2026-08-13T22:52:48.245Z",
-  "attempts": 3,
+  "lastAttempt": "2026-08-14T02:01:02.884Z",
+  "attempts": 1,
   "sourceUrl": "https://www.framingham.edu/academics/undergraduate/coordinated-program-dietetics-cpd/admissions/requirements",
   "error": "https://www.framingham.edu/academics/undergraduate/coordinated-program-dietetics-cpd/admissions/prerequisites: HTTP 404 || https://www.framingham.edu/academics/undergraduate/coordinated-program-dietetics-cpd/prerequisites: HTTP 404 || https://www.framingham.edu/academics/undergraduate/coordinated-program-dietetics-cpd/prerequisite-courses: HTTP 404 || https://www.framingham.edu/academics/undergraduate/coordinated-program-dietetics-cpd/admission-requirements: HTTP 404"
  },
@@ -396,10 +390,10 @@
  },
  "175": {
   "stage": "failed",
-  "lastAttempt": "2026-08-13T22:52:01.151Z",
-  "attempts": 3,
+  "lastAttempt": "2026-08-14T02:01:15.361Z",
+  "attempts": 1,
   "sourceUrl": "http://www.emich.edu/chhs/hs/programs/admission-requirements",
-  "error": "http://www.emich.edu/chhs/hs/programs/admissions/prerequisites: Firecrawl scrape HTTP 402 || http://www.emich.edu/chhs/hs/admissions/prerequisites: Firecrawl scrape HTTP 402 || http://www.emich.edu/chhs/hs/programs/prerequisites: Firecrawl scrape HTTP 402 || http://www.emich.edu/chhs/hs/programs/prerequisite-courses: Firecrawl scrape HTTP 429"
+  "error": "http://www.emich.edu/chhs/hs/programs/admissions/prerequisites: Firecrawl scrape HTTP 429 || http://www.emich.edu/chhs/hs/admissions/prerequisites: Firecrawl scrape HTTP 429 || http://www.emich.edu/chhs/hs/programs/prerequisites: Firecrawl scrape HTTP 429 || http://www.emich.edu/chhs/hs/programs/prerequisite-courses: Firecrawl scrape HTTP 429"
  },
  "176": {
   "stage": "finalized",
@@ -409,11 +403,10 @@
   "finalStatus": "verified"
  },
  "177": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T22:53:03.138Z",
-  "attempts": 3,
-  "sourceUrl": "https://olemiss.edu/admissions/graduate-admissions/",
-  "error": "http://nhm.olemiss.edu: no usable prereq list || https://olemiss.edu/admissions/index.php: no usable prereq list || https://olemiss.edu/admissions/why-the-university-of-mississippi/index.php: no usable prereq list || https://olemiss.edu/admissions/undergraduate-admissions/index.php: no usable prereq list"
+  "attempts": 0,
+  "sourceUrl": "https://olemiss.edu/admissions/graduate-admissions/"
  },
  "178": {
   "stage": "unstarted",
@@ -422,11 +415,10 @@
   "sourceUrl": "https://cafnr.missouri.edu/divisions/food-nutrition-and-exercise-sciences/"
  },
  "179": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T21:02:04.024Z",
-  "attempts": 2,
-  "sourceUrl": "https://jobs.rowan.edu/cw/en-us/job/498033/adjunct-professor-department-of-health-and-exercise-science/admission-requirements",
-  "error": "https://jobs.rowan.edu/cw/en-us/job/498033/adjunct-professor-department-of-health-and-exercise-science/admissions/prerequisites: no usable prereq list || https://jobs.rowan.edu/cw/en-us/job/498033/admissions/prerequisites: no usable prereq list || https://jobs.rowan.edu/cw/en-us/job/498033/adjunct-professor-department-of-health-and-exercise-science/prerequisites: no usable prereq list || https://jobs.rowan.edu/cw/en-us/job/498033/adjunct-professor-department-of-health-and-exercise-science/prereq"
+  "attempts": 0,
+  "sourceUrl": "https://jobs.rowan.edu/cw/en-us/job/498033/adjunct-professor-department-of-health-and-exercise-science/admission-requirements"
  },
  "180": {
   "stage": "unstarted",
@@ -449,11 +441,10 @@
   "finalStatus": "verified"
  },
  "183": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-13T22:52:25.007Z",
-  "attempts": 3,
-  "sourceUrl": "https://www.ndsu.edu/hnes/undergraduate_programs/nutrition_science/prerequisites",
-  "error": "https://www.ndsu.edu/hnes/undergraduate_programs/nutrition_science/coordinated_program_in_dietetics/admissions/prerequisites: HTTP 404 || https://www.ndsu.edu/hnes/undergraduate_programs/nutrition_science/admissions/prerequisites: HTTP 404 || https://www.ndsu.edu/hnes/undergraduate_programs/nutrition_science/coordinated_program_in_dietetics/prerequisites: HTTP 404 || https://www.ndsu.edu/hnes/undergraduate_programs/nutrition_science/coordinated_program_in_dietetics/prerequisite-courses: HTTP 404"
+  "stage": "source_discovery",
+  "lastAttempt": "2026-08-14T02:01:03.038Z",
+  "attempts": 1,
+  "sourceUrl": "https://www.ndsu.edu/hnes/undergraduate_programs/nutrition_science/prerequisites"
  },
  "184": {
   "stage": "finalized",
@@ -521,18 +512,16 @@
   "finalStatus": "verified"
  },
  "194": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T22:54:08.180Z",
-  "attempts": 3,
-  "error": "https://hcap.utsa.edu/nutrition-and-dietetics/program/coordinated-program-in-dietetics/admissions/prerequisites: HTTP 404 || https://hcap.utsa.edu/nutrition-and-dietetics/program/admissions/prerequisites: HTTP 404 || https://hcap.utsa.edu/nutrition-and-dietetics/program/coordinated-program-in-dietetics/prerequisites: HTTP 404 || https://hcap.utsa.edu/nutrition-and-dietetics/program/coordinated-program-in-dietetics/prerequisite-courses: HTTP 404",
+  "attempts": 0,
   "sourceUrl": "https://hcap.utsa.edu/nutrition-and-dietetics/program/coordinated-program-in-dietetics/admission-requirements"
  },
  "195": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T22:53:29.081Z",
-  "attempts": 3,
-  "sourceUrl": "https://qanr.usu.edu/ndfs/",
-  "error": "http://ndfs.usu.edu/degrees/dietetics-application/admissions/prerequisites: no usable prereq list || http://ndfs.usu.edu/degrees/dietetics-application/prerequisites: no usable prereq list || http://ndfs.usu.edu/degrees/dietetics-application/prerequisite-courses: no usable prereq list || http://ndfs.usu.edu/degrees/dietetics-application/admission-requirements: no usable prereq list"
+  "attempts": 0,
+  "sourceUrl": "https://qanr.usu.edu/ndfs/"
  },
  "196": {
   "stage": "unstarted",
@@ -541,11 +530,10 @@
   "sourceUrl": "https://health.utah.edu/nutrition-integrative-physiology"
  },
  "197": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T21:26:23.882Z",
-  "attempts": 2,
-  "sourceUrl": "https://www.uvm.edu/cals/nfs/program/ms-dietetics-msd/admission-requirements",
-  "error": "https://www.uvm.edu/cals/nfs/program/ms-dietetics-msd/admissions/prerequisites: no usable prereq list || https://www.uvm.edu/cals/nfs/program/ms-dietetics-msd/prerequisites: no usable prereq list || https://www.uvm.edu/cals/nfs/program/ms-dietetics-msd/prerequisite-courses: no usable prereq list || https://www.uvm.edu/cals/nfs/program/ms-dietetics-msd/admission-requirements: no usable prereq list"
+  "attempts": 0,
+  "sourceUrl": "https://www.uvm.edu/cals/nfs/program/ms-dietetics-msd/admission-requirements"
  },
  "198": {
   "stage": "finalized",
@@ -562,18 +550,16 @@
   "finalStatus": "verified"
  },
  "200": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T22:54:04.547Z",
-  "attempts": 3,
-  "error": "http://www.viterbo.edu/nutr/admissions/prerequisites: Firecrawl scrape HTTP 402 || http://www.viterbo.edu/nutr/prerequisites: Firecrawl scrape HTTP 402 || http://www.viterbo.edu/nutr/prerequisite-courses: Firecrawl scrape HTTP 429 || http://www.viterbo.edu/nutr/admission-requirements: Firecrawl scrape HTTP 429",
+  "attempts": 0,
   "sourceUrl": "http://www.viterbo.edu/nutr/admissions/requirements"
  },
  "201": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T22:53:41.708Z",
-  "attempts": 3,
-  "sourceUrl": "https://www.samford.edu/publichealth/admissions/prerequisites",
-  "error": "https://www.samford.edu/publichealth/nutrition-and-dietetics/admissions/prerequisites: no usable prereq list || https://www.samford.edu/publichealth/nutrition-and-dietetics/prerequisites: no usable prereq list || https://www.samford.edu/publichealth/nutrition-and-dietetics/prerequisite-courses: no usable prereq list || https://www.samford.edu/publichealth/nutrition-and-dietetics/admission-requirements: no usable prereq list"
+  "attempts": 0,
+  "sourceUrl": "https://www.samford.edu/publichealth/admissions/prerequisites"
  },
  "202": {
   "stage": "finalized",
@@ -583,18 +569,16 @@
   "finalStatus": "verified"
  },
  "203": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T22:53:45.188Z",
-  "attempts": 3,
-  "sourceUrl": "https://nau.edu/",
-  "error": "https://nau.edu/admissions/contact/student-recruitment-coordinator/: no usable prereq list || https://nau.edu/apply: no usable prereq list || https://nau.edu/: no usable prereq list"
+  "attempts": 0,
+  "sourceUrl": "https://nau.edu/"
  },
  "204": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T21:05:25.057Z",
-  "attempts": 2,
-  "sourceUrl": "https://www.gcu.edu/admissions/campus-resources",
-  "error": "https://www.gcu.edu/admissions: no usable prereq list || https://www.gcu.edu/admissions/visit-gcu-campus: no usable prereq list || https://www.gcu.edu/admissions/undergraduate: no usable prereq list || https://www.gcu.edu/admissions/college-transfer-center.php: no usable prereq list"
+  "attempts": 0,
+  "sourceUrl": "https://www.gcu.edu/admissions/campus-resources"
  },
  "205": {
   "stage": "finalized",
@@ -633,8 +617,8 @@
  },
  "210": {
   "stage": "failed",
-  "lastAttempt": "2026-08-13T22:51:39.692Z",
-  "attempts": 4,
+  "lastAttempt": "2026-08-14T01:59:37.326Z",
+  "attempts": 1,
   "sourceUrl": "https://calbaptist.edu/admissions-aid/tuition-aid/",
   "error": "https://calbaptist.edu/admissions-aid/index.php: no usable prereq list || https://calbaptist.edu/admissions-aid/undergraduate/index.php: no usable prereq list || https://calbaptist.edu/admissions-aid/graduate/index.php: no usable prereq list || https://calbaptist.edu/admissions-aid/online/index.php: no usable prereq list"
  },
@@ -646,10 +630,9 @@
   "finalStatus": "verified"
  },
  "212": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T21:07:39.431Z",
-  "attempts": 2,
-  "error": "https://johnsonbethel.uccs.edu/hpnu-programs/msc-nutrition-and-dietetics/admissions/prerequisites: HTTP 404 || https://johnsonbethel.uccs.edu/hpnu-programs/msc-nutrition-and-dietetics/prerequisites: HTTP 404 || https://johnsonbethel.uccs.edu/hpnu-programs/msc-nutrition-and-dietetics/prerequisite-courses: no usable prereq list || https://johnsonbethel.uccs.edu/hpnu-programs/msc-nutrition-and-dietetics/admission-requirements: no usable prereq list",
+  "attempts": 0,
   "sourceUrl": "https://johnsonbethel.uccs.edu/hpnu-programs/msc-nutrition-and-dietetics/admissions/requirements"
  },
  "213": {
@@ -706,11 +689,10 @@
   "sourceUrl": "https://www.nursing.emory.edu/admissions/why-emory-nursing"
  },
  "221": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T21:28:46.919Z",
-  "attempts": 2,
-  "sourceUrl": "https://cms.ctahr.hawaii.edu/Majors/admissions/prerequisites",
-  "error": "https://cms.ctahr.hawaii.edu/Majors/Dietetics/admissions/prerequisites: no usable prereq list || https://cms.ctahr.hawaii.edu/Majors/Dietetics/prerequisites: no usable prereq list || https://cms.ctahr.hawaii.edu/Majors/Dietetics/prerequisite-courses: no usable prereq list || https://cms.ctahr.hawaii.edu/Majors/Dietetics/admission-requirements: no usable prereq list"
+  "attempts": 0,
+  "sourceUrl": "https://cms.ctahr.hawaii.edu/Majors/admissions/prerequisites"
  },
  "222": {
   "stage": "finalized",
@@ -740,11 +722,10 @@
   "sourceUrl": "https://www.manchester.edu/academics/colleges/college-of-pharmacy-natural-health-sciences/admission-requirements"
  },
  "226": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T22:54:16.229Z",
-  "attempts": 3,
-  "sourceUrl": "https://dietetics.iastate.edu/",
-  "error": "https://www.dietetics.iastate.edu/: too little text"
+  "attempts": 0,
+  "sourceUrl": "https://dietetics.iastate.edu/"
  },
  "227": {
   "stage": "finalized",
@@ -768,10 +749,9 @@
   "finalStatus": "verified"
  },
  "230": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T22:54:30.958Z",
-  "attempts": 3,
-  "error": "https://publichealth.jhu.edu/academics/msph-dept-of-international-health/human-nutrition-dietitian/admissions/prerequisites: Firecrawl scrape HTTP 429 || https://publichealth.jhu.edu/academics/msph-dept-of-international-health/human-nutrition-dietitian/prerequisites: Firecrawl scrape HTTP 429 || https://publichealth.jhu.edu/academics/msph-dept-of-international-health/human-nutrition-dietitian/prerequisite-courses: Firecrawl scrape HTTP 429 || https://publichealth.jhu.edu/academics/msph-dept-of-i",
+  "attempts": 0,
   "sourceUrl": "https://publichealth.jhu.edu/academics/msph-dept-of-international-health/human-nutrition-dietitian/admissions/requirements"
  },
  "231": {
@@ -789,17 +769,15 @@
   "finalStatus": "verified"
  },
  "233": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T22:54:39.053Z",
-  "attempts": 3,
-  "error": "https://sph.umich.edu/ns/admissions/prerequisites: Firecrawl scrape HTTP 429 || https://sph.umich.edu/ns/prerequisites: Firecrawl scrape HTTP 429 || https://sph.umich.edu/ns/prerequisite-courses: Firecrawl scrape HTTP 429 || https://sph.umich.edu/ns/admission-requirements: Firecrawl scrape HTTP 429",
+  "attempts": 0,
   "sourceUrl": "https://sph.umich.edu/ns/requirements"
  },
  "234": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T22:54:54.187Z",
-  "attempts": 3,
-  "error": "https://www.cmich.edu/program/nutrition-dietetics-ms/admissions/prerequisites: HTTP 404 || https://www.cmich.edu/program/nutrition-dietetics-ms/prerequisites: HTTP 404 || https://www.cmich.edu/program/nutrition-dietetics-ms/prerequisite-courses: HTTP 404 || https://www.cmich.edu/program/nutrition-dietetics-ms/admission-requirements: HTTP 404",
+  "attempts": 0,
   "sourceUrl": "https://www.cmich.edu/program/nutrition-dietetics-ms/prerequisites"
  },
  "235": {
@@ -850,18 +828,16 @@
   "finalStatus": "verified"
  },
  "242": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T21:13:12.728Z",
-  "attempts": 2,
-  "sourceUrl": "https://colsa.unh.edu/person/amy-taetzsch/admission-requirements",
-  "error": "https://colsa.unh.edu/person/amy-taetzsch/admissions/prerequisites: no usable prereq list || https://colsa.unh.edu/person/admissions/prerequisites: no usable prereq list || https://colsa.unh.edu/person/amy-taetzsch/prerequisites: no usable prereq list || https://colsa.unh.edu/person/amy-taetzsch/prerequisite-courses: no usable prereq list"
+  "attempts": 0,
+  "sourceUrl": "https://colsa.unh.edu/person/amy-taetzsch/admission-requirements"
  },
  "243": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T21:13:15.295Z",
-  "attempts": 2,
-  "sourceUrl": "https://www.montclair.edu/admissions-aid/international-admissions",
-  "error": "https://www.montclair.edu/nutrition-and-food-studies/dietetic-internship/: no usable prereq list || https://www.montclair.edu/nutrition-and-food-studies/didactic-program-in-dietetics/: no usable prereq list || https://www.montclair.edu/nutrition-and-food-studies/dietetic-internship/how-to-become-an-rdn/: no usable prereq list || https://www.montclair.edu/academics/programs/bs-nutrition-and-food-science: no usable prereq list"
+  "attempts": 0,
+  "sourceUrl": "https://www.montclair.edu/admissions-aid/international-admissions"
  },
  "244": {
   "stage": "finalized",
@@ -906,11 +882,10 @@
   "finalStatus": "verified"
  },
  "250": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T21:14:12.846Z",
-  "attempts": 2,
-  "sourceUrl": "https://www.hunter.cuny.edu/students/admissions/",
-  "error": "https://www.hunter.cuny.edu/nutrition-and-public-health/nutrition/graduate/integrated-program-in-nutrition-and-dietetics/admissions-information/: Firecrawl scrape HTTP 429 || https://www.hunter.cuny.edu/students/admissions/graduate-admissions/school-of-health-professions/nutrition-and-public-health/integrated-program-in-nutrition-and-dietetics/: Firecrawl scrape HTTP 429 || https://www.hunter.cuny.edu/students/admissions/graduate-admissions/school-of-health-professions/nutrition-and-public-healt"
+  "attempts": 0,
+  "sourceUrl": "https://www.hunter.cuny.edu/students/admissions/"
  },
  "251": {
   "stage": "finalized",
@@ -941,10 +916,9 @@
   "finalStatus": "verified"
  },
  "255": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T21:13:19.288Z",
-  "attempts": 2,
-  "error": "no official candidate URLs"
+  "attempts": 0
  },
  "256": {
   "stage": "finalized",
@@ -966,11 +940,10 @@
   "attempts": 2
  },
  "259": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T21:51:05.527Z",
-  "attempts": 2,
-  "sourceUrl": "https://www.meredith.edu/master-of-science-nutrition/requirements",
-  "error": "https://www.meredith.edu/master-of-science-nutrition/admissions/prerequisites: HTTP 404 || https://www.meredith.edu/master-of-science-nutrition/prerequisites: HTTP 404 || https://www.meredith.edu/master-of-science-nutrition/prerequisite-courses: HTTP 404 || https://www.meredith.edu/master-of-science-nutrition/admission-requirements: no usable prereq list"
+  "attempts": 0,
+  "sourceUrl": "https://www.meredith.edu/master-of-science-nutrition/requirements"
  },
  "260": {
   "stage": "finalized",
@@ -1001,25 +974,22 @@
   "finalStatus": "verified"
  },
  "264": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T21:15:19.485Z",
-  "attempts": 2,
-  "sourceUrl": "https://ysu.edu/apply",
-  "error": "https://ysu.edu/admissions: no usable prereq list || https://ysu.edu/academics/college-graduate-studies/admission: no usable prereq list || https://ysu.edu/international-programs-office/apply-now/quick-menu/international-graduate-admissions: no usable prereq list || https://ysu.edu/admissions/plan-a-visit: no usable prereq list"
+  "attempts": 0,
+  "sourceUrl": "https://ysu.edu/apply"
  },
  "265": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T21:14:13.594Z",
-  "attempts": 2,
-  "sourceUrl": "https://www.ohsu.edu/school-of-medicine/admissions/prerequisites",
-  "error": "https://www.ohsu.edu/school-of-medicine/human-nutrition-graduate-programs/admissions/prerequisites: HTTP 404 || https://www.ohsu.edu/school-of-medicine/human-nutrition-graduate-programs/prerequisites: HTTP 404 || https://www.ohsu.edu/school-of-medicine/human-nutrition-graduate-programs/prerequisite-courses: no usable prereq list || https://www.ohsu.edu/school-of-medicine/human-nutrition-graduate-programs/admission-requirements: no usable prereq list"
+  "attempts": 0,
+  "sourceUrl": "https://www.ohsu.edu/school-of-medicine/admissions/prerequisites"
  },
  "266": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T21:16:02.817Z",
-  "attempts": 2,
-  "sourceUrl": "https://www.setonhill.edu/academics/undergraduate-programs/nutrition-dietetics-bs-ms/admissions/requirements",
-  "error": "https://www.setonhill.edu/academics/undergraduate-programs/nutrition-dietetics-bs-ms/admissions/prerequisites: no usable prereq list || https://www.setonhill.edu/academics/undergraduate-programs/nutrition-dietetics-bs-ms/prerequisites: no usable prereq list || https://www.setonhill.edu/academics/undergraduate-programs/nutrition-dietetics-bs-ms/prerequisite-courses: no usable prereq list || https://www.setonhill.edu/academics/undergraduate-programs/nutrition-dietetics-bs-ms/admission-requirements"
+  "attempts": 0,
+  "sourceUrl": "https://www.setonhill.edu/academics/undergraduate-programs/nutrition-dietetics-bs-ms/admissions/requirements"
  },
  "267": {
   "stage": "unstarted",
@@ -1028,10 +998,9 @@
   "sourceUrl": "https://visitindiana.in.gov/"
  },
  "268": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T21:14:55.473Z",
-  "attempts": 2,
-  "error": "https://web.uri.edu/nfs/admissions/prerequisites: HTTP 404 || https://web.uri.edu/nfs/prerequisites: HTTP 404 || https://web.uri.edu/nfs/prerequisite-courses: HTTP 404 || https://web.uri.edu/nfs/admission-requirements: HTTP 404"
+  "attempts": 0
  },
  "269": {
   "stage": "finalized",
@@ -1048,11 +1017,10 @@
   "finalStatus": "verified"
  },
  "271": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T21:15:40.383Z",
-  "attempts": 2,
-  "sourceUrl": "http://jefferson.edu/MSRDN/admission-requirements",
-  "error": "http://jefferson.edu/MSRDN/admissions/prerequisites: no usable prereq list || http://jefferson.edu/MSRDN/prerequisites: no usable prereq list || http://jefferson.edu/MSRDN/prerequisite-courses: no usable prereq list || http://jefferson.edu/MSRDN/admission-requirements: no usable prereq list"
+  "attempts": 0,
+  "sourceUrl": "http://jefferson.edu/MSRDN/admission-requirements"
  },
  "272": {
   "stage": "finalized",
@@ -1083,24 +1051,21 @@
   "finalStatus": "verified"
  },
  "276": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T21:16:07.074Z",
-  "attempts": 2,
-  "error": "no official candidate URLs"
+  "attempts": 0
  },
  "277": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T21:16:31.384Z",
-  "attempts": 2,
-  "error": "https://web.uri.edu/nfs/academics/graduate-dietetics-future-education-model/admission/prerequisites: too little text || https://web.uri.edu/nfs/academics/graduate-dietetics-future-education-model/admission/prerequisite-courses: too little text || https://web.uri.edu/nfs/academics/graduate-dietetics-future-education-model/admission/admissions/prerequisites: too little text || https://web.uri.edu/nfs/academics/graduate-dietetics-future-education-model/admissions/prerequisites: too little text",
+  "attempts": 0,
   "sourceUrl": "https://web.uri.edu/nfs/academics/graduate-dietetics-future-education-model/admissions/prerequisites"
  },
  "278": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T21:18:02.139Z",
-  "attempts": 2,
-  "sourceUrl": "https://web.uri.edu/nutrition/academics/m-s-dietetics/",
-  "error": "https://web.uri.edu/nutrition/academics/m-s-dietetics/admissions/prerequisites: Firecrawl scrape HTTP 429 || https://web.uri.edu/nutrition/academics/admissions/prerequisites: HTTP 404 || https://web.uri.edu/nutrition/academics/m-s-dietetics/prerequisites: Firecrawl scrape HTTP 429 || https://web.uri.edu/nutrition/academics/m-s-dietetics/prerequisite-courses: Firecrawl scrape HTTP 429"
+  "attempts": 0,
+  "sourceUrl": "https://web.uri.edu/nutrition/academics/m-s-dietetics/"
  },
  "279": {
   "stage": "unstarted",
@@ -1130,31 +1095,27 @@
   "finalStatus": "verified"
  },
  "283": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T21:18:57.187Z",
-  "attempts": 2,
-  "sourceUrl": "https://www.tntech.edu/cahe/hec/prerequisites",
-  "error": "https://www.tntech.edu/cahe/hec/programs/admissions/prerequisites: no usable prereq list || https://www.tntech.edu/cahe/hec/admissions/prerequisites: no usable prereq list || https://www.tntech.edu/cahe/hec/programs/prerequisites: no usable prereq list || https://www.tntech.edu/cahe/hec/programs/prerequisite-courses: no usable prereq list"
+  "attempts": 0,
+  "sourceUrl": "https://www.tntech.edu/cahe/hec/prerequisites"
  },
  "284": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T21:16:32.243Z",
-  "attempts": 2,
-  "sourceUrl": "https://cehhs.utk.edu/nutrition/graduate-programs/ms-in-nutrition/clinical-nutrition/",
-  "error": "https://cehhs.utk.edu/nutrition/graduate-programs/ms-in-nutrition/clinical-nutrition/admissions/prerequisites: HTTP 404 || https://cehhs.utk.edu/nutrition/graduate-programs/ms-in-nutrition/admissions/prerequisites: HTTP 404 || https://cehhs.utk.edu/nutrition/graduate-programs/ms-in-nutrition/clinical-nutrition/prerequisites: HTTP 404 || https://cehhs.utk.edu/nutrition/graduate-programs/ms-in-nutrition/clinical-nutrition/prerequisite-courses: HTTP 404"
+  "attempts": 0,
+  "sourceUrl": "https://cehhs.utk.edu/nutrition/graduate-programs/ms-in-nutrition/clinical-nutrition/"
  },
  "285": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T21:17:38.278Z",
-  "attempts": 2,
-  "sourceUrl": "https://www.utrgv.edu/cohp/schools-and-departments/department-of-nutrition-and-dietetics/ms-in-dietetics-program/admission-requirements",
-  "error": "https://www.utrgv.edu/cohp/schools-and-departments/department-of-nutrition-and-dietetics/ms-in-dietetics-program/admissions/prerequisites: no usable prereq list || https://www.utrgv.edu/cohp/schools-and-departments/department-of-nutrition-and-dietetics/admissions/prerequisites: no usable prereq list || https://www.utrgv.edu/cohp/schools-and-departments/department-of-nutrition-and-dietetics/ms-in-dietetics-program/prerequisites: no usable prereq list || https://www.utrgv.edu/cohp/schools-and-depa"
+  "attempts": 0,
+  "sourceUrl": "https://www.utrgv.edu/cohp/schools-and-departments/department-of-nutrition-and-dietetics/ms-in-dietetics-program/admission-requirements"
  },
  "286": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T21:19:59.444Z",
-  "attempts": 2,
-  "error": "https://www.baylor.edu/graduate/nutrition/admissions/prerequisites: no usable prereq list || https://www.baylor.edu/graduate/nutrition/prerequisites: no usable prereq list || https://www.baylor.edu/graduate/nutrition/prerequisite-courses: no usable prereq list || https://www.baylor.edu/graduate/nutrition/admission-requirements: no usable prereq list",
+  "attempts": 0,
   "sourceUrl": "https://www.baylor.edu/graduate/admissions/prerequisites"
  },
  "287": {
@@ -1185,18 +1146,16 @@
   "finalStatus": "verified"
  },
  "291": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T21:20:17.286Z",
-  "attempts": 2,
-  "sourceUrl": "https://healthprof.jmu.edu/msan/requirements",
-  "error": "https://healthprof.jmu.edu/msan/admissions/prerequisites: HTTP 404 || https://healthprof.jmu.edu/msan/prerequisites: no usable prereq list || https://healthprof.jmu.edu/msan/prerequisite-courses: HTTP 404 || https://healthprof.jmu.edu/msan/admission-requirements: no usable prereq list"
+  "attempts": 0,
+  "sourceUrl": "https://healthprof.jmu.edu/msan/requirements"
  },
  "292": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T21:20:06.610Z",
-  "attempts": 2,
-  "sourceUrl": "https://www.su.edu/admissions/transfer-students/transferring-credit/",
-  "error": "https://www.su.edu/admissions/admissions-2/conservatory-audition-requirements/: no usable prereq list || https://www.su.edu/admissions/admissions/conservatory-audition-requirements/: no usable prereq list || https://www.su.edu/admissions/future-freshmen/application-information/: no usable prereq list || https://www.su.edu/admissions/admissions/admitted-students/: no usable prereq list"
+  "attempts": 0,
+  "sourceUrl": "https://www.su.edu/admissions/transfer-students/transferring-credit/"
  },
  "293": {
   "stage": "finalized",
@@ -1206,11 +1165,10 @@
   "finalStatus": "verified"
  },
  "294": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T21:20:28.162Z",
-  "attempts": 2,
-  "sourceUrl": "https://careers.uwhealth.org/",
-  "error": "https://careers.uwhealth.org/integrated-nutrition-graduate-program/admissions/prerequisites: no usable prereq list || https://careers.uwhealth.org/integrated-nutrition-graduate-program/prerequisites: no usable prereq list || https://careers.uwhealth.org/integrated-nutrition-graduate-program/prerequisite-courses: no usable prereq list || https://careers.uwhealth.org/integrated-nutrition-graduate-program/admission-requirements: no usable prereq list"
+  "attempts": 0,
+  "sourceUrl": "https://careers.uwhealth.org/"
  },
  "295": {
   "stage": "finalized",
@@ -1253,11 +1211,10 @@
   "attempts": 0
  },
  "349": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T21:22:13.966Z",
-  "attempts": 2,
-  "sourceUrl": "https://gradschool.weill.cornell.edu/programs/admissions/prerequisites",
-  "error": "https://gradschool.weill.cornell.edu/programs/genetic-counseling/admissions/prerequisites: no usable prereq list || https://gradschool.weill.cornell.edu/programs/genetic-counseling/prerequisites: HTTP 404 || https://gradschool.weill.cornell.edu/programs/genetic-counseling/prerequisite-courses: HTTP 404 || https://gradschool.weill.cornell.edu/programs/genetic-counseling/admission-requirements: no usable prereq list"
+  "attempts": 0,
+  "sourceUrl": "https://gradschool.weill.cornell.edu/programs/admissions/prerequisites"
  },
  "353": {
   "stage": "unstarted",
@@ -1279,11 +1236,10 @@
   "sourceUrl": "https://healthprofessions.ucf.edu/physicaltherapy/"
  },
  "356": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T21:22:56.513Z",
-  "attempts": 2,
-  "sourceUrl": "https://www.jefferson.edu/academics/colleges-schools-institutes/admission-requirements",
-  "error": "https://www.jefferson.edu/academics/colleges-schools-institutes/admissions/prerequisites: no usable prereq list || https://www.jefferson.edu/academics/admissions/prerequisites: no usable prereq list || https://www.jefferson.edu/academics/colleges-schools-institutes/prerequisites: HTTP 404 || https://www.jefferson.edu/academics/colleges-schools-institutes/prerequisite-courses: no usable prereq list"
+  "attempts": 0,
+  "sourceUrl": "https://www.jefferson.edu/academics/colleges-schools-institutes/admission-requirements"
  },
  "357": {
   "stage": "unstarted",
@@ -1530,11 +1486,10 @@
   "finalStatus": "verified"
  },
  "395": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T21:23:27.930Z",
-  "attempts": 2,
-  "sourceUrl": "https://www.marian.edu/osteopathic-medical-school/requirements",
-  "error": "https://marian.edu/osteopathic-medical-school/admissions/prerequisites: no usable prereq list || https://marian.edu/osteopathic-medical-school/prerequisites: no usable prereq list || https://marian.edu/osteopathic-medical-school/prerequisite-courses: no usable prereq list || https://marian.edu/osteopathic-medical-school/admission-requirements: no usable prereq list"
+  "attempts": 0,
+  "sourceUrl": "https://www.marian.edu/osteopathic-medical-school/requirements"
  },
  "396": {
   "stage": "finalized",
@@ -1558,11 +1513,10 @@
   "finalStatus": "verified"
  },
  "399": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T21:23:24.176Z",
-  "attempts": 2,
-  "sourceUrl": "https://com.msu.edu/about-us/our-three-sites/admission-requirements",
-  "error": "https://com.msu.edu/about-us/our-three-sites/admissions/prerequisites: too little text || https://com.msu.edu/about-us/admissions/prerequisites: too little text || https://com.msu.edu/about-us/our-three-sites/prerequisites: too little text || https://com.msu.edu/about-us/our-three-sites/prerequisite-courses: too little text"
+  "attempts": 0,
+  "sourceUrl": "https://com.msu.edu/about-us/our-three-sites/admission-requirements"
  },
  "400": {
   "stage": "finalized",
@@ -1841,11 +1795,10 @@
   "finalStatus": "verified"
  },
  "440": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T21:23:27.167Z",
-  "attempts": 2,
-  "sourceUrl": "https://www.maryville.edu/hp/doctor-of-physical-therapy",
-  "error": "no official candidate URLs"
+  "attempts": 0,
+  "sourceUrl": "https://www.maryville.edu/hp/doctor-of-physical-therapy"
  },
  "441": {
   "stage": "finalized",
@@ -1961,11 +1914,10 @@
   "finalStatus": "verified"
  },
  "458": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T21:25:37.888Z",
-  "attempts": 2,
-  "sourceUrl": "https://summer.yale.edu/apply",
-  "error": "https://www.yale.edu/admissions: no usable prereq list || https://www.yale.edu/admissions/graduate-professional-schools: no usable prereq list || https://www.yale.edu/admissions/financial-aid: no usable prereq list || https://www.yale.edu/admissions/non-degree-seeking-students: no usable prereq list"
+  "attempts": 0,
+  "sourceUrl": "https://summer.yale.edu/apply"
  },
  "459": {
   "stage": "finalized",
@@ -1982,11 +1934,10 @@
   "finalStatus": "verified"
  },
  "461": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T21:24:38.025Z",
-  "attempts": 2,
-  "sourceUrl": "https://path2md.org/school/charles-e-schmidt-college-of-medicine-at-florida-atlantic-university-fau",
-  "error": "https://path2md.org/school/charles-e-schmidt-college-of-medicine-at-florida-atlantic-university-fau: no usable prereq list"
+  "attempts": 0,
+  "sourceUrl": "https://path2md.org/school/charles-e-schmidt-college-of-medicine-at-florida-atlantic-university-fau"
  },
  "462": {
   "stage": "unstarted",
@@ -2002,11 +1953,10 @@
   "finalStatus": "verified"
  },
  "464": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-13T20:57:00.088Z",
-  "attempts": 4,
-  "sourceUrl": "https://md.nova.edu/admissions/md/selection-process.html",
-  "error": "https://undergrad.nova.edu/admissions/index.html: Firecrawl scrape HTTP 408 || https://grad.nova.edu/admissions/index.html: Firecrawl returned empty content || https://www.nova.edu/apply-now/index.html: no usable prereq list || https://md.nova.edu/admissions/md/index.html: no usable prereq list"
+  "stage": "extracted",
+  "lastAttempt": "2026-08-14T02:00:05.871Z",
+  "attempts": 1,
+  "sourceUrl": "https://www.nova.edu/"
  },
  "465": {
   "stage": "finalized",
@@ -2016,11 +1966,10 @@
   "finalStatus": "verified"
  },
  "466": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T21:24:46.506Z",
-  "attempts": 2,
-  "sourceUrl": "https://www.ithaca.edu/academics/school-health-sciences-and-human-performance/physical-therapy",
-  "error": "no official candidate URLs"
+  "attempts": 0,
+  "sourceUrl": "https://www.ithaca.edu/academics/school-health-sciences-and-human-performance/physical-therapy"
  },
  "467": {
   "stage": "finalized",
@@ -2085,11 +2034,10 @@
   "sourceUrl": "https://www.uchicago.edu/"
  },
  "476": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T20:44:36.003Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.loyola.edu/admission/undergraduate/connect-visit/counselors/",
-  "error": "https://www.loyola.edu/admission/: no usable prereq list || https://www.loyola.edu/admission/undergraduate/: no usable prereq list || https://www.loyola.edu/admission/graduate/: no usable prereq list || https://www.loyola.edu/admission/why-loyola.html: no usable prereq list"
+  "attempts": 0,
+  "sourceUrl": "https://www.loyola.edu/admission/undergraduate/connect-visit/counselors/"
  },
  "477": {
   "stage": "unstarted",
@@ -2181,11 +2129,10 @@
   "finalStatus": "verified"
  },
  "490": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T21:25:56.331Z",
-  "attempts": 2,
-  "sourceUrl": "https://www.med.unc.edu/healthsciences/physical/",
-  "error": "no official candidate URLs"
+  "attempts": 0,
+  "sourceUrl": "https://www.med.unc.edu/healthsciences/physical/"
  },
  "491": {
   "stage": "finalized",
@@ -2216,11 +2163,10 @@
   "finalStatus": "verified"
  },
  "495": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T21:26:04.067Z",
-  "attempts": 2,
-  "sourceUrl": "https://www.umary.edu/academics/graduate-programs/physical-therapy",
-  "error": "no official candidate URLs"
+  "attempts": 0,
+  "sourceUrl": "https://www.umary.edu/academics/graduate-programs/physical-therapy"
  },
  "496": {
   "stage": "finalized",
@@ -2258,11 +2204,10 @@
   "finalStatus": "verified"
  },
  "501": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T21:26:10.574Z",
-  "attempts": 2,
-  "sourceUrl": "https://prehealth.natsci.msu.edu/health-careers/medicine/michigan-medical-school-prerequisites.aspx",
-  "error": "https://prehealth.natsci.msu.edu/health-careers/medicine/michigan-medical-school-prerequisites.aspx: too little text"
+  "attempts": 0,
+  "sourceUrl": "https://prehealth.natsci.msu.edu/health-careers/medicine/michigan-medical-school-prerequisites.aspx"
  },
  "502": {
   "stage": "finalized",
@@ -2328,11 +2273,10 @@
   "finalStatus": "verified"
  },
  "511": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T21:26:18.229Z",
-  "attempts": 2,
-  "sourceUrl": "https://www.okcu.edu/academics/schools-colleges/college-of-nursing-and-health-professions/doctor-of-physical-therapy",
-  "error": "no official candidate URLs"
+  "attempts": 0,
+  "sourceUrl": "https://www.okcu.edu/academics/schools-colleges/college-of-nursing-and-health-professions/doctor-of-physical-therapy"
  },
  "512": {
   "stage": "unstarted",
@@ -2341,11 +2285,10 @@
   "sourceUrl": "https://rosemanmedicalgroup.com/"
  },
  "513": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T21:26:21.139Z",
-  "attempts": 2,
-  "sourceUrl": "https://www.georgefox.edu/physical-therapy/index.html",
-  "error": "no official candidate URLs"
+  "attempts": 0,
+  "sourceUrl": "https://www.georgefox.edu/physical-therapy/index.html"
  },
  "514": {
   "stage": "finalized",
@@ -2362,11 +2305,10 @@
   "finalStatus": "verified"
  },
  "516": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T21:26:24.208Z",
-  "attempts": 2,
-  "sourceUrl": "https://www.westernu.edu/health-sciences/dpt-or/",
-  "error": "no official candidate URLs"
+  "attempts": 0,
+  "sourceUrl": "https://www.westernu.edu/health-sciences/dpt-or/"
  },
  "517": {
   "stage": "finalized",
@@ -2446,11 +2388,10 @@
   "finalStatus": "verified"
  },
  "528": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T21:26:25.731Z",
-  "attempts": 2,
-  "sourceUrl": "https://www.neumann.edu/academics/grad/doctor-of-physical-therapy?hsCtaTracking=bd276a44-4942-47d1-b016-6f145819939c%7C3d68f176-1130-4dc2-853e-f600fd43fdd3",
-  "error": "no official candidate URLs"
+  "attempts": 0,
+  "sourceUrl": "https://www.neumann.edu/academics/grad/doctor-of-physical-therapy?hsCtaTracking=bd276a44-4942-47d1-b016-6f145819939c%7C3d68f176-1130-4dc2-853e-f600fd43fdd3"
  },
  "529": {
   "stage": "finalized",
@@ -2548,11 +2489,10 @@
   "finalStatus": "verified"
  },
  "543": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T21:27:26.328Z",
-  "attempts": 2,
-  "sourceUrl": "https://www.northeastern.edu/",
-  "error": "https://www.northeastern.edu/admissions/: no usable prereq list || https://admissions.northeastern.edu/: no usable prereq list || https://graduate.northeastern.edu/admissions-information/how-to-apply/the-process: no usable prereq list || https://law.northeastern.edu/admissions/: no usable prereq list"
+  "attempts": 0,
+  "sourceUrl": "https://www.northeastern.edu/"
  },
  "544": {
   "stage": "finalized",
@@ -2562,11 +2502,10 @@
   "finalStatus": "verified"
  },
  "545": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T21:26:30.491Z",
-  "attempts": 2,
-  "sourceUrl": "https://www.usd.edu/Academics/Colleges%20and%20Schools/school-of-health-sciences/physical-therapy",
-  "error": "no official candidate URLs"
+  "attempts": 0,
+  "sourceUrl": "https://www.usd.edu/Academics/Colleges%20and%20Schools/school-of-health-sciences/physical-therapy"
  },
  "546": {
   "stage": "finalized",
@@ -2623,16 +2562,14 @@
   "finalStatus": "verified"
  },
  "554": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T21:27:23.939Z",
-  "attempts": 2,
-  "error": "no official candidate URLs"
+  "attempts": 0
  },
  "555": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T21:27:25.492Z",
-  "attempts": 2,
-  "error": "no official candidate URLs"
+  "attempts": 0
  },
  "556": {
   "stage": "finalized",
@@ -2662,18 +2599,16 @@
   "sourceUrl": "https://www.warren.senate.gov/"
  },
  "560": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T21:27:26.960Z",
-  "attempts": 2,
-  "sourceUrl": "https://twu.edu/physical-therapy/",
-  "error": "no official candidate URLs"
+  "attempts": 0,
+  "sourceUrl": "https://twu.edu/physical-therapy/"
  },
  "561": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T21:27:48.163Z",
-  "attempts": 2,
-  "sourceUrl": "https://sc.edu/uofsc/posts/2026/05/usc-school-of-medicine-floyd-family-naming.php",
-  "error": "https://sc.edu/uofsc/posts/2026/05/usc-school-of-medicine-floyd-family-naming.php: no usable prereq list"
+  "attempts": 0,
+  "sourceUrl": "https://sc.edu/uofsc/posts/2026/05/usc-school-of-medicine-floyd-family-naming.php"
  },
  "562": {
   "stage": "finalized",
@@ -2690,11 +2625,10 @@
   "finalStatus": "verified"
  },
  "564": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T21:28:18.518Z",
-  "attempts": 2,
-  "sourceUrl": "https://www.utmb.edu/shp/academics/phyt/home",
-  "error": "https://medicalaid.org/blog/how-to-get-into-east-tennessee-state-university-james-h-quillen-college-of-medicine-guide/: Firecrawl scrape HTTP 408"
+  "attempts": 0,
+  "sourceUrl": "https://www.utmb.edu/shp/academics/phyt/home"
  },
  "565": {
   "stage": "unstarted",
@@ -2710,10 +2644,9 @@
   "finalStatus": "verified"
  },
  "567": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T21:28:05.047Z",
-  "attempts": 2,
-  "error": "https://medschoolinsiders.com/pre-med/tennessee-medical-schools/: no usable prereq list",
+  "attempts": 0,
   "sourceUrl": "https://medschoolinsiders.com/pre-med/tennessee-medical-schools/"
  },
  "568": {
@@ -2759,11 +2692,10 @@
   "finalStatus": "verified"
  },
  "574": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T21:27:24.324Z",
-  "attempts": 2,
-  "sourceUrl": "https://www.texas.gov/driver-services/texas-vehicle-registration/",
-  "error": "https://www.texas.gov: no usable prereq list || https://www.texas.gov/driver-services/texas-vehicle-registration/: no usable prereq list"
+  "attempts": 0,
+  "sourceUrl": "https://www.texas.gov/driver-services/texas-vehicle-registration/"
  },
  "575": {
   "stage": "finalized",
@@ -2842,25 +2774,22 @@
   "finalStatus": "verified"
  },
  "586": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T21:29:06.813Z",
-  "attempts": 2,
-  "sourceUrl": "https://www.virginia.gov/",
-  "error": "https://www.jobs.virginia.gov/jobs/department-chair-department-of-urology-f80110-school-of-medicine-mcv-main-campus-virginia-united-states: no usable prereq list || https://www.jobs.virginia.gov/jobs/endocrinologist-department-of-internal-medicine-som-m67860-mcv-main-campus-virginia-united-states: no usable prereq list || https://www.dhp.virginia.gov/Boards/Medicine/PractitionerResources/ApplicationInstructionsandForms/: no usable prereq list || https://www.dhp.virginia.gov/Boards/Medicine/About"
+  "attempts": 0,
+  "sourceUrl": "https://www.virginia.gov/"
  },
  "587": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T21:29:04.543Z",
-  "attempts": 2,
-  "sourceUrl": "https://www.virginia.gov/",
-  "error": "https://www.virginia.gov: no usable prereq list"
+  "attempts": 0,
+  "sourceUrl": "https://www.virginia.gov/"
  },
  "588": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T21:27:55.485Z",
-  "attempts": 2,
-  "sourceUrl": "https://www.su.edu/physical-therapy/",
-  "error": "no official candidate URLs"
+  "attempts": 0,
+  "sourceUrl": "https://www.su.edu/physical-therapy/"
  },
  "589": {
   "stage": "finalized",
@@ -2877,11 +2806,10 @@
   "finalStatus": "verified"
  },
  "591": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T21:30:25.247Z",
-  "attempts": 2,
-  "sourceUrl": "https://www.ewu.edu/chsph/physical-therapy/",
-  "error": "https://casperedge.com/how-to-get-into-medical-college-of-wisconsin/: Firecrawl scrape HTTP 408"
+  "attempts": 0,
+  "sourceUrl": "https://www.ewu.edu/chsph/physical-therapy/"
  },
  "592": {
   "stage": "finalized",
@@ -2905,11 +2833,10 @@
   "finalStatus": "verified"
  },
  "595": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T21:32:33.569Z",
-  "attempts": 2,
-  "sourceUrl": "http://www.allencollege.edu/our-programs/school-of-nursing/admissions/prerequisites",
-  "error": "http://www.allencollege.edu/our-programs/school-of-nursing/admissions/prerequisites: no usable prereq list || http://www.allencollege.edu/our-programs/school-of-nursing/prerequisites: HTTP 404 || http://www.allencollege.edu/our-programs/school-of-nursing/prerequisite-courses: HTTP 404 || http://www.allencollege.edu/our-programs/school-of-nursing/admission-requirements: HTTP 404"
+  "attempts": 0,
+  "sourceUrl": "http://www.allencollege.edu/our-programs/school-of-nursing/admissions/prerequisites"
  },
  "596": {
   "stage": "finalized",
@@ -2946,11 +2873,10 @@
   "finalStatus": "verified"
  },
  "601": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T21:31:39.053Z",
-  "attempts": 2,
-  "sourceUrl": "http://www.ashland.edu/nursing/admission-requirements",
-  "error": "http://www.ashland.edu/nursing/admissions/prerequisites: no usable prereq list || http://www.ashland.edu/nursing/prerequisites: no usable prereq list || http://www.ashland.edu/nursing/prerequisite-courses: no usable prereq list || http://www.ashland.edu/nursing/admission-requirements: no usable prereq list"
+  "attempts": 0,
+  "sourceUrl": "http://www.ashland.edu/nursing/admission-requirements"
  },
  "602": {
   "stage": "finalized",
@@ -2988,18 +2914,16 @@
   "finalStatus": "verified"
  },
  "607": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T21:31:07.724Z",
-  "attempts": 2,
-  "sourceUrl": "http://www.bw.edu/academics/admissions/prerequisites",
-  "error": "http://www.bw.edu/academics/nursing/admissions/prerequisites: no usable prereq list || http://www.bw.edu/academics/nursing/prerequisites: no usable prereq list || http://www.bw.edu/academics/nursing/prerequisite-courses: no usable prereq list || http://www.bw.edu/academics/nursing/admission-requirements: HTTP 404"
+  "attempts": 0,
+  "sourceUrl": "http://www.bw.edu/academics/admissions/prerequisites"
  },
  "608": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T21:31:15.632Z",
-  "attempts": 2,
-  "sourceUrl": "http://www.bsu.edu/nursing/admissions/requirements",
-  "error": "http://www.bsu.edu/nursing/admissions/prerequisites: no usable prereq list || http://www.bsu.edu/nursing/prerequisites: no usable prereq list || http://www.bsu.edu/nursing/prerequisite-courses: HTTP 404 || http://www.bsu.edu/nursing/admission-requirements: no usable prereq list"
+  "attempts": 0,
+  "sourceUrl": "http://www.bsu.edu/nursing/admissions/requirements"
  },
  "609": {
   "stage": "finalized",
@@ -3021,11 +2945,10 @@
   "sourceUrl": "https://athletics.bellarmine.edu/"
  },
  "612": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T21:33:30.812Z",
-  "attempts": 2,
-  "sourceUrl": "http://www.belmont.edu/nursing/prerequisite-courses",
-  "error": "http://www.belmont.edu/nursing/admissions/prerequisites: no usable prereq list || http://www.belmont.edu/nursing/prerequisites: no usable prereq list || http://www.belmont.edu/nursing/prerequisite-courses: no usable prereq list || http://www.belmont.edu/nursing/admission-requirements: Firecrawl scrape HTTP 429"
+  "attempts": 0,
+  "sourceUrl": "http://www.belmont.edu/nursing/prerequisite-courses"
  },
  "613": {
   "stage": "unstarted",
@@ -3054,11 +2977,10 @@
   "finalStatus": "verified"
  },
  "618": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T21:33:33.163Z",
-  "attempts": 2,
-  "sourceUrl": "http://www.brenau.edu/college/health-sciences/admission-requirements",
-  "error": "http://www.brenau.edu/college/health-sciences/admissions/prerequisites: HTTP 404 || http://www.brenau.edu/college/admissions/prerequisites: no usable prereq list || http://www.brenau.edu/college/health-sciences/prerequisites: no usable prereq list || http://www.brenau.edu/college/health-sciences/prerequisite-courses: no usable prereq list"
+  "attempts": 0,
+  "sourceUrl": "http://www.brenau.edu/college/health-sciences/admission-requirements"
  },
  "619": {
   "stage": "finalized",
@@ -3075,11 +2997,10 @@
   "finalStatus": "verified"
  },
  "621": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T21:36:46.810Z",
-  "attempts": 2,
-  "sourceUrl": "http://www.caldwell.edu/academics/academic-departments/admissions/prerequisites",
-  "error": "http://www.caldwell.edu/academics/academic-departments/nursing-and-public-health/admissions/prerequisites: HTTP 404 || http://www.caldwell.edu/academics/academic-departments/nursing-and-public-health/prerequisites: no usable prereq list || http://www.caldwell.edu/academics/academic-departments/nursing-and-public-health/prerequisite-courses: no usable prereq list || http://www.caldwell.edu/academics/academic-departments/nursing-and-public-health/admission-requirements: no usable prereq list"
+  "attempts": 0,
+  "sourceUrl": "http://www.caldwell.edu/academics/academic-departments/admissions/prerequisites"
  },
  "622": {
   "stage": "finalized",
@@ -3095,18 +3016,16 @@
   "sourceUrl": "https://www.csulb.edu/college-of-health-human-services/school-of-nursing"
  },
  "624": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T21:35:57.772Z",
-  "attempts": 2,
-  "sourceUrl": "http://www.calstatela.edu/hhs/admissions/prerequisites",
-  "error": "http://www.calstatela.edu/hhs/nursing/admissions/prerequisites: HTTP 404 || http://www.calstatela.edu/hhs/nursing/prerequisites: HTTP 404 || http://www.calstatela.edu/hhs/nursing/prerequisite-courses: HTTP 404 || http://www.calstatela.edu/hhs/nursing/admission-requirements: no usable prereq list"
+  "attempts": 0,
+  "sourceUrl": "http://www.calstatela.edu/hhs/admissions/prerequisites"
  },
  "625": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T21:35:36.659Z",
-  "attempts": 2,
-  "sourceUrl": "http://www.csun.edu/health-human-development/admissions/prerequisites",
-  "error": "http://www.csun.edu/health-human-development/nursing/admissions/prerequisites: too little text || http://www.csun.edu/health-human-development/nursing/prerequisites: too little text || http://www.csun.edu/health-human-development/nursing/prerequisite-courses: too little text || http://www.csun.edu/health-human-development/nursing/admission-requirements: too little text"
+  "attempts": 0,
+  "sourceUrl": "http://www.csun.edu/health-human-development/admissions/prerequisites"
  },
  "626": {
   "stage": "finalized",
@@ -3123,32 +3042,28 @@
   "finalStatus": "verified"
  },
  "628": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T21:38:39.910Z",
-  "attempts": 2,
-  "sourceUrl": "http://www.capital.edu/nursing/requirements",
-  "error": "http://www.capital.edu/nursing/admissions/prerequisites: HTTP 404 || http://www.capital.edu/nursing/prerequisites: HTTP 404 || http://www.capital.edu/nursing/prerequisite-courses: HTTP 404 || http://www.capital.edu/nursing/admission-requirements: no usable prereq list"
+  "attempts": 0,
+  "sourceUrl": "http://www.capital.edu/nursing/requirements"
  },
  "629": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T21:38:14.202Z",
-  "attempts": 2,
-  "sourceUrl": "http://online.carlow.edu/nursing-degrees/requirements",
-  "error": "http://online.carlow.edu/nursing-degrees/admissions/prerequisites: no usable prereq list || http://online.carlow.edu/nursing-degrees/prerequisites: no usable prereq list || http://online.carlow.edu/nursing-degrees/prerequisite-courses: no usable prereq list || http://online.carlow.edu/nursing-degrees/admission-requirements: no usable prereq list"
+  "attempts": 0,
+  "sourceUrl": "http://online.carlow.edu/nursing-degrees/requirements"
  },
  "630": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T21:38:48.097Z",
-  "attempts": 2,
-  "sourceUrl": "http://www.carroll.edu/academic-programs/nursing/admissions/requirements",
-  "error": "http://www.carroll.edu/academic-programs/nursing/admissions/prerequisites: no usable prereq list || http://www.carroll.edu/academic-programs/nursing/prerequisites: HTTP 404 || http://www.carroll.edu/academic-programs/nursing/prerequisite-courses: no usable prereq list || http://www.carroll.edu/academic-programs/nursing/admission-requirements: no usable prereq list"
+  "attempts": 0,
+  "sourceUrl": "http://www.carroll.edu/academic-programs/nursing/admissions/requirements"
  },
  "631": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T21:40:08.505Z",
-  "attempts": 2,
-  "sourceUrl": "https://www.cedarcrest.edu/program/nutrition/dietetic-internship/admission-requirements/",
-  "error": "http://cedarcrest.edu/program/nursing/school-of-nursing/admissions/prerequisites: HTTP 404 || http://cedarcrest.edu/program/nursing/admissions/prerequisites: HTTP 404 || http://cedarcrest.edu/program/nursing/school-of-nursing/prerequisites: HTTP 404 || http://cedarcrest.edu/program/nursing/school-of-nursing/prerequisite-courses: too little text"
+  "attempts": 0,
+  "sourceUrl": "https://www.cedarcrest.edu/program/nutrition/dietetic-internship/admission-requirements/"
  },
  "632": {
   "stage": "unstarted",
@@ -3164,17 +3079,15 @@
   "finalStatus": "verified"
  },
  "634": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T21:41:09.739Z",
-  "attempts": 2,
-  "error": "http://www.chamberlain.edu/academics/nursing-school/rn-to-bsn/admissions/prerequisites: Firecrawl scrape HTTP 429 || http://www.chamberlain.edu/academics/nursing-school/admissions/prerequisites: no usable prereq list || http://www.chamberlain.edu/academics/nursing-school/rn-to-bsn/prerequisites: no usable prereq list || http://www.chamberlain.edu/academics/nursing-school/rn-to-bsn/prerequisite-courses: no usable prereq list",
+  "attempts": 0,
   "sourceUrl": "http://www.chamberlain.edu/academics/nursing-school/rn-to-bsn/admission-requirements"
  },
  "635": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T21:41:25.089Z",
-  "attempts": 2,
-  "error": "http://www.chamberlain.edu/nursing-school/texas/pearland/admissions/prerequisites: no usable prereq list || http://www.chamberlain.edu/nursing-school/texas/admissions/prerequisites: no usable prereq list || http://www.chamberlain.edu/nursing-school/texas/pearland/prerequisites: no usable prereq list || http://www.chamberlain.edu/nursing-school/texas/pearland/prerequisite-courses: no usable prereq list",
+  "attempts": 0,
   "sourceUrl": "http://www.chamberlain.edu/nursing-school/texas/pearland/admission-requirements"
  },
  "636": {
@@ -3183,10 +3096,9 @@
   "attempts": 1
  },
  "637": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T21:42:53.020Z",
-  "attempts": 2,
-  "error": "http://www.chamberlain.edu/nursing-school/michigan/troy/admissions/prerequisites: no usable prereq list || http://www.chamberlain.edu/nursing-school/michigan/admissions/prerequisites: no usable prereq list || http://www.chamberlain.edu/nursing-school/michigan/troy/prerequisites: no usable prereq list || http://www.chamberlain.edu/nursing-school/michigan/troy/prerequisite-courses: no usable prereq list",
+  "attempts": 0,
   "sourceUrl": "http://www.chamberlain.edu/nursing-school/michigan/troy/admission-requirements"
  },
  "638": {
@@ -3196,17 +3108,15 @@
   "sourceUrl": "https://www.charleston-sc.gov/"
  },
  "639": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T21:42:23.143Z",
-  "attempts": 2,
-  "error": "http://http://www.chc.edu: Firecrawl scrape HTTP 400"
+  "attempts": 0
  },
  "640": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T21:43:08.055Z",
-  "attempts": 2,
-  "sourceUrl": "http://www.clemson.edu/cbshs/departments/nursing/admissions/requirements",
-  "error": "http://www.clemson.edu/cbshs/departments/nursing/admissions/prerequisites: no usable prereq list || http://www.clemson.edu/cbshs/departments/nursing/prerequisites: no usable prereq list || http://www.clemson.edu/cbshs/departments/nursing/prerequisite-courses: no usable prereq list || http://www.clemson.edu/cbshs/departments/nursing/admission-requirements: no usable prereq list"
+  "attempts": 0,
+  "sourceUrl": "http://www.clemson.edu/cbshs/departments/nursing/admissions/requirements"
  },
  "641": {
   "stage": "unstarted",
@@ -3235,18 +3145,16 @@
   "finalStatus": "verified"
  },
  "645": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T21:43:00.527Z",
-  "attempts": 2,
-  "sourceUrl": "http://www.concordiacollege.edu/academics/programs-of-study/nursing/prerequisites",
-  "error": "http://www.concordiacollege.edu/academics/programs-of-study/nursing/admissions/prerequisites: no usable prereq list || http://www.concordiacollege.edu/academics/programs-of-study/nursing/prerequisites: no usable prereq list || http://www.concordiacollege.edu/academics/programs-of-study/nursing/prerequisite-courses: HTTP 404 || http://www.concordiacollege.edu/academics/programs-of-study/nursing/admission-requirements: HTTP 404"
+  "attempts": 0,
+  "sourceUrl": "http://www.concordiacollege.edu/academics/programs-of-study/nursing/prerequisites"
  },
  "646": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T21:44:11.579Z",
-  "attempts": 2,
-  "sourceUrl": "http://cui.edu/academicprograms/admissions/prerequisites",
-  "error": "http://cui.edu/academicprograms/nursing/admissions/prerequisites: Firecrawl scrape HTTP 429 || http://cui.edu/academicprograms/nursing/prerequisites: Firecrawl scrape HTTP 429 || http://cui.edu/academicprograms/nursing/prerequisite-courses: Firecrawl scrape HTTP 429 || http://cui.edu/academicprograms/nursing/admission-requirements: Firecrawl scrape HTTP 429"
+  "attempts": 0,
+  "sourceUrl": "http://cui.edu/academicprograms/admissions/prerequisites"
  },
  "647": {
   "stage": "finalized",
@@ -3256,11 +3164,10 @@
   "finalStatus": "verified"
  },
  "648": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T21:44:46.458Z",
-  "attempts": 2,
-  "sourceUrl": "http://www.coppin.edu/nursing/requirements",
-  "error": "http://www.coppin.edu/nursing/admissions/prerequisites: HTTP 404 || http://www.coppin.edu/nursing/prerequisites: no usable prereq list || http://www.coppin.edu/nursing/prerequisite-courses: no usable prereq list || http://www.coppin.edu/nursing/admission-requirements: no usable prereq list"
+  "attempts": 0,
+  "sourceUrl": "http://www.coppin.edu/nursing/requirements"
  },
  "649": {
   "stage": "finalized",
@@ -3270,11 +3177,10 @@
   "finalStatus": "verified"
  },
  "650": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T21:44:36.466Z",
-  "attempts": 2,
-  "sourceUrl": "https://www.creighton.edu/admissions/admissions-requirements/international",
-  "error": "http://nursing.creighton.edu/: no usable prereq list || http://www.creighton.edu/nursing/admissions: no usable prereq list || http://www.creighton.edu/admissions/admissions-requirements: no usable prereq list || http://www.creighton.edu/admissions/admissions-requirements/undergrad-transfer: no usable prereq list"
+  "attempts": 0,
+  "sourceUrl": "https://www.creighton.edu/admissions/admissions-requirements/international"
  },
  "651": {
   "stage": "finalized",
@@ -3305,10 +3211,9 @@
   "finalStatus": "verified"
  },
  "656": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T21:48:56.615Z",
-  "attempts": 2,
-  "error": "http://https//www.drake.edu/academics/undergraduate/majors/nursing/admissions/prerequisites: Firecrawl returned empty content || http://https//www.drake.edu/academics/undergraduate/majors/nursing/prerequisites: Firecrawl returned empty content || http://https//www.drake.edu/academics/undergraduate/majors/nursing/prerequisite-courses: Firecrawl returned empty content || http://https//www.drake.edu/academics/undergraduate/majors/nursing/admission-requirements: Firecrawl returned empty content"
+  "attempts": 0
  },
  "657": {
   "stage": "finalized",
@@ -3331,18 +3236,16 @@
   "sourceUrl": "https://duq.edu/academics/schools/nursing"
  },
  "660": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T21:46:30.839Z",
-  "attempts": 2,
-  "sourceUrl": "https://catalog.ecu.edu/",
-  "error": "https://nursing.ecu.edu/student-handbook/: no usable prereq list || https://nursing.ecu.edu/faculty-handbook/: no usable prereq list || http://nursing.ecu.edu: no usable prereq list || https://nursing.ecu.edu/student-resources/: no usable prereq list"
+  "attempts": 0,
+  "sourceUrl": "https://catalog.ecu.edu/"
  },
  "661": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T21:50:55.629Z",
-  "attempts": 2,
-  "sourceUrl": "https://www.eastern.edu/",
-  "error": "http://https//www.eku.edu/chs/nursing/admissions/prerequisites: Firecrawl returned empty content || http://https//www.eku.edu/chs/nursing/prerequisites: Firecrawl returned empty content || http://https//www.eku.edu/chs/nursing/prerequisite-courses: Firecrawl scrape HTTP 408 || http://https//www.eku.edu/chs/nursing/admission-requirements: Firecrawl returned empty content"
+  "attempts": 0,
+  "sourceUrl": "https://www.eastern.edu/"
  },
  "662": {
   "stage": "unstarted",
@@ -3351,11 +3254,10 @@
   "sourceUrl": "https://www.easternflorida.edu/"
  },
  "663": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T21:48:53.008Z",
-  "attempts": 2,
-  "sourceUrl": "http://www.emich.edu/chhs/admissions/prerequisites",
-  "error": "http://www.emich.edu/chhs/nursing/admissions/prerequisites: no usable prereq list || http://www.emich.edu/chhs/nursing/prerequisites: no usable prereq list || http://www.emich.edu/chhs/nursing/prerequisite-courses: no usable prereq list || http://www.emich.edu/chhs/nursing/admission-requirements: Firecrawl scrape HTTP 408"
+  "attempts": 0,
+  "sourceUrl": "http://www.emich.edu/chhs/admissions/prerequisites"
  },
  "664": {
   "stage": "unstarted",
@@ -3364,11 +3266,10 @@
   "sourceUrl": "https://www.eastern.edu/"
  },
  "665": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T21:50:28.288Z",
-  "attempts": 2,
-  "sourceUrl": "http://www.ecpi.edu/locations/orlando-lake-mary-fl/admission-requirements",
-  "error": "http://www.ecpi.edu/locations/orlando-lake-mary-fl/admissions/prerequisites: no usable prereq list || http://www.ecpi.edu/locations/admissions/prerequisites: no usable prereq list || http://www.ecpi.edu/locations/orlando-lake-mary-fl/prerequisites: HTTP 404 || http://www.ecpi.edu/locations/orlando-lake-mary-fl/prerequisite-courses: HTTP 404"
+  "attempts": 0,
+  "sourceUrl": "http://www.ecpi.edu/locations/orlando-lake-mary-fl/admission-requirements"
  },
  "666": {
   "stage": "unstarted",
@@ -3397,18 +3298,16 @@
   "finalStatus": "verified"
  },
  "670": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T21:52:09.420Z",
-  "attempts": 2,
-  "sourceUrl": "https://www.nursing.emory.edu/admissions/meet-your-admissions-team",
-  "error": "https://www.nursing.emory.edu/admissions: no usable prereq list || https://www.nursing.emory.edu/admissions/why-emory-nursing: no usable prereq list || https://www.nursing.emory.edu/admissions/apply-now: no usable prereq list || https://www.nursing.emory.edu/admissions/request-information: no usable prereq list"
+  "attempts": 0,
+  "sourceUrl": "https://www.nursing.emory.edu/admissions/meet-your-admissions-team"
  },
  "671": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T21:53:04.029Z",
-  "attempts": 2,
-  "sourceUrl": "http://www.endicott.edu/academics/schools/admissions/prerequisites",
-  "error": "http://www.endicott.edu/academics/schools/nursing/admissions/prerequisites: HTTP 404 || http://www.endicott.edu/academics/schools/nursing/prerequisites: HTTP 404 || http://www.endicott.edu/academics/schools/nursing/prerequisite-courses: HTTP 404 || http://www.endicott.edu/academics/schools/nursing/admission-requirements: HTTP 404"
+  "attempts": 0,
+  "sourceUrl": "http://www.endicott.edu/academics/schools/admissions/prerequisites"
  },
  "672": {
   "stage": "unstarted",
@@ -3417,11 +3316,10 @@
   "sourceUrl": "https://www.fairfield.edu/"
  },
  "673": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T21:52:08.880Z",
-  "attempts": 2,
-  "sourceUrl": "https://www.fdu.edu/",
-  "error": "http://view2.fdu.edu/academics/university-college/school-of-nursing-and-allied-health/admissions/prerequisites: no usable prereq list || http://view2.fdu.edu/academics/university-college/school-of-nursing-and-allied-health/prerequisites: no usable prereq list || http://view2.fdu.edu/academics/university-college/school-of-nursing-and-allied-health/prerequisite-courses: no usable prereq list || http://view2.fdu.edu/academics/university-college/school-of-nursing-and-allied-health/admission-requirem"
+  "attempts": 0,
+  "sourceUrl": "https://www.fdu.edu/"
  },
  "674": {
   "stage": "finalized",
@@ -3431,11 +3329,10 @@
   "finalStatus": "verified"
  },
  "675": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T21:54:58.037Z",
-  "attempts": 2,
-  "sourceUrl": "http://www.uncfsu.edu/nursing/requirements",
-  "error": "http://www.uncfsu.edu/nursing/admissions/prerequisites: no usable prereq list || http://www.uncfsu.edu/nursing/prerequisites: no usable prereq list || http://www.uncfsu.edu/nursing/prerequisite-courses: HTTP 404 || http://www.uncfsu.edu/nursing/admission-requirements: HTTP 404"
+  "attempts": 0,
+  "sourceUrl": "http://www.uncfsu.edu/nursing/requirements"
  },
  "676": {
   "stage": "finalized",
@@ -3451,11 +3348,10 @@
   "sourceUrl": "https://www.myflorida.gov/"
  },
  "678": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T21:55:46.352Z",
-  "attempts": 2,
-  "sourceUrl": "http://fgcu.edu/mariebcollege/admissions/prerequisites",
-  "error": "http://fgcu.edu/mariebcollege/nursing/admissions/prerequisites: no usable prereq list || http://fgcu.edu/mariebcollege/nursing/prerequisites: no usable prereq list || http://fgcu.edu/mariebcollege/nursing/prerequisite-courses: no usable prereq list || http://fgcu.edu/mariebcollege/nursing/admission-requirements: no usable prereq list"
+  "attempts": 0,
+  "sourceUrl": "http://fgcu.edu/mariebcollege/admissions/prerequisites"
  },
  "679": {
   "stage": "unstarted",
@@ -3478,18 +3374,16 @@
   "finalStatus": "verified"
  },
  "682": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T21:54:47.204Z",
-  "attempts": 2,
-  "sourceUrl": "http://chp.georgiasouthern.edu/nursing/requirements",
-  "error": "http://chp.georgiasouthern.edu/nursing/admissions/prerequisites: no usable prereq list || http://chp.georgiasouthern.edu/nursing/prerequisites: no usable prereq list || http://chp.georgiasouthern.edu/nursing/prerequisite-courses: no usable prereq list || http://chp.georgiasouthern.edu/nursing/admission-requirements: no usable prereq list"
+  "attempts": 0,
+  "sourceUrl": "http://chp.georgiasouthern.edu/nursing/requirements"
  },
  "683": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T21:56:55.282Z",
-  "attempts": 2,
-  "sourceUrl": "http://www.gsw.edu/academics/schools-and-departments/college-of-nursing-and-health-sciences/prerequisites",
-  "error": "http://www.gsw.edu/academics/schools-and-departments/college-of-nursing-and-health-sciences/index/admissions/prerequisites: HTTP 404 || http://www.gsw.edu/academics/schools-and-departments/college-of-nursing-and-health-sciences/admissions/prerequisites: HTTP 404 || http://www.gsw.edu/academics/schools-and-departments/college-of-nursing-and-health-sciences/index/prerequisites: HTTP 404 || http://www.gsw.edu/academics/schools-and-departments/college-of-nursing-and-health-sciences/index/prerequisit"
+  "attempts": 0,
+  "sourceUrl": "http://www.gsw.edu/academics/schools-and-departments/college-of-nursing-and-health-sciences/prerequisites"
  },
  "684": {
   "stage": "finalized",
@@ -3525,11 +3419,10 @@
   "attempts": 1
  },
  "689": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T21:56:33.423Z",
-  "attempts": 2,
-  "sourceUrl": "http://www.gvsu.edu/kcon/requirements",
-  "error": "http://www.gvsu.edu/kcon/admissions/prerequisites: no usable prereq list || http://www.gvsu.edu/kcon/prerequisites: no usable prereq list || http://www.gvsu.edu/kcon/prerequisite-courses: no usable prereq list || http://www.gvsu.edu/kcon/admission-requirements: no usable prereq list"
+  "attempts": 0,
+  "sourceUrl": "http://www.gvsu.edu/kcon/requirements"
  },
  "690": {
   "stage": "finalized",
@@ -3546,11 +3439,10 @@
   "finalStatus": "verified"
  },
  "692": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T21:57:19.386Z",
-  "attempts": 2,
-  "sourceUrl": "http://www.hartwick.edu/academics/academic-departments/nursing-department/admissions/prerequisites",
-  "error": "http://www.hartwick.edu/academics/academic-departments/nursing-department/admissions/prerequisites: no usable prereq list || http://www.hartwick.edu/academics/academic-departments/nursing-department/prerequisites: HTTP 404 || http://www.hartwick.edu/academics/academic-departments/nursing-department/prerequisite-courses: HTTP 404 || http://www.hartwick.edu/academics/academic-departments/nursing-department/admission-requirements: HTTP 404"
+  "attempts": 0,
+  "sourceUrl": "http://www.hartwick.edu/academics/academic-departments/nursing-department/admissions/prerequisites"
  },
  "693": {
   "stage": "unstarted",
@@ -3577,11 +3469,10 @@
   "sourceUrl": "https://catalog.herzing.edu/"
  },
  "697": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T21:57:40.155Z",
-  "attempts": 2,
-  "sourceUrl": "http://herzing.edu/nursing-programs/requirements",
-  "error": "http://herzing.edu/nursing-programs/admissions/prerequisites: no usable prereq list || http://herzing.edu/nursing-programs/prerequisites: HTTP 404 || http://herzing.edu/nursing-programs/prerequisite-courses: HTTP 404 || http://herzing.edu/nursing-programs/admission-requirements: no usable prereq list"
+  "attempts": 0,
+  "sourceUrl": "http://herzing.edu/nursing-programs/requirements"
  },
  "698": {
   "stage": "unstarted",
@@ -3590,11 +3481,10 @@
   "sourceUrl": "https://catalog.herzing.edu/"
  },
  "699": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T21:57:57.576Z",
-  "attempts": 2,
-  "sourceUrl": "http://www.herzing.edu/orlando/admissions/prerequisites",
-  "error": "http://www.herzing.edu/orlando/admissions/prerequisites: no usable prereq list || http://www.herzing.edu/orlando/prerequisites: HTTP 404 || http://www.herzing.edu/orlando/prerequisite-courses: HTTP 404 || http://www.herzing.edu/orlando/admission-requirements: HTTP 404"
+  "attempts": 0,
+  "sourceUrl": "http://www.herzing.edu/orlando/admissions/prerequisites"
  },
  "700": {
   "stage": "finalized",
@@ -3604,18 +3494,16 @@
   "finalStatus": "verified"
  },
  "701": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T21:58:24.654Z",
-  "attempts": 2,
-  "error": "http://www.hunter.cuny.edu/nursing/admissions/prerequisites: no usable prereq list || http://www.hunter.cuny.edu/nursing/prerequisites: no usable prereq list || http://www.hunter.cuny.edu/nursing/prerequisite-courses: Firecrawl scrape HTTP 429 || http://www.hunter.cuny.edu/nursing/admission-requirements: Firecrawl scrape HTTP 429",
+  "attempts": 0,
   "sourceUrl": "http://www.hunter.cuny.edu/nursing/requirements"
  },
  "702": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T21:58:35.050Z",
-  "attempts": 2,
-  "sourceUrl": "https://www.huntington.edu/nursing",
-  "error": "http://www.huntington.edu/nursing/admissions/prerequisites: HTTP 404 || http://www.huntington.edu/nursing/prerequisites: HTTP 404 || http://www.huntington.edu/nursing/prerequisite-courses: HTTP 404 || http://www.huntington.edu/nursing/admission-requirements: HTTP 404"
+  "attempts": 0,
+  "sourceUrl": "https://www.huntington.edu/nursing"
  },
  "703": {
   "stage": "unstarted",
@@ -3631,11 +3519,10 @@
   "finalStatus": "verified"
  },
  "705": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T22:01:00.766Z",
-  "attempts": 2,
-  "sourceUrl": "https://catalog.immaculata.edu/undergraduate-catalog/academic-departments-and-program-requirements/nursing/",
-  "error": "http://www.immaculata.edu/nursing/admissions/prerequisites: HTTP 404 || http://www.immaculata.edu/nursing/prerequisites: HTTP 404 || http://www.immaculata.edu/nursing/prerequisite-courses: no usable prereq list || http://www.immaculata.edu/nursing/admission-requirements: HTTP 404"
+  "attempts": 0,
+  "sourceUrl": "https://catalog.immaculata.edu/undergraduate-catalog/academic-departments-and-program-requirements/nursing/"
  },
  "706": {
   "stage": "unstarted",
@@ -3644,11 +3531,10 @@
   "sourceUrl": "https://visitindiana.in.gov/"
  },
  "707": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T21:59:28.182Z",
-  "attempts": 2,
-  "sourceUrl": "https://columbus.iu.edu/",
-  "error": "http://www.iupuc.edu/health-sciences/admissions/prerequisites: no usable prereq list || http://www.iupuc.edu/health-sciences/prerequisites: no usable prereq list || http://www.iupuc.edu/health-sciences/prerequisite-courses: no usable prereq list || http://www.iupuc.edu/health-sciences/admission-requirements: no usable prereq list"
+  "attempts": 0,
+  "sourceUrl": "https://columbus.iu.edu/"
  },
  "708": {
   "stage": "unstarted",
@@ -3657,18 +3543,16 @@
   "sourceUrl": "https://visitindiana.in.gov/"
  },
  "709": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T22:00:40.291Z",
-  "attempts": 2,
-  "sourceUrl": "http://www.iuk.edu/nursing/requirements",
-  "error": "http://www.iuk.edu/nursing/admissions/prerequisites: no usable prereq list || http://www.iuk.edu/nursing/prerequisites: no usable prereq list || http://www.iuk.edu/nursing/prerequisite-courses: no usable prereq list || http://www.iuk.edu/nursing/admission-requirements: no usable prereq list"
+  "attempts": 0,
+  "sourceUrl": "http://www.iuk.edu/nursing/requirements"
  },
  "710": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T22:01:17.567Z",
-  "attempts": 2,
-  "sourceUrl": "http://iun.edu/nursing/admissions/requirements",
-  "error": "http://iun.edu/nursing/admissions/prerequisites: no usable prereq list || http://iun.edu/nursing/prerequisites: no usable prereq list || http://iun.edu/nursing/prerequisite-courses: no usable prereq list || http://iun.edu/nursing/admission-requirements: no usable prereq list"
+  "attempts": 0,
+  "sourceUrl": "http://iun.edu/nursing/admissions/requirements"
  },
  "711": {
   "stage": "finalized",
@@ -3678,11 +3562,10 @@
   "finalStatus": "verified"
  },
  "712": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T22:01:11.728Z",
-  "attempts": 2,
-  "sourceUrl": "http://www.indwes.edu/academics/cas/school-of-nursing-and-health-sciences/admissions/prerequisites",
-  "error": "http://www.indwes.edu/academics/cas/school-of-nursing-and-health-sciences/admissions/prerequisites: no usable prereq list || http://www.indwes.edu/academics/cas/school-of-nursing-and-health-sciences/prerequisites: HTTP 404 || http://www.indwes.edu/academics/cas/school-of-nursing-and-health-sciences/prerequisite-courses: HTTP 404 || http://www.indwes.edu/academics/cas/school-of-nursing-and-health-sciences/admission-requirements: HTTP 404"
+  "attempts": 0,
+  "sourceUrl": "http://www.indwes.edu/academics/cas/school-of-nursing-and-health-sciences/admissions/prerequisites"
  },
  "713": {
   "stage": "finalized",
@@ -3692,11 +3575,10 @@
   "finalStatus": "verified"
  },
  "714": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T22:04:15.284Z",
-  "attempts": 2,
-  "sourceUrl": "http://www.ju.edu/nursing/admissions/requirements",
-  "error": "http://www.ju.edu/nursing/admissions/prerequisites: HTTP 404 || http://www.ju.edu/nursing/prerequisites: HTTP 404 || http://www.ju.edu/nursing/prerequisite-courses: HTTP 404 || http://www.ju.edu/nursing/admission-requirements: HTTP 404"
+  "attempts": 0,
+  "sourceUrl": "http://www.ju.edu/nursing/admissions/requirements"
  },
  "716": {
   "stage": "finalized",
@@ -3713,11 +3595,10 @@
   "finalStatus": "verified"
  },
  "718": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T22:01:55.517Z",
-  "attempts": 2,
-  "sourceUrl": "https://campus.kennesaw.edu/colleges-departments/wellstar/academics/nursing/",
-  "error": "http://wellstarcollege.kennesaw.edu/nursing/admissions/prerequisites: no usable prereq list || http://wellstarcollege.kennesaw.edu/nursing/prerequisites: no usable prereq list || http://wellstarcollege.kennesaw.edu/nursing/prerequisite-courses: no usable prereq list || http://wellstarcollege.kennesaw.edu/nursing/admission-requirements: no usable prereq list"
+  "attempts": 0,
+  "sourceUrl": "https://campus.kennesaw.edu/colleges-departments/wellstar/academics/nursing/"
  },
  "719": {
   "stage": "unstarted",
@@ -3746,11 +3627,10 @@
   "sourceUrl": "https://www.lemoyne.edu/academics/programs/fnp/"
  },
  "723": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T22:03:25.809Z",
-  "attempts": 2,
-  "sourceUrl": "https://www.lewisu.edu/academics/admissions/prerequisites",
-  "error": "http://www.lewisu.edu/academics/nursing/admissions/prerequisites: no usable prereq list || http://www.lewisu.edu/academics/nursing/prerequisites: no usable prereq list || http://www.lewisu.edu/academics/nursing/prerequisite-courses: no usable prereq list || http://www.lewisu.edu/academics/nursing/admission-requirements: no usable prereq list"
+  "attempts": 0,
+  "sourceUrl": "https://www.lewisu.edu/academics/admissions/prerequisites"
  },
  "724": {
   "stage": "unstarted",
@@ -3766,11 +3646,10 @@
   "finalStatus": "verified"
  },
  "726": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T22:06:06.240Z",
-  "attempts": 2,
-  "sourceUrl": "http://www.lipscomb.edu/nursing/requirements",
-  "error": "http://www.lipscomb.edu/nursing/admissions/prerequisites: HTTP 404 || http://www.lipscomb.edu/nursing/prerequisites: HTTP 404 || http://www.lipscomb.edu/nursing/prerequisite-courses: no usable prereq list || http://www.lipscomb.edu/nursing/admission-requirements: HTTP 404"
+  "attempts": 0,
+  "sourceUrl": "http://www.lipscomb.edu/nursing/requirements"
  },
  "727": {
   "stage": "unstarted",
@@ -3779,11 +3658,10 @@
   "sourceUrl": "https://liu.edu/Brooklyn/Academics/Schools/SON/About"
  },
  "728": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T22:06:02.132Z",
-  "attempts": 2,
-  "sourceUrl": "http://lcuniversity.edu/academics/requirements",
-  "error": "http://lcuniversity.edu/academics/admissions/prerequisites: no usable prereq list || http://lcuniversity.edu/academics/prerequisites: HTTP 404 || http://lcuniversity.edu/academics/prerequisite-courses: no usable prereq list || http://lcuniversity.edu/academics/admission-requirements: no usable prereq list"
+  "attempts": 0,
+  "sourceUrl": "http://lcuniversity.edu/academics/requirements"
  },
  "729": {
   "stage": "unstarted",
@@ -3792,11 +3670,10 @@
   "sourceUrl": "https://www.louisiana.gov/"
  },
  "730": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T22:06:18.057Z",
-  "attempts": 2,
-  "sourceUrl": "http://www.luc.edu/nursing/requirements",
-  "error": "http://www.luc.edu/nursing/admissions/prerequisites: HTTP 404 || http://www.luc.edu/nursing/prerequisites: HTTP 404 || http://www.luc.edu/nursing/prerequisite-courses: no usable prereq list || http://www.luc.edu/nursing/admission-requirements: no usable prereq list"
+  "attempts": 0,
+  "sourceUrl": "http://www.luc.edu/nursing/requirements"
  },
  "731": {
   "stage": "finalized",
@@ -3820,25 +3697,22 @@
   "finalStatus": "verified"
  },
  "734": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T22:07:25.098Z",
-  "attempts": 2,
-  "sourceUrl": "https://www.mville.edu/academics/schools/school-of-nursing-and-health-sciences/",
-  "error": "http://www.mville.edu/academics/schools/admissions/prerequisites: HTTP 404 || http://www.mville.edu/academics/admissions/prerequisites: HTTP 404 || http://www.mville.edu/academics/schools/prerequisites: HTTP 404 || http://www.mville.edu/academics/schools/prerequisite-courses: HTTP 404"
+  "attempts": 0,
+  "sourceUrl": "https://www.mville.edu/academics/schools/school-of-nursing-and-health-sciences/"
  },
  "735": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T22:07:11.641Z",
-  "attempts": 2,
-  "sourceUrl": "https://www.marian.edu/school-of-nursing/requirements",
-  "error": "http://marian.edu/school-of-nursing/admissions/prerequisites: no usable prereq list || http://marian.edu/school-of-nursing/prerequisites: no usable prereq list || http://marian.edu/school-of-nursing/prerequisite-courses: no usable prereq list || http://marian.edu/school-of-nursing/admission-requirements: no usable prereq list"
+  "attempts": 0,
+  "sourceUrl": "https://www.marian.edu/school-of-nursing/requirements"
  },
  "736": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T22:08:07.154Z",
-  "attempts": 2,
-  "sourceUrl": "https://www.marshall.edu/nursing/",
-  "error": "http://www.marshall.edu/nursing/admissions/prerequisites: HTTP 404 || http://www.marshall.edu/nursing/prerequisites: HTTP 404 || http://www.marshall.edu/nursing/prerequisite-courses: HTTP 404 || http://www.marshall.edu/nursing/admission-requirements: HTTP 404"
+  "attempts": 0,
+  "sourceUrl": "https://www.marshall.edu/nursing/"
  },
  "737": {
   "stage": "finalized",
@@ -3848,11 +3722,10 @@
   "finalStatus": "verified"
  },
  "738": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T22:10:35.994Z",
-  "attempts": 2,
-  "sourceUrl": "http://www.maryville.edu/hp/admissions/prerequisites",
-  "error": "http://www.maryville.edu/hp/nursing/admissions/prerequisites: HTTP 404 || http://www.maryville.edu/hp/nursing/prerequisites: too little text || http://www.maryville.edu/hp/nursing/prerequisite-courses: no usable prereq list || http://www.maryville.edu/hp/nursing/admission-requirements: no usable prereq list"
+  "attempts": 0,
+  "sourceUrl": "http://www.maryville.edu/hp/admissions/prerequisites"
  },
  "739": {
   "stage": "unstarted",
@@ -3875,25 +3748,22 @@
   "finalStatus": "verified"
  },
  "742": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T22:09:18.970Z",
-  "attempts": 2,
-  "sourceUrl": "https://www.mchs.edu/admissions/lets-get-started/apply-now/",
-  "error": "https://www.mchs.edu/admissions/lets-get-started/admission-requirements/: no usable prereq list || https://www.mchs.edu/academics/academic-programs/core-requirements/: no usable prereq list || https://www.mchs.edu/admissions/lets-get-started/visit: no usable prereq list || https://www.mchs.edu/admissions/admissions-process/applying-to-mercy-college: no usable prereq list"
+  "attempts": 0,
+  "sourceUrl": "https://www.mchs.edu/admissions/lets-get-started/apply-now/"
  },
  "743": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T22:11:58.251Z",
-  "attempts": 2,
-  "sourceUrl": "http://www.mercycollege.edu/academics/admissions/prerequisites",
-  "error": "http://www.mercycollege.edu/academics/nursing/admissions/prerequisites: no usable prereq list || http://www.mercycollege.edu/academics/nursing/prerequisites: no usable prereq list || http://www.mercycollege.edu/academics/nursing/prerequisite-courses: HTTP 404 || http://www.mercycollege.edu/academics/nursing/admission-requirements: no usable prereq list"
+  "attempts": 0,
+  "sourceUrl": "http://www.mercycollege.edu/academics/admissions/prerequisites"
  },
  "744": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T22:11:59.430Z",
-  "attempts": 2,
-  "sourceUrl": "http://www.mercy.edu/academics/school-health-natural-sciences/health-professions/admissions/prerequisites",
-  "error": "http://www.mercy.edu/academics/school-health-natural-sciences/health-professions/nursing-programs/admissions/prerequisites: too little text || http://www.mercy.edu/academics/school-health-natural-sciences/health-professions/nursing-programs/prerequisites: HTTP 404 || http://www.mercy.edu/academics/school-health-natural-sciences/health-professions/nursing-programs/prerequisite-courses: too little text || http://www.mercy.edu/academics/school-health-natural-sciences/health-professions/nursing-prog"
+  "attempts": 0,
+  "sourceUrl": "http://www.mercy.edu/academics/school-health-natural-sciences/health-professions/admissions/prerequisites"
  },
  "745": {
   "stage": "finalized",
@@ -3909,11 +3779,10 @@
   "sourceUrl": "https://www.msudenver.edu/nursing/"
  },
  "747": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T22:13:33.397Z",
-  "attempts": 2,
-  "sourceUrl": "http://www.mghihp.edu/school-nursing/admissions/requirements",
-  "error": "http://www.mghihp.edu/school-nursing/admissions/prerequisites: no usable prereq list || http://www.mghihp.edu/school-nursing/prerequisites: no usable prereq list || http://www.mghihp.edu/school-nursing/prerequisite-courses: no usable prereq list || http://www.mghihp.edu/school-nursing/admission-requirements: no usable prereq list"
+  "attempts": 0,
+  "sourceUrl": "http://www.mghihp.edu/school-nursing/admissions/requirements"
  },
  "748": {
   "stage": "unstarted",
@@ -3922,11 +3791,10 @@
   "sourceUrl": "https://www.michigan.gov/som"
  },
  "749": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T22:13:22.280Z",
-  "attempts": 2,
-  "sourceUrl": "https://www.mnu.edu/apply/",
-  "error": "http://www.mnu.edu/nursing.html: no usable prereq list || https://www.mnu.edu/pgs-nursing/: no usable prereq list || https://www.mnu.edu/admissions/financial-aid/: no usable prereq list || https://www.mnu.edu/admissions/professional-and-graduate-admissions/: no usable prereq list"
+  "attempts": 0,
+  "sourceUrl": "https://www.mnu.edu/apply/"
  },
  "750": {
   "stage": "unstarted",
@@ -3935,11 +3803,10 @@
   "sourceUrl": "https://www.mga.edu/health-sciences/nursing/index.php"
  },
  "751": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T22:13:36.297Z",
-  "attempts": 2,
-  "sourceUrl": "http://www.msoe.edu/academics/departments/admissions/prerequisites",
-  "error": "http://www.msoe.edu/academics/departments/school-of-nursing/admissions/prerequisites: HTTP 404 || http://www.msoe.edu/academics/departments/school-of-nursing/prerequisites: HTTP 404 || http://www.msoe.edu/academics/departments/school-of-nursing/prerequisite-courses: HTTP 404 || http://www.msoe.edu/academics/departments/school-of-nursing/admission-requirements: no usable prereq list"
+  "attempts": 0,
+  "sourceUrl": "http://www.msoe.edu/academics/departments/admissions/prerequisites"
  },
  "752": {
   "stage": "finalized",
@@ -3949,11 +3816,10 @@
   "finalStatus": "verified"
  },
  "753": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T22:16:36.543Z",
-  "attempts": 2,
-  "sourceUrl": "http://www.mc.edu/academics/nursing/admission-requirements",
-  "error": "http://www.mc.edu/academics/nursing/admissions/prerequisites: no usable prereq list || http://www.mc.edu/academics/nursing/prerequisites: HTTP 404 || http://www.mc.edu/academics/nursing/prerequisite-courses: HTTP 404 || http://www.mc.edu/academics/nursing/admission-requirements: no usable prereq list"
+  "attempts": 0,
+  "sourceUrl": "http://www.mc.edu/academics/nursing/admission-requirements"
  },
  "754": {
   "stage": "unstarted",
@@ -3962,17 +3828,15 @@
   "sourceUrl": "https://www.missouristate.edu/nursing/"
  },
  "755": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T22:14:44.276Z",
-  "attempts": 2,
-  "sourceUrl": "https://www.molloy.edu/academics/schools/admissions/prerequisites",
-  "error": "http://www.molloy.edu/academics/schools/barbara-h-hagan-school-of-nursing-and-health-sciences/admissions/prerequisites: no usable prereq list || http://www.molloy.edu/academics/schools/barbara-h-hagan-school-of-nursing-and-health-sciences/prerequisites: no usable prereq list || http://www.molloy.edu/academics/schools/barbara-h-hagan-school-of-nursing-and-health-sciences/prerequisite-courses: no usable prereq list || http://www.molloy.edu/academics/schools/barbara-h-hagan-school-of-nursing-and-he"
+  "attempts": 0,
+  "sourceUrl": "https://www.molloy.edu/academics/schools/admissions/prerequisites"
  },
  "756": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T22:16:09.886Z",
-  "attempts": 2,
-  "error": "http://www.montana.edu/nursing/admissions/prerequisites: HTTP 404 || http://www.montana.edu/nursing/prerequisites: no usable prereq list || http://www.montana.edu/nursing/prerequisite-courses: no usable prereq list || http://www.montana.edu/nursing/admission-requirements: no usable prereq list",
+  "attempts": 0,
   "sourceUrl": "http://www.montana.edu/nursing/admission-requirements"
  },
  "757": {
@@ -4002,24 +3866,21 @@
   "finalStatus": "verified"
  },
  "762": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T22:18:17.945Z",
-  "attempts": 2,
-  "sourceUrl": "http://www.muskingum.edu/academics/nursing/admissions/requirements",
-  "error": "http://www.muskingum.edu/academics/nursing/admissions/prerequisites: no usable prereq list || http://www.muskingum.edu/academics/nursing/prerequisites: HTTP 404 || http://www.muskingum.edu/academics/nursing/prerequisite-courses: HTTP 404 || http://www.muskingum.edu/academics/nursing/admission-requirements: no usable prereq list"
+  "attempts": 0,
+  "sourceUrl": "http://www.muskingum.edu/academics/nursing/admissions/requirements"
  },
  "763": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T22:24:38.462Z",
-  "attempts": 2,
-  "error": "http://nl.edu/school-of-nursing/admissions/prerequisites: Firecrawl scrape HTTP 408 || http://nl.edu/school-of-nursing/prerequisites: Firecrawl scrape HTTP 408 || http://nl.edu/school-of-nursing/prerequisite-courses: Firecrawl scrape HTTP 408 || http://nl.edu/school-of-nursing/admission-requirements: Firecrawl scrape HTTP 402"
+  "attempts": 0
  },
  "764": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T22:17:36.987Z",
-  "attempts": 2,
-  "sourceUrl": "https://www.nu.edu/college/school-of-health-professions/",
-  "error": "http://www.nu.edu/OurPrograms/SchoolOfHealthAndHumanServices/admissions/prerequisites: no usable prereq list || http://www.nu.edu/OurPrograms/admissions/prerequisites: HTTP 404 || http://www.nu.edu/OurPrograms/SchoolOfHealthAndHumanServices/prerequisites: no usable prereq list || http://www.nu.edu/OurPrograms/SchoolOfHealthAndHumanServices/prerequisite-courses: no usable prereq list"
+  "attempts": 0,
+  "sourceUrl": "https://www.nu.edu/college/school-of-health-professions/"
  },
  "765": {
   "stage": "finalized",
@@ -4029,25 +3890,22 @@
   "finalStatus": "verified"
  },
  "766": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T22:18:41.093Z",
-  "attempts": 2,
-  "sourceUrl": "https://www.kean.edu/jersey-city",
-  "error": "http://www.njcu.edu/department/nursing/admissions/prerequisites: no usable prereq list || http://www.njcu.edu/department/nursing/prerequisites: no usable prereq list || http://www.njcu.edu/department/nursing/prerequisite-courses: no usable prereq list || http://www.njcu.edu/department/nursing/admission-requirements: no usable prereq list"
+  "attempts": 0,
+  "sourceUrl": "https://www.kean.edu/jersey-city"
  },
  "767": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T22:21:03.304Z",
-  "attempts": 2,
-  "sourceUrl": "https://admissions.nmsu.edu/apply/",
-  "error": "https://schoolofnursing.nmsu.edu/nursing/son-pages/student-handbooks.html: no usable prereq list || http://schoolofnursing.nmsu.edu/: no usable prereq list || https://schoolofnursing.nmsu.edu/: no usable prereq list || http://admissions.nmsu.edu/apply/: no usable prereq list"
+  "attempts": 0,
+  "sourceUrl": "https://admissions.nmsu.edu/apply/"
  },
  "768": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T22:19:51.677Z",
-  "attempts": 2,
-  "sourceUrl": "https://nursing.nyu.edu/admissions/housing",
-  "error": "https://nursing.nyu.edu/current-students/advisement/new-undergraduates/laptop-requirements: no usable prereq list || https://nursing.nyu.edu/current-students/clinical-affairs/requirements: no usable prereq list || https://nursing.nyu.edu/admissions/financial-aid: no usable prereq list || https://nursing.nyu.edu/admissions: no usable prereq list"
+  "attempts": 0,
+  "sourceUrl": "https://nursing.nyu.edu/admissions/housing"
  },
  "769": {
   "stage": "finalized",
@@ -4057,25 +3915,22 @@
   "finalStatus": "verified"
  },
  "770": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T22:22:13.269Z",
-  "attempts": 2,
-  "sourceUrl": "https://www.ncat.edu/chhs/departments/the-school-of-nursing/index.php",
-  "error": "http://www.ncat.edu/chhs/departments/the-school-of-nursing/admissions/prerequisites: HTTP 404 || http://www.ncat.edu/chhs/departments/the-school-of-nursing/prerequisites: HTTP 404 || http://www.ncat.edu/chhs/departments/the-school-of-nursing/prerequisite-courses: HTTP 404 || http://www.ncat.edu/chhs/departments/the-school-of-nursing/admission-requirements: HTTP 404"
+  "attempts": 0,
+  "sourceUrl": "https://www.ncat.edu/chhs/departments/the-school-of-nursing/index.php"
  },
  "771": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T22:21:25.797Z",
-  "attempts": 2,
-  "sourceUrl": "http://www.nccu.edu/chas/nursing/admission-requirements",
-  "error": "http://www.nccu.edu/chas/nursing/admissions/prerequisites: no usable prereq list || http://www.nccu.edu/chas/nursing/prerequisites: no usable prereq list || http://www.nccu.edu/chas/nursing/prerequisite-courses: no usable prereq list || http://www.nccu.edu/chas/nursing/admission-requirements: no usable prereq list"
+  "attempts": 0,
+  "sourceUrl": "http://www.nccu.edu/chas/nursing/admission-requirements"
  },
  "772": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T22:21:37.627Z",
-  "attempts": 2,
-  "sourceUrl": "http://ndsu.edu/nursing/admissions/prerequisites",
-  "error": "http://ndsu.edu/nursing/admissions/prerequisites: no usable prereq list || http://ndsu.edu/nursing/prerequisites: HTTP 404 || http://ndsu.edu/nursing/prerequisite-courses: HTTP 404 || http://ndsu.edu/nursing/admission-requirements: HTTP 404"
+  "attempts": 0,
+  "sourceUrl": "http://ndsu.edu/nursing/admissions/prerequisites"
  },
  "773": {
   "stage": "unstarted",
@@ -4089,11 +3944,10 @@
   "attempts": 1
  },
  "775": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T22:21:49.195Z",
-  "attempts": 2,
-  "sourceUrl": "https://www.nku.edu/chhs/schools/nursing/index.html",
-  "error": "http://www.nku.edu/academics/chhs/programs/schools/admissions/prerequisites: HTTP 404 || http://www.nku.edu/academics/chhs/programs/admissions/prerequisites: HTTP 404 || http://www.nku.edu/academics/chhs/programs/schools/prerequisites: HTTP 404 || http://www.nku.edu/academics/chhs/programs/schools/prerequisite-courses: HTTP 404"
+  "attempts": 0,
+  "sourceUrl": "https://www.nku.edu/chhs/schools/nursing/index.html"
  },
  "776": {
   "stage": "unstarted",
@@ -4102,11 +3956,10 @@
   "sourceUrl": "https://www.northwestern.edu/"
  },
  "777": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T22:22:00.964Z",
-  "attempts": 2,
-  "sourceUrl": "https://www.norwich.edu/",
-  "error": "http://norwich.edu/offices/school-nursing/admissions/prerequisites: HTTP 404 || http://norwich.edu/offices/school-nursing/prerequisites: HTTP 404 || http://norwich.edu/offices/school-nursing/prerequisite-courses: HTTP 404 || http://norwich.edu/offices/school-nursing/admission-requirements: HTTP 404"
+  "attempts": 0,
+  "sourceUrl": "https://www.norwich.edu/"
  },
  "778": {
   "stage": "finalized",
@@ -4116,18 +3969,16 @@
   "finalStatus": "verified"
  },
  "779": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T22:25:47.059Z",
-  "attempts": 2,
-  "sourceUrl": "https://www.nova.edu/",
-  "error": "http://nursing.nova.edu/: Firecrawl scrape HTTP 402"
+  "attempts": 0,
+  "sourceUrl": "https://www.nova.edu/"
  },
  "780": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T22:22:24.345Z",
-  "attempts": 2,
-  "sourceUrl": "https://www.oakland.edu/",
-  "error": "http://oakland.edu/nursing/admissions/prerequisites: HTTP 404 || http://oakland.edu/nursing/prerequisites: HTTP 404 || http://oakland.edu/nursing/prerequisite-courses: HTTP 404 || http://oakland.edu/nursing/admission-requirements: HTTP 404"
+  "attempts": 0,
+  "sourceUrl": "https://www.oakland.edu/"
  },
  "781": {
   "stage": "finalized",
@@ -4137,17 +3988,15 @@
   "finalStatus": "verified"
  },
  "782": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T22:22:36.741Z",
-  "attempts": 2,
-  "sourceUrl": "https://www.pace.edu/college-health-professions/faculty-and-departments/departments/nursing",
-  "error": "http://www.pace.edu/college-health-professions/department/lienhard-school-nursing/admissions/prerequisites: HTTP 404 || http://www.pace.edu/college-health-professions/department/lienhard-school-nursing/prerequisites: HTTP 404 || http://www.pace.edu/college-health-professions/department/lienhard-school-nursing/prerequisite-courses: HTTP 404 || http://www.pace.edu/college-health-professions/department/lienhard-school-nursing/admission-requirements: HTTP 404"
+  "attempts": 0,
+  "sourceUrl": "https://www.pace.edu/college-health-professions/faculty-and-departments/departments/nursing"
  },
  "783": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T22:22:47.645Z",
-  "attempts": 2,
-  "error": "http://harrisburg.psu.edu/behavioral-sciences-education/nursing-bsn/admissions/prerequisites: Firecrawl scrape HTTP 402 || http://harrisburg.psu.edu/behavioral-sciences-education/nursing-bsn/prerequisites: Firecrawl scrape HTTP 429 || http://harrisburg.psu.edu/behavioral-sciences-education/nursing-bsn/prerequisite-courses: Firecrawl scrape HTTP 429 || http://harrisburg.psu.edu/behavioral-sciences-education/nursing-bsn/admission-requirements: Firecrawl scrape HTTP 429"
+  "attempts": 0
  },
  "784": {
   "stage": "unstarted",
@@ -4155,18 +4004,16 @@
   "attempts": 1
  },
  "785": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T22:24:07.085Z",
-  "attempts": 2,
-  "sourceUrl": "https://www.pennwest.edu/",
-  "error": "http://edinboro.edu/academics/schools-and-departments/cshp/departments/nursing/admissions/prerequisites: no usable prereq list || http://edinboro.edu/academics/schools-and-departments/cshp/departments/nursing/prerequisites: no usable prereq list || http://edinboro.edu/academics/schools-and-departments/cshp/departments/nursing/prerequisite-courses: no usable prereq list || http://edinboro.edu/academics/schools-and-departments/cshp/departments/nursing/admission-requirements: no usable prereq list"
+  "attempts": 0,
+  "sourceUrl": "https://www.pennwest.edu/"
  },
  "786": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T22:23:20.580Z",
-  "attempts": 2,
-  "sourceUrl": "https://www.purdue.edu/hhs/nur/admission-requirements",
-  "error": "http://www.purdue.edu/hhs/nur/admissions/prerequisites: no usable prereq list || http://www.purdue.edu/hhs/admissions/prerequisites: no usable prereq list || http://www.purdue.edu/hhs/nur/prerequisites: no usable prereq list || http://www.purdue.edu/hhs/nur/prerequisite-courses: no usable prereq list"
+  "attempts": 0,
+  "sourceUrl": "https://www.purdue.edu/hhs/nur/admission-requirements"
  },
  "787": {
   "stage": "unstarted",
@@ -4175,11 +4022,10 @@
   "sourceUrl": "https://owl.purdue.edu/"
  },
  "788": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T22:23:43.932Z",
-  "attempts": 2,
-  "sourceUrl": "https://www.queens.edu/nursing/",
-  "error": "http://www.queens.edu/nursing/admissions/prerequisites: HTTP 404 || http://www.queens.edu/nursing/prerequisites: HTTP 404 || http://www.queens.edu/nursing/prerequisite-courses: HTTP 404 || http://www.queens.edu/nursing/admission-requirements: HTTP 404"
+  "attempts": 0,
+  "sourceUrl": "https://www.queens.edu/nursing/"
  },
  "789": {
   "stage": "finalized",
@@ -4202,18 +4048,16 @@
   "sourceUrl": "https://adfs.rasmussen.edu/adfs/ls?wa=wsignin1.0&wtrealm=urn%3aextranet%3aportal&wctx=https%3a%2f%2fportal.rasmussen.edu%2f_layouts%2f15%2fAuthenticate.aspx%3fSource%3d%252F"
  },
  "792": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T22:24:30.357Z",
-  "attempts": 2,
-  "sourceUrl": "http://www.regiscollege.edu/academics/schools/admissions/prerequisites",
-  "error": "http://www.regiscollege.edu/academics/schools/richard-and-sheila-young-school-nursing/admissions/prerequisites: too little text || http://www.regiscollege.edu/academics/schools/richard-and-sheila-young-school-nursing/prerequisites: too little text || http://www.regiscollege.edu/academics/schools/richard-and-sheila-young-school-nursing/prerequisite-courses: too little text || http://www.regiscollege.edu/academics/schools/richard-and-sheila-young-school-nursing/admission-requirements: too little t"
+  "attempts": 0,
+  "sourceUrl": "http://www.regiscollege.edu/academics/schools/admissions/prerequisites"
  },
  "793": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T22:25:39.603Z",
-  "attempts": 2,
-  "sourceUrl": "https://www.regis.edu/RHCHP/Schools/admission-requirements",
-  "error": "http://www.regis.edu/RHCHP/Schools/admissions/prerequisites: no usable prereq list || http://www.regis.edu/RHCHP/admissions/prerequisites: no usable prereq list || http://www.regis.edu/RHCHP/Schools/prerequisites: no usable prereq list || http://www.regis.edu/RHCHP/Schools/prerequisite-courses: no usable prereq list"
+  "attempts": 0,
+  "sourceUrl": "https://www.regis.edu/RHCHP/Schools/admission-requirements"
  },
  "794": {
   "stage": "finalized",
@@ -4223,17 +4067,15 @@
   "finalStatus": "verified"
  },
  "795": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T22:25:08.479Z",
-  "attempts": 2,
-  "error": "http://snhs.rmu.edu/: Firecrawl scrape HTTP 402"
+  "attempts": 0
  },
  "796": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T22:25:34.533Z",
-  "attempts": 2,
-  "sourceUrl": "https://www.rockhurst.edu/saint-lukes-college",
-  "error": "http://www.rockhurst.edu/saint-lukes-college/admissions/prerequisites: HTTP 404 || http://www.rockhurst.edu/saint-lukes-college/prerequisites: HTTP 404 || http://www.rockhurst.edu/saint-lukes-college/prerequisite-courses: HTTP 404 || http://www.rockhurst.edu/saint-lukes-college/admission-requirements: HTTP 404"
+  "attempts": 0,
+  "sourceUrl": "https://www.rockhurst.edu/saint-lukes-college"
  },
  "797": {
   "stage": "finalized",
@@ -4243,17 +4085,15 @@
   "finalStatus": "verified"
  },
  "798": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T22:25:57.857Z",
-  "attempts": 2,
-  "error": "http://www.sage.edu/academics/schools/health-sciences/admissions/prerequisites: Firecrawl scrape HTTP 402 || http://www.sage.edu/academics/schools/admissions/prerequisites: Firecrawl scrape HTTP 402 || http://www.sage.edu/academics/schools/health-sciences/prerequisites: Firecrawl scrape HTTP 402 || http://www.sage.edu/academics/schools/health-sciences/prerequisite-courses: Firecrawl scrape HTTP 402"
+  "attempts": 0
  },
  "799": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T22:26:40.834Z",
-  "attempts": 2,
-  "sourceUrl": "https://nursing.camden.rutgers.edu/student-handbook",
-  "error": "https://nursing.camden.rutgers.edu/laptop-requirements: no usable prereq list || https://nursing.camden.rutgers.edu/admissions-aid/nursing-scholarships: no usable prereq list || https://nursing.camden.rutgers.edu/admissions-aid: no usable prereq list || https://nursing.camden.rutgers.edu/info/prospective-students-families: no usable prereq list"
+  "attempts": 0,
+  "sourceUrl": "https://nursing.camden.rutgers.edu/student-handbook"
  },
  "800": {
   "stage": "finalized",
@@ -4275,18 +4115,16 @@
   "sourceUrl": "https://www.stkate.edu/academics/academic-programs/cfw-nursing"
  },
  "804": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T22:26:17.143Z",
-  "attempts": 2,
-  "sourceUrl": "https://www.osfhealthcare.org/education/saint-francis-medical-center-college-of-nursing/academics/undergraduate/high-school",
-  "error": "http://www.sfmccon.edu: no usable prereq list || https://www.osfhealthcare.org/education/saint-francis-medical-center-college-of-nursing/academics/undergraduate/high-school: no usable prereq list"
+  "attempts": 0,
+  "sourceUrl": "https://www.osfhealthcare.org/education/saint-francis-medical-center-college-of-nursing/academics/undergraduate/high-school"
  },
  "805": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T22:26:40.507Z",
-  "attempts": 2,
-  "sourceUrl": "https://www.francis.edu/academics/degrees-programs/nursing",
-  "error": "http://www.francis.edu/nursing/admissions/prerequisites: HTTP 404 || http://www.francis.edu/nursing/prerequisites: HTTP 404 || http://www.francis.edu/nursing/prerequisite-courses: HTTP 404 || http://www.francis.edu/nursing/admission-requirements: HTTP 404"
+  "attempts": 0,
+  "sourceUrl": "https://www.francis.edu/academics/degrees-programs/nursing"
  },
  "807": {
   "stage": "unstarted",
@@ -4302,11 +4140,10 @@
   "finalStatus": "verified"
  },
  "809": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T22:26:41.923Z",
-  "attempts": 2,
-  "sourceUrl": "https://www.sxu.edu/academics/sonhs/index.html",
-  "error": "http://www.sxu.edu/academics/sonhs/admissions/prerequisites: HTTP 404 || http://www.sxu.edu/academics/admissions/prerequisites: HTTP 404 || http://www.sxu.edu/academics/sonhs/prerequisites: HTTP 404 || http://www.sxu.edu/academics/sonhs/prerequisite-courses: HTTP 404"
+  "attempts": 0,
+  "sourceUrl": "https://www.sxu.edu/academics/sonhs/index.html"
  },
  "810": {
   "stage": "finalized",
@@ -4316,18 +4153,16 @@
   "finalStatus": "verified"
  },
  "811": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T22:27:04.023Z",
-  "attempts": 2,
-  "sourceUrl": "https://www.salisbury.edu/",
-  "error": "http://www.salisbury.edu/nursing/admissions/prerequisites: HTTP 404 || http://www.salisbury.edu/nursing/prerequisites: HTTP 404 || http://www.salisbury.edu/nursing/prerequisite-courses: HTTP 404 || http://www.salisbury.edu/nursing/admission-requirements: HTTP 404"
+  "attempts": 0,
+  "sourceUrl": "https://www.salisbury.edu/"
  },
  "812": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T22:27:05.288Z",
-  "attempts": 2,
-  "sourceUrl": "https://www.nursing.sfsu.edu/",
-  "error": "https://www.nursing.sfsu.edu/degreeprograms-admissions: no usable prereq list || http://www.nursing.sfsu.edu: no usable prereq list"
+  "attempts": 0,
+  "sourceUrl": "https://www.nursing.sfsu.edu/"
  },
  "813": {
   "stage": "finalized",
@@ -4337,11 +4172,10 @@
   "finalStatus": "verified"
  },
  "814": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T22:27:07.396Z",
-  "attempts": 2,
-  "sourceUrl": "https://www.su.edu/admissions/future-first-year/application-information/nursing-requirements/",
-  "error": "http://www.su.edu/nursing/admissions/prerequisites: HTTP 404 || http://www.su.edu/nursing/prerequisites: HTTP 404 || http://www.su.edu/nursing/prerequisite-courses: HTTP 404 || http://www.su.edu/nursing/admission-requirements: HTTP 404"
+  "attempts": 0,
+  "sourceUrl": "https://www.su.edu/admissions/future-first-year/application-information/nursing-requirements/"
  },
  "815": {
   "stage": "unstarted",
@@ -4350,18 +4184,16 @@
   "sourceUrl": "https://www.simmons.edu/directory/departments/son"
  },
  "816": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T22:28:29.299Z",
-  "attempts": 2,
-  "sourceUrl": "https://www.south.edu/department/nursing/?dept=327",
-  "error": "http://www.south.edu/programs/school-of-nursing/admissions/prerequisites: no usable prereq list || http://www.south.edu/programs/school-of-nursing/prerequisites: no usable prereq list || http://www.south.edu/programs/school-of-nursing/prerequisite-courses: no usable prereq list || http://www.south.edu/programs/school-of-nursing/admission-requirements: no usable prereq list"
+  "attempts": 0,
+  "sourceUrl": "https://www.south.edu/department/nursing/?dept=327"
  },
  "817": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T22:27:29.104Z",
-  "attempts": 2,
-  "sourceUrl": "https://www.sdstate.edu/nursing",
-  "error": "http://www.sdstate.edu/nursing/admissions/prerequisites: HTTP 404 || http://www.sdstate.edu/nursing/prerequisites: HTTP 404 || http://www.sdstate.edu/nursing/prerequisite-courses: HTTP 404 || http://www.sdstate.edu/nursing/admission-requirements: HTTP 404"
+  "attempts": 0,
+  "sourceUrl": "https://www.sdstate.edu/nursing"
  },
  "818": {
   "stage": "unstarted",
@@ -4377,25 +4209,22 @@
   "finalStatus": "verified"
  },
  "820": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T22:27:30.803Z",
-  "attempts": 2,
-  "sourceUrl": "https://academics.siu.edu/health-professions/nursing/",
-  "error": "http://academics.siu.edu/health-professions/nursing/admissions/prerequisites: HTTP 404 || http://academics.siu.edu/health-professions/nursing/prerequisites: HTTP 404 || http://academics.siu.edu/health-professions/nursing/prerequisite-courses: HTTP 404 || http://academics.siu.edu/health-professions/nursing/admission-requirements: HTTP 404"
+  "attempts": 0,
+  "sourceUrl": "https://academics.siu.edu/health-professions/nursing/"
  },
  "821": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T22:27:52.662Z",
-  "attempts": 2,
-  "sourceUrl": "https://www.siue.edu/nursing/",
-  "error": "http://www.siue.edu/nursing/admissions/prerequisites: HTTP 404 || http://www.siue.edu/nursing/prerequisites: HTTP 404 || http://www.siue.edu/nursing/prerequisite-courses: HTTP 404 || http://www.siue.edu/nursing/admission-requirements: HTTP 404"
+  "attempts": 0,
+  "sourceUrl": "https://www.siue.edu/nursing/"
  },
  "822": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T22:28:32.930Z",
-  "attempts": 2,
-  "sourceUrl": "http://spalding.edu/academics/kosair-for-kids-college-of-health-and-natural-sciences/school-of-nursing/",
-  "error": "http://www.spalding.edu/nursing/admissions/prerequisites: no usable prereq list || http://www.spalding.edu/nursing/prerequisites: no usable prereq list || http://www.spalding.edu/nursing/prerequisite-courses: no usable prereq list || http://www.spalding.edu/nursing/admission-requirements: no usable prereq list"
+  "attempts": 0,
+  "sourceUrl": "http://spalding.edu/academics/kosair-for-kids-college-of-health-and-natural-sciences/school-of-nursing/"
  },
  "823": {
   "stage": "unstarted",
@@ -4404,11 +4233,10 @@
   "sourceUrl": "https://stockton.edu/"
  },
  "824": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T22:28:29.647Z",
-  "attempts": 2,
-  "sourceUrl": "https://nursing.stonybrookmedicine.edu/",
-  "error": "https://nursing.stonybrookmedicine.edu/prospectiveFAQ/: no usable prereq list || https://nursing.stonybrookmedicine.edu/prospectiveStudents: no usable prereq list || http://nursing.stonybrookmedicine.edu/: no usable prereq list"
+  "attempts": 0,
+  "sourceUrl": "https://nursing.stonybrookmedicine.edu/"
  },
  "825": {
   "stage": "finalized",
@@ -4418,17 +4246,15 @@
   "finalStatus": "verified"
  },
  "826": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T22:35:06.140Z",
-  "attempts": 2,
-  "sourceUrl": "https://explore.suny.edu/",
-  "error": "http://www.downstate.edu/education-training/college-of-nursing/admissions/prerequisites: Firecrawl scrape HTTP 402 || http://www.downstate.edu/education-training/college-of-nursing/prerequisites: Firecrawl scrape HTTP 402 || http://www.downstate.edu/education-training/college-of-nursing/prerequisite-courses: Firecrawl scrape HTTP 402 || http://www.downstate.edu/education-training/college-of-nursing/admission-requirements: Firecrawl scrape HTTP 429"
+  "attempts": 0,
+  "sourceUrl": "https://explore.suny.edu/"
  },
  "827": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T22:28:52.878Z",
-  "attempts": 2,
-  "error": "http://temple.edu/academics/degree-programs/nursing-major-hp-nurs-bsnu/admissions/prerequisites: HTTP 404 || http://temple.edu/academics/degree-programs/nursing-major-hp-nurs-bsnu/prerequisites: HTTP 404 || http://temple.edu/academics/degree-programs/nursing-major-hp-nurs-bsnu/prerequisite-courses: HTTP 404 || http://temple.edu/academics/degree-programs/nursing-major-hp-nurs-bsnu/admission-requirements: HTTP 404"
+  "attempts": 0
  },
  "828": {
   "stage": "finalized",
@@ -4438,18 +4264,16 @@
   "finalStatus": "verified"
  },
  "829": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T22:30:41.804Z",
-  "attempts": 2,
-  "sourceUrl": "https://nursing.tamu.edu/",
-  "error": "https://nursing.tamu.edu/students/prospective.html: no usable prereq list || http://nursing.tamu.edu: no usable prereq list"
+  "attempts": 0,
+  "sourceUrl": "https://nursing.tamu.edu/"
  },
  "830": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T22:29:02.022Z",
-  "attempts": 2,
-  "sourceUrl": "https://hr.tcu.edu/prospective-employees/index.php",
-  "error": "http://harriscollege.tcu.edu/: no usable prereq list || https://hr.tcu.edu/prospective-employees/index.php: no usable prereq list"
+  "attempts": 0,
+  "sourceUrl": "https://hr.tcu.edu/prospective-employees/index.php"
  },
  "831": {
   "stage": "finalized",
@@ -4459,18 +4283,16 @@
   "finalStatus": "verified"
  },
  "832": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T22:35:35.397Z",
-  "attempts": 2,
-  "sourceUrl": "https://www.texas.gov/",
-  "error": "http://www.ttuhsc.edu/nursing/admissions/prerequisites: Firecrawl scrape HTTP 402 || http://www.ttuhsc.edu/nursing/prerequisites: Firecrawl scrape HTTP 402 || http://www.ttuhsc.edu/nursing/prerequisite-courses: Firecrawl scrape HTTP 429 || http://www.ttuhsc.edu/nursing/admission-requirements: Firecrawl scrape HTTP 402"
+  "attempts": 0,
+  "sourceUrl": "https://www.texas.gov/"
  },
  "833": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T22:30:15.348Z",
-  "attempts": 2,
-  "sourceUrl": "https://thechristcollege.edu/",
-  "error": "https://thechristcollege.edu/admissions/: no usable prereq list || https://thechristcollege.edu/Admissions: no usable prereq list || https://thechristcollege.edu/apply/: no usable prereq list || https://thechristcollege.edu/apply: no usable prereq list"
+  "attempts": 0,
+  "sourceUrl": "https://thechristcollege.edu/"
  },
  "834": {
   "stage": "unstarted",
@@ -4484,11 +4306,10 @@
   "sourceUrl": "https://www.css.edu/academics/schools-of-study/school-of-health-professions/"
  },
  "836": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T22:30:53.645Z",
-  "attempts": 2,
-  "sourceUrl": "https://nursing.osu.edu/",
-  "error": "http://nursing.osu.edu/: no usable prereq list"
+  "attempts": 0,
+  "sourceUrl": "https://nursing.osu.edu/"
  },
  "837": {
   "stage": "unstarted",
@@ -4497,11 +4318,10 @@
   "sourceUrl": "https://www.uakron.edu/nursing/"
  },
  "838": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T22:31:17.352Z",
-  "attempts": 2,
-  "sourceUrl": "https://www.uah.edu/nursing",
-  "error": "http://www.uah.edu/nursing/admissions/prerequisites: HTTP 404 || http://www.uah.edu/nursing/prerequisites: HTTP 404 || http://www.uah.edu/nursing/prerequisite-courses: HTTP 404 || http://www.uah.edu/nursing/admission-requirements: HTTP 404"
+  "attempts": 0,
+  "sourceUrl": "https://www.uah.edu/nursing"
  },
  "839": {
   "stage": "unstarted",
@@ -4510,11 +4330,10 @@
   "sourceUrl": "https://uthscsa.edu/nursing/"
  },
  "840": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T22:31:40.891Z",
-  "attempts": 2,
-  "sourceUrl": "https://www.tesu.edu/degrees-programs/schools/nursing/index.php",
-  "error": "http://tesu.edu/degrees-programs/schools/nursing/admissions/prerequisites: HTTP 404 || http://tesu.edu/degrees-programs/schools/nursing/prerequisites: HTTP 404 || http://tesu.edu/degrees-programs/schools/nursing/prerequisite-courses: HTTP 404 || http://tesu.edu/degrees-programs/schools/nursing/admission-requirements: HTTP 404"
+  "attempts": 0,
+  "sourceUrl": "https://www.tesu.edu/degrees-programs/schools/nursing/index.php"
  },
  "841": {
   "stage": "unstarted",
@@ -4523,18 +4342,16 @@
   "sourceUrl": "https://www.jefferson.edu/academics/colleges-schools-institutes/nursing.html"
  },
  "842": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T22:32:47.998Z",
-  "attempts": 2,
-  "sourceUrl": "https://www.trinitycollegeqc.edu/current-students/academic-resources/catalog",
-  "error": "https://www.trinitycollegeqc.edu/future-students/admissions: no usable prereq list || https://www.trinitycollegeqc.edu/future-students/admissions/articulation-agreements: no usable prereq list || https://www.trinitycollegeqc.edu/future-students/admissions/undergraduate-students: no usable prereq list || https://www.trinitycollegeqc.edu/future-students/admissions/graduate-students: no usable prereq list"
+  "attempts": 0,
+  "sourceUrl": "https://www.trinitycollegeqc.edu/current-students/academic-resources/catalog"
  },
  "843": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T22:33:12.198Z",
-  "attempts": 2,
-  "sourceUrl": "https://www.truman.edu/",
-  "error": "http://www.truman.edu/majors-programs/majors-minors/nursing-major/admissions/prerequisites: HTTP 404 || http://www.truman.edu/majors-programs/majors-minors/nursing-major/prerequisites: HTTP 404 || http://www.truman.edu/majors-programs/majors-minors/nursing-major/prerequisite-courses: HTTP 404 || http://www.truman.edu/majors-programs/majors-minors/nursing-major/admission-requirements: HTTP 404"
+  "attempts": 0,
+  "sourceUrl": "https://www.truman.edu/"
  },
  "844": {
   "stage": "finalized",
@@ -4544,17 +4361,15 @@
   "finalStatus": "verified"
  },
  "845": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T22:33:38.467Z",
-  "attempts": 2,
-  "error": "http://www.uu.edu/academics/son/admissions/prerequisites: Firecrawl scrape HTTP 402 || http://www.uu.edu/academics/admissions/prerequisites: Firecrawl scrape HTTP 402 || http://www.uu.edu/academics/son/prerequisites: Firecrawl scrape HTTP 402 || http://www.uu.edu/academics/son/prerequisite-courses: Firecrawl scrape HTTP 402"
+  "attempts": 0
  },
  "846": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T22:34:53.182Z",
-  "attempts": 2,
-  "sourceUrl": "https://nursing.buffalo.edu/",
-  "error": "https://nursing.buffalo.edu/admissions/apply.html: no usable prereq list || https://nursing.buffalo.edu/admissions.html: no usable prereq list || https://nursing.buffalo.edu/additional-info/prospective.html: no usable prereq list || https://nursing.buffalo.edu/additional-info/prospective/boards-pass-rates.html: no usable prereq list"
+  "attempts": 0,
+  "sourceUrl": "https://nursing.buffalo.edu/"
  },
  "847": {
   "stage": "finalized",
@@ -4564,11 +4379,10 @@
   "finalStatus": "verified"
  },
  "848": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T22:35:16.557Z",
-  "attempts": 2,
-  "sourceUrl": "https://uafs.edu/academics/colleges-and-schools/chehs/health-sciences/departments/nursing/index.php",
-  "error": "http://uafs.edu/academics/colleges-and-schools/chehs/health-sciences/departments/nursing/admissions/prerequisites: HTTP 404 || http://uafs.edu/academics/colleges-and-schools/chehs/health-sciences/departments/nursing/prerequisites: HTTP 404 || http://uafs.edu/academics/colleges-and-schools/chehs/health-sciences/departments/nursing/prerequisite-courses: HTTP 404 || http://uafs.edu/academics/colleges-and-schools/chehs/health-sciences/departments/nursing/admission-requirements: HTTP 404"
+  "attempts": 0,
+  "sourceUrl": "https://uafs.edu/academics/colleges-and-schools/chehs/health-sciences/departments/nursing/index.php"
  },
  "849": {
   "stage": "unstarted",
@@ -4577,18 +4391,16 @@
   "sourceUrl": "https://www.bridgeport.edu/academics/programs/"
  },
  "850": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T22:36:22.768Z",
-  "attempts": 2,
-  "sourceUrl": "https://nursing.ucf.edu/admissions/apply-now/",
-  "error": "https://nursing.ucf.edu/admissions/: no usable prereq list || https://nursing.ucf.edu/admissions/bachelors-degrees/: no usable prereq list || https://nursing.ucf.edu/admissions/masters-degrees/: no usable prereq list || https://nursing.ucf.edu/admissions/doctoral-degrees/: no usable prereq list"
+  "attempts": 0,
+  "sourceUrl": "https://nursing.ucf.edu/admissions/apply-now/"
  },
  "851": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T22:36:20.640Z",
-  "attempts": 2,
-  "sourceUrl": "https://www.uco.edu/cms/academics/admissions/prerequisites",
-  "error": "http://uco.edu/cms/academics/nursing/admissions/prerequisites: no usable prereq list || http://uco.edu/cms/academics/nursing/prerequisites: no usable prereq list || http://uco.edu/cms/academics/nursing/prerequisite-courses: no usable prereq list || http://uco.edu/cms/academics/nursing/admission-requirements: no usable prereq list"
+  "attempts": 0,
+  "sourceUrl": "https://www.uco.edu/cms/academics/admissions/prerequisites"
  },
  "852": {
   "stage": "unstarted",
@@ -4596,18 +4408,16 @@
   "attempts": 1
  },
  "853": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T22:35:58.655Z",
-  "attempts": 2,
-  "sourceUrl": "https://johnsonbethel.uccs.edu/",
-  "error": "http://www.uccs.edu/bethel/admissions/prerequisites: HTTP 404 || http://www.uccs.edu/bethel/prerequisites: HTTP 404 || http://www.uccs.edu/bethel/prerequisite-courses: HTTP 404 || http://www.uccs.edu/bethel/admission-requirements: HTTP 404"
+  "attempts": 0,
+  "sourceUrl": "https://johnsonbethel.uccs.edu/"
  },
  "854": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T22:37:07.662Z",
-  "attempts": 2,
-  "sourceUrl": "https://nursing.uconn.edu/",
-  "error": "https://nursing.uconn.edu/distance-learning-clinical-educational-requirements/: no usable prereq list || https://nursing.uconn.edu/admission-academics/admission-enrollment-services-2-2/: no usable prereq list || https://nursing.uconn.edu/admission-academics/bachelor-of-science/: no usable prereq list || https://nursing.uconn.edu/info-for/prospective-students/: no usable prereq list"
+  "attempts": 0,
+  "sourceUrl": "https://nursing.uconn.edu/"
  },
  "855": {
   "stage": "unstarted",
@@ -4616,18 +4426,16 @@
   "sourceUrl": "https://healthprofessions.udmercy.edu/academics/nursing/"
  },
  "856": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T22:36:44.141Z",
-  "attempts": 2,
-  "sourceUrl": "https://www.evansville.edu/majors/nursing/",
-  "error": "http://www.evansville.edu/majors/nursing/admissions/prerequisites: HTTP 404 || http://www.evansville.edu/majors/nursing/prerequisites: HTTP 404 || http://www.evansville.edu/majors/nursing/prerequisite-courses: HTTP 404 || http://www.evansville.edu/majors/nursing/admission-requirements: HTTP 404"
+  "attempts": 0,
+  "sourceUrl": "https://www.evansville.edu/majors/nursing/"
  },
  "857": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T22:37:28.486Z",
-  "attempts": 2,
-  "sourceUrl": "https://nursing.ufl.edu/about/employment/",
-  "error": "https://nursing.ufl.edu/programs/admissions/: no usable prereq list || https://nursing.ufl.edu/admissions/: no usable prereq list || https://nursing.ufl.edu/students/current-students/student-handbook-and-policies/: no usable prereq list || http://nursing.ufl.edu: no usable prereq list"
+  "attempts": 0,
+  "sourceUrl": "https://nursing.ufl.edu/about/employment/"
  },
  "858": {
   "stage": "unstarted",
@@ -4643,11 +4451,10 @@
   "finalStatus": "verified"
  },
  "860": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T22:37:09.622Z",
-  "attempts": 2,
-  "sourceUrl": "https://nursing.uky.edu/",
-  "error": "http://www.uky.edu/nursing/admissions/prerequisites: no usable prereq list || http://www.uky.edu/nursing/prerequisites: no usable prereq list || http://www.uky.edu/nursing/prerequisite-courses: no usable prereq list || http://www.uky.edu/nursing/admission-requirements: no usable prereq list"
+  "attempts": 0,
+  "sourceUrl": "https://nursing.uky.edu/"
  },
  "861": {
   "stage": "extracted",
@@ -4907,10 +4714,10 @@
  },
  "903": {
   "stage": "failed",
-  "lastAttempt": "2026-08-13T20:47:15.116Z",
-  "attempts": 3,
-  "sourceUrl": "https://nursing-and-health-professions.uiw.edu/admissions/index.html",
-  "error": "http://uiw.edu/snhp/admissions/prerequisites: no usable prereq list || http://uiw.edu/snhp/prerequisites: HTTP 404 || http://uiw.edu/snhp/prerequisite-courses: no usable prereq list || http://uiw.edu/snhp/admission-requirements: no usable prereq list"
+  "lastAttempt": "2026-08-14T01:58:49.023Z",
+  "attempts": 1,
+  "sourceUrl": "https://nursing-and-health-professions.uiw.edu/admissions/application-process.html",
+  "error": "http://uiw.edu/snhp/admissions/prerequisites: HTTP 404 || http://uiw.edu/snhp/prerequisites: HTTP 404 || http://uiw.edu/snhp/prerequisite-courses: HTTP 404 || http://uiw.edu/snhp/admission-requirements: HTTP 404"
  },
  "904": {
   "stage": "unstarted",
@@ -4950,11 +4757,10 @@
   "sourceUrl": "https://www.utica.edu/academics/programs/nursing"
  },
  "910": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T22:53:53.773Z",
-  "attempts": 3,
-  "sourceUrl": "http://www.valdosta.edu/nursing/requirements",
-  "error": "http://www.valdosta.edu/nursing/admissions/prerequisites: HTTP 404 || http://www.valdosta.edu/nursing/prerequisites: HTTP 404 || http://www.valdosta.edu/nursing/prerequisite-courses: HTTP 404 || http://www.valdosta.edu/nursing/admission-requirements: HTTP 404"
+  "attempts": 0,
+  "sourceUrl": "http://www.valdosta.edu/nursing/requirements"
  },
  "911": {
   "stage": "finalized",
@@ -4965,8 +4771,8 @@
  },
  "912": {
   "stage": "failed",
-  "lastAttempt": "2026-08-13T20:50:36.457Z",
-  "attempts": 3,
+  "lastAttempt": "2026-08-14T01:59:33.168Z",
+  "attempts": 1,
   "sourceUrl": "https://www.villanova.edu/university/apply.html",
   "error": "http://www.nursing.villanova.edu: no usable prereq list || https://www.villanova.edu/university/nursing/admissions.html: no usable prereq list || https://www.villanova.edu/university/nursing.html: no usable prereq list || https://www.villanova.edu/university/undergraduate-admission.html: no usable prereq list"
  },
@@ -5016,8 +4822,8 @@
  },
  "920": {
   "stage": "failed",
-  "lastAttempt": "2026-08-13T22:50:53.263Z",
-  "attempts": 3,
+  "lastAttempt": "2026-08-14T02:00:01.073Z",
+  "attempts": 1,
   "sourceUrl": "http://wcsu.edu/nursing/requirements",
   "error": "http://wcsu.edu/nursing/admissions/prerequisites: HTTP 404 || http://wcsu.edu/nursing/prerequisites: HTTP 404 || http://wcsu.edu/nursing/prerequisite-courses: HTTP 404 || http://wcsu.edu/nursing/admission-requirements: HTTP 404"
  },
@@ -5035,11 +4841,10 @@
   "sourceUrl": "https://www.wheelingwv.gov/"
  },
  "923": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T21:25:46.367Z",
-  "attempts": 2,
-  "sourceUrl": "http://www.wichita.edu/nursing/requirements",
-  "error": "http://www.wichita.edu/nursing/admissions/prerequisites: no usable prereq list || http://www.wichita.edu/nursing/prerequisites: no usable prereq list || http://www.wichita.edu/nursing/prerequisite-courses: no usable prereq list || http://www.wichita.edu/nursing/admission-requirements: no usable prereq list"
+  "attempts": 0,
+  "sourceUrl": "http://www.wichita.edu/nursing/requirements"
  },
  "924": {
   "stage": "unstarted",
@@ -5054,11 +4859,10 @@
   "sourceUrl": "https://www.wilkes.edu/academics/school-of-nursing/index.aspx"
  },
  "926": {
-  "stage": "failed",
+  "stage": "unstarted",
   "lastAttempt": "2026-08-13T21:33:16.396Z",
-  "attempts": 2,
-  "sourceUrl": "http://wmcarey.edu/program/admissions/prerequisites",
-  "error": "http://wmcarey.edu/program/nursing/admissions/prerequisites: HTTP 404 || http://wmcarey.edu/program/nursing/prerequisites: HTTP 404 || http://wmcarey.edu/program/nursing/prerequisite-courses: HTTP 404 || http://wmcarey.edu/program/nursing/admission-requirements: no usable prereq list"
+  "attempts": 0,
+  "sourceUrl": "http://wmcarey.edu/program/admissions/prerequisites"
  },
  "927": {
   "stage": "finalized",
@@ -6554,10 +6358,10 @@
  },
  "1157": {
   "stage": "failed",
-  "lastAttempt": "2026-08-13T20:50:21.234Z",
-  "attempts": 3,
+  "lastAttempt": "2026-08-14T01:59:56.821Z",
+  "attempts": 1,
   "sourceUrl": "https://www.towson.edu/chp/departments/occutherapy/admission-requirements",
-  "error": "https://www.towson.edu/chp/departments/occutherapy/admissions/prerequisites: too little text || https://www.towson.edu/chp/departments/admissions/prerequisites: too little text || https://www.towson.edu/chp/departments/occutherapy/prerequisites: HTTP 404 || https://www.towson.edu/chp/departments/occutherapy/prerequisite-courses: too little text"
+  "error": "https://www.towson.edu/chp/departments/occutherapy/admissions/prerequisites: HTTP 404 || https://www.towson.edu/chp/departments/admissions/prerequisites: HTTP 404 || https://www.towson.edu/chp/departments/occutherapy/prerequisites: HTTP 404 || https://www.towson.edu/chp/departments/occutherapy/prerequisite-courses: HTTP 404"
  },
  "1158": {
   "stage": "finalized",
@@ -6568,10 +6372,10 @@
  },
  "1159": {
   "stage": "failed",
-  "lastAttempt": "2026-08-13T20:49:17.753Z",
-  "attempts": 3,
+  "lastAttempt": "2026-08-14T01:59:37.637Z",
+  "attempts": 1,
   "sourceUrl": "https://www.ucollege.edu/graduate/requirements",
-  "error": "https://www.ucollege.edu/graduate/admissions/prerequisites: no usable prereq list || https://www.ucollege.edu/graduate/prerequisites: no usable prereq list || https://www.ucollege.edu/graduate/prerequisite-courses: no usable prereq list || https://www.ucollege.edu/graduate/admission-requirements: no usable prereq list"
+  "error": "https://www.ucollege.edu/graduate/admissions/prerequisites: HTTP 404 || https://www.ucollege.edu/graduate/prerequisites: HTTP 404 || https://www.ucollege.edu/graduate/prerequisite-courses: HTTP 404 || https://www.ucollege.edu/graduate/admission-requirements: HTTP 404"
  },
  "1160": {
   "stage": "finalized",

@@ -27,3 +27,6 @@ for (const r of byProf.rows as Array<Record<string, unknown>>) {
   console.log(`${r.profession_slug}: active=${r.active} verified=${r.verified} nop=${r.nop} unfinished=${r.unfinished} cov=${cov}%`);
 }
 process.exit(0);
+
+export {}
+
