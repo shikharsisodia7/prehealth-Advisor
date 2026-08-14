@@ -53,9 +53,10 @@ const KEYWORDS = [
   "prerequisite", "pre-requisite", "admission-requirements", "admission_requirements",
   "admissions", "admission", "requirements", "required-course", "how-to-apply",
   "apply", "eligibility", "prospective", "application-requirements", "catalog", "handbook",
+  "curriculum", "coursework", "bsn", "absn", "msn", "mepn", "dpt", "otd", "pharmd",
 ];
-const CONCURRENCY = 4;
-const PER_DOMAIN_DELAY_MS = 2500;
+const CONCURRENCY = 2;
+const PER_DOMAIN_DELAY_MS = 900;
 const OPENAI_MODEL = process.env.COMPLETION_MODEL || "gpt-4o-mini";
 
 const normalize = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
@@ -339,6 +340,37 @@ async function bingSearch(query: string): Promise<string[]> {
   return [...new Set(urls)].slice(0, 12);
 }
 
+async function googleSearch(query: string): Promise<string[]> {
+  const res = await fetch(`https://www.google.com/search?q=${encodeURIComponent(query)}&hl=en&num=10`, {
+    headers: {
+      "user-agent": USER_AGENT,
+      accept: "text/html,application/xhtml+xml",
+      "accept-language": "en-US,en;q=0.9",
+    },
+    signal: AbortSignal.timeout(20_000),
+    redirect: "follow",
+  });
+  if (!res.ok) throw new Error(`Google search HTTP ${res.status}`);
+  const html = await res.text();
+  if (/unusual traffic|captcha|sorry\/index/i.test(html) && html.length < 20_000) {
+    throw new Error("Google search blocked");
+  }
+  const urls: string[] = [];
+  for (const m of html.matchAll(/href="\/url\?q=(https?:\/\/[^"&]+)/gi)) {
+    try {
+      const decoded = decodeURIComponent(m[1]);
+      if (/google\.|gstatic\.|youtube\.|webcache/i.test(decoded)) continue;
+      urls.push(decoded);
+    } catch { /* skip */ }
+  }
+  for (const m of html.matchAll(/href="(https?:\/\/[^"]+)"/gi)) {
+    const u = m[1];
+    if (/google\.|gstatic\.|schema\.org|youtube\./i.test(u)) continue;
+    urls.push(u);
+  }
+  return [...new Set(urls)].slice(0, 10);
+}
+
 async function webSearch(query: string): Promise<string[]> {
   return withSearchLock(async () => {
     if (FIRECRAWL_KEY) {
@@ -347,10 +379,15 @@ async function webSearch(query: string): Promise<string[]> {
         if (urls.length) return urls;
       } catch { /* fall through */ }
     }
-    // Prefer Bing first: DuckDuckGo HTML often connect-times-out from this host.
+    try {
+      const google = await googleSearch(query);
+      const useful = google.filter((u) => !BLOCKED_SEARCH_HOSTS.test(u));
+      if (useful.length) return useful;
+    } catch { /* fall through */ }
     try {
       const bing = await bingSearch(query);
-      if (bing.length) return bing;
+      const useful = bing.filter((u) => !BLOCKED_SEARCH_HOSTS.test(u) && !/wikipedia|usnews|britannica/i.test(u));
+      if (useful.length >= 2) return useful;
     } catch { /* fall through */ }
     try {
       return await duckDuckGoSearch(query);
@@ -470,6 +507,7 @@ function keywordLinks(html: string, base: string, professionTerms: string[]): st
       if (/requirement/.test(hay)) score += 3;
       if (/admiss/.test(hay)) score += 2;
       if (professionTerms.some((t) => hay.includes(normalize(t).replace(/ /g, "-")) || hay.includes(normalize(t)))) score += 6;
+      if (/academic-programs|undergraduate|graduate|curriculum|bsn|absn|dpt|otd/.test(hay)) score += 2;
       if (u.hostname === baseUrl.hostname) score += 1;
       scored.set(u.toString(), Math.max(scored.get(u.toString()) ?? 0, score));
     } catch { /* skip malformed */ }
@@ -477,43 +515,48 @@ function keywordLinks(html: string, base: string, professionTerms: string[]): st
   return [...scored.entries()].sort((a, b) => b[1] - a[1]).slice(0, 8).map(([u]) => u);
 }
 
-function heuristicPrereqPaths(baseUrl: string, _program: ProgramRow): string[] {
-  try {
-    const base = new URL(baseUrl);
-    if (isDirectoryHubUrl(baseUrl)) return [];
-    const origin = base.origin;
-    const dir = base.pathname.replace(/\/[^/]*\.[a-z0-9]+$/i, "").replace(/\/$/, "") || "";
-    // Keep this small: only same-path variants. Broad origin/slug guesses create many 404s.
-    const suffixes = [
-      "/prerequisites", "/prerequisite-courses", "/admission-requirements",
-      "/admissions/prerequisites", "/admissions/requirements", "/admissions",
-      "/requirements", "/how-to-apply",
-    ];
-    const out: string[] = [];
-    if (dir) {
-      for (const suffix of suffixes) out.push(`${origin}${dir}${suffix}`);
-      const parent = dir.split("/").slice(0, -1).join("/");
-      if (parent) {
-        out.push(`${origin}${parent}/admissions`);
-        out.push(`${origin}${parent}/prerequisites`);
-        out.push(`${origin}${parent}/admissions/prerequisites`);
-      }
-    }
-    return [...new Set(out)];
-  } catch {
-    return [];
-  }
-}
+const PREREQ_PAGE_HINT =
+  /prerequi|pre-requisit|required courses|admission requirements|course requirements|prerequisite coursework|minimum requirements/i;
 
-async function expandKeywordCandidates(seedUrl: string, program: ProgramRow): Promise<string[]> {
+/** BFS same-domain crawl from program website — primary discovery when search APIs are blocked. */
+async function crawlSiteForCandidates(
+  seedUrl: string,
+  program: ProgramRow,
+  maxDepth = 3,
+  maxPages = 18,
+): Promise<string[]> {
   if (!seedUrl || seedUrl.startsWith("cache:") || isDirectoryHubUrl(seedUrl)) return [];
   if (/\.pdf($|\?)/i.test(seedUrl) && !FIRECRAWL_KEY) return [];
-  try {
-    const page = await fetchOfficial(seedUrl);
-    return keywordLinks(page.html, page.url, professionKeywords(program.professionSlug));
-  } catch {
-    return [];
+
+  const seen = new Set<string>();
+  const found: string[] = [];
+  const queue: Array<{ url: string; depth: number }> = [{ url: seedUrl, depth: 0 }];
+  const terms = professionKeywords(program.professionSlug);
+
+  while (queue.length && seen.size < maxPages) {
+    const next = queue.shift();
+    if (!next) break;
+    const { url, depth } = next;
+    const key = url.split("#")[0];
+    if (seen.has(key)) continue;
+    seen.add(key);
+    try {
+      const page = await fetchOfficial(url);
+      if (page.text.length >= 300 && PREREQ_PAGE_HINT.test(page.text)) {
+        found.push(page.url);
+      }
+      if (depth >= maxDepth) continue;
+      for (const link of keywordLinks(page.html, page.url, terms).slice(0, 10)) {
+        const linkKey = link.split("#")[0];
+        if (!seen.has(linkKey) && !isDirectoryHubUrl(link)) {
+          queue.push({ url: link, depth: depth + 1 });
+        }
+      }
+    } catch {
+      /* skip unreachable pages */
+    }
   }
+  return found;
 }
 
 async function discoverCandidates(program: ProgramRow): Promise<string[]> {
@@ -535,17 +578,19 @@ async function discoverCandidates(program: ProgramRow): Promise<string[]> {
     program.websiteUrl && !isDirectoryHubUrl(program.websiteUrl) ? program.websiteUrl : null;
   const seedPages = [usableWebsite, program.sourceUrl].filter((u): u is string => !!u && !isDirectoryHubUrl(u));
 
-  // Expand same-domain admissions/prereq links from known program pages BEFORE search.
-  // Landing pages rarely list courses; linked admissions pages often do.
+  // Multi-hop crawl from known official pages (works without Firecrawl/search).
   for (const seed of seedPages.slice(0, 2)) {
-    candidates.push(...heuristicPrereqPaths(seed, program));
-    const links = await expandKeywordCandidates(seed, program);
-    candidates.push(...links);
-    if (candidates.filter((c) => /prereq|requirement|admiss/i.test(c)).length >= 4) break;
+    const crawled = await crawlSiteForCandidates(seed, program);
+    candidates.push(...crawled);
+    // Also keep one-hop keyword links even if text hint missed (for secondary expand).
+    try {
+      const page = await fetchOfficial(seed);
+      candidates.push(...keywordLinks(page.html, page.url, professionKeywords(program.professionSlug)));
+    } catch { /* skip */ }
+    if (crawled.length >= 2) break;
   }
 
-  // Always try same-domain prereq search when a real website exists — generic
-  // landing pages rarely contain the course list.
+  // Search when available (Firecrawl) or as supplement — Bing/DDG often bot-block from this host.
   if (usableWebsite) {
     try {
       const host = new URL(usableWebsite).hostname.replace(/^www\./, "");
@@ -554,7 +599,6 @@ async function discoverCandidates(program: ProgramRow): Promise<string[]> {
         `"${program.name}" "${professionLabel}" prerequisites site:${host}`,
         `${program.name} ${program.programName} prerequisites site:${host}`,
         `${program.name} admission requirements prerequisites site:${host}`,
-        `"prerequisite coursework" ${program.name} site:${host}`,
       ];
       for (const q of queries) {
         const urls = await webSearch(q);
@@ -568,10 +612,10 @@ async function discoverCandidates(program: ProgramRow): Promise<string[]> {
     } catch { /* non-fatal */ }
   }
 
-  // Domain-agnostic search when website missing/hub-only, or when we still lack
-  // prereq-looking URLs after same-domain search.
-  const hasPrereqish = candidates.some((c) => /prereq|requirement|admiss|catalog|handbook/i.test(c));
-  if (!usableWebsite || !hasPrereqish) {
+  const hasStrongCandidate = candidates.some((c) =>
+    /prereq|requirement|catalog|handbook|admission/i.test(c) && !/\/admissions\/prerequisites$/i.test(c),
+  );
+  if (!usableWebsite || !hasStrongCandidate) {
     try {
       const urls = (await webSearch(
         `${program.name} ${program.programName} official admissions prerequisites coursework`,
@@ -824,7 +868,8 @@ async function processProgram(program: ProgramRow): Promise<string> {
   const errors: string[] = [];
   const tryCandidates = candidates
     .filter((c) => FIRECRAWL_KEY || !/\.pdf($|\?)/i.test(c))
-    .slice(0, 6);
+    .slice(0, 10);
+  const fetchedPages: Fetched[] = [];
   for (const candidate of tryCandidates) {
     try {
       let fetched: Fetched;
@@ -837,15 +882,34 @@ async function processProgram(program: ProgramRow): Promise<string> {
       }
       setState(program.id, { stage: "source_fetched", sourceUrl: fetched.url });
       if (fetched.text.length < 300) { errors.push(`${candidate}: too little text`); continue; }
+      fetchedPages.push(fetched);
+    } catch (e) {
+      errors.push(`${candidate}: ${e instanceof Error ? e.message : String(e)}`);
+    }
+  }
 
+  // Prefer pages that already mention prerequisites before spending OpenAI calls.
+  const rankedPages = [...fetchedPages].sort((a, b) => {
+    const as = (PREREQ_PAGE_HINT.test(a.text) ? 2 : 0) + (a.text.length > 2000 ? 1 : 0);
+    const bs = (PREREQ_PAGE_HINT.test(b.text) ? 2 : 0) + (b.text.length > 2000 ? 1 : 0);
+    return bs - as;
+  });
+
+  for (const fetched of rankedPages.slice(0, 6)) {
+    try {
+      if (!PREREQ_PAGE_HINT.test(fetched.text) && rankedPages.some((p) => PREREQ_PAGE_HINT.test(p.text))) {
+        continue; // skip weak pages when a stronger candidate exists
+      }
       const ex = await extractWithOpenAI(program, fetched.text, fetched.url);
       setState(program.id, { stage: "extracted" });
-      if (!validExtraction(ex, fetched.text, program)) { errors.push(`${candidate}: no usable prereq list`); continue; }
-
+      if (!validExtraction(ex, fetched.text, program)) {
+        errors.push(`${fetched.url}: no usable prereq list`);
+        continue;
+      }
       best = { fetched, ex };
       if (ex.hasPrereqList && ex.courses.length >= 4) break;
     } catch (e) {
-      errors.push(`${candidate}: ${e instanceof Error ? e.message : String(e)}`);
+      errors.push(`${fetched.url}: ${e instanceof Error ? e.message : String(e)}`);
     }
   }
 
