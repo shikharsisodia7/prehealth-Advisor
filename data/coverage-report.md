@@ -1,6 +1,6 @@
 # Prerequisite Coverage Audit
 
-Generated: 2026-08-16T22:44:45.310Z (from live production API)
+Generated: 2026-08-16T22:49:49.298Z (from live production API)
 
 | Profession | Active | Verified | No specific courses | Blocked | Unfinished | Final-status coverage | Directory reconciliation |
 |---|---:|---:|---:|---:|---:|---:|---|
@@ -8,7 +8,7 @@ Generated: 2026-08-16T22:44:45.310Z (from live production API)
 | Dental School (DDS/DMD) | 78 | 59 | 1 | 0 | 18 | 76.9% | reconciled |
 | Dietetics (RD/RDN) | 152 | 94 | 2 | 0 | 56 | 63.2% | reconciled |
 | Genetic Counseling (MS) | 64 | 62 | 1 | 0 | 1 | 98.4% | under-source-count |
-| Medical School (MD/DO) | 236 | 65 | 0 | 0 | 171 | 27.5% | reconciled |
+| Medical School (MD/DO) | 236 | 67 | 0 | 0 | 169 | 28.4% | reconciled |
 | Nursing (ABSN/MEPN) | 446 | 273 | 9 | 0 | 164 | 63.2% | reconciled |
 | Occupational Therapy (OTD/MOT) | 318 | 178 | 5 | 0 | 135 | 57.5% | reconciled |
 | Optometry (OD) | 24 | 24 | 0 | 0 | 0 | 100% | reconciled |
@@ -25,9 +25,9 @@ Generated: 2026-08-16T22:44:45.310Z (from live production API)
 ## Totals
 
 - Active programs: 2857
-- Verified: 1354
+- Verified: 1356
 - No specific courses: 25
-- Unfinished: 1478
+- Unfinished: 1476
 - Final-status coverage: 48.3%
 
 ## Remaining externally blocked programs
