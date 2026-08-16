@@ -3380,10 +3380,11 @@
   "sourceUrl": "https://www.fairfield.edu/"
  },
  "673": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-16T21:02:32.557Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T21:03:02.953Z",
   "attempts": 2,
-  "sourceUrl": "https://www.fdu.edu/academics/core-curriculum/"
+  "sourceUrl": "https://www.fdu.edu/academics/core-curriculum/",
+  "error": "https://www.fdu.edu/admissions/graduate/: no usable prereq list || https://www.fdu.edu/admissions/transfer/: no usable prereq list || https://www.fdu.edu/admissions/graduate/admissions-status/: no usable prereq list || https://www.fdu.edu/academics/core-curriculum/: no usable prereq list"
  },
  "674": {
   "stage": "finalized",
@@ -3393,10 +3394,11 @@
   "finalStatus": "verified"
  },
  "675": {
-  "stage": "validated",
-  "lastAttempt": "2026-08-16T21:02:32.776Z",
+  "stage": "finalized",
+  "lastAttempt": "2026-08-16T21:02:32.929Z",
   "attempts": 2,
-  "sourceUrl": "https://www.uncfsu.edu/admission-and-aid/undergraduate-admissions"
+  "sourceUrl": "https://www.uncfsu.edu/academics/colleges-schools-and-departments/lloyd-college-of-health-science-and-technology/school-of-nursing/accelerated-bachelor-of-science-in-nursing-track-(absn)",
+  "finalStatus": "verified"
  },
  "676": {
   "stage": "finalized",
@@ -3564,16 +3566,17 @@
  },
  "701": {
   "stage": "failed",
-  "lastAttempt": "2026-08-16T00:24:53.458Z",
-  "attempts": 2,
+  "lastAttempt": "2026-08-16T21:03:32.737Z",
+  "attempts": 3,
   "sourceUrl": "http://www.hunter.cuny.edu/nursing/requirements",
   "error": "http://www.hunter.cuny.edu/nursing: HTTP 403"
  },
  "702": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T00:26:34.278Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.huntington.edu/meet-the-faculty/corie-mueller"
+  "stage": "finalized",
+  "lastAttempt": "2026-08-16T21:04:07.643Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.huntington.edu/nursing",
+  "finalStatus": "verified"
  },
  "703": {
   "stage": "unstarted",
@@ -3635,10 +3638,11 @@
   "finalStatus": "verified"
  },
  "712": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T00:24:43.101Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.indwes.edu/admissions/online/"
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T21:04:44.224Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.indwes.edu/admissions/",
+  "error": "https://www.indwes.edu/admissions/online/online-transfer: no usable prereq list || https://www.indwes.edu/admissions/campus/index-orig: no usable prereq list || https://www.indwes.edu/admissions/online/: no usable prereq list || https://www.indwes.edu/admissions/: no usable prereq list"
  },
  "713": {
   "stage": "finalized",
@@ -3648,10 +3652,11 @@
   "finalStatus": "verified"
  },
  "714": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T00:24:23.015Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.ju.edu/international/index.php"
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T21:03:22.981Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.ju.edu/academics/academic-catalog.php",
+  "error": "https://www.ju.edu/admissions/prospective-students.php: no usable prereq list || https://www.ju.edu/apply/index.php: no usable prereq list || https://www.ju.edu/admissions/transfer/index.php: no usable prereq list || https://www.ju.edu/admissions/prospective-students.php: no usable prereq list"
  },
  "716": {
   "stage": "finalized",
@@ -3721,10 +3726,11 @@
   "finalStatus": "verified"
  },
  "726": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T00:26:59.097Z",
-  "attempts": 1,
-  "sourceUrl": "https://lipscomb.edu/admissions/graduate-request-info"
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T21:04:52.048Z",
+  "attempts": 2,
+  "sourceUrl": "https://lipscomb.edu/admissions/graduate-request-info",
+  "error": "https://lipscomb.edu/admissions/freshmen-admissions/freshmen-admission-requirements: no usable prereq list || https://lipscomb.edu/admissions/freshmen-admissions/freshmen-admission-requirements/math-placement-test: no usable prereq list || https://lipscomb.edu/admissions/freshmen-admissions/freshmen-admission-requirements/test-optional-admission-process: no usable prereq list || https://lipscomb.edu/admissions/international-admissions/admission-requirements: no usable prereq list"
  },
  "727": {
   "stage": "unstarted",
@@ -3779,10 +3785,11 @@
   "finalStatus": "verified"
  },
  "735": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T04:21:59.706Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.marian.edu/admissions/tuition-and-fees/"
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T21:06:22.852Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.marian.edu/admissions/request-information/",
+  "error": "https://www.marian.edu/academics/programs/bachelors/indianapolis/nursing: no usable prereq list || https://www.marian.edu/academics/programs/bachelors/plymouth/nursing: no usable prereq list || https://www.marian.edu/academics/programs/bachelors/indianapolis/nursing: no usable prereq list || https://www.marian.edu/admissions/: no usable prereq list"
  },
  "736": {
   "stage": "finalized",
@@ -3839,10 +3846,11 @@
   "finalStatus": "verified"
  },
  "744": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T04:21:48.262Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.mercy.edu/admissions-aid/catalyst"
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T21:05:32.156Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.mercy.edu/admissions-aid/first-time-freshman-admissions",
+  "error": "https://www.mercy.edu/admissions-aid/international-admissions: no usable prereq list || https://www.mercy.edu/admissions-aid/first-time-freshman-admissions: no usable prereq list"
  },
  "745": {
   "stage": "finalized",
@@ -3871,10 +3879,11 @@
   "sourceUrl": "https://www.michigan.gov/som"
  },
  "749": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T04:22:42.264Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.mnu.edu/admissions/professional-and-graduate-admissions/"
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T21:06:32.273Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.mnu.edu/apply/",
+  "error": "https://www.mnu.edu/pgs/accelerated-bsn-program/: no usable prereq list || https://www.mnu.edu/pgs/traditional-bsn-program/: no usable prereq list || https://www.mnu.edu/pgs/hybrid-bsn-program/: no usable prereq list || https://www.mnu.edu/pgs/direct-entry-msn/: no usable prereq list"
  },
  "750": {
   "stage": "unstarted",
@@ -3916,11 +3925,10 @@
   "finalStatus": "verified"
  },
  "756": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-16T04:23:46.622Z",
-  "attempts": 2,
-  "sourceUrl": "http://www.montana.edu/nursing/admission-requirements",
-  "error": "http://www.montana.edu/nursing/index.html: HTTP 404"
+  "stage": "source_discovery",
+  "lastAttempt": "2026-08-16T21:06:32.349Z",
+  "attempts": 3,
+  "sourceUrl": "http://www.montana.edu/nursing/admission-requirements"
  },
  "757": {
   "stage": "finalized",
@@ -4046,10 +4054,10 @@
   "sourceUrl": "https://www.northwestern.edu/"
  },
  "777": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T04:23:31.717Z",
-  "attempts": 1,
-  "sourceUrl": "https://online.norwich.edu/online/admissions"
+  "stage": "source_fetched",
+  "lastAttempt": "2026-08-16T21:06:36.721Z",
+  "attempts": 2,
+  "sourceUrl": "https://home.norwich.edu/on/admissions-aid/apply/graduate-admissions-campus"
  },
  "778": {
   "stage": "finalized",
