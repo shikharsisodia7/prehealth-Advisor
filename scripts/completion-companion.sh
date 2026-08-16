@@ -2,7 +2,7 @@
 # Durable cloud companion for the final completion pass.
 # - Does NOT start complete:prereqs while a local worker is actively checkpointing
 #   (avoids racing completion-state.json / DB queue).
-# - Every ~5 minutes: fetch local checkpoint, refresh coverage from production API,
+# - Every ~10 minutes: fetch local checkpoint, refresh coverage from production API,
 #   commit+push non-empty progress.
 # - If DATABASE_URL + OPENAI_API_KEY appear AND local checkpoint goes stale (>20 min),
 #   take over as the single complete:prereqs worker.
@@ -95,7 +95,7 @@ refresh_and_push || true
 maybe_take_over_worker || true
 
 while true; do
-  sleep 300
+  sleep 600
   echo "[$(date -u +%Y-%m-%dT%H:%M:%SZ)] companion tick" | tee -a "$LOG"
   refresh_and_push || true
   maybe_take_over_worker || true
