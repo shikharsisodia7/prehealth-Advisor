@@ -15897,16 +15897,18 @@
   "finalStatus": "verified"
  },
  "2538": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-16T20:48:58.891Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T20:49:21.084Z",
   "attempts": 2,
-  "sourceUrl": "https://www.bsu.edu/academics/collegesanddepartments/spaa"
+  "sourceUrl": "https://www.bsu.edu/academics/collegesanddepartments/spaa",
+  "error": "https://www.bsu.edu/admissions/apply: no usable prereq list || https://www.bsu.edu/admissions/undergraduate-admissions/transfer-center: no usable prereq list || https://www.bsu.edu/admissions/undergraduate-admissions/apply-now/high-school-students: no usable prereq list || https://www.bsu.edu/admissions/graduate/apply: no usable prereq list"
  },
  "2539": {
-  "stage": "source_discovery",
-  "lastAttempt": "2026-08-16T20:49:09.845Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T20:49:19.938Z",
   "attempts": 2,
-  "sourceUrl": "https://apply.baylor.edu/portal/apply-goBAYLOR"
+  "sourceUrl": "https://apply.baylor.edu/portal/apply-goBAYLOR",
+  "error": "https://www.baylor.edu/csd: HTTP 403 || https://admissions.web.baylor.edu/: HTTP 403 || https://admissions.web.baylor.edu/about-baylor/majors-minors: HTTP 403"
  },
  "2540": {
   "stage": "finalized",
@@ -15983,10 +15985,11 @@
   "sourceUrl": "https://chhs.fresnostate.edu/csds/about/faculty/index.html"
  },
  "2551": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T20:41:59.315Z",
-  "attempts": 1,
-  "sourceUrl": "https://communications.fullerton.edu/comd/"
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T20:49:29.641Z",
+  "attempts": 2,
+  "sourceUrl": "https://communications.fullerton.edu/comd/",
+  "error": "https://communications.fullerton.edu/comd/: no usable prereq list"
  },
  "2552": {
   "stage": "finalized",
@@ -16048,16 +16051,18 @@
   "sourceUrl": "https://www.sdstate.edu/nursing"
  },
  "2561": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T20:42:50.031Z",
-  "attempts": 1,
-  "sourceUrl": "https://calvin.edu/admissions/first-year-students"
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T20:50:09.632Z",
+  "attempts": 2,
+  "sourceUrl": "https://calvin.edu/admissions/international/process",
+  "error": "https://calvin.edu/admissions/dual-enrollment: no usable prereq list"
  },
  "2562": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T20:43:24.946Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.albizu.edu/admissions/financial-aid/tuition-discount/"
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T20:51:12.402Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.albizu.edu/academics/programs/master-science/neurodevelopmental-disorder/",
+  "error": "https://www.albizu.edu/download/academic-catalog-miami-campus/?tmstv=1786729269: PDF source requires Firecrawl parsing (key not configured) || https://www.albizu.edu/download/academic-catalog-san-juan-campus/?tmstv=1786729269: PDF source requires Firecrawl parsing (key not configured) || https://www.albizu.edu/admission-requirements/: no usable prereq list || https://www.albizu.edu/academics/: no usable prereq list"
  },
  "2563": {
   "stage": "finalized",
@@ -16093,9 +16098,9 @@
   "sourceUrl": "https://www.chapman.edu/admission/undergraduate/how-to-apply/index.aspx"
  },
  "2568": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T20:44:05.755Z",
-  "attempts": 1,
+  "stage": "source_discovery",
+  "lastAttempt": "2026-08-16T20:50:57.997Z",
+  "attempts": 2,
   "sourceUrl": "https://www.pennwest.edu/admissions/request-info.php"
  },
  "2569": {
@@ -16112,8 +16117,8 @@
  },
  "2571": {
   "stage": "failed",
-  "lastAttempt": "2026-08-16T20:42:35.666Z",
-  "attempts": 2,
+  "lastAttempt": "2026-08-16T20:49:57.217Z",
+  "attempts": 3,
   "sourceUrl": "https://www.tntech.edu/nursing/",
   "error": "http://www.strose.edu: fetch failed"
  },
@@ -16130,10 +16135,11 @@
   "sourceUrl": "https://www.commonwealthu.edu/"
  },
  "2574": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T20:44:54.233Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.cuw.edu/"
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T20:50:57.475Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.cuw.edu/academics/index.html?deg=dc&amp;int=12",
+  "error": "https://www.cuw.edu/admissions/undergraduate-admissions/precollege/index.html: no usable prereq list || https://www.cuw.edu/admissions/graduate-admissions/admission-process.html: no usable prereq list || https://www.cuw.edu/admissions/international-admissions/admission-process/index.html: no usable prereq list || https://www.cuw.edu/academics/index.html?deg=dc&amp;int=12: no usable prereq list"
  },
  "2575": {
   "stage": "unstarted",
