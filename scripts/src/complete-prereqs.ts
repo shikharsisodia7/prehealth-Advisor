@@ -210,9 +210,11 @@ async function fetchOfficial(url: string): Promise<Fetched> {
         throw err;
       }
       const contentType = res.headers.get("content-type") ?? "";
-      if (contentType.includes("pdf")) {
-        if (FIRECRAWL_KEY) return await firecrawlScrape(url);
-        throw new Error("PDF source requires Firecrawl parsing (key not configured)");
+      if (contentType.includes("pdf") || /\.pdf($|\?)/i.test(url)) {
+        if (FIRECRAWL_KEY) {
+          try { return await firecrawlScrape(url); } catch { /* fall through */ }
+        }
+        return extractPdfText(url);
       }
       const html = await res.text();
       return {
@@ -253,6 +255,14 @@ function isLowValueCandidate(url: string): boolean {
   if (/financial-aid|tuition|video-tour|virtual-office|visit-campus|campus-tour|housing/.test(hay)) return true;
   if (/undergraduate-admissions|\/freshman|first-year|high-school-students|undergrad\/apply/.test(hay) &&
       !/graduate|slp|csd|dpt|otd|pharmd|msn|mepn|absn|physician|post-bacc|postbac|communication/.test(hay)) {
+    return true;
+  }
+  // Generic campus chrome that recently flooded the nursing queue with false "no usable list" failures.
+  if (/academic-catalog\.php|\/core-curriculum\/?$|admissions-disability|\/calendar\/?$|\/visit\/?$|\/advisement\/?$/.test(hay)) {
+    return true;
+  }
+  if (/international\/requirements-transfer|readmission-and-non-degree|non-degree/.test(hay) &&
+      !/nursing|absn|mepn|prerequisite|accelerated/.test(hay)) {
     return true;
   }
   return false;
@@ -517,6 +527,7 @@ async function wikidataOfficialWebsite(name: string): Promise<string | null> {
 interface ProgramRow {
   id: number; name: string; professionSlug: string; programName: string;
   websiteUrl: string | null; sourceUrl: string | null;
+  degreeType?: string | null;
   prereqSources: PrereqSource[] | null; verificationStatus: string;
   prereqCourses: PrereqItem[] | null;
 }
@@ -564,8 +575,12 @@ function scoreCandidateUrl(url: string, program: ProgramRow): number {
     if (/requirement/.test(hay)) score += 4;
     if (/admiss|apply|prospective/.test(hay)) score += 3;
     if (/catalog|handbook|checksheet/.test(hay)) score += 3;
+    if (/academic-catalog|core-curriculum|course-catalog/.test(hay) && !/prereq|nursing|absn|mepn|dpt|otd|slp|pharm/.test(hay)) {
+      score -= 6;
+    }
     if (professionKeywords(program.professionSlug).some((k) => hay.includes(normalize(k).replace(/ /g, "-")))) score += 4;
     if (/csd|slp|speech-language|communicat/.test(hay) && program.professionSlug === "speech-language-pathology") score += 6;
+    if (/absn|accelerated.*nursing|direct-entry|mepn|entry-level.*nursing/.test(hay) && program.professionSlug === "nursing") score += 6;
     if (/undergraduate|freshman|first-year|high-school|undergrad-admissions/.test(hay) &&
         !/graduate|post-bacc|postbac|slp|csd|dpt|otd|pharmd|msn|mepn|absn|pa-program|physician/.test(hay)) {
       score -= 8;
@@ -707,10 +722,18 @@ async function discoverCandidates(program: ProgramRow): Promise<string[]> {
     try {
       const host = new URL(usableWebsite).hostname.replace(/^www\./, "");
       const professionLabel = professionKeywords(program.professionSlug)[0] ?? program.professionSlug;
+      const degreeHint = program.degreeType ? ` ${program.degreeType}` : "";
       const queries = [
-        `"${program.name}" "${professionLabel}" prerequisites site:${host}`,
+        `"${program.name}" "${professionLabel}"${degreeHint} prerequisites site:${host}`,
         `${program.name} ${program.programName} prerequisites site:${host}`,
-        `${program.name} admission requirements prerequisites site:${host}`,
+        `${program.name}${degreeHint} admission requirements prerequisites site:${host}`,
+        ...(program.professionSlug === "nursing"
+          ? [
+              `${program.name} ABSN prerequisite courses site:${host}`,
+              `${program.name} MEPN prerequisite courses site:${host}`,
+              `${program.name} accelerated nursing prerequisites site:${host}`,
+            ]
+          : []),
       ];
       for (const q of queries) {
         const urls = await webSearch(q);
@@ -943,11 +966,77 @@ async function persistResult(
 
 // ── Per-program pipeline ─────────────────────────────────────────────────────
 
+async function extractPdfText(url: string): Promise<Fetched> {
+  await politeDelay(url);
+  const res = await fetch(url, {
+    headers: { "user-agent": USER_AGENT, accept: "application/pdf,*/*" },
+    redirect: "follow",
+    signal: AbortSignal.timeout(45_000),
+  });
+  if (!res.ok) throw new Error(`PDF HTTP ${res.status}`);
+  const buf = Buffer.from(await res.arrayBuffer());
+  if (buf.length < 100) throw new Error("PDF too small");
+  const tmpPdf = path.join(CACHE_DIR, `pdf-${process.pid}-${Date.now()}.pdf`);
+  const tmpTxt = `${tmpPdf}.txt`;
+  fs.mkdirSync(CACHE_DIR, { recursive: true });
+  fs.writeFileSync(tmpPdf, buf);
+  try {
+    const { spawnSync } = await import("node:child_process");
+    const py = `
+from pypdf import PdfReader
+import sys
+reader = PdfReader(sys.argv[1])
+parts = []
+for page in reader.pages[:40]:
+    try:
+        parts.append(page.extract_text() or "")
+    except Exception:
+        pass
+text = "\\n".join(parts).strip()
+open(sys.argv[2], "w", encoding="utf-8").write(text)
+print(len(text))
+`;
+    const run = spawnSync("python3", ["-c", py, tmpPdf, tmpTxt], { encoding: "utf8", timeout: 60_000 });
+    if (run.status !== 0) {
+      throw new Error(`PDF extract failed: ${(run.stderr || run.stdout || "").slice(0, 200)}`);
+    }
+    const text = fs.existsSync(tmpTxt) ? fs.readFileSync(tmpTxt, "utf8") : "";
+    if (text.trim().length < 200) throw new Error("PDF text extraction too short");
+    return {
+      url: res.url,
+      html: text,
+      text: text.slice(0, 160_000),
+      hash: crypto.createHash("sha256").update(text).digest("hex"),
+      contentType: "application/pdf",
+    };
+  } finally {
+    try { fs.unlinkSync(tmpPdf); } catch { /* ignore */ }
+    try { fs.unlinkSync(tmpTxt); } catch { /* ignore */ }
+  }
+}
+
+async function fetchWayback(url: string): Promise<Fetched> {
+  const avail = await fetch(
+    `https://archive.org/wayback/available?url=${encodeURIComponent(url)}`,
+    { headers: { "user-agent": USER_AGENT, accept: "application/json" }, signal: AbortSignal.timeout(15_000) },
+  );
+  if (!avail.ok) throw new Error(`Wayback availability HTTP ${avail.status}`);
+  const body = (await avail.json()) as { archived_snapshots?: { closest?: { available?: boolean; url?: string } } };
+  const snap = body.archived_snapshots?.closest;
+  if (!snap?.available || !snap.url) throw new Error("No Wayback snapshot");
+  // Prefer an identity iframe-less snapshot URL.
+  const snapshotUrl = snap.url.replace(/(\/\d{14})([a-z]{2}_)?\//i, "$1id_/");
+  const fetched = await fetchOfficial(snapshotUrl);
+  return { ...fetched, url }; // keep logical URL as the live official page
+}
+
 async function fetchWithFallback(url: string): Promise<Fetched> {
   // Prefer fast direct HTTP; use Firecrawl for PDFs, blocks, JS shells, and fetch failures.
   if (/\.pdf($|\?)/i.test(url)) {
-    if (!FIRECRAWL_KEY) throw new Error("PDF source requires Firecrawl parsing (key not configured)");
-    return firecrawlScrape(url);
+    if (FIRECRAWL_KEY) {
+      try { return await firecrawlScrape(url); } catch { /* fall through to local PDF extract */ }
+    }
+    return extractPdfText(url);
   }
   try {
     const fetched = await fetchOfficial(url);
@@ -959,7 +1048,10 @@ async function fetchWithFallback(url: string): Promise<Fetched> {
   } catch (e) {
     const msg = e instanceof Error ? e.message : String(e);
     if (FIRECRAWL_KEY && /HTTP 403|HTTP 401|HTTP 429|timeout|fetch failed|too little text/i.test(msg)) {
-      return firecrawlScrape(url);
+      try { return await firecrawlScrape(url); } catch { /* try wayback next */ }
+    }
+    if (/HTTP 403|HTTP 401|HTTP 429|fetch failed|timeout/i.test(msg)) {
+      try { return await fetchWayback(url); } catch { /* fall through */ }
     }
     if (FIRECRAWL_KEY) {
       try { return await firecrawlScrape(url); } catch { throw e; }
