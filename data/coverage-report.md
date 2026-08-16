@@ -1,6 +1,6 @@
 # Prerequisite Coverage Audit
 
-Generated: 2026-08-16T22:24:29.740Z (from live production API)
+Generated: 2026-08-16T22:26:06.923Z (from live production API)
 
 | Profession | Active | Verified | No specific courses | Blocked | Unfinished | Final-status coverage | Directory reconciliation |
 |---|---:|---:|---:|---:|---:|---:|---|
@@ -14,7 +14,7 @@ Generated: 2026-08-16T22:24:29.740Z (from live production API)
 | Optometry (OD) | 24 | 24 | 0 | 0 | 0 | 100% | reconciled |
 | Pathologists' Assistant (PathA) | 20 | 19 | 1 | 0 | 0 | 100% | reconciled |
 | Pharmacy (PharmD) | 140 | 19 | 0 | 0 | 121 | 13.6% | reconciled |
-| Physical Therapy (DPT) | 308 | 209 | 0 | 0 | 99 | 67.9% | reconciled |
+| Physical Therapy (DPT) | 308 | 210 | 0 | 0 | 98 | 68.2% | reconciled |
 | Physician Assistant (PA) | 330 | 128 | 2 | 0 | 200 | 39.4% | reconciled |
 | Podiatric Medicine (DPM) | 11 | 11 | 0 | 0 | 0 | 100% | reconciled |
 | Postbaccalaureate Programs | 336 | 96 | 4 | 0 | 236 | 29.8% | under-source-count |
@@ -25,9 +25,9 @@ Generated: 2026-08-16T22:24:29.740Z (from live production API)
 ## Totals
 
 - Active programs: 2857
-- Verified: 1342
+- Verified: 1343
 - No specific courses: 24
-- Unfinished: 1491
+- Unfinished: 1490
 - Final-status coverage: 47.8%
 
 ## Remaining externally blocked programs
