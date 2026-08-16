@@ -1091,18 +1091,18 @@ async function main() {
   ));
 
   const professionPriority: Record<string, number> = {
-    "speech-language-pathology": 0,
-    nursing: 1,
-    "physician-assistant": 2,
-    "occupational-therapy": 3,
-    "physical-therapy": 4,
-    dental: 5,
-    dietetics: 6,
-    "genetic-counseling": 7,
-    "prosthetics-orthotics": 8,
-    medicine: 9,
-    pharmacy: 10,
-    postbac: 11,
+    nursing: 0,
+    "physician-assistant": 1,
+    "occupational-therapy": 2,
+    "physical-therapy": 3,
+    dental: 4,
+    dietetics: 5,
+    "genetic-counseling": 6,
+    "prosthetics-orthotics": 7,
+    medicine: 8,
+    pharmacy: 9,
+    postbac: 10,
+    "speech-language-pathology": 11,
   };
   let queue = (rows as ProgramRow[]).filter((r) => {
     const s = state[r.id];
