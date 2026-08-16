@@ -15491,10 +15491,11 @@
   "error": "https://admissions.northeastern.edu/application-information/: no usable prereq list || https://admissions.northeastern.edu/application-information/admissions-deadlines-decisions/: no usable prereq list || https://admissions.northeastern.edu/application-information/frequently-asked-admissions-questions/: no usable prereq list || https://admissions.northeastern.edu/visit/admissions-staff/: no usable prereq list"
  },
  "2415": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-16T23:46:19.750Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T23:46:56.060Z",
   "attempts": 2,
-  "sourceUrl": "https://www.acphs.edu/programs/biomedical-sciences-bs/"
+  "sourceUrl": "https://www.acphs.edu/programs/biomedical-sciences-bs/",
+  "error": "https://www.acphs.edu/admissions-aid/undergraduate-admissions/: no usable prereq list || https://www.acphs.edu/admissions-aid/graduate-admissions/: no usable prereq list || https://www.acphs.edu/admissions-aid/pharmacy-admissions/: no usable prereq list || https://www.acphs.edu/apply/: no usable prereq list"
  },
  "2416": {
   "stage": "unstarted",
@@ -15510,10 +15511,11 @@
   "error": "https://medicine.buffalo.edu/education/nsim/current-students/program-handbook.html: no usable prereq list || https://medicine.buffalo.edu/education/nsim/apply/how-to-apply.html: no usable prereq list || https://medicine.buffalo.edu/education/nsim/curriculum.html: no usable prereq list"
  },
  "2418": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-16T23:46:26.948Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T23:46:50.330Z",
   "attempts": 2,
-  "sourceUrl": "https://www.mc.edu/academics/departments/biology/graduate-programs/health-science-certificate"
+  "sourceUrl": "https://www.mc.edu/academics/departments/biology/graduate-programs/health-science-certificate",
+  "error": "https://www.mc.edu/admissions/graduate/admissions-requirements: no usable prereq list || https://www.mc.edu/academics/departments/biology/graduate-programs/health-science-certificate: no usable prereq list"
  },
  "2419": {
   "stage": "finalized",
@@ -15628,16 +15630,18 @@
   "error": "https://www.albright.edu/academic/advance-certificate-program/: HTTP 404"
  },
  "2435": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T07:59:59.668Z",
-  "attempts": 1,
-  "sourceUrl": "https://miamioh.edu/admission-aid/costs-financial-aid/"
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T23:47:37.727Z",
+  "attempts": 2,
+  "sourceUrl": "https://miamioh.edu/admission-aid/apply/",
+  "error": "https://miamioh.edu/admission-aid/: no usable prereq list || https://miamioh.edu/admission-aid/majors-minors-programs/: no usable prereq list || https://miamioh.edu/admission-aid/apply/: no usable prereq list || https://miamioh.edu/admission-aid/transferable-credits/: no usable prereq list"
  },
  "2436": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T08:00:28.224Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.liberty.edu/online/health-sciences/masters/medical-sciences/"
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T23:47:58.804Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.liberty.edu/online/health-sciences/masters/medical-sciences/",
+  "error": "https://apply.liberty.edu/: too little text || https://www.liberty.edu/online/admission-requirements/: no usable prereq list || https://www.liberty.edu/online/degrees/undergraduate-admission-requirements/: no usable prereq list || https://www.liberty.edu/online/tech-requirements/: no usable prereq list"
  },
  "2437": {
   "stage": "unstarted",
@@ -15709,10 +15713,11 @@
   "error": "https://www.cedars-sinai.edu/education/graduate-school/masters/mshs.html: too little text"
  },
  "2447": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T08:04:32.596Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.urmc.rochester.edu/dentistry/education/faq"
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T23:48:35.121Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.urmc.rochester.edu/education/graduate-medical-education/prospective-fellows",
+  "error": "https://www.urmc.rochester.edu/education/graduate-medical-education/applicant-eligibility-requirements: no usable prereq list || https://www.urmc.rochester.edu/education/graduate/application-requirements-by-program: no usable prereq list || https://www.urmc.rochester.edu/education/graduate-medical-education/applicant-eligibility-requirements: no usable prereq list"
  },
  "2448": {
   "stage": "failed",
@@ -15722,10 +15727,11 @@
   "error": "https://science.hamptonu.edu/prehealth/mprograms.cfm: HTTP 404"
  },
  "2449": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T08:05:30.796Z",
-  "attempts": 1,
-  "sourceUrl": "https://discover.highpoint.edu/portal/find-your-counselor"
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T23:48:49.449Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.highpoint.edu/graduate/apply/",
+  "error": "https://www.highpoint.edu/admissions/transfer-admissions/readmission-requirements/: no usable prereq list || https://www.highpoint.edu/admissions/: no usable prereq list || https://www.highpoint.edu/admissions/transfer-admissions/: no usable prereq list || https://www.highpoint.edu/admissions/scholarships-and-grants/: no usable prereq list"
  },
  "2450": {
   "stage": "failed",
@@ -15826,10 +15832,11 @@
   "finalStatus": "verified"
  },
  "2464": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T19:36:29.050Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.salus.edu/colleges/optometry/health-sciences-track/index.html"
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T23:49:17.975Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.salus.edu/colleges/optometry/health-sciences-track/curriculum.html",
+  "error": "https://www.salus.edu/admissions/admissions-events/index.html: no usable prereq list || https://www.salus.edu/admissions/admissions-events/student-club-visits.html: no usable prereq list || https://www.salus.edu/colleges/optometry/health-sciences-track/index.html: no usable prereq list"
  },
  "2465": {
   "stage": "failed",
@@ -15839,10 +15846,11 @@
   "error": "https://www.marquette.edu/physical-therapy/admissions.php: no usable prereq list || https://www.marquette.edu/physician-assistant/apply.php: no usable prereq list || https://www.marquette.edu/grad/biomedical-sciences-masters.php: no usable prereq list || https://mastersnursing.marquette.edu/direct-entry-msn/: no usable prereq list"
  },
  "2466": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T19:37:19.055Z",
-  "attempts": 1,
-  "sourceUrl": "https://gradslate.wayne.edu/apply/"
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T23:49:35.639Z",
+  "attempts": 2,
+  "sourceUrl": "https://gradschool.wayne.edu/admissions/international-process",
+  "error": "https://gradprograms.med.wayne.edu/bmsadmissions: no usable prereq list || https://gradprograms.med.wayne.edu/ms-bms: no usable prereq list || https://gradschool.wayne.edu/admissions/domestic-process: no usable prereq list || https://gradschool.wayne.edu/admissions/international-process: no usable prereq list"
  },
  "2467": {
   "stage": "finalized",
@@ -15949,16 +15957,17 @@
   "error": "https://medicine.buffalo.edu/departments/physiology/education.html: no usable prereq list"
  },
  "2482": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T19:44:09.389Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.mha.cnsu.edu/core-curriculum"
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T23:49:32.420Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.mha.cnsu.edu/core-curriculum",
+  "error": "https://www.mha.cnsu.edu/admissions: no usable prereq list"
  },
  "2483": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T19:44:39.156Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.iastate.edu/admission-and-aid/admissions/nondegree-students"
+  "stage": "extracted",
+  "lastAttempt": "2026-08-16T23:49:51.456Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.iastate.edu/admission-and-aid/admissions/military-and-nontraditonal-students/military-and-veteran-students"
  },
  "2484": {
   "stage": "finalized",
@@ -16008,9 +16017,9 @@
   "sourceUrl": "https://www.duq.edu/academics/explore-all-programs/pre-professional-programs/pre-medical-and-health-professions/?utm_source=duq&utm_medium=redirect&utm_campaign=pmhpp"
  },
  "2491": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T19:46:51.274Z",
-  "attempts": 1,
+  "stage": "source_fetched",
+  "lastAttempt": "2026-08-16T23:49:50.287Z",
+  "attempts": 2,
   "sourceUrl": "https://www.med.wmich.edu/app"
  },
  "2492": {
