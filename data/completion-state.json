@@ -3806,10 +3806,11 @@
   "sourceUrl": "https://www.louisiana.gov/"
  },
  "730": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-15T20:16:46.101Z",
-  "attempts": 1,
-  "sourceUrl": "https://news.luc.edu/stories/press-releases/university-breaks-ground-on-1144-west-loyola/"
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T21:58:20.293Z",
+  "attempts": 2,
+  "sourceUrl": "https://news.luc.edu/stories/press-releases/university-breaks-ground-on-1144-west-loyola/",
+  "error": "https://www.luc.edu/nursing/admission/apply/nursing/rfi/: no usable prereq list || https://www.luc.edu/nursing/admission/apply/: no usable prereq list || https://www.luc.edu/nursing/admission/: no usable prereq list || https://www.luc.edu/nursing/admission/financialaid/: no usable prereq list"
  },
  "731": {
   "stage": "finalized",
@@ -4579,10 +4580,11 @@
   "error": "https://www.trinitycollegeqc.edu/about-us/news/trinityaugustana-22-program: HTTP 404 || https://www.trinitycollegeqc.edu/our-programs/nursing-programs/masters-of-science-nursing: no usable prereq list || https://www.trinitycollegeqc.edu/future-students/admissions/undergraduate-students: no usable prereq list || https://www.trinitycollegeqc.edu/future-students/admissions: no usable prereq list"
  },
  "843": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-16T21:57:18.864Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T21:57:36.160Z",
   "attempts": 1,
-  "sourceUrl": "https://www.truman.edu/admission-cost/visit-truman/"
+  "sourceUrl": "https://www.truman.edu/admission-cost/visit-truman/",
+  "error": "https://www.truman.edu/majors-programs/majors-minors/nursing-major/admission-to-nursing/: no usable prereq list || https://www.truman.edu/majors-programs/majors-minors/nursing-major/admission-to-nursing/?rvy_approval=1: no usable prereq list || https://www.truman.edu/admission-cost/apply-to-truman/transfer-requirements/: no usable prereq list || https://www.truman.edu/majors-programs/majors-minors/nursing-major/: no usable prereq list"
  },
  "844": {
   "stage": "finalized",
@@ -4667,10 +4669,11 @@
   "finalStatus": "verified"
  },
  "856": {
-  "stage": "source_fetched",
-  "lastAttempt": "2026-08-16T21:57:28.532Z",
+  "stage": "finalized",
+  "lastAttempt": "2026-08-16T21:57:38.311Z",
   "attempts": 1,
-  "sourceUrl": "https://www.evansville.edu/majors/nursing/nursing.cfm"
+  "sourceUrl": "https://www.evansville.edu/majors/nursing/nursing-accelerated.cfm",
+  "finalStatus": "verified"
  },
  "857": {
   "stage": "finalized",
@@ -4982,10 +4985,11 @@
   "finalStatus": "verified"
  },
  "902": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T04:34:33.361Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.utrgv.edu/admissions/index.htm"
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T21:58:37.150Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.utrgv.edu/admissions/index.htm",
+  "error": "https://www.utrgv.edu/nursing/student-success-network/white-coat/index.htm: too little text || https://www.utrgv.edu/nursing/student-success-network/pinning-ceremony/index.htm: too little text || https://www.utrgv.edu/admissions/graduate/index.htm: no usable prereq list || https://www.utrgv.edu/admissions/graduate/how-to-apply/international/index.htm: no usable prereq list"
  },
  "903": {
   "stage": "finalized",
@@ -5121,16 +5125,18 @@
   "finalStatus": "verified"
  },
  "922": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T04:35:57.322Z",
-  "attempts": 1,
-  "sourceUrl": "https://wheeling.edu/admissions/test-optional-policy/"
+  "stage": "finalized",
+  "lastAttempt": "2026-08-16T21:59:03.120Z",
+  "attempts": 2,
+  "sourceUrl": "https://wheeling.edu/academics/graduate/nursing/rn-to-bsn-msn/",
+  "finalStatus": "verified"
  },
  "923": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-14T04:56:49.899Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.wichita.edu/admissions/visit_campus.php"
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T21:57:46.850Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.wichita.edu/nursing",
+  "error": "http://www.wichita.edu/nursing: too little text"
  },
  "924": {
   "stage": "finalized",
@@ -5334,8 +5340,8 @@
  },
  "953": {
   "stage": "failed",
-  "lastAttempt": "2026-08-15T20:58:47.622Z",
-  "attempts": 1,
+  "lastAttempt": "2026-08-16T21:57:48.793Z",
+  "attempts": 2,
   "error": "http://: Invalid URL"
  },
  "954": {
@@ -5599,10 +5605,11 @@
   "finalStatus": "verified"
  },
  "992": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T04:39:09.830Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.sentara.edu/sentara-vwu-student-notification"
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T21:59:15.760Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.sentara.edu/sentara-vwu-student-notification",
+  "error": "https://www.sentara.edu/admissions-aid: no usable prereq list || https://www.sentara.edu/admissions-aid/information-international-students: no usable prereq list"
  },
  "993": {
   "stage": "finalized",
@@ -5846,10 +5853,11 @@
   "finalStatus": "verified"
  },
  "1028": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T04:41:32.544Z",
-  "attempts": 1,
-  "sourceUrl": "https://uwm.edu/admission/"
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T21:59:53.261Z",
+  "attempts": 2,
+  "sourceUrl": "https://uwm.edu/admission/",
+  "error": "https://uwm.edu/admission/: no usable prereq list || https://uwm.edu/graduateschool/students/admission/: no usable prereq list || https://uwm.edu/cie/international-admissions/: no usable prereq list || https://uwm.edu/admission/: no usable prereq list"
  },
  "1029": {
   "stage": "finalized",
@@ -6068,10 +6076,11 @@
   "sourceUrl": "https://coxcollege.edu/applications/"
  },
  "1061": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T04:42:52.069Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.dyu.edu/academics/degrees-programs/nursing-bsn"
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T22:05:16.182Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.dyu.edu/academics/degrees-programs/nursing-bsn",
+  "error": "https://www.dyu.edu/academics/schools-and-departments/school-health-professions/occupational-therapy: no usable prereq list || https://www.dyu.edu/admissions/graduate-admissions: no usable prereq list || https://www.dyu.edu/admissions/first-time-college-admissions: no usable prereq list || https://www.dyu.edu/admissions/transfer-admissions: no usable prereq list"
  },
  "1062": {
   "stage": "finalized",
@@ -6170,9 +6179,9 @@
   "finalStatus": "verified"
  },
  "1076": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T04:43:59.080Z",
-  "attempts": 1,
+  "stage": "extracted",
+  "lastAttempt": "2026-08-16T22:05:47.326Z",
+  "attempts": 2,
   "sourceUrl": "https://catalog.fiu.edu/"
  },
  "1077": {
@@ -6204,9 +6213,9 @@
   "finalStatus": "verified"
  },
  "1081": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T04:44:45.503Z",
-  "attempts": 1,
+  "stage": "extracted",
+  "lastAttempt": "2026-08-16T22:05:44.999Z",
+  "attempts": 2,
   "sourceUrl": "https://www.harding.edu/"
  },
  "1082": {
@@ -11369,10 +11378,11 @@
   "finalStatus": "verified"
  },
  "1839": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-15T21:52:16.391Z",
-  "attempts": 1,
-  "sourceUrl": "https://catalog.samford.edu/content.php?catoid=33&navoid=2137"
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T22:04:23.375Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.samford.edu/healthprofessions/Communication-Sciences-Bachelor-of-Science-in-Communication-Sciences-and-Disorders",
+  "error": "https://www.samford.edu/catalog/health-professions-graduate-programs: too little text || https://www.samford.edu/healthprofessions/master-of-science-in-physician-assistant-studies: no usable prereq list || https://www.samford.edu/healthprofessions/communication-sciences-and-disorders/default: no usable prereq list || https://www.samford.edu/healthprofessions/Communication-Sciences-Bachelor-of-Science-in-Communication-Sciences-and-Disorders: no usable prereq list"
  },
  "1840": {
   "stage": "finalized",
@@ -11410,9 +11420,10 @@
   "finalStatus": "verified"
  },
  "1845": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T20:31:13.198Z",
-  "attempts": 1
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T22:04:00.791Z",
+  "attempts": 2,
+  "error": "https://www.chamberlain.edu/academics/master-of-physician-assistant-studies/arizona/phoenix: fetch failed"
  },
  "1846": {
   "stage": "finalized",
@@ -11436,10 +11447,11 @@
   "finalStatus": "verified"
  },
  "1849": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T05:17:52.241Z",
-  "attempts": 1,
-  "sourceUrl": "https://nau.edu/how-to-apply/"
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T22:00:12.292Z",
+  "attempts": 2,
+  "sourceUrl": "https://nau.edu/how-to-apply/",
+  "error": "https://nau.edu/how-to-apply/graduate/: no usable prereq list || https://nau.edu/how-to-apply/graduate/apply-steps/: no usable prereq list"
  },
  "1850": {
   "stage": "finalized",
@@ -11449,10 +11461,11 @@
   "finalStatus": "verified"
  },
  "1851": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T05:19:40.306Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.atsu.edu/college-for-healthy-communities/academics/master-of-science-in-physician-assistant-studies"
+  "stage": "finalized",
+  "lastAttempt": "2026-08-16T22:02:46.929Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.atsu.edu/college-for-healthy-communities/academics/master-of-science-in-physician-assistant-studies",
+  "finalStatus": "verified"
  },
  "1852": {
   "stage": "finalized",
@@ -11476,10 +11489,11 @@
   "finalStatus": "verified"
  },
  "1855": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T11:04:36.780Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.dominican.edu/"
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T22:02:56.701Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.dominican.edu/admissions/visit-and-connect",
+  "error": "https://www.dominican.edu/admissions/graduate-admissions: no usable prereq list || https://www.dominican.edu/admissions/apply-now: no usable prereq list || https://www.dominican.edu/admissions/undergraduate-first-year-admissions/undergraduate-frequently-asked-questions: no usable prereq list || https://www.dominican.edu/admissions/graduate-admissions/graduate-admissions-frequently-asked-questions: no usable prereq list"
  },
  "1856": {
   "stage": "finalized",
@@ -11523,10 +11537,11 @@
   "finalStatus": "verified"
  },
  "1862": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T11:05:35.787Z",
-  "attempts": 1,
-  "sourceUrl": "https://careersearch.stanford.edu/hcmUI/CandidateExperience/en/sites/stanford/"
+  "stage": "finalized",
+  "lastAttempt": "2026-08-16T22:03:13.931Z",
+  "attempts": 2,
+  "sourceUrl": "https://med.stanford.edu/pa/admissions/preparatory-coursework.html",
+  "finalStatus": "verified"
  },
  "1863": {
   "stage": "finalized",
@@ -11618,8 +11633,8 @@
  },
  "1876": {
   "stage": "failed",
-  "lastAttempt": "2026-08-15T21:52:26.150Z",
-  "attempts": 2,
+  "lastAttempt": "2026-08-16T22:04:11.252Z",
+  "attempts": 3,
   "error": "https://www.sacredheart.edu/majors--programs/physician-assistant-studies---mpas/: HTTP 404"
  },
  "1877": {
@@ -11687,8 +11702,8 @@
  },
  "1886": {
   "stage": "failed",
-  "lastAttempt": "2026-08-16T05:21:49.179Z",
-  "attempts": 2,
+  "lastAttempt": "2026-08-16T21:59:55.132Z",
+  "attempts": 3,
   "sourceUrl": "https://www.myflorida.gov/",
   "error": "//www.fgcu.edu/mariebcollege/healthsciences/physicianassistantstudies-mpas.aspx: Invalid URL"
  },
@@ -11728,10 +11743,11 @@
   "finalStatus": "verified"
  },
  "1892": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T05:18:56.960Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.mdc.edu/physicianassistant/curriculum.aspx"
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T22:00:59.553Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.mdc.edu/physicianassistant/curriculum.aspx",
+  "error": "https://www.mdc.edu/physicianassistant/admission-requirements.aspx: HTTP 404 || https://www.mdc.edu/admissions/: too little text || https://www.mdc.edu/physicianassistant/admissions.aspx: no usable prereq list || https://www.mdc.edu/admissions-info/resources.aspx: no usable prereq list"
  },
  "1893": {
   "stage": "failed",
@@ -12034,10 +12050,11 @@
   "finalStatus": "verified"
  },
  "1936": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T05:22:39.527Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.k-state.edu/admissions/visit/"
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T22:00:54.309Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.k-state.edu/admissions/visit/",
+  "error": "https://www.k-state.edu/admissions/undergrad/manhattan/apply/: no usable prereq list || https://www.k-state.edu/admissions/: no usable prereq list || https://www.k-state.edu/admissions/undergrad/manhattan/: no usable prereq list || https://www.k-state.edu/admissions/apply/: no usable prereq list"
  },
  "1937": {
   "stage": "finalized",
@@ -12047,10 +12064,11 @@
   "finalStatus": "verified"
  },
  "1938": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T11:16:42.737Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.wichita.gov/"
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T22:03:06.268Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.wichita.edu/academics/health_professions/pa/",
+  "error": "https://www.wichita.edu/academics/health_professions/pa/: too little text"
  },
  "1939": {
   "stage": "finalized",
@@ -12144,10 +12162,11 @@
   "finalStatus": "verified"
  },
  "1952": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T11:18:17.120Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.mghihp.edu/health-rehabilitation-sciences/departments-programs/physician-assistant-studies"
+  "stage": "finalized",
+  "lastAttempt": "2026-08-16T22:03:42.382Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.mghihp.edu/academics/prerequisite-courses",
+  "finalStatus": "verified"
  },
  "1953": {
   "stage": "finalized",
@@ -12199,10 +12218,11 @@
   "finalStatus": "verified"
  },
  "1960": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T05:23:03.632Z",
-  "attempts": 1,
-  "sourceUrl": "https://catalog.towson.edu/"
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T22:01:05.716Z",
+  "attempts": 2,
+  "sourceUrl": "https://catalog.towson.edu/",
+  "error": "https://www.towson.edu/chp/departments/health-sciences/grad/physician-assistant/: HTTP 404"
  },
  "1961": {
   "stage": "finalized",
@@ -12261,10 +12281,11 @@
   "finalStatus": "verified"
  },
  "1969": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T11:20:38.073Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.michigan.gov/som"
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T22:03:23.454Z",
+  "attempts": 2,
+  "sourceUrl": "https://pa.com.msu.edu/",
+  "error": "https://pa.com.msu.edu/: too little text"
  },
  "1970": {
   "stage": "finalized",
@@ -12546,10 +12567,11 @@
   "finalStatus": "verified"
  },
  "2010": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T05:23:55.163Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.fdu.edu/academics/colleges-schools/pharmacy/pa/"
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T22:02:03.074Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.fdu.edu/academics/colleges-schools/pharmacy/pa/",
+  "error": "https://www.fdu.edu/academics/general-education-requirements/: no usable prereq list || https://www.fdu.edu/admissions/graduate/: no usable prereq list || https://www.fdu.edu/admissions/transfer/: no usable prereq list || https://www.fdu.edu/admissions/graduate/admissions-status/: no usable prereq list"
  },
  "2011": {
   "stage": "finalized",
@@ -12588,8 +12610,8 @@
  },
  "2016": {
   "stage": "failed",
-  "lastAttempt": "2026-08-16T04:31:01.487Z",
-  "attempts": 2,
+  "lastAttempt": "2026-08-16T21:59:29.888Z",
+  "attempts": 3,
   "sourceUrl": "https://rocky.edu/academics/academic-programs/occupational-therapy/",
   "error": "//www.shu.edu/academics/ms-physician-assistant.cfm: Invalid URL"
  },
@@ -12671,10 +12693,11 @@
   "finalStatus": "verified"
  },
  "2028": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T05:24:05.461Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.hofstra.edu/graduate/events.html"
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T22:01:58.542Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.hofstra.edu/graduate/events.html",
+  "error": "https://www.hofstra.edu/graduate/apply.html: no usable prereq list"
  },
  "2029": {
   "stage": "finalized",
@@ -12895,8 +12918,8 @@
  },
  "2060": {
   "stage": "failed",
-  "lastAttempt": "2026-08-16T05:24:06.286Z",
-  "attempts": 2,
+  "lastAttempt": "2026-08-16T22:02:09.785Z",
+  "attempts": 3,
   "error": "http://www.msj.edu/academics/graduate-programs/physician-assistant-program/: too little text",
   "sourceUrl": "https://www.msj.edu/academics/graduate-programs/physician-assistant-program/"
  },
@@ -13370,10 +13393,11 @@
   "finalStatus": "verified"
  },
  "2128": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-15T23:29:41.656Z",
-  "attempts": 1,
-  "sourceUrl": "https://apply.baylor.edu/portal/apply-goBAYLOR"
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T21:59:27.793Z",
+  "attempts": 2,
+  "sourceUrl": "https://apply.baylor.edu/portal/apply-goBAYLOR",
+  "error": "https://physicianassistant.robbins.baylor.edu/: HTTP 403 || https://admissions.web.baylor.edu/: HTTP 403 || https://admissions.web.baylor.edu/about-baylor/majors-minors: HTTP 403"
  },
  "2129": {
   "stage": "finalized",
@@ -13607,10 +13631,11 @@
   "finalStatus": "verified"
  },
  "2162": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-15T22:20:32.568Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.concord.edu/admissions/apply-now"
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T22:05:20.190Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.concord.edu/admissions/apply-now",
+  "error": "https://catalog.concord.edu/content.php?catoid=19&: too little text || https://www.concord.edu/admissions/graduate: no usable prereq list || https://www.concord.edu/admissions/undergraduate-students: no usable prereq list || https://www.concord.edu/admissions/undergraduate-students/: no usable prereq list"
  },
  "2163": {
   "stage": "finalized",
