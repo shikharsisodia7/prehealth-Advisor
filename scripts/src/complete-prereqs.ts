@@ -189,44 +189,51 @@ async function firecrawlSearch(query: string): Promise<string[]> {
 }
 
 async function fetchOfficial(url: string): Promise<Fetched> {
-  await politeDelay(url);
+  const primary = normalizeCandidateUrl(url) ?? url;
+  const attempts = [primary];
+  if (/^https:\/\//i.test(primary)) {
+    attempts.push("http://" + primary.slice("https://".length));
+  }
   let lastError: unknown;
-  for (let attempt = 0; attempt < 3; attempt++) {
-    try {
-      const res = await fetch(url, {
-        headers: {
-          "user-agent": USER_AGENT,
-          accept: "text/html,application/xhtml+xml,application/pdf;q=0.9,*/*;q=0.5",
-          "accept-language": "en-US,en;q=0.9",
-          "cache-control": "no-cache",
-        },
-        redirect: "follow",
-        signal: AbortSignal.timeout(25_000),
-      });
-      if (!res.ok) {
-        const err = new Error(`HTTP ${res.status}`);
-        // Do not retry permanent client failures — heuristic paths produce many 404s.
-        if (res.status === 404 || res.status === 410 || res.status === 403 || res.status === 401) throw err;
-        throw err;
-      }
-      const contentType = res.headers.get("content-type") ?? "";
-      if (contentType.includes("pdf") || /\.pdf($|\?)/i.test(url)) {
-        if (FIRECRAWL_KEY) {
-          try { return await firecrawlScrape(url); } catch { /* fall through */ }
+  for (const attemptUrl of attempts) {
+    await politeDelay(attemptUrl);
+    for (let attempt = 0; attempt < 3; attempt++) {
+      try {
+        const res = await fetch(attemptUrl, {
+          headers: {
+            "user-agent": USER_AGENT,
+            accept: "text/html,application/xhtml+xml,application/pdf;q=0.9,*/*;q=0.5",
+            "accept-language": "en-US,en;q=0.9",
+            "cache-control": "no-cache",
+          },
+          redirect: "follow",
+          signal: AbortSignal.timeout(25_000),
+        });
+        if (!res.ok) {
+          const err = new Error(`HTTP ${res.status}`);
+          // Do not retry permanent client failures — heuristic paths produce many 404s.
+          if (res.status === 404 || res.status === 410 || res.status === 403 || res.status === 401) throw err;
+          throw err;
         }
-        return extractPdfText(url);
+        const contentType = res.headers.get("content-type") ?? "";
+        if (contentType.includes("pdf") || /\.pdf($|\?)/i.test(attemptUrl)) {
+          if (FIRECRAWL_KEY) {
+            try { return await firecrawlScrape(res.url || attemptUrl); } catch { /* fall through */ }
+          }
+          return extractPdfText(res.url || attemptUrl);
+        }
+        const html = await res.text();
+        return {
+          url: res.url, html, text: stripHtml(html).slice(0, 160_000),
+          hash: crypto.createHash("sha256").update(html).digest("hex"),
+          contentType,
+        };
+      } catch (e) {
+        lastError = e;
+        const msg = e instanceof Error ? e.message : String(e);
+        if (/HTTP (401|403|404|410)\b/.test(msg)) break; // try alternate scheme if any
+        await new Promise((r) => setTimeout(r, 1000 * 2 ** attempt));
       }
-      const html = await res.text();
-      return {
-        url: res.url, html, text: stripHtml(html).slice(0, 160_000),
-        hash: crypto.createHash("sha256").update(html).digest("hex"),
-        contentType,
-      };
-    } catch (e) {
-      lastError = e;
-      const msg = e instanceof Error ? e.message : String(e);
-      if (/HTTP (401|403|404|410)\b/.test(msg)) throw e instanceof Error ? e : new Error(msg);
-      await new Promise((r) => setTimeout(r, 1000 * 2 ** attempt));
     }
   }
   throw lastError instanceof Error ? lastError : new Error(String(lastError));
@@ -484,6 +491,8 @@ function websiteConflictsWithInstitution(url: string, name: string): boolean {
     const host = new URL(raw).hostname.replace(/^www\./i, "").toLowerCase();
     const nameNorm = normalize(name);
     if (institutionTokens(name).some((t) => host.includes(t))) return false;
+    // Campus catalog hosts (catalog.dyu.edu, catalogs.eku.edu) are usually official.
+    if (/^catalogs?\./i.test(host) && /\.edu$/i.test(host)) return false;
     const label = host.replace(/\.(edu|org|com|net|gov)$/i, "").replace(/\./g, "");
     if (label.length <= 6) return false; // campus acronyms like bsu.edu, csulb.edu
     const hostWords = host.replace(/\.(edu|org|com|net|gov)$/i, "").split(/[.-]/).filter((w) => w.length >= 6);
@@ -491,6 +500,21 @@ function websiteConflictsWithInstitution(url: string, name: string): boolean {
   } catch {
     return false;
   }
+}
+
+/** Upgrade http→https, drop empty/bogus URLs, unwrap duplicated schemes. */
+function normalizeCandidateUrl(url: string): string | null {
+  if (!url || url.startsWith("cache:")) return url || null;
+  let u = url.trim();
+  while (/^https?:\/\/https?:\/\//i.test(u)) {
+    u = u.replace(/^https?:\/\//i, "");
+  }
+  if (/^https?:\/\/\/?$/i.test(u) || u === "http://" || u === "https://") return null;
+  if (/^http:\/\//i.test(u)) {
+    const https = "https://" + u.slice("http://".length);
+    return https;
+  }
+  return u;
 }
 
 async function wikidataOfficialWebsite(name: string): Promise<string | null> {
@@ -636,8 +660,7 @@ async function crawlSiteForCandidates(
   maxPages = 18,
 ): Promise<string[]> {
   if (!seedUrl || seedUrl.startsWith("cache:") || isDirectoryHubUrl(seedUrl)) return [];
-  if (/\.pdf($|\?)/i.test(seedUrl) && !FIRECRAWL_KEY) return [];
-
+  // PDFs are allowed — fetchWithFallback/extractPdfText can read them without Firecrawl.
   const seen = new Set<string>();
   const found: string[] = [];
   const queue: Array<{ url: string; depth: number }> = [{ url: seedUrl, depth: 0 }];
@@ -768,16 +791,13 @@ async function discoverCandidates(program: ProgramRow): Promise<string[]> {
     } catch { /* non-fatal */ }
   }
 
-  // Prefer HTML candidates when Firecrawl is unavailable (PDFs need it).
-  const ranked = [...new Set(candidates)]
+  // Prefer HTML candidates first, but keep PDFs — local pypdf extract works without Firecrawl.
+  const ranked = [...new Set(candidates.map(normalizeCandidateUrl).filter((u): u is string => !!u))]
     .filter((u) => u.startsWith("cache:") || !isLowValueCandidate(u))
     .sort((a, b) => scoreCandidateUrl(b, program) - scoreCandidateUrl(a, program));
-  if (!FIRECRAWL_KEY) {
-    const htmlFirst = ranked.filter((u) => !/\.pdf($|\?)/i.test(u));
-    const pdfs = ranked.filter((u) => /\.pdf($|\?)/i.test(u));
-    return [...htmlFirst, ...pdfs];
-  }
-  return ranked;
+  const htmlFirst = ranked.filter((u) => !/\.pdf($|\?)/i.test(u));
+  const pdfs = ranked.filter((u) => /\.pdf($|\?)/i.test(u));
+  return [...htmlFirst, ...pdfs];
 }
 
 // ── OpenAI structured extraction ─────────────────────────────────────────────
@@ -1071,8 +1091,9 @@ async function processProgram(program: ProgramRow): Promise<string> {
   let best: { fetched: Fetched; ex: Extraction } | null = null;
   const errors: string[] = [];
   const tryCandidates = candidates
-    .filter((c) => FIRECRAWL_KEY || !/\.pdf($|\?)/i.test(c))
-    .slice(0, 10);
+    .map(normalizeCandidateUrl)
+    .filter((c): c is string => !!c)
+    .slice(0, 12);
   const fetchedPages: Fetched[] = [];
   for (const candidate of tryCandidates) {
     try {
