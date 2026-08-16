@@ -2987,10 +2987,11 @@
   "sourceUrl": "https://athletics.bellarmine.edu/"
  },
  "612": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-15T23:38:54.891Z",
-  "attempts": 1,
-  "sourceUrl": "https://catalog.belmont.edu/"
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T20:57:03.025Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.belmont.edu/admissions/visit/",
+  "error": "https://www.belmont.edu/inman/: no usable prereq list || https://www.belmont.edu/admissions/graduate-professional/: no usable prereq list || https://www.belmont.edu/admissions/apply.html: no usable prereq list || https://www.belmont.edu/admissions/: no usable prereq list"
  },
  "613": {
   "stage": "unstarted",
@@ -3101,10 +3102,10 @@
   "finalStatus": "verified"
  },
  "630": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-15T23:39:08.932Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.carroll.edu/admission-aid/admitted-students"
+  "stage": "source_fetched",
+  "lastAttempt": "2026-08-16T20:57:23.396Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.carroll.edu/admission-aid/apply/international-students"
  },
  "631": {
   "stage": "finalized",
@@ -3127,11 +3128,10 @@
   "finalStatus": "verified"
  },
  "634": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-15T23:39:33.089Z",
-  "attempts": 2,
-  "sourceUrl": "http://www.chamberlain.edu/academics/nursing-school/rn-to-bsn/admission-requirements",
-  "error": "http://www.chamberlain.edu/academics/nursing-school/rn-to-bsn: fetch failed"
+  "stage": "source_discovery",
+  "lastAttempt": "2026-08-16T20:57:03.106Z",
+  "attempts": 3,
+  "sourceUrl": "http://www.chamberlain.edu/academics/nursing-school/rn-to-bsn/admission-requirements"
  },
  "635": {
   "stage": "failed",
@@ -4895,10 +4895,11 @@
   "finalStatus": "verified"
  },
  "910": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-14T04:56:24.875Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.valdosta.edu/academics/graduate-school/graduate-admissions/"
+  "stage": "finalized",
+  "lastAttempt": "2026-08-16T20:57:02.728Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.valdosta.edu/colleges/nursing-and-health-sciences/programs/accelerated-bsn-program-for-second-degree-students/Accelerated-B.S.N-Admissions-Information.php",
+  "finalStatus": "verified"
  },
  "911": {
   "stage": "finalized",
@@ -4908,10 +4909,11 @@
   "finalStatus": "verified"
  },
  "912": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-14T04:56:14.343Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.villanova.edu/university/apply.html"
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T20:56:10.265Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.villanova.edu/university/apply.html",
+  "error": "https://www.villanova.edu/university/undergraduate-admission/faqs.html: no usable prereq list || https://www.villanova.edu/university/undergraduate-admission/international-prospective-students.html: no usable prereq list"
  },
  "913": {
   "stage": "finalized",
@@ -4963,10 +4965,11 @@
   "finalStatus": "verified"
  },
  "920": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-14T04:56:16.299Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.wcsu.edu/internationalstudents/"
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T20:56:14.015Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.wcsu.edu/internationalstudents/",
+  "error": "https://www.wcsu.edu/admissions/transfer/: no usable prereq list"
  },
  "921": {
   "stage": "finalized",
@@ -16202,8 +16205,8 @@
   "finalStatus": "verified"
  },
  "2584": {
-  "stage": "source_fetched",
-  "lastAttempt": "2026-08-16T20:54:58.913Z",
+  "stage": "extracted",
+  "lastAttempt": "2026-08-16T20:55:09.165Z",
   "attempts": 2,
   "sourceUrl": "https://www.etsu.edu/admissions/"
  },
