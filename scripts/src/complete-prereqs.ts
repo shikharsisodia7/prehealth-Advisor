@@ -777,6 +777,19 @@ async function discoverCandidates(program: ProgramRow): Promise<string[]> {
               `${program.name} pre-pharmacy requirements site:${host}`,
             ]
           : []),
+        ...(program.professionSlug === "medicine"
+          ? [
+              `${program.name} medical school prerequisite courses site:${host}`,
+              `${program.name} MD admission requirements coursework site:${host}`,
+              `${program.name} AMCAS prerequisites site:${host}`,
+            ]
+          : []),
+        ...(program.professionSlug === "postbac"
+          ? [
+              `${program.name} postbaccalaureate prerequisites site:${host}`,
+              `${program.name} post-bacc admission requirements site:${host}`,
+            ]
+          : []),
       ];
       for (const q of queries) {
         const urls = await webSearch(q);
