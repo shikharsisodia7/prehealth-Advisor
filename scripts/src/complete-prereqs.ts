@@ -41,14 +41,23 @@ const TODAY = new Date().toISOString().slice(0, 10);
 const USER_AGENT =
   "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36 HealthProfessionsPlanner/1.0";
 const OPENAI_KEY = process.env.OPENAI_API_KEY ?? "";
-const FIRECRAWL_KEY = process.env.FIRECRAWL_API_KEY ?? "";
+let FIRECRAWL_KEY = process.env.FIRECRAWL_API_KEY ?? "";
+let firecrawlDisabledReason = "";
+function disableFirecrawl(reason: string) {
+  if (!FIRECRAWL_KEY) return;
+  console.warn(`Firecrawl disabled for this run: ${reason}`);
+  firecrawlDisabledReason = reason;
+  FIRECRAWL_KEY = "";
+}
 const KEYWORDS = [
   "prerequisite", "pre-requisite", "admission-requirements", "admission_requirements",
   "admissions", "admission", "requirements", "required-course", "how-to-apply",
   "apply", "eligibility", "prospective", "application-requirements", "catalog", "handbook",
+  "curriculum", "coursework", "bsn", "absn", "msn", "mepn", "dpt", "otd", "pharmd",
+  "leveling", "communication-sciences", "communication-disorders", "pre-pharmacy", "csd",
 ];
-const CONCURRENCY = 4;
-const PER_DOMAIN_DELAY_MS = 2500;
+const CONCURRENCY = 2;
+const PER_DOMAIN_DELAY_MS = 900;
 const OPENAI_MODEL = process.env.COMPLETION_MODEL || "gpt-4o-mini";
 
 const normalize = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
@@ -135,12 +144,22 @@ async function politeDelay(url: string) {
 interface Fetched { url: string; html: string; text: string; hash: string; contentType: string }
 
 async function firecrawlScrape(url: string): Promise<Fetched> {
+  if (!FIRECRAWL_KEY) throw new Error(firecrawlDisabledReason || "Firecrawl not configured");
   const res = await fetch("https://api.firecrawl.dev/v1/scrape", {
     method: "POST",
     headers: { authorization: `Bearer ${FIRECRAWL_KEY}`, "content-type": "application/json" },
     body: JSON.stringify({ url, formats: ["markdown"], onlyMainContent: true }),
     signal: AbortSignal.timeout(60_000),
   });
+  if (res.status === 402 || res.status === 401) {
+    disableFirecrawl(`scrape HTTP ${res.status}`);
+    throw new Error(`Firecrawl scrape HTTP ${res.status}`);
+  }
+  if (res.status === 429) {
+    // Transient rate limit — wait and let caller fall back; do not permanently disable.
+    await new Promise((r) => setTimeout(r, 5000));
+    throw new Error(`Firecrawl scrape HTTP 429`);
+  }
   if (!res.ok) throw new Error(`Firecrawl scrape HTTP ${res.status}`);
   const body = (await res.json()) as { data?: { markdown?: string } };
   const md = body.data?.markdown ?? "";
@@ -150,6 +169,23 @@ async function firecrawlScrape(url: string): Promise<Fetched> {
     hash: crypto.createHash("sha256").update(md).digest("hex"),
     contentType: "text/markdown",
   };
+}
+
+async function firecrawlSearch(query: string): Promise<string[]> {
+  if (!FIRECRAWL_KEY) return [];
+  const res = await fetch("https://api.firecrawl.dev/v1/search", {
+    method: "POST",
+    headers: { authorization: `Bearer ${FIRECRAWL_KEY}`, "content-type": "application/json" },
+    body: JSON.stringify({ query, limit: 5 }),
+    signal: AbortSignal.timeout(45_000),
+  });
+  if (res.status === 402 || res.status === 401) {
+    disableFirecrawl(`search HTTP ${res.status}`);
+    return [];
+  }
+  if (!res.ok) throw new Error(`Firecrawl search HTTP ${res.status}`);
+  const body = (await res.json()) as { data?: Array<{ url?: string }> };
+  return (body.data ?? []).map((d) => d.url).filter((u): u is string => !!u);
 }
 
 async function fetchOfficial(url: string): Promise<Fetched> {
@@ -194,23 +230,11 @@ async function fetchOfficial(url: string): Promise<Fetched> {
   throw lastError instanceof Error ? lastError : new Error(String(lastError));
 }
 
-async function firecrawlSearch(query: string): Promise<string[]> {
-  const res = await fetch("https://api.firecrawl.dev/v1/search", {
-    method: "POST",
-    headers: { authorization: `Bearer ${FIRECRAWL_KEY}`, "content-type": "application/json" },
-    body: JSON.stringify({ query, limit: 5 }),
-    signal: AbortSignal.timeout(45_000),
-  });
-  if (!res.ok) throw new Error(`Firecrawl search HTTP ${res.status}`);
-  const body = (await res.json()) as { data?: Array<{ url?: string }> };
-  return (body.data ?? []).map((d) => d.url).filter((u): u is string => !!u);
-}
-
 const BLOCKED_SEARCH_HOSTS =
   /reddit\.com|facebook\.com|twitter\.com|x\.com|youtube\.com|tiktok\.com|quora\.com|studentdoctor\.net|collegevine\.com|niche\.com|gradschools\.com|petersons\.com|wikipedia\.org|linkedin\.com|indeed\.com|glassdoor\.com|nextgenmedprep\.com|skillnation\.|admitva\.com|myworkdaysite\.com|collegexpress|cappex\.com|princetonreview|shemmassian|accepted\.com|prospectivedoctor|beatthegmat/i;
 
 const DIRECTORY_HUB_HOSTS =
-  /ada\.org|adea\.org|lcme\.org|aacom\.org|aacomas\.|acpe-accredit\.org|aae\.org|optometriceducation\.org|aaopt\.org|caspa\.liaison|otcas\.|ptcas\.|pharmacycas\.|aavmc\.org|liaisoncas\.|ncope\.org|capteonline\.org|acoteonline\.org|caahep\.org|caahi?m\.org|naacls\.org|acend\.|eatright\.org|aamc\.org|students-residents\.aamc/i;
+  /ada\.org|adea\.org|lcme\.org|aacom\.org|aacomas\.|acpe-accredit\.org|aae\.org|optometriceducation\.org|aaopt\.org|caspa\.liaison|otcas\.|ptcas\.|pharmacycas\.|aavmc\.org|liaisoncas\.|ncope\.org|capteonline\.org|acoteonline\.org|caahep\.org|caahi?m\.org|naacls\.org|acend\.|eatright\.org|aamc\.org|students-residents\.aamc|apps\.asha\.org|asha\.org\/eweb/i;
 
 function isDirectoryHubUrl(url: string | null | undefined): boolean {
   if (!url) return false;
@@ -317,6 +341,37 @@ async function bingSearch(query: string): Promise<string[]> {
   return [...new Set(urls)].slice(0, 12);
 }
 
+async function googleSearch(query: string): Promise<string[]> {
+  const res = await fetch(`https://www.google.com/search?q=${encodeURIComponent(query)}&hl=en&num=10`, {
+    headers: {
+      "user-agent": USER_AGENT,
+      accept: "text/html,application/xhtml+xml",
+      "accept-language": "en-US,en;q=0.9",
+    },
+    signal: AbortSignal.timeout(20_000),
+    redirect: "follow",
+  });
+  if (!res.ok) throw new Error(`Google search HTTP ${res.status}`);
+  const html = await res.text();
+  if (/unusual traffic|captcha|sorry\/index/i.test(html) && html.length < 20_000) {
+    throw new Error("Google search blocked");
+  }
+  const urls: string[] = [];
+  for (const m of html.matchAll(/href="\/url\?q=(https?:\/\/[^"&]+)/gi)) {
+    try {
+      const decoded = decodeURIComponent(m[1]);
+      if (/google\.|gstatic\.|youtube\.|webcache/i.test(decoded)) continue;
+      urls.push(decoded);
+    } catch { /* skip */ }
+  }
+  for (const m of html.matchAll(/href="(https?:\/\/[^"]+)"/gi)) {
+    const u = m[1];
+    if (/google\.|gstatic\.|schema\.org|youtube\./i.test(u)) continue;
+    urls.push(u);
+  }
+  return [...new Set(urls)].slice(0, 10);
+}
+
 async function webSearch(query: string): Promise<string[]> {
   return withSearchLock(async () => {
     if (FIRECRAWL_KEY) {
@@ -325,10 +380,15 @@ async function webSearch(query: string): Promise<string[]> {
         if (urls.length) return urls;
       } catch { /* fall through */ }
     }
-    // Prefer Bing first: DuckDuckGo HTML often connect-times-out from this host.
+    try {
+      const google = await googleSearch(query);
+      const useful = google.filter((u) => !BLOCKED_SEARCH_HOSTS.test(u));
+      if (useful.length) return useful;
+    } catch { /* fall through */ }
     try {
       const bing = await bingSearch(query);
-      if (bing.length) return bing;
+      const useful = bing.filter((u) => !BLOCKED_SEARCH_HOSTS.test(u) && !/wikipedia|usnews|britannica/i.test(u));
+      if (useful.length >= 2) return useful;
     } catch { /* fall through */ }
     try {
       return await duckDuckGoSearch(query);
@@ -371,6 +431,74 @@ function institutionTokens(name: string): string[] {
   return normalize(name).split(" ").filter((t) => t.length >= 4 && !stop.has(t));
 }
 
+function universitySearchName(name: string): string {
+  return name
+    .replace(/\s*[-–—].*$/u, "")
+    .replace(/\s+\((?:PharmD|MD|DO|DPT|OTD|MSN|ABSN|MEPN|SLP).*$/i, "")
+    .replace(/\s+(?:Harrison|John \w+|Marnix E\.? Heersink|Frederick P\.? Whiddon)\s+(?:College|School).+$/i, "")
+    .replace(/\s+(?:School|College|Department|Division|Program) of .+$/i, "")
+    .replace(/\s+(?:College of Pharmacy|School of Pharmacy|College of Medicine|School of Medicine|School of Dentistry|School of Nursing).+$/i, "")
+    .trim();
+}
+
+function hostMatchesWebsite(urlHost: string, websiteUrl: string | null | undefined): boolean {
+  if (!websiteUrl) return false;
+  try {
+    const home = new URL(websiteUrl.startsWith("http") ? websiteUrl : `https://${websiteUrl}`).hostname.replace(/^www\./i, "").toLowerCase();
+    const host = urlHost.replace(/^www\./i, "").toLowerCase();
+    return host === home || host.endsWith(`.${home}`) || home.endsWith(`.${host}`);
+  } catch {
+    return false;
+  }
+}
+
+/** True when a URL's host looks like a different institution (e.g. pennwest.edu for Bradley). */
+function websiteConflictsWithInstitution(url: string, name: string): boolean {
+  try {
+    const raw = /^https?:\/\//i.test(url) ? url : `https://${url}`;
+    const host = new URL(raw).hostname.replace(/^www\./i, "").toLowerCase();
+    const nameNorm = normalize(name);
+    if (institutionTokens(name).some((t) => host.includes(t))) return false;
+    const label = host.replace(/\.(edu|org|com|net|gov)$/i, "").replace(/\./g, "");
+    if (label.length <= 6) return false; // campus acronyms like bsu.edu, csulb.edu
+    const hostWords = host.replace(/\.(edu|org|com|net|gov)$/i, "").split(/[.-]/).filter((w) => w.length >= 6);
+    return hostWords.some((w) => !nameNorm.includes(w));
+  } catch {
+    return false;
+  }
+}
+
+async function wikidataOfficialWebsite(name: string): Promise<string | null> {
+  const queries = [...new Set([name, universitySearchName(name)].filter((q) => q.length >= 6))];
+  for (const q of queries) {
+    try {
+      const searchRes = await fetch(
+        `https://www.wikidata.org/w/api.php?action=wbsearchentities&search=${encodeURIComponent(q)}&language=en&format=json&limit=5`,
+        { headers: { "user-agent": USER_AGENT, accept: "application/json" }, signal: AbortSignal.timeout(15_000) },
+      );
+      if (!searchRes.ok) continue;
+      const searchJson = (await searchRes.json()) as { search?: Array<{ id: string; label?: string }> };
+      for (const hit of searchJson.search ?? []) {
+        const entRes = await fetch(`https://www.wikidata.org/wiki/Special:EntityData/${hit.id}.json`, {
+          headers: { "user-agent": USER_AGENT, accept: "application/json" },
+          signal: AbortSignal.timeout(15_000),
+        });
+        if (!entRes.ok) continue;
+        const entJson = (await entRes.json()) as {
+          entities?: Record<string, { claims?: { P856?: Array<{ mainsnak?: { datavalue?: { value?: string } } }> } }>;
+        };
+        const url = entJson.entities?.[hit.id]?.claims?.P856?.[0]?.mainsnak?.datavalue?.value;
+        if (url && /^https?:\/\//i.test(url) && !BLOCKED_SEARCH_HOSTS.test(url) && !isDirectoryHubUrl(url) && !websiteConflictsWithInstitution(url, name)) {
+          return url.replace(/\/$/, "");
+        }
+      }
+    } catch {
+      /* try next query */
+    }
+  }
+  return null;
+}
+
 interface ProgramRow {
   id: number; name: string; professionSlug: string; programName: string;
   websiteUrl: string | null; sourceUrl: string | null;
@@ -384,6 +512,7 @@ function looksLikeOfficialProgramUrl(url: string, program: ProgramRow): boolean 
     if (!/^https?:$/i.test(u.protocol)) return false;
     if (BLOCKED_SEARCH_HOSTS.test(u.hostname)) return false;
     if (isDirectoryHubUrl(url)) return false;
+    if (websiteConflictsWithInstitution(url, program.name)) return false;
     // Reject generic state/federal portals that match a token like "illinois"/"georgia".
     if (/\.(gov)$/i.test(u.hostname) && !/\.edu$/i.test(u.hostname)) {
       if (/^(www\.)?(usa|usa\.gov|[a-z]{2})\.gov$/i.test(u.hostname) ||
@@ -393,7 +522,10 @@ function looksLikeOfficialProgramUrl(url: string, program: ProgramRow): boolean 
     }
     const hay = `${u.hostname} ${u.pathname}`.toLowerCase();
     const tokens = institutionTokens(program.name);
-    const nameHit = tokens.length === 0 || tokens.some((t) => hay.includes(t));
+    const nameHit =
+      hostMatchesWebsite(u.hostname, program.websiteUrl) ||
+      tokens.length === 0 ||
+      tokens.some((t) => hay.includes(t));
     const professionHit = professionKeywords(program.professionSlug).some((k) =>
       hay.includes(normalize(k).replace(/ /g, "-")) || hay.includes(normalize(k)),
     );
@@ -448,6 +580,7 @@ function keywordLinks(html: string, base: string, professionTerms: string[]): st
       if (/requirement/.test(hay)) score += 3;
       if (/admiss/.test(hay)) score += 2;
       if (professionTerms.some((t) => hay.includes(normalize(t).replace(/ /g, "-")) || hay.includes(normalize(t)))) score += 6;
+      if (/academic-programs|undergraduate|graduate|curriculum|bsn|absn|dpt|otd/.test(hay)) score += 2;
       if (u.hostname === baseUrl.hostname) score += 1;
       scored.set(u.toString(), Math.max(scored.get(u.toString()) ?? 0, score));
     } catch { /* skip malformed */ }
@@ -455,43 +588,48 @@ function keywordLinks(html: string, base: string, professionTerms: string[]): st
   return [...scored.entries()].sort((a, b) => b[1] - a[1]).slice(0, 8).map(([u]) => u);
 }
 
-function heuristicPrereqPaths(baseUrl: string, _program: ProgramRow): string[] {
-  try {
-    const base = new URL(baseUrl);
-    if (isDirectoryHubUrl(baseUrl)) return [];
-    const origin = base.origin;
-    const dir = base.pathname.replace(/\/[^/]*\.[a-z0-9]+$/i, "").replace(/\/$/, "") || "";
-    // Keep this small: only same-path variants. Broad origin/slug guesses create many 404s.
-    const suffixes = [
-      "/prerequisites", "/prerequisite-courses", "/admission-requirements",
-      "/admissions/prerequisites", "/admissions/requirements", "/admissions",
-      "/requirements", "/how-to-apply",
-    ];
-    const out: string[] = [];
-    if (dir) {
-      for (const suffix of suffixes) out.push(`${origin}${dir}${suffix}`);
-      const parent = dir.split("/").slice(0, -1).join("/");
-      if (parent) {
-        out.push(`${origin}${parent}/admissions`);
-        out.push(`${origin}${parent}/prerequisites`);
-        out.push(`${origin}${parent}/admissions/prerequisites`);
-      }
-    }
-    return [...new Set(out)];
-  } catch {
-    return [];
-  }
-}
+const PREREQ_PAGE_HINT =
+  /prerequi|pre-requisit|required courses|admission requirements|course requirements|prerequisite coursework|minimum requirements/i;
 
-async function expandKeywordCandidates(seedUrl: string, program: ProgramRow): Promise<string[]> {
+/** BFS same-domain crawl from program website — primary discovery when search APIs are blocked. */
+async function crawlSiteForCandidates(
+  seedUrl: string,
+  program: ProgramRow,
+  maxDepth = 3,
+  maxPages = 18,
+): Promise<string[]> {
   if (!seedUrl || seedUrl.startsWith("cache:") || isDirectoryHubUrl(seedUrl)) return [];
   if (/\.pdf($|\?)/i.test(seedUrl) && !FIRECRAWL_KEY) return [];
-  try {
-    const page = await fetchOfficial(seedUrl);
-    return keywordLinks(page.html, page.url, professionKeywords(program.professionSlug));
-  } catch {
-    return [];
+
+  const seen = new Set<string>();
+  const found: string[] = [];
+  const queue: Array<{ url: string; depth: number }> = [{ url: seedUrl, depth: 0 }];
+  const terms = professionKeywords(program.professionSlug);
+
+  while (queue.length && seen.size < maxPages) {
+    const next = queue.shift();
+    if (!next) break;
+    const { url, depth } = next;
+    const key = url.split("#")[0];
+    if (seen.has(key)) continue;
+    seen.add(key);
+    try {
+      const page = await fetchOfficial(url);
+      if (page.text.length >= 300 && PREREQ_PAGE_HINT.test(page.text)) {
+        found.push(page.url);
+      }
+      if (depth >= maxDepth) continue;
+      for (const link of keywordLinks(page.html, page.url, terms).slice(0, 10)) {
+        const linkKey = link.split("#")[0];
+        if (!seen.has(linkKey) && !isDirectoryHubUrl(link)) {
+          queue.push({ url: link, depth: depth + 1 });
+        }
+      }
+    } catch {
+      /* skip unreachable pages */
+    }
   }
+  return found;
 }
 
 async function discoverCandidates(program: ProgramRow): Promise<string[]> {
@@ -509,22 +647,41 @@ async function discoverCandidates(program: ProgramRow): Promise<string[]> {
   if (program.sourceUrl && !isDirectoryHubUrl(program.sourceUrl)) candidates.push(program.sourceUrl);
   if (program.websiteUrl && !isDirectoryHubUrl(program.websiteUrl)) candidates.push(program.websiteUrl);
 
-  const usableWebsite =
-    program.websiteUrl && !isDirectoryHubUrl(program.websiteUrl) ? program.websiteUrl : null;
+  let usableWebsite =
+    program.websiteUrl && !isDirectoryHubUrl(program.websiteUrl) && !websiteConflictsWithInstitution(program.websiteUrl, program.name)
+      ? program.websiteUrl
+      : null;
+  if (!usableWebsite) {
+    const home = await wikidataOfficialWebsite(program.name);
+    if (home) {
+      program.websiteUrl = home;
+      usableWebsite = home;
+      candidates.push(home);
+      try {
+        await db
+          .update(programSchoolsTable)
+          .set({ websiteUrl: home })
+          .where(eq(programSchoolsTable.id, program.id));
+      } catch { /* non-fatal */ }
+    }
+  }
   const seedPages = [usableWebsite, program.sourceUrl].filter((u): u is string => !!u && !isDirectoryHubUrl(u));
 
-  // Expand same-domain admissions/prereq links from known program pages BEFORE search.
-  // Landing pages rarely list courses; linked admissions pages often do.
+  // Multi-hop crawl from known official pages (works without Firecrawl/search).
   for (const seed of seedPages.slice(0, 2)) {
-    candidates.push(...heuristicPrereqPaths(seed, program));
-    const links = await expandKeywordCandidates(seed, program);
-    candidates.push(...links);
-    if (candidates.filter((c) => /prereq|requirement|admiss/i.test(c)).length >= 4) break;
+    const crawled = await crawlSiteForCandidates(seed, program);
+    candidates.push(...crawled);
+    // Also keep one-hop keyword links even if text hint missed (for secondary expand).
+    try {
+      const page = await fetchOfficial(seed);
+      candidates.push(...keywordLinks(page.html, page.url, professionKeywords(program.professionSlug)));
+    } catch { /* skip */ }
+    if (crawled.length >= 2) break;
   }
 
-  // Always try same-domain prereq search when a real website exists — generic
-  // landing pages rarely contain the course list.
-  if (usableWebsite) {
+  // Search when crawl did not already find strong official candidates.
+  const crawledStrong = candidates.filter((c) => /prereq|requirement|admiss|catalog|handbook/i.test(c)).length;
+  if (usableWebsite && crawledStrong < 2) {
     try {
       const host = new URL(usableWebsite).hostname.replace(/^www\./, "");
       const professionLabel = professionKeywords(program.professionSlug)[0] ?? program.professionSlug;
@@ -532,7 +689,6 @@ async function discoverCandidates(program: ProgramRow): Promise<string[]> {
         `"${program.name}" "${professionLabel}" prerequisites site:${host}`,
         `${program.name} ${program.programName} prerequisites site:${host}`,
         `${program.name} admission requirements prerequisites site:${host}`,
-        `"prerequisite coursework" ${program.name} site:${host}`,
       ];
       for (const q of queries) {
         const urls = await webSearch(q);
@@ -546,10 +702,10 @@ async function discoverCandidates(program: ProgramRow): Promise<string[]> {
     } catch { /* non-fatal */ }
   }
 
-  // Domain-agnostic search when website missing/hub-only, or when we still lack
-  // prereq-looking URLs after same-domain search.
-  const hasPrereqish = candidates.some((c) => /prereq|requirement|admiss|catalog|handbook/i.test(c));
-  if (!usableWebsite || !hasPrereqish) {
+  const hasStrongCandidate = candidates.some((c) =>
+    /prereq|requirement|catalog|handbook|admission/i.test(c) && !/\/admissions\/prerequisites$/i.test(c),
+  );
+  if (!usableWebsite || !hasStrongCandidate) {
     try {
       const urls = (await webSearch(
         `${program.name} ${program.programName} official admissions prerequisites coursework`,
@@ -700,7 +856,7 @@ function toPrereqItem(c: ExtractedCourse): PrereqItem {
 }
 
 const PLACEHOLDER_NAME = /^(prerequisite|required)?\s*course\s*\d*$|^(course|subject|requirement)\s+\d+$/i;
-const SUBJECT_HINT = /biolog|chem|physic|anatom|physiol|psych|stat|math|calc|english|writ|composit|sociolog|microbio|genetic|biochem|kinesiol|nutrit|exercise|humanit|social|science|communicat|econom|algebra|literature|history|language|medical|terminolog|gpa|gre|degree|bachelor|experience|hours|observ|shadow|cpr|certif/i;
+const SUBJECT_HINT = /biolog|chem|physic|anatom|physiol|psych|stat|math|calc|english|writ|composit|sociolog|microbio|genetic|biochem|kinesiol|nutrit|exercise|humanit|social|science|communicat|econom|algebra|literature|history|language|medical|terminolog|gpa|gre|degree|bachelor|experience|hours|observ|shadow|cpr|certif|phonetic|audiolog|speech|hearing|aural|linguist|swallow|dysphag|voice|fluency|articulat|disorder|neurolog|csd|patholog|organic|immunolog|pathophys|lifespan|developmental|pharmacol|patient|clinical|statistics|calculus|physics|lab/i;
 const NO_PREREQ_ASSERTION =
   /(no|not\s+require|not\s+have|without)[^.]{0,60}prerequis|prerequis[^.]{0,60}(are\s+not|not\s+required|none)/i;
 
@@ -802,7 +958,8 @@ async function processProgram(program: ProgramRow): Promise<string> {
   const errors: string[] = [];
   const tryCandidates = candidates
     .filter((c) => FIRECRAWL_KEY || !/\.pdf($|\?)/i.test(c))
-    .slice(0, 6);
+    .slice(0, 10);
+  const fetchedPages: Fetched[] = [];
   for (const candidate of tryCandidates) {
     try {
       let fetched: Fetched;
@@ -815,15 +972,34 @@ async function processProgram(program: ProgramRow): Promise<string> {
       }
       setState(program.id, { stage: "source_fetched", sourceUrl: fetched.url });
       if (fetched.text.length < 300) { errors.push(`${candidate}: too little text`); continue; }
+      fetchedPages.push(fetched);
+    } catch (e) {
+      errors.push(`${candidate}: ${e instanceof Error ? e.message : String(e)}`);
+    }
+  }
 
+  // Prefer pages that already mention prerequisites before spending OpenAI calls.
+  const rankedPages = [...fetchedPages].sort((a, b) => {
+    const as = (PREREQ_PAGE_HINT.test(a.text) ? 2 : 0) + (a.text.length > 2000 ? 1 : 0);
+    const bs = (PREREQ_PAGE_HINT.test(b.text) ? 2 : 0) + (b.text.length > 2000 ? 1 : 0);
+    return bs - as;
+  });
+
+  for (const fetched of rankedPages.slice(0, 6)) {
+    try {
+      if (!PREREQ_PAGE_HINT.test(fetched.text) && rankedPages.some((p) => PREREQ_PAGE_HINT.test(p.text))) {
+        continue; // skip weak pages when a stronger candidate exists
+      }
       const ex = await extractWithOpenAI(program, fetched.text, fetched.url);
       setState(program.id, { stage: "extracted" });
-      if (!validExtraction(ex, fetched.text, program)) { errors.push(`${candidate}: no usable prereq list`); continue; }
-
+      if (!validExtraction(ex, fetched.text, program)) {
+        errors.push(`${fetched.url}: no usable prereq list`);
+        continue;
+      }
       best = { fetched, ex };
       if (ex.hasPrereqList && ex.courses.length >= 4) break;
     } catch (e) {
-      errors.push(`${candidate}: ${e instanceof Error ? e.message : String(e)}`);
+      errors.push(`${fetched.url}: ${e instanceof Error ? e.message : String(e)}`);
     }
   }
 
@@ -854,6 +1030,10 @@ async function processProgram(program: ProgramRow): Promise<string> {
   }
 
   setState(program.id, { stage: "validated" });
+  if (websiteConflictsWithInstitution(best.fetched.url, program.name)) {
+    setState(program.id, { stage: "failed", error: `refusing mismatched institution URL ${best.fetched.url}` });
+    return "failed";
+  }
   const status = await persistResult(program, best.ex, best.fetched);
   setState(program.id, { stage: "finalized", finalStatus: status, sourceUrl: best.fetched.url });
   return status;
@@ -884,16 +1064,36 @@ async function main() {
 
   const rows = await db.select().from(programSchoolsTable).where(and(
     eq(programSchoolsTable.directoryStatus, "active"),
-    inArray(programSchoolsTable.verificationStatus, ["draft", "needs_review", "outdated"]),
+    inArray(programSchoolsTable.verificationStatus, ["draft", "imported", "needs_review", "outdated"]),
     profession ? eq(programSchoolsTable.professionSlug, profession) : undefined,
   ));
 
+  const professionPriority: Record<string, number> = {
+    "speech-language-pathology": 0,
+    nursing: 1,
+    "physician-assistant": 2,
+    "occupational-therapy": 3,
+    "physical-therapy": 4,
+    dental: 5,
+    dietetics: 6,
+    "genetic-counseling": 7,
+    "prosthetics-orthotics": 8,
+    medicine: 9,
+    pharmacy: 10,
+    postbac: 11,
+  };
   let queue = (rows as ProgramRow[]).filter((r) => {
     const s = state[r.id];
     if (s?.stage === "finalized") return false;
     if (retryFailures) return s?.stage === "failed";
     if (s?.stage === "failed" && (s.attempts ?? 0) >= 3) return false;
     return true;
+  });
+  queue.sort((a, b) => {
+    const aSite = a.websiteUrl && !isDirectoryHubUrl(a.websiteUrl) && !websiteConflictsWithInstitution(a.websiteUrl, a.name) ? 0 : 1;
+    const bSite = b.websiteUrl && !isDirectoryHubUrl(b.websiteUrl) && !websiteConflictsWithInstitution(b.websiteUrl, b.name) ? 0 : 1;
+    if (aSite !== bSite) return aSite - bSite;
+    return (professionPriority[a.professionSlug] ?? 50) - (professionPriority[b.professionSlug] ?? 50);
   });
   queue = queue.slice(0, Number.isFinite(limit) ? Number(limit) : queue.length);
   console.log(`Queue: ${queue.length} program(s) to process.`);
@@ -924,19 +1124,23 @@ async function main() {
 main().catch((e) => { console.error(e); process.exit(1); });
 
 // Neon/pg can emit async socket errors that would otherwise kill the whole queue.
-process.on("uncaughtException", (err) => {
+function isTransientNetworkError(err: unknown): boolean {
   const msg = err instanceof Error ? err.message : String(err);
-  if (/Connection terminated|ECONNRESET|ECONNREFUSED|read ECONNRESET|Client has encountered a connection error/i.test(msg)) {
-    console.warn(`non-fatal connection exception (continuing): ${msg}`);
+  const code = err && typeof err === "object" && "code" in err ? String((err as { code?: unknown }).code) : "";
+  return /Connection terminated|ECONNRESET|ECONNREFUSED|read ECONNRESET|Client has encountered a connection error|ERR_ASSERTION|UND_ERR|socket hang up|fetch failed|EPIPE|ETIMEDOUT/i.test(`${code} ${msg}`);
+}
+
+process.on("uncaughtException", (err) => {
+  if (isTransientNetworkError(err)) {
+    console.warn(`non-fatal connection exception (continuing): ${err instanceof Error ? err.message : err}`);
     return;
   }
   console.error(err);
   process.exit(1);
 });
 process.on("unhandledRejection", (reason) => {
-  const msg = reason instanceof Error ? reason.message : String(reason);
-  if (/Connection terminated|ECONNRESET|ECONNREFUSED|read ECONNRESET|Client has encountered a connection error/i.test(msg)) {
-    console.warn(`non-fatal connection rejection (continuing): ${msg}`);
+  if (isTransientNetworkError(reason)) {
+    console.warn(`non-fatal connection rejection (continuing): ${reason instanceof Error ? reason.message : reason}`);
     return;
   }
   console.error(reason);
