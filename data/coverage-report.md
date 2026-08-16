@@ -1,6 +1,6 @@
 # Prerequisite Coverage Audit
 
-Generated: 2026-08-16T21:31:54.201Z
+Generated: 2026-08-16T21:32:04.299Z (from live production API)
 
 | Profession | Active | Verified | No specific courses | Blocked | Unfinished | Final-status coverage | Directory reconciliation |
 |---|---:|---:|---:|---:|---:|---:|---|
@@ -22,4 +22,13 @@ Generated: 2026-08-16T21:31:54.201Z
 | Speech-Language Pathology (MS/MA) | 322 | 40 | 0 | 0 | 282 | 12.4% | reconciled |
 | Veterinary Medicine (DVM) | 32 | 32 | 0 | 0 | 0 | 100% | reconciled |
 
+## Totals
+
+- Active programs: 2857
+- Verified: 1300
+- No specific courses: 22
+- Unfinished: 1535
+- Final-status coverage: 46.3%
+
 ## Remaining externally blocked programs
+
