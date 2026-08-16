@@ -56,7 +56,7 @@ const KEYWORDS = [
   "curriculum", "coursework", "bsn", "absn", "msn", "mepn", "dpt", "otd", "pharmd",
   "leveling", "communication-sciences", "communication-disorders", "pre-pharmacy", "csd",
 ];
-const CONCURRENCY = 2;
+const CONCURRENCY = Number(process.env.COMPLETION_CONCURRENCY || 3);
 const PER_DOMAIN_DELAY_MS = 900;
 const OPENAI_MODEL = process.env.COMPLETION_MODEL || "gpt-4o-mini";
 
