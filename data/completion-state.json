@@ -3751,10 +3751,11 @@
   "finalStatus": "verified"
  },
  "722": {
-  "stage": "source_discovery",
-  "lastAttempt": "2026-08-16T21:40:12.304Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T21:40:54.048Z",
   "attempts": 2,
-  "sourceUrl": "https://www.lemoyne.edu/academics/programs/fnp/"
+  "sourceUrl": "https://www.lemoyne.edu/academics/undergraduate-programs/core-curriculum/",
+  "error": "https://www.lemoyne.edu/academics/programs/fnp/: no usable prereq list || https://www.lemoyne.edu/academics/programs/fnp/: no usable prereq list"
  },
  "723": {
   "stage": "finalized",
@@ -3764,10 +3765,11 @@
   "finalStatus": "verified"
  },
  "724": {
-  "stage": "source_discovery",
-  "lastAttempt": "2026-08-16T21:40:15.463Z",
+  "stage": "finalized",
+  "lastAttempt": "2026-08-16T21:40:51.134Z",
   "attempts": 2,
-  "sourceUrl": "https://mylu.liberty.edu/"
+  "sourceUrl": "https://www.liberty.edu/nursing/bachelors/admission-requirements/",
+  "finalStatus": "verified"
  },
  "725": {
   "stage": "finalized",
@@ -3784,10 +3786,11 @@
   "error": "https://lipscomb.edu/admissions/freshmen-admissions/freshmen-admission-requirements: no usable prereq list || https://lipscomb.edu/admissions/freshmen-admissions/freshmen-admission-requirements/math-placement-test: no usable prereq list || https://lipscomb.edu/admissions/freshmen-admissions/freshmen-admission-requirements/test-optional-admission-process: no usable prereq list || https://lipscomb.edu/admissions/international-admissions/admission-requirements: no usable prereq list"
  },
  "727": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T07:45:31.906Z",
-  "attempts": 1,
-  "sourceUrl": "https://liu.edu/Brooklyn/Academics/Schools/SON/About"
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T21:41:46.058Z",
+  "attempts": 2,
+  "sourceUrl": "https://liu.edu/Brooklyn/Academics/Schools/SON/About",
+  "error": "https://liu.edu/~/media/RedesignFiles/LIUBrooklyn/Academics/Bulletins/BK-UG-GRA-Catalog.ashx?la=en: PDF source requires Firecrawl parsing (key not configured) || https://apply.liu.edu/quickapp2/?campus=B: too little text || https://liu.edu/brooklyn/admissions: no usable prereq list || https://www.liu.edu/admissions/contact-admissions: no usable prereq list"
  },
  "728": {
   "stage": "unstarted",
@@ -3864,10 +3867,11 @@
   "finalStatus": "verified"
  },
  "739": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T07:49:40.310Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.mcphs.edu/academics/schools/nursing"
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T21:41:56.130Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.mcphs.edu/admission-and-aid/undergraduate-applicants/transfer-applicants",
+  "error": "https://www.mcphs.edu/academics/prerequisite-courses: no usable prereq list || https://www.mcphs.edu/academics/schools/professional-studies/prerequisite-courses/rfi-form: no usable prereq list || https://www.mcphs.edu/academics/schools/professional-studies/prerequisite-courses: no usable prereq list || https://www.mcphs.edu/admission-and-aid/blog/exploring-travel-nursing: no usable prereq list"
  },
  "740": {
   "stage": "finalized",
@@ -3911,10 +3915,11 @@
   "finalStatus": "verified"
  },
  "746": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T07:52:28.281Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.msudenver.edu/nursing/"
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T21:42:57.052Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.msudenver.edu/admissions/",
+  "error": "https://www.msudenver.edu/nursing/nursing-early-admissions-military/: no usable prereq list || https://www.msudenver.edu/nursing/nursing-early-admissions-for-international-students/: no usable prereq list || https://www.msudenver.edu/nursing/prospective-students/: no usable prereq list || https://www.msudenver.edu/nursing/: no usable prereq list"
  },
  "747": {
   "stage": "finalized",
@@ -3937,10 +3942,11 @@
   "error": "https://www.mnu.edu/pgs/accelerated-bsn-program/: no usable prereq list || https://www.mnu.edu/pgs/traditional-bsn-program/: no usable prereq list || https://www.mnu.edu/pgs/hybrid-bsn-program/: no usable prereq list || https://www.mnu.edu/pgs/direct-entry-msn/: no usable prereq list"
  },
  "750": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T07:54:03.049Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.mga.edu/health-sciences/nursing/index.php"
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T21:43:29.274Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.mga.edu/admissions/index.php",
+  "error": "https://www.mga.edu/health-sciences/nursing/index.php: no usable prereq list || https://www.mga.edu/health-sciences/nursing/index.php: no usable prereq list || https://www.mga.edu/health-sciences/rehabilitation-science/occupational-therapy-assistant/graduation-requirements.php: no usable prereq list || https://www.mga.edu/graduate-school/programs/nursing-agacnp-ms.php: no usable prereq list"
  },
  "751": {
   "stage": "unstarted",
@@ -3963,10 +3969,11 @@
   "finalStatus": "verified"
  },
  "754": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T07:55:59.722Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.missouristate.edu/nursing/"
+  "stage": "finalized",
+  "lastAttempt": "2026-08-16T21:43:25.524Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.missouristate.edu/Nursing/Undergraduate/AdmissionReqs.htm",
+  "finalStatus": "verified"
  },
  "755": {
   "stage": "finalized",
@@ -3990,9 +3997,10 @@
   "finalStatus": "verified"
  },
  "758": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T07:57:01.275Z",
-  "attempts": 1
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T21:44:04.583Z",
+  "attempts": 2,
+  "error": "http://www.mccn.edu/: fetch failed"
  },
  "759": {
   "stage": "finalized",
@@ -4091,15 +4099,17 @@
   "finalStatus": "verified"
  },
  "773": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T08:01:52.596Z",
-  "attempts": 1,
-  "sourceUrl": "https://admissions.northeastern.edu/"
+  "stage": "finalized",
+  "lastAttempt": "2026-08-16T21:44:36.207Z",
+  "attempts": 2,
+  "sourceUrl": "https://absn.northeastern.edu/admission/absn-prerequisites/",
+  "finalStatus": "verified"
  },
  "774": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T08:03:15.748Z",
-  "attempts": 1
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T21:46:57.763Z",
+  "attempts": 2,
+  "error": "http://nau.edu/nursing/: fetch failed"
  },
  "775": {
   "stage": "unstarted",
@@ -4108,10 +4118,11 @@
   "sourceUrl": "https://www.nku.edu/chhs/schools/nursing/index.html"
  },
  "776": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T08:03:31.421Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.northwestern.edu/"
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T21:45:22.370Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.nsula.edu/academics/colleges-and-schools/the-graduate-school/",
+  "error": "https://www.nsula.edu/admissions/international/international-student-admission-requirements/: no usable prereq list || https://www.nsula.edu/admissions/international/: no usable prereq list || https://www.nsula.edu/academics/colleges-and-schools/the-graduate-school/: no usable prereq list"
  },
  "777": {
   "stage": "failed",
@@ -4161,9 +4172,10 @@
   "error": "http://harrisburg.psu.edu/behavioral-sciences-education/nursing-bsn: HTTP 403"
  },
  "784": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T08:06:28.643Z",
-  "attempts": 1
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T21:45:32.537Z",
+  "attempts": 2,
+  "error": "http://harrisburg.psu.edu/behavioral-sciences-education/nursing-bsn: HTTP 403"
  },
  "785": {
   "stage": "unstarted",
@@ -4206,10 +4218,11 @@
   "finalStatus": "verified"
  },
  "791": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T08:09:42.433Z",
-  "attempts": 1,
-  "sourceUrl": "https://adfs.rasmussen.edu/adfs/ls?wa=wsignin1.0&wtrealm=urn%3aextranet%3aportal&wctx=https%3a%2f%2fportal.rasmussen.edu%2f_layouts%2f15%2fAuthenticate.aspx%3fSource%3d%252F"
+  "stage": "finalized",
+  "lastAttempt": "2026-08-16T21:46:07.056Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.rasmussen.edu/degrees/nursing/bachelor-science-nursing-bsn/",
+  "finalStatus": "no_prereqs_published"
  },
  "792": {
   "stage": "failed",
@@ -4273,16 +4286,18 @@
   "finalStatus": "verified"
  },
  "801": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T08:12:42.092Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.sacredheart.edu/academics/colleges--schools/college-of-nursing/"
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T21:46:56.140Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.sacredheart.edu/academics/academic-programming/core-curriculum/",
+  "error": "https://www.sacredheart.edu/majors--programs/second-degree-accelerated-bsn/: no usable prereq list || https://www.sacredheart.edu/admissions--aid/request-information/: no usable prereq list || https://www.sacredheart.edu/admissions--aid/undergraduate-admissions/freshman-admission/: no usable prereq list"
  },
  "802": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T08:13:23.078Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.stkate.edu/academics/academic-programs/cfw-nursing"
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T21:47:30.894Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.stkate.edu/admission-and-aid/visit",
+  "error": "refusing mismatched institution URL https://catalog.stkate.edu/undergraduate/nursing/bsn/?_gl=1*19jstk1*_gcl_au*MTU4MTc3ODQzOS4xNzc3OTA1NzAx"
  },
  "803": {
   "stage": "failed",
@@ -4313,10 +4328,11 @@
   "finalStatus": "verified"
  },
  "807": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T08:14:26.665Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.slu.edu/nursing/"
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T21:47:37.375Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.slu.edu/apply.php",
+  "error": "https://www.slu.edu/admission/visit/index.php: no usable prereq list || https://www.slu.edu/admission/visit/: no usable prereq list || https://catalog.slu.edu/programs/: no usable prereq list || https://www.slu.edu/admission/graduate/index.php: no usable prereq list"
  },
  "808": {
   "stage": "finalized",
@@ -4367,10 +4383,11 @@
   "finalStatus": "verified"
  },
  "815": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T08:16:56.819Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.simmons.edu/directory/departments/son"
+  "stage": "finalized",
+  "lastAttempt": "2026-08-16T21:48:05.954Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.simmons.edu/admission-aid/application-process/transfer-applicants/nursing-program-transfer-students",
+  "finalStatus": "verified"
  },
  "816": {
   "stage": "finalized",
@@ -4387,10 +4404,11 @@
   "finalStatus": "verified"
  },
  "818": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T08:18:01.667Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.southeastern.edu/school-of-nursing/"
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T21:48:31.781Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.southeastern.edu/school-of-nursing/",
+  "error": "https://catalog.southeastern.edu/content.php?catoid=5&navoid=154: too little text || https://www.southeastern.edu/school-of-nursing/undergrad_degree/rn_bsn/: no usable prereq list || https://www.southeastern.edu/school-of-nursing/undergrad_degree/: no usable prereq list || https://www.southeastern.edu/school-of-nursing/undergrad_degree/rn_bsn/faq/: no usable prereq list"
  },
  "819": {
   "stage": "finalized",
@@ -4421,10 +4439,10 @@
   "error": "https://spalding.edu/programs/rn-to-bsn/rn-to-bsn-admission-requirements/: no usable prereq list || https://spalding.edu/programs/master-of-science-in-nursing/msn-admission-requirements/: no usable prereq list || https://spalding.edu/programs/rn-to-bsn/: no usable prereq list || https://spalding.edu/programs/msn-family-nurse-practitioner/: no usable prereq list"
  },
  "823": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T08:19:55.512Z",
-  "attempts": 1,
-  "sourceUrl": "https://stockton.edu/"
+  "stage": "source_fetched",
+  "lastAttempt": "2026-08-16T21:48:57.365Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.stockton.edu/admissions/applications.html"
  },
  "824": {
   "stage": "unstarted",
@@ -4498,10 +4516,11 @@
   "attempts": 1
  },
  "835": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T08:24:40.647Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.css.edu/academics/schools-of-study/school-of-health-professions/"
+  "stage": "finalized",
+  "lastAttempt": "2026-08-16T21:42:30.405Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.css.edu/academics/programs/doctorate/doctor-of-physical-therapy-dpt/",
+  "finalStatus": "verified"
  },
  "836": {
   "stage": "unstarted",
@@ -4510,10 +4529,11 @@
   "sourceUrl": "https://nursing.osu.edu/"
  },
  "837": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T08:25:38.763Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.uakron.edu/nursing/"
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T21:44:18.005Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.uakron.edu/admissions/",
+  "error": "https://www.uakron.edu/nursing/prospective-students/: no usable prereq list || https://www.uakron.edu/nursing/academic-programs/graduate-programs/msn/: no usable prereq list"
  },
  "838": {
   "stage": "finalized",
@@ -4536,10 +4556,11 @@
   "finalStatus": "verified"
  },
  "841": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T08:27:13.905Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.jefferson.edu/academics/colleges-schools-institutes/nursing.html"
+  "stage": "finalized",
+  "lastAttempt": "2026-08-16T21:48:35.399Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.jefferson.edu/academics/colleges-schools-institutes/nursing/admissions/faqs.html",
+  "finalStatus": "verified"
  },
  "842": {
   "stage": "failed",
@@ -4733,9 +4754,9 @@
   "error": "http://www.umflint.edu/nursing: HTTP 403"
  },
  "871": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T08:38:10.543Z",
-  "attempts": 1
+  "stage": "source_discovery",
+  "lastAttempt": "2026-08-16T21:48:31.859Z",
+  "attempts": 2
  },
  "872": {
   "stage": "finalized",
