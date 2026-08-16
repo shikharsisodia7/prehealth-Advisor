@@ -1,6 +1,6 @@
 # Prerequisite Coverage Audit
 
-Generated: 2026-08-16T22:05:59.112Z
+Generated: 2026-08-16T22:14:58.603Z
 
 | Profession | Active | Verified | No specific courses | Blocked | Unfinished | Final-status coverage | Directory reconciliation |
 |---|---:|---:|---:|---:|---:|---:|---|
@@ -10,7 +10,7 @@ Generated: 2026-08-16T22:05:59.112Z
 | Genetic Counseling (MS) | 64 | 62 | 1 | 0 | 1 | 98.4% | under-source-count |
 | Medical School (MD/DO) | 236 | 65 | 0 | 0 | 171 | 27.5% | reconciled |
 | Nursing (ABSN/MEPN) | 446 | 273 | 9 | 0 | 164 | 63.2% | reconciled |
-| Occupational Therapy (OTD/MOT) | 318 | 173 | 4 | 0 | 141 | 55.7% | reconciled |
+| Occupational Therapy (OTD/MOT) | 318 | 175 | 5 | 0 | 138 | 56.6% | reconciled |
 | Optometry (OD) | 24 | 24 | 0 | 0 | 0 | 100% | reconciled |
 | Pathologists' Assistant (PathA) | 20 | 19 | 1 | 0 | 0 | 100% | reconciled |
 | Pharmacy (PharmD) | 140 | 19 | 0 | 0 | 121 | 13.6% | reconciled |
