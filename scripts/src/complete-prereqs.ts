@@ -416,7 +416,10 @@ function professionKeywords(slug: string): string[] {
     nursing: ["nursing", "bsn", "msn", "absn", "mepn"],
     dietetics: ["dietetic", "nutrition", "rdn"],
     "genetic-counseling": ["genetic counseling"],
-    "speech-language-pathology": ["speech", "language pathology", "slp", "communication sciences"],
+    "speech-language-pathology": [
+      "speech", "language pathology", "slp", "communication sciences",
+      "communication disorders", "communicative", "csd", "speech-language", "leveling",
+    ],
     "prosthetics-orthotics": ["prosthetic", "orthotic", "o&p"],
   };
   return map[slug] ?? slug.split("-").filter((w) => w.length > 3);
@@ -550,6 +553,11 @@ function scoreCandidateUrl(url: string, program: ProgramRow): number {
     if (/admiss|apply|prospective/.test(hay)) score += 3;
     if (/catalog|handbook|checksheet/.test(hay)) score += 3;
     if (professionKeywords(program.professionSlug).some((k) => hay.includes(normalize(k).replace(/ /g, "-")))) score += 4;
+    if (/csd|slp|speech-language|communicat/.test(hay) && program.professionSlug === "speech-language-pathology") score += 6;
+    if (/undergraduate|freshman|first-year|high-school|undergrad-admissions/.test(hay) &&
+        !/graduate|post-bacc|postbac|slp|csd|dpt|otd|pharmd|msn|mepn|absn|pa-program|physician/.test(hay)) {
+      score -= 8;
+    }
     if (program.websiteUrl) {
       try {
         const host = new URL(program.websiteUrl).hostname.replace(/^www\./, "");
@@ -589,7 +597,7 @@ function keywordLinks(html: string, base: string, professionTerms: string[]): st
 }
 
 const PREREQ_PAGE_HINT =
-  /prerequi|pre-requisit|required courses|admission requirements|course requirements|prerequisite coursework|minimum requirements/i;
+  /prerequi|pre-requisit|required courses|admission requirements|course requirements|prerequisite coursework|minimum requirements|leveling|pre-professional|pre-pharmacy|pre-nursing/i;
 
 /** BFS same-domain crawl from program website — primary discovery when search APIs are blocked. */
 async function crawlSiteForCandidates(
