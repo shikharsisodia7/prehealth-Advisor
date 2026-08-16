@@ -1,6 +1,6 @@
 # Prerequisite Coverage Audit
 
-Generated: 2026-08-16T23:45:56.377Z (from live production API)
+Generated: 2026-08-16T23:56:00.139Z (from live production API)
 
 | Profession | Active | Verified | No specific courses | Blocked | Unfinished | Final-status coverage | Directory reconciliation |
 |---|---:|---:|---:|---:|---:|---:|---|
@@ -17,7 +17,7 @@ Generated: 2026-08-16T23:45:56.377Z (from live production API)
 | Physical Therapy (DPT) | 308 | 215 | 0 | 0 | 93 | 69.8% | reconciled |
 | Physician Assistant (PA) | 330 | 128 | 2 | 0 | 200 | 39.4% | reconciled |
 | Podiatric Medicine (DPM) | 11 | 11 | 0 | 0 | 0 | 100% | reconciled |
-| Postbaccalaureate Programs | 336 | 99 | 4 | 0 | 233 | 30.7% | under-source-count |
+| Postbaccalaureate Programs | 336 | 100 | 4 | 0 | 232 | 31% | under-source-count |
 | Prosthetics & Orthotics (MSPO) | 15 | 14 | 0 | 0 | 1 | 93.3% | reconciled |
 | Speech-Language Pathology (MS/MA) | 322 | 40 | 0 | 0 | 282 | 12.4% | reconciled |
 | Veterinary Medicine (DVM) | 32 | 32 | 0 | 0 | 0 | 100% | reconciled |
@@ -25,10 +25,10 @@ Generated: 2026-08-16T23:45:56.377Z (from live production API)
 ## Totals
 
 - Active programs: 2857
-- Verified: 1359
+- Verified: 1360
 - No specific courses: 25
-- Unfinished: 1473
-- Final-status coverage: 48.4%
+- Unfinished: 1472
+- Final-status coverage: 48.5%
 
 ## Remaining externally blocked programs
 
