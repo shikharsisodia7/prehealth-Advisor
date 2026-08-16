@@ -54,6 +54,7 @@ const KEYWORDS = [
   "admissions", "admission", "requirements", "required-course", "how-to-apply",
   "apply", "eligibility", "prospective", "application-requirements", "catalog", "handbook",
   "curriculum", "coursework", "bsn", "absn", "msn", "mepn", "dpt", "otd", "pharmd",
+  "leveling", "communication-sciences", "communication-disorders", "pre-pharmacy", "csd",
 ];
 const CONCURRENCY = 2;
 const PER_DOMAIN_DELAY_MS = 900;
@@ -233,7 +234,7 @@ const BLOCKED_SEARCH_HOSTS =
   /reddit\.com|facebook\.com|twitter\.com|x\.com|youtube\.com|tiktok\.com|quora\.com|studentdoctor\.net|collegevine\.com|niche\.com|gradschools\.com|petersons\.com|wikipedia\.org|linkedin\.com|indeed\.com|glassdoor\.com|nextgenmedprep\.com|skillnation\.|admitva\.com|myworkdaysite\.com|collegexpress|cappex\.com|princetonreview|shemmassian|accepted\.com|prospectivedoctor|beatthegmat/i;
 
 const DIRECTORY_HUB_HOSTS =
-  /ada\.org|adea\.org|lcme\.org|aacom\.org|aacomas\.|acpe-accredit\.org|aae\.org|optometriceducation\.org|aaopt\.org|caspa\.liaison|otcas\.|ptcas\.|pharmacycas\.|aavmc\.org|liaisoncas\.|ncope\.org|capteonline\.org|acoteonline\.org|caahep\.org|caahi?m\.org|naacls\.org|acend\.|eatright\.org|aamc\.org|students-residents\.aamc/i;
+  /ada\.org|adea\.org|lcme\.org|aacom\.org|aacomas\.|acpe-accredit\.org|aae\.org|optometriceducation\.org|aaopt\.org|caspa\.liaison|otcas\.|ptcas\.|pharmacycas\.|aavmc\.org|liaisoncas\.|ncope\.org|capteonline\.org|acoteonline\.org|caahep\.org|caahi?m\.org|naacls\.org|acend\.|eatright\.org|aamc\.org|students-residents\.aamc|apps\.asha\.org|asha\.org\/eweb/i;
 
 function isDirectoryHubUrl(url: string | null | undefined): boolean {
   if (!url) return false;
@@ -430,6 +431,74 @@ function institutionTokens(name: string): string[] {
   return normalize(name).split(" ").filter((t) => t.length >= 4 && !stop.has(t));
 }
 
+function universitySearchName(name: string): string {
+  return name
+    .replace(/\s*[-–—].*$/u, "")
+    .replace(/\s+\((?:PharmD|MD|DO|DPT|OTD|MSN|ABSN|MEPN|SLP).*$/i, "")
+    .replace(/\s+(?:Harrison|John \w+|Marnix E\.? Heersink|Frederick P\.? Whiddon)\s+(?:College|School).+$/i, "")
+    .replace(/\s+(?:School|College|Department|Division|Program) of .+$/i, "")
+    .replace(/\s+(?:College of Pharmacy|School of Pharmacy|College of Medicine|School of Medicine|School of Dentistry|School of Nursing).+$/i, "")
+    .trim();
+}
+
+function hostMatchesWebsite(urlHost: string, websiteUrl: string | null | undefined): boolean {
+  if (!websiteUrl) return false;
+  try {
+    const home = new URL(websiteUrl.startsWith("http") ? websiteUrl : `https://${websiteUrl}`).hostname.replace(/^www\./i, "").toLowerCase();
+    const host = urlHost.replace(/^www\./i, "").toLowerCase();
+    return host === home || host.endsWith(`.${home}`) || home.endsWith(`.${host}`);
+  } catch {
+    return false;
+  }
+}
+
+/** True when a URL's host looks like a different institution (e.g. pennwest.edu for Bradley). */
+function websiteConflictsWithInstitution(url: string, name: string): boolean {
+  try {
+    const raw = /^https?:\/\//i.test(url) ? url : `https://${url}`;
+    const host = new URL(raw).hostname.replace(/^www\./i, "").toLowerCase();
+    const nameNorm = normalize(name);
+    if (institutionTokens(name).some((t) => host.includes(t))) return false;
+    const label = host.replace(/\.(edu|org|com|net|gov)$/i, "").replace(/\./g, "");
+    if (label.length <= 6) return false; // campus acronyms like bsu.edu, csulb.edu
+    const hostWords = host.replace(/\.(edu|org|com|net|gov)$/i, "").split(/[.-]/).filter((w) => w.length >= 6);
+    return hostWords.some((w) => !nameNorm.includes(w));
+  } catch {
+    return false;
+  }
+}
+
+async function wikidataOfficialWebsite(name: string): Promise<string | null> {
+  const queries = [...new Set([name, universitySearchName(name)].filter((q) => q.length >= 6))];
+  for (const q of queries) {
+    try {
+      const searchRes = await fetch(
+        `https://www.wikidata.org/w/api.php?action=wbsearchentities&search=${encodeURIComponent(q)}&language=en&format=json&limit=5`,
+        { headers: { "user-agent": USER_AGENT, accept: "application/json" }, signal: AbortSignal.timeout(15_000) },
+      );
+      if (!searchRes.ok) continue;
+      const searchJson = (await searchRes.json()) as { search?: Array<{ id: string; label?: string }> };
+      for (const hit of searchJson.search ?? []) {
+        const entRes = await fetch(`https://www.wikidata.org/wiki/Special:EntityData/${hit.id}.json`, {
+          headers: { "user-agent": USER_AGENT, accept: "application/json" },
+          signal: AbortSignal.timeout(15_000),
+        });
+        if (!entRes.ok) continue;
+        const entJson = (await entRes.json()) as {
+          entities?: Record<string, { claims?: { P856?: Array<{ mainsnak?: { datavalue?: { value?: string } } }> } }>;
+        };
+        const url = entJson.entities?.[hit.id]?.claims?.P856?.[0]?.mainsnak?.datavalue?.value;
+        if (url && /^https?:\/\//i.test(url) && !BLOCKED_SEARCH_HOSTS.test(url) && !isDirectoryHubUrl(url) && !websiteConflictsWithInstitution(url, name)) {
+          return url.replace(/\/$/, "");
+        }
+      }
+    } catch {
+      /* try next query */
+    }
+  }
+  return null;
+}
+
 interface ProgramRow {
   id: number; name: string; professionSlug: string; programName: string;
   websiteUrl: string | null; sourceUrl: string | null;
@@ -443,6 +512,7 @@ function looksLikeOfficialProgramUrl(url: string, program: ProgramRow): boolean 
     if (!/^https?:$/i.test(u.protocol)) return false;
     if (BLOCKED_SEARCH_HOSTS.test(u.hostname)) return false;
     if (isDirectoryHubUrl(url)) return false;
+    if (websiteConflictsWithInstitution(url, program.name)) return false;
     // Reject generic state/federal portals that match a token like "illinois"/"georgia".
     if (/\.(gov)$/i.test(u.hostname) && !/\.edu$/i.test(u.hostname)) {
       if (/^(www\.)?(usa|usa\.gov|[a-z]{2})\.gov$/i.test(u.hostname) ||
@@ -452,7 +522,10 @@ function looksLikeOfficialProgramUrl(url: string, program: ProgramRow): boolean 
     }
     const hay = `${u.hostname} ${u.pathname}`.toLowerCase();
     const tokens = institutionTokens(program.name);
-    const nameHit = tokens.length === 0 || tokens.some((t) => hay.includes(t));
+    const nameHit =
+      hostMatchesWebsite(u.hostname, program.websiteUrl) ||
+      tokens.length === 0 ||
+      tokens.some((t) => hay.includes(t));
     const professionHit = professionKeywords(program.professionSlug).some((k) =>
       hay.includes(normalize(k).replace(/ /g, "-")) || hay.includes(normalize(k)),
     );
@@ -574,8 +647,24 @@ async function discoverCandidates(program: ProgramRow): Promise<string[]> {
   if (program.sourceUrl && !isDirectoryHubUrl(program.sourceUrl)) candidates.push(program.sourceUrl);
   if (program.websiteUrl && !isDirectoryHubUrl(program.websiteUrl)) candidates.push(program.websiteUrl);
 
-  const usableWebsite =
-    program.websiteUrl && !isDirectoryHubUrl(program.websiteUrl) ? program.websiteUrl : null;
+  let usableWebsite =
+    program.websiteUrl && !isDirectoryHubUrl(program.websiteUrl) && !websiteConflictsWithInstitution(program.websiteUrl, program.name)
+      ? program.websiteUrl
+      : null;
+  if (!usableWebsite) {
+    const home = await wikidataOfficialWebsite(program.name);
+    if (home) {
+      program.websiteUrl = home;
+      usableWebsite = home;
+      candidates.push(home);
+      try {
+        await db
+          .update(programSchoolsTable)
+          .set({ websiteUrl: home })
+          .where(eq(programSchoolsTable.id, program.id));
+      } catch { /* non-fatal */ }
+    }
+  }
   const seedPages = [usableWebsite, program.sourceUrl].filter((u): u is string => !!u && !isDirectoryHubUrl(u));
 
   // Multi-hop crawl from known official pages (works without Firecrawl/search).
@@ -590,8 +679,9 @@ async function discoverCandidates(program: ProgramRow): Promise<string[]> {
     if (crawled.length >= 2) break;
   }
 
-  // Search when available (Firecrawl) or as supplement — Bing/DDG often bot-block from this host.
-  if (usableWebsite) {
+  // Search when crawl did not already find strong official candidates.
+  const crawledStrong = candidates.filter((c) => /prereq|requirement|admiss|catalog|handbook/i.test(c)).length;
+  if (usableWebsite && crawledStrong < 2) {
     try {
       const host = new URL(usableWebsite).hostname.replace(/^www\./, "");
       const professionLabel = professionKeywords(program.professionSlug)[0] ?? program.professionSlug;
@@ -766,7 +856,7 @@ function toPrereqItem(c: ExtractedCourse): PrereqItem {
 }
 
 const PLACEHOLDER_NAME = /^(prerequisite|required)?\s*course\s*\d*$|^(course|subject|requirement)\s+\d+$/i;
-const SUBJECT_HINT = /biolog|chem|physic|anatom|physiol|psych|stat|math|calc|english|writ|composit|sociolog|microbio|genetic|biochem|kinesiol|nutrit|exercise|humanit|social|science|communicat|econom|algebra|literature|history|language|medical|terminolog|gpa|gre|degree|bachelor|experience|hours|observ|shadow|cpr|certif/i;
+const SUBJECT_HINT = /biolog|chem|physic|anatom|physiol|psych|stat|math|calc|english|writ|composit|sociolog|microbio|genetic|biochem|kinesiol|nutrit|exercise|humanit|social|science|communicat|econom|algebra|literature|history|language|medical|terminolog|gpa|gre|degree|bachelor|experience|hours|observ|shadow|cpr|certif|phonetic|audiolog|speech|hearing|aural|linguist|swallow|dysphag|voice|fluency|articulat|disorder|neurolog|csd|patholog|organic|immunolog|pathophys|lifespan|developmental|pharmacol|patient|clinical|statistics|calculus|physics|lab/i;
 const NO_PREREQ_ASSERTION =
   /(no|not\s+require|not\s+have|without)[^.]{0,60}prerequis|prerequis[^.]{0,60}(are\s+not|not\s+required|none)/i;
 
@@ -940,6 +1030,10 @@ async function processProgram(program: ProgramRow): Promise<string> {
   }
 
   setState(program.id, { stage: "validated" });
+  if (websiteConflictsWithInstitution(best.fetched.url, program.name)) {
+    setState(program.id, { stage: "failed", error: `refusing mismatched institution URL ${best.fetched.url}` });
+    return "failed";
+  }
   const status = await persistResult(program, best.ex, best.fetched);
   setState(program.id, { stage: "finalized", finalStatus: status, sourceUrl: best.fetched.url });
   return status;
@@ -970,16 +1064,36 @@ async function main() {
 
   const rows = await db.select().from(programSchoolsTable).where(and(
     eq(programSchoolsTable.directoryStatus, "active"),
-    inArray(programSchoolsTable.verificationStatus, ["draft", "needs_review", "outdated"]),
+    inArray(programSchoolsTable.verificationStatus, ["draft", "imported", "needs_review", "outdated"]),
     profession ? eq(programSchoolsTable.professionSlug, profession) : undefined,
   ));
 
+  const professionPriority: Record<string, number> = {
+    "speech-language-pathology": 0,
+    nursing: 1,
+    "physician-assistant": 2,
+    "occupational-therapy": 3,
+    "physical-therapy": 4,
+    dental: 5,
+    dietetics: 6,
+    "genetic-counseling": 7,
+    "prosthetics-orthotics": 8,
+    medicine: 9,
+    pharmacy: 10,
+    postbac: 11,
+  };
   let queue = (rows as ProgramRow[]).filter((r) => {
     const s = state[r.id];
     if (s?.stage === "finalized") return false;
     if (retryFailures) return s?.stage === "failed";
     if (s?.stage === "failed" && (s.attempts ?? 0) >= 3) return false;
     return true;
+  });
+  queue.sort((a, b) => {
+    const aSite = a.websiteUrl && !isDirectoryHubUrl(a.websiteUrl) && !websiteConflictsWithInstitution(a.websiteUrl, a.name) ? 0 : 1;
+    const bSite = b.websiteUrl && !isDirectoryHubUrl(b.websiteUrl) && !websiteConflictsWithInstitution(b.websiteUrl, b.name) ? 0 : 1;
+    if (aSite !== bSite) return aSite - bSite;
+    return (professionPriority[a.professionSlug] ?? 50) - (professionPriority[b.professionSlug] ?? 50);
   });
   queue = queue.slice(0, Number.isFinite(limit) ? Number(limit) : queue.length);
   console.log(`Queue: ${queue.length} program(s) to process.`);
@@ -1010,19 +1124,23 @@ async function main() {
 main().catch((e) => { console.error(e); process.exit(1); });
 
 // Neon/pg can emit async socket errors that would otherwise kill the whole queue.
-process.on("uncaughtException", (err) => {
+function isTransientNetworkError(err: unknown): boolean {
   const msg = err instanceof Error ? err.message : String(err);
-  if (/Connection terminated|ECONNRESET|ECONNREFUSED|read ECONNRESET|Client has encountered a connection error/i.test(msg)) {
-    console.warn(`non-fatal connection exception (continuing): ${msg}`);
+  const code = err && typeof err === "object" && "code" in err ? String((err as { code?: unknown }).code) : "";
+  return /Connection terminated|ECONNRESET|ECONNREFUSED|read ECONNRESET|Client has encountered a connection error|ERR_ASSERTION|UND_ERR|socket hang up|fetch failed|EPIPE|ETIMEDOUT/i.test(`${code} ${msg}`);
+}
+
+process.on("uncaughtException", (err) => {
+  if (isTransientNetworkError(err)) {
+    console.warn(`non-fatal connection exception (continuing): ${err instanceof Error ? err.message : err}`);
     return;
   }
   console.error(err);
   process.exit(1);
 });
 process.on("unhandledRejection", (reason) => {
-  const msg = reason instanceof Error ? reason.message : String(reason);
-  if (/Connection terminated|ECONNRESET|ECONNREFUSED|read ECONNRESET|Client has encountered a connection error/i.test(msg)) {
-    console.warn(`non-fatal connection rejection (continuing): ${msg}`);
+  if (isTransientNetworkError(reason)) {
+    console.warn(`non-fatal connection rejection (continuing): ${reason instanceof Error ? reason.message : reason}`);
     return;
   }
   console.error(reason);
