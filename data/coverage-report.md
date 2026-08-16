@@ -1,6 +1,6 @@
 # Prerequisite Coverage Audit
 
-Generated: 2026-08-16T22:14:21.536Z (from live production API)
+Generated: 2026-08-16T22:19:25.714Z (from live production API)
 
 | Profession | Active | Verified | No specific courses | Blocked | Unfinished | Final-status coverage | Directory reconciliation |
 |---|---:|---:|---:|---:|---:|---:|---|
@@ -10,7 +10,7 @@ Generated: 2026-08-16T22:14:21.536Z (from live production API)
 | Genetic Counseling (MS) | 64 | 62 | 1 | 0 | 1 | 98.4% | under-source-count |
 | Medical School (MD/DO) | 236 | 65 | 0 | 0 | 171 | 27.5% | reconciled |
 | Nursing (ABSN/MEPN) | 446 | 273 | 9 | 0 | 164 | 63.2% | reconciled |
-| Occupational Therapy (OTD/MOT) | 318 | 174 | 5 | 0 | 139 | 56.3% | reconciled |
+| Occupational Therapy (OTD/MOT) | 318 | 178 | 5 | 0 | 135 | 57.5% | reconciled |
 | Optometry (OD) | 24 | 24 | 0 | 0 | 0 | 100% | reconciled |
 | Pathologists' Assistant (PathA) | 20 | 19 | 1 | 0 | 0 | 100% | reconciled |
 | Pharmacy (PharmD) | 140 | 19 | 0 | 0 | 121 | 13.6% | reconciled |
@@ -25,10 +25,10 @@ Generated: 2026-08-16T22:14:21.536Z (from live production API)
 ## Totals
 
 - Active programs: 2857
-- Verified: 1338
+- Verified: 1342
 - No specific courses: 24
-- Unfinished: 1495
-- Final-status coverage: 47.7%
+- Unfinished: 1491
+- Final-status coverage: 47.8%
 
 ## Remaining externally blocked programs
 
