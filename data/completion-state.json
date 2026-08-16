@@ -3001,10 +3001,11 @@
   "sourceUrl": "https://www.bethel.edu/"
  },
  "614": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T20:05:26.895Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.binghamton.edu/index.php"
+  "stage": "finalized",
+  "lastAttempt": "2026-08-16T21:30:55.104Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.binghamton.edu/decker/occupational-therapy/academics/entry-level/admissions.html",
+  "finalStatus": "verified"
  },
  "615": {
   "stage": "failed",
@@ -3195,10 +3196,11 @@
   "finalStatus": "verified"
  },
  "643": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T20:08:26.752Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.colorado.gov/"
+  "stage": "finalized",
+  "lastAttempt": "2026-08-16T21:31:44.114Z",
+  "attempts": 2,
+  "sourceUrl": "https://catalog.csupueblo.edu/school-of-nursing/nursing-bsn/",
+  "finalStatus": "verified"
  },
  "644": {
   "stage": "finalized",
@@ -3318,9 +3320,9 @@
   "finalStatus": "verified"
  },
  "661": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T21:50:55.629Z",
-  "attempts": 0,
+  "stage": "source_discovery",
+  "lastAttempt": "2026-08-16T21:31:44.120Z",
+  "attempts": 1,
   "sourceUrl": "https://www.eastern.edu/"
  },
  "662": {
@@ -3363,10 +3365,11 @@
   "finalStatus": "verified"
  },
  "668": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T20:13:51.796Z",
-  "attempts": 1,
-  "sourceUrl": "https://elms.sti.edu/"
+  "stage": "finalized",
+  "lastAttempt": "2026-08-16T21:31:37.803Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.elms.edu/school-of-nursing/bachelor-science-programs/rn-bsn-degree-completion/admission-requirements/",
+  "finalStatus": "verified"
  },
  "669": {
   "stage": "finalized",
@@ -3544,10 +3547,10 @@
   "sourceUrl": "https://catalog.herzing.edu/"
  },
  "695": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T20:18:32.310Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.herzing.edu/madison"
+  "stage": "source_fetched",
+  "lastAttempt": "2026-08-16T21:31:55.987Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.herzing.edu/nursing/lpn-rn"
  },
  "696": {
   "stage": "unstarted",
@@ -5099,9 +5102,10 @@
   "finalStatus": "verified"
  },
  "929": {
-  "stage": "source_discovery",
-  "lastAttempt": "2026-08-16T21:24:08.977Z",
-  "attempts": 2
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T21:26:49.111Z",
+  "attempts": 2,
+  "error": "http://www.wssu.edu/academics/colleges-and-departments/school-of-health-sciences/division-of-nursing: fetch failed"
  },
  "930": {
   "stage": "finalized",
@@ -5160,9 +5164,10 @@
   "finalStatus": "verified"
  },
  "938": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T08:46:34.016Z",
-  "attempts": 1
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T21:29:04.402Z",
+  "attempts": 2,
+  "error": "http://www.aurora.edu/nursing/: fetch failed"
  },
  "939": {
   "stage": "finalized",
@@ -5172,10 +5177,11 @@
   "finalStatus": "verified"
  },
  "940": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-16T21:25:49.639Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T21:26:21.883Z",
   "attempts": 2,
-  "sourceUrl": "https://catalog.baypath.edu/search/?P=BSN%20410"
+  "sourceUrl": "https://catalog.baypath.edu/search/?P=BSN%20410",
+  "error": "https://www.baypath.edu/academics/undergraduate-programs/nursing-rn-to-bsn/course-requirements/: no usable prereq list || https://www.baypath.edu/academics/undergraduate-programs/nursing-rn-to-bsn/: no usable prereq list || https://www.baypath.edu/academics/undergraduate-programs/nursing-rn-to-bsn/: no usable prereq list || https://www.baypath.edu/academics/undergraduate-programs/nursing-rn-to-bsn/faculty/: no usable prereq list"
  },
  "941": {
   "stage": "failed",
@@ -5199,10 +5205,11 @@
   "finalStatus": "verified"
  },
  "944": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T08:47:01.485Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.carrollu.edu/"
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T21:26:59.292Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.carrollu.edu/",
+  "error": "http://www.carrollu.edu/programs/nursing/: HTTP 404"
  },
  "945": {
   "stage": "failed",
@@ -5233,16 +5240,18 @@
   "finalStatus": "verified"
  },
  "949": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T08:47:26.376Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.curry.edu/academics/continuing-education-and-graduate-programs/graduate-studies/master-of-science-in-nursing"
+  "stage": "finalized",
+  "lastAttempt": "2026-08-16T21:28:18.596Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.curry.edu/academics/continuing-education-and-graduate-programs/graduate-studies/master-of-science-in-nursing/msn-accelerated-entry",
+  "finalStatus": "verified"
  },
  "950": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T08:47:22.053Z",
-  "attempts": 1,
-  "sourceUrl": "https://csh.depaul.edu/academics/departments-schools/nursing"
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T21:27:43.171Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.depaul.edu/admission/undergraduate-admission/deadlines",
+  "error": "https://www.depaul.edu/admission/undergraduate-admission: no usable prereq list || https://www.depaul.edu/admission/undergraduate-admission/adult-undergraduate-student: no usable prereq list || https://www.depaul.edu/admission/undergraduate-admission/returning-student: no usable prereq list || https://www.depaul.edu/admission/graduate-admission: no usable prereq list"
  },
  "951": {
   "stage": "finalized",
@@ -5252,9 +5261,10 @@
   "finalStatus": "verified"
  },
  "952": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T08:47:23.681Z",
-  "attempts": 0
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T21:27:46.865Z",
+  "attempts": 1,
+  "error": "http://: Invalid URL"
  },
  "953": {
   "stage": "failed",
@@ -5283,10 +5293,11 @@
   "finalStatus": "verified"
  },
  "957": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T08:48:22.193Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.emory.edu/"
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T21:29:09.455Z",
+  "attempts": 2,
+  "sourceUrl": "https://sph.emory.edu/degrees-programs/dual-degree/msn-mph",
+  "error": "https://www.nursing.emory.edu/admissions: no usable prereq list || https://sph.emory.edu/degrees-programs/dual-degree/msn-mph: no usable prereq list"
  },
  "958": {
   "stage": "finalized",
@@ -5303,10 +5314,11 @@
   "error": "https://www.fdu.edu/admissions/graduate/: no usable prereq list || https://www.fdu.edu/admissions/transfer/: no usable prereq list || https://www.fdu.edu/admissions/graduate/admissions-status/: no usable prereq list || https://www.fdu.edu/academics/core-curriculum/: no usable prereq list"
  },
  "960": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T08:48:29.759Z",
-  "attempts": 1,
-  "sourceUrl": "https://georgetowntexas.gov/"
+  "stage": "finalized",
+  "lastAttempt": "2026-08-16T21:29:23.487Z",
+  "attempts": 2,
+  "sourceUrl": "https://uadmissions.georgetown.edu/apply/transfer-applicants/preparing-for-georgetown-transfer/",
+  "finalStatus": "verified"
  },
  "961": {
   "stage": "finalized",
@@ -5330,10 +5342,11 @@
   "finalStatus": "verified"
  },
  "964": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T08:49:33.486Z",
-  "attempts": 1,
-  "sourceUrl": "https://catalog.herzing.edu/"
+  "stage": "finalized",
+  "lastAttempt": "2026-08-16T21:29:36.931Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.herzing.edu/nursing/accelerated-bsn",
+  "finalStatus": "verified"
  },
  "965": {
   "stage": "failed",
@@ -5382,10 +5395,11 @@
   "sourceUrl": "https://www.metrostate.edu/academics/nursing-and-health-sciences/nursing"
  },
  "972": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T08:50:07.075Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.mghihp.edu/nursing"
+  "stage": "finalized",
+  "lastAttempt": "2026-08-16T21:30:02.197Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.mghihp.edu/academics/prerequisite-courses",
+  "finalStatus": "verified"
  },
  "973": {
   "stage": "finalized",
@@ -5401,10 +5415,11 @@
   "error": "http://: Invalid URL"
  },
  "975": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T08:50:28.147Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.montclair.edu/"
+  "stage": "finalized",
+  "lastAttempt": "2026-08-16T21:30:06.477Z",
+  "attempts": 2,
+  "sourceUrl": "http://catalog.montclair.edu/programs/nursing-bsn/",
+  "finalStatus": "verified"
  },
  "976": {
   "stage": "finalized",
@@ -5435,10 +5450,11 @@
   "finalStatus": "verified"
  },
  "980": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T08:50:58.482Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.pacific.edu/"
+  "stage": "finalized",
+  "lastAttempt": "2026-08-16T21:30:33.957Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.plu.edu/catalog-2025-2026/undergraduate-program/program-curriculum-information/nursing/",
+  "finalStatus": "verified"
  },
  "981": {
   "stage": "failed",
@@ -5448,10 +5464,11 @@
   "error": "http://www.regiscollege.edu/academics/schools/richard-and-sheila-young-school-nursing: too little text"
  },
  "982": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T08:50:54.974Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.rosalindfranklin.edu/academics/college-of-health-professions/degree-programs/"
+  "stage": "finalized",
+  "lastAttempt": "2026-08-16T21:30:28.033Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.rosalindfranklin.edu/academics/college-of-nursing/degree-programs/master-of-science-in-nursing-for-entry-into-nursing-practice-msn-enp/application-requirements/",
+  "finalStatus": "verified"
  },
  "983": {
   "stage": "finalized",
