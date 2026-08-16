@@ -3102,10 +3102,11 @@
   "finalStatus": "verified"
  },
  "630": {
-  "stage": "source_fetched",
-  "lastAttempt": "2026-08-16T20:57:23.396Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T20:57:47.933Z",
   "attempts": 2,
-  "sourceUrl": "https://www.carroll.edu/admission-aid/apply/international-students"
+  "sourceUrl": "https://www.carroll.edu/admission-aid",
+  "error": "https://www.carroll.edu/admission-aid/apply/application-requirements: no usable prereq list || https://catalog.carroll.edu/general-requirements: no usable prereq list || https://www.carroll.edu/admission-aid/apply: no usable prereq list"
  },
  "631": {
   "stage": "finalized",
@@ -3128,15 +3129,16 @@
   "finalStatus": "verified"
  },
  "634": {
-  "stage": "source_discovery",
-  "lastAttempt": "2026-08-16T20:57:03.106Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T20:57:41.216Z",
   "attempts": 3,
-  "sourceUrl": "http://www.chamberlain.edu/academics/nursing-school/rn-to-bsn/admission-requirements"
+  "sourceUrl": "http://www.chamberlain.edu/academics/nursing-school/rn-to-bsn/admission-requirements",
+  "error": "http://www.chamberlain.edu/academics/nursing-school/rn-to-bsn: fetch failed"
  },
  "635": {
   "stage": "failed",
-  "lastAttempt": "2026-08-15T23:39:46.283Z",
-  "attempts": 2,
+  "lastAttempt": "2026-08-16T20:58:19.227Z",
+  "attempts": 3,
   "sourceUrl": "http://www.chamberlain.edu/nursing-school/texas/pearland/admission-requirements",
   "error": "http://www.chamberlain.edu/nursing-school/texas/pearland: fetch failed"
  },
@@ -3147,8 +3149,8 @@
  },
  "637": {
   "stage": "failed",
-  "lastAttempt": "2026-08-15T23:40:10.810Z",
-  "attempts": 2,
+  "lastAttempt": "2026-08-16T20:58:27.496Z",
+  "attempts": 3,
   "sourceUrl": "http://www.chamberlain.edu/nursing-school/michigan/troy/admission-requirements",
   "error": "http://www.chamberlain.edu/nursing-school/michigan/troy: fetch failed"
  },
@@ -3160,8 +3162,8 @@
  },
  "639": {
   "stage": "failed",
-  "lastAttempt": "2026-08-15T23:42:12.814Z",
-  "attempts": 2,
+  "lastAttempt": "2026-08-16T21:00:46.759Z",
+  "attempts": 3,
   "error": "http://http://www.chc.edu: fetch failed"
  },
  "640": {
@@ -3269,8 +3271,8 @@
  },
  "656": {
   "stage": "failed",
-  "lastAttempt": "2026-08-15T23:41:40.049Z",
-  "attempts": 2,
+  "lastAttempt": "2026-08-16T20:59:45.691Z",
+  "attempts": 3,
   "error": "http://https://www.drake.edu/academics/undergraduate/majors/nursing/: fetch failed"
  },
  "657": {
@@ -3314,8 +3316,8 @@
  },
  "663": {
   "stage": "failed",
-  "lastAttempt": "2026-08-15T23:40:31.024Z",
-  "attempts": 2,
+  "lastAttempt": "2026-08-16T20:58:37.352Z",
+  "attempts": 3,
   "sourceUrl": "http://www.emich.edu/chhs/admissions/prerequisites",
   "error": "http://www.emich.edu/chhs/nursing/: HTTP 403"
  },
@@ -3378,9 +3380,9 @@
   "sourceUrl": "https://www.fairfield.edu/"
  },
  "673": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T00:22:48.562Z",
-  "attempts": 1,
+  "stage": "extracted",
+  "lastAttempt": "2026-08-16T21:02:32.557Z",
+  "attempts": 2,
   "sourceUrl": "https://www.fdu.edu/academics/core-curriculum/"
  },
  "674": {
@@ -3391,9 +3393,9 @@
   "finalStatus": "verified"
  },
  "675": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T00:21:47.714Z",
-  "attempts": 1,
+  "stage": "validated",
+  "lastAttempt": "2026-08-16T21:02:32.776Z",
+  "attempts": 2,
   "sourceUrl": "https://www.uncfsu.edu/admission-and-aid/undergraduate-admissions"
  },
  "676": {
@@ -3437,16 +3439,18 @@
   "finalStatus": "verified"
  },
  "682": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T00:22:46.196Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.georgiasouthern.edu/admissions-aid"
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T21:02:03.601Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.georgiasouthern.edu/admissions-aid/orientation",
+  "error": "https://www.georgiasouthern.edu/admissions-aid/graduate-students: no usable prereq list || https://www.georgiasouthern.edu/admissions-aid/graduate-students/apply-now: no usable prereq list || https://www.georgiasouthern.edu/admissions-aid/apply: no usable prereq list || https://www.georgiasouthern.edu/admissions-aid/transfer: no usable prereq list"
  },
  "683": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T00:20:14.100Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.gsw.edu/admissions/graduate/international"
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T21:00:40.370Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.gsw.edu/admissions/graduate/international",
+  "error": "https://www.gsw.edu/admissions/undergraduate/freshman: no usable prereq list || https://www.gsw.edu/admissions/undergraduate/transfer/: no usable prereq list || https://www.gsw.edu/admissions/undergraduate/dual-enrollment/: no usable prereq list || https://www.gsw.edu/admissions/undergraduate/international: no usable prereq list"
  },
  "684": {
   "stage": "finalized",
@@ -3502,10 +3506,11 @@
   "finalStatus": "verified"
  },
  "692": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T00:21:06.345Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.hartwick.edu/admissions/ways-to-apply/transfer-students/"
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T21:01:20.300Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.hartwick.edu/admissions/cost-aid/financial-aid/",
+  "error": "https://www.hartwick.edu/admissions/: no usable prereq list"
  },
  "693": {
   "stage": "unstarted",
@@ -5005,10 +5010,11 @@
   "finalStatus": "verified"
  },
  "926": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-15T23:41:03.638Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.wmcarey.edu/admissions/undergraduate/application"
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T20:59:37.683Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.wmcarey.edu/admissions/undergraduate/application",
+  "error": "https://www.wmcarey.edu/admissions/undergraduate/admission-requirements: no usable prereq list || https://www.wmcarey.edu/program/nursing: no usable prereq list || https://www.wmcarey.edu/program/nursing: no usable prereq list || https://www.wmcarey.edu/admissions/undergraduate/: no usable prereq list"
  },
  "927": {
   "stage": "finalized",
