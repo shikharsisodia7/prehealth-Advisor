@@ -259,10 +259,11 @@
   "attempts": 0
  },
  "154": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-16T22:40:20.673Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T22:40:42.172Z",
   "attempts": 1,
-  "sourceUrl": "https://admission.pepperdine.edu/apply/undergraduate/first-year-applicants.htm"
+  "sourceUrl": "https://admission.pepperdine.edu/apply/undergraduate/first-year-applicants.htm",
+  "error": "https://seaver.pepperdine.edu/graduate/admission/: no usable prereq list || https://seaver.pepperdine.edu/graduate/admission/process.htm: no usable prereq list || https://seaver.pepperdine.edu/graduate/admission/resources.htm: no usable prereq list || https://seaver.pepperdine.edu/academics/: no usable prereq list"
  },
  "155": {
   "stage": "unstarted",
@@ -280,10 +281,11 @@
   "attempts": 0
  },
  "158": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T19:48:47.805Z",
-  "attempts": 1,
-  "sourceUrl": "https://corp.delaware.gov/"
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T22:42:57.011Z",
+  "attempts": 2,
+  "sourceUrl": "https://corp.delaware.gov/",
+  "error": "https://cast.desu.edu/departments/human-ecology/nutritional-sciences-ms/coordinated-program-dietetics.: HTTP 404"
  },
  "159": {
   "stage": "failed",
@@ -369,10 +371,11 @@
   "error": "https://www.framingham.edu/academics/undergraduate/coordinated-program-dietetics-cpd: no usable prereq list"
  },
  "171": {
-  "stage": "source_discovery",
-  "lastAttempt": "2026-08-16T22:40:20.483Z",
+  "stage": "finalized",
+  "lastAttempt": "2026-08-16T22:40:51.921Z",
   "attempts": 1,
-  "sourceUrl": "https://www.uml.edu/health-sciences/public-health/programs-of-study/masters/mph-dietetics.aspx"
+  "sourceUrl": "https://www.uml.edu/catalog/graduate/health-sciences/public-health/mph.aspx",
+  "finalStatus": "verified"
  },
  "172": {
   "stage": "finalized",
@@ -416,22 +419,25 @@
   "sourceUrl": "https://olemiss.edu/admissions/visit-campus/"
  },
  "178": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T05:13:07.357Z",
-  "attempts": 0,
-  "sourceUrl": "https://cafnr.missouri.edu/divisions/food-nutrition-and-exercise-sciences/"
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T22:41:23.887Z",
+  "attempts": 1,
+  "sourceUrl": "https://gradschool.missouri.edu/admissions/apply/",
+  "error": "https://admissions.missouri.edu/apply/freshmen/admission-requirements/: no usable prereq list || https://admissions.missouri.edu/apply/transfer/admission-requirements/: no usable prereq list || https://admissions.missouri.edu/apply/international/admission-requirements/: no usable prereq list || https://admissions.missouri.edu/apply/international/english-language-requirements/: no usable prereq list"
  },
  "179": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T21:02:04.024Z",
-  "attempts": 0,
-  "sourceUrl": "https://jobs.rowan.edu/cw/en-us/job/498033/adjunct-professor-department-of-health-and-exercise-science/admission-requirements"
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T22:43:30.508Z",
+  "attempts": 1,
+  "sourceUrl": "https://global.rowan.edu/",
+  "error": "https://admissions.rowan.edu/admissions-process/transfer-requirements/: no usable prereq list || https://admissions.rowan.edu/admissions-process/transfer-requirements/: no usable prereq list"
  },
  "180": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T05:13:14.967Z",
-  "attempts": 0,
-  "sourceUrl": "https://www.dyu.edu/academics/schools-and-departments/school-health-professions/nutrition-and-dietetics"
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T22:41:54.059Z",
+  "attempts": 1,
+  "sourceUrl": "https://www.dyu.edu/academics/degrees-programs/nursing-bsn",
+  "error": "https://www.dyu.edu/admissions/graduate-admissions: no usable prereq list || https://www.dyu.edu/admissions/first-time-college-admissions: no usable prereq list || https://www.dyu.edu/admissions/transfer-admissions: no usable prereq list || https://www.dyu.edu/admissions/international-and-canadian-admissions: no usable prereq list"
  },
  "181": {
   "stage": "finalized",
@@ -481,9 +487,11 @@
   "finalStatus": "verified"
  },
  "188": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T05:13:45.463Z",
-  "attempts": 0
+  "stage": "finalized",
+  "lastAttempt": "2026-08-16T22:41:38.772Z",
+  "attempts": 1,
+  "sourceUrl": "https://uagm.edu/es/veterinary-admissions",
+  "finalStatus": "verified"
  },
  "189": {
   "stage": "failed",
@@ -535,10 +543,11 @@
   "error": "https://www.usu.edu/admissions/apply/: no usable prereq list || https://gradschool.usu.edu/admissions/: no usable prereq list"
  },
  "196": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T06:26:12.521Z",
-  "attempts": 1,
-  "sourceUrl": "https://health.utah.edu/nutrition-integrative-physiology"
+  "stage": "finalized",
+  "lastAttempt": "2026-08-16T22:42:07.024Z",
+  "attempts": 2,
+  "sourceUrl": "https://health.utah.edu/nutrition-integrative-physiology/degrees/phd/prerequisites",
+  "finalStatus": "verified"
  },
  "197": {
   "stage": "failed",
@@ -590,10 +599,11 @@
   "error": "https://nau.edu/admissions/contact/: no usable prereq list || https://nau.edu/admissions/residency/: no usable prereq list || https://nau.edu/admissions/2nau-access/: no usable prereq list || https://nau.edu/admissions/frequently-asked-questions/what-are-the-admission-requirements/: no usable prereq list"
  },
  "204": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T21:05:25.057Z",
-  "attempts": 0,
-  "sourceUrl": "https://www.gcu.edu/admissions/campus-resources"
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T22:44:42.293Z",
+  "attempts": 1,
+  "sourceUrl": "https://www.gcu.edu/admissions/visit-gcu-campus/campus-parking",
+  "error": "https://www.gcu.edu/admissions: no usable prereq list || https://www.gcu.edu/admissions/undergraduate: no usable prereq list || https://www.gcu.edu/admissions/graduate-doctoral: no usable prereq list || https://www.gcu.edu/admissions/visit-gcu-campus: no usable prereq list"
  },
  "205": {
   "stage": "finalized",
@@ -810,10 +820,11 @@
   "error": "https://www.mnsu.edu/programs/nutrition-food-and-dietetics/admissions/prerequisites: HTTP 404 || https://www.mnsu.edu/programs/nutrition-food-and-dietetics/prerequisites: HTTP 404 || https://www.mnsu.edu/programs/nutrition-food-and-dietetics/prerequisite-courses: HTTP 404 || https://www.mnsu.edu/programs/nutrition-food-and-dietetics/admission-requirements: HTTP 404"
  },
  "236": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T06:31:20.961Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.stkate.edu/"
+  "stage": "finalized",
+  "lastAttempt": "2026-08-16T22:42:24.009Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.stkate.edu/admission-and-aid/gc/msnd-application-instructions",
+  "finalStatus": "verified"
  },
  "237": {
   "stage": "finalized",
@@ -907,10 +918,11 @@
   "finalStatus": "verified"
  },
  "250": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T21:14:12.846Z",
-  "attempts": 0,
-  "sourceUrl": "https://www.hunter.cuny.edu/students/admissions/"
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T22:44:24.847Z",
+  "attempts": 1,
+  "sourceUrl": "https://hunter-undergraduate.catalog.cuny.edu/",
+  "error": "https://www.hunter.cuny.edu/students/admissions/undergraduate/: HTTP 403 || https://www.hunter.cuny.edu/students/admissions/graduate-admissions/: HTTP 403 || https://hunter-undergraduate.catalog.cuny.edu/admissions/testing-requirements-cuny-assessment-test-cat: no usable prereq list"
  },
  "251": {
   "stage": "finalized",
@@ -1023,10 +1035,11 @@
   "error": "https://www.setonhill.edu/apply-afford/applying-to-seton-hill/first-year-undergraduates/admission-requirements/test-optional-information.html: no usable prereq list || https://www.setonhill.edu/apply-afford/applying-to-seton-hill/first-year-undergraduates/admission-requirements/index.html: no usable prereq list || https://www.setonhill.edu/apply-afford/applying-to-seton-hill/plan-your-visit/undergraduate-visits/index.html: no usable prereq list || https://www.setonhill.edu/apply-afford/applying-"
  },
  "267": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T06:35:45.204Z",
-  "attempts": 1,
-  "sourceUrl": "https://visitindiana.in.gov/"
+  "stage": "finalized",
+  "lastAttempt": "2026-08-16T22:42:47.305Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.iup.edu/admissions/transfer/requirements-and-deadlines/index.html",
+  "finalStatus": "verified"
  },
  "268": {
   "stage": "failed",
@@ -1091,8 +1104,8 @@
  },
  "277": {
   "stage": "failed",
-  "lastAttempt": "2026-08-15T23:30:41.093Z",
-  "attempts": 2,
+  "lastAttempt": "2026-08-16T22:44:50.338Z",
+  "attempts": 3,
   "sourceUrl": "https://web.uri.edu/nfs/academics/graduate-dietetics-future-education-model/admissions/prerequisites",
   "error": "https://web.uri.edu/nfs/academics/graduate-dietetics-future-education-model/admission/: HTTP 404"
  },
@@ -1104,10 +1117,11 @@
   "error": "https://web.uri.edu/admission/: no usable prereq list || https://web.uri.edu/admission/transfer/: no usable prereq list || https://web.uri.edu/admission/international/: no usable prereq list || https://web.uri.edu/admission/applying-to-uri/: no usable prereq list"
  },
  "279": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T06:38:41.759Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.jwu.edu/academics/majors-and-programs/clinical-nutrition-dietetics-ms.html"
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T22:42:33.654Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.jwu.edu/academics/majors-and-programs/clinical-nutrition-dietetics-ms.html",
+  "error": "https://www.jwu.edu/academics/majors-and-programs/clinical-nutrition-dietetics-ms.html: too little text"
  },
  "280": {
   "stage": "finalized",
@@ -1145,10 +1159,11 @@
   "finalStatus": "verified"
  },
  "285": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-14T06:32:24.321Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.utrgv.edu/admissions/index.htm"
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T22:45:17.909Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.utrgv.edu/admissions/index.htm",
+  "error": "https://www.utrgv.edu/admissions/info/apply/index.htm: no usable prereq list || https://www.utrgv.edu/admissions/graduate/index.htm: no usable prereq list || https://www.utrgv.edu/gradapply/: no usable prereq list || https://www.utrgv.edu/admissions/transfer/index.htm: no usable prereq list"
  },
  "286": {
   "stage": "failed",
@@ -1226,10 +1241,11 @@
   "finalStatus": "verified"
  },
  "297": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T06:46:12.707Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.uwyo.edu/fcs/"
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T22:43:48.710Z",
+  "attempts": 2,
+  "sourceUrl": "https://acalogcatalog.uwyo.edu/index.php",
+  "error": "https://www.uwyo.edu/admissions/international/requirements-graduate.html: no usable prereq list || https://www.uwyo.edu/admissions/international/requirements-transfer.html: no usable prereq list || https://www.uwyo.edu/admissions/index.html: no usable prereq list || https://www.uwyo.edu/admissions/graduate.html: no usable prereq list"
  },
  "298": {
   "stage": "unstarted",
@@ -1278,10 +1294,11 @@
   "sourceUrl": "https://healthprofessions.ucf.edu/physicaltherapy/"
  },
  "356": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-15T23:34:56.964Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.jefferson.edu/admissions.html"
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T22:45:41.661Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.jefferson.edu/admissions.html",
+  "error": "https://www.jefferson.edu/admissions/graduate/prerequisite-guides.html: no usable prereq list || https://www.jefferson.edu/academics/colleges-schools-institutes/continuing-professional-studies/degree-options/apply-online.html: no usable prereq list || https://www.jefferson.edu/admissions/undergraduate/transfer/apply.html: no usable prereq list || https://www.jefferson.edu/admissions/undergraduate/second-degree-seeking-students/apply.html: no usable prereq list"
  },
  "357": {
   "stage": "unstarted",
@@ -1557,8 +1574,8 @@
  },
  "399": {
   "stage": "failed",
-  "lastAttempt": "2026-08-15T23:34:21.210Z",
-  "attempts": 2,
+  "lastAttempt": "2026-08-16T22:45:38.607Z",
+  "attempts": 3,
   "sourceUrl": "https://osteopathicmedicine.msu.edu/about-us/our-three-sites",
   "error": "https://com.msu.edu/about-us/our-three-sites: too little text"
  },
@@ -1752,9 +1769,11 @@
   "finalStatus": "verified"
  },
  "427": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-07T21:54:19.793Z",
-  "attempts": 0
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T22:46:59.583Z",
+  "attempts": 1,
+  "error": "refusing mismatched institution URL https://www.unthealth.edu/students/future-students/admissions/tcom-admissions-requirements-and-selection.html",
+  "sourceUrl": "https://www.unthealth.edu/students/future-students/admissions/index.html"
  },
  "428": {
   "stage": "finalized",
@@ -1876,15 +1895,17 @@
   "finalStatus": "verified"
  },
  "445": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T06:50:36.656Z",
-  "attempts": 1,
-  "sourceUrl": "https://david.flhsmv.gov/davidsts/issue/wsfed?wa=wsignin1.0&wtrealm=https%3A%2F%2Fdavid.flhsmv.gov%2Fdavid%2F&wctx=rm%3D0%26id%3Dpassive%26ru%3D%252FDAVID%252F&wct=2026-08-13T06%3A50%3A33Z"
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T22:49:24.450Z",
+  "attempts": 2,
+  "sourceUrl": "https://davidbioinformatics.nih.gov/",
+  "error": "https://davidbioinformatics.nih.gov/: no usable prereq list"
  },
  "446": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T06:50:57.398Z",
-  "attempts": 1
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T22:50:00.445Z",
+  "attempts": 2,
+  "error": "https://urgentcaremap.xn--healthcaliforniafresnokaiser-fresno-medical-center-df25akag: fetch failed"
  },
  "447": {
   "stage": "finalized",
@@ -1894,15 +1915,17 @@
   "finalStatus": "verified"
  },
  "448": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T06:51:09.766Z",
-  "attempts": 1
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T22:50:23.653Z",
+  "attempts": 2,
+  "error": "https://lluh.xn--orglocationsloma-linda-university-medical-center-5483aja: fetch failed"
  },
  "449": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T06:51:34.237Z",
-  "attempts": 1,
-  "sourceUrl": "https://online.stanford.edu/"
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T22:50:35.344Z",
+  "attempts": 2,
+  "sourceUrl": "https://library.stanford.edu/",
+  "error": "https://gradadmissions.stanford.edu/: no usable prereq list || https://admission.stanford.edu/apply/international/index.html: no usable prereq list"
  },
  "450": {
   "stage": "finalized",
@@ -1961,10 +1984,10 @@
   "finalStatus": "verified"
  },
  "458": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T21:25:37.888Z",
-  "attempts": 0,
-  "sourceUrl": "https://summer.yale.edu/apply"
+  "stage": "extracted",
+  "lastAttempt": "2026-08-16T22:51:13.941Z",
+  "attempts": 1,
+  "sourceUrl": "https://www.yale.edu/"
  },
  "459": {
   "stage": "finalized",
@@ -1988,10 +2011,11 @@
   "error": "no official candidate URLs"
  },
  "462": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T20:02:23.588Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.myflorida.gov/"
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T22:46:06.397Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.myflorida.gov/",
+  "error": "https://www.myflorida.gov/: no usable prereq list"
  },
  "463": {
   "stage": "finalized",
@@ -2078,28 +2102,32 @@
   "finalStatus": "verified"
  },
  "475": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T20:39:42.792Z",
-  "attempts": 0,
-  "sourceUrl": "https://www.uchicago.edu/"
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T22:50:57.466Z",
+  "attempts": 1,
+  "sourceUrl": "https://www.uchicago.edu/",
+  "error": "http://collegeadmissions.uchicago.edu/: too little text || https://grad.uchicago.edu/admissions/: no usable prereq list || https://www.uchicago.edu/admissions: no usable prereq list || https://www.uchicago.edu/admissions/international-students: no usable prereq list"
  },
  "476": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T20:44:36.003Z",
-  "attempts": 0,
-  "sourceUrl": "https://www.loyola.edu/admission/undergraduate/connect-visit/counselors/"
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T22:51:30.114Z",
+  "attempts": 1,
+  "sourceUrl": "https://www.loyola.edu/admission/undergraduate/application-process/first-year/",
+  "error": "https://www.loyola.edu/admission/graduate/requirements.html: no usable prereq list || https://www.loyola.edu/admission/undergraduate/: no usable prereq list || https://www.loyola.edu/admission/graduate/: no usable prereq list || https://www.loyola.edu/admission/undergraduate/application-process/transfer/: no usable prereq list"
  },
  "477": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T20:03:25.206Z",
-  "attempts": 1,
-  "sourceUrl": "https://admissions.northwestern.edu/"
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T22:48:04.247Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.northwestern.edu/",
+  "error": "https://music.northwestern.edu/admission/graduate/overview: no usable prereq list"
  },
  "478": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T20:02:33.485Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.rush.edu/"
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T22:47:20.711Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.rush.edu/",
+  "error": "https://www.rush.edu/: no usable prereq list"
  },
  "479": {
   "stage": "finalized",
@@ -2332,10 +2360,11 @@
   "error": "no official candidate URLs"
  },
  "512": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T20:03:04.870Z",
-  "attempts": 1,
-  "sourceUrl": "https://rosemanmedicalgroup.com/"
+  "stage": "finalized",
+  "lastAttempt": "2026-08-16T22:48:23.814Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.roseman.edu/academic-programs/college-of-nursing/accelerated-bachelor-of-science-in-nursing/",
+  "finalStatus": "verified"
  },
  "513": {
   "stage": "failed",
@@ -2471,10 +2500,11 @@
   "finalStatus": "verified"
  },
  "532": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T06:57:04.040Z",
-  "attempts": 1,
-  "sourceUrl": "https://sunyniagara.edu/"
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T22:46:17.436Z",
+  "attempts": 2,
+  "sourceUrl": "https://sunyniagara.edu/",
+  "error": "https://www.suny.edu/attend/apply-to-suny: HTTP 403 || https://www.suny.edu: HTTP 403"
  },
  "533": {
   "stage": "finalized",
@@ -2491,9 +2521,10 @@
   "finalStatus": "verified"
  },
  "535": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T20:03:29.123Z",
-  "attempts": 1
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T22:48:40.199Z",
+  "attempts": 2,
+  "error": "https://www.medschools.xn--aimedical-schoolsnorth-carolina-5f6spa: fetch failed"
  },
  "536": {
   "stage": "finalized",
@@ -2545,10 +2576,11 @@
   "finalStatus": "verified"
  },
  "543": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-15T23:35:59.912Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.northeastern.edu/"
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T22:46:28.548Z",
+  "attempts": 2,
+  "sourceUrl": "https://graduate.northeastern.edu/admissions-aid/how-to-apply/",
+  "error": "https://admissions.northeastern.edu/: no usable prereq list || https://admissions.northeastern.edu/application-information/admissions-deadlines-decisions/: no usable prereq list || https://admissions.northeastern.edu/application-information/frequently-asked-admissions-questions/: no usable prereq list || https://admissions.northeastern.edu/visit/admissions-staff/: no usable prereq list"
  },
  "544": {
   "stage": "finalized",
@@ -2593,10 +2625,11 @@
   "finalStatus": "verified"
  },
  "550": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T06:57:59.039Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.tnstate.edu/pt/"
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T22:46:53.471Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.tnstate.edu/pt/",
+  "error": "https://en.wikipedia.xn--orgwikigeisinger_medical_center-6f6sea: fetch failed"
  },
  "551": {
   "stage": "finalized",
@@ -2606,10 +2639,11 @@
   "finalStatus": "verified"
  },
  "552": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T06:58:30.605Z",
-  "attempts": 1,
-  "sourceUrl": "https://admissions.upenn.edu/"
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T22:47:23.711Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.upenn.edu/",
+  "error": "https://www.design.upenn.edu/graduate-admissions/how-apply: no usable prereq list"
  },
  "553": {
   "stage": "finalized",
@@ -2652,10 +2686,11 @@
   "finalStatus": "verified"
  },
  "559": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T06:58:59.330Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.warren.senate.gov/"
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T22:47:09.823Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.warren.senate.gov/",
+  "error": "https://www.warren.senate.gov/: no usable prereq list"
  },
  "560": {
   "stage": "failed",
@@ -2665,10 +2700,11 @@
   "error": "no official candidate URLs"
  },
  "561": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-14T10:56:42.940Z",
-  "attempts": 1,
-  "sourceUrl": "https://sc.edu/admissions-at-sc/index.php"
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T22:49:47.399Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.sc.edu/about/offices_and_divisions/undergraduate_admissions/index.php",
+  "error": "https://www.sc.edu/study/colleges_schools/medicine_greenville/admissions/index.php: no usable prereq list || https://sc.edu/admissions-at-sc/graduate-school-admissions/index.php: no usable prereq list || https://www.sc.edu/about/offices_and_divisions/undergraduate_admissions/apply/index.php: no usable prereq list || https://www.sc.edu/about/offices_and_divisions/undergraduate_admissions/apply/for_freshmen/index.php: no usable prereq list"
  },
  "562": {
   "stage": "finalized",
@@ -2692,10 +2728,11 @@
   "error": "no official candidate URLs"
  },
  "565": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T20:04:17.096Z",
-  "attempts": 1,
-  "sourceUrl": "https://meharry.edu/"
+  "stage": "finalized",
+  "lastAttempt": "2026-08-16T22:49:14.046Z",
+  "attempts": 2,
+  "sourceUrl": "https://meharry.edu/academics/schools/school-of-medicine/admissions-and-aid/prerequisites/",
+  "finalStatus": "verified"
  },
  "566": {
   "stage": "finalized",
@@ -2754,10 +2791,11 @@
   "finalStatus": "verified"
  },
  "574": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-15T23:36:23.214Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.texas.gov/driver-services/texas-vehicle-registration/"
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T22:45:56.875Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.texas.gov/driver-services/texas-vehicle-registration/",
+  "error": "https://www.texas.gov/: no usable prereq list || https://www.texas.gov/driver-services/texas-vehicle-registration/: no usable prereq list"
  },
  "575": {
   "stage": "finalized",
@@ -2823,10 +2861,11 @@
   "finalStatus": "verified"
  },
  "584": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T20:04:12.116Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.eastern.edu/"
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T22:48:58.167Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.eastern.edu/events/master-science-nursing-msn-online-info-session",
+  "error": "https://www.eastern.edu/node/2619: HTTP 404 || https://www.eastern.edu/admissions: no usable prereq list || https://www.eastern.edu/apply: no usable prereq list || https://www.eastern.edu/: no usable prereq list"
  },
  "585": {
   "stage": "finalized",
@@ -2842,10 +2881,11 @@
   "sourceUrl": "https://www.virginia.gov/"
  },
  "587": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-15T23:37:10.172Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.virginia.gov/"
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T22:45:28.255Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.virginia.gov/",
+  "error": "https://www.virginia.gov/: no usable prereq list"
  },
  "588": {
   "stage": "failed",
