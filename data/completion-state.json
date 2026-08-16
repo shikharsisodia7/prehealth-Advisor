@@ -2976,16 +2976,18 @@
   "finalStatus": "verified"
  },
  "610": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T07:05:12.010Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.baylor.edu/"
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T21:32:48.447Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.baylor.edu/",
+  "error": "http://www.baylor.edu/Nursing/: HTTP 403 || https://admissions.web.baylor.edu/: HTTP 403 || https://admissions.web.baylor.edu/about-baylor/majors-minors: HTTP 403"
  },
  "611": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T07:04:55.920Z",
-  "attempts": 1,
-  "sourceUrl": "https://athletics.bellarmine.edu/"
+  "stage": "finalized",
+  "lastAttempt": "2026-08-16T21:32:37.159Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.bellarmine.edu/programs/doctor-nursing-practice-nurse-anesthesia/index.php",
+  "finalStatus": "verified"
  },
  "612": {
   "stage": "failed",
@@ -2995,10 +2997,11 @@
   "error": "https://www.belmont.edu/inman/: no usable prereq list || https://www.belmont.edu/admissions/graduate-professional/: no usable prereq list || https://www.belmont.edu/admissions/apply.html: no usable prereq list || https://www.belmont.edu/admissions/: no usable prereq list"
  },
  "613": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T07:05:41.931Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.bethel.edu/"
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T21:34:05.142Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.bethel.edu/academics/",
+  "error": "https://www.bethel.edu/admissions/apply/: too little text || https://www.bethel.edu/admissions/faq: no usable prereq list || https://www.bethel.edu/academics/: no usable prereq list"
  },
  "614": {
   "stage": "finalized",
@@ -3064,10 +3067,11 @@
   "finalStatus": "verified"
  },
  "623": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T07:08:11.511Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.csulb.edu/college-of-health-human-services/school-of-nursing"
+  "stage": "finalized",
+  "lastAttempt": "2026-08-16T21:33:52.702Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.csulb.edu/college-of-health-human-services/school-of-nursing/bsn-program",
+  "finalStatus": "verified"
  },
  "624": {
   "stage": "unstarted",
@@ -3125,10 +3129,11 @@
   "finalStatus": "verified"
  },
  "632": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T07:11:46.074Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.ccsu.edu/nursing"
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T21:35:07.029Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.ccsu.edu/admissions/admissions-counselors",
+  "error": "https://www.ccsu.edu/graduate-admissions/program-specific-admission-requirements: no usable prereq list || https://www.ccsu.edu/transfer-admissions/admissions-requirements: no usable prereq list || https://www.ccsu.edu/transfer-admissions: no usable prereq list || https://www.ccsu.edu/international-admissions: no usable prereq list"
  },
  "633": {
   "stage": "finalized",
@@ -3152,9 +3157,10 @@
   "error": "http://www.chamberlain.edu/nursing-school/texas/pearland: fetch failed"
  },
  "636": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T07:12:53.333Z",
-  "attempts": 1
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T21:34:42.440Z",
+  "attempts": 2,
+  "error": "http://www.chamberlain.edu/nursing-school/california/sacramento: fetch failed"
  },
  "637": {
   "stage": "failed",
@@ -3164,10 +3170,11 @@
   "error": "http://www.chamberlain.edu/nursing-school/michigan/troy: fetch failed"
  },
  "638": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T07:14:06.700Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.charleston-sc.gov/"
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T21:35:36.729Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.charlestonsouthern.edu/admissions/undergraduate/parents-and-family/",
+  "error": "https://www.charlestonsouthern.edu/academics/colleges/college-of-nursing/: no usable prereq list || https://www.charlestonsouthern.edu/academics/colleges/college-of-nursing/: no usable prereq list || https://www.charlestonsouthern.edu/admissions/undergraduate/: no usable prereq list || https://www.charlestonsouthern.edu/admissions/undergraduate/transfer/: no usable prereq list"
  },
  "639": {
   "stage": "failed",
@@ -3307,10 +3314,11 @@
   "finalStatus": "verified"
  },
  "659": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T07:21:37.716Z",
-  "attempts": 1,
-  "sourceUrl": "https://duq.edu/academics/schools/nursing"
+  "stage": "finalized",
+  "lastAttempt": "2026-08-16T21:35:37.286Z",
+  "attempts": 2,
+  "sourceUrl": "https://duq.edu/academics/colleges-and-schools/nursing/undergraduate-programs/second-degree-bsn/index.php",
+  "finalStatus": "verified"
  },
  "660": {
   "stage": "finalized",
@@ -3320,16 +3328,18 @@
   "finalStatus": "verified"
  },
  "661": {
-  "stage": "source_discovery",
-  "lastAttempt": "2026-08-16T21:31:44.120Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T21:32:52.891Z",
   "attempts": 1,
-  "sourceUrl": "https://www.eastern.edu/"
+  "sourceUrl": "https://www.eastern.edu/",
+  "error": "http://https://www.eku.edu/chs/nursing/: fetch failed"
  },
  "662": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T07:22:52.402Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.easternflorida.edu/"
+  "stage": "finalized",
+  "lastAttempt": "2026-08-16T21:36:12.336Z",
+  "attempts": 2,
+  "sourceUrl": "https://emu.edu/nursing/admission",
+  "finalStatus": "verified"
  },
  "663": {
   "stage": "failed",
@@ -3339,10 +3349,11 @@
   "error": "http://www.emich.edu/chhs/nursing/: HTTP 403"
  },
  "664": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T07:23:22.359Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.eastern.edu/"
+  "stage": "finalized",
+  "lastAttempt": "2026-08-16T21:36:12.937Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.eastern.edu/academics/colleges-seminary/college-health-and-sciences/departments/school-nursing/majors-3",
+  "finalStatus": "verified"
  },
  "665": {
   "stage": "finalized",
@@ -3352,10 +3363,11 @@
   "finalStatus": "verified"
  },
  "666": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T07:24:01.720Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.edgewood.edu/"
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T21:37:08.501Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.edgewood.edu/admissions/how-to-apply/",
+  "error": "https://www.edgewood.edu/academics/programs/associate-degree-in-nursing-master-of-science-in-nursing-pathway-adn-msn/: no usable prereq list || https://www.edgewood.edu/academics/programs/clinical-nurse-specialist-msn/: no usable prereq list || https://www.edgewood.edu/academics/programs/cns-in-adult-gerontology-msn/: no usable prereq list || https://www.edgewood.edu/academics/programs/nursing-comprehensive-msn/: no usable prereq list"
  },
  "667": {
   "stage": "finalized",
@@ -3393,10 +3405,11 @@
   "error": "https://www.endicott.edu/academics/schools/nursing: no usable prereq list || https://www.endicott.edu/academics/schools/nursing: no usable prereq list || https://www.endicott.edu/admission/graduate-admission/apply: no usable prereq list || https://www.endicott.edu/admission/undergraduate-admission: no usable prereq list"
  },
  "672": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T07:25:46.958Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.fairfield.edu/"
+  "stage": "finalized",
+  "lastAttempt": "2026-08-16T21:37:08.221Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.fairfield.edu/admission-and-aid/apply/accelerated-second-degree-nursing/",
+  "finalStatus": "verified"
  },
  "673": {
   "stage": "failed",
@@ -3427,10 +3440,11 @@
   "finalStatus": "verified"
  },
  "677": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T07:27:08.681Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.myflorida.gov/"
+  "stage": "finalized",
+  "lastAttempt": "2026-08-16T21:37:47.560Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.fau.edu/nursing/academics/bachelor-of-science-nursing-program/accelerated-bsn/",
+  "finalStatus": "verified"
  },
  "678": {
   "stage": "finalized",
@@ -3440,10 +3454,11 @@
   "finalStatus": "verified"
  },
  "679": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T07:28:09.115Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.myflorida.gov/"
+  "stage": "finalized",
+  "lastAttempt": "2026-08-16T21:37:48.174Z",
+  "attempts": 2,
+  "sourceUrl": "https://cnhs.fiu.edu/academics/nursing/undergrad-nursing/programs/traditional-bsn/index.html",
+  "finalStatus": "verified"
  },
  "680": {
   "stage": "finalized",
@@ -3502,9 +3517,10 @@
   "finalStatus": "verified"
  },
  "688": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T07:31:13.773Z",
-  "attempts": 1
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T21:38:55.795Z",
+  "attempts": 2,
+  "error": "http://https://www.gcu.edu/degree-programs/absn-accelerated-bsn/colorado/denver: fetch failed"
  },
  "689": {
   "stage": "failed",
@@ -3535,28 +3551,32 @@
   "error": "https://www.hartwick.edu/admissions/: no usable prereq list"
  },
  "693": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T07:33:14.964Z",
-  "attempts": 1,
-  "sourceUrl": "https://catalog.herzing.edu/"
+  "stage": "finalized",
+  "lastAttempt": "2026-08-16T21:38:17.954Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.herzing.edu/nursing/accelerated-bsn",
+  "finalStatus": "verified"
  },
  "694": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T07:33:34.448Z",
-  "attempts": 1,
-  "sourceUrl": "https://catalog.herzing.edu/"
+  "stage": "finalized",
+  "lastAttempt": "2026-08-16T21:38:47.199Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.herzing.edu/nursing/accelerated-bsn",
+  "finalStatus": "verified"
  },
  "695": {
-  "stage": "source_fetched",
-  "lastAttempt": "2026-08-16T21:31:55.987Z",
+  "stage": "finalized",
+  "lastAttempt": "2026-08-16T21:32:06.401Z",
   "attempts": 2,
-  "sourceUrl": "https://www.herzing.edu/nursing/lpn-rn"
+  "sourceUrl": "https://www.herzing.edu/nursing/accelerated-bsn",
+  "finalStatus": "verified"
  },
  "696": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T07:34:26.672Z",
-  "attempts": 1,
-  "sourceUrl": "https://catalog.herzing.edu/"
+  "stage": "finalized",
+  "lastAttempt": "2026-08-16T21:39:16.161Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.herzing.edu/nursing/accelerated-bsn",
+  "finalStatus": "verified"
  },
  "697": {
   "stage": "finalized",
@@ -3566,10 +3586,11 @@
   "finalStatus": "verified"
  },
  "698": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T07:35:08.472Z",
-  "attempts": 1,
-  "sourceUrl": "https://catalog.herzing.edu/"
+  "stage": "finalized",
+  "lastAttempt": "2026-08-16T21:39:30.201Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.herzing.edu/nursing/accelerated-bsn",
+  "finalStatus": "verified"
  },
  "699": {
   "stage": "unstarted",
@@ -3599,10 +3620,11 @@
   "finalStatus": "verified"
  },
  "703": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T07:37:29.028Z",
-  "attempts": 1,
-  "sourceUrl": "https://idaho.gov/"
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T21:40:15.459Z",
+  "attempts": 2,
+  "sourceUrl": "https://coursecat.isu.edu/",
+  "error": "refusing mismatched institution URL https://coursecat.isu.edu/undergraduate/nursing-rehabilitation-human-health/school-of-rehabilitation-human-health/communication-sciences-and-disorders/minor-csd-pre-speech-language-pathology/"
  },
  "704": {
   "stage": "finalized",
@@ -3708,10 +3730,11 @@
   "finalStatus": "verified"
  },
  "719": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T07:42:27.516Z",
-  "attempts": 1,
-  "sourceUrl": "https://flashline.kent.edu/"
+  "stage": "finalized",
+  "lastAttempt": "2026-08-16T21:40:12.299Z",
+  "attempts": 2,
+  "sourceUrl": "https://catalog.kent.edu/colleges/nu/nursing-bsn/",
+  "finalStatus": "verified"
  },
  "720": {
   "stage": "finalized",
@@ -3728,9 +3751,9 @@
   "finalStatus": "verified"
  },
  "722": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T07:43:41.961Z",
-  "attempts": 1,
+  "stage": "source_discovery",
+  "lastAttempt": "2026-08-16T21:40:12.304Z",
+  "attempts": 2,
   "sourceUrl": "https://www.lemoyne.edu/academics/programs/fnp/"
  },
  "723": {
@@ -3741,9 +3764,9 @@
   "finalStatus": "verified"
  },
  "724": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T07:44:05.565Z",
-  "attempts": 1,
+  "stage": "source_discovery",
+  "lastAttempt": "2026-08-16T21:40:15.463Z",
+  "attempts": 2,
   "sourceUrl": "https://mylu.liberty.edu/"
  },
  "725": {
@@ -4741,10 +4764,11 @@
   "finalStatus": "verified"
  },
  "876": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T08:37:58.903Z",
-  "attempts": 1,
-  "sourceUrl": "https://mountsaintvincent.edu/academics/undergraduate-college/areas-of-study/all-areas-of-study/nursing/"
+  "stage": "finalized",
+  "lastAttempt": "2026-08-16T21:39:37.990Z",
+  "attempts": 2,
+  "sourceUrl": "https://absn.mountsaintvincent.edu/admissions/prerequisites/",
+  "finalStatus": "verified"
  },
  "877": {
   "stage": "finalized",
