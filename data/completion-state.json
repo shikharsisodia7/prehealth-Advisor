@@ -3925,10 +3925,11 @@
   "finalStatus": "verified"
  },
  "756": {
-  "stage": "source_discovery",
-  "lastAttempt": "2026-08-16T21:06:32.349Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T21:06:42.457Z",
   "attempts": 3,
-  "sourceUrl": "http://www.montana.edu/nursing/admission-requirements"
+  "sourceUrl": "http://www.montana.edu/nursing/admission-requirements",
+  "error": "http://www.montana.edu/nursing/index.html: HTTP 404"
  },
  "757": {
   "stage": "finalized",
@@ -3965,8 +3966,8 @@
  },
  "763": {
   "stage": "failed",
-  "lastAttempt": "2026-08-16T04:26:11.968Z",
-  "attempts": 2,
+  "lastAttempt": "2026-08-16T21:09:24.612Z",
+  "attempts": 3,
   "error": "http://nl.edu/school-of-nursing/: fetch failed"
  },
  "764": {
@@ -4054,10 +4055,11 @@
   "sourceUrl": "https://www.northwestern.edu/"
  },
  "777": {
-  "stage": "source_fetched",
-  "lastAttempt": "2026-08-16T21:06:36.721Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T21:07:01.358Z",
   "attempts": 2,
-  "sourceUrl": "https://home.norwich.edu/on/admissions-aid/apply/graduate-admissions-campus"
+  "sourceUrl": "https://home.norwich.edu/on/admissions-aid",
+  "error": "https://online.norwich.edu/online/norwich-experience/technology-requirements: no usable prereq list || https://home.norwich.edu/on/admissions-aid/apply/graduate-admissions-campus: no usable prereq list || https://online.norwich.edu/online/admissions/professional-and-certificate: no usable prereq list"
  },
  "778": {
   "stage": "finalized",
@@ -4067,11 +4069,10 @@
   "finalStatus": "verified"
  },
  "779": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-16T04:28:12.396Z",
-  "attempts": 2,
-  "sourceUrl": "https://www.nova.edu/",
-  "error": "http://nursing.nova.edu/: fetch failed"
+  "stage": "source_discovery",
+  "lastAttempt": "2026-08-16T21:08:57.465Z",
+  "attempts": 3,
+  "sourceUrl": "https://www.nova.edu/"
  },
  "780": {
   "stage": "unstarted",
@@ -4111,10 +4112,11 @@
   "sourceUrl": "https://www.pennwest.edu/"
  },
  "786": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T04:26:23.448Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.purdue.edu/hhs/nur/"
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T21:08:57.388Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.purdue.edu/hhs/nur/",
+  "error": "https://admissions.purdue.edu/become-student/apply/: no usable prereq list || https://admissions.purdue.edu/: no usable prereq list || https://www.purdue.edu/hhs/nur/: no usable prereq list"
  },
  "787": {
   "stage": "unstarted",
@@ -4151,8 +4153,8 @@
  },
  "792": {
   "stage": "failed",
-  "lastAttempt": "2026-08-16T04:24:04.877Z",
-  "attempts": 2,
+  "lastAttempt": "2026-08-16T21:07:11.090Z",
+  "attempts": 3,
   "sourceUrl": "http://www.regiscollege.edu/academics/schools/richard-and-sheila-young-school-nursing",
   "error": "http://www.regiscollege.edu/academics/schools/richard-and-sheila-young-school-nursing: too little text"
  },
@@ -4172,8 +4174,8 @@
  },
  "795": {
   "stage": "failed",
-  "lastAttempt": "2026-08-16T04:24:39.050Z",
-  "attempts": 2,
+  "lastAttempt": "2026-08-16T21:07:46.881Z",
+  "attempts": 3,
   "error": "http://snhs.rmu.edu/: fetch failed"
  },
  "796": {
@@ -4192,15 +4194,16 @@
  },
  "798": {
   "stage": "failed",
-  "lastAttempt": "2026-08-16T04:24:48.085Z",
-  "attempts": 2,
+  "lastAttempt": "2026-08-16T21:07:57.199Z",
+  "attempts": 3,
   "error": "http://www.sage.edu/academics/schools/health-sciences/: HTTP 403"
  },
  "799": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T04:25:32.656Z",
-  "attempts": 1,
-  "sourceUrl": "https://gradstudy.rutgers.edu/"
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T21:08:40.066Z",
+  "attempts": 2,
+  "sourceUrl": "https://admissions.rutgers.edu/discover-camden?_gl=1*ps688o*_gcl_au*OTA5NTExMDg1LjE3MzA3MzQ1ODk.",
+  "error": "https://nursing.camden.rutgers.edu/laptop-requirements: no usable prereq list || https://admissions.rutgers.edu/apply: no usable prereq list || https://admissions.rutgers.edu/apply/part-time-non-degree-applicants: no usable prereq list"
  },
  "800": {
   "stage": "finalized",
@@ -4329,9 +4332,9 @@
   "finalStatus": "no_prereqs_published"
  },
  "821": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T04:28:30.119Z",
-  "attempts": 1,
+  "stage": "source_discovery",
+  "lastAttempt": "2026-08-16T21:09:34.741Z",
+  "attempts": 2,
   "sourceUrl": "https://www.siue.edu/graduate-admissions/"
  },
  "822": {
@@ -4368,8 +4371,8 @@
  },
  "827": {
   "stage": "failed",
-  "lastAttempt": "2026-08-16T04:28:21.607Z",
-  "attempts": 2,
+  "lastAttempt": "2026-08-16T21:09:34.664Z",
+  "attempts": 3,
   "error": "http://temple.edu/academics/degree-programs/nursing-major-hp-nurs-bsnu: HTTP 403"
  },
  "828": {
