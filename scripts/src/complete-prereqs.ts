@@ -246,6 +246,18 @@ function isDirectoryHubUrl(url: string | null | undefined): boolean {
   }
 }
 
+/** Application portals and undergrad marketing pages that drown out graduate prereq lists. */
+function isLowValueCandidate(url: string): boolean {
+  const hay = url.toLowerCase();
+  if (/ellucian|crmrecruit|apply-gobaylor|myworkday|commonapp|slate\.|targetx/.test(hay)) return true;
+  if (/financial-aid|tuition|video-tour|virtual-office|visit-campus|campus-tour|housing/.test(hay)) return true;
+  if (/undergraduate-admissions|\/freshman|first-year|high-school-students|undergrad\/apply/.test(hay) &&
+      !/graduate|slp|csd|dpt|otd|pharmd|msn|mepn|absn|physician|post-bacc|postbac|communication/.test(hay)) {
+    return true;
+  }
+  return false;
+}
+
 let searchChain: Promise<void> = Promise.resolve();
 async function withSearchLock<T>(fn: () => Promise<T>): Promise<T> {
   const prev = searchChain;
@@ -580,6 +592,7 @@ function keywordLinks(html: string, base: string, professionTerms: string[]): st
     try {
       const u = new URL(m[1], baseUrl);
       if (!u.hostname.endsWith(rootDomain)) continue;
+      if (isLowValueCandidate(u.toString())) continue;
       const hay = `${u.pathname} ${stripHtml(m[2])}`.toLowerCase();
       if (!KEYWORDS.some((k) => hay.includes(k))) continue;
       u.hash = "";
@@ -588,7 +601,8 @@ function keywordLinks(html: string, base: string, professionTerms: string[]): st
       if (/requirement/.test(hay)) score += 3;
       if (/admiss/.test(hay)) score += 2;
       if (professionTerms.some((t) => hay.includes(normalize(t).replace(/ /g, "-")) || hay.includes(normalize(t)))) score += 6;
-      if (/academic-programs|undergraduate|graduate|curriculum|bsn|absn|dpt|otd/.test(hay)) score += 2;
+      if (/graduate|curriculum|bsn|absn|dpt|otd|leveling|csd|slp/.test(hay)) score += 2;
+      if (/undergraduate/.test(hay) && !/graduate/.test(hay)) score -= 4;
       if (u.hostname === baseUrl.hostname) score += 1;
       scored.set(u.toString(), Math.max(scored.get(u.toString()) ?? 0, score));
     } catch { /* skip malformed */ }
@@ -629,7 +643,7 @@ async function crawlSiteForCandidates(
       if (depth >= maxDepth) continue;
       for (const link of keywordLinks(page.html, page.url, terms).slice(0, 10)) {
         const linkKey = link.split("#")[0];
-        if (!seen.has(linkKey) && !isDirectoryHubUrl(link)) {
+        if (!seen.has(linkKey) && !isDirectoryHubUrl(link) && !isLowValueCandidate(link)) {
           queue.push({ url: link, depth: depth + 1 });
         }
       }
@@ -732,9 +746,9 @@ async function discoverCandidates(program: ProgramRow): Promise<string[]> {
   }
 
   // Prefer HTML candidates when Firecrawl is unavailable (PDFs need it).
-  const ranked = [...new Set(candidates)].sort(
-    (a, b) => scoreCandidateUrl(b, program) - scoreCandidateUrl(a, program),
-  );
+  const ranked = [...new Set(candidates)]
+    .filter((u) => u.startsWith("cache:") || !isLowValueCandidate(u))
+    .sort((a, b) => scoreCandidateUrl(b, program) - scoreCandidateUrl(a, program));
   if (!FIRECRAWL_KEY) {
     const htmlFirst = ranked.filter((u) => !/\.pdf($|\?)/i.test(u));
     const pdfs = ranked.filter((u) => /\.pdf($|\?)/i.test(u));
