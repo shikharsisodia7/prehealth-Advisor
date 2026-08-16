@@ -16098,10 +16098,11 @@
   "sourceUrl": "https://www.chapman.edu/admission/undergraduate/how-to-apply/index.aspx"
  },
  "2568": {
-  "stage": "source_discovery",
-  "lastAttempt": "2026-08-16T20:50:57.997Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T20:51:42.609Z",
   "attempts": 2,
-  "sourceUrl": "https://www.pennwest.edu/admissions/request-info.php"
+  "sourceUrl": "https://www.pennwest.edu/admissions/request-info.php",
+  "error": "https://www.pennwest.edu/admissions/graduate/index.php: no usable prereq list || https://www.pennwest.edu/admissions/graduate/non-degree.php: no usable prereq list"
  },
  "2569": {
   "stage": "unstarted",
@@ -16110,8 +16111,8 @@
  },
  "2570": {
   "stage": "failed",
-  "lastAttempt": "2026-08-16T20:43:34.620Z",
-  "attempts": 2,
+  "lastAttempt": "2026-08-16T20:51:21.829Z",
+  "attempts": 3,
   "sourceUrl": "https://www.temple.edu/",
   "error": "http://www.tcnj.edu: HTTP 403"
  },
@@ -16129,10 +16130,11 @@
   "sourceUrl": "https://nursing.tamu.edu/"
  },
  "2573": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T20:44:29.102Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.commonwealthu.edu/"
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T20:52:15.881Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.commonwealthu.edu/",
+  "error": "https://www.commonwealthu.edu/admissions/early-college: no usable prereq list || https://www.commonwealthu.edu/admissions/how-to-apply/graduate-students: no usable prereq list"
  },
  "2574": {
   "stage": "failed",
@@ -16200,36 +16202,38 @@
   "finalStatus": "verified"
  },
  "2584": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T20:45:58.418Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.etsu.edu/admissions/affordability.php"
+  "stage": "source_fetched",
+  "lastAttempt": "2026-08-16T20:54:58.913Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.etsu.edu/admissions/"
  },
  "2585": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T20:46:11.432Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.eiu.edu/commdis/handbooks.php"
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T20:53:27.457Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.eiu.edu/commdis/handbooks.php",
+  "error": "https://www.eiu.edu/admissions/admissions_requirements.php: no usable prereq list || https://www.eiu.edu/commdis/admission_EarlyandFastTrack.php: no usable prereq list || https://www.eiu.edu/admissions/visit.php: no usable prereq list || https://www.eiu.edu/admissions/ga.php: no usable prereq list"
  },
  "2586": {
   "stage": "failed",
-  "lastAttempt": "2026-08-16T20:45:08.467Z",
-  "attempts": 2,
+  "lastAttempt": "2026-08-16T20:52:14.707Z",
+  "attempts": 3,
   "sourceUrl": "https://application.eku.edu/portal/apply_eku",
   "error": "refusing mismatched institution URL https://catalogs.eku.edu/graduate/education-applied-human-sciences/clinical-therapeutic-programs/communication-disorders-ma/"
  },
  "2587": {
   "stage": "failed",
-  "lastAttempt": "2026-08-16T20:46:09.096Z",
-  "attempts": 2,
+  "lastAttempt": "2026-08-16T20:52:29.305Z",
+  "attempts": 3,
   "sourceUrl": "https://nursing.tulane.edu/",
   "error": "https://www.emich.edu/coe/programs/resources/communication-sciences-disorders.php: HTTP 403"
  },
  "2588": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T20:47:20.051Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.enmu.edu/academics/colleges-departments/graduate-school/international-graduate-students"
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T20:54:32.892Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.enmu.edu/academics/colleges-departments/graduate-school/international-graduate-students",
+  "error": "https://www.enmu.edu/academics/degrees-programs/undergraduate-degree/bachelor/communicative-disorders: no usable prereq list || https://www.enmu.edu/academics/colleges-departments/college-of-business/cob-degree-programs/graduate-degree-business/on-campus-or-online-mba/admission-requirements: no usable prereq list || https://www.enmu.edu/academics/colleges-departments/college-of-education-and-technology/academic-dept/department-of-curriculum-and-instruction/graduate/career-and-technical-education"
  },
  "2589": {
   "stage": "finalized",
@@ -16239,10 +16243,11 @@
   "finalStatus": "verified"
  },
  "2590": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T20:47:09.841Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.pennwest.edu/admissions/request-info.php"
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T20:53:15.739Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.pennwest.edu/admissions/request-info.php",
+  "error": "https://www.pennwest.edu/admissions/graduate/index.php: no usable prereq list || https://www.pennwest.edu/admissions/graduate/non-degree.php: no usable prereq list"
  },
  "2591": {
   "stage": "finalized",
@@ -16252,10 +16257,11 @@
   "finalStatus": "verified"
  },
  "2592": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T20:48:05.671Z",
-  "attempts": 1,
-  "sourceUrl": "https://emerson.edu/admission-aid/undergraduate-admission/undergraduate-application-process/"
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T20:54:36.026Z",
+  "attempts": 2,
+  "sourceUrl": "https://emerson.edu/admission-aid/",
+  "error": "https://catalog.emerson.edu/preview_program.php?catoid=16&poid=1040&hl=: too little text || https://admissions.emerson.edu/account/login?cookie=1: HTTP 503 || https://emerson.edu/programs/communication-disorders/: no usable prereq list || https://emerson.edu/programs/communication-disorders/: no usable prereq list"
  },
  "2593": {
   "stage": "unstarted",
@@ -16265,8 +16271,8 @@
  },
  "2594": {
   "stage": "failed",
-  "lastAttempt": "2026-08-16T20:47:22.583Z",
-  "attempts": 2,
+  "lastAttempt": "2026-08-16T20:53:28.310Z",
+  "attempts": 3,
   "sourceUrl": "https://www.uco.edu/cms/academics/nursing/",
   "error": "https://www.faulkner.edu/graduate/graduate_academics/master-in-speech-language-pathology/: HTTP 404"
  },
@@ -16279,8 +16285,8 @@
  },
  "2596": {
   "stage": "failed",
-  "lastAttempt": "2026-08-16T20:47:32.033Z",
-  "attempts": 2,
+  "lastAttempt": "2026-08-16T20:53:38.267Z",
+  "attempts": 3,
   "sourceUrl": "https://johnsonbethel.uccs.edu/",
   "error": "http://www.csd.fiu.edu: HTTP 403"
  },
@@ -16298,8 +16304,8 @@
  },
  "2599": {
   "stage": "extracted",
-  "lastAttempt": "2026-08-16T20:48:00.003Z",
-  "attempts": 2,
+  "lastAttempt": "2026-08-16T20:55:03.743Z",
+  "attempts": 3,
   "sourceUrl": "https://www.fhsu.edu/commsciencesanddisorders/"
  },
  "2600": {
@@ -16311,10 +16317,10 @@
  },
  "2601": {
   "stage": "failed",
-  "lastAttempt": "2026-08-16T20:46:25.273Z",
-  "attempts": 2,
+  "lastAttempt": "2026-08-16T20:52:31.158Z",
+  "attempts": 3,
   "sourceUrl": "https://www.uh.edu/nursing/",
-  "error": "https://gallaudet.edu/graduate-admissions/i-m-ready-to-apply/admissions-requirements-by-program/: HTTP 403 || https://gallaudet.edu/graduate-admissions/i-ve-been-accepted-as-a-graduate-student/admissions-requirements/: HTTP 403 || http://www.gallaudet.edu/department-of-hearing-speech-and-language-sciences/: HTTP 403 || https://gallaudet.edu/admissions/: HTTP 403"
+  "error": "http://www.gallaudet.edu/department-of-hearing-speech-and-language-sciences/: HTTP 403"
  },
  "2602": {
   "stage": "finalized",
