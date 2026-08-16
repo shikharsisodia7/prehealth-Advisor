@@ -138,10 +138,11 @@
   "finalStatus": "verified"
  },
  "134": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-15T23:34:58.903Z",
-  "attempts": 1,
-  "sourceUrl": "https://grad.temple.edu/"
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T22:31:03.012Z",
+  "attempts": 2,
+  "sourceUrl": "https://grad.temple.edu/",
+  "error": "https://admissions.temple.edu/apply/transfer-students: no usable prereq list"
  },
  "135": {
   "stage": "unstarted",
@@ -176,10 +177,11 @@
   "finalStatus": "verified"
  },
  "140": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-14T06:07:47.317Z",
-  "attempts": 1,
-  "sourceUrl": "https://phsu.edu/"
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T22:30:30.022Z",
+  "attempts": 2,
+  "sourceUrl": "https://phsu.edu/",
+  "error": "https://catalog.phsu.edu/: no usable prereq list || https://phsu.edu/apply.php: no usable prereq list || https://phsu.edu/: no usable prereq list"
  },
  "141": {
   "stage": "unstarted",
@@ -199,10 +201,11 @@
   "attempts": 0
  },
  "144": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-14T06:06:42.974Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.northeastern.edu/"
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T22:30:02.636Z",
+  "attempts": 2,
+  "sourceUrl": "https://graduate.northeastern.edu/admissions-aid/how-to-apply/",
+  "error": "https://admissions.northeastern.edu/: no usable prereq list || https://admissions.northeastern.edu/application-information/admissions-deadlines-decisions/: no usable prereq list || https://admissions.northeastern.edu/application-information/frequently-asked-admissions-questions/: no usable prereq list || https://admissions.northeastern.edu/visit/admissions-staff/: no usable prereq list"
  },
  "145": {
   "stage": "unstarted",
@@ -210,10 +213,11 @@
   "attempts": 0
  },
  "146": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-14T06:06:29.238Z",
-  "attempts": 1,
-  "sourceUrl": "https://gov.louisiana.gov/form/10"
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T22:30:24.571Z",
+  "attempts": 2,
+  "sourceUrl": "https://gov.louisiana.gov/form/10",
+  "error": "https://www.louisiana.gov/: no usable prereq list || https://gov.louisiana.gov/form/10: no usable prereq list"
  },
  "147": {
   "stage": "finalized",
@@ -282,9 +286,9 @@
   "sourceUrl": "https://corp.delaware.gov/"
  },
  "159": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-14T06:24:24.083Z",
-  "attempts": 1,
+  "stage": "source_discovery",
+  "lastAttempt": "2026-08-16T22:31:59.782Z",
+  "attempts": 2,
   "sourceUrl": "https://admission.howard.edu/undergraduate"
  },
  "160": {
@@ -328,9 +332,9 @@
   "finalStatus": "verified"
  },
  "166": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-14T06:25:16.244Z",
-  "attempts": 1,
+  "stage": "extracted",
+  "lastAttempt": "2026-08-16T22:31:49.498Z",
+  "attempts": 2,
   "sourceUrl": "https://www.dom.edu/"
  },
  "167": {
@@ -439,10 +443,11 @@
   "finalStatus": "verified"
  },
  "183": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-14T06:23:10.152Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.ndsu.edu/admission"
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T22:31:59.264Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.ndsu.edu/admission/request-info",
+  "error": "https://www.ndsu.edu/graduate-school/graduate-admission/admission-requirements: no usable prereq list || https://www.ndsu.edu/graduate-school/graduate-admission: no usable prereq list || https://www.ndsu.edu/admission/parents-families: no usable prereq list || https://www.ndsu.edu/graduate-school/graduate-admission/cost-aid: no usable prereq list"
  },
  "184": {
   "stage": "finalized",
@@ -617,10 +622,11 @@
   "finalStatus": "verified"
  },
  "210": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-14T06:04:10.194Z",
-  "attempts": 1,
-  "sourceUrl": "https://calbaptist.edu/admissions-aid/military/"
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T22:31:19.338Z",
+  "attempts": 2,
+  "sourceUrl": "https://calbaptist.edu/admissions-aid/visit/",
+  "error": "https://calbaptist.edu/admissions-aid/graduate/requirements: no usable prereq list || https://calbaptist.edu/admissions-aid/undergraduate/homeschool: no usable prereq list || https://calbaptist.edu/admissions-aid/graduate/how-to-apply: no usable prereq list"
  },
  "211": {
   "stage": "finalized",
@@ -7468,10 +7474,11 @@
   "finalStatus": "verified"
  },
  "1261": {
-  "stage": "source_discovery",
-  "lastAttempt": "2026-08-16T22:14:48.761Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T22:25:33.574Z",
   "attempts": 2,
-  "sourceUrl": "https://www.pacific.edu/healthsciences/programs/speech-language-pathology"
+  "sourceUrl": "https://www.pacific.edu/healthsciences/programs/speech-language-pathology",
+  "error": "https://healthsciences.nova.edu/academics/professional/occupational-therapy/tampa-bay.html: fetch failed || https://osteopathic.nova.edu/degrees/doctoral/occupational-therapy/tampa/index.html: fetch failed || https://osteopathic.nova.edu/admissions/graduate.html: fetch failed || https://osteopathic.nova.edu/admissions/do.html: fetch failed"
  },
  "1262": {
   "stage": "finalized",
@@ -9836,10 +9843,11 @@
   "finalStatus": "verified"
  },
  "1609": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T10:25:42.771Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.carlow.edu/academic-programs/healthcare-degrees/physician-assistant-masters/"
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T22:24:41.945Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.carlow.edu/academic-programs/healthcare-degrees/physician-assistant-masters/",
+  "error": "https://www.northcentralcollege.edu/program/doctor-physical-therapy: HTTP 403"
  },
  "1610": {
   "stage": "finalized",
@@ -10290,10 +10298,11 @@
   "finalStatus": "verified"
  },
  "1674": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T10:32:28.896Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.slu.edu/doisy/degrees/undergraduate/physical-therapy-program/index.php"
+  "stage": "finalized",
+  "lastAttempt": "2026-08-16T22:25:14.762Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.slu.edu/doisy/degrees/undergraduate/physical-therapy-phd.php",
+  "finalStatus": "verified"
  },
  "1675": {
   "stage": "finalized",
@@ -10323,10 +10332,11 @@
   "finalStatus": "verified"
  },
  "1679": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T10:33:01.215Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.jmu.edu/chbs/healthprof/pa/index.shtml"
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T22:25:24.511Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.jmu.edu/chbs/healthprof/pa/index.shtml",
+  "error": "https://www.csm.edu/academics/doctorate-physical-therapy: HTTP 403"
  },
  "1680": {
   "stage": "finalized",
@@ -10392,10 +10402,11 @@
   "finalStatus": "verified"
  },
  "1689": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T10:33:31.417Z",
-  "attempts": 1,
-  "sourceUrl": "https://stockton.edu/"
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T22:26:44.348Z",
+  "attempts": 2,
+  "sourceUrl": "https://stockton.edu/graduate/",
+  "error": "https://stockton.edu/graduate/physical-therapy.html: no usable prereq list || https://stockton.edu/global-engagement/international/j-1-applying.html: no usable prereq list || https://stockton.edu/graduate/communication-disorders.html: no usable prereq list"
  },
  "1690": {
   "stage": "finalized",
@@ -10447,10 +10458,11 @@
   "finalStatus": "verified"
  },
  "1697": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T10:34:54.271Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.ithaca.edu/"
+  "stage": "finalized",
+  "lastAttempt": "2026-08-16T22:26:09.003Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.ithaca.edu/academics/school-health-sciences-and-human-performance/physical-therapy/graduate-entry-program/admission-criteria",
+  "finalStatus": "verified"
  },
  "1698": {
   "stage": "failed",
@@ -10527,10 +10539,11 @@
   "finalStatus": "verified"
  },
  "1709": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T10:39:41.836Z",
-  "attempts": 1,
-  "sourceUrl": "https://explore.suny.edu/"
+  "stage": "finalized",
+  "lastAttempt": "2026-08-16T22:26:45.439Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.downstate.edu/education-training/school-of-health-professions/admissions/physical-therapy/requirements.html",
+  "finalStatus": "verified"
  },
  "1710": {
   "stage": "finalized",
@@ -10755,10 +10768,11 @@
   "finalStatus": "verified"
  },
  "1742": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T10:51:22.492Z",
-  "attempts": 1,
-  "sourceUrl": "https://oklahoma.gov/"
+  "stage": "finalized",
+  "lastAttempt": "2026-08-16T22:27:32.664Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.okcu.edu/academics/schools-colleges/college-of-nursing-and-health-professions/doctor-of-physical-therapy/prospective-students/admission-requirements",
+  "finalStatus": "verified"
  },
  "1743": {
   "stage": "failed",
@@ -10872,10 +10886,11 @@
   "finalStatus": "verified"
  },
  "1759": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T10:53:56.121Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.neumann.edu/academics/grad/doctor-of-physical-therapy?hsCtaTracking=bd276a44-4942-47d1-b016-6f145819939c%7C3d68f176-1130-4dc2-853e-f600fd43fdd3"
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T22:27:51.045Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.neumann.edu/academics/grad/doctor-of-physical-therapy?hsCtaTracking=bd276a44-4942-47d1-b016-6f145819939c%7C3d68f176-1130-4dc2-853e-f600fd43fdd3",
+  "error": "https://www.neumann.edu/academics/grad/doctor-of-physical-therapy?hsCtaTracking=bd276a44-4942-47d1-b016-6f145819939c%7C3d68f176-1130-4dc2-853e-f600fd43fdd3: no usable prereq list || https://www.neumann.edu/admissions/transfer: no usable prereq list || https://www.neumann.edu/admissions/apply: no usable prereq list || https://www.neumann.edu/admissions/apply: no usable prereq list"
  },
  "1760": {
   "stage": "finalized",
@@ -10906,16 +10921,18 @@
   "finalStatus": "verified"
  },
  "1764": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T10:54:18.716Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.temple.edu/academics/degree-programs/physical-therapy-dpt-hp-phth-dpt"
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T22:28:24.989Z",
+  "attempts": 2,
+  "sourceUrl": "https://undergraduate.temple.edu/healthadvising/faq",
+  "error": "https://www.temple.edu/academics/degree-programs/physical-therapy-dpt-hp-phth-dpt/admissions: no usable prereq list || https://admissions.temple.edu/apply/transfer-students: no usable prereq list || https://undergraduate.temple.edu/healthadvising: no usable prereq list || https://undergraduate.temple.edu/healthadvising/faq: no usable prereq list"
  },
  "1765": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T10:54:23.183Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.jefferson.edu/academics/colleges-schools-institutes/rehabilitation-sciences/departments/physical-therapy.html"
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T22:28:39.300Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.jefferson.edu/admissions/visit.html",
+  "error": "https://www.jefferson.edu/academics/colleges-schools-institutes/continuing-professional-studies/degree-options/apply-online.html: no usable prereq list || https://www.jefferson.edu/admissions/undergraduate/transfer/apply.html: no usable prereq list || https://www.jefferson.edu/admissions/undergraduate/second-degree-seeking-students/apply.html: no usable prereq list"
  },
  "1766": {
   "stage": "unstarted",
@@ -11041,10 +11058,11 @@
   "finalStatus": "verified"
  },
  "1784": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T10:56:25.144Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.angelo.edu/"
+  "stage": "finalized",
+  "lastAttempt": "2026-08-16T22:29:03.360Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.angelo.edu/academics/programs/physical-therapy-dpt/admission/",
+  "finalStatus": "verified"
  },
  "1785": {
   "stage": "failed",
@@ -11123,10 +11141,11 @@
   "finalStatus": "verified"
  },
  "1796": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T10:58:03.326Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.utmb.edu/shp/academics/phyt/home"
+  "stage": "finalized",
+  "lastAttempt": "2026-08-16T22:29:08.943Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.utmb.edu/shp/academics/phyt/residentialdpt",
+  "finalStatus": "verified"
  },
  "1797": {
   "stage": "finalized",
@@ -11254,9 +11273,10 @@
   "finalStatus": "verified"
  },
  "1815": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T10:59:57.807Z",
-  "attempts": 1
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T22:29:13.125Z",
+  "attempts": 2,
+  "error": "https://marymount.edu/academics/health-sciences/doctor-of-physical-therapy/: HTTP 403"
  },
  "1816": {
   "stage": "finalized",
@@ -11266,16 +11286,18 @@
   "finalStatus": "verified"
  },
  "1817": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T11:00:18.922Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.radford.edu/"
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T22:29:57.001Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.radford.edu/admissions/visit.html",
+  "error": "https://www.radford.edu/catalog-physical-therapy-dpt: too little text || https://www.radford.edu/programs/dpt.html: no usable prereq list || https://www.radford.edu/admissions/graduate/non-degree.html: no usable prereq list"
  },
  "1818": {
-  "stage": "source_discovery",
-  "lastAttempt": "2026-08-16T22:23:25.137Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T22:24:31.296Z",
   "attempts": 2,
-  "sourceUrl": "https://www.su.edu/physical-therapy/"
+  "sourceUrl": "https://www.su.edu/physical-therapy/",
+  "error": "https://www.su.edu/admissions/future-first-year/application-information/early-assurance-pathway-application-requirements/physical-therapy-early-assurance-pathway-ea-dpt/: no usable prereq list || https://www.su.edu/admissions/graduate-students/physical-therapy-application-information-2/doctor-of-physical-therapy/: no usable prereq list || https://www.su.edu/admissions/graduate-students/physical-therapy-application-information-2/doctor-of-physical-therapy/: no usable prereq list || https://www.su"
  },
  "1819": {
   "stage": "failed",
