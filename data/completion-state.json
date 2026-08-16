@@ -14292,10 +14292,11 @@
   "error": "http://www.lasalle.edu/schools/cpcs/content.php?section=post_bac_certificates&group=prehealth&page=o: HTTP 404"
  },
  "2239": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-16T23:32:33.190Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T23:32:54.119Z",
   "attempts": 2,
-  "sourceUrl": "https://www.farmingdale.edu/admissions/incoming-freshman-applicant.shtml"
+  "sourceUrl": "https://www.farmingdale.edu/admissions/incoming-freshman-applicant.shtml",
+  "error": "https://www.farmingdale.edu/admissions/apply-now.shtml: no usable prereq list || https://www.farmingdale.edu/admissions/graduate-admissions.shtml: no usable prereq list || https://www.farmingdale.edu/admissions/visiting-students.shtml: no usable prereq list || https://www.farmingdale.edu/curriculum/cert-health.shtml: no usable prereq list"
  },
  "2240": {
   "stage": "finalized",
@@ -14374,10 +14375,11 @@
   "finalStatus": "verified"
  },
  "2251": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-16T23:32:25.589Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-16T23:32:44.659Z",
   "attempts": 2,
-  "sourceUrl": "https://gpem.luc.edu/portal/program?name=medicalsciencesma"
+  "sourceUrl": "https://gpem.luc.edu/portal/program?name=medicalsciencesma",
+  "error": "https://gpem.luc.edu/portal/program?name=medicalsciencesma: no usable prereq list || https://gpem.luc.edu/portal/program?name=medicalsciencesma: no usable prereq list"
  },
  "2252": {
   "stage": "finalized",
@@ -14444,8 +14446,8 @@
  },
  "2261": {
   "stage": "failed",
-  "lastAttempt": "2026-08-15T22:31:44.776Z",
-  "attempts": 1,
+  "lastAttempt": "2026-08-16T23:32:55.094Z",
+  "attempts": 2,
   "error": "https://oes.umd.edu/graduates-post-baccalaureates-professionals/post-baccalaureate-programs/science-evening: HTTP 404"
  },
  "2262": {
@@ -14699,10 +14701,9 @@
   "error": "https://www.seattleu.edu/prehealth: HTTP 404"
  },
  "2299": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-16T07:09:58.142Z",
-  "attempts": 1,
-  "error": "http://prospective.westernu.edu/medical-sciences/welcome: HTTP 404"
+  "stage": "source_discovery",
+  "lastAttempt": "2026-08-16T23:32:55.169Z",
+  "attempts": 2
  },
  "2300": {
   "stage": "failed",
@@ -15143,11 +15144,10 @@
   "error": "https://www.ohsu.edu/school-of-medicine/medical-physics-graduate-program/admission-requirements: no usable prereq list || https://www.ohsu.edu/school-of-dentistry/dmd-admission-requirements: no usable prereq list || https://www.ohsu.edu/education/academics-and-admissions: no usable prereq list || https://www.ohsu.edu/school-of-medicine/graduate-studies/admissions: no usable prereq list"
  },
  "2365": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-16T07:34:49.329Z",
-  "attempts": 1,
-  "sourceUrl": "https://nursing.fullerton.edu/",
-  "error": "https://www.jhsph.edu/departments/w-harry-feinstone-department-of-molecular-microbiology-and-immunology/academics-and-degree-programs/mhs-program/: HTTP 403"
+  "stage": "source_discovery",
+  "lastAttempt": "2026-08-16T23:32:54.192Z",
+  "attempts": 2,
+  "sourceUrl": "https://nursing.fullerton.edu/"
  },
  "2366": {
   "stage": "finalized",
