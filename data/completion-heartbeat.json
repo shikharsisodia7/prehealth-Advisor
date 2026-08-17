@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-17T07:14:12.157172Z",
+  "generatedAt": "2026-08-17T07:17:51.202375Z",
   "verified": 1426,
   "nsp": 25,
   "unfinished": 1406,
@@ -19,6 +19,6 @@
     "postbac": 232
   },
   "secretsPresent": false,
-  "blocker": "Cloud lacks secrets; local Neon worker active (~6/10min)",
+  "blocker": "DATABASE_URL and OPENAI_API_KEY missing on cloud VM",
   "branch": "cursor/final-completion-pass-7954"
 }
