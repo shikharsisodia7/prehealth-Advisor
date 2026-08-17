@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-08-17T07:37:50.858995Z",
-  "verified": 1430,
+  "generatedAt": "2026-08-17T07:44:34.568745Z",
+  "verified": 1436,
   "nsp": 25,
-  "unfinished": 1402,
-  "finalizedPct": 50.9,
+  "unfinished": 1396,
+  "finalizedPct": 51.1,
   "unfinishedByProfession": {
     "medicine": 169,
     "dental": 18,
@@ -15,10 +15,10 @@
     "prosthetics-orthotics": 1,
     "genetic-counseling": 1,
     "dietetics": 56,
-    "speech-language-pathology": 212,
+    "speech-language-pathology": 206,
     "postbac": 232
   },
   "secretsPresent": false,
-  "blocker": "DATABASE_URL and OPENAI_API_KEY missing on cloud VM",
+  "blocker": "Cloud lacks secrets; local Neon worker active",
   "branch": "cursor/final-completion-pass-7954"
 }
