@@ -4135,9 +4135,11 @@
   "finalStatus": "verified"
  },
  "779": {
-  "stage": "source_discovery",
-  "lastAttempt": "2026-08-17T23:24:34.634Z",
-  "attempts": 3
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T23:32:43.201Z",
+  "attempts": 3,
+  "error": "https://nursing.nova.edu/: OpenAI HTTP 429: {\n    \"error\": {\n        \"message\": \"You have no credits remaining. Add credits to continue using the API at https://platform.openai.com/settings/organization/billing/.\",\n        \"type\": \"insufficient_quota\",\n        \"param\": null,\n        \"code\": \"credit_balance_exhausted\"\n    }\n}\n",
+  "sourceUrl": "https://nursing.nova.edu/"
  },
  "780": {
   "stage": "finalized",
@@ -4241,9 +4243,10 @@
   "finalStatus": "verified"
  },
  "795": {
-  "stage": "source_fetched",
-  "lastAttempt": "2026-08-17T23:20:43.482Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T23:34:06.842Z",
   "attempts": 3,
+  "error": "https://snhs.rmu.edu/OurPrograms/Nursing/2ndDegreeAcceleratedBSN: OpenAI HTTP 429: {\n    \"error\": {\n        \"message\": \"You have no credits remaining. Add credits to continue using the API at https://platform.openai.com/settings/organization/billing/.\",\n        \"type\": \"insufficient_quota\",\n        \"param\": null,\n        \"code\": \"credit_balance_exhausted\"\n    }\n}\n",
   "sourceUrl": "https://www.rmu.edu/why-rmu/apply"
  },
  "796": {
@@ -4416,16 +4419,16 @@
   "finalStatus": "no_prereqs_published"
  },
  "821": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-17T17:48:03.188Z",
-  "attempts": 2,
-  "error": "reset for improved discovery: https://www.siue.edu/academics/undergraduate/degrees-and-programs/nursing/traditional/admission-requirements.shtml: no u"
+  "stage": "source_fetched",
+  "lastAttempt": "2026-08-17T23:33:16.292Z",
+  "attempts": 3,
+  "sourceUrl": "https://www.siue.edu/academics/undergraduate/degrees-and-programs/art/art-history/minor-requirements.shtml"
  },
  "822": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-17T17:48:08.731Z",
-  "attempts": 2,
-  "error": "reset for improved discovery: https://spalding.edu/programs/rn-to-bsn/rn-to-bsn-admission-requirements/: no usable prereq list || https://spalding.edu"
+  "stage": "source_fetched",
+  "lastAttempt": "2026-08-17T23:34:37.082Z",
+  "attempts": 3,
+  "sourceUrl": "https://spalding.edu/directory/pamela-dodson/"
  },
  "823": {
   "stage": "finalized",
