@@ -513,6 +513,10 @@ function websiteConflictsWithInstitution(url: string, name: string): boolean {
 function normalizeCandidateUrl(url: string): string | null {
   if (!url || url.startsWith("cache:")) return url || null;
   let u = url.trim();
+  // Directory imports sometimes store http://https://host/...
+  u = u.replace(/^http:\/\/https:\/\//i, "https://");
+  u = u.replace(/^https:\/\/https:\/\//i, "https://");
+  u = u.replace(/^http:\/\/http:\/\//i, "http://");
   while (/^https?:\/\/https?:\/\//i.test(u)) {
     u = u.replace(/^https?:\/\//i, "");
   }
