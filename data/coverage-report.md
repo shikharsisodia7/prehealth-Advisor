@@ -1,6 +1,6 @@
 # Prerequisite Coverage Audit
 
-Generated: 2026-08-17T19:37:47.585Z
+Generated: 2026-08-17T20:22:16.245Z
 
 | Profession | Active | Verified | No specific courses | Blocked | Unfinished | Final-status coverage | Directory reconciliation |
 |---|---:|---:|---:|---:|---:|---:|---|
@@ -15,7 +15,7 @@ Generated: 2026-08-17T19:37:47.585Z
 | Pathologists' Assistant (PathA) | 20 | 19 | 1 | 0 | 0 | 100% | reconciled |
 | Pharmacy (PharmD) | 140 | 19 | 0 | 0 | 121 | 13.6% | reconciled |
 | Physical Therapy (DPT) | 308 | 215 | 0 | 0 | 93 | 69.8% | reconciled |
-| Physician Assistant (PA) | 330 | 129 | 2 | 0 | 199 | 39.7% | reconciled |
+| Physician Assistant (PA) | 330 | 131 | 2 | 0 | 197 | 40.3% | reconciled |
 | Podiatric Medicine (DPM) | 11 | 11 | 0 | 0 | 0 | 100% | reconciled |
 | Postbaccalaureate Programs | 336 | 100 | 4 | 0 | 232 | 31% | under-source-count |
 | Prosthetics & Orthotics (MSPO) | 15 | 14 | 0 | 0 | 1 | 93.3% | reconciled |

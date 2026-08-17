@@ -6092,10 +6092,11 @@
   "finalStatus": "verified"
  },
  "1054": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T04:42:08.721Z",
-  "attempts": 2,
-  "error": "reset for improved discovery: ttps://www.csu.edu/collegeofhealthsciences/OT/: fetch failed"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T19:40:49.886Z",
+  "attempts": 3,
+  "error": "https://www.csu.edu/admissions/undergraduate/transfer_requirements.htm: no usable prereq list || https://www.csu.edu/admissions/undergraduate/freshman.htm: no usable prereq list || https://www.csu.edu/admissions/undergraduate/transfer_student.htm: no usable prereq list || https://www.csu.edu/admissions/undergraduate/international_students.htm: no usable prereq list",
+  "sourceUrl": "https://www.csu.edu/"
  },
  "1055": {
   "stage": "finalized",
@@ -6140,10 +6141,11 @@
   "error": "https://coxcollege.edu/college-programs/msot/: no usable prereq list"
  },
  "1061": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T22:05:16.182Z",
-  "attempts": 1,
-  "error": "reset for improved discovery: https://www.dyu.edu/academics/schools-and-departments/school-health-professions/occupational-therapy: no usable prereq l"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T19:41:27.773Z",
+  "attempts": 2,
+  "error": "https://www.dyu.edu/academics/schools-and-departments/school-health-professions/occupational-therapy: no usable prereq list || https://www.dyu.edu/admissions/graduate-admissions: no usable prereq list || https://www.dyu.edu/admissions/first-time-college-admissions: no usable prereq list || https://www.dyu.edu/admissions/transfer-admissions: no usable prereq list",
+  "sourceUrl": "https://www.dyu.edu/academics/degrees-programs/pre-physical-therapy"
  },
  "1062": {
   "stage": "finalized",
@@ -6201,10 +6203,10 @@
   "finalStatus": "verified"
  },
  "1070": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T04:43:02.128Z",
-  "attempts": 2,
-  "error": "reset for improved discovery: https://www.emich.edu/chhs/health-sciences/programs/occupational-therapy: HTTP 403"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T19:41:08.019Z",
+  "attempts": 3,
+  "error": "https://www.emich.edu/chhs/health-sciences/programs/occupational-therapy: HTTP 403"
  },
  "1071": {
   "stage": "finalized",
@@ -6242,8 +6244,8 @@
  },
  "1076": {
   "stage": "failed",
-  "lastAttempt": "2026-08-16T22:06:05.100Z",
-  "attempts": 2,
+  "lastAttempt": "2026-08-17T19:42:26.605Z",
+  "attempts": 3,
   "sourceUrl": "https://catalog.fiu.edu/",
   "error": "https://catalog.fiu.edu/policiesandprocesses/program-graduation/undergraduate-requirements/universitycore: no usable prereq list || https://cnhs.fiu.edu/academics/curriculum/index.html: no usable prereq list || https://cnhs.fiu.edu/academics/nursing/undergrad-nursing/index.html: no usable prereq list || https://admissions.fiu.edu/how-to-apply/apply/: no usable prereq list"
  },
@@ -6284,8 +6286,8 @@
  },
  "1082": {
   "stage": "failed",
-  "lastAttempt": "2026-08-16T22:06:54.091Z",
-  "attempts": 2,
+  "lastAttempt": "2026-08-17T19:42:04.956Z",
+  "attempts": 3,
   "sourceUrl": "https://www.hofstra.edu/admission/graduate-admission/",
   "error": "https://www.hofstra.edu/occupational-therapy/about.html: no usable prereq list || https://www.hofstra.edu/graduate/apply.html: no usable prereq list"
  },
@@ -6305,10 +6307,10 @@
  },
  "1085": {
   "stage": "failed",
-  "lastAttempt": "2026-08-17T07:51:38.761Z",
-  "attempts": 2,
-  "sourceUrl": "https://indianastate.edu/",
-  "error": "https://indianastate.edu/: no usable prereq list"
+  "lastAttempt": "2026-08-17T20:19:10.490Z",
+  "attempts": 3,
+  "sourceUrl": "https://www.usi.edu/core39",
+  "error": "https://www.usi.edu/admissions: no usable prereq list || https://www.usi.edu/graduatestudies/admission-to-graduate-programs: no usable prereq list || https://www.usi.edu/international/admissions: no usable prereq list || https://www.usi.edu/registrar/registration/readmission: no usable prereq list"
  },
  "1086": {
   "stage": "finalized",
@@ -6604,10 +6606,10 @@
   "finalStatus": "verified"
  },
  "1128": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T05:00:18.322Z",
-  "attempts": 2,
-  "error": "reset for improved discovery: https://www.radford.edu/content/JCHS-RU-merger/home.html: HTTP 404"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T20:19:11.595Z",
+  "attempts": 3,
+  "error": "https://www.radford.edu/content/JCHS-RU-merger/home.html: HTTP 404"
  },
  "1129": {
   "stage": "finalized",
@@ -6624,10 +6626,10 @@
   "finalStatus": "verified"
  },
  "1131": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T04:59:31.295Z",
-  "attempts": 2,
-  "error": "reset for improved discovery: https://www.sage.edu/academics/schools/health-sciences/occupational-therapy-programs-ms: HTTP 403"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T19:42:45.106Z",
+  "attempts": 3,
+  "error": "https://www.sage.edu/academics/schools/health-sciences/occupational-therapy-programs-ms: HTTP 403"
  },
  "1132": {
   "stage": "finalized",
@@ -6925,8 +6927,8 @@
  },
  "1175": {
   "stage": "failed",
-  "lastAttempt": "2026-08-16T22:08:12.347Z",
-  "attempts": 2,
+  "lastAttempt": "2026-08-17T20:20:02.755Z",
+  "attempts": 3,
   "sourceUrl": "https://www.scranton.edu/academics/registrar/university-catalogs.shtml",
   "error": "https://www.scranton.edu/academics/pcps/occupational-therapy/index.shtml: no usable prereq list || https://gradadmissions.scranton.edu/how-to-apply.shtml: no usable prereq list || https://admissions.scranton.edu/apply/adult-visiting/index.shtml: no usable prereq list"
  },
@@ -7028,10 +7030,10 @@
   "finalStatus": "verified"
  },
  "1190": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T05:00:28.422Z",
-  "attempts": 2,
-  "error": "reset for improved discovery: https://www.ot.wustl.edu/education/masters-msot-131: HTTP 403"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T20:19:31.098Z",
+  "attempts": 3,
+  "error": "https://www.ot.wustl.edu/education/masters-msot-131: HTTP 403"
  },
  "1191": {
   "stage": "finalized",
@@ -7055,10 +7057,11 @@
   "finalStatus": "verified"
  },
  "1194": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T22:08:25.924Z",
-  "attempts": 1,
-  "error": "reset for improved discovery: https://catalog.wssu.edu/preview_program.php?catoid=35&amp;poid=2424: too little text || https://www.wssu.edu/admissions"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T20:19:56.957Z",
+  "attempts": 2,
+  "error": "https://catalog.wssu.edu/preview_program.php?catoid=35&amp;poid=2424: too little text || https://www.wssu.edu/admissions/transfer-students.html: no usable prereq list || https://www.wssu.edu/admissions/programs/nursing.html: no usable prereq list",
+  "sourceUrl": "https://www.wssu.edu/about/university-directory.html?type=dept&amp;query=admissions"
  },
  "1195": {
   "stage": "finalized",
@@ -7096,10 +7099,10 @@
   "finalStatus": "verified"
  },
  "1200": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T05:02:38.719Z",
-  "attempts": 2,
-  "error": "reset for improved discovery: https://www.astate.edu/college/conhp/departments/occupational-therapy/: HTTP 404"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T20:20:42.099Z",
+  "attempts": 3,
+  "error": "https://www.astate.edu/college/conhp/departments/occupational-therapy/: HTTP 404"
  },
  "1201": {
   "stage": "unstarted",
@@ -7170,16 +7173,17 @@
   "error": "reset for improved discovery: https://www.csm.edu/academics/occupational-therapy-doctorate-graduate: HTTP 403"
  },
  "1211": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T05:01:46.213Z",
-  "attempts": 2,
-  "error": "reset for improved discovery: https://www.cuaa.edu/otd: HTTP 403"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T20:20:23.020Z",
+  "attempts": 3,
+  "error": "https://www.cuaa.edu/otd: HTTP 403"
  },
  "1212": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T22:09:08.427Z",
-  "attempts": 1,
-  "error": "reset for improved discovery: https://www.cuw.edu/admissions/undergraduate-admissions/precollege/index.html: no usable prereq list || https://www.cuw."
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T20:21:22.306Z",
+  "attempts": 2,
+  "error": "https://www.cuw.edu/admissions/undergraduate-admissions/precollege/index.html: no usable prereq list || https://www.cuw.edu/admissions/graduate-admissions/admission-process.html: no usable prereq list || https://www.cuw.edu/academics/index.html?deg=dc&amp;int=12: no usable prereq list || https://www.cuw.edu/academics/programs/post-bsn-dnp/index.html: no usable prereq list",
+  "sourceUrl": "https://www.cuw.edu/academics/programs/post-bsn-dnp/index.html"
  },
  "1213": {
   "stage": "failed",
@@ -7196,10 +7200,10 @@
   "finalStatus": "verified"
  },
  "1215": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T05:01:55.196Z",
-  "attempts": 2,
-  "error": "reset for improved discovery: https://www.dmu.edu/ot/: HTTP 403"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T20:20:28.557Z",
+  "attempts": 3,
+  "error": "https://www.dmu.edu/ot/: HTTP 403"
  },
  "1216": {
   "stage": "finalized",
@@ -7315,8 +7319,8 @@
  },
  "1232": {
   "stage": "failed",
-  "lastAttempt": "2026-08-16T22:09:56.693Z",
-  "attempts": 2,
+  "lastAttempt": "2026-08-17T20:21:48.624Z",
+  "attempts": 3,
   "sourceUrl": "https://www.hpu.edu/",
   "error": "https://www.hpu.edu/graduate-admissions/admission-requirements/index.html: no usable prereq list"
  },
@@ -7362,10 +7366,11 @@
   "finalStatus": "verified"
  },
  "1239": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T05:03:37.026Z",
-  "attempts": 2,
-  "error": "reset for improved discovery: https://www.jwu.edu/otd: too little text"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T20:20:58.007Z",
+  "attempts": 3,
+  "error": "https://www.jwu.edu/otd: too little text",
+  "sourceUrl": "https://www.jwu.edu/otd"
  },
  "1240": {
   "stage": "finalized",
@@ -7389,10 +7394,11 @@
   "finalStatus": "verified"
  },
  "1243": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T22:09:19.959Z",
-  "attempts": 1,
-  "error": "reset for improved discovery: https://www.lmunet.edu/undergraduate-admissions/: no usable prereq list || https://www.lmunet.edu/graduate-admissions/: "
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T20:22:16.976Z",
+  "attempts": 2,
+  "error": "https://www.lmunet.edu/undergraduate-admissions/: no usable prereq list || https://www.lmunet.edu/graduate-admissions/: no usable prereq list || https://www.lmunet.edu/undergraduate-admissions/families-of-new-college-students: no usable prereq list || https://www.lmunet.edu/admissions-aid/: no usable prereq list",
+  "sourceUrl": "https://www.lmunet.edu/"
  },
  "1244": {
   "stage": "finalized",
@@ -7527,17 +7533,16 @@
  },
  "1263": {
   "stage": "failed",
-  "lastAttempt": "2026-08-16T22:11:11.221Z",
-  "attempts": 2,
-  "sourceUrl": "https://www.odu.edu/admissions/future-monarch-families",
+  "lastAttempt": "2026-08-17T20:22:48.656Z",
+  "attempts": 3,
+  "sourceUrl": "https://www.odu.edu/admission/admitted/international",
   "error": "https://www.odu.edu/admission/graduate/requirements: no usable prereq list || https://www.odu.edu/counseling-human-services/academics/admission-requirements: no usable prereq list || https://www.odu.edu/admission/graduate: no usable prereq list || https://www.odu.edu/admission/admitted/graduate: no usable prereq list"
  },
  "1264": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-16T22:10:15.697Z",
-  "attempts": 2,
-  "sourceUrl": "https://www.pacificu.edu/occupational-therapy-otd/curriculum",
-  "error": "https://www.pacificu.edu/occupational-therapy-otd/admissions/prerequisites: no usable prereq list || https://www.pacificu.edu/occupational-therapy-otd/admissions: no usable prereq list || https://www.pacificu.edu/occupational-therapy-otd/admissions/occupational-therapy-guaranteed-admission: no usable prereq list || https://www.pacificu.edu/occupational-therapy-otd/admissions: no usable prereq list"
+  "stage": "extracted",
+  "lastAttempt": "2026-08-17T20:22:47.458Z",
+  "attempts": 3,
+  "sourceUrl": "https://www.pacificu.edu/occupational-therapy-otd/curriculum"
  },
  "1265": {
   "stage": "finalized",
@@ -7568,8 +7573,8 @@
  },
  "1269": {
   "stage": "failed",
-  "lastAttempt": "2026-08-16T22:11:05.155Z",
-  "attempts": 2,
+  "lastAttempt": "2026-08-17T20:22:48.003Z",
+  "attempts": 3,
   "sourceUrl": "https://rocky.edu/academics/course-catalog/",
   "error": "https://rocky.edu/academics/academic-programs/occupational-therapy/admissions/: no usable prereq list || https://rocky.edu/academics/academic-programs/pa/admission-requirements/: no usable prereq list"
  },
@@ -7705,10 +7710,9 @@
   "error": "reset for improved discovery: www.twu.edu/ot/: Invalid URL"
  },
  "1289": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T05:05:42.625Z",
-  "attempts": 2,
-  "error": "reset for improved discovery: www.twu.edu/ot/: Invalid URL"
+  "stage": "source_discovery",
+  "lastAttempt": "2026-08-17T20:22:48.526Z",
+  "attempts": 3
  },
  "1290": {
   "stage": "finalized",
@@ -7725,10 +7729,9 @@
   "finalStatus": "verified"
  },
  "1292": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T05:05:54.035Z",
-  "attempts": 2,
-  "error": "reset for improved discovery: https://military.robbins.baylor.edu/entry-level-otd: HTTP 403"
+  "stage": "source_discovery",
+  "lastAttempt": "2026-08-17T20:22:48.735Z",
+  "attempts": 3
  },
  "1293": {
   "stage": "finalized",
@@ -11438,10 +11441,11 @@
   "finalStatus": "verified"
  },
  "1839": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T22:04:23.375Z",
-  "attempts": 1,
-  "error": "reset for improved discovery: https://www.samford.edu/catalog/health-professions-graduate-programs: too little text || https://www.samford.edu/healthp"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T19:38:57.024Z",
+  "attempts": 2,
+  "error": "https://www.samford.edu/catalog/health-professions-graduate-programs: too little text || https://www.samford.edu/healthprofessions/files/Master-of-Science-in-Physician-Assistant-Studies-Admission-Information.pdf: PDF extract failed: Traceback (most recent call last):\r\n  File \"<string>\", line 2, in <module>\r\n    from pypdf import PdfReader\r\nModuleNotFoundError: No module named 'pypdf'\r\n || https://www.samford.edu/healthprofessions/files/PA-Student-Handbook.pdf?v.2026: PDF extract failed: Tracebac",
+  "sourceUrl": "https://www.samford.edu/healthprofessions/Communication-Sciences-Bachelor-of-Science-in-Communication-Sciences-and-Disorders"
  },
  "1840": {
   "stage": "finalized",
@@ -11479,10 +11483,10 @@
   "finalStatus": "verified"
  },
  "1845": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T22:04:00.791Z",
-  "attempts": 1,
-  "error": "reset for improved discovery: https://www.chamberlain.edu/academics/master-of-physician-assistant-studies/arizona/phoenix: fetch failed"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T19:39:09.257Z",
+  "attempts": 2,
+  "error": "https://www.chamberlain.edu/academics/master-of-physician-assistant-studies/arizona/phoenix: fetch failed"
  },
  "1846": {
   "stage": "finalized",
@@ -11549,9 +11553,9 @@
  },
  "1855": {
   "stage": "failed",
-  "lastAttempt": "2026-08-16T22:02:56.701Z",
-  "attempts": 2,
-  "sourceUrl": "https://www.dominican.edu/admissions/visit-and-connect",
+  "lastAttempt": "2026-08-17T19:39:51.567Z",
+  "attempts": 3,
+  "sourceUrl": "https://www.dominican.edu/admissions/transfer-admissions",
   "error": "https://www.dominican.edu/admissions/graduate-admissions: no usable prereq list || https://www.dominican.edu/admissions/apply-now: no usable prereq list || https://www.dominican.edu/admissions/undergraduate-first-year-admissions/undergraduate-frequently-asked-questions: no usable prereq list || https://www.dominican.edu/admissions/graduate-admissions/graduate-admissions-frequently-asked-questions: no usable prereq list"
  },
  "1856": {
@@ -11693,10 +11697,10 @@
   "finalStatus": "verified"
  },
  "1876": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T22:04:11.252Z",
-  "attempts": 2,
-  "error": "reset for improved discovery: https://www.sacredheart.edu/majors--programs/physician-assistant-studies---mpas/: HTTP 404"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T19:38:22.153Z",
+  "attempts": 3,
+  "error": "https://www.sacredheart.edu/majors--programs/physician-assistant-studies---mpas/: HTTP 404"
  },
  "1877": {
   "stage": "finalized",
@@ -11825,9 +11829,11 @@
   "sourceUrl": "https://md.nova.edu/degrees/masters/physician-assistant/index.html"
  },
  "1895": {
-  "stage": "source_discovery",
-  "lastAttempt": "2026-08-17T19:33:16.593Z",
-  "attempts": 3
+  "stage": "finalized",
+  "lastAttempt": "2026-08-17T20:21:52.353Z",
+  "attempts": 3,
+  "sourceUrl": "https://md.nova.edu/degrees/masters/physician-assistant/index.html",
+  "finalStatus": "verified"
  },
  "1896": {
   "stage": "finalized",
@@ -12123,10 +12129,11 @@
   "finalStatus": "verified"
  },
  "1938": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T22:03:06.268Z",
-  "attempts": 1,
-  "error": "reset for improved discovery: https://www.wichita.edu/academics/health_professions/pa/: too little text"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T19:39:22.291Z",
+  "attempts": 2,
+  "error": "https://www.wichita.edu/academics/health_professions/pa/: too little text",
+  "sourceUrl": "https://www.wichita.edu/academics/health_professions/pa/"
  },
  "1939": {
   "stage": "finalized",
@@ -12339,10 +12346,11 @@
   "finalStatus": "verified"
  },
  "1969": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T22:03:23.454Z",
-  "attempts": 1,
-  "error": "reset for improved discovery: https://pa.com.msu.edu/: too little text"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T19:39:35.264Z",
+  "attempts": 2,
+  "error": "https://pa.com.msu.edu/: too little text",
+  "sourceUrl": "https://pa.com.msu.edu/"
  },
  "1970": {
   "stage": "finalized",
@@ -12457,9 +12465,10 @@
   "finalStatus": "verified"
  },
  "1986": {
-  "stage": "source_discovery",
-  "lastAttempt": "2026-08-17T19:37:34.663Z",
-  "attempts": 3
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T19:38:04.518Z",
+  "attempts": 3,
+  "error": "https://www.meridian.msstate.edu/academics/physician-assistant/: HTTP 403"
  },
  "1987": {
   "stage": "finalized",
@@ -12972,9 +12981,11 @@
   "finalStatus": "verified"
  },
  "2060": {
-  "stage": "source_discovery",
-  "lastAttempt": "2026-08-17T19:37:32.970Z",
-  "attempts": 3
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T19:37:57.397Z",
+  "attempts": 3,
+  "error": "https://www.msj.edu/academics/graduate-programs/physician-assistant-program/: too little text",
+  "sourceUrl": "https://www.msj.edu/academics/graduate-programs/physician-assistant-program/"
  },
  "2061": {
   "stage": "finalized",
@@ -13683,10 +13694,11 @@
   "finalStatus": "verified"
  },
  "2162": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T22:05:20.190Z",
-  "attempts": 1,
-  "error": "reset for improved discovery: https://catalog.concord.edu/content.php?catoid=19&: too little text || https://www.concord.edu/admissions/graduate: no u"
+  "stage": "finalized",
+  "lastAttempt": "2026-08-17T19:40:37.743Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.concord.edu/pa",
+  "finalStatus": "verified"
  },
  "2163": {
   "stage": "finalized",
