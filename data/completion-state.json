@@ -15438,10 +15438,11 @@
   "error": "https://vetmedbiosci.colostate.edu/degree-programs/graduate/ms-biomedical-sciences/assisted-reproductive-technologies/: no usable prereq list"
  },
  "2396": {
-  "stage": "source_fetched",
-  "lastAttempt": "2026-08-17T08:12:34.721Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T08:13:19.537Z",
   "attempts": 2,
-  "sourceUrl": "https://www.unco.edu/admissions-aid/graduate/"
+  "sourceUrl": "https://www.unco.edu/admissions-aid/undergraduate/admitted-students/",
+  "error": "https://www.unco.edu/osteopathic-medicine/admission/requirements/: no usable prereq list || https://www.unco.edu/admissions-aid/graduate/: no usable prereq list || https://www.unco.edu/osteopathic-medicine/admission/: no usable prereq list || https://www.unco.edu/admissions-aid/undergraduate/transfer/: no usable prereq list"
  },
  "2397": {
   "stage": "finalized",
@@ -15479,10 +15480,11 @@
   "error": "https://www.unco.edu/osteopathic-medicine/admission/requirements/: no usable prereq list || https://www.unco.edu/admissions-aid/graduate/: no usable prereq list || https://www.unco.edu/osteopathic-medicine/admission/: no usable prereq list || https://www.unco.edu/admissions-aid/undergraduate/transfer/: no usable prereq list"
  },
  "2402": {
-  "stage": "source_fetched",
-  "lastAttempt": "2026-08-17T08:12:35.182Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T08:12:56.990Z",
   "attempts": 2,
-  "sourceUrl": "https://www.gwu.edu/undergraduate-admissions"
+  "sourceUrl": "https://www.gwu.edu/",
+  "error": "https://healthsciencesprograms.gwu.edu/program/the-george-washington-university-post-baccalaureate-certificate-in-chemistry-certificate-1530298280047: HTTP 404 || https://graduate.admissions.gwu.edu/international-student-application-requirements: no usable prereq list"
  },
  "2403": {
   "stage": "failed",
@@ -15555,10 +15557,11 @@
   "error": "https://ehe.jhu.edu/graduate/masters-programs/master-of-health-science-in-environmental-health/index.html: HTTP 403"
  },
  "2413": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T07:51:55.981Z",
-  "attempts": 1,
-  "sourceUrl": "https://asuonline.asu.edu/admission/home-school/apply/"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T08:13:43.968Z",
+  "attempts": 2,
+  "sourceUrl": "https://asuonline.asu.edu/admission/international/apply/",
+  "error": "https://asuonline.asu.edu/admission/graduate/: no usable prereq list || https://asuonline.asu.edu/admission/transfer/: no usable prereq list || https://asuonline.asu.edu/admission/international/: no usable prereq list || https://asuonline.asu.edu/admission/nondegree/: no usable prereq list"
  },
  "2414": {
   "stage": "failed",
@@ -16439,10 +16442,11 @@
   "finalStatus": "verified"
  },
  "2543": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T20:03:32.453Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.pennwest.edu//"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T08:14:09.921Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.pennwest.edu//",
+  "error": "https://www.bradley.edu/admissions/graduate/: no usable prereq list || https://www.bradley.edu/admissions/non-degree-readmission/: no usable prereq list"
  },
  "2544": {
   "stage": "failed",
@@ -16459,10 +16463,11 @@
   "finalStatus": "verified"
  },
  "2546": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T20:03:08.223Z",
-  "attempts": 1,
-  "sourceUrl": "https://catalog.byu.edu/"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T08:14:23.643Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.byu.edu/",
+  "error": "https://enrollment.byu.edu/admissions/preparation-recommendations: no usable prereq list"
  },
  "2547": {
   "stage": "finalized",
@@ -16507,10 +16512,11 @@
   "finalStatus": "verified"
  },
  "2553": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T20:05:08.198Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.calstatela.edu/hhs/aslp/peer-mentoring"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T08:15:23.342Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.calstatela.edu/hhs/aslp",
+  "error": "https://www.calstatela.edu/hhs/aslp: no usable prereq list"
  },
  "2554": {
   "stage": "finalized",
@@ -16534,10 +16540,11 @@
   "finalStatus": "verified"
  },
  "2557": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-16T20:05:45.668Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.pennwest.edu//"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T08:15:02.492Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.csusb.edu/join-the-pack",
+  "error": "https://www.csusb.edu/join-the-pack/future-students/apply/graduate-admissions-requirements: no usable prereq list || https://www.csusb.edu/join-the-pack/future-students/apply/freshmen-admissions-requirements: no usable prereq list || https://www.csusb.edu/join-the-pack/future-students/apply/transfer-admissions-requirements: no usable prereq list || https://www.csusb.edu/graduate-studies/prospective-students/how-apply/admissions-requirements: fetch failed"
  },
  "2558": {
   "stage": "finalized",
@@ -16547,16 +16554,18 @@
   "finalStatus": "verified"
  },
  "2559": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-07T23:20:28.593Z",
-  "attempts": 0,
-  "sourceUrl": "https://www.south.edu/department/nursing/?dept=327"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T08:14:35.213Z",
+  "attempts": 1,
+  "sourceUrl": "https://www.pennwest.edu//",
+  "error": "https://www.pennwest.edu//: no usable prereq list"
  },
  "2560": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-07T23:20:37.191Z",
-  "attempts": 0,
-  "sourceUrl": "https://www.sdstate.edu/nursing"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T08:14:46.110Z",
+  "attempts": 1,
+  "sourceUrl": "https://www.pennwest.edu//",
+  "error": "https://www.pennwest.edu//: fetch failed"
  },
  "2561": {
   "stage": "failed",
@@ -16587,10 +16596,11 @@
   "finalStatus": "verified"
  },
  "2565": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-07T23:20:43.144Z",
-  "attempts": 0,
-  "sourceUrl": "http://spalding.edu/academics/kosair-for-kids-college-of-health-and-natural-sciences/school-of-nursing/"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T08:15:03.141Z",
+  "attempts": 1,
+  "sourceUrl": "https://www.pennwest.edu/",
+  "error": "https://www.catholic.edu: HTTP 403 || https://www.pennwest.edu/: no usable prereq list"
  },
  "2566": {
   "stage": "finalized",
@@ -16614,9 +16624,11 @@
   "error": "https://www.pennwest.edu/admissions/graduate/index.php: no usable prereq list || https://www.pennwest.edu/admissions/graduate/non-degree.php: no usable prereq list"
  },
  "2569": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-07T23:21:59.312Z",
-  "attempts": 0
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T08:15:17.823Z",
+  "attempts": 1,
+  "error": "refusing mismatched institution URL https://health.csuohio.edu/communication-sciences-disorde/bachelor-arts-in-communication-sciences-and-disorders",
+  "sourceUrl": "https://health.csuohio.edu/communication-sciences-disorde"
  },
  "2570": {
   "stage": "failed",
@@ -16633,10 +16645,11 @@
   "error": "http://www.strose.edu: fetch failed"
  },
  "2572": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-07T23:21:00.001Z",
-  "attempts": 0,
-  "sourceUrl": "https://nursing.tamu.edu/"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T08:15:14.592Z",
+  "attempts": 1,
+  "sourceUrl": "https://www.pennwest.edu/",
+  "error": "https://www.pennwest.edu/: no usable prereq list"
  },
  "2573": {
   "stage": "failed",
@@ -16660,10 +16673,11 @@
   "error": "https://www.brooklyn.edu/events/category/admissions-graduate/: no usable prereq list || https://www.brooklyn.edu/admissions-aid/graduate/how-to-apply/faq/: no usable prereq list"
  },
  "2576": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-07T23:21:07.810Z",
-  "attempts": 0,
-  "sourceUrl": "http://www.thechristcollege.edu/"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T08:15:29.178Z",
+  "attempts": 1,
+  "sourceUrl": "https://www.pennwest.edu/",
+  "error": "https://www.pennwest.edu/: no usable prereq list"
  },
  "2577": {
   "stage": "failed",
@@ -16700,10 +16714,10 @@
   "finalStatus": "verified"
  },
  "2582": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-07T23:21:33.533Z",
-  "attempts": 0,
-  "sourceUrl": "https://uthscsa.edu/nursing/"
+  "stage": "extracted",
+  "lastAttempt": "2026-08-17T08:15:36.669Z",
+  "attempts": 1,
+  "sourceUrl": "https://www.ecu.edu/"
  },
  "2583": {
   "stage": "finalized",
@@ -16776,10 +16790,10 @@
   "error": "https://catalog.emerson.edu/preview_program.php?catoid=16&poid=1040&hl=: too little text || https://admissions.emerson.edu/account/login?cookie=1: HTTP 503 || https://emerson.edu/programs/communication-disorders/: no usable prereq list || https://emerson.edu/programs/communication-disorders/: no usable prereq list"
  },
  "2593": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-07T23:22:27.525Z",
-  "attempts": 0,
-  "sourceUrl": "https://nursing.ucf.edu/"
+  "stage": "source_fetched",
+  "lastAttempt": "2026-08-17T08:15:45.165Z",
+  "attempts": 1,
+  "sourceUrl": "https://www.emory.edu/apply"
  },
  "2594": {
   "stage": "failed",

@@ -21,6 +21,11 @@
  *   (source_blocked is only set after all retrieval methods fail; see failure queue)
  *
  * Usage:
+ *   Load repo-root `.env` (DATABASE_URL, OPENAI_API_KEY, optional FIRECRAWL_API_KEY).
+ *   Never commit `.env`. Copy `.env.example` for the variable names only.
+ *   If Firecrawl returns 401/402, this worker disables it for the rest of the run
+ *   and continues over HTTP / Wikidata / DuckDuckGo / Bing.
+ *
  *   pnpm --filter @workspace/scripts run complete:prereqs -- --limit 10 --profession physical-therapy
  *   pnpm --filter @workspace/scripts run complete:prereqs -- --all-unfinished
  *   pnpm --filter @workspace/scripts run complete:prereqs -- --retry-failures
@@ -40,6 +45,32 @@ const STATE_FILE = path.join(ROOT, "data/completion-state.json");
 const TODAY = new Date().toISOString().slice(0, 10);
 const USER_AGENT =
   "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36 HealthProfessionsPlanner/1.0";
+
+function loadRepoDotEnv() {
+  const envPath = path.join(ROOT, ".env");
+  try {
+    const text = fs.readFileSync(envPath, "utf8");
+    for (const raw of text.split(/\r?\n/)) {
+      const line = raw.trim();
+      if (!line || line.startsWith("#")) continue;
+      const i = line.indexOf("=");
+      if (i < 1) continue;
+      const name = line.slice(0, i).trim();
+      let val = line.slice(i + 1).trim();
+      if (
+        (val.startsWith('"') && val.endsWith('"')) ||
+        (val.startsWith("'") && val.endsWith("'"))
+      ) {
+        val = val.slice(1, -1);
+      }
+      if (!process.env[name]) process.env[name] = val;
+    }
+  } catch {
+    /* .env is optional when the shell already exported keys */
+  }
+}
+loadRepoDotEnv();
+
 const OPENAI_KEY = process.env.OPENAI_API_KEY ?? "";
 let FIRECRAWL_KEY = process.env.FIRECRAWL_API_KEY ?? "";
 let firecrawlDisabledReason = "";

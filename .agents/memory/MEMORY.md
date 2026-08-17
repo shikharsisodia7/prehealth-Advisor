@@ -3,5 +3,6 @@
 - [Accreditor directory sources](accreditor-directory-sources.md) — which health-profession accreditor directories are machine-readable vs blocked, and the fetch tricks that worked.
 - [Sandbox fetch quirks](sandbox-fetch-quirks.md) — webFetch returns `.markdown` not `.content`; queryWithLLM returns a plain string; setTimeout undefined in durable scope.
 - [Prereq machine verification](prereq-machine-verification.md) — audit→correct→materiality-adjudicate pipeline; naive LLM audit loops oscillate; record method in verification_note; search for alternate official URLs before accepting source-blocked.
+- [Prerequisite completion worker](prereq-completion-worker.md) — `complete:prereqs` reads `DATABASE_URL`, `OPENAI_API_KEY`, and optional `FIRECRAWL_API_KEY` from repo-root `.env` (never commit secrets). Firecrawl 401/402 auto-disables for the rest of the run.
 - [LLM extraction validation traps](llm-extraction-validation.md) — never trust LLM page claims: verify evidence quotes appear in fetched text, assert claim semantics, check page is on-topic.
 - [AAMC postbac API access](aamc-postbac-api.md) — underlying REST API at api.mec.aamc.org is live even when the Angular SPA shell appears blocked; get SERVICE_URL from Wayback-cached config endpoint.

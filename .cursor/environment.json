@@ -3,11 +3,11 @@
   "terminals": [
     {
       "name": "complete-prereqs",
-      "command": "pnpm --filter @workspace/scripts run complete:prereqs -- --all-unfinished"
+      "command": "set -a && [ -f .env ] && . ./.env; set +a && pnpm --filter @workspace/scripts run complete:prereqs -- --all-unfinished"
     },
     {
       "name": "completion-stay",
-      "command": "bash scripts/completion-stay.sh"
+      "command": "set -a && [ -f .env ] && . ./.env; set +a && pnpm --filter @workspace/scripts run complete:prereqs -- --all-unfinished"
     }
   ]
 }
