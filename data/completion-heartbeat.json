@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-08-17T07:47:51.379438Z",
-  "verified": 1436,
-  "nsp": 25,
-  "unfinished": 1396,
-  "finalizedPct": 51.1,
+  "generatedAt": "2026-08-17T07:55:15.540043Z",
+  "verified": 1439,
+  "nsp": 26,
+  "unfinished": 1392,
+  "finalizedPct": 51.3,
   "unfinishedByProfession": {
     "medicine": 169,
-    "dental": 18,
+    "dental": 14,
     "physician-assistant": 200,
     "nursing": 164,
     "pharmacy": 121,
@@ -19,6 +19,6 @@
     "postbac": 232
   },
   "secretsPresent": false,
-  "blocker": "DATABASE_URL and OPENAI_API_KEY missing on cloud VM",
+  "blocker": "Cloud lacks secrets; local Neon worker active",
   "branch": "cursor/final-completion-pass-7954"
 }
