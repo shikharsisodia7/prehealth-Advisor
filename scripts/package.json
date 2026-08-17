@@ -12,7 +12,8 @@
     "verify:caa-pa": "tsx ./src/verify-caa-pa-import.ts",
     "upsert:pt-prereqs": "tsx ./src/upsert-pt-prereqs.ts",
     "acquire:prereqs": "tsx ./src/prereq-acquisition.ts",
-    "complete:prereqs": "tsx ./src/complete-prereqs.ts"
+    "complete:prereqs": "tsx ./src/complete-prereqs.ts",
+    "reset:retryable-failures": "tsx ./src/reset-retryable-failures.ts"
   },
   "dependencies": {
     "@workspace/db": "workspace:*",
