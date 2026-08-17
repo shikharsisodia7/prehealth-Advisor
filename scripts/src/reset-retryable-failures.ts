@@ -11,7 +11,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const STATE_FILE = path.join(__dirname, "../../data/completion-state.json");
 
 const RETRYABLE =
-  /Invalid URL|http:\/\/:|http:\/\/\s*$|\.gov\/|texas\.gov|virginia\.gov|louisiana\.gov|myflorida|transfer\.html|international-student|prospective-students|admissions-events|precollege|undergraduate-admissions|too little text|HTTP 403|HTTP 404|fetch failed|no usable prereq list.*transfer|no usable prereq list.*international|no official candidate URLs|PDF extract failed|academic-catalog\.php|core-curriculum|pennwest\.edu|www\.twu\.edu/i;
+  /Invalid URL|http:\/\/:|http:\/\/\s*$|\.gov\/|texas\.gov|virginia\.gov|louisiana\.gov|myflorida|transfer\.html|international-student|prospective-students|admissions-events|precollege|undergraduate-admissions|too little text|HTTP 403|HTTP 401|HTTP 404|fetch failed|no usable prereq list|no official candidate URLs|PDF extract failed|PDF source requires Firecrawl|Jina reader|Keenable|academic-catalog\.php|core-curriculum|pennwest\.edu|www\.twu\.edu/i;
 
 type Stage = "unstarted" | "failed" | string;
 interface ProgramState {
@@ -27,6 +27,11 @@ function main() {
   const state: Record<string, ProgramState> = JSON.parse(fs.readFileSync(STATE_FILE, "utf8"));
   let reset = 0;
   for (const [id, s] of Object.entries(state)) {
+    if (s.stage === "source_discovery" || s.stage === "source_fetched" || s.stage === "extracted") {
+      state[id] = { ...s, stage: "unstarted", error: "reset interrupted in-flight attempt" };
+      reset++;
+      continue;
+    }
     if (s.stage !== "failed" || !s.error) continue;
     if (!RETRYABLE.test(s.error)) continue;
     state[id] = {

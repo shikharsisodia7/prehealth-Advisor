@@ -21,10 +21,10 @@
  *   (source_blocked is only set after all retrieval methods fail; see failure queue)
  *
  * Usage:
- *   Load repo-root `.env` (DATABASE_URL, OPENAI_API_KEY, optional FIRECRAWL_API_KEY).
- *   Never commit `.env`. Copy `.env.example` for the variable names only.
+ *   Load repo-root `.env` (DATABASE_URL, OPENAI_API_KEY, optional FIRECRAWL_API_KEY,
+ *   JINA_API_KEY, KEENABLE_API_KEY). Never commit `.env`. Copy `.env.example` for names only.
  *   If Firecrawl returns 401/402, this worker disables it for the rest of the run
- *   and continues over HTTP / Wikidata / DuckDuckGo / Bing.
+ *   and continues over Keenable / Jina / HTTP / Wikidata / DuckDuckGo / Bing.
  *
  *   pnpm --filter @workspace/scripts run complete:prereqs -- --limit 10 --profession physical-therapy
  *   pnpm --filter @workspace/scripts run complete:prereqs -- --all-unfinished
@@ -72,6 +72,7 @@ function loadRepoDotEnv() {
 loadRepoDotEnv();
 
 const OPENAI_KEY = process.env.OPENAI_API_KEY ?? "";
+const JINA_KEY = process.env.JINA_API_KEY ?? "";
 let FIRECRAWL_KEY = process.env.FIRECRAWL_API_KEY ?? "";
 let firecrawlDisabledReason = "";
 function disableFirecrawl(reason: string) {
@@ -79,6 +80,17 @@ function disableFirecrawl(reason: string) {
   console.warn(`Firecrawl disabled for this run: ${reason}`);
   firecrawlDisabledReason = reason;
   FIRECRAWL_KEY = "";
+}
+let KEENABLE_KEY = (process.env.KEENABLE_API_KEY ?? "").trim();
+let keenableDisabledReason = "";
+function disableKeenable(reason: string) {
+  if (!KEENABLE_KEY) return;
+  console.warn(`Keenable disabled for this run: ${reason}`);
+  keenableDisabledReason = reason;
+  KEENABLE_KEY = "";
+}
+function keenableAuthHeaders(): Record<string, string> {
+  return { "X-API-Key": KEENABLE_KEY, accept: "application/json" };
 }
 const KEYWORDS = [
   "prerequisite", "pre-requisite", "admission-requirements", "admission_requirements",
@@ -219,6 +231,57 @@ async function firecrawlSearch(query: string): Promise<string[]> {
   return (body.data ?? []).map((d) => d.url).filter((u): u is string => !!u);
 }
 
+async function keenableSearch(query: string): Promise<string[]> {
+  if (!KEENABLE_KEY) return [];
+  await politeDelay("https://api.keenable.ai/search");
+  const res = await fetch("https://api.keenable.ai/v1/search", {
+    method: "POST",
+    headers: { ...keenableAuthHeaders(), "content-type": "application/json" },
+    body: JSON.stringify({ query }),
+    signal: AbortSignal.timeout(30_000),
+  });
+  if (res.status === 402 || res.status === 401 || res.status === 403) {
+    disableKeenable(`search HTTP ${res.status}`);
+    return [];
+  }
+  if (res.status === 429) {
+    await new Promise((r) => setTimeout(r, 2000));
+    throw new Error("Keenable search HTTP 429");
+  }
+  if (!res.ok) throw new Error(`Keenable search HTTP ${res.status}`);
+  const body = (await res.json()) as { results?: Array<{ url?: string }> };
+  return (body.results ?? []).map((d) => d.url).filter((u): u is string => !!u);
+}
+
+async function keenableFetch(url: string): Promise<Fetched> {
+  if (!KEENABLE_KEY) throw new Error(keenableDisabledReason || "Keenable not configured");
+  await politeDelay("https://api.keenable.ai/fetch");
+  const endpoint = `https://api.keenable.ai/v1/fetch?url=${encodeURIComponent(url)}&live=true`;
+  const res = await fetch(endpoint, {
+    headers: keenableAuthHeaders(),
+    signal: AbortSignal.timeout(60_000),
+  });
+  if (res.status === 402 || res.status === 401 || res.status === 403) {
+    disableKeenable(`fetch HTTP ${res.status}`);
+    throw new Error(`Keenable fetch HTTP ${res.status}`);
+  }
+  if (res.status === 429) {
+    await new Promise((r) => setTimeout(r, 2000));
+    throw new Error("Keenable fetch HTTP 429");
+  }
+  if (!res.ok) throw new Error(`Keenable fetch HTTP ${res.status}`);
+  const body = (await res.json()) as { content?: string; url?: string };
+  const md = (body.content ?? "").replace(/\u0000/g, "").trim();
+  if (md.length < 300) throw new Error("Keenable too little text");
+  return {
+    url: body.url || url,
+    html: md,
+    text: md.slice(0, 160_000),
+    hash: crypto.createHash("sha256").update(md).digest("hex"),
+    contentType: "text/markdown",
+  };
+}
+
 async function fetchOfficial(url: string): Promise<Fetched> {
   const primary = normalizeCandidateUrl(url) ?? url;
   const attempts = [primary];
@@ -295,7 +358,7 @@ function isLowValueCandidate(url: string): boolean {
   // State/federal portals that match institution tokens (e.g. "Texas", "Virginia") but are not schools.
   if (/\.(gov)([/?#]|$)/i.test(hay) && !/\.edu/i.test(hay)) return true;
   if (/undergraduate-admissions|\/freshman|first-year|high-school-students|undergrad\/apply|precollege/.test(hay) &&
-      !/graduate|slp|csd|dpt|otd|pharmd|msn|mepn|absn|physician|post-bacc|postbac|communication|occupational|physical-therapy/.test(hay)) {
+      !hasGradOrProfessionPath(hay)) {
     return true;
   }
   // Generic campus chrome that recently flooded the nursing queue with false "no usable list" failures.
@@ -441,6 +504,13 @@ async function googleSearch(query: string): Promise<string[]> {
 
 async function webSearch(query: string): Promise<string[]> {
   return withSearchLock(async () => {
+    if (KEENABLE_KEY) {
+      try {
+        const urls = await keenableSearch(query);
+        const useful = urls.filter((u) => !BLOCKED_SEARCH_HOSTS.test(u));
+        if (useful.length) return useful;
+      } catch { /* fall through */ }
+    }
     if (FIRECRAWL_KEY) {
       try {
         const urls = await firecrawlSearch(query);
@@ -522,11 +592,31 @@ function hostMatchesWebsite(urlHost: string, websiteUrl: string | null | undefin
   }
 }
 
+function hasGradOrProfessionPath(hay: string): boolean {
+  // "undergraduate" contains the substring "graduate" — strip it before testing.
+  const h = hay.toLowerCase().replace(/undergraduate/g, " ");
+  return /(?:graduate|slp\b|csd\b|\bdpt\b|\botd\b|pharmd|\bmsn\b|mepn|absn|physician|post-?bacc|postbac|communication|occupational|physical-therapy|pa-program)/i.test(h);
+}
+
+const CAMPUS_HOST_HINTS: Array<[RegExp, RegExp]> = [
+  [/\bgreensboro\b/i, /uncg|greensboro/i],
+  [/\bcharlotte\b/i, /charlotte|uncc/i],
+  [/\bwilmington\b/i, /uncw|wilmington/i],
+  [/\basheville\b/i, /unca|asheville/i],
+  [/\bpembroke\b/i, /uncp|pembroke/i],
+  [/\bchapel hill\b|\bchapel-hill\b/i, /(^|\.)unc\.edu$/i],
+];
+
+function campusHostConflicts(name: string, host: string): boolean {
+  return CAMPUS_HOST_HINTS.some(([nameRe, hostRe]) => nameRe.test(name) && !hostRe.test(host));
+}
+
 /** True when a URL's host looks like a different institution (e.g. pennwest.edu for Bradley). */
 function websiteConflictsWithInstitution(url: string, name: string): boolean {
   try {
     const raw = /^https?:\/\//i.test(url) ? url : `https://${url}`;
     const host = new URL(raw).hostname.replace(/^www\./i, "").toLowerCase();
+    if (campusHostConflicts(name, host)) return true;
     const nameNorm = normalize(name);
     if (institutionTokens(name).some((t) => host.includes(t))) return false;
     // Campus catalog hosts (catalog.dyu.edu, catalogs.eku.edu) are usually official.
@@ -670,7 +760,7 @@ function scoreCandidateUrl(url: string, program: ProgramRow): number {
       score -= 12;
     }
     if (/undergraduate|freshman|first-year|high-school|undergrad-admissions/.test(hay) &&
-        !/graduate|post-bacc|postbac|slp|csd|dpt|otd|pharmd|msn|mepn|absn|pa-program|physician/.test(hay)) {
+        !hasGradOrProfessionPath(hay)) {
       score -= 8;
     }
     if (program.websiteUrl) {
@@ -738,7 +828,15 @@ async function crawlSiteForCandidates(
     if (seen.has(key)) continue;
     seen.add(key);
     try {
-      const page = await fetchOfficial(url);
+      let page: Fetched;
+      try {
+        page = await fetchOfficial(url);
+        if (page.text.length < 400) {
+          try { page = await fetchWithFallback(url); } catch { /* keep thin official page */ }
+        }
+      } catch {
+        page = await fetchWithFallback(url);
+      }
       if (page.text.length >= 300 && PREREQ_PAGE_HINT.test(page.text)) {
         found.push(page.url);
       }
@@ -805,7 +903,7 @@ async function discoverCandidates(program: ProgramRow): Promise<string[]> {
     candidates.push(...crawled);
     // Also keep one-hop keyword links even if text hint missed (for secondary expand).
     try {
-      const page = await fetchOfficial(seed);
+      const page = await fetchWithFallback(seed);
       candidates.push(...keywordLinks(page.html, page.url, professionKeywords(program.professionSlug)));
     } catch { /* skip */ }
     if (crawled.length >= 2) break;
@@ -1142,7 +1240,8 @@ text = "\\n".join(parts).strip()
 open(sys.argv[2], "w", encoding="utf-8").write(text)
 print(len(text))
 `;
-    const run = spawnSync("python3", ["-c", py, tmpPdf, tmpTxt], { encoding: "utf8", timeout: 60_000 });
+    const first = spawnSync("python", ["-c", py, tmpPdf, tmpTxt], { encoding: "utf8", timeout: 60_000 });
+    const run = first.status === 0 ? first : spawnSync("python3", ["-c", py, tmpPdf, tmpTxt], { encoding: "utf8", timeout: 60_000 });
     if (run.status !== 0) {
       throw new Error(`PDF extract failed: ${(run.stderr || run.stdout || "").slice(0, 200)}`);
     }
@@ -1161,6 +1260,32 @@ print(len(text))
   }
 }
 
+async function fetchJinaReader(url: string): Promise<Fetched> {
+  if (!JINA_KEY) throw new Error("Jina not configured");
+  await politeDelay("https://r.jina.ai/");
+  const headers: Record<string, string> = {
+    "user-agent": USER_AGENT,
+    accept: "text/plain",
+    "x-return-format": "markdown",
+  };
+  if (JINA_KEY) headers.authorization = `Bearer ${JINA_KEY}`;
+  const res = await fetch(`https://r.jina.ai/${url}`, {
+    headers,
+    signal: AbortSignal.timeout(45_000),
+    redirect: "follow",
+  });
+  if (!res.ok) throw new Error(`Jina reader HTTP ${res.status}`);
+  const text = (await res.text()).replace(/\u0000/g, "").trim();
+  if (text.length < 300) throw new Error("Jina reader too little text");
+  return {
+    url,
+    html: text,
+    text: text.slice(0, 160_000),
+    hash: crypto.createHash("sha256").update(text).digest("hex"),
+    contentType: "text/markdown",
+  };
+}
+
 async function fetchWayback(url: string): Promise<Fetched> {
   const avail = await fetch(
     `https://archive.org/wayback/available?url=${encodeURIComponent(url)}`,
@@ -1177,7 +1302,7 @@ async function fetchWayback(url: string): Promise<Fetched> {
 }
 
 async function fetchWithFallback(url: string): Promise<Fetched> {
-  // Prefer fast direct HTTP; use Firecrawl for PDFs, blocks, JS shells, and fetch failures.
+  // Prefer fast direct HTTP; use Keenable/Jina/Firecrawl for PDFs, blocks, JS shells, and fetch failures.
   if (/\.pdf($|\?)/i.test(url)) {
     if (FIRECRAWL_KEY) {
       try { return await firecrawlScrape(url); } catch { /* fall through to local PDF extract */ }
@@ -1187,13 +1312,26 @@ async function fetchWithFallback(url: string): Promise<Fetched> {
   try {
     const fetched = await fetchOfficial(url);
     if (fetched.text.length >= 300) return fetched;
+    if (JINA_KEY) {
+      try { return await fetchJinaReader(url); } catch { /* fall through */ }
+    }
+    if (KEENABLE_KEY) {
+      try { return await keenableFetch(url); } catch { /* fall through */ }
+    }
     if (FIRECRAWL_KEY) {
       try { return await firecrawlScrape(url); } catch { return fetched; }
     }
     return fetched;
   } catch (e) {
     const msg = e instanceof Error ? e.message : String(e);
-    if (FIRECRAWL_KEY && /HTTP 403|HTTP 401|HTTP 429|timeout|fetch failed|too little text/i.test(msg)) {
+    const blocked = /HTTP 403|HTTP 401|HTTP 429|timeout|fetch failed|too little text/i.test(msg);
+    if (blocked && KEENABLE_KEY) {
+      try { return await keenableFetch(url); } catch { /* try jina next */ }
+    }
+    if (blocked && JINA_KEY) {
+      try { return await fetchJinaReader(url); } catch { /* try wayback next */ }
+    }
+    if (FIRECRAWL_KEY && blocked) {
       try { return await firecrawlScrape(url); } catch { /* try wayback next */ }
     }
     if (/HTTP 403|HTTP 401|HTTP 429|fetch failed|timeout/i.test(msg)) {
@@ -1341,7 +1479,7 @@ async function main() {
       dbName: sql<string>`current_database()`,
     })
     .from(programSchoolsTable);
-  console.log(`Database identity: ${dbName}, ${count} program rows. Firecrawl: ${FIRECRAWL_KEY ? "on" : "off (DDG/Bing search)"}.`);
+  console.log(`Database identity: ${dbName}, ${count} program rows. Firecrawl: ${FIRECRAWL_KEY ? "on" : "off"}. Jina: ${JINA_KEY ? "on" : "off"}. Keenable: ${KEENABLE_KEY ? "on" : "off"}.`);
   if (count < 100) throw new Error("Refusing bulk run: program_schools has <100 rows — wrong database?");
 
   const rows = await db.select().from(programSchoolsTable).where(and(
@@ -1353,16 +1491,16 @@ async function main() {
   const professionPriority: Record<string, number> = {
     nursing: 0,
     "physician-assistant": 1,
-    "occupational-therapy": 2,
-    "physical-therapy": 3,
-    dental: 4,
-    dietetics: 5,
-    "genetic-counseling": 6,
-    "prosthetics-orthotics": 7,
-    medicine: 8,
-    pharmacy: 9,
-    postbac: 10,
-    "speech-language-pathology": 11,
+    "speech-language-pathology": 2,
+    "occupational-therapy": 3,
+    postbac: 4,
+    "physical-therapy": 5,
+    medicine: 6,
+    dietetics: 7,
+    pharmacy: 8,
+    dental: 9,
+    "genetic-counseling": 10,
+    "prosthetics-orthotics": 11,
   };
   let queue = (rows as ProgramRow[]).filter((r) => {
     const s = state[r.id];
