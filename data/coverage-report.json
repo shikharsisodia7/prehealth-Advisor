@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-17T08:16:58.193Z",
+  "generatedAt": "2026-08-17T08:26:59.073Z",
   "generatedFrom": "production-api",
   "professions": [
     {
@@ -564,13 +564,14 @@
       "inactivePrograms": 0,
       "prereqStatusCounts": {
         "verified": 116,
-        "draft": 206
+        "draft": 205,
+        "no_prereqs_published": 1
       },
       "prereqVerifiedCount": 116,
-      "prereqNoSpecificPrereqsCount": 0,
+      "prereqNoSpecificPrereqsCount": 1,
       "prereqBlockedCount": 0,
-      "prereqUnfinishedCount": 206,
-      "prereqVerifiedPct": 36,
+      "prereqUnfinishedCount": 205,
+      "prereqVerifiedPct": 36.3,
       "sources": [
         {
           "name": "ASHA CAA Accredited SLP Master's Programs",
