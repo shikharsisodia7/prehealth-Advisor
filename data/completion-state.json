@@ -3002,10 +3002,11 @@
   "finalStatus": "verified"
  },
  "608": {
-  "stage": "source_fetched",
-  "lastAttempt": "2026-08-17T17:52:23.188Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T17:52:53.706Z",
   "attempts": 2,
-  "sourceUrl": "https://www.bsu.edu/academics/collegesanddepartments/nursing"
+  "error": "https://www.bsu.edu/academics/collegesanddepartments/nursing: no usable prereq list || https://www.bsu.edu/academics/collegesanddepartments/nursing: no usable prereq list || https://www.bsu.edu/admissions/apply: no usable prereq list || https://www.bsu.edu/admissions/undergraduate-admissions/apply-now/high-school-students: no usable prereq list",
+  "sourceUrl": "https://www.bsu.edu/admissions/international"
  },
  "609": {
   "stage": "finalized",
@@ -3015,10 +3016,10 @@
   "finalStatus": "verified"
  },
  "610": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T21:32:48.447Z",
-  "attempts": 1,
-  "error": "reset for improved discovery: http://www.baylor.edu/Nursing/: HTTP 403 || https://admissions.web.baylor.edu/: HTTP 403 || https://admissions.web.baylo"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T18:01:13.610Z",
+  "attempts": 2,
+  "error": "https://www.baylor.edu/Nursing/: HTTP 403 || https://admissions.web.baylor.edu/: HTTP 403 || https://admissions.web.baylor.edu/about-baylor/majors-minors: HTTP 403"
  },
  "611": {
   "stage": "finalized",
@@ -3035,10 +3036,11 @@
   "error": "https://www.belmont.edu/inman/: no usable prereq list || https://www.belmont.edu/admissions/graduate-professional/: no usable prereq list || https://www.belmont.edu/admissions/apply.html: fetch failed || https://www.belmont.edu/admissions/: fetch failed"
  },
  "613": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T21:34:05.142Z",
-  "attempts": 1,
-  "error": "reset for improved discovery: https://www.bethel.edu/admissions/apply/: too little text || https://www.bethel.edu/admissions/faq: no usable prereq lis"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T18:02:25.983Z",
+  "attempts": 2,
+  "error": "https://www.bethel.edu/admissions/apply/: too little text || https://www.bethel.edu/admissions/faq: no usable prereq list || https://www.bethel.edu/academics/: no usable prereq list || https://www.bethel.edu/academics/: no usable prereq list",
+  "sourceUrl": "https://www.bethel.edu/academics/"
  },
  "614": {
   "stage": "finalized",
@@ -3049,8 +3051,8 @@
  },
  "615": {
   "stage": "failed",
-  "lastAttempt": "2026-08-16T21:23:20.438Z",
-  "attempts": 1,
+  "lastAttempt": "2026-08-17T17:59:46.806Z",
+  "attempts": 2,
   "error": "https://www.brcn.edu/programs/bsn-program-options/bachelor-science-nursing-bsn: no usable prereq list",
   "sourceUrl": "https://www.brcn.edu/"
  },
@@ -3112,9 +3114,9 @@
  },
  "624": {
   "stage": "failed",
-  "lastAttempt": "2026-08-17T07:45:58.322Z",
-  "attempts": 2,
-  "sourceUrl": "https://www.calstatela.edu/hhs/nursing",
+  "lastAttempt": "2026-08-17T17:53:21.343Z",
+  "attempts": 3,
+  "sourceUrl": "https://www.sdsu.edu/",
   "error": "https://admissions.sdsu.edu/international/graduate: no usable prereq list || https://admissions.sdsu.edu/graduate: no usable prereq list || https://admissions.sdsu.edu/application-admission-status: no usable prereq list || https://sacd.sdsu.edu/veterans/admissions: no usable prereq list"
  },
  "625": {
@@ -3167,10 +3169,11 @@
   "finalStatus": "verified"
  },
  "632": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T21:35:07.029Z",
-  "attempts": 1,
-  "error": "reset for improved discovery: https://www.ccsu.edu/graduate-admissions/program-specific-admission-requirements: no usable prereq list || https://www.c"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T18:02:44.037Z",
+  "attempts": 2,
+  "error": "https://www.ccsu.edu/sites/default/files/2026-08/CCSU%20NURSING%20DEPARTMENT%20Handbook%20August%202026.pdf: PDF extract failed: Traceback (most recent call last):\r\n  File \"<string>\", line 2, in <module>\r\n    from pypdf import PdfReader\r\nModuleNotFoundError: No module named 'pypdf'\r\n || https://www.ccsu.edu/graduate-admissions/program-specific-admission-requirements: no usable prereq list || https://www.ccsu.edu/transfer-admissions/admissions-requirements: no usable prereq list || https://www.cc",
+  "sourceUrl": "https://www.ccsu.edu/academics/program-documents"
  },
  "633": {
   "stage": "finalized",
@@ -3259,10 +3262,10 @@
   "finalStatus": "verified"
  },
  "646": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T21:16:38.414Z",
-  "attempts": 2,
-  "error": "reset for improved discovery: http://cui.edu/academicprograms/nursing: HTTP 403 || https://www.cui.edu/apply: HTTP 403"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T17:54:09.439Z",
+  "attempts": 3,
+  "error": "https://cui.edu/academicprograms/nursing: HTTP 403"
  },
  "647": {
   "stage": "finalized",
@@ -3300,11 +3303,11 @@
   "finalStatus": "verified"
  },
  "652": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-16T21:23:05.045Z",
-  "attempts": 1,
-  "error": "refusing mismatched institution URL https://catalog.dyu.edu/degree-programs/nursing/nursing-bsn/",
-  "sourceUrl": "https://www.dyu.edu/admissions/international-and-canadian-admissions"
+  "stage": "finalized",
+  "lastAttempt": "2026-08-17T17:58:59.944Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.dyu.edu/academics/degrees-programs/accelerated-bsn-absn",
+  "finalStatus": "verified"
  },
  "653": {
   "stage": "finalized",
@@ -3396,9 +3399,9 @@
  },
  "666": {
   "stage": "failed",
-  "lastAttempt": "2026-08-16T21:37:08.501Z",
-  "attempts": 2,
-  "sourceUrl": "https://www.edgewood.edu/admissions/how-to-apply/",
+  "lastAttempt": "2026-08-17T17:58:35.819Z",
+  "attempts": 3,
+  "sourceUrl": "https://www.edgewood.edu/admissions/how-to-apply/international-admissions/",
   "error": "https://www.edgewood.edu/academics/programs/associate-degree-in-nursing-master-of-science-in-nursing-pathway-adn-msn/: no usable prereq list || https://www.edgewood.edu/academics/programs/clinical-nurse-specialist-msn/: no usable prereq list || https://www.edgewood.edu/academics/programs/cns-in-adult-gerontology-msn/: no usable prereq list || https://www.edgewood.edu/academics/programs/nursing-comprehensive-msn/: no usable prereq list"
  },
  "667": {
@@ -3431,10 +3434,10 @@
  },
  "671": {
   "stage": "failed",
-  "lastAttempt": "2026-08-16T21:18:50.550Z",
-  "attempts": 2,
+  "lastAttempt": "2026-08-17T17:56:35.536Z",
+  "attempts": 3,
   "sourceUrl": "https://www.endicott.edu/admission/graduate-admission/register-for-classes",
-  "error": "https://www.endicott.edu/academics/schools/nursing: no usable prereq list || https://www.endicott.edu/academics/schools/nursing: no usable prereq list || https://www.endicott.edu/admission/graduate-admission/apply: no usable prereq list || https://www.endicott.edu/admission/undergraduate-admission: no usable prereq list"
+  "error": "https://www.endicott.edu/academics/schools/nursing: no usable prereq list || https://www.endicott.edu/admission/graduate-admission/apply: no usable prereq list || https://www.endicott.edu/admission/undergraduate-admission: no usable prereq list"
  },
  "672": {
   "stage": "finalized",
@@ -3549,15 +3552,14 @@
   "finalStatus": "verified"
  },
  "688": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T21:38:55.795Z",
-  "attempts": 1,
-  "error": "reset for improved discovery: http://https://www.gcu.edu/degree-programs/absn-accelerated-bsn/colorado/denver: fetch failed"
+  "stage": "source_discovery",
+  "lastAttempt": "2026-08-17T18:02:44.117Z",
+  "attempts": 2
  },
  "689": {
   "stage": "failed",
-  "lastAttempt": "2026-08-16T21:19:34.881Z",
-  "attempts": 2,
+  "lastAttempt": "2026-08-17T17:56:36.086Z",
+  "attempts": 3,
   "sourceUrl": "https://www.gvsu.edu/kcon/module/47494897-988e-43ac-93c5-0411f099d0d6/event/db4851fe-7481-4c6f-a973-8e0f3850fe96",
   "error": "https://www.gvsu.edu/admissions/welcome-future-graduate-student-105.htm: no usable prereq list || https://www.gvsu.edu/kcon/application-page-all-programs-9: no usable prereq list || https://www.gvsu.edu/kcon/baccalaureate-program-55: no usable prereq list"
  },
@@ -3652,11 +3654,10 @@
   "finalStatus": "verified"
  },
  "703": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-16T21:40:15.459Z",
-  "attempts": 2,
-  "sourceUrl": "https://coursecat.isu.edu/",
-  "error": "refusing mismatched institution URL https://coursecat.isu.edu/undergraduate/nursing-rehabilitation-human-health/school-of-rehabilitation-human-health/communication-sciences-and-disorders/minor-csd-pre-speech-language-pathology/"
+  "stage": "source_discovery",
+  "lastAttempt": "2026-08-17T18:02:56.402Z",
+  "attempts": 3,
+  "sourceUrl": "https://coursecat.isu.edu/"
  },
  "704": {
   "stage": "finalized",
@@ -3681,8 +3682,8 @@
  },
  "707": {
   "stage": "failed",
-  "lastAttempt": "2026-08-16T21:20:48.613Z",
-  "attempts": 2,
+  "lastAttempt": "2026-08-17T17:57:51.379Z",
+  "attempts": 3,
   "sourceUrl": "https://columbus.iu.edu/academics/divisions-programs/honors-program/curriculum/index.html",
   "error": "https://columbus.iu.edu/academics/divisions-programs/honors-program/admission/index.html: no usable prereq list"
  },
@@ -4089,8 +4090,8 @@
  },
  "766": {
   "stage": "failed",
-  "lastAttempt": "2026-08-16T21:21:46.906Z",
-  "attempts": 2,
+  "lastAttempt": "2026-08-17T17:58:15.226Z",
+  "attempts": 3,
   "sourceUrl": "https://www.kean.edu/kean-jersey-city/apply",
   "error": "https://www.kean.edu/offices/admissions/non-matriculatedvisiting-students: no usable prereq list"
  },
@@ -4203,10 +4204,11 @@
   "finalStatus": "verified"
  },
  "783": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-17T07:47:30.613Z",
-  "attempts": 2,
-  "error": "reset for improved discovery: http://harrisburg.psu.edu/behavioral-sciences-education/nursing-bsn: HTTP 403 || https://www.psu.edu/admission/undergrad"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T17:58:44.828Z",
+  "attempts": 3,
+  "error": "https://www.psu.edu/admission/undergraduate: no usable prereq list || https://www.psu.edu/admission/undergraduate/how-to-apply: no usable prereq list",
+  "sourceUrl": "https://www.psu.edu/"
  },
  "784": {
   "stage": "unstarted",
@@ -4337,8 +4339,8 @@
  },
  "803": {
   "stage": "failed",
-  "lastAttempt": "2026-08-16T21:24:07.403Z",
-  "attempts": 1,
+  "lastAttempt": "2026-08-17T17:59:52.161Z",
+  "attempts": 2,
   "error": "https://www.stedwards.edu/admission: no usable prereq list || https://www.stedwards.edu/admission/graduate/deadlines-checklist: no usable prereq list || https://www.stedwards.edu/admission/admission-counselors: no usable prereq list",
   "sourceUrl": "https://www.stedwards.edu/"
  },
@@ -4552,10 +4554,10 @@
   "finalStatus": "verified"
  },
  "834": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-17T07:48:07.071Z",
-  "attempts": 1,
-  "error": "reset for improved discovery: http://nursing.tcnj.edu/: HTTP 403 || http://www.tcnj.edu: HTTP 403"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T18:02:56.321Z",
+  "attempts": 2,
+  "error": "https://www.tcnj.edu/: HTTP 403"
  },
  "835": {
   "stage": "finalized",
@@ -4626,10 +4628,11 @@
   "finalStatus": "verified"
  },
  "845": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T21:21:56.920Z",
-  "attempts": 2,
-  "error": "reset for improved discovery: http://www.uu.edu/academics/son/: HTTP 403"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T17:59:16.536Z",
+  "attempts": 3,
+  "error": "https://www.uu.edu/admissions/undergraduate/academic-requirements/: no usable prereq list || https://www.uu.edu/admissions/: no usable prereq list || https://www.uu.edu/admissions/undergraduate/transfers/: no usable prereq list",
+  "sourceUrl": "https://www.uu.edu/academics/colleges-schools/college-of-nursing-and-health-sciences/"
  },
  "846": {
   "stage": "finalized",
@@ -5051,10 +5054,11 @@
   "finalStatus": "verified"
  },
  "907": {
-  "stage": "source_fetched",
-  "lastAttempt": "2026-08-17T17:52:22.663Z",
+  "stage": "finalized",
+  "lastAttempt": "2026-08-17T17:52:36.798Z",
   "attempts": 2,
-  "sourceUrl": "https://www.uwyo.edu/uw/degree-programs/basic-bsn.html"
+  "sourceUrl": "https://www.uwyo.edu/nursing/programs/basic-bsn/non-freshman-admission.html",
+  "finalStatus": "verified"
  },
  "908": {
   "stage": "finalized",
@@ -5202,10 +5206,11 @@
   "finalStatus": "verified"
  },
  "929": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T21:26:49.111Z",
-  "attempts": 1,
-  "error": "reset for improved discovery: http://www.wssu.edu/academics/colleges-and-departments/school-of-health-sciences/division-of-nursing: fetch failed"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T18:00:47.694Z",
+  "attempts": 2,
+  "error": "https://www.wssu.edu/academics/colleges-and-departments/school-of-health-sciences/division-of-nursing/_files/documents/2026-2027-ug-nursing-student-handbook.pdf: PDF extract failed: Traceback (most recent call last):\r\n  File \"<string>\", line 2, in <module>\r\n    from pypdf import PdfReader\r\nModuleNotFoundError: No module named 'pypdf'\r\n || https://www.wssu.edu/academics/colleges-and-departments/school-of-health-sciences/division-of-nursing/holistic-admission-nursing.html: no usable prereq list ||",
+  "sourceUrl": "https://www.wssu.edu/admissions/graduate-professional-experience.html"
  },
  "930": {
   "stage": "finalized",
@@ -5264,10 +5269,9 @@
   "finalStatus": "verified"
  },
  "938": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T21:29:04.402Z",
-  "attempts": 1,
-  "error": "reset for improved discovery: http://www.aurora.edu/nursing/: fetch failed"
+  "stage": "source_discovery",
+  "lastAttempt": "2026-08-17T17:59:52.240Z",
+  "attempts": 2
  },
  "939": {
   "stage": "finalized",
@@ -5285,8 +5289,8 @@
  },
  "941": {
   "stage": "failed",
-  "lastAttempt": "2026-08-16T21:16:28.095Z",
-  "attempts": 2,
+  "lastAttempt": "2026-08-17T17:53:22.188Z",
+  "attempts": 3,
   "sourceUrl": "https://www.bc.edu/bc-web/schools/cson.html",
   "error": "https://www.bc.edu/content/bc-web/schools/cson/academics/undergraduate-programs/bsn-nursing.html: no usable prereq list"
  },
@@ -5311,10 +5315,11 @@
   "error": "reset for improved discovery: http://www.carrollu.edu/programs/nursing/: HTTP 404"
  },
  "945": {
-  "stage": "source_fetched",
-  "lastAttempt": "2026-08-17T17:52:22.963Z",
+  "stage": "finalized",
+  "lastAttempt": "2026-08-17T17:52:35.031Z",
   "attempts": 3,
-  "sourceUrl": "https://case.edu/nursing/admissions"
+  "sourceUrl": "https://case.edu/nursing/programs/msn/stats-requirements",
+  "finalStatus": "verified"
  },
  "946": {
   "stage": "finalized",
@@ -5346,9 +5351,9 @@
  },
  "950": {
   "stage": "failed",
-  "lastAttempt": "2026-08-16T21:27:43.171Z",
-  "attempts": 2,
-  "sourceUrl": "https://www.depaul.edu/admission/undergraduate-admission/deadlines",
+  "lastAttempt": "2026-08-17T17:57:25.421Z",
+  "attempts": 3,
+  "sourceUrl": "https://www.depaul.edu/apply",
   "error": "https://www.depaul.edu/admission/undergraduate-admission: no usable prereq list || https://www.depaul.edu/admission/undergraduate-admission/adult-undergraduate-student: no usable prereq list || https://www.depaul.edu/admission/undergraduate-admission/returning-student: no usable prereq list || https://www.depaul.edu/admission/graduate-admission: no usable prereq list"
  },
  "951": {
@@ -5359,10 +5364,10 @@
   "finalStatus": "verified"
  },
  "952": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T21:27:46.865Z",
-  "attempts": 0,
-  "error": "reset for improved discovery: http://: Invalid URL"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T18:00:02.814Z",
+  "attempts": 1,
+  "error": "no official candidate URLs"
  },
  "953": {
   "stage": "unstarted",
@@ -5378,10 +5383,10 @@
   "finalStatus": "no_prereqs_published"
  },
  "955": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T21:16:40.572Z",
-  "attempts": 2,
-  "error": "reset for improved discovery: http://: Invalid URL"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T17:54:11.913Z",
+  "attempts": 3,
+  "error": "no official candidate URLs"
  },
  "956": {
   "stage": "finalized",
@@ -5405,10 +5410,11 @@
   "finalStatus": "verified"
  },
  "959": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T21:17:37.677Z",
-  "attempts": 1,
-  "error": "reset for improved discovery: https://www.fdu.edu/admissions/graduate/: no usable prereq list || https://www.fdu.edu/admissions/transfer/: no usable p"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T17:54:48.983Z",
+  "attempts": 2,
+  "error": "https://www.fdu.edu/admissions/graduate/: no usable prereq list || https://www.fdu.edu/admissions/graduate/admissions-status/: no usable prereq list",
+  "sourceUrl": "https://www.fdu.edu/campuses/vancouver-campus/admissions/"
  },
  "960": {
   "stage": "finalized",
@@ -5446,10 +5452,11 @@
   "finalStatus": "verified"
  },
  "965": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T21:17:29.965Z",
-  "attempts": 1,
-  "error": "reset for improved discovery: https://www.ju.edu/admissions/prospective-students.php: no usable prereq list || https://www.ju.edu/apply/index.php: no "
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T17:53:41.748Z",
+  "attempts": 2,
+  "error": "https://www.ju.edu/apply/index.php: no usable prereq list || https://www.ju.edu/admissions/transfer/index.php: no usable prereq list || https://www.ju.edu/admissions/prospective-students.php: no usable prereq list",
+  "sourceUrl": "https://www.ju.edu/international/index.php"
  },
  "966": {
   "stage": "unstarted",
@@ -5458,17 +5465,18 @@
   "error": "reset for improved discovery: http://nursing.jhu.edu/index.html: HTTP 403"
  },
  "967": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T04:37:23.103Z",
-  "attempts": 2,
-  "error": "reset for improved discovery: http://www.linfield.edu/nursing: too little text"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T17:53:34.005Z",
+  "attempts": 3,
+  "error": "https://www.linfield.edu/nursing: too little text",
+  "sourceUrl": "https://www.linfield.edu/nursing/"
  },
  "968": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-17T07:46:18.551Z",
-  "attempts": 2,
-  "sourceUrl": "https://llu.edu/",
-  "error": "https://llu.edu/admissions-aid: no usable prereq list || https://llu.edu/admissions-aid/visit-our-campus/open-house: no usable prereq list || https://llu.edu/admissions-aid/how-apply/you-apply-checklist: no usable prereq list"
+  "stage": "finalized",
+  "lastAttempt": "2026-08-17T17:53:52.021Z",
+  "attempts": 3,
+  "sourceUrl": "https://llu.edu/academics/programs/school-pharmacy/pharmacy-pharmd",
+  "finalStatus": "verified"
  },
  "969": {
   "stage": "finalized",
@@ -5506,10 +5514,10 @@
   "finalStatus": "verified"
  },
  "974": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T21:17:32.710Z",
-  "attempts": 2,
-  "error": "reset for improved discovery: http://: Invalid URL"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T17:53:44.419Z",
+  "attempts": 3,
+  "error": "no official candidate URLs"
  },
  "975": {
   "stage": "finalized",
@@ -5533,10 +5541,11 @@
   "finalStatus": "verified"
  },
  "978": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T21:18:47.046Z",
-  "attempts": 1,
-  "error": "reset for improved discovery: https://www.northpark.edu/admissions-aid/apply/: no usable prereq list || https://www.northpark.edu/admissions-aid/trans"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T17:54:28.757Z",
+  "attempts": 2,
+  "error": "https://www.northpark.edu/admissions-aid/apply/: no usable prereq list || https://www.northpark.edu/admissions-aid/transfer-students/: no usable prereq list || https://www.northpark.edu/admissions-aid/international-admissions/: no usable prereq list || https://www.northpark.edu/admissions-aid/parents-and-counselors/: no usable prereq list",
+  "sourceUrl": "https://www.northpark.edu/admissions-aid/"
  },
  "979": {
   "stage": "finalized",
@@ -5553,10 +5562,11 @@
   "finalStatus": "verified"
  },
  "981": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T04:40:39.477Z",
-  "attempts": 2,
-  "error": "reset for improved discovery: http://www.regiscollege.edu/academics/schools/richard-and-sheila-young-school-nursing: too little text"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T17:55:06.493Z",
+  "attempts": 3,
+  "error": "https://www.regiscollege.edu/academics/schools/richard-and-sheila-young-school-nursing: too little text",
+  "sourceUrl": "https://www.regiscollege.edu/academics/schools/richard-and-sheila-young-school-nursing"
  },
  "982": {
   "stage": "finalized",
@@ -5573,10 +5583,11 @@
   "finalStatus": "verified"
  },
  "984": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T21:20:07.044Z",
-  "attempts": 1,
-  "error": "reset for improved discovery: https://www.sbu.edu/admissions/admitted-students: no usable prereq list || https://www.sbu.edu/admissions/international-"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T17:56:37.598Z",
+  "attempts": 2,
+  "error": "https://www.sbu.edu/admissions/admitted-students: no usable prereq list",
+  "sourceUrl": "https://www.sbu.edu/admissions/visit-sbu"
  },
  "985": {
   "stage": "finalized",
@@ -5601,10 +5612,10 @@
  },
  "988": {
   "stage": "failed",
-  "lastAttempt": "2026-08-16T21:24:49.061Z",
-  "attempts": 1,
+  "lastAttempt": "2026-08-17T18:00:00.636Z",
+  "attempts": 2,
   "sourceUrl": "https://catalog.saintmarys.edu/",
-  "error": "https://www.saintmarys.edu/admission-aid/transfer/transfer-requirements: no usable prereq list"
+  "error": "https://www.saintmarys.edu/academics/departments/nursing-science: no usable prereq list || https://www.saintmarys.edu/admission-aid: no usable prereq list || https://www.saintmarys.edu/admission-aid/next-steps: no usable prereq list || https://www.saintmarys.edu/admission-aid/student-financial-services: no usable prereq list"
  },
  "989": {
   "stage": "finalized",
@@ -5648,8 +5659,8 @@
  },
  "995": {
   "stage": "failed",
-  "lastAttempt": "2026-08-17T07:46:34.718Z",
-  "attempts": 2,
+  "lastAttempt": "2026-08-17T17:55:43.146Z",
+  "attempts": 3,
   "sourceUrl": "https://online.osu.edu/content-hub/",
   "error": "https://gpadmissions.osu.edu/intl/additional-requirements-to-apply.html: no usable prereq list || https://gpadmissions.osu.edu/prof/steps-to-apply.html: no usable prereq list"
  },
@@ -5668,10 +5679,11 @@
   "finalStatus": "verified"
  },
  "998": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T21:21:03.154Z",
-  "attempts": 1,
-  "error": "reset for improved discovery: https://www.trinitycollegeqc.edu/about-us/news/trinityaugustana-22-program: HTTP 404 || https://www.trinitycollegeqc.edu"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T17:55:41.189Z",
+  "attempts": 2,
+  "error": "https://www.trinitycollegeqc.edu/about-us/news/trinityaugustana-22-program: HTTP 404 || https://www.trinitycollegeqc.edu/our-programs/nursing-programs/masters-of-science-nursing: no usable prereq list || https://www.trinitycollegeqc.edu/future-students/admissions/undergraduate-students: no usable prereq list || https://www.trinitycollegeqc.edu/future-students/admissions: no usable prereq list",
+  "sourceUrl": "https://www.trinitycollegeqc.edu/future-students/Application"
  },
  "999": {
   "stage": "finalized",
@@ -5703,9 +5715,9 @@
  },
  "1003": {
   "stage": "failed",
-  "lastAttempt": "2026-08-17T07:46:57.726Z",
-  "attempts": 2,
-  "sourceUrl": "https://uci.edu/",
+  "lastAttempt": "2026-08-17T17:54:51.662Z",
+  "attempts": 3,
+  "sourceUrl": "https://grad.uci.edu/",
   "error": "refusing mismatched institution URL https://www.admissions.uci.edu/apply/transfer-students/requirements.php"
  },
  "1004": {
@@ -5716,10 +5728,11 @@
   "finalStatus": "verified"
  },
  "1005": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-17T07:48:07.313Z",
-  "attempts": 1,
-  "error": "reset for improved discovery: https://ucsf.edu: fetch failed || https://nursing.ucsf.edu/: no usable prereq list"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T18:01:30.617Z",
+  "attempts": 2,
+  "error": "https://graduate.ucsf.edu/admission/requirements: no usable prereq list || https://graduate.ucsf.edu/admission/intl-admission-requirements: no usable prereq list || https://graduate.ucsf.edu/admission: no usable prereq list || https://graduate.ucsf.edu/admission/graduate-program-statistics: no usable prereq list",
+  "sourceUrl": "https://dentistry.ucsf.edu/programs/dds"
  },
  "1006": {
   "stage": "finalized",
@@ -5918,8 +5931,8 @@
  },
  "1034": {
   "stage": "failed",
-  "lastAttempt": "2026-08-16T21:21:33.872Z",
-  "attempts": 2,
+  "lastAttempt": "2026-08-17T17:57:27.598Z",
+  "attempts": 3,
   "sourceUrl": "https://www.wilmu.edu/locations/index.aspx",
   "error": "https://www.wilmu.edu/admission/admission-requirements.aspx: no usable prereq list || https://www.wilmu.edu/admission/apply-now.aspx: no usable prereq list || https://www.wilmu.edu/admission/index.aspx: no usable prereq list || https://www.wilmu.edu/admission/before-you-apply.aspx: no usable prereq list"
  },
