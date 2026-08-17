@@ -1,5 +1,6 @@
 {
-  "generatedAt": "2026-08-16T23:49:51.419Z",
+  "generatedAt": "2026-08-17T00:03:45.831Z",
+  "generatedFrom": "production-api",
   "professions": [
     {
       "professionSlug": "anesthesiologist-assistant",
@@ -43,8 +44,8 @@
       "inactivePrograms": 0,
       "prereqStatusCounts": {
         "verified": 59,
-        "draft": 18,
-        "no_prereqs_published": 1
+        "no_prereqs_published": 1,
+        "draft": 18
       },
       "prereqVerifiedCount": 59,
       "prereqNoSpecificPrereqsCount": 1,
@@ -128,8 +129,8 @@
       "inactivePrograms": 1,
       "prereqStatusCounts": {
         "verified": 62,
-        "draft": 1,
-        "no_prereqs_published": 1
+        "no_prereqs_published": 1,
+        "draft": 1
       },
       "prereqVerifiedCount": 62,
       "prereqNoSpecificPrereqsCount": 1,
@@ -247,8 +248,8 @@
       "manualPrograms": [],
       "inactivePrograms": 0,
       "prereqStatusCounts": {
-        "draft": 135,
         "verified": 178,
+        "draft": 135,
         "no_prereqs_published": 5
       },
       "prereqVerifiedCount": 178,
@@ -323,8 +324,8 @@
       "manualPrograms": [],
       "inactivePrograms": 0,
       "prereqStatusCounts": {
-        "no_prereqs_published": 1,
-        "verified": 19
+        "verified": 19,
+        "no_prereqs_published": 1
       },
       "prereqVerifiedCount": 19,
       "prereqNoSpecificPrereqsCount": 1,
@@ -493,15 +494,15 @@
       "manualPrograms": [],
       "inactivePrograms": 0,
       "prereqStatusCounts": {
-        "draft": 233,
-        "verified": 99,
+        "draft": 232,
+        "verified": 100,
         "no_prereqs_published": 4
       },
-      "prereqVerifiedCount": 99,
+      "prereqVerifiedCount": 100,
       "prereqNoSpecificPrereqsCount": 4,
       "prereqBlockedCount": 0,
-      "prereqUnfinishedCount": 233,
-      "prereqVerifiedPct": 30.7,
+      "prereqUnfinishedCount": 232,
+      "prereqVerifiedPct": 31,
       "sources": [
         {
           "name": "AAMC Postbaccalaureate Premedical Programs Database",
@@ -562,14 +563,14 @@
       "manualPrograms": [],
       "inactivePrograms": 0,
       "prereqStatusCounts": {
-        "verified": 40,
-        "draft": 282
+        "verified": 45,
+        "draft": 277
       },
-      "prereqVerifiedCount": 40,
+      "prereqVerifiedCount": 45,
       "prereqNoSpecificPrereqsCount": 0,
       "prereqBlockedCount": 0,
-      "prereqUnfinishedCount": 282,
-      "prereqVerifiedPct": 12.4,
+      "prereqUnfinishedCount": 277,
+      "prereqVerifiedPct": 14,
       "sources": [
         {
           "name": "ASHA CAA Accredited SLP Master's Programs",
