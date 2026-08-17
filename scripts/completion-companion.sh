@@ -31,7 +31,10 @@ PY
 local_checkpoint_age_sec() {
   git fetch origin cursor/prereq-completion-checkpoint --quiet 2>/dev/null || true
   local ts
-  ts="$(git log -1 --format=%ct origin/cursor/prereq-completion-checkpoint 2>/dev/null || echo 0)"
+  ts="$(git log origin/cursor/prereq-completion-checkpoint --grep='Checkpoint' -1 --format=%ct 2>/dev/null || echo 0)"
+  if [ -z "$ts" ] || [ "$ts" = "0" ]; then
+    ts="$(git log -1 --format=%ct origin/cursor/prereq-completion-checkpoint 2>/dev/null || echo 0)"
+  fi
   echo $(( $(date +%s) - ts ))
 }
 
@@ -43,29 +46,63 @@ refresh_and_push() {
     git show origin/cursor/prereq-completion-checkpoint:data/completion-state.json > data/completion-state.json 2>/dev/null || true
   fi
   pnpm --filter @workspace/scripts exec tsx src/coverage-from-production.ts | tee -a "$LOG"
-  if git diff --quiet -- data/coverage-report.json data/coverage-report.md data/completion-state.json; then
-    echo "[$(date -u +%Y-%m-%dT%H:%M:%SZ)] no coverage/state changes" | tee -a "$LOG"
+  # Always write a heartbeat so GitHub updates every ~10 minutes even when counts stall.
+  python3 - <<'PY' | tee -a "$LOG"
+import json, urllib.request, os, datetime
+BASE='https://prehealth-advisor.vercel.app/api'
+VER=NSP=UNF=0
+by={}
+for slug in [p['slug'] for p in json.load(urllib.request.urlopen(BASE+'/professions'))]:
+  unf=0
+  for r in json.load(urllib.request.urlopen(BASE+f'/program-schools?professionSlug={slug}')):
+    if r.get('directoryStatus') not in (None,'active'): continue
+    st=r.get('verificationStatus')
+    if st=='verified': VER+=1
+    elif st=='no_prereqs_published': NSP+=1
+    elif st in ('draft','imported','needs_review','outdated'):
+      UNF+=1; unf+=1
+  if unf: by[slug]=unf
+hb={
+  'generatedAt': datetime.datetime.now(datetime.UTC).isoformat().replace('+00:00','Z'),
+  'verified': VER, 'nsp': NSP, 'unfinished': UNF,
+  'finalizedPct': round(100*(VER+NSP)/2857,1),
+  'unfinishedByProfession': by,
+  'secretsPresent': bool(os.environ.get('DATABASE_URL') and os.environ.get('OPENAI_API_KEY')),
+  'blocker': None if (os.environ.get('DATABASE_URL') and os.environ.get('OPENAI_API_KEY')) else 'DATABASE_URL and OPENAI_API_KEY missing on cloud VM; local Neon worker stalled',
+}
+open('data/completion-heartbeat.json','w').write(json.dumps(hb, indent=2)+'\n')
+print('heartbeat unfinished=', UNF)
+PY
+  if git diff --quiet -- data/coverage-report.json data/coverage-report.md data/completion-state.json data/completion-heartbeat.json; then
+    echo "[$(date -u +%Y-%m-%dT%H:%M:%SZ)] no coverage/state/heartbeat changes" | tee -a "$LOG"
     return 0
   fi
-  git add data/coverage-report.json data/coverage-report.md data/completion-state.json
+  git add data/coverage-report.json data/coverage-report.md data/completion-state.json data/completion-heartbeat.json
   if git diff --cached --quiet; then
     return 0
   fi
-  # refuse secret-looking staged content
-  if git diff --cached | grep -Eiq 'DATABASE_URL=|OPENAI_API_KEY=|postgres(ql)?://[^[:space:]]+|sk-[A-Za-z0-9]{20,}'; then
+  # refuse secret-looking staged content (scan data artifacts only — avoid matching this guard)
+  if git diff --cached -- data/ | grep -Eiq 'DATABASE_URL=|OPENAI_API_KEY=|postgres(ql)?://[^[:space:]]+|sk-[A-Za-z0-9]{20,}'; then
     echo "refusing commit: secret-like pattern in staged diff" | tee -a "$LOG"
-    git reset HEAD -- data/coverage-report.json data/coverage-report.md data/completion-state.json || true
+    git reset HEAD -- data/coverage-report.json data/coverage-report.md data/completion-state.json data/completion-heartbeat.json || true
     return 1
   fi
   local unfinished
   unfinished="$(python3 - <<'PY'
 import json
-d=json.load(open('data/coverage-report.json'))
-print(sum(p.get('prereqUnfinishedCount',0) for p in d.get('professions',[])))
+try:
+  print(json.load(open('data/completion-heartbeat.json')).get('unfinished','unknown'))
+except Exception:
+  d=json.load(open('data/coverage-report.json'))
+  print(sum(p.get('prereqUnfinishedCount',0) for p in d.get('professions',[])))
 PY
 )"
   git commit -m "Checkpoint live coverage (unfinished=${unfinished})." || true
-  git push -u origin "$BRANCH" | tee -a "$LOG"
+  for delay in 4 8 16 32; do
+    if git push -u origin "$BRANCH" | tee -a "$LOG"; then break; fi
+    echo "push failed; retry in ${delay}s" | tee -a "$LOG"
+    sleep "$delay"
+  done
 }
 
 maybe_take_over_worker() {

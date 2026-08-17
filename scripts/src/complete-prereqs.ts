@@ -248,7 +248,8 @@ const DIRECTORY_HUB_HOSTS =
 function isDirectoryHubUrl(url: string | null | undefined): boolean {
   if (!url) return false;
   try {
-    const u = new URL(url);
+    const normalized = normalizeCandidateUrl(url) ?? url;
+    const u = new URL(normalized.startsWith("http") ? normalized : `https://${normalized}`);
     return DIRECTORY_HUB_HOSTS.test(`${u.hostname}${u.pathname}`);
   } catch {
     return false;
@@ -260,12 +261,18 @@ function isLowValueCandidate(url: string): boolean {
   const hay = url.toLowerCase();
   if (/ellucian|crmrecruit|apply-gobaylor|myworkday|commonapp|slate\.|targetx/.test(hay)) return true;
   if (/financial-aid|tuition|video-tour|virtual-office|visit-campus|campus-tour|housing/.test(hay)) return true;
-  if (/undergraduate-admissions|\/freshman|first-year|high-school-students|undergrad\/apply/.test(hay) &&
-      !/graduate|slp|csd|dpt|otd|pharmd|msn|mepn|absn|physician|post-bacc|postbac|communication/.test(hay)) {
+  // State/federal portals that match institution tokens (e.g. "Texas", "Virginia") but are not schools.
+  if (/\.(gov)([/?#]|$)/i.test(hay) && !/\.edu/i.test(hay)) return true;
+  if (/undergraduate-admissions|\/freshman|first-year|high-school-students|undergrad\/apply|precollege/.test(hay) &&
+      !/graduate|slp|csd|dpt|otd|pharmd|msn|mepn|absn|physician|post-bacc|postbac|communication|occupational|physical-therapy/.test(hay)) {
     return true;
   }
   // Generic campus chrome that recently flooded the nursing queue with false "no usable list" failures.
   if (/academic-catalog\.php|\/core-curriculum\/?$|admissions-disability|\/calendar\/?$|\/visit\/?$|\/advisement\/?$/.test(hay)) {
+    return true;
+  }
+  if (/admissions-events|prospective-students\.php|info\.html$|\/transfer\.html|\/transfer\/?$|international-student/.test(hay) &&
+      !/graduate|slp|csd|dpt|otd|pharmd|msn|mepn|absn|physician|post-bacc|postbac|prerequisite|nursing|occupational|physical/.test(hay)) {
     return true;
   }
   if (/international\/requirements-transfer|readmission-and-non-degree|non-degree/.test(hay) &&
@@ -502,7 +509,7 @@ function websiteConflictsWithInstitution(url: string, name: string): boolean {
   }
 }
 
-/** Upgrade http→https, drop empty/bogus URLs, unwrap duplicated schemes. */
+/** Upgrade http→https, add missing schemes, drop empty/bogus URLs, unwrap duplicated schemes. */
 function normalizeCandidateUrl(url: string): string | null {
   if (!url || url.startsWith("cache:")) return url || null;
   let u = url.trim();
@@ -510,11 +517,22 @@ function normalizeCandidateUrl(url: string): string | null {
     u = u.replace(/^https?:\/\//i, "");
   }
   if (/^https?:\/\/\/?$/i.test(u) || u === "http://" || u === "https://") return null;
-  if (/^http:\/\//i.test(u)) {
-    const https = "https://" + u.slice("http://".length);
-    return https;
+  // Bare hosts/paths from directory imports (e.g. www.twu.edu/ot/) must get a scheme.
+  if (!/^https?:\/\//i.test(u) && !u.startsWith("cache:")) {
+    if (/^[a-z0-9.-]+\.[a-z]{2,}([/:?]|$)/i.test(u)) u = `https://${u}`;
+    else return null;
   }
-  return u;
+  if (/^http:\/\//i.test(u)) {
+    u = "https://" + u.slice("http://".length);
+  }
+  try {
+    const parsed = new URL(u);
+    if (!parsed.hostname || parsed.hostname === ".") return null;
+    parsed.hash = "";
+    return parsed.toString();
+  } catch {
+    return null;
+  }
 }
 
 async function wikidataOfficialWebsite(name: string): Promise<string | null> {
@@ -581,9 +599,11 @@ function looksLikeOfficialProgramUrl(url: string, program: ProgramRow): boolean 
     );
     // Reject clear cross-profession paths (e.g. SLP crawl landing on /nursing/).
     const foreign =
-      (program.professionSlug === "speech-language-pathology" && /\/nursing|\/dpt|\/otd|\/physician-assistant|\/pharm/i.test(hay) && !/speech|slp|csd|communicat|language/i.test(hay)) ||
-      (program.professionSlug === "nursing" && /\/slp|\/csd|\/speech-language|\/dpt|\/otd|\/physician-assistant/i.test(hay) && !/nursing|bsn|msn|absn|mepn/i.test(hay)) ||
-      (program.professionSlug === "physical-therapy" && /\/nursing|\/slp|\/csd|\/otd|\/physician-assistant/i.test(hay) && !/physical|dpt|pt-/i.test(hay));
+      (program.professionSlug === "speech-language-pathology" && /\/nursing|\/dpt|\/otd|\/physician-assistant|\/pharm|\/occupational/i.test(hay) && !/speech|slp|csd|communicat|language/i.test(hay)) ||
+      (program.professionSlug === "nursing" && /\/slp|\/csd|\/speech-language|\/dpt|\/otd|\/physician-assistant|\/occupational/i.test(hay) && !/nursing|bsn|msn|absn|mepn/i.test(hay)) ||
+      (program.professionSlug === "physical-therapy" && /\/nursing|\/slp|\/csd|\/otd|\/physician-assistant|\/occupational/i.test(hay) && !/physical|dpt|pt-/i.test(hay)) ||
+      (program.professionSlug === "occupational-therapy" && /\/nursing|\/slp|\/csd|\/dpt|\/physician-assistant|\/pharm/i.test(hay) && !/occupational|otd|msot|ot-/i.test(hay)) ||
+      (program.professionSlug === "physician-assistant" && /\/nursing|\/slp|\/csd|\/dpt|\/otd|\/pharm/i.test(hay) && !/physician|assistant|pa-program|\/pa\//i.test(hay));
     if (foreign) return false;
     const eduHost = /\.edu$/i.test(u.hostname) || /\.ac\.[a-z.]+$/i.test(u.hostname);
     const pathHint = /admissions|prerequisite|catalog|handbook|apply|requirements/i.test(hay);
@@ -703,6 +723,10 @@ async function crawlSiteForCandidates(
 
 async function discoverCandidates(program: ProgramRow): Promise<string[]> {
   const candidates: string[] = [];
+  // Normalize stored URLs once so scheme-less directory imports become fetchable.
+  if (program.websiteUrl) program.websiteUrl = normalizeCandidateUrl(program.websiteUrl);
+  if (program.sourceUrl) program.sourceUrl = normalizeCandidateUrl(program.sourceUrl);
+
   try {
     const queue = JSON.parse(fs.readFileSync(path.join(QUEUE_DIR, `${program.id}.json`), "utf8"));
     if (queue.root?.cacheFile) candidates.push(`cache:${queue.root.cacheFile}|${queue.root.url}`);
@@ -720,6 +744,10 @@ async function discoverCandidates(program: ProgramRow): Promise<string[]> {
     program.websiteUrl && !isDirectoryHubUrl(program.websiteUrl) && !websiteConflictsWithInstitution(program.websiteUrl, program.name)
       ? program.websiteUrl
       : null;
+  // Wrong-institution websites (e.g. Bradley → pennwest.edu) must not seed the crawl.
+  if (program.websiteUrl && websiteConflictsWithInstitution(program.websiteUrl, program.name)) {
+    program.websiteUrl = null;
+  }
   if (!usableWebsite) {
     const home = await wikidataOfficialWebsite(program.name);
     if (home) {
@@ -797,6 +825,25 @@ async function discoverCandidates(program: ProgramRow): Promise<string[]> {
           ? [
               `${program.name} postbaccalaureate prerequisites site:${host}`,
               `${program.name} post-bacc admission requirements site:${host}`,
+            ]
+          : []),
+        ...(program.professionSlug === "occupational-therapy"
+          ? [
+              `${program.name} OTD prerequisite courses site:${host}`,
+              `${program.name} occupational therapy prerequisites site:${host}`,
+              `${program.name} MSOT admission requirements site:${host}`,
+            ]
+          : []),
+        ...(program.professionSlug === "physical-therapy"
+          ? [
+              `${program.name} DPT prerequisite courses site:${host}`,
+              `${program.name} physical therapy prerequisites site:${host}`,
+            ]
+          : []),
+        ...(program.professionSlug === "dietetics"
+          ? [
+              `${program.name} dietetics prerequisites site:${host}`,
+              `${program.name} coordinated program dietetics admission requirements site:${host}`,
             ]
           : []),
       ];
