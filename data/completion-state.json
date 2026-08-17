@@ -330,10 +330,11 @@
   "finalStatus": "verified"
  },
  "162": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T05:11:52.387Z",
-  "attempts": 0,
-  "sourceUrl": "https://lewis.gsu.edu/nutrition/"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T07:58:28.317Z",
+  "attempts": 1,
+  "sourceUrl": "https://admissions.gsu.edu/bachelors-degree/",
+  "error": "https://isss.gsu.edu/incoming-students/step-1-admissions/: no usable prereq list || https://admissions.gsu.edu/associate-degree/: no usable prereq list || https://graduate.gsu.edu/future/admissions/: no usable prereq list || https://admissions.gsu.edu/associate-degree/apply/transfer/: no usable prereq list"
  },
  "163": {
   "stage": "failed",
@@ -497,9 +498,10 @@
   "finalStatus": "verified"
  },
  "186": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T06:27:56.492Z",
-  "attempts": 1
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T07:58:34.740Z",
+  "attempts": 2,
+  "error": "http://alliedhealth.ouhsc.edu/ProspectiveStudents/AcademicPrograms/MAinDietetics.aspx: HTTP 404"
  },
  "187": {
   "stage": "finalized",
@@ -684,9 +686,10 @@
   "error": "https://johnsonbethel.uccs.edu/hpnu-programs/msc-nutrition-and-dietetics: HTTP 403"
  },
  "213": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T06:28:18.347Z",
-  "attempts": 1
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T07:58:38.911Z",
+  "attempts": 2,
+  "error": "https://johnsonbethel.uccs.edu/hpnu-programs/msc-nutrition-and-dietetics: HTTP 403"
  },
  "214": {
   "stage": "finalized",
@@ -801,10 +804,11 @@
   "finalStatus": "verified"
  },
  "230": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T22:54:30.958Z",
-  "attempts": 0,
-  "sourceUrl": "https://publichealth.jhu.edu/academics/msph-dept-of-international-health/human-nutrition-dietitian/admissions/requirements"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T07:58:40.551Z",
+  "attempts": 1,
+  "sourceUrl": "https://publichealth.jhu.edu/academics/msph-dept-of-international-health/human-nutrition-dietitian/admissions/requirements",
+  "error": "https://publichealth.jhu.edu/academics/msph-dept-of-international-health/human-nutrition-dietitian: HTTP 403 || https://jhu.edu: HTTP 403"
  },
  "231": {
   "stage": "finalized",
@@ -1119,9 +1123,10 @@
   "finalStatus": "verified"
  },
  "276": {
-  "stage": "source_discovery",
-  "lastAttempt": "2026-08-17T07:55:51.556Z",
-  "attempts": 3
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T07:58:31.072Z",
+  "attempts": 3,
+  "error": "http://www.upr.edu: fetch failed"
  },
  "277": {
   "stage": "failed",
@@ -1222,10 +1227,11 @@
   "finalStatus": "verified"
  },
  "291": {
-  "stage": "source_discovery",
-  "lastAttempt": "2026-08-17T07:56:23.647Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T07:57:21.509Z",
   "attempts": 2,
-  "sourceUrl": "https://www.jmu.edu/pce/index.shtml"
+  "sourceUrl": "https://www.jmu.edu/pce/index.shtml",
+  "error": "https://www.jmu.edu/admissions/index.shtml: no usable prereq list || https://www.jmu.edu/admissions/visit/index.shtml: no usable prereq list || https://www.jmu.edu/admissions/apply/scholarships/index.shtml: no usable prereq list || https://www.jmu.edu/admissions/apply/index.shtml: no usable prereq list"
  },
  "292": {
   "stage": "finalized",
@@ -1673,8 +1679,8 @@
  },
  "410": {
   "stage": "failed",
-  "lastAttempt": "2026-08-16T19:52:42.676Z",
-  "attempts": 2,
+  "lastAttempt": "2026-08-17T08:02:06.615Z",
+  "attempts": 3,
   "sourceUrl": "https://oklahoma.gov/",
   "error": "https://medicine.okstate.edu/cherokee/100 S Bliss Ave Tahlequah: HTTP 403"
  },
@@ -1883,10 +1889,10 @@
  },
  "440": {
   "stage": "failed",
-  "lastAttempt": "2026-08-15T23:34:59.377Z",
-  "attempts": 2,
-  "sourceUrl": "https://www.maryville.edu/hp/doctor-of-physical-therapy",
-  "error": "no official candidate URLs"
+  "lastAttempt": "2026-08-17T07:58:53.967Z",
+  "attempts": 3,
+  "sourceUrl": "https://alicelwaltonfoundation.org/",
+  "error": "https://alicelwaltonfoundation.org/: no usable prereq list"
  },
  "441": {
   "stage": "finalized",
@@ -2027,11 +2033,11 @@
   "finalStatus": "verified"
  },
  "461": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-15T23:35:01.156Z",
-  "attempts": 2,
-  "sourceUrl": "https://path2md.org/school/charles-e-schmidt-college-of-medicine-at-florida-atlantic-university-fau",
-  "error": "no official candidate URLs"
+  "stage": "finalized",
+  "lastAttempt": "2026-08-17T07:59:37.500Z",
+  "attempts": 3,
+  "sourceUrl": "https://www.fau.edu/medicine/md/admissions/requirements/",
+  "finalStatus": "verified"
  },
  "462": {
   "stage": "failed",
@@ -2063,8 +2069,8 @@
  },
  "466": {
   "stage": "failed",
-  "lastAttempt": "2026-08-15T23:35:02.885Z",
-  "attempts": 2,
+  "lastAttempt": "2026-08-17T07:58:56.600Z",
+  "attempts": 3,
   "sourceUrl": "https://www.ithaca.edu/academics/school-health-sciences-and-human-performance/physical-therapy",
   "error": "no official candidate URLs"
  },
@@ -2231,8 +2237,8 @@
  },
  "490": {
   "stage": "failed",
-  "lastAttempt": "2026-08-15T23:35:04.641Z",
-  "attempts": 2,
+  "lastAttempt": "2026-08-17T07:58:58.223Z",
+  "attempts": 3,
   "sourceUrl": "https://www.med.unc.edu/healthsciences/physical/",
   "error": "no official candidate URLs"
  },
@@ -2266,8 +2272,8 @@
  },
  "495": {
   "stage": "failed",
-  "lastAttempt": "2026-08-15T23:35:06.336Z",
-  "attempts": 2,
+  "lastAttempt": "2026-08-17T07:58:59.800Z",
+  "attempts": 3,
   "sourceUrl": "https://www.umary.edu/academics/graduate-programs/physical-therapy",
   "error": "no official candidate URLs"
  },
@@ -2307,10 +2313,11 @@
   "finalStatus": "verified"
  },
  "501": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-13T21:26:10.574Z",
-  "attempts": 0,
-  "sourceUrl": "https://prehealth.natsci.msu.edu/health-careers/medicine/michigan-medical-school-prerequisites.aspx"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T08:02:08.250Z",
+  "attempts": 1,
+  "sourceUrl": "https://prehealth.natsci.msu.edu/",
+  "error": "http://med.wmich.edu: too little text || https://prehealth.natsci.msu.edu: too little text"
  },
  "502": {
   "stage": "finalized",
@@ -2377,8 +2384,8 @@
  },
  "511": {
   "stage": "failed",
-  "lastAttempt": "2026-08-15T23:35:08.270Z",
-  "attempts": 2,
+  "lastAttempt": "2026-08-17T07:59:01.381Z",
+  "attempts": 3,
   "sourceUrl": "https://www.okcu.edu/academics/schools-colleges/college-of-nursing-and-health-professions/doctor-of-physical-therapy",
   "error": "no official candidate URLs"
  },
@@ -2391,10 +2398,10 @@
  },
  "513": {
   "stage": "failed",
-  "lastAttempt": "2026-08-15T23:35:10.241Z",
-  "attempts": 2,
+  "lastAttempt": "2026-08-17T07:59:35.897Z",
+  "attempts": 3,
   "sourceUrl": "https://www.georgefox.edu/physical-therapy/index.html",
-  "error": "no official candidate URLs"
+  "error": "http://medicine.nevada.edu: fetch failed"
  },
  "514": {
   "stage": "finalized",
@@ -2412,10 +2419,10 @@
  },
  "516": {
   "stage": "failed",
-  "lastAttempt": "2026-08-15T23:35:11.947Z",
-  "attempts": 2,
-  "sourceUrl": "https://www.westernu.edu/health-sciences/dpt-or/",
-  "error": "no official candidate URLs"
+  "lastAttempt": "2026-08-17T07:59:48.603Z",
+  "attempts": 3,
+  "sourceUrl": "https://www.hackensackmeridianhealth.org/en",
+  "error": "https://www.hackensackmeridianhealth.org/en: no usable prereq list"
  },
  "517": {
   "stage": "finalized",
@@ -2495,11 +2502,11 @@
   "finalStatus": "verified"
  },
  "528": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-15T23:35:13.784Z",
-  "attempts": 2,
-  "sourceUrl": "https://www.neumann.edu/academics/grad/doctor-of-physical-therapy?hsCtaTracking=bd276a44-4942-47d1-b016-6f145819939c%7C3d68f176-1130-4dc2-853e-f600fd43fdd3",
-  "error": "no official candidate URLs"
+  "stage": "finalized",
+  "lastAttempt": "2026-08-17T08:00:03.723Z",
+  "attempts": 3,
+  "sourceUrl": "https://med.nyu.edu/education/md-degree/md-admissions/admissions-requirements",
+  "finalStatus": "verified"
  },
  "529": {
   "stage": "finalized",
@@ -2614,10 +2621,10 @@
  },
  "545": {
   "stage": "failed",
-  "lastAttempt": "2026-08-15T23:35:15.650Z",
-  "attempts": 2,
-  "sourceUrl": "https://www.usd.edu/Academics/Colleges%20and%20Schools/school-of-health-sciences/physical-therapy",
-  "error": "no official candidate URLs"
+  "lastAttempt": "2026-08-17T08:00:44.169Z",
+  "attempts": 3,
+  "sourceUrl": "https://www.uc.edu/about/international/admissions/experience.html",
+  "error": "https://www.admissions.uc.edu/apply/college-credit-plus/apply/requirements.html: no usable prereq list || https://www.admissions.uc.edu/information/international/requirements/transfer.html: no usable prereq list || https://www.admissions.uc.edu/apply.html: no usable prereq list || https://admissions.catalyst.uc.edu/register/request-for-info-intl: no usable prereq list"
  },
  "546": {
   "stage": "finalized",
@@ -2677,15 +2684,16 @@
  },
  "554": {
   "stage": "failed",
-  "lastAttempt": "2026-08-15T23:36:00.485Z",
-  "attempts": 2,
+  "lastAttempt": "2026-08-17T08:00:42.189Z",
+  "attempts": 3,
   "error": "no official candidate URLs"
  },
  "555": {
   "stage": "failed",
-  "lastAttempt": "2026-08-15T23:36:02.150Z",
-  "attempts": 2,
-  "error": "no official candidate URLs"
+  "lastAttempt": "2026-08-17T08:01:12.346Z",
+  "attempts": 3,
+  "error": "https://catalog.phsu.edu/: no usable prereq list || https://phsu.edu/: no usable prereq list || https://phsu.edu/apply.php: no usable prereq list",
+  "sourceUrl": "https://catalog.phsu.edu/"
  },
  "556": {
   "stage": "finalized",
@@ -2717,10 +2725,10 @@
  },
  "560": {
   "stage": "failed",
-  "lastAttempt": "2026-08-15T23:36:05.861Z",
-  "attempts": 2,
-  "sourceUrl": "https://twu.edu/physical-therapy/",
-  "error": "no official candidate URLs"
+  "lastAttempt": "2026-08-17T08:02:02.318Z",
+  "attempts": 3,
+  "sourceUrl": "https://education.musc.edu/admissions-aid/apply/accepted-sc-public-four-year-college-courses",
+  "error": "refusing mismatched institution URL https://education.musc.edu/admissions-aid/apply/accepted-sc-public-four-year-college-courses"
  },
  "561": {
   "stage": "failed",
@@ -2744,11 +2752,11 @@
   "finalStatus": "verified"
  },
  "564": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-15T23:36:03.987Z",
-  "attempts": 2,
-  "sourceUrl": "https://www.utmb.edu/shp/academics/phyt/home",
-  "error": "no official candidate URLs"
+  "stage": "finalized",
+  "lastAttempt": "2026-08-17T08:01:17.305Z",
+  "attempts": 3,
+  "sourceUrl": "https://www.etsu.edu/com/admissions/requirements/academic-requirements.php",
+  "finalStatus": "verified"
  },
  "565": {
   "stage": "finalized",
@@ -2765,11 +2773,11 @@
   "finalStatus": "verified"
  },
  "567": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-15T23:35:58.777Z",
-  "attempts": 2,
-  "sourceUrl": "https://medschoolinsiders.com/pre-med/tennessee-medical-schools/",
-  "error": "no official candidate URLs"
+  "stage": "finalized",
+  "lastAttempt": "2026-08-17T08:00:40.243Z",
+  "attempts": 3,
+  "sourceUrl": "https://www.uthsc.edu/medicine/admissions/requirements.php",
+  "finalStatus": "verified"
  },
  "568": {
   "stage": "finalized",
@@ -2913,8 +2921,8 @@
  },
  "588": {
   "stage": "failed",
-  "lastAttempt": "2026-08-15T23:36:09.546Z",
-  "attempts": 2,
+  "lastAttempt": "2026-08-17T08:01:19.107Z",
+  "attempts": 3,
   "sourceUrl": "https://www.su.edu/physical-therapy/",
   "error": "no official candidate URLs"
  },
@@ -2933,11 +2941,11 @@
   "finalStatus": "verified"
  },
  "591": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-15T23:36:13.403Z",
-  "attempts": 2,
-  "sourceUrl": "https://www.ewu.edu/chsph/physical-therapy/",
-  "error": "no official candidate URLs"
+  "stage": "finalized",
+  "lastAttempt": "2026-08-17T08:01:57.869Z",
+  "attempts": 3,
+  "sourceUrl": "https://www.mcw.edu/education/medical-school/prospective-students/admissions",
+  "finalStatus": "verified"
  },
  "592": {
   "stage": "finalized",
@@ -14248,10 +14256,11 @@
   "finalStatus": "verified"
  },
  "2225": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T07:01:50.398Z",
-  "attempts": 1,
-  "sourceUrl": "https://admissions.northeastern.edu/academics/"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T08:06:02.156Z",
+  "attempts": 2,
+  "sourceUrl": "https://admissions.northeastern.edu/academics/",
+  "error": "http://academics.nsuok.edu/prehealth: fetch failed || http://www.nsuok.edu: fetch failed"
  },
  "2226": {
   "stage": "finalized",
@@ -14387,10 +14396,11 @@
   "finalStatus": "verified"
  },
  "2245": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T07:01:48.847Z",
-  "attempts": 1,
-  "sourceUrl": "https://admissions.colostate.edu/"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T08:02:19.639Z",
+  "attempts": 2,
+  "sourceUrl": "https://vetmedbiosci.colostate.edu/",
+  "error": "https://vetmedbiosci.colostate.edu/: no usable prereq list"
  },
  "2246": {
   "stage": "finalized",
@@ -14593,10 +14603,11 @@
   "error": "https://admission.asu.edu/apply: no usable prereq list || https://admission.asu.edu/apply/graduate/admission: no usable prereq list || https://admission.asu.edu/apply/transfer/admission: no usable prereq list || https://admission.asu.edu/apply/international/graduate: no usable prereq list"
  },
  "2275": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T07:06:48.082Z",
-  "attempts": 1,
-  "sourceUrl": "https://catalog.ncsu.edu/graduate/graduate-handbook/masters-degree-summary-procedures/"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T08:03:16.112Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.ncsu.edu/applications-and-aid/",
+  "error": "https://catalog.ncsu.edu/graduate/graduate-handbook/international-student-admissions/: no usable prereq list || https://grad.ncsu.edu/admissions/: no usable prereq list || https://online-distance.ncsu.edu/apply/graduate/: no usable prereq list || https://online-distance.ncsu.edu/apply/non-degree-studies/: no usable prereq list"
  },
  "2276": {
   "stage": "finalized",
@@ -14682,10 +14693,11 @@
   "finalStatus": "verified"
  },
  "2288": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T07:07:52.378Z",
-  "attempts": 1,
-  "sourceUrl": "https://education.musc.edu/admissions-aid/financial-aid"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T08:04:28.869Z",
+  "attempts": 2,
+  "sourceUrl": "https://gradstudies.musc.edu/programs/master-science-medical-sciences",
+  "error": "https://education.musc.edu/admissions-aid/apply/approved-prerequisites: no usable prereq list || https://education.musc.edu/admissions-aid: no usable prereq list || https://education.musc.edu/admissions-aid/apply: no usable prereq list || https://education.musc.edu/admissions-aid/apply/accepted-sc-public-four-year-college-courses: no usable prereq list"
  },
  "2289": {
   "stage": "finalized",
@@ -14939,15 +14951,17 @@
  },
  "2326": {
   "stage": "failed",
-  "lastAttempt": "2026-08-16T07:20:09.072Z",
-  "attempts": 1,
-  "error": "https://healthsciencesprograms.gwu.edu/program/the-george-washington-university-blood-banking-for-medical-laboratory-science-certificate-1530302421186: HTTP 404"
+  "lastAttempt": "2026-08-17T08:05:06.422Z",
+  "attempts": 2,
+  "error": "https://healthsciencesprograms.gwu.edu/program/the-george-washington-university-blood-banking-for-medical-laboratory-science-certificate-1530302421186: HTTP 404 || https://graduate.admissions.gwu.edu/international-student-application-requirements: no usable prereq list",
+  "sourceUrl": "https://www.gwu.edu/"
  },
  "2327": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T07:21:24.281Z",
-  "attempts": 1,
-  "sourceUrl": "https://cas.gsu.edu/graduate-services/"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T08:06:16.705Z",
+  "attempts": 2,
+  "sourceUrl": "https://isss.gsu.edu/incoming-students/step-1-admissions/",
+  "error": "https://isss.gsu.edu/incoming-students/step-1-admissions/: no usable prereq list || https://admissions.gsu.edu/associate-degree/: no usable prereq list || https://graduate.gsu.edu/future/admissions/: no usable prereq list || https://admissions.gsu.edu/associate-degree/apply/transfer/: no usable prereq list"
  },
  "2328": {
   "stage": "failed",
@@ -14971,10 +14985,11 @@
   "error": "https://www.uab.edu/admissions/visit/: no usable prereq list || https://www.uab.edu/admissions/apply: no usable prereq list || https://www.uab.edu/admissions/request-info: no usable prereq list || https://www.uab.edu/admissions/: no usable prereq list"
  },
  "2331": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T07:25:10.291Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.iit.edu/pre-health/pathways/dual-admission"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T08:11:40.945Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.iit.edu/academics/course-catalog",
+  "error": "https://www.iit.edu/admissions-aid/undergraduate-admission/pre-health-pre-med: no usable prereq list || https://www.iit.edu/admissions-aid/graduate-admission: no usable prereq list || https://www.iit.edu/admissions-aid/request-information: no usable prereq list || https://www.iit.edu/admissions-aid/visit-and-tour: no usable prereq list"
  },
  "2332": {
   "stage": "failed",
@@ -14984,10 +14999,11 @@
   "sourceUrl": "https://www.jwu.edu/academics/majors-and-programs/pre-medical-pre-health-professions-certificate.html"
  },
  "2333": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T07:26:37.788Z",
-  "attempts": 1,
-  "sourceUrl": "https://uthscsa.edu/biomedical-sciences/what-know-you-apply"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T08:10:56.976Z",
+  "attempts": 2,
+  "sourceUrl": "https://lsom.uthscsa.edu/dcsa/education/postbac/",
+  "error": "https://lsom.uthscsa.edu/dcsa/education/postbac/: no usable prereq list"
  },
  "2334": {
   "stage": "finalized",
@@ -15046,10 +15062,11 @@
   "error": "https://www.ccny.cuny.edu/premed: HTTP 403"
  },
  "2342": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T07:30:59.453Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.urmc.rochester.edu/education/graduate-medical-education/prospective-residents"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T08:12:11.706Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.urmc.rochester.edu/education/graduate/masters-degrees/medical-pharmacology",
+  "error": "https://www.esm.rochester.edu/admissions/ugrad/: no usable prereq list || https://admissions.rochester.edu/academics/rochester-curriculum/: no usable prereq list || https://admissions.rochester.edu/applying/transfer-students/: no usable prereq list"
  },
  "2343": {
   "stage": "finalized",
@@ -15136,10 +15153,11 @@
   "finalStatus": "verified"
  },
  "2355": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T07:33:15.535Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.clestatecareers.com/postbaccalaureateoptions"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T08:06:06.921Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.clestatecareers.com/postbaccalaureateoptions",
+  "error": "https://www.clestatecareers.com/postbaccalaureateoptions: no usable prereq list"
  },
  "2356": {
   "stage": "failed",
@@ -15150,15 +15168,15 @@
  },
  "2357": {
   "stage": "failed",
-  "lastAttempt": "2026-08-16T07:33:35.814Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.binghamton.edu/decker/",
-  "error": "https://medschool.uci.edu/education/summer-programs/education-summer-programs-postbaccalaureate-program: HTTP 403"
+  "lastAttempt": "2026-08-17T08:07:23.295Z",
+  "attempts": 2,
+  "sourceUrl": "https://grad.uci.edu/",
+  "error": "https://medschool.uci.edu/education/summer-programs/education-summer-programs-postbaccalaureate-program: HTTP 403 || https://uci.edu/admissions/index.php: no usable prereq list || https://www.admissions.uci.edu/apply/transfer-students/index.php: no usable prereq list || https://admissions.uci.edu/apply/transfer-students/index.php: no usable prereq list"
  },
  "2358": {
   "stage": "failed",
-  "lastAttempt": "2026-08-16T07:33:47.000Z",
-  "attempts": 1,
+  "lastAttempt": "2026-08-17T08:10:40.213Z",
+  "attempts": 2,
   "sourceUrl": "https://www.brcn.edu/",
   "error": "http://www.medicine.umich.edu/postbac: HTTP 403"
  },
@@ -15178,10 +15196,10 @@
  },
  "2361": {
   "stage": "failed",
-  "lastAttempt": "2026-08-16T07:33:57.635Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.brenau.edu/college/health-sciences/",
-  "error": "https://healthsciencesprograms.gwu.edu/program/the-george-washington-university-hematology-for-medical-laboratory-science-certificate-1530303558000: HTTP 404"
+  "lastAttempt": "2026-08-17T08:06:53.542Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.gwu.edu/",
+  "error": "https://healthsciencesprograms.gwu.edu/program/the-george-washington-university-hematology-for-medical-laboratory-science-certificate-1530303558000: HTTP 404 || https://graduate.admissions.gwu.edu/international-student-application-requirements: no usable prereq list"
  },
  "2362": {
   "stage": "failed",
@@ -15254,10 +15272,11 @@
   "finalStatus": "verified"
  },
  "2372": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T07:36:46.857Z",
-  "attempts": 1,
-  "sourceUrl": "https://bulletin.du.edu/graduate/schoolscollegesanddivisions/divisionofnaturalscienceandmathematics/biologicalsciences/"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T08:07:59.654Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.du.edu/admission-aid",
+  "error": "https://www.du.edu/admission-aid/undergraduate/international-applicants/english-proficiency-requirements: no usable prereq list || https://www.du.edu/admission-aid/graduate/international/admission-requirements: no usable prereq list || https://www.du.edu/admission-aid/graduate-admission/request-information: no usable prereq list || https://www.du.edu/admission-aid/undergraduate/how-to-apply: no usable prereq list"
  },
  "2373": {
   "stage": "failed",
@@ -15274,10 +15293,11 @@
   "error": "http://www.upstate.edu/medprep: HTTP 403 || https://www.suny.edu/attend/apply-to-suny: HTTP 403"
  },
  "2375": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T07:37:37.583Z",
-  "attempts": 1,
-  "sourceUrl": "https://bulletin.gwu.edu/medicine-health-sciences/"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T08:12:19.811Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.gwu.edu/",
+  "error": "https://graduate.admissions.gwu.edu/international-student-application-requirements: no usable prereq list || https://healthsciencesprograms.gwu.edu/programs/mshs-in-biomedical-laboratory-science: no usable prereq list"
  },
  "2376": {
   "stage": "finalized",
@@ -15287,10 +15307,11 @@
   "finalStatus": "verified"
  },
  "2377": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T07:38:20.773Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.unco.edu/admissions-aid/financial-aid/applying-aid/"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T08:08:34.247Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.unco.edu/admissions-aid/undergraduate/admitted-students/",
+  "error": "https://www.unco.edu/osteopathic-medicine/admission/requirements/: no usable prereq list || https://www.unco.edu/admissions-aid/graduate/: no usable prereq list || https://www.unco.edu/osteopathic-medicine/admission/: no usable prereq list || https://www.unco.edu/admissions-aid/undergraduate/transfer/: no usable prereq list"
  },
  "2378": {
   "stage": "failed",
@@ -15396,10 +15417,11 @@
   "error": "https://www.qu.edu/admissions/undergraduate/admission-requirements/: no usable prereq list || https://grad.qu.edu/admissions/: no usable prereq list || https://www.qu.edu/admissions/undergraduate/: no usable prereq list || https://grad.qu.edu/admissions/apply/: no usable prereq list"
  },
  "2393": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T07:43:59.412Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.iastate.edu/admission-and-aid/admissions/graduate-students/graduate-faq"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T08:08:11.286Z",
+  "attempts": 2,
+  "sourceUrl": "https://vetmed.iastate.edu/bms/future-students/master-of-science-in-biomedical-sciences/",
+  "error": "https://vetmed.iastate.edu/bms/future-students/master-of-science-in-biomedical-sciences/: no usable prereq list"
  },
  "2394": {
   "stage": "finalized",
@@ -15409,16 +15431,17 @@
   "finalStatus": "no_prereqs_published"
  },
  "2395": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T07:45:03.863Z",
-  "attempts": 1,
-  "sourceUrl": "https://graduateschool.colostate.edu/skip-the-application-fee/"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T08:08:23.910Z",
+  "attempts": 2,
+  "sourceUrl": "https://vetmedbiosci.colostate.edu/degree-programs/graduate/ms-biomedical-sciences/assisted-reproductive-technologies/",
+  "error": "https://vetmedbiosci.colostate.edu/degree-programs/graduate/ms-biomedical-sciences/assisted-reproductive-technologies/: no usable prereq list"
  },
  "2396": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T07:45:27.944Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.unco.edu/admissions-aid/financial-aid/applying-aid/"
+  "stage": "source_fetched",
+  "lastAttempt": "2026-08-17T08:12:34.721Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.unco.edu/admissions-aid/graduate/"
  },
  "2397": {
   "stage": "finalized",
@@ -15428,23 +15451,25 @@
   "finalStatus": "verified"
  },
  "2398": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T07:45:59.079Z",
-  "attempts": 1,
-  "sourceUrl": "https://bulletin.gwu.edu/medicine-health-sciences/"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T08:08:59.969Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.gwu.edu/",
+  "error": "https://graduate.admissions.gwu.edu/international-student-application-requirements: no usable prereq list"
  },
  "2399": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T07:46:24.847Z",
-  "attempts": 1,
-  "sourceUrl": "https://pharmasciences.cnsu.edu/about/MPS-to-MD-Pathways.php"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T08:09:05.953Z",
+  "attempts": 2,
+  "sourceUrl": "https://pharmasciences.cnsu.edu/about/MPS-to-MD-Pathways.php",
+  "error": "https://pharmasciences.cnsu.edu/about/MPS-to-MD-Pathways.php: no usable prereq list"
  },
  "2400": {
   "stage": "failed",
-  "lastAttempt": "2026-08-16T07:46:17.713Z",
-  "attempts": 1,
-  "sourceUrl": "https://drexel.edu/cnhp/",
-  "error": "https://cytotechprogram.wisc.edu/: HTTP 404"
+  "lastAttempt": "2026-08-17T08:09:32.437Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.wisc.edu/",
+  "error": "https://cytotechprogram.wisc.edu/: HTTP 404 || https://info.grad.wisc.edu/requirements-for-admission: no usable prereq list || https://grad.wisc.edu/apply/: no usable prereq list || https://pharmacy.wisc.edu/pharmd/admissions/: no usable prereq list"
  },
  "2401": {
   "stage": "failed",
@@ -15454,11 +15479,10 @@
   "error": "https://www.unco.edu/osteopathic-medicine/admission/requirements/: no usable prereq list || https://www.unco.edu/admissions-aid/graduate/: no usable prereq list || https://www.unco.edu/osteopathic-medicine/admission/: no usable prereq list || https://www.unco.edu/admissions-aid/undergraduate/transfer/: no usable prereq list"
  },
  "2402": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-16T07:46:34.774Z",
-  "attempts": 1,
-  "sourceUrl": "https://duq.edu/academics/schools/nursing",
-  "error": "https://healthsciencesprograms.gwu.edu/program/the-george-washington-university-post-baccalaureate-certificate-in-chemistry-certificate-1530298280047: HTTP 404"
+  "stage": "source_fetched",
+  "lastAttempt": "2026-08-17T08:12:35.182Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.gwu.edu/undergraduate-admissions"
  },
  "2403": {
   "stage": "failed",
@@ -15551,10 +15575,11 @@
   "error": "https://www.acphs.edu/admissions-aid/undergraduate-admissions/: no usable prereq list || https://www.acphs.edu/admissions-aid/graduate-admissions/: no usable prereq list || https://www.acphs.edu/admissions-aid/pharmacy-admissions/: no usable prereq list || https://www.acphs.edu/apply/: no usable prereq list"
  },
  "2416": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T07:52:55.452Z",
-  "attempts": 1,
-  "sourceUrl": "https://ecatalog.calstatela.edu/preview_program.php?catoid=11&amp;poid=3602"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T08:09:11.918Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.calstatela.edu/nss/biological-sciences/certificate-program-pre-health-professionals-option-1-biological-sciences",
+  "error": "refusing mismatched institution URL https://www.calstatela.edu/nss/biological-sciences/certificate-program-pre-health-professionals-option-1-biological-sciences"
  },
  "2417": {
   "stage": "failed",
@@ -15586,10 +15611,10 @@
  },
  "2421": {
   "stage": "failed",
-  "lastAttempt": "2026-08-16T07:55:26.042Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.fgcu.edu/mariebcollege/nursing/",
-  "error": "https://biology.iupui.edu/biology-ms-pre-professional-non-thesis: fetch failed"
+  "lastAttempt": "2026-08-17T08:09:58.323Z",
+  "attempts": 2,
+  "sourceUrl": "https://iucat.iu.edu/catalog/advanced",
+  "error": "https://biology.iupui.edu/biology-ms-pre-professional-non-thesis: fetch failed || https://library.indianapolis.iu.edu/: no usable prereq list || https://iucat.iu.edu/catalog/advanced: no usable prereq list"
  },
  "2422": {
   "stage": "failed",
@@ -15663,10 +15688,10 @@
  },
  "2432": {
   "stage": "failed",
-  "lastAttempt": "2026-08-16T07:58:44.046Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.gvsu.edu/kcon",
-  "error": "http://graduate.med.uky.edu/master-science-medical-sciences: fetch failed"
+  "lastAttempt": "2026-08-17T08:10:37.295Z",
+  "attempts": 2,
+  "sourceUrl": "https://international.uky.edu/apply",
+  "error": "http://www.uky.edu/Admission/application: fetch failed || https://international.uky.edu/apply/admission-requirements: no usable prereq list || https://gradschool.uky.edu/prospective-students: no usable prereq list || https://international.uky.edu/apply: no usable prereq list"
  },
  "2433": {
   "stage": "finalized",
@@ -15697,10 +15722,11 @@
   "error": "https://apply.liberty.edu/: too little text || https://www.liberty.edu/online/admission-requirements/: no usable prereq list || https://www.liberty.edu/online/degrees/undergraduate-admission-requirements/: no usable prereq list || https://www.liberty.edu/online/tech-requirements/: no usable prereq list"
  },
  "2437": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T08:00:48.753Z",
-  "attempts": 1,
-  "sourceUrl": "http://catalog.lsuhsc.edu/content.php?catoid=17&amp;navoid=3646"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T08:10:11.387Z",
+  "attempts": 2,
+  "sourceUrl": "https://publichealth.lsuhsc.edu/",
+  "error": "https://publichealth.lsuhsc.edu/: no usable prereq list"
  },
  "2438": {
   "stage": "failed",
@@ -15725,8 +15751,8 @@
  },
  "2441": {
   "stage": "failed",
-  "lastAttempt": "2026-08-16T08:01:52.200Z",
-  "attempts": 1,
+  "lastAttempt": "2026-08-17T08:12:23.409Z",
+  "attempts": 2,
   "sourceUrl": "https://catalog.sdstate.edu/preview_program.php?catoid=43&poid=10182&returnto=7068",
   "error": "https://catalog.sdstate.edu/preview_program.php?catoid=43&poid=10182&returnto=7068: too little text"
  },
@@ -15934,10 +15960,11 @@
   "error": "http://postbac.cst.temple.edu: fetch failed"
  },
  "2471": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T19:39:37.738Z",
-  "attempts": 1,
-  "sourceUrl": "https://catalog.phsu.edu/"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T08:10:39.646Z",
+  "attempts": 2,
+  "sourceUrl": "https://catalog.phsu.edu/",
+  "error": "https://phsu.edu/academics/programs/master-of-science-in-medical-science.php: no usable prereq list || https://catalog.phsu.edu/: no usable prereq list || https://phsu.edu/: no usable prereq list || https://phsu.edu/apply.php: no usable prereq list"
  },
  "2472": {
   "stage": "finalized",
@@ -16253,10 +16280,10 @@
  },
  "2518": {
   "stage": "failed",
-  "lastAttempt": "2026-08-16T19:52:33.809Z",
-  "attempts": 1,
+  "lastAttempt": "2026-08-17T07:58:50.152Z",
+  "attempts": 2,
   "sourceUrl": "https://www.nku.edu/chhs/schools/nursing/index.html",
-  "error": "no official candidate URLs"
+  "error": "http://www.emich.edu: HTTP 403"
  },
  "2519": {
   "stage": "unstarted",
