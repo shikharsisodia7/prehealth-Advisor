@@ -448,7 +448,7 @@ function professionKeywords(slug: string): string[] {
     pharmacy: ["pharmacy", "pharmd"],
     veterinary: ["veterinary", "dvm"],
     podiatry: ["podiatr"],
-    postbac: ["post-bac", "postbac", "post bac"],
+    postbac: ["post-bac", "postbac", "post bac", "premed", "pre-med", "linkage"],
     nursing: ["nursing", "bsn", "msn", "absn", "mepn"],
     dietetics: ["dietetic", "nutrition", "rdn"],
     "genetic-counseling": ["genetic counseling"],
@@ -513,6 +513,10 @@ function websiteConflictsWithInstitution(url: string, name: string): boolean {
 function normalizeCandidateUrl(url: string): string | null {
   if (!url || url.startsWith("cache:")) return url || null;
   let u = url.trim();
+  // Directory imports sometimes store http://https://host/...
+  u = u.replace(/^http:\/\/https:\/\//i, "https://");
+  u = u.replace(/^https:\/\/https:\/\//i, "https://");
+  u = u.replace(/^http:\/\/http:\/\//i, "http://");
   while (/^https?:\/\/https?:\/\//i.test(u)) {
     u = u.replace(/^https?:\/\//i, "");
   }
@@ -825,6 +829,8 @@ async function discoverCandidates(program: ProgramRow): Promise<string[]> {
           ? [
               `${program.name} postbaccalaureate prerequisites site:${host}`,
               `${program.name} post-bacc admission requirements site:${host}`,
+              `${program.name} premed postbacc prerequisites site:${host}`,
+              `${program.name} linkage program prerequisites site:${host}`,
             ]
           : []),
         ...(program.professionSlug === "occupational-therapy"
@@ -1171,6 +1177,27 @@ async function fetchWithFallback(url: string): Promise<Fetched> {
 
 async function processProgram(program: ProgramRow): Promise<string> {
   setState(program.id, { stage: "source_discovery", attempts: (state[program.id]?.attempts ?? 0) + 1, error: undefined });
+
+  // Fix scheme-less directory URLs in Neon so crawl/search can use them.
+  const normWeb = program.websiteUrl ? normalizeCandidateUrl(program.websiteUrl) : null;
+  const normSrc = program.sourceUrl ? normalizeCandidateUrl(program.sourceUrl) : null;
+  if (normWeb !== program.websiteUrl || normSrc !== program.sourceUrl) {
+    program.websiteUrl = normWeb;
+    program.sourceUrl = normSrc;
+    try {
+      await db.update(programSchoolsTable).set({
+        websiteUrl: normWeb,
+        sourceUrl: normSrc,
+      }).where(eq(programSchoolsTable.id, program.id));
+    } catch { /* non-fatal */ }
+  }
+  if (program.websiteUrl && websiteConflictsWithInstitution(program.websiteUrl, program.name)) {
+    program.websiteUrl = null;
+    try {
+      await db.update(programSchoolsTable).set({ websiteUrl: null }).where(eq(programSchoolsTable.id, program.id));
+    } catch { /* non-fatal */ }
+  }
+
   const candidates = await discoverCandidates(program);
   if (!candidates.length) {
     setState(program.id, { stage: "failed", error: "no official candidate URLs" });
