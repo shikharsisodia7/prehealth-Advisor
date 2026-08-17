@@ -16714,10 +16714,11 @@
   "finalStatus": "verified"
  },
  "2582": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-17T08:15:36.669Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T08:15:50.722Z",
   "attempts": 1,
-  "sourceUrl": "https://www.ecu.edu/"
+  "sourceUrl": "https://www.ecu.edu/",
+  "error": "https://dental.ecu.edu/admissions-process/: no usable prereq list || https://admissions.ecu.edu/apply/readmission/: no usable prereq list"
  },
  "2583": {
   "stage": "finalized",
@@ -16790,10 +16791,11 @@
   "error": "https://catalog.emerson.edu/preview_program.php?catoid=16&poid=1040&hl=: too little text || https://admissions.emerson.edu/account/login?cookie=1: HTTP 503 || https://emerson.edu/programs/communication-disorders/: no usable prereq list || https://emerson.edu/programs/communication-disorders/: no usable prereq list"
  },
  "2593": {
-  "stage": "source_fetched",
-  "lastAttempt": "2026-08-17T08:15:45.165Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T08:16:18.508Z",
   "attempts": 1,
-  "sourceUrl": "https://www.emory.edu/apply"
+  "sourceUrl": "https://www.fontbonne.edu/",
+  "error": "https://www.emory.edu/admission-and-aid: no usable prereq list || https://www.emory.edu/apply: no usable prereq list || https://www.emory.edu/admission-aid/graduate-professional: no usable prereq list || https://apply.emory.edu/apply/transfer.html: no usable prereq list"
  },
  "2594": {
   "stage": "failed",
@@ -16817,10 +16819,11 @@
   "error": "http://www.csd.fiu.edu: HTTP 403"
  },
  "2597": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-07T23:22:41.726Z",
-  "attempts": 0,
-  "sourceUrl": "https://nursing.uconn.edu/"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T08:16:48.752Z",
+  "attempts": 1,
+  "sourceUrl": "https://www.fsu.edu/",
+  "error": "http://www.commdisorders.cci.fsu.edu: fetch failed || https://gradschool.fsu.edu/prospective-students/graduate-admissions: no usable prereq list || https://admissions.fsu.edu/transfer/apply: no usable prereq list"
  },
  "2598": {
   "stage": "failed",
@@ -16858,10 +16861,11 @@
   "finalStatus": "verified"
  },
  "2603": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-07T23:22:48.626Z",
-  "attempts": 0,
-  "sourceUrl": "https://nursing.uky.edu/"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T08:16:52.043Z",
+  "attempts": 1,
+  "sourceUrl": "https://www.gwu.edu/",
+  "error": "https://graduate.admissions.gwu.edu/international-student-application-requirements: no usable prereq list"
  },
  "2604": {
   "stage": "failed",
@@ -16871,10 +16875,11 @@
   "error": "https://chp.georgiasouthern.edu/rehabilitation/graduate-programs/master-of-science-in-communication-sciences-and-disorders/: HTTP 404"
  },
  "2605": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-07T23:23:05.515Z",
-  "attempts": 0,
-  "sourceUrl": "https://nursing.louisville.edu/"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T08:17:23.119Z",
+  "attempts": 1,
+  "sourceUrl": "https://admissions.gsu.edu/bachelors-degree/",
+  "error": "refusing mismatched institution URL https://education.gsu.edu/csd/academics-admissions/"
  },
  "2606": {
   "stage": "finalized",
@@ -16933,10 +16938,11 @@
   "error": "https://illinoisstate.edu/admissions/: no usable prereq list || https://illinoisstate.edu/admissions/graduate/: no usable prereq list || https://illinoisstate.edu/admissions/contact/mailing/: no usable prereq list || https://illinoisstate.edu/admissions/: no usable prereq list"
  },
  "2614": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-07T23:23:40.528Z",
-  "attempts": 0,
-  "sourceUrl": "https://www.umc.edu/son/SON_Home.html"
+  "stage": "finalized",
+  "lastAttempt": "2026-08-17T08:17:18.823Z",
+  "attempts": 1,
+  "sourceUrl": "https://indianastate.edu/",
+  "finalStatus": "no_prereqs_published"
  },
  "2615": {
   "stage": "failed",
@@ -16946,9 +16952,11 @@
   "error": "https://www.iup.edu/admissions/undergraduate/apply-next-steps/index.html: no usable prereq list"
  },
  "2616": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-07T23:23:40.493Z",
-  "attempts": 0
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T08:17:41.402Z",
+  "attempts": 1,
+  "error": "refusing mismatched institution URL https://healthscience.iusb.edu/speech-pathology/admissions.html",
+  "sourceUrl": "https://apply.iu.edu/welcome/?urlSource=SB"
  },
  "2617": {
   "stage": "finalized",
@@ -17062,10 +17070,11 @@
   "sourceUrl": "https://www.liu.edu/~/link.aspx?_id=551347875BAC4778A170C1EE5F0B6A2D&amp;_z=z"
  },
  "2633": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-07T23:24:41.938Z",
-  "attempts": 0,
-  "sourceUrl": "https://son.rochester.edu/"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T08:18:01.777Z",
+  "attempts": 1,
+  "sourceUrl": "https://llu.edu/academics/programs/school-pharmacy/pharmacy-pharmd",
+  "error": "refusing mismatched institution URL https://alliedhealth.llu.edu/academics/communication-sciences-disorders/bachelors-science-communications-sciences-and-disorders"
  },
  "2634": {
   "stage": "finalized",
@@ -17089,16 +17098,18 @@
   "error": "https://www.lsuhscshreveport.edu/departments/allied-health-professions-departments/speech-language-pathology: fetch failed"
  },
  "2637": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-07T23:24:51.851Z",
-  "attempts": 0,
-  "sourceUrl": "https://www.usiouxfalls.edu/academics/all-degrees/nursing"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T08:17:57.347Z",
+  "attempts": 1,
+  "sourceUrl": "https://www.usiouxfalls.edu/academics/all-degrees/nursing",
+  "error": "http://sites01.lsu.edu/wp/comd/: fetch failed"
  },
  "2638": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-07T23:24:54.955Z",
-  "attempts": 0,
-  "sourceUrl": "https://www.southalabama.edu/colleges/con/"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T08:18:07.668Z",
+  "attempts": 1,
+  "sourceUrl": "https://www.latech.edu/academics/degrees-programs/liberal-arts/communication-ba.php",
+  "error": "https://www.latech.edu/academics/degrees-programs/liberal-arts/communication-ba.php: no usable prereq list"
  },
  "2639": {
   "stage": "finalized",
@@ -17164,10 +17175,11 @@
   "error": "https://miamioh.edu/admission-aid/: no usable prereq list || https://miamioh.edu/admission-aid/majors-minors-programs/: no usable prereq list || https://miamioh.edu/admission-aid/apply/: no usable prereq list || https://miamioh.edu/admission-aid/transferable-credits/: no usable prereq list"
  },
  "2648": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-07T23:25:23.093Z",
-  "attempts": 0,
-  "sourceUrl": "https://nursing.wisc.edu/"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T08:18:32.102Z",
+  "attempts": 1,
+  "sourceUrl": "https://msu.edu/",
+  "error": "https://msu.edu: too little text || https://comartsci.msu.edu/departments/communicative-sciences-and-disorders: no usable prereq list"
  },
  "2649": {
   "stage": "finalized",
@@ -17191,10 +17203,11 @@
   "finalStatus": "verified"
  },
  "2652": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-07T23:25:38.394Z",
-  "attempts": 0,
-  "sourceUrl": "https://www.utica.edu/academics/programs/nursing"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T08:18:23.218Z",
+  "attempts": 1,
+  "sourceUrl": "https://www.mnstate.edu/graduate/slp",
+  "error": "refusing mismatched institution URL https://www.mnstate.edu/academics/graduate/slp/post-baccalaureate"
  },
  "2653": {
   "stage": "finalized",
@@ -17295,10 +17308,11 @@
   "error": "http://www.nymc.edu/departments/academic-departments/school-of-health-sciences-and-practice/speech-language-pathology/: HTTP 404"
  },
  "2667": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-07T23:26:33.274Z",
-  "attempts": 0,
-  "sourceUrl": "https://www.widener.edu/academics/colleges-schools/school-nursing"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T08:18:37.453Z",
+  "attempts": 1,
+  "sourceUrl": "https://www.nyu.edu/",
+  "error": "https://www.nyu.edu/admissions/undergraduate-admissions/how-to-apply.html: too little text || https://www.nyu.edu/admissions.html: too little text || https://steinhardt.nyu.edu/programs/communicative-sciences-and-disorders: no usable prereq list || https://www.nyu.edu/: no usable prereq list"
  },
  "2668": {
   "stage": "finalized",
@@ -17357,10 +17371,11 @@
   "error": "https://www.ohio.edu/chsp/hearing-speech-language-sciences/graduate/admissions-requirements: no usable prereq list || https://www.ohio.edu/medicine/med-admissions: no usable prereq list || https://enroll.ohio.edu/register/?id=a196fb6d-b310-4e9c-949b-6780a601cfd7: no usable prereq list"
  },
  "2676": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-07T23:27:11.747Z",
-  "attempts": 0,
-  "sourceUrl": "https://www.ycp.edu/academics"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T08:18:43.816Z",
+  "attempts": 1,
+  "sourceUrl": "https://www.ycp.edu/academics",
+  "error": "http://www.osuokc.edu: HTTP 403 || http://cdis.okstate.edu: HTTP 403"
  },
  "2677": {
   "stage": "failed",
@@ -17398,16 +17413,18 @@
   "sourceUrl": "https://hhd.psu.edu/csd/about/donate"
  },
  "2682": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-07T23:27:46.111Z",
-  "attempts": 0,
-  "sourceUrl": "https://www.apu.edu/nursing/"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T08:18:49.337Z",
+  "attempts": 1,
+  "sourceUrl": "https://www.pennwest.edu//academics/programs/speech-language-pathology-grad/",
+  "error": "https://www.pennwest.edu//academics/programs/speech-language-pathology-grad/: no usable prereq list"
  },
  "2683": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-07T23:27:58.781Z",
-  "attempts": 0,
-  "sourceUrl": "https://www.baypath.edu/academics/undergraduate-programs/nursing-rn-to-bsn/"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T08:18:53.641Z",
+  "attempts": 1,
+  "sourceUrl": "https://www.baypath.edu/academics/undergraduate-programs/nursing-rn-to-bsn/",
+  "error": "http://www.phillips.edu: HTTP 404 || http://www.geneseo.edu/~cds/: HTTP 404"
  },
  "2684": {
   "stage": "finalized",
@@ -17564,10 +17581,11 @@
   "error": "https://www.southernct.edu/admissions/international: no usable prereq list || https://grad.southernct.edu/admissions/: no usable prereq list || https://inside.southernct.edu/nursing/undergraduate-programs/bsn: no usable prereq list"
  },
  "2706": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-07T23:29:27.467Z",
-  "attempts": 0,
-  "sourceUrl": "https://www.harding.edu/nursing/"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T08:19:23.925Z",
+  "attempts": 1,
+  "sourceUrl": "https://siu.edu/admissions/",
+  "error": "refusing mismatched institution URL https://academics.siu.edu/health-professions/communication-disorders/masters/leveling.php"
  },
  "2707": {
   "stage": "failed",
@@ -17577,10 +17595,11 @@
   "error": "https://www.siue.edu/academics/graduate/degrees-and-programs/slp/: fetch failed"
  },
  "2708": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-07T23:29:35.851Z",
-  "attempts": 0,
-  "sourceUrl": "https://www.ju.edu/nursing/"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T08:19:46.113Z",
+  "attempts": 1,
+  "sourceUrl": "https://www.smu.edu/moody",
+  "error": "https://www.smu.edu/admission/apply: no usable prereq list || https://www.smu.edu/admission/majors-minors: no usable prereq list || https://grad.smu.edu/a-guide-to-graduate-admissions-at-smu: no usable prereq list || https://grad.smu.edu/a-guide-to-graduate-admissions-at-smu?utm_campaign=Content%20Pathways&amp;utm_source=Moody%20School%20Homepage&amp;utm_content=Graduate%20Admissions%20Guide: no usable prereq list"
  },
  "2709": {
   "stage": "failed",
@@ -17688,10 +17707,11 @@
   "error": "https://speech.buffalostate.edu/: no usable prereq list || https://speech.buffalostate.edu/: no usable prereq list || https://suny.buffalostate.edu/graduate/apply: no usable prereq list || https://suny.buffalostate.edu/admission-aid: no usable prereq list"
  },
  "2724": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-07T23:30:03.994Z",
-  "attempts": 0,
-  "sourceUrl": "http://www.regiscollege.edu/academics/schools/richard-and-sheila-young-school-nursing"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T08:20:17.311Z",
+  "attempts": 1,
+  "sourceUrl": "https://www.syracuse.edu/admissions-aid/cost/",
+  "error": "https://www.syracuse.edu/admissions-aid/application-process/undergraduate/first-year/requirements/: no usable prereq list || https://www.syracuse.edu/admissions-aid/application-process/undergraduate/first-year/homeschooled-requirements/: no usable prereq list || https://www.syracuse.edu/admissions-aid/application-process/undergraduate/college-specific-requirements/: no usable prereq list || https://www.syracuse.edu/admissions-aid/application-process/undergraduate/parents-families/: no usable pre"
  },
  "2725": {
   "stage": "failed",
@@ -17729,16 +17749,18 @@
   "error": "http://www.tamuk.edu/artsci/departments/clhs/csdo/index.html: too little text"
  },
  "2730": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-07T23:30:27.023Z",
-  "attempts": 0,
-  "sourceUrl": "https://www.slu.edu/nursing/"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T08:20:12.151Z",
+  "attempts": 1,
+  "sourceUrl": "https://www.tcu.edu/",
+  "error": "refusing mismatched institution URL https://mdschool.tcu.edu/admissions/how-to-prepare-a-competitive-application/"
  },
  "2731": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-07T23:30:35.600Z",
-  "attempts": 0,
-  "sourceUrl": "https://www.saintmarys.edu/academics/departments/nursing-science"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T08:21:02.961Z",
+  "attempts": 1,
+  "sourceUrl": "https://tsu.edu/admissions/steps-to-enroll.php",
+  "error": "https://tsu.edu/admissions/tiger-transfer.php: no usable prereq list || https://www.tsu.edu/admissions/tiger-transfer.php: no usable prereq list || https://www.tsu.edu/admissions/transient-visiting-admissions.php: no usable prereq list || https://www.tsu.edu/admissions/testing-center/tsi-assessment/index.php: no usable prereq list"
  },
  "2732": {
   "stage": "failed",
@@ -17755,10 +17777,11 @@
   "finalStatus": "verified"
  },
  "2734": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-07T23:30:35.247Z",
-  "attempts": 0,
-  "sourceUrl": "https://www.nursing.sfsu.edu/"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T08:20:25.874Z",
+  "attempts": 1,
+  "sourceUrl": "https://uthscsa.edu/health-professions/programs/speech-language-pathology-ms",
+  "error": "refusing mismatched institution URL https://uthscsa.edu/health-professions/programs/speech-language-pathology-ms/admissions"
  },
  "2735": {
   "stage": "failed",
@@ -17845,10 +17868,11 @@
   "finalStatus": "verified"
  },
  "2747": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-07T23:31:21.536Z",
-  "attempts": 0,
-  "sourceUrl": "https://www.nursing.ucla.edu/"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T08:20:36.822Z",
+  "attempts": 1,
+  "sourceUrl": "https://healthprofessions.uams.edu/departments/",
+  "error": "http://www.uams.edu: HTTP 403 || https://healthprofessions.uams.edu/departments/: no usable prereq list"
  },
  "2748": {
   "stage": "failed",
@@ -17872,10 +17896,11 @@
   "finalStatus": "verified"
  },
  "2751": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-07T23:31:49.334Z",
-  "attempts": 0,
-  "sourceUrl": "https://nursing.hawaii.edu/"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T08:21:34.582Z",
+  "attempts": 1,
+  "sourceUrl": "https://www.ucf.edu/",
+  "error": "https://graduate.ucf.edu/application-deadlines-and-requirements/: no usable prereq list || https://www.ucf.edu/admissions/undergraduate/freshman/: no usable prereq list || https://www.ucf.edu/admissions/undergraduate/transfer/: no usable prereq list || https://graduate.ucf.edu/applying-to-ucf/: no usable prereq list"
  },
  "2752": {
   "stage": "failed",
@@ -17906,10 +17931,11 @@
   "finalStatus": "verified"
  },
  "2756": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-07T23:31:49.824Z",
-  "attempts": 0,
-  "sourceUrl": "https://www.unlv.edu/nursing"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T08:21:56.780Z",
+  "attempts": 1,
+  "sourceUrl": "https://grad.uconn.edu/admissions/application-fee-waivers/",
+  "error": "https://grad.uconn.edu/admissions/requirements/: no usable prereq list || https://admissions.uconn.edu/apply/: no usable prereq list || https://grad.uconn.edu/prospective-student/: no usable prereq list || https://grad.uconn.edu/admissions/: no usable prereq list"
  },
  "2757": {
   "stage": "failed",
@@ -18052,10 +18078,11 @@
   "error": "https://cla.umn.edu/slhs: no usable prereq list"
  },
  "2777": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-07T23:32:55.794Z",
-  "attempts": 0,
-  "sourceUrl": "https://www.wilmu.edu/locations/index.aspx"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T08:21:48.771Z",
+  "attempts": 1,
+  "sourceUrl": "https://olemiss.edu/csd/",
+  "error": "https://olemiss.edu/csd/: no usable prereq list"
  },
  "2778": {
   "stage": "failed",
@@ -18065,10 +18092,11 @@
   "error": "https://gradschool.missouri.edu/admissions/apply/: no usable prereq list || https://admissions.missouri.edu/apply/freshmen/test-optional/: no usable prereq list || https://admissions.missouri.edu/apply/freshmen/: no usable prereq list || https://admissions.missouri.edu/apply/transfer/: no usable prereq list"
  },
  "2779": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-07T23:33:09.042Z",
-  "attempts": 0,
-  "sourceUrl": "https://nursing.yale.edu/"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T08:22:45.572Z",
+  "attempts": 1,
+  "sourceUrl": "https://www.umt.edu/admissions/admission-requirements/other-applicants.php",
+  "error": "https://www.umt.edu/admissions/admission-requirements/international/apply-international.php: no usable prereq list || https://www.umt.edu/admissions/admission-requirements/default.php: no usable prereq list || https://www.umt.edu/admissions/admission-requirements/international/default.php: no usable prereq list || https://www.umt.edu/admissions/admission-requirements/missoula-college/default.php: no usable prereq list"
  },
  "2780": {
   "stage": "failed",
@@ -18134,9 +18162,11 @@
   "finalStatus": "verified"
  },
  "2789": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-07T21:43:47.217Z",
-  "attempts": 0
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T08:22:37.818Z",
+  "attempts": 1,
+  "error": "refusing mismatched institution URL https://arts-sciences.und.edu/academics/communication-sciences-disorders/post-bacc.html",
+  "sourceUrl": "https://und.edu/admissions/admitted-students/index.html"
  },
  "2790": {
   "stage": "failed",
@@ -18447,9 +18477,11 @@
   "finalStatus": "verified"
  },
  "2834": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-07T21:48:54.613Z",
-  "attempts": 0
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T08:22:54.583Z",
+  "attempts": 1,
+  "error": "https://medicine.hsc.wvu.edu/communications-sciences-and-disorders: no usable prereq list || https://www.wvu.edu/: no usable prereq list",
+  "sourceUrl": "https://www.wvu.edu/"
  },
  "2835": {
   "stage": "finalized",
