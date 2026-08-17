@@ -17469,10 +17469,11 @@
   "sourceUrl": "https://www.harding.edu/nursing/"
  },
  "2707": {
-  "stage": "source_discovery",
-  "lastAttempt": "2026-08-17T00:28:19.523Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T00:30:31.431Z",
   "attempts": 1,
-  "sourceUrl": "https://www.herzing.edu/madison"
+  "sourceUrl": "https://www.herzing.edu/madison",
+  "error": "https://www.siue.edu/academics/graduate/degrees-and-programs/slp/: fetch failed"
  },
  "2708": {
   "stage": "unstarted",
@@ -17481,92 +17482,109 @@
   "sourceUrl": "https://www.ju.edu/nursing/"
  },
  "2709": {
-  "stage": "source_discovery",
-  "lastAttempt": "2026-08-17T00:28:24.968Z",
-  "attempts": 1
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T00:29:41.932Z",
+  "attempts": 1,
+  "error": "http://www.subr.edu/page/slpa-graduate-admission-requirements: no usable prereq list || https://www.subr.edu/page/SUBR-undergraduate-admissions: no usable prereq list || https://www.subr.edu/page/SUBR-undergraduate-admissions: no usable prereq list || http://www.subr.edu/page/4559: no usable prereq list",
+  "sourceUrl": "http://www.subr.edu/page/1201"
  },
  "2710": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-07T23:29:30.076Z",
-  "attempts": 0,
-  "sourceUrl": "http://www.linfield.edu/nursing/"
+  "stage": "finalized",
+  "lastAttempt": "2026-08-17T00:30:21.772Z",
+  "attempts": 1,
+  "sourceUrl": "https://sau.edu/academic-programs/masters/health-sciences/ms-speech-language-pathology/",
+  "finalStatus": "verified"
  },
  "2711": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-07T23:29:32.737Z",
-  "attempts": 0,
-  "sourceUrl": "https://nursing.llu.edu/"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T00:31:20.461Z",
+  "attempts": 1,
+  "sourceUrl": "https://www.stcloudstate.edu/csd/atll.aspx",
+  "error": "https://www.stcloudstate.edu/csd/: no usable prereq list || https://www.stcloudstate.edu/csd/: no usable prereq list || https://www.stcloudstate.edu/csd/default.aspx: no usable prereq list || https://www.stcloudstate.edu/csd/programs/default.aspx: no usable prereq list"
  },
  "2712": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-07T23:29:35.231Z",
-  "attempts": 0,
-  "sourceUrl": "https://www.marquette.edu/nursing/"
+  "stage": "finalized",
+  "lastAttempt": "2026-08-17T00:31:03.428Z",
+  "attempts": 1,
+  "sourceUrl": "https://www.stjohns.edu/academics/programs/speech-language-pathology-master-arts",
+  "finalStatus": "verified"
  },
  "2713": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-07T23:29:43.193Z",
-  "attempts": 0,
-  "sourceUrl": "https://www.methodistcol.edu/academics/degrees-and-programs"
+  "stage": "finalized",
+  "lastAttempt": "2026-08-17T00:31:33.362Z",
+  "attempts": 1,
+  "sourceUrl": "https://www.sxu.edu/admission/graduate/requirements-process.html",
+  "finalStatus": "verified"
  },
  "2714": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-07T23:29:48.128Z",
-  "attempts": 0,
-  "sourceUrl": "https://www.metrostate.edu/academics/nursing-and-health-sciences/nursing"
+  "stage": "finalized",
+  "lastAttempt": "2026-08-17T00:31:53.292Z",
+  "attempts": 1,
+  "sourceUrl": "https://www.sfasu.edu/academics/majors-programs/speech-language-pathology-ms",
+  "finalStatus": "verified"
  },
  "2715": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-07T23:29:46.017Z",
-  "attempts": 0,
-  "sourceUrl": "https://www.mghihp.edu/nursing"
+  "stage": "finalized",
+  "lastAttempt": "2026-08-17T00:32:04.163Z",
+  "attempts": 1,
+  "sourceUrl": "https://stockton.edu/graduate/communication-disorders.html",
+  "finalStatus": "verified"
  },
  "2716": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-07T23:29:51.877Z",
-  "attempts": 0,
-  "sourceUrl": "https://www.millikin.edu/college-professional-studies/school-nursing"
+  "stage": "finalized",
+  "lastAttempt": "2026-08-17T00:32:17.810Z",
+  "attempts": 1,
+  "sourceUrl": "https://healthprofessions.stonybrookmedicine.edu/programs/speech-language-pathology/admissions/prerequisites",
+  "finalStatus": "verified"
  },
  "2717": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-07T23:29:43.204Z",
-  "attempts": 0
+  "stage": "finalized",
+  "lastAttempt": "2026-08-17T00:32:27.708Z",
+  "attempts": 1,
+  "sourceUrl": "https://arts-sciences.buffalo.edu/cds/undergraduate/SHS-BA.html",
+  "finalStatus": "verified"
  },
  "2718": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-07T23:29:45.759Z",
-  "attempts": 0,
-  "sourceUrl": "https://inside.montclair.edu/colleges-schools-research/nursing"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T00:36:47.946Z",
+  "attempts": 1,
+  "sourceUrl": "https://inside.montclair.edu/colleges-schools-research/nursing",
+  "error": "http://www.cortland.edu: HTTP 522 || https://www.suny.edu/attend/apply-to-suny: HTTP 403"
  },
  "2719": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-07T23:30:01.461Z",
-  "attempts": 0,
-  "sourceUrl": "https://www.msj.edu/school-of-health-sciences/department-of-nursing/index.html"
+  "stage": "finalized",
+  "lastAttempt": "2026-08-17T00:32:59.951Z",
+  "attempts": 1,
+  "sourceUrl": "https://www.fredonia.edu/academics/colleges-schools/college-education-health-sciences-human-services/communication-disorders-sciences/program/speech-language-pathology",
+  "finalStatus": "verified"
  },
  "2720": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-07T23:30:01.183Z",
-  "attempts": 0,
-  "sourceUrl": "https://www.nu.edu/college/school-of-health-professions/"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T00:33:11.304Z",
+  "attempts": 1,
+  "sourceUrl": "https://www.nu.edu/college/school-of-health-professions/",
+  "error": "http://www.geneseo.edu/~cds/: HTTP 404 || https://www.suny.edu/attend/apply-to-suny: HTTP 403"
  },
  "2721": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-07T23:30:03.210Z",
-  "attempts": 0,
-  "sourceUrl": "https://www.northpark.edu/academics/school-of-nursing-and-health-sciences/nursing/"
+  "stage": "finalized",
+  "lastAttempt": "2026-08-17T00:33:59.479Z",
+  "attempts": 1,
+  "sourceUrl": "https://catalog.newpaltz.edu/graduate/liberal-arts-sciences/communication-disorders/ms-communication-disorders-speech-language-pathology-concentration/",
+  "finalStatus": "verified"
  },
  "2722": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-07T23:30:05.052Z",
-  "attempts": 0,
-  "sourceUrl": "https://bouve.northeastern.edu/academics/school-of-nursing/"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T00:34:09.992Z",
+  "attempts": 1,
+  "sourceUrl": "https://bouve.northeastern.edu/academics/school-of-nursing/",
+  "error": "http://web.plattsburgh.edu/academics/commdisorders/: HTTP 404 || https://www.suny.edu/attend/apply-to-suny: HTTP 403"
  },
  "2723": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-07T23:30:16.298Z",
-  "attempts": 0,
-  "sourceUrl": "https://www.plu.edu/nursing/"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T00:34:59.405Z",
+  "attempts": 1,
+  "sourceUrl": "https://suny.buffalostate.edu/admissions/visit",
+  "error": "https://speech.buffalostate.edu/: no usable prereq list || https://speech.buffalostate.edu/: no usable prereq list || https://suny.buffalostate.edu/graduate/apply: no usable prereq list || https://suny.buffalostate.edu/admission-aid: no usable prereq list"
  },
  "2724": {
   "stage": "unstarted",
@@ -17575,34 +17593,39 @@
   "sourceUrl": "http://www.regiscollege.edu/academics/schools/richard-and-sheila-young-school-nursing"
  },
  "2725": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-07T23:30:08.416Z",
-  "attempts": 0,
-  "sourceUrl": "https://www.rosalindfranklin.edu/academics/college-of-health-professions/degree-programs/"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T00:36:07.433Z",
+  "attempts": 1,
+  "sourceUrl": "https://www.trine.edu/academics/colleges-schools/health-professions/",
+  "error": "https://www.trine.edu/academics/majors-degrees/graduate/doctor-physical-therapy/admission-requirements.aspx: no usable prereq list || https://www.trine.edu/academics/majors-degrees/graduate/master-physician-assistant-studies/admission-requirements.aspx: no usable prereq list || https://www.trine.edu/academics/colleges-schools/health-professions/admission-aid/index.aspx: no usable prereq list || https://www.trine.edu/academics/colleges-schools/health-professions/admission-aid/apply.aspx: no usabl"
  },
  "2726": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-07T23:30:19.277Z",
-  "attempts": 0,
-  "sourceUrl": "https://www.rushu.rush.edu/college-nursing"
+  "stage": "finalized",
+  "lastAttempt": "2026-08-17T00:36:36.301Z",
+  "attempts": 1,
+  "sourceUrl": "https://www.tc.columbia.edu/biobehavioral-sciences/communication-sciences-and-disorders/prerequisite-program/",
+  "finalStatus": "verified"
  },
  "2727": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-07T23:30:20.405Z",
-  "attempts": 0,
-  "sourceUrl": "https://www.sbu.edu/academics/nursing-programs"
+  "stage": "finalized",
+  "lastAttempt": "2026-08-17T00:37:28.328Z",
+  "attempts": 1,
+  "sourceUrl": "https://www.temple.edu/academics/degree-programs/speech-language-hearing-science-ma-hp-splh-ma/admissions",
+  "finalStatus": "verified"
  },
  "2728": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-07T23:30:23.585Z",
-  "attempts": 0,
-  "sourceUrl": "https://www.stkate.edu/academics/academic-programs/cfw-nursing"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T00:37:54.223Z",
+  "attempts": 1,
+  "sourceUrl": "https://www.etsu.edu/admissions/",
+  "error": "https://www.etsu.edu/pharmacy/admissions/requirements.php: no usable prereq list || https://www.etsu.edu/admissions/apply/default.php: no usable prereq list || https://www.etsu.edu/admissions/apply/transfer-student.php?utm_source=Admissions%20Homepage%2C%20OU%20Campus%20CMS_5DegreeRedesign&amp;utm_medium=Hero-Student%20Type%20CTA%20Link%20Area&amp;utm_campaign=2021FA%20Admissions%20Revamp-5Degrees&amp;utm_content=TRANSFER-Admissions%20HomePg%20Hero-Student%20Type%20CTA%20Link%20Area&amp;utm_term"
  },
  "2729": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-07T23:30:29.776Z",
-  "attempts": 0,
-  "sourceUrl": "https://www.francis.edu/academics/degrees-programs/nursing"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T00:37:39.278Z",
+  "attempts": 1,
+  "sourceUrl": "https://www.tamuk.edu/artsci/departments/clhs/csdo/index.html",
+  "error": "http://www.tamuk.edu/artsci/departments/clhs/csdo/index.html: too little text"
  },
  "2730": {
   "stage": "unstarted",
@@ -17617,16 +17640,18 @@
   "sourceUrl": "https://www.saintmarys.edu/academics/departments/nursing-science"
  },
  "2732": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-07T23:30:36.901Z",
-  "attempts": 0,
-  "sourceUrl": "https://www.stvincent.edu/academics/undergraduate-programs/programs/nursing-degree.html"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T00:39:52.230Z",
+  "attempts": 1,
+  "sourceUrl": "https://www.stvincent.edu/academics/undergraduate-programs/programs/nursing-degree.html",
+  "error": "http://www.ttuhsc.edu: fetch failed"
  },
  "2733": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-07T23:30:43.958Z",
-  "attempts": 0,
-  "sourceUrl": "http://www.samuelmerritt.edu/colleges/college-nursing"
+  "stage": "finalized",
+  "lastAttempt": "2026-08-17T00:38:19.731Z",
+  "attempts": 1,
+  "sourceUrl": "https://twu.edu/communication-sciences-oral-health/communication-sciences-coms/coms-programs/ms-in-speech-language-pathology/on-campus-slp-degree--admission-details/",
+  "finalStatus": "verified"
  },
  "2734": {
   "stage": "unstarted",
@@ -17635,69 +17660,78 @@
   "sourceUrl": "https://www.nursing.sfsu.edu/"
  },
  "2735": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-07T23:30:50.491Z",
-  "attempts": 0,
-  "sourceUrl": "https://www.sentara.edu/"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T00:39:05.963Z",
+  "attempts": 1,
+  "sourceUrl": "https://www.utrgv.edu/cohp/schools-and-departments/department-of-communication-disorders/staff-directory/index.htm",
+  "error": "https://www.utrgv.edu/cohp/schools-and-departments/department-of-communication-disorders/student-resources/index.htm: no usable prereq list || https://www.utrgv.edu/programs/bs-communication-sciences-and-disorders.htm: no usable prereq list"
  },
  "2736": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-07T23:30:48.801Z",
-  "attempts": 0,
-  "sourceUrl": "https://www.simmons.edu/directory/departments/son"
+  "stage": "finalized",
+  "lastAttempt": "2026-08-17T00:39:51.015Z",
+  "attempts": 1,
+  "sourceUrl": "https://www.thiel.edu/academics/departments/communication-sciences-and-disorders/csd-course-offerings",
+  "finalStatus": "verified"
  },
  "2737": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-07T23:30:52.090Z",
-  "attempts": 0,
-  "sourceUrl": "https://www.tlu.edu/programs/nursing"
+  "stage": "finalized",
+  "lastAttempt": "2026-08-17T00:40:21.359Z",
+  "attempts": 1,
+  "sourceUrl": "https://www.jefferson.edu/admissions/graduate/prerequisite-guides.html",
+  "finalStatus": "verified"
  },
  "2738": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-07T23:30:46.617Z",
-  "attempts": 0,
-  "sourceUrl": "https://nursing.osu.edu/"
+  "stage": "finalized",
+  "lastAttempt": "2026-08-17T00:40:19.304Z",
+  "attempts": 1,
+  "sourceUrl": "https://shs.touro.edu/programs/speech-language-pathology/admissions/",
+  "finalStatus": "verified"
  },
  "2739": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-07T23:31:00.017Z",
-  "attempts": 0,
-  "sourceUrl": "https://nursing.ua.edu/"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T00:41:13.226Z",
+  "attempts": 1,
+  "sourceUrl": "https://www.towson.edu/admissions/undergrad/request.html",
+  "error": "https://www.towson.edu/academics/graduate/admissions/events.html: no usable prereq list || https://www.towson.edu/academics/graduate/admissions/apply/: no usable prereq list || https://www.towson.edu/academics/graduate/admissions/policies.html: no usable prereq list"
  },
  "2740": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-07T23:31:04.212Z",
-  "attempts": 0,
-  "sourceUrl": "https://www.towson.edu/chp/departments/nursing/"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T00:41:33.539Z",
+  "attempts": 1,
+  "sourceUrl": "https://www.trine.edu/academics/colleges-schools/health-professions/",
+  "error": "https://www.trine.edu/academics/majors-degrees/graduate/doctor-physical-therapy/admission-requirements.aspx: no usable prereq list || https://www.trine.edu/academics/majors-degrees/graduate/master-physician-assistant-studies/admission-requirements.aspx: no usable prereq list || https://www.trine.edu/academics/colleges-schools/health-professions/admission-aid/index.aspx: no usable prereq list || https://www.trine.edu/academics/colleges-schools/health-professions/admission-aid/apply.aspx: no usabl"
  },
  "2741": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-07T23:31:05.941Z",
-  "attempts": 0,
-  "sourceUrl": "https://www.trinitycollegeqc.edu/"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T00:42:06.201Z",
+  "attempts": 1,
+  "sourceUrl": "https://www.truman.edu/majors-programs/graduate-studies/areas-study/communication-disorders/",
+  "error": "https://www.truman.edu/academics/school-of-business-and-professional-studies/about-the-communication-disorders-department/: no usable prereq list || https://www.truman.edu/majors-programs/graduate-studies/communication-disorders/: no usable prereq list || https://www.truman.edu/academics/school-of-business-and-professional-studies/about-the-communication-disorders-department/communications-disorders-faculty-staff/: no usable prereq list || https://www.truman.edu/academics/school-of-business-and-"
  },
  "2742": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-07T23:31:05.234Z",
-  "attempts": 0,
-  "sourceUrl": "https://www.troy.edu/academics/colleges-schools/health-sciences/departments/school-of-nursing/"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T00:42:11.832Z",
+  "attempts": 1,
+  "sourceUrl": "https://tulane.edu/",
+  "error": "https://tulane.edu/graduate-admission: no usable prereq list || https://admission.tulane.edu/: no usable prereq list || https://admission.tulane.edu/: no usable prereq list || https://tulane.edu/admission-aid: no usable prereq list"
  },
  "2743": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-07T23:31:22.454Z",
-  "attempts": 0,
+  "stage": "source_discovery",
+  "lastAttempt": "2026-08-17T00:42:06.720Z",
+  "attempts": 1,
   "sourceUrl": "https://www.uab.edu/nursing/home/"
  },
  "2744": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-07T23:31:16.902Z",
-  "attempts": 0,
-  "sourceUrl": "https://nursing.arizona.edu/"
+  "stage": "finalized",
+  "lastAttempt": "2026-08-17T00:42:37.152Z",
+  "attempts": 1,
+  "sourceUrl": "https://www.uakron.edu/sslpa/howtoapply",
+  "finalStatus": "verified"
  },
  "2745": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-07T23:31:20.425Z",
-  "attempts": 0,
+  "stage": "source_discovery",
+  "lastAttempt": "2026-08-17T00:42:37.156Z",
+  "attempts": 1,
   "sourceUrl": "https://health.ucdavis.edu/nursing/"
  },
  "2746": {
