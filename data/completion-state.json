@@ -16792,8 +16792,8 @@
  },
  "2608": {
   "stage": "failed",
-  "lastAttempt": "2026-08-16T20:37:12.534Z",
-  "attempts": 1,
+  "lastAttempt": "2026-08-17T00:01:21.924Z",
+  "attempts": 2,
   "sourceUrl": "https://www.umass.edu/nursing/",
   "error": "http://science.hamptonu.edu/csad/: HTTP 404"
  },
@@ -16805,10 +16805,11 @@
   "finalStatus": "verified"
  },
  "2610": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T20:38:07.954Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.hofstra.edu/admission/visit/"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T00:02:07.567Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.hofstra.edu/admission/visit/",
+  "error": "https://www.hofstra.edu/speech-language-hearing-sciences/about.html: no usable prereq list || https://www.hofstra.edu/graduate/apply.html: no usable prereq list || https://www.hofstra.edu/admission/dual-degrees/: no usable prereq list"
  },
  "2611": {
   "stage": "unstarted",
@@ -16817,16 +16818,18 @@
   "sourceUrl": "https://hr.howard.edu/careers"
  },
  "2612": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T20:38:56.570Z",
-  "attempts": 1,
-  "sourceUrl": "https://coursecat.isu.edu/"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T00:01:09.852Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.isu.edu/apply/",
+  "error": "refusing mismatched institution URL https://coursecat.isu.edu/undergraduate/allcourses/csd/"
  },
  "2613": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T20:39:13.866Z",
-  "attempts": 1,
-  "sourceUrl": "https://events.illinoisstate.edu/event/csd-picnic/"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T00:02:24.624Z",
+  "attempts": 2,
+  "sourceUrl": "https://illinoisstate.edu/admissions/",
+  "error": "https://illinoisstate.edu/admissions/: no usable prereq list || https://illinoisstate.edu/admissions/graduate/: no usable prereq list || https://illinoisstate.edu/admissions/contact/mailing/: no usable prereq list || https://illinoisstate.edu/admissions/: no usable prereq list"
  },
  "2614": {
   "stage": "unstarted",
@@ -16835,10 +16838,11 @@
   "sourceUrl": "https://www.umc.edu/son/SON_Home.html"
  },
  "2615": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T20:39:43.888Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.iup.edu/alliedhealth/index.html"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T00:02:57.374Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.iup.edu/alliedhealth/index.html",
+  "error": "https://www.iup.edu/admissions/undergraduate/apply-next-steps/index.html: no usable prereq list"
  },
  "2616": {
   "stage": "unstarted",
@@ -16874,8 +16878,8 @@
  },
  "2621": {
   "stage": "failed",
-  "lastAttempt": "2026-08-16T20:40:35.617Z",
-  "attempts": 1,
+  "lastAttempt": "2026-08-17T00:02:36.610Z",
+  "attempts": 2,
   "sourceUrl": "https://www.unmc.edu/nursing/",
   "error": "http://www.jsums.edu/commdisorders: HTTP 404"
  },
@@ -16922,22 +16926,25 @@
   "error": "https://www.lasalle.edu/admissions-and-aid/undergraduate/: no usable prereq list || https://www.lasalle.edu/admissions-and-aid/graduate/: no usable prereq list || https://www.lasalle.edu/admissions-and-aid/: no usable prereq list || https://www.lasalle.edu/admissions-and-aid/international/: no usable prereq list"
  },
  "2628": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-17T00:00:23.470Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T00:00:40.446Z",
   "attempts": 1,
-  "sourceUrl": "https://www.lamar.edu/admissions/index.html"
+  "sourceUrl": "https://www.lamar.edu/admissions/index.html",
+  "error": "https://catalog.lamar.edu/undergraduate-admissions/: no usable prereq list || https://www.lamar.edu/admissions/how-to-apply/freshmen/index.html: no usable prereq list || https://www.lamar.edu/admissions/how-to-apply/international/international-graduate.html: no usable prereq list"
  },
  "2629": {
-  "stage": "source_fetched",
-  "lastAttempt": "2026-08-17T00:00:26.544Z",
+  "stage": "finalized",
+  "lastAttempt": "2026-08-17T00:00:41.226Z",
   "attempts": 1,
-  "sourceUrl": "https://www.lvc.edu/news/speech-language-pathology-a-journey-of-advocacy-and-service/"
+  "sourceUrl": "https://www.lvc.edu/programs/master-speech-language-pathology/admission-requirements/",
+  "finalStatus": "verified"
  },
  "2630": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-07T23:24:27.466Z",
-  "attempts": 0,
-  "sourceUrl": "https://www.nursing.upenn.edu/"
+  "stage": "finalized",
+  "lastAttempt": "2026-08-17T00:03:44.966Z",
+  "attempts": 1,
+  "sourceUrl": "https://www.lewisu.edu/academics/slp/admission.htm",
+  "finalStatus": "verified"
  },
  "2631": {
   "stage": "finalized",
@@ -16947,9 +16954,11 @@
   "finalStatus": "verified"
  },
  "2632": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-07T23:24:31.223Z",
-  "attempts": 0
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T00:03:56.398Z",
+  "attempts": 1,
+  "error": "https://www.liu.edu/~/media/RedesignFiles/LIUPost/Academics/Bulletins/Post-UG-GRA-Catalog.ashx?la=en: PDF source requires Firecrawl parsing (key not configured) || https://liu.edu/apply: too little text || http://liu.edu/apply: too little text || https://liu.edu/post/apply: too little text",
+  "sourceUrl": "https://www.liu.edu/~/link.aspx?_id=551347875BAC4778A170C1EE5F0B6A2D&amp;_z=z"
  },
  "2633": {
   "stage": "unstarted",
@@ -16958,22 +16967,25 @@
   "sourceUrl": "https://son.rochester.edu/"
  },
  "2634": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-07T23:24:30.296Z",
-  "attempts": 0,
-  "sourceUrl": "http://usj.edu/academics/schools/school-of-health-natural-sciences/nursing/"
+  "stage": "finalized",
+  "lastAttempt": "2026-08-17T00:05:22.125Z",
+  "attempts": 1,
+  "sourceUrl": "https://www.longwood.edu/slp/",
+  "finalStatus": "verified"
  },
  "2635": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-07T23:24:45.657Z",
-  "attempts": 0,
-  "sourceUrl": "https://stmary.edu/nursing/index"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T00:04:36.696Z",
+  "attempts": 1,
+  "sourceUrl": "https://www.lsuhsc.edu/administration/hrm/talentacquisition.aspx",
+  "error": "http://catalog.lsuhsc.edu/content.php?catoid=17&amp;navoid=3646: too little text || https://www.lsuhsc.edu/prospectivestudents/default.aspx: no usable prereq list || http://catalog.lsuhsc.edu/: no usable prereq list || https://www.lsuhsc.edu/: no usable prereq list"
  },
  "2636": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-07T23:24:46.463Z",
-  "attempts": 0,
-  "sourceUrl": "https://health.stthomas.edu/nursing/index.html"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T00:05:13.319Z",
+  "attempts": 1,
+  "sourceUrl": "https://health.stthomas.edu/nursing/index.html",
+  "error": "https://www.lsuhscshreveport.edu/departments/allied-health-professions-departments/speech-language-pathology: fetch failed"
  },
  "2637": {
   "stage": "unstarted",
@@ -16988,58 +17000,66 @@
   "sourceUrl": "https://www.southalabama.edu/colleges/con/"
  },
  "2639": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-07T23:24:51.661Z",
-  "attempts": 0,
-  "sourceUrl": "https://health.usf.edu/nursing/"
+  "stage": "finalized",
+  "lastAttempt": "2026-08-17T00:05:45.173Z",
+  "attempts": 1,
+  "sourceUrl": "https://www.loyola.edu/academics/speech/graduate/curriculum/degree-requirements.html",
+  "finalStatus": "verified"
  },
  "2640": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-07T23:24:59.605Z",
-  "attempts": 0,
-  "sourceUrl": "https://usm.maine.edu/school-nursing/"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T00:05:32.571Z",
+  "attempts": 1,
+  "sourceUrl": "https://www.marquette.edu/speech-pathology-audiology/",
+  "error": "https://www.marquette.edu/speech-pathology-audiology/: no usable prereq list"
  },
  "2641": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-07T23:25:04.495Z",
-  "attempts": 0,
-  "sourceUrl": "https://www.usm.edu/professional-nursing-practice/index.php"
+  "stage": "finalized",
+  "lastAttempt": "2026-08-17T00:06:20.924Z",
+  "attempts": 1,
+  "sourceUrl": "https://www.marshall.edu/communication-disorders/graduate/",
+  "finalStatus": "verified"
  },
  "2642": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-07T23:25:02.744Z",
-  "attempts": 0,
-  "sourceUrl": "https://www.utc.edu/college-of-nursing"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T00:06:23.412Z",
+  "attempts": 1,
+  "sourceUrl": "https://www.maryville.edu/admissions/",
+  "error": "https://www.maryville.edu/apply-csdcas/: too little text || https://catalog.maryville.edu/content.php?catoid=25&amp;navoid=2230: too little text || https://catalog.maryville.edu/?_ga=2.40320043.867605969.1689610591-885137803.1623179314: no usable prereq list || https://www.maryville.edu/admissions/undergraduate/: no usable prereq list"
  },
  "2643": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-07T23:25:07.710Z",
-  "attempts": 0,
-  "sourceUrl": "https://www.uthsc.edu/nursing/"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T00:07:57.774Z",
+  "attempts": 1,
+  "sourceUrl": "https://www.marywood.edu/academics/core-curriculum",
+  "error": "https://www.marywood.edu/academics/csd: no usable prereq list || https://www.marywood.edu/academics/csd: no usable prereq list || https://www.marywood.edu/admissions/international/: no usable prereq list || https://www.marywood.edu/admissions/international/: no usable prereq list"
  },
  "2644": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-07T23:25:12.562Z",
-  "attempts": 0,
-  "sourceUrl": "https://nursing.utk.edu/"
+  "stage": "finalized",
+  "lastAttempt": "2026-08-17T00:07:33.070Z",
+  "attempts": 1,
+  "sourceUrl": "https://chp.musc.edu/programs/master-science-speech-language-pathology",
+  "finalStatus": "verified"
  },
  "2645": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-07T23:25:12.980Z",
-  "attempts": 0,
-  "sourceUrl": "https://www.utrgv.edu/nursing/"
+  "stage": "finalized",
+  "lastAttempt": "2026-08-17T00:08:34.174Z",
+  "attempts": 1,
+  "sourceUrl": "https://www.mercy.edu/academics/programs/masters-speech-language-pathology-details",
+  "finalStatus": "verified"
  },
  "2646": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-07T23:25:17.796Z",
-  "attempts": 0,
-  "sourceUrl": "https://nursing-and-health-professions.uiw.edu/"
+  "stage": "finalized",
+  "lastAttempt": "2026-08-17T00:08:35.254Z",
+  "attempts": 1,
+  "sourceUrl": "https://www.mghihp.edu/health-rehabilitation-sciences/departments-programs/communication-sciences-disorders/audiology-assistant-graduate-certificate",
+  "finalStatus": "verified"
  },
  "2647": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-07T23:25:27.370Z",
-  "attempts": 0,
-  "sourceUrl": "https://nursing.uw.edu/"
+  "stage": "extracted",
+  "lastAttempt": "2026-08-17T00:09:04.236Z",
+  "attempts": 1,
+  "sourceUrl": "https://miamioh.edu/admission-aid/apply/"
  },
  "2648": {
   "stage": "unstarted",
@@ -17048,15 +17068,16 @@
   "sourceUrl": "https://nursing.wisc.edu/"
  },
  "2649": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-07T23:25:17.077Z",
-  "attempts": 0,
-  "sourceUrl": "https://www.uwosh.edu/nhp/"
+  "stage": "finalized",
+  "lastAttempt": "2026-08-17T00:08:52.599Z",
+  "attempts": 1,
+  "sourceUrl": "https://apply.midwestern.edu/portal/slp-leveling",
+  "finalStatus": "verified"
  },
  "2650": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-07T23:25:32.198Z",
-  "attempts": 0,
+  "stage": "source_discovery",
+  "lastAttempt": "2026-08-17T00:08:52.604Z",
+  "attempts": 1,
   "sourceUrl": "https://www.uwyo.edu/nursing/"
  },
  "2651": {
@@ -17096,10 +17117,11 @@
   "sourceUrl": "https://nursing.vcu.edu/"
  },
  "2657": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-07T23:26:03.474Z",
-  "attempts": 0,
-  "sourceUrl": "https://wagner.edu/nursing/"
+  "stage": "finalized",
+  "lastAttempt": "2026-08-17T00:01:13.714Z",
+  "attempts": 1,
+  "sourceUrl": "https://www.molloy.edu/admissions-aid/graduate-admissions/admissions-criteria",
+  "finalStatus": "verified"
  },
  "2658": {
   "stage": "unstarted",
