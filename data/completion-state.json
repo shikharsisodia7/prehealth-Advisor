@@ -17056,10 +17056,11 @@
   "finalStatus": "verified"
  },
  "2647": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-17T00:09:04.236Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T00:09:24.497Z",
   "attempts": 1,
-  "sourceUrl": "https://miamioh.edu/admission-aid/apply/"
+  "sourceUrl": "https://miamioh.edu/admission-aid/apply/",
+  "error": "https://miamioh.edu/admission-aid/: no usable prereq list || https://miamioh.edu/admission-aid/majors-minors-programs/: no usable prereq list || https://miamioh.edu/admission-aid/apply/: no usable prereq list || https://miamioh.edu/admission-aid/transferable-credits/: no usable prereq list"
  },
  "2648": {
   "stage": "unstarted",
@@ -17075,16 +17076,18 @@
   "finalStatus": "verified"
  },
  "2650": {
-  "stage": "source_discovery",
-  "lastAttempt": "2026-08-17T00:08:52.604Z",
+  "stage": "finalized",
+  "lastAttempt": "2026-08-17T00:09:36.141Z",
   "attempts": 1,
-  "sourceUrl": "https://www.uwyo.edu/nursing/"
+  "sourceUrl": "https://apply.midwestern.edu/portal/slp-leveling",
+  "finalStatus": "verified"
  },
  "2651": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-07T23:25:57.531Z",
-  "attempts": 0,
-  "sourceUrl": "https://www.ursuline.edu/academics/find-a-program?field=nursing"
+  "stage": "finalized",
+  "lastAttempt": "2026-08-17T00:10:00.924Z",
+  "attempts": 1,
+  "sourceUrl": "https://www.mnsu.edu/academic-catalog/undergraduate/post-baccommunication-sciences-disorders-cert/",
+  "finalStatus": "verified"
  },
  "2652": {
   "stage": "unstarted",
@@ -17093,28 +17096,32 @@
   "sourceUrl": "https://www.utica.edu/academics/programs/nursing"
  },
  "2653": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-07T23:25:42.826Z",
-  "attempts": 0,
-  "sourceUrl": "https://www.valdosta.edu/colleges/nursing-and-health-sciences/"
+  "stage": "finalized",
+  "lastAttempt": "2026-08-17T00:10:04.287Z",
+  "attempts": 1,
+  "sourceUrl": "https://catalog.minotstateu.edu/graduate/programs-of-study/ms-communication-disorders/",
+  "finalStatus": "verified"
  },
  "2654": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-07T23:25:56.841Z",
-  "attempts": 0,
-  "sourceUrl": "https://www.valpo.edu/programs/nursing/"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T00:11:11.871Z",
+  "attempts": 1,
+  "sourceUrl": "https://www.misericordia.edu/chemistry/admissions-requirements",
+  "error": "https://www.misericordia.edu/speech-language-pathology/admissions-requirements: no usable prereq list || https://www.misericordia.edu/speech-language-pathology: no usable prereq list || https://www.misericordia.edu/speech-language-pathology: no usable prereq list || https://www.misericordia.edu/speech-language-pathology/curriculum: no usable prereq list"
  },
  "2655": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-07T23:25:51.255Z",
-  "attempts": 0,
-  "sourceUrl": "https://www.villanova.edu/university/nursing.html"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T00:11:02.549Z",
+  "attempts": 1,
+  "sourceUrl": "https://www.muw.edu/admissions/dualenrollment/",
+  "error": "https://www.muw.edu/admissions/dualenrollment/requirements/: no usable prereq list || https://www.muw.edu/admissions/: no usable prereq list || https://www.muw.edu/graduate/admissions/: no usable prereq list || https://www.muw.edu/admissions/: no usable prereq list"
  },
  "2656": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-07T23:25:48.237Z",
-  "attempts": 0,
-  "sourceUrl": "https://nursing.vcu.edu/"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T00:11:54.986Z",
+  "attempts": 1,
+  "sourceUrl": "https://www.missouristate.edu/SHCP/CSD/Undergraduate/LearningOutcomes.htm",
+  "error": "https://www.missouristate.edu/SHCP/CSD/Undergraduate/ProgramRequirements.htm: no usable prereq list || https://www.missouristate.edu/SHCP/CSD/Undergraduate/AdmissionReqs.htm: no usable prereq list || https://www.missouristate.edu/SHCP/CSD/Undergraduate/default.htm: no usable prereq list || https://www.missouristate.edu/SHCP/CSD/SpeechLanguage/default.htm: no usable prereq list"
  },
  "2657": {
   "stage": "finalized",
@@ -17124,58 +17131,67 @@
   "finalStatus": "verified"
  },
  "2658": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-07T23:25:59.810Z",
-  "attempts": 0,
-  "sourceUrl": "https://nursing.wayne.edu/"
+  "stage": "finalized",
+  "lastAttempt": "2026-08-17T00:11:48.048Z",
+  "attempts": 1,
+  "sourceUrl": "https://catalog.monmouth.edu/graduate-catalog/education/speech-language-pathology/speech-language-pathology-msed/",
+  "finalStatus": "verified"
  },
  "2659": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-07T23:26:09.612Z",
-  "attempts": 0,
-  "sourceUrl": "https://www.waynesburg.edu/academics/departments/nursing/bachelors/nursing-program"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T00:12:26.206Z",
+  "attempts": 1,
+  "sourceUrl": "https://inside.montclair.edu/administration/provost/curriculum-assessment-and-accreditation/accreditation",
+  "error": "http://catalog.montclair.edu/programs/nursing-bsn/: no usable prereq list || https://www.montclair.edu/admissions-aid: no usable prereq list"
  },
  "2660": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-07T23:26:17.440Z",
-  "attempts": 0,
-  "sourceUrl": "https://westliberty.edu/nursing/"
+  "stage": "finalized",
+  "lastAttempt": "2026-08-17T00:12:24.609Z",
+  "attempts": 1,
+  "sourceUrl": "https://www.moravian.edu/rehab/slp/admission-criteria",
+  "finalStatus": "verified"
  },
  "2661": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-07T23:26:05.244Z",
-  "attempts": 0,
-  "sourceUrl": "https://nursing.hsc.wvu.edu/"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T00:13:17.426Z",
+  "attempts": 1,
+  "sourceUrl": "https://www.murraystate.edu/admissions/raceracademy/index.aspx",
+  "error": "https://www.murraystate.edu/admissions/graduate/Requirements/index.aspx: no usable prereq list || https://www.murraystate.edu/admissions/ftf/requirements.aspx: no usable prereq list || https://www.murraystate.edu/admissions/graduate/index.aspx: no usable prereq list || https://www.murraystate.edu/admissions/apply.aspx: no usable prereq list"
  },
  "2662": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-07T23:26:16.373Z",
-  "attempts": 0,
-  "sourceUrl": "https://www.wcu.edu/learn/departments-schools-colleges/HHS/nursing/"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T00:13:08.777Z",
+  "attempts": 1,
+  "sourceUrl": "https://catalog.naz.edu/preview_program.php?catoid=111&amp;poid=14662",
+  "error": "https://www2.naz.edu/admissions/request-information/mailing-list/?sys:field:admit_status=2fb2660e-f5c1-426d-b17d-52eb457cce9e&sys:field:academic_program=7c547404-5a8c-4fb8-812c-c34d8b12ae54: too little text || https://www2.naz.edu/admissions/request-information/mailing-list/?sys:field:admit_status=2fb2660e-f5c1-426d-b17d-52eb457cce9e&sys:field:academic_program=7c547404-5a8c-4fb8-812c-c34d8b12ae54&utm_medium=web&utm_source=NazStickyBtn: too little text || https://catalog.naz.edu/preview_program.p"
  },
  "2663": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-07T23:26:18.148Z",
-  "attempts": 0,
-  "sourceUrl": "https://www.wcsu.edu/nursing/"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T00:14:21.654Z",
+  "attempts": 1,
+  "sourceUrl": "https://nevadastate.edu/admissions/counselors-and-parents/",
+  "error": "https://nevadastate.edu/academics/soe/speech-language-pathology/how-to-apply/: no usable prereq list || https://nevadastate.edu/academics/soe/speech-language-pathology/how-to-apply/: no usable prereq list || https://nevadastate.edu/admissions/application-information/: no usable prereq list || https://nevadastate.edu/admissions/counselors-and-parents/: no usable prereq list"
  },
  "2664": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-07T23:26:24.772Z",
-  "attempts": 0,
-  "sourceUrl": "https://www.westmont.edu/nursing"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T00:13:59.522Z",
+  "attempts": 1,
+  "sourceUrl": "https://admissions.nmsu.edu/apply/",
+  "error": "refusing mismatched institution URL https://catalogs.nmsu.edu/global/nmsu-global/communication-disorders-bscd-online/"
  },
  "2665": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-07T23:26:32.674Z",
-  "attempts": 0,
-  "sourceUrl": "http://wheeling.edu/academics/nursing/"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T00:15:06.757Z",
+  "attempts": 1,
+  "sourceUrl": "https://www.adelphi.edu/admissions/transfer/",
+  "error": "https://www.adelphi.edu/program/doctoral/audiology/: no usable prereq list || https://www.adelphi.edu/program/doctoral/audiology/program-requirements/: no usable prereq list || https://www.adelphi.edu/health/forms-and-requirements/: no usable prereq list || https://www.adelphi.edu/program/doctoral/audiology/program-requirements/advisement/: no usable prereq list"
  },
  "2666": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-07T23:26:20.003Z",
-  "attempts": 0,
-  "sourceUrl": "https://www.wichita.edu/nursing"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T00:14:33.816Z",
+  "attempts": 1,
+  "sourceUrl": "https://www.wichita.edu/nursing",
+  "error": "http://www.nymc.edu/departments/academic-departments/school-of-health-sciences-and-practice/speech-language-pathology/: HTTP 404"
  },
  "2667": {
   "stage": "unstarted",
@@ -17184,51 +17200,59 @@
   "sourceUrl": "https://www.widener.edu/academics/colleges-schools/school-nursing"
  },
  "2668": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-07T23:26:46.118Z",
-  "attempts": 0,
-  "sourceUrl": "https://www.wilkes.edu/academics/school-of-nursing/index.aspx"
+  "stage": "finalized",
+  "lastAttempt": "2026-08-17T00:15:29.160Z",
+  "attempts": 1,
+  "sourceUrl": "https://www.nccu.edu/academics/graduate-programs/communication-disorders-ms",
+  "finalStatus": "verified"
  },
  "2669": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-07T23:26:37.951Z",
-  "attempts": 0,
-  "sourceUrl": "https://www.wmcarey.edu/program/nursing"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T00:18:06.082Z",
+  "attempts": 1,
+  "sourceUrl": "https://admissions.northeastern.edu/academics/",
+  "error": "http://www.nsuok.edu/slp: fetch failed || https://admissions.northeastern.edu/academics/areas-of-study/: no usable prereq list || https://admissions.northeastern.edu/academics/: no usable prereq list"
  },
  "2670": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-07T23:26:46.900Z",
-  "attempts": 0,
-  "sourceUrl": "https://www.jewell.edu/programs/nursing"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T00:16:25.924Z",
+  "attempts": 1,
+  "sourceUrl": "https://admissions.northeastern.edu/application-information/how-to-apply/",
+  "error": "https://bouve.northeastern.edu/programs/communication-sciences-and-disorders-minor/: no usable prereq list || https://bouve.northeastern.edu/admissions/graduate-admissions/: no usable prereq list || https://bouve.northeastern.edu/admissions/graduate-admissions/graduate-student-ambassadors/: no usable prereq list || https://admissions.northeastern.edu/application-information/: no usable prereq list"
  },
  "2671": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-07T23:26:48.799Z",
-  "attempts": 0,
-  "sourceUrl": "https://www.wpunj.edu/cosh/departments/nursing/"
+  "stage": "finalized",
+  "lastAttempt": "2026-08-17T00:16:50.053Z",
+  "attempts": 1,
+  "sourceUrl": "https://in.nau.edu/csd/admissions/",
+  "finalStatus": "verified"
  },
  "2672": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-07T23:27:53.822Z",
-  "attempts": 0
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T00:17:40.399Z",
+  "attempts": 1,
+  "error": "https://www.chhs.niu.edu/resources/clinical-requirements.shtml: no usable prereq list || https://apply.niu.edu/admissions/apply/requirements/index.shtml: no usable prereq list || https://apply.niu.edu/admissions/apply/requirements/: no usable prereq list || https://www.niu.edu/grad/admissions/index.shtml: no usable prereq list",
+  "sourceUrl": "https://employment.niu.edu/"
  },
  "2673": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-07T23:27:01.310Z",
-  "attempts": 0,
+  "stage": "source_discovery",
+  "lastAttempt": "2026-08-17T00:17:40.931Z",
+  "attempts": 1,
   "sourceUrl": "https://www.wittenberg.edu/academics/nursing"
  },
  "2674": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-07T23:26:59.782Z",
-  "attempts": 0,
-  "sourceUrl": "https://www.xavier.edu/nursing/"
+  "stage": "finalized",
+  "lastAttempt": "2026-08-17T00:18:40.830Z",
+  "attempts": 1,
+  "sourceUrl": "https://sphs.osu.edu/ma-slp-prerequisite-information",
+  "finalStatus": "verified"
  },
  "2675": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-07T23:26:56.474Z",
-  "attempts": 0,
-  "sourceUrl": "https://www.yu.edu/katz"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T00:19:31.744Z",
+  "attempts": 1,
+  "sourceUrl": "https://enroll.ohio.edu/register/?id=a196fb6d-b310-4e9c-949b-6780a601cfd7",
+  "error": "https://www.ohio.edu/chsp/hearing-speech-language-sciences/graduate/admissions-requirements: no usable prereq list || https://www.ohio.edu/medicine/med-admissions: no usable prereq list || https://enroll.ohio.edu/register/?id=a196fb6d-b310-4e9c-949b-6780a601cfd7: no usable prereq list"
  },
  "2676": {
   "stage": "unstarted",
@@ -17237,9 +17261,9 @@
   "sourceUrl": "https://www.ycp.edu/academics"
  },
  "2677": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-07T23:27:15.103Z",
-  "attempts": 0,
+  "stage": "source_discovery",
+  "lastAttempt": "2026-08-17T00:19:32.314Z",
+  "attempts": 1,
   "sourceUrl": "https://www.alliant.edu/profession/nursing"
  },
  "2678": {

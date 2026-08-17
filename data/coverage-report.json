@@ -1,5 +1,6 @@
 {
-  "generatedAt": "2026-08-17T00:09:06.458Z",
+  "generatedAt": "2026-08-17T00:26:13.724Z",
+  "generatedFrom": "production-api",
   "professions": [
     {
       "professionSlug": "anesthesiologist-assistant",
@@ -43,8 +44,8 @@
       "inactivePrograms": 0,
       "prereqStatusCounts": {
         "verified": 59,
-        "draft": 18,
-        "no_prereqs_published": 1
+        "no_prereqs_published": 1,
+        "draft": 18
       },
       "prereqVerifiedCount": 59,
       "prereqNoSpecificPrereqsCount": 1,
@@ -128,8 +129,8 @@
       "inactivePrograms": 1,
       "prereqStatusCounts": {
         "verified": 62,
-        "draft": 1,
-        "no_prereqs_published": 1
+        "no_prereqs_published": 1,
+        "draft": 1
       },
       "prereqVerifiedCount": 62,
       "prereqNoSpecificPrereqsCount": 1,
@@ -247,8 +248,8 @@
       "manualPrograms": [],
       "inactivePrograms": 0,
       "prereqStatusCounts": {
-        "draft": 135,
         "verified": 178,
+        "draft": 135,
         "no_prereqs_published": 5
       },
       "prereqVerifiedCount": 178,
@@ -323,8 +324,8 @@
       "manualPrograms": [],
       "inactivePrograms": 0,
       "prereqStatusCounts": {
-        "no_prereqs_published": 1,
-        "verified": 19
+        "verified": 19,
+        "no_prereqs_published": 1
       },
       "prereqVerifiedCount": 19,
       "prereqNoSpecificPrereqsCount": 1,
@@ -562,14 +563,14 @@
       "manualPrograms": [],
       "inactivePrograms": 0,
       "prereqStatusCounts": {
-        "verified": 52,
-        "draft": 270
+        "verified": 71,
+        "draft": 251
       },
-      "prereqVerifiedCount": 52,
+      "prereqVerifiedCount": 71,
       "prereqNoSpecificPrereqsCount": 0,
       "prereqBlockedCount": 0,
-      "prereqUnfinishedCount": 270,
-      "prereqVerifiedPct": 16.1,
+      "prereqUnfinishedCount": 251,
+      "prereqVerifiedPct": 22,
       "sources": [
         {
           "name": "ASHA CAA Accredited SLP Master's Programs",
