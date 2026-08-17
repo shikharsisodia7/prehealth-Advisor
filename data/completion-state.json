@@ -3837,9 +3837,10 @@
   "finalStatus": "verified"
  },
  "735": {
-  "stage": "source_fetched",
-  "lastAttempt": "2026-08-17T22:53:53.408Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T23:14:18.425Z",
   "attempts": 3,
+  "error": "https://www.marian.edu/academics/programs/bachelors/indianapolis/nursing: OpenAI HTTP 429: {\n    \"error\": {\n        \"message\": \"You have no credits remaining. Add credits to continue using the API at https://platform.openai.com/settings/organization/billing/.\",\n        \"type\": \"insufficient_quota\",\n        \"param\": null,\n        \"code\": \"credit_balance_exhausted\"\n    }\n}\n || https://www.marian.edu/academics/programs/bachelors/plymouth/nursing: OpenAI HTTP 429: {\n    \"error\": {\n        \"message\":",
   "sourceUrl": "https://www.marian.edu/apply-now"
  },
  "736": {
@@ -4217,10 +4218,10 @@
   "finalStatus": "no_prereqs_published"
  },
  "792": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-17T17:47:12.774Z",
-  "attempts": 2,
-  "error": "reset for improved discovery: https://www.regiscollege.edu/academics/schools/richard-and-sheila-young-school-nursing: too little text"
+  "stage": "source_fetched",
+  "lastAttempt": "2026-08-17T23:14:44.487Z",
+  "attempts": 3,
+  "sourceUrl": "https://www.regiscollege.edu/academics/schools/richard-and-sheila-young-school-nursing"
  },
  "793": {
   "stage": "finalized",
