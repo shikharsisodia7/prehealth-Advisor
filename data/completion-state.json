@@ -3932,9 +3932,10 @@
   "error": "reset for improved discovery: https://msu.edu/: too little text"
  },
  "749": {
-  "stage": "source_fetched",
-  "lastAttempt": "2026-08-17T22:53:57.254Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T23:16:48.604Z",
   "attempts": 3,
+  "error": "https://www.mnu.edu/pgs/direct-entry-msn/: OpenAI HTTP 429: {\n    \"error\": {\n        \"message\": \"You have no credits remaining. Add credits to continue using the API at https://platform.openai.com/settings/organization/billing/.\",\n        \"type\": \"insufficient_quota\",\n        \"param\": null,\n        \"code\": \"credit_balance_exhausted\"\n    }\n}\n || https://www.mnu.edu/pgs/accelerated-bsn-program/: OpenAI HTTP 429: {\n    \"error\": {\n        \"message\": \"You have no credits remaining. Add credits to con",
   "sourceUrl": "https://www.mnu.edu/admissions/"
  },
  "750": {
@@ -4120,9 +4121,10 @@
   "sourceUrl": "https://www.nsula.edu/academics/colleges-and-schools/the-graduate-school/"
  },
  "777": {
-  "stage": "source_fetched",
-  "lastAttempt": "2026-08-17T22:53:42.143Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T23:18:59.673Z",
   "attempts": 3,
+  "error": "https://online.norwich.edu/online/norwich-experience/technology-requirements: OpenAI HTTP 429: {\n    \"error\": {\n        \"message\": \"You have no credits remaining. Add credits to continue using the API at https://platform.openai.com/settings/organization/billing/.\",\n        \"type\": \"insufficient_quota\",\n        \"param\": null,\n        \"code\": \"credit_balance_exhausted\"\n    }\n}\n || https://home.norwich.edu/on/admissions-aid/apply/graduate-admissions-campus: OpenAI HTTP 429: {\n    \"error\": {\n       ",
   "sourceUrl": "https://online.norwich.edu/online/admissions"
  },
  "778": {
@@ -4133,10 +4135,9 @@
   "finalStatus": "verified"
  },
  "779": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-17T17:52:05.736Z",
-  "attempts": 2,
-  "error": "reset for improved discovery: https://nursing.nova.edu/: fetch failed"
+  "stage": "source_discovery",
+  "lastAttempt": "2026-08-17T23:24:34.634Z",
+  "attempts": 3
  },
  "780": {
   "stage": "finalized",
@@ -4178,10 +4179,11 @@
   "error": "reset for improved discovery: https://www.pennwest.edu/admissions/graduate/index.php: no usable prereq list"
  },
  "786": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-17T17:46:46.244Z",
-  "attempts": 2,
-  "error": "reset for improved discovery: https://admissions.purdue.edu/become-student/apply/: no usable prereq list || https://www.purdue.edu/hhs/nur/: no usable"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T23:24:33.496Z",
+  "attempts": 3,
+  "error": "https://admissions.purdue.edu/become-student/apply/: OpenAI HTTP 429: {\n    \"error\": {\n        \"message\": \"You have no credits remaining. Add credits to continue using the API at https://platform.openai.com/settings/organization/billing/.\",\n        \"type\": \"insufficient_quota\",\n        \"param\": null,\n        \"code\": \"credit_balance_exhausted\"\n    }\n}\n || https://admissions.purdue.edu/: OpenAI HTTP 429: {\n    \"error\": {\n        \"message\": \"You have no credits remaining. Add credits to continue us",
+  "sourceUrl": "https://www.purdue.edu/hhs/nur/"
  },
  "787": {
   "stage": "unstarted",
@@ -4218,9 +4220,10 @@
   "finalStatus": "no_prereqs_published"
  },
  "792": {
-  "stage": "source_fetched",
-  "lastAttempt": "2026-08-17T23:14:44.487Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T23:16:00.507Z",
   "attempts": 3,
+  "error": "https://www.regiscollege.edu/academics/schools/richard-and-sheila-young-school-nursing: OpenAI HTTP 429: {\n    \"error\": {\n        \"message\": \"You have no credits remaining. Add credits to continue using the API at https://platform.openai.com/settings/organization/billing/.\",\n        \"type\": \"insufficient_quota\",\n        \"param\": null,\n        \"code\": \"credit_balance_exhausted\"\n    }\n}\n",
   "sourceUrl": "https://www.regiscollege.edu/academics/schools/richard-and-sheila-young-school-nursing"
  },
  "793": {
@@ -4238,10 +4241,10 @@
   "finalStatus": "verified"
  },
  "795": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-17T17:47:00.252Z",
-  "attempts": 2,
-  "error": "reset for improved discovery: https://snhs.rmu.edu/: fetch failed"
+  "stage": "source_fetched",
+  "lastAttempt": "2026-08-17T23:20:43.482Z",
+  "attempts": 3,
+  "sourceUrl": "https://www.rmu.edu/why-rmu/apply"
  },
  "796": {
   "stage": "finalized",
@@ -4258,16 +4261,17 @@
   "finalStatus": "verified"
  },
  "798": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-17T17:46:27.429Z",
-  "attempts": 2,
-  "error": "reset for improved discovery: https://www.sage.edu/academics/schools/health-sciences/: HTTP 403"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T23:17:55.016Z",
+  "attempts": 3,
+  "error": "https://www.sage.edu/academics/schools/health-sciences/: OpenAI HTTP 429: {\n    \"error\": {\n        \"message\": \"You have no credits remaining. Add credits to continue using the API at https://platform.openai.com/settings/organization/billing/.\",\n        \"type\": \"insufficient_quota\",\n        \"param\": null,\n        \"code\": \"credit_balance_exhausted\"\n    }\n}\n",
+  "sourceUrl": "https://www.sage.edu/academics/schools/health-sciences/"
  },
  "799": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-17T17:47:01.225Z",
-  "attempts": 2,
-  "error": "reset for improved discovery: https://nursing.camden.rutgers.edu/laptop-requirements: no usable prereq list || https://admissions.rutgers.edu/apply: n"
+  "stage": "source_fetched",
+  "lastAttempt": "2026-08-17T23:19:20.487Z",
+  "attempts": 3,
+  "sourceUrl": "https://gradstudy.rutgers.edu/"
  },
  "800": {
   "stage": "finalized",
