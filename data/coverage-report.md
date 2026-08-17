@@ -1,11 +1,11 @@
 # Prerequisite Coverage Audit
 
-Generated: 2026-08-17T07:55:14.417Z (from live production API)
+Generated: 2026-08-17T07:56:43.485Z (from live production API)
 
 | Profession | Active | Verified | No specific courses | Blocked | Unfinished | Final-status coverage | Directory reconciliation |
 |---|---:|---:|---:|---:|---:|---:|---|
 | Certified Anesthesiologist Assistant (CAA) | 25 | 25 | 0 | 0 | 0 | 100% | reconciled |
-| Dental School (DDS/DMD) | 78 | 62 | 2 | 0 | 14 | 82.1% | reconciled |
+| Dental School (DDS/DMD) | 78 | 64 | 2 | 0 | 12 | 84.6% | reconciled |
 | Dietetics (RD/RDN) | 152 | 94 | 2 | 0 | 56 | 63.2% | reconciled |
 | Genetic Counseling (MS) | 64 | 62 | 1 | 0 | 1 | 98.4% | under-source-count |
 | Medical School (MD/DO) | 236 | 67 | 0 | 0 | 169 | 28.4% | reconciled |
@@ -25,9 +25,9 @@ Generated: 2026-08-17T07:55:14.417Z (from live production API)
 ## Totals
 
 - Active programs: 2857
-- Verified: 1439
+- Verified: 1441
 - No specific courses: 26
-- Unfinished: 1392
+- Unfinished: 1390
 - Final-status coverage: 51.3%
 
 ## Remaining externally blocked programs

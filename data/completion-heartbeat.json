@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-08-17T07:55:15.540043Z",
-  "verified": 1439,
+  "generatedAt": "2026-08-17T07:56:44.603541Z",
+  "verified": 1441,
   "nsp": 26,
-  "unfinished": 1392,
+  "unfinished": 1390,
   "finalizedPct": 51.3,
   "unfinishedByProfession": {
     "medicine": 169,
-    "dental": 14,
+    "dental": 12,
     "physician-assistant": 200,
     "nursing": 164,
     "pharmacy": 121,
@@ -19,6 +19,6 @@
     "postbac": 232
   },
   "secretsPresent": false,
-  "blocker": "Cloud lacks secrets; local Neon worker active",
+  "blocker": "Coverage checkpoints only; local owns Neon queue (no cloud secrets)",
   "branch": "cursor/final-completion-pass-7954"
 }
