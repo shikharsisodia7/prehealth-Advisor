@@ -579,6 +579,12 @@ function looksLikeOfficialProgramUrl(url: string, program: ProgramRow): boolean 
     const professionHit = professionKeywords(program.professionSlug).some((k) =>
       hay.includes(normalize(k).replace(/ /g, "-")) || hay.includes(normalize(k)),
     );
+    // Reject clear cross-profession paths (e.g. SLP crawl landing on /nursing/).
+    const foreign =
+      (program.professionSlug === "speech-language-pathology" && /\/nursing|\/dpt|\/otd|\/physician-assistant|\/pharm/i.test(hay) && !/speech|slp|csd|communicat|language/i.test(hay)) ||
+      (program.professionSlug === "nursing" && /\/slp|\/csd|\/speech-language|\/dpt|\/otd|\/physician-assistant/i.test(hay) && !/nursing|bsn|msn|absn|mepn/i.test(hay)) ||
+      (program.professionSlug === "physical-therapy" && /\/nursing|\/slp|\/csd|\/otd|\/physician-assistant/i.test(hay) && !/physical|dpt|pt-/i.test(hay));
+    if (foreign) return false;
     const eduHost = /\.edu$/i.test(u.hostname) || /\.ac\.[a-z.]+$/i.test(u.hostname);
     const pathHint = /admissions|prerequisite|catalog|handbook|apply|requirements/i.test(hay);
     // Require institution match plus either profession signal or admissions/prereq path.
@@ -605,6 +611,9 @@ function scoreCandidateUrl(url: string, program: ProgramRow): number {
     if (professionKeywords(program.professionSlug).some((k) => hay.includes(normalize(k).replace(/ /g, "-")))) score += 4;
     if (/csd|slp|speech-language|communicat/.test(hay) && program.professionSlug === "speech-language-pathology") score += 6;
     if (/absn|accelerated.*nursing|direct-entry|mepn|entry-level.*nursing/.test(hay) && program.professionSlug === "nursing") score += 6;
+    if (program.professionSlug === "speech-language-pathology" && /\/nursing|\/dpt\b|physician-assistant|\/pharmd/i.test(hay) && !/speech|slp|csd|communicat/i.test(hay)) {
+      score -= 12;
+    }
     if (/undergraduate|freshman|first-year|high-school|undergrad-admissions/.test(hay) &&
         !/graduate|post-bacc|postbac|slp|csd|dpt|otd|pharmd|msn|mepn|absn|pa-program|physician/.test(hay)) {
       score -= 8;
