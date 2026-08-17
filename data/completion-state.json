@@ -6050,16 +6050,15 @@
   "finalStatus": "verified"
  },
  "1048": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-16T22:17:50.018Z",
-  "attempts": 2,
-  "sourceUrl": "https://www.brenau.edu/admissions/dual-enrollment/",
-  "error": "https://www.brenau.edu/admissions/online/: no usable prereq list"
+  "stage": "source_fetched",
+  "lastAttempt": "2026-08-17T20:29:48.756Z",
+  "attempts": 3,
+  "sourceUrl": "https://www.brenau.edu/admissions/military-veteran/"
  },
  "1049": {
   "stage": "failed",
-  "lastAttempt": "2026-08-16T22:14:06.971Z",
-  "attempts": 2,
+  "lastAttempt": "2026-08-17T20:29:24.669Z",
+  "attempts": 3,
   "sourceUrl": "https://www.brenau.edu/academics/health-sciences/occupational-therapy/",
   "error": "https://www.brenau.edu/admissions/online/: no usable prereq list"
  },
@@ -6481,11 +6480,10 @@
   "finalStatus": "verified"
  },
  "1110": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-16T22:07:40.932Z",
-  "attempts": 2,
-  "sourceUrl": "https://www.missouristate.edu/admissions/",
-  "error": "https://www.missouristate.edu/Admissions/admission-requirements.htm: no usable prereq list || https://www.missouristate.edu/FutureStudents/apply-now.htm: no usable prereq list || https://mchhs.missouristate.edu/Pre-healthHandbook.htm: no usable prereq list || https://www.missouristate.edu/Admissions/how-to-apply.htm: no usable prereq list"
+  "stage": "extracted",
+  "lastAttempt": "2026-08-17T20:29:49.340Z",
+  "attempts": 3,
+  "sourceUrl": "https://www.missouristate.edu/FutureStudents/graduate-application.htm"
  },
  "1111": {
   "stage": "finalized",
@@ -6545,10 +6543,10 @@
  },
  "1119": {
   "stage": "failed",
-  "lastAttempt": "2026-08-17T07:51:29.306Z",
-  "attempts": 2,
+  "lastAttempt": "2026-08-17T20:29:13.178Z",
+  "attempts": 3,
   "sourceUrl": "https://www.nyu.edu/?challenge=d06e90d7-4d8f-4b88-9d8c-10b73beb60f1",
-  "error": "refusing mismatched institution URL https://steinhardt.nyu.edu/degree/ms-occupational-therapy-professional"
+  "error": "https://nyu.edu/: too little text"
  },
  "1120": {
   "stage": "unstarted",
@@ -7105,10 +7103,11 @@
   "error": "https://www.astate.edu/college/conhp/departments/occupational-therapy/: HTTP 404"
  },
  "1201": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T22:12:45.480Z",
-  "attempts": 1,
-  "error": "reset for improved discovery: https://otd.robbins.baylor.edu/entry-level-otd: HTTP 403 || https://admissions.web.baylor.edu/: HTTP 403 || https://admi"
+  "stage": "finalized",
+  "lastAttempt": "2026-08-17T20:25:17.983Z",
+  "attempts": 2,
+  "sourceUrl": "https://otd.robbins.baylor.edu/entry-level-otd/admissions/admissions-requirements",
+  "finalStatus": "verified"
  },
  "1202": {
   "stage": "finalized",
@@ -7167,10 +7166,11 @@
   "finalStatus": "verified"
  },
  "1210": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T05:01:37.405Z",
-  "attempts": 2,
-  "error": "reset for improved discovery: https://www.csm.edu/academics/occupational-therapy-doctorate-graduate: HTTP 403"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T20:26:26.899Z",
+  "attempts": 3,
+  "error": "https://www.csm.edu/academics/occupational-therapy-doctorate-graduate: no usable prereq list",
+  "sourceUrl": "https://www.csm.edu/academics/occupational-therapy-doctorate-graduate"
  },
  "1211": {
   "stage": "failed",
@@ -7312,8 +7312,8 @@
  },
  "1231": {
   "stage": "failed",
-  "lastAttempt": "2026-08-16T22:13:26.604Z",
-  "attempts": 2,
+  "lastAttempt": "2026-08-17T20:26:07.337Z",
+  "attempts": 3,
   "sourceUrl": "https://www.hpu.edu/",
   "error": "https://www.hpu.edu/graduate-admissions/admission-requirements/index.html: no usable prereq list"
  },
@@ -7325,10 +7325,10 @@
   "error": "https://www.hpu.edu/graduate-admissions/admission-requirements/index.html: no usable prereq list"
  },
  "1233": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T22:14:48.684Z",
-  "attempts": 1,
-  "error": "reset for improved discovery: https://cnahs.howard.edu/programs/occupational-therapy: HTTP 404"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T20:29:33.228Z",
+  "attempts": 2,
+  "error": "https://cnahs.howard.edu/programs/occupational-therapy: HTTP 404"
  },
  "1234": {
   "stage": "finalized",
@@ -7485,10 +7485,11 @@
   "finalStatus": "verified"
  },
  "1256": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T05:04:34.680Z",
-  "attempts": 2,
-  "error": "reset for improved discovery: https://www.northcentralcollege.edu: HTTP 403"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T20:27:40.680Z",
+  "attempts": 3,
+  "error": "https://www.northcentralcollege.edu/: no usable prereq list",
+  "sourceUrl": "https://www.northcentralcollege.edu/"
  },
  "1257": {
   "stage": "finalized",
@@ -7539,10 +7540,11 @@
   "error": "https://www.odu.edu/admission/graduate/requirements: no usable prereq list || https://www.odu.edu/counseling-human-services/academics/admission-requirements: no usable prereq list || https://www.odu.edu/admission/graduate: no usable prereq list || https://www.odu.edu/admission/admitted/graduate: no usable prereq list"
  },
  "1264": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-17T20:22:47.458Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T20:23:16.601Z",
   "attempts": 3,
-  "sourceUrl": "https://www.pacificu.edu/occupational-therapy-otd/curriculum"
+  "sourceUrl": "https://www.pacificu.edu/occupational-therapy-otd/curriculum",
+  "error": "https://www.pacificu.edu/occupational-therapy-otd/admissions/prerequisites: no usable prereq list || https://www.pacificu.edu/occupational-therapy-otd/admissions: no usable prereq list || https://www.pacificu.edu/occupational-therapy-otd/admissions/occupational-therapy-guaranteed-admission: no usable prereq list || https://www.pacificu.edu/occupational-therapy-otd/admissions: no usable prereq list"
  },
  "1265": {
   "stage": "finalized",
@@ -7552,10 +7554,11 @@
   "finalStatus": "verified"
  },
  "1266": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T05:04:46.851Z",
-  "attempts": 2,
-  "error": "reset for improved discovery: https://www.qu.edu/schools/health-sciences/programs/doctorate-degree/post-baccalaureate-doctor-of-occupational-therapy/;"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T20:26:53.431Z",
+  "attempts": 3,
+  "error": "https://www.qu.edu/schools/health-sciences/programs/doctorate-degree/post-baccalaureate-doctor-of-occupational-therapy/;%20https://www.qu.edu/schools/health-sciences/programs/dual-degree/bs-doctor-occupational-therapy/: HTTP 404 || https://catalog.qu.edu/general-information/: no usable prereq list",
+  "sourceUrl": "https://catalog.qu.edu/general-information/"
  },
  "1267": {
   "stage": "finalized",
@@ -7593,10 +7596,11 @@
   "finalStatus": "verified"
  },
  "1272": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T05:24:15.984Z",
-  "attempts": 2,
-  "error": "reset for improved discovery: https://www.sage.edu/academics/schools/health-sciences/doctor-of-occupational-therapy-programs-otd/: HTTP 403"
+  "stage": "finalized",
+  "lastAttempt": "2026-08-17T20:28:57.921Z",
+  "attempts": 3,
+  "sourceUrl": "https://www.sage.edu/academics/schools/health-sciences/doctor-of-occupational-therapy-programs-otd/admission-otd/",
+  "finalStatus": "verified"
  },
  "1273": {
   "stage": "finalized",
@@ -7677,10 +7681,10 @@
  },
  "1284": {
   "stage": "failed",
-  "lastAttempt": "2026-08-16T22:12:04.447Z",
-  "attempts": 2,
-  "sourceUrl": "https://www.stkate.edu/admission-and-aid/accepted-students-cfw",
-  "error": "refusing mismatched institution URL https://catalog.stkate.edu/graduate/admissions/program-admission-requirements/"
+  "lastAttempt": "2026-08-17T20:24:13.706Z",
+  "attempts": 3,
+  "sourceUrl": "https://www.stkate.edu/admission-and-aid/cfw",
+  "error": "https://catalog.stkate.edu/graduate/health/occupational-science-therapy/otd-el/: no usable prereq list || https://catalog.stkate.edu/graduate/admissions/: no usable prereq list || https://www.stkate.edu/admission-and-aid/gc: no usable prereq list || https://www.stkate.edu/admission-and-aid/accepted-students-graduate: no usable prereq list"
  },
  "1285": {
   "stage": "finalized",
@@ -7704,15 +7708,18 @@
   "finalStatus": "verified"
  },
  "1288": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T05:05:40.791Z",
-  "attempts": 2,
-  "error": "reset for improved discovery: www.twu.edu/ot/: Invalid URL"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T20:27:45.213Z",
+  "attempts": 3,
+  "error": "https://twu.edu/admissions/graduate-admissions/graduate-admission-requirements/: no usable prereq list || https://twu.edu/admissions/transfer-admissions/transfer-admission-requirements/: no usable prereq list || https://twu.edu/admissions/: no usable prereq list || https://twu.edu/admissions/info-request/: no usable prereq list",
+  "sourceUrl": "https://twu.edu/occupational-therapy/"
  },
  "1289": {
-  "stage": "source_discovery",
-  "lastAttempt": "2026-08-17T20:22:48.526Z",
-  "attempts": 3
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T20:23:41.412Z",
+  "attempts": 3,
+  "error": "https://twu.edu/admissions/graduate-admissions/graduate-admission-requirements/: no usable prereq list || https://twu.edu/admissions/transfer-admissions/transfer-admission-requirements/: no usable prereq list || https://twu.edu/admissions/: no usable prereq list || https://twu.edu/admissions/info-request/: no usable prereq list",
+  "sourceUrl": "https://twu.edu/occupational-therapy/"
  },
  "1290": {
   "stage": "finalized",
@@ -7729,9 +7736,10 @@
   "finalStatus": "verified"
  },
  "1292": {
-  "stage": "source_discovery",
-  "lastAttempt": "2026-08-17T20:22:48.735Z",
-  "attempts": 3
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T20:23:19.854Z",
+  "attempts": 3,
+  "error": "https://military.robbins.baylor.edu/entry-level-otd: HTTP 403"
  },
  "1293": {
   "stage": "finalized",
@@ -7803,10 +7811,10 @@
   "error": "reset for improved discovery: https://www.umary.edu/admission-aid/undergraduate-admissions/admission-requirements: no usable prereq list || https://ww"
  },
  "1303": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T05:08:27.946Z",
-  "attempts": 2,
-  "error": "reset for improved discovery: https://www.umflint.edu/graduateprograms/occupational-therapy: HTTP 403"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T20:24:00.825Z",
+  "attempts": 3,
+  "error": "https://www.umflint.edu/graduateprograms/occupational-therapy: HTTP 403"
  },
  "1304": {
   "stage": "finalized",
@@ -7823,10 +7831,9 @@
   "finalStatus": "verified"
  },
  "1306": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T05:10:27.476Z",
-  "attempts": 2,
-  "error": "reset for improved discovery: https://www.umc.edu/shrp/Occupational%20Therapy/Occupational-Therapy.html: fetch failed"
+  "stage": "source_discovery",
+  "lastAttempt": "2026-08-17T20:24:00.904Z",
+  "attempts": 3
  },
  "1307": {
   "stage": "finalized",
@@ -7844,10 +7851,10 @@
  },
  "1309": {
   "stage": "failed",
-  "lastAttempt": "2026-08-16T22:12:32.961Z",
-  "attempts": 2,
+  "lastAttempt": "2026-08-17T20:25:02.730Z",
+  "attempts": 3,
   "sourceUrl": "https://www.unlv.edu/graduatecollege/futurestudents",
-  "error": "https://www.unlv.edu/integratedhealth/academics/occupational-therapy: no usable prereq list"
+  "error": "https://www.unlv.edu/sites/default/files/media/document/2023-07/OTD-ObservationVolunteerHour-VerificationForm.pdf: PDF extract failed: Traceback (most recent call last):\r\n  File \"<string>\", line 2, in <module>\r\n    from pypdf import PdfReader\r\nModuleNotFoundError: No module named 'pypdf'\r\n || https://www.unlv.edu/integratedhealth/academics/occupational-therapy: no usable prereq list"
  },
  "1310": {
   "stage": "finalized",
@@ -7906,10 +7913,10 @@
  },
  "1318": {
   "stage": "failed",
-  "lastAttempt": "2026-08-16T22:13:24.893Z",
-  "attempts": 2,
+  "lastAttempt": "2026-08-17T20:28:12.971Z",
+  "attempts": 3,
   "sourceUrl": "https://www.scranton.edu/academics/registrar/university-catalogs.shtml",
-  "error": "https://www.scranton.edu/academics/pcps/occupational-therapy/index.shtml: no usable prereq list || https://www.scranton.edu/academics/pcps/occupational-therapy/index.shtml: no usable prereq list || https://gradadmissions.scranton.edu/how-to-apply.shtml: no usable prereq list || https://admissions.scranton.edu/apply/adult-visiting/index.shtml: no usable prereq list"
+  "error": "https://www.scranton.edu/academics/pcps/occupational-therapy/index.shtml: no usable prereq list || https://gradadmissions.scranton.edu/how-to-apply.shtml: no usable prereq list || https://admissions.scranton.edu/apply/adult-visiting/index.shtml: no usable prereq list"
  },
  "1319": {
   "stage": "finalized",
@@ -7919,10 +7926,11 @@
   "finalStatus": "verified"
  },
  "1320": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T05:08:17.880Z",
-  "attempts": 2,
-  "error": "reset for improved discovery: https://www.usd.edu/sitecore/content/USD/DotEdu/Home/Academics/catalog-links/graduate/Admissions%20Requirements/occupati"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T20:24:06.249Z",
+  "attempts": 3,
+  "error": "https://www.usd.edu/sitecore/content/USD/DotEdu/Home/Academics/catalog-links/graduate/Admissions%20Requirements/occupational-therapy-otd: too little text || https://www.usd.edu/Academics/catalog-links/graduate/health-sciences/occupational-therapy-otd: too little text || https://www.usd.edu/Academics/catalog-links/graduate/health-sciences/occupational-therapy-otd-mental-health-specialization: too little text || https://www.usd.edu/Academics/catalog-links/graduate/health-sciences/occupational-ther",
+  "sourceUrl": "https://www.usd.edu/Admissions-and-Aid/Undergraduate-Admissions"
  },
  "1321": {
   "stage": "finalized",
@@ -8023,10 +8031,11 @@
   "finalStatus": "no_prereqs_published"
  },
  "1335": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-16T22:14:17.327Z",
-  "attempts": 1,
-  "error": "reset for improved discovery: https://www.utoledo.edu/admission/international/admissionrequirements/: no usable prereq list || https://www.utoledo.edu"
+  "stage": "failed",
+  "lastAttempt": "2026-08-17T20:28:43.700Z",
+  "attempts": 2,
+  "error": "https://www.utoledo.edu/admission/international/admissionrequirements/: no usable prereq list || https://www.utoledo.edu/admission/international/transcript-requirements/: no usable prereq list || https://www.utoledo.edu/admission/college-credit-plus/admission-requirements.html: no usable prereq list || https://www.utoledo.edu/admission/transfer-adult-student/: no usable prereq list",
+  "sourceUrl": "https://www.utoledo.edu/admission/international/"
  },
  "1336": {
   "stage": "finalized",
