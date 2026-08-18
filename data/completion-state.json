@@ -4271,9 +4271,10 @@
   "sourceUrl": "https://www.sage.edu/academics/schools/health-sciences/"
  },
  "799": {
-  "stage": "source_fetched",
-  "lastAttempt": "2026-08-17T23:19:20.487Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-18T03:07:10.855Z",
   "attempts": 3,
+  "error": "https://nursing.camden.rutgers.edu/laptop-requirements: OpenAI HTTP 429: {\n    \"error\": {\n        \"message\": \"You have no credits remaining. Add credits to continue using the API at https://platform.openai.com/settings/organization/billing/.\",\n        \"type\": \"insufficient_quota\",\n        \"param\": null,\n        \"code\": \"credit_balance_exhausted\"\n    }\n}\n || https://admissions.rutgers.edu/apply: OpenAI HTTP 429: {\n    \"error\": {\n        \"message\": \"You have no credits remaining. Add credits to co",
   "sourceUrl": "https://gradstudy.rutgers.edu/"
  },
  "800": {
@@ -4458,10 +4459,11 @@
   "finalStatus": "verified"
  },
  "827": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-17T17:48:31.860Z",
-  "attempts": 2,
-  "error": "reset for improved discovery: https://temple.edu/academics/degree-programs/nursing-major-hp-nurs-bsnu: HTTP 403 || https://www.temple.edu/admissions: "
+  "stage": "failed",
+  "lastAttempt": "2026-08-18T03:08:56.645Z",
+  "attempts": 3,
+  "error": "https://temple.edu/academics/degree-programs/nursing-major-hp-nurs-bsnu: OpenAI HTTP 429: {\n    \"error\": {\n        \"message\": \"You have no credits remaining. Add credits to continue using the API at https://platform.openai.com/settings/organization/billing/.\",\n        \"type\": \"insufficient_quota\",\n        \"param\": null,\n        \"code\": \"credit_balance_exhausted\"\n    }\n}\n",
+  "sourceUrl": "https://temple.edu/academics/degree-programs/nursing-major-hp-nurs-bsnu"
  },
  "828": {
   "stage": "finalized",
@@ -4678,10 +4680,10 @@
   "finalStatus": "verified"
  },
  "860": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-17T17:49:04.252Z",
-  "attempts": 2,
-  "error": "reset for improved discovery: https://nursing.uky.edu/: no usable prereq list || https://nursing.uky.edu/news/alumni-spotlight-lauren-cole-brown-bsn-r"
+  "stage": "source_fetched",
+  "lastAttempt": "2026-08-18T03:09:10.740Z",
+  "attempts": 3,
+  "sourceUrl": "https://admission.uky.edu/apply"
  },
  "861": {
   "stage": "finalized",
