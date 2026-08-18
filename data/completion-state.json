@@ -4206,10 +4206,9 @@
   "sourceUrl": "https://harrisburg.psu.edu/behavioral-sciences-education/nursing-bsn"
  },
  "785": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-18T20:54:27.456Z",
-  "attempts": 2,
-  "error": "https://www.pennwest.edu/admissions/graduate/index.php: OpenAI HTTP 401: {\n  \"error\": {\n    \"message\": \"Incorrect API key provided: sk-proj-********************************************pABv. You can find your API key at https://platform.openai.com/account/api-keys.\",\n    \"type\": \"invalid_request_error\",\n    \"code\": \"invalid_api_key\",\n    \"param\": null\n  },\n  \"status\": 401",
+  "stage": "source_fetched",
+  "lastAttempt": "2026-08-18T21:55:32.291Z",
+  "attempts": 3,
   "sourceUrl": "https://www.pennwest.edu/admissions/undergraduate/index.php"
  },
  "786": {
@@ -4750,15 +4749,17 @@
   "finalStatus": "verified"
  },
  "863": {
-  "stage": "source_fetched",
-  "lastAttempt": "2026-08-18T21:54:49.539Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-18T21:55:09.331Z",
   "attempts": 4,
-  "sourceUrl": "https://www.umfk.edu/admissions/visiting/"
+  "sourceUrl": "https://www.umfk.edu/profiles/tanya-sleeper/",
+  "error": "https://yourpace.umfk.edu/nursing/rn-to-bsn/: OpenAI HTTP 401: {\n  \"error\": {\n    \"message\": \"Incorrect API key provided: sk-proj-********************************************pABv. You can find your API key at https://platform.openai.com/account/api-keys.\",\n    \"type\": \"invalid_request_error\",\n    \"code\": \"invalid_api_key\",\n    \"param\": null\n  },\n  \"status\": 401 || https://online.umfk.edu/nursing/rn-to-bsn/: OpenAI HTTP 401: {\n  \"error\": {\n    \"message\": \"Incorrect API key provided: sk-proj-*****"
  },
  "864": {
-  "stage": "source_fetched",
-  "lastAttempt": "2026-08-18T21:54:48.992Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-18T21:55:05.529Z",
   "attempts": 4,
+  "error": "https://online.umary.edu/admissions-aid/requirements-deadlines: OpenAI HTTP 401: {\n  \"error\": {\n    \"message\": \"Incorrect API key provided: sk-proj-********************************************pABv. You can find your API key at https://platform.openai.com/account/api-keys.\",\n    \"type\": \"invalid_request_error\",\n    \"code\": \"invalid_api_key\",\n    \"param\": null\n  },\n  \"status\": 401 || https://www.umary.edu/academics/undergraduate-programs/nursing: OpenAI HTTP 401: {\n  \"error\": {\n    \"message\": \"Inc",
   "sourceUrl": "https://www.umary.edu/academics/undergraduate-programs/nursing"
  },
  "865": {
@@ -4989,10 +4990,9 @@
   "finalStatus": "verified"
  },
  "898": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-18T20:55:25.001Z",
-  "attempts": 3,
-  "error": "https://www.usm.edu/professional-nursing-practice/index.php: OpenAI HTTP 401: {\n  \"error\": {\n    \"message\": \"Incorrect API key provided: sk-proj-********************************************pABv. You can find your API key at https://platform.openai.com/account/api-keys.\",\n    \"type\": \"invalid_request_error\",\n    \"code\": \"invalid_api_key\",\n    \"param\": null\n  },\n  \"status\": 401 || https://www.usm.edu/professional-nursing-practice/index.php: OpenAI HTTP 401: {\n  \"error\": {\n    \"message\": \"Incorrect",
+  "stage": "source_discovery",
+  "lastAttempt": "2026-08-18T21:55:06.069Z",
+  "attempts": 4,
   "sourceUrl": "https://www.usm.edu/admissions/apply.php"
  },
  "899": {
