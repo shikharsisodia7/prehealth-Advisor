@@ -4632,10 +4632,10 @@
   "finalStatus": "verified"
  },
  "853": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-17T17:49:45.216Z",
-  "attempts": 2,
-  "error": "reset for improved discovery: https://graduateschool.uccs.edu/admissions: no usable prereq list"
+  "stage": "source_fetched",
+  "lastAttempt": "2026-08-18T03:19:45.028Z",
+  "attempts": 3,
+  "sourceUrl": "https://johnsonbethel.uccs.edu/"
  },
  "854": {
   "stage": "finalized",
@@ -4680,9 +4680,10 @@
   "finalStatus": "verified"
  },
  "860": {
-  "stage": "source_fetched",
-  "lastAttempt": "2026-08-18T03:09:10.740Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-18T03:19:18.274Z",
   "attempts": 3,
+  "error": "https://nursing.uky.edu/: OpenAI HTTP 429: {\n    \"error\": {\n        \"message\": \"You have no credits remaining. Add credits to continue using the API at https://platform.openai.com/settings/organization/billing/.\",\n        \"type\": \"insufficient_quota\",\n        \"param\": null,\n        \"code\": \"credit_balance_exhausted\"\n    }\n}\n || https://nursing.uky.edu/news/alumni-spotlight-lauren-cole-brown-bsn-rn-class-december-2007: OpenAI HTTP 429: {\n    \"error\": {\n        \"message\": \"You have no credits rema",
   "sourceUrl": "https://admission.uky.edu/apply"
  },
  "861": {
