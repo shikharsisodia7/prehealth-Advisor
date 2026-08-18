@@ -4420,15 +4420,17 @@
   "finalStatus": "no_prereqs_published"
  },
  "821": {
-  "stage": "source_fetched",
-  "lastAttempt": "2026-08-17T23:33:16.292Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-18T03:24:58.335Z",
   "attempts": 3,
+  "error": "https://www.siue.edu/academics/undergraduate/degrees-and-programs/applied-communication/minor-requirements.shtml: OpenAI HTTP 429: {\n    \"error\": {\n        \"message\": \"You have no credits remaining. Add credits to continue using the API at https://platform.openai.com/settings/organization/billing/.\",\n        \"type\": \"insufficient_quota\",\n        \"param\": null,\n        \"code\": \"credit_balance_exhausted\"\n    }\n}\n || https://www.siue.edu/graduate-admissions/: OpenAI HTTP 429: {\n    \"error\": {\n     ",
   "sourceUrl": "https://www.siue.edu/academics/undergraduate/degrees-and-programs/art/art-history/minor-requirements.shtml"
  },
  "822": {
-  "stage": "source_fetched",
-  "lastAttempt": "2026-08-17T23:34:37.082Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-18T03:26:46.756Z",
   "attempts": 3,
+  "error": "https://spalding.edu/programs/rn-to-bsn/rn-to-bsn-admission-requirements/: OpenAI HTTP 429: {\n    \"error\": {\n        \"message\": \"You have no credits remaining. Add credits to continue using the API at https://platform.openai.com/settings/organization/billing/.\",\n        \"type\": \"insufficient_quota\",\n        \"param\": null,\n        \"code\": \"credit_balance_exhausted\"\n    }\n}\n || https://spalding.edu/programs/master-of-science-in-nursing/msn-admission-requirements/: OpenAI HTTP 429: {\n    \"error\": {",
   "sourceUrl": "https://spalding.edu/directory/pamela-dodson/"
  },
  "823": {
@@ -4559,10 +4561,10 @@
   "finalStatus": "verified"
  },
  "842": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-17T17:50:52.283Z",
-  "attempts": 1,
-  "error": "reset for improved discovery: https://www.trinitycollegeqc.edu/about-us/news/trinityaugustana-22-program: HTTP 404 || https://www.trinitycollegeqc.edu"
+  "stage": "source_fetched",
+  "lastAttempt": "2026-08-18T03:27:33.826Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.trinitycollegeqc.edu/future-students/admissions/undergraduate-students"
  },
  "843": {
   "stage": "unstarted",
@@ -4619,10 +4621,10 @@
   "finalStatus": "verified"
  },
  "851": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-17T17:50:09.031Z",
-  "attempts": 2,
-  "error": "reset for improved discovery: https://www.uco.edu/admissions/apply/: no usable prereq list || https://www.uco.edu/admissions/enroll/guide: no usable p"
+  "stage": "source_fetched",
+  "lastAttempt": "2026-08-18T03:25:23.675Z",
+  "attempts": 3,
+  "sourceUrl": "https://www.uco.edu/admissions/after-admin/"
  },
  "852": {
   "stage": "finalized",
