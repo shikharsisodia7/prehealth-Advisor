@@ -1,0 +1,18 @@
+$ tsx ./src/complete-prereqs.ts "--" "--all-unfinished"
+(node:7732) Warning: SECURITY WARNING: The SSL modes 'prefer', 'require', and 'verify-ca' are treated as aliases for 'verify-full'.
+In the next major version (pg-connection-string v3.0.0 and pg v9.0.0), these modes will adopt standard libpq semantics, which have weaker security guarantees.
+
+To prepare for this change:
+- If you want the current behavior, explicitly use 'sslmode=verify-full'
+- If you want libpq compatibility now, use 'uselibpqcompat=true&sslmode=require'
+
+See https://www.postgresql.org/docs/current/libpq-ssl.html for libpq SSL mode definitions.
+(Use `node --trace-warnings ...` to show where the warning was created)
+Database identity: prehealth_advisor, 2858 program rows. Firecrawl: on. Jina: on. Keenable: on.
+Queue: 601 program(s) to process.
+Keenable disabled for this run: fetch HTTP 401
+Firecrawl disabled for this run: search HTTP 402
+[w1] 784 Pennsylvania State University-Harrisburg (nursing) → failed [3/601]
+[w2] 801 Sacred Heart University (nursing) → failed [4/601]
+[w1] 785 PennWest Edinboro (nursing) → failed [5/601]
+[w3] 746 Metropolitan State University of Denver (nursing) → failed [6/601]
