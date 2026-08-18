@@ -1,0 +1,29 @@
+$ tsx ./src/complete-prereqs.ts "--" "--all-unfinished"
+(node:22772) Warning: SECURITY WARNING: The SSL modes 'prefer', 'require', and 'verify-ca' are treated as aliases for 'verify-full'.
+In the next major version (pg-connection-string v3.0.0 and pg v9.0.0), these modes will adopt standard libpq semantics, which have weaker security guarantees.
+
+To prepare for this change:
+- If you want the current behavior, explicitly use 'sslmode=verify-full'
+- If you want libpq compatibility now, use 'uselibpqcompat=true&sslmode=require'
+
+See https://www.postgresql.org/docs/current/libpq-ssl.html for libpq SSL mode definitions.
+(Use `node --trace-warnings ...` to show where the warning was created)
+Database identity: prehealth_advisor, 2858 program rows. Firecrawl: on. Jina: on. Keenable: on.
+Queue: 639 program(s) to process.
+Firecrawl disabled for this run: scrape HTTP 401
+Keenable disabled for this run: search HTTP 401
+[w2] 727 Long Island University-Brooklyn (nursing) → failed [3/639]
+[w3] 824 Stony Brook University (nursing) → failed [4/639]
+[w3] 803 Saint Edward's University (nursing) → failed [5/639]
+[w1] 636 Chamberlain University-Sacramento (nursing) → failed [6/639]
+[w2] 615 Blessing-Rieman College of Nursing & Health Sciences (nursing) → failed [7/639]
+[w1] 610 Baylor University (nursing) → failed [8/639]
+[w1] 834 The College of New Jersey (nursing) → failed [9/639]
+[w3] 929 Winston-Salem State University (nursing) → failed [10/639]
+[w1] 748 Michigan State University (nursing) → failed [11/639]
+[w2] 613 Bethel University of Minnesota (nursing) → failed [12/639]
+[w1] 837 The University of Akron (nursing) → failed [13/639]
+[w2] 774 Northern Arizona University (nursing) → failed [14/639]
+[w3] 758 Mount Carmel College of Nursing (nursing) → failed [15/639]
+[w1] 787 Purdue University Northwest (nursing) → failed [16/639]
+[w2] 818 Southeastern Louisiana University (nursing) → failed [17/639]

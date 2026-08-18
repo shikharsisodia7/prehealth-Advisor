@@ -3005,10 +3005,11 @@
   "sourceUrl": "https://www.belmont.edu/admissions/visit/"
  },
  "613": {
-  "stage": "source_fetched",
-  "lastAttempt": "2026-08-18T20:21:59.370Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-18T20:22:26.576Z",
   "attempts": 2,
-  "sourceUrl": "https://www.bethel.edu/admissions/contact"
+  "error": "https://www.bethel.edu/admissions/faq: OpenAI HTTP 401: {\n  \"error\": {\n    \"message\": \"Incorrect API key provided: sk-proj-********************************************pABv. You can find your API key at https://platform.openai.com/account/api-keys.\",\n    \"type\": \"invalid_request_error\",\n    \"code\": \"invalid_api_key\",\n    \"param\": null\n  },\n  \"status\": 401 || https://www.bethel.edu/academics/: OpenAI HTTP 401: {\n  \"error\": {\n    \"message\": \"Incorrect API key provided: sk-proj-*********************",
+  "sourceUrl": "https://www.bethel.edu/academics/"
  },
  "614": {
   "stage": "finalized",
@@ -3137,10 +3138,11 @@
   "finalStatus": "verified"
  },
  "632": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-17T18:02:44.037Z",
-  "attempts": 1,
-  "error": "reset for improved discovery: https://www.ccsu.edu/sites/default/files/2026-08/CCSU%20NURSING%20DEPARTMENT%20Handbook%20August%202026.pdf: PDF extract"
+  "stage": "failed",
+  "lastAttempt": "2026-08-18T20:23:10.947Z",
+  "attempts": 2,
+  "error": "https://www.ccsu.edu/sites/default/files/2026-08/CCSU%20NURSING%20DEPARTMENT%20Handbook%20August%202026.pdf: PDF extract failed: Traceback (most recent call last):\r\n  File \"<string>\", line 2, in <module>\r\n    from pypdf import PdfReader\r\nModuleNotFoundError: No module named 'pypdf'\r\n || https://www.ccsu.edu/graduate-admissions/program-specific-admission-requirements: OpenAI HTTP 401: {\n  \"error\": {\n    \"message\": \"Incorrect API key provided: sk-proj-********************************************pA",
+  "sourceUrl": "https://www.ccsu.edu/academics/program-documents"
  },
  "633": {
   "stage": "finalized",
@@ -3178,10 +3180,11 @@
   "finalStatus": "no_prereqs_published"
  },
  "638": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-17T19:29:52.420Z",
-  "attempts": 1,
-  "error": "reset for improved discovery: https://www.charlestonsouthern.edu/wp-content/uploads/2025-2026-Pre-Nursing-Student-Handbook-8.18.25.pdf: PDF extract fa"
+  "stage": "failed",
+  "lastAttempt": "2026-08-18T20:36:41.515Z",
+  "attempts": 2,
+  "error": "https://www.charlestonsouthern.edu/wp-content/uploads/2025-2026-Pre-Nursing-Student-Handbook-8.18.25.pdf: PDF extract failed: Traceback (most recent call last):\r\n  File \"<string>\", line 2, in <module>\r\n    from pypdf import PdfReader\r\nModuleNotFoundError: No module named 'pypdf'\r\n || https://www.charlestonsouthern.edu/academics/colleges/college-of-nursing/: OpenAI HTTP 401: {\n  \"error\": {\n    \"message\": \"Incorrect API key provided: sk-proj-********************************************pABv. You ca",
+  "sourceUrl": "https://www.charlestonsouthern.edu/admissions/undergraduate/school-counselors/"
  },
  "639": {
   "stage": "finalized",
@@ -3652,10 +3655,11 @@
   "finalStatus": "verified"
  },
  "706": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-17T18:04:27.539Z",
-  "attempts": 2,
-  "error": "reset for improved discovery: https://www.usi.edu/admissions: no usable prereq list || https://www.usi.edu/graduatestudies/admission-to-graduate-progr"
+  "stage": "failed",
+  "lastAttempt": "2026-08-18T20:23:43.567Z",
+  "attempts": 3,
+  "error": "https://www.usi.edu/admissions: OpenAI HTTP 401: {\n  \"error\": {\n    \"message\": \"Incorrect API key provided: sk-proj-********************************************pABv. You can find your API key at https://platform.openai.com/account/api-keys.\",\n    \"type\": \"invalid_request_error\",\n    \"code\": \"invalid_api_key\",\n    \"param\": null\n  },\n  \"status\": 401 || https://www.usi.edu/graduatestudies/admission-to-graduate-programs: OpenAI HTTP 401: {\n  \"error\": {\n    \"message\": \"Incorrect API key provided: sk-",
+  "sourceUrl": "https://www.usi.edu/core39"
  },
  "707": {
   "stage": "failed",
@@ -3665,10 +3669,11 @@
   "sourceUrl": "https://columbus.iu.edu/academics/divisions-programs/honors-program/curriculum/index.html"
  },
  "708": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-17T18:04:53.335Z",
-  "attempts": 2,
-  "error": "reset for improved discovery: https://library.indianapolis.iu.edu/: no usable prereq list || https://iucat.iu.edu/catalog/advanced: no usable prereq l"
+  "stage": "failed",
+  "lastAttempt": "2026-08-18T20:22:59.265Z",
+  "attempts": 3,
+  "error": "https://library.indianapolis.iu.edu/: OpenAI HTTP 401: {\n  \"error\": {\n    \"message\": \"Incorrect API key provided: sk-proj-********************************************pABv. You can find your API key at https://platform.openai.com/account/api-keys.\",\n    \"type\": \"invalid_request_error\",\n    \"code\": \"invalid_api_key\",\n    \"param\": null\n  },\n  \"status\": 401 || https://iucat.iu.edu/catalog/advanced: OpenAI HTTP 401: {\n  \"error\": {\n    \"message\": \"Incorrect API key provided: sk-proj-******************",
+  "sourceUrl": "https://iucat.iu.edu/catalog/advanced"
  },
  "709": {
   "stage": "finalized",
@@ -3713,10 +3718,11 @@
   "sourceUrl": "https://www.ju.edu/admissions/prospective-students.php"
  },
  "715": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-17T19:27:25.619Z",
-  "attempts": 0,
-  "error": "reset for improved discovery: https://www.jwu.edu/academics/majors-and-programs/nursing-accelerated-bs.html: too little text"
+  "stage": "failed",
+  "lastAttempt": "2026-08-18T20:35:29.773Z",
+  "attempts": 1,
+  "error": "https://www.jwu.edu/academics/majors-and-programs/nursing-accelerated-bs.html: OpenAI HTTP 401: {\n  \"error\": {\n    \"message\": \"Incorrect API key provided: sk-proj-********************************************pABv. You can find your API key at https://platform.openai.com/account/api-keys.\",\n    \"type\": \"invalid_request_error\",\n    \"code\": \"invalid_api_key\",\n    \"param\": null\n  },\n  \"status\": 401",
+  "sourceUrl": "https://www.jwu.edu/academics/majors-and-programs/nursing-accelerated-bs.html"
  },
  "716": {
   "stage": "finalized",
@@ -3761,10 +3767,11 @@
   "finalStatus": "verified"
  },
  "722": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-17T18:05:04.821Z",
-  "attempts": 2,
-  "error": "reset for improved discovery: https://www.lemoyne.edu/academics/programs/fnp/: no usable prereq list || https://www.lemoyne.edu/academics/programs/fnp"
+  "stage": "failed",
+  "lastAttempt": "2026-08-18T20:23:44.133Z",
+  "attempts": 3,
+  "error": "https://www.lemoyne.edu/academics/programs/fnp/: OpenAI HTTP 401: {\n  \"error\": {\n    \"message\": \"Incorrect API key provided: sk-proj-********************************************pABv. You can find your API key at https://platform.openai.com/account/api-keys.\",\n    \"type\": \"invalid_request_error\",\n    \"code\": \"invalid_api_key\",\n    \"param\": null\n  },\n  \"status\": 401 || https://www.lemoyne.edu/academics/programs/fnp/: OpenAI HTTP 401: {\n  \"error\": {\n    \"message\": \"Incorrect API key provided: sk-pr",
+  "sourceUrl": "https://www.lemoyne.edu/academics/programs/fnp/"
  },
  "723": {
   "stage": "finalized",
@@ -3877,10 +3884,11 @@
   "finalStatus": "verified"
  },
  "739": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-17T18:05:52.111Z",
-  "attempts": 2,
-  "error": "reset for improved discovery: https://www.mcphs.edu/academics/prerequisite-courses: no usable prereq list || https://www.mcphs.edu/admission-and-aid/b"
+  "stage": "failed",
+  "lastAttempt": "2026-08-18T20:24:37.650Z",
+  "attempts": 3,
+  "error": "https://www.mcphs.edu/academics/prerequisite-courses: fetch failed || https://www.mcphs.edu/academics/schools/nursing: OpenAI HTTP 401: {\n  \"error\": {\n    \"message\": \"Incorrect API key provided: sk-proj-********************************************pABv. You can find your API key at https://platform.openai.com/account/api-keys.\",\n    \"type\": \"invalid_request_error\",\n    \"code\": \"invalid_api_key\",\n    \"param\": null\n  },\n  \"status\": 401 || https://www.mcphs.edu/academics/schools/nursing: OpenAI HTTP",
+  "sourceUrl": "https://www.mcphs.edu/admission-and-aid/undergraduate-applicants/transfer-applicants"
  },
  "740": {
   "stage": "finalized",
@@ -3925,10 +3933,11 @@
   "finalStatus": "verified"
  },
  "746": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-17T19:30:50.973Z",
-  "attempts": 1,
-  "error": "reset for improved discovery: https://www.msudenver.edu/nursing/nursing-early-admissions-military/: no usable prereq list || https://www.msudenver.edu"
+  "stage": "failed",
+  "lastAttempt": "2026-08-18T20:37:21.129Z",
+  "attempts": 2,
+  "error": "https://www.msudenver.edu/nursing/nursing-early-admissions-military/: OpenAI HTTP 401: {\n  \"error\": {\n    \"message\": \"Incorrect API key provided: sk-proj-********************************************pABv. You can find your API key at https://platform.openai.com/account/api-keys.\",\n    \"type\": \"invalid_request_error\",\n    \"code\": \"invalid_api_key\",\n    \"param\": null\n  },\n  \"status\": 401 || https://www.msudenver.edu/nursing/nursing-early-admissions-for-international-students/: OpenAI HTTP 401: {\n  ",
+  "sourceUrl": "https://www.msudenver.edu/graduate-studies/"
  },
  "747": {
   "stage": "finalized",
@@ -3938,10 +3947,11 @@
   "finalStatus": "verified"
  },
  "748": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-17T18:06:21.951Z",
-  "attempts": 1,
-  "error": "reset for improved discovery: https://msu.edu/: too little text"
+  "stage": "failed",
+  "lastAttempt": "2026-08-18T20:26:17.743Z",
+  "attempts": 2,
+  "error": "https://msu.edu/: OpenAI HTTP 401: {\n  \"error\": {\n    \"message\": \"Incorrect API key provided: sk-proj-********************************************pABv. You can find your API key at https://platform.openai.com/account/api-keys.\",\n    \"type\": \"invalid_request_error\",\n    \"code\": \"invalid_api_key\",\n    \"param\": null\n  },\n  \"status\": 401",
+  "sourceUrl": "https://msu.edu/"
  },
  "749": {
   "stage": "failed",
@@ -3951,16 +3961,18 @@
   "sourceUrl": "https://www.mnu.edu/admissions/"
  },
  "750": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-17T18:06:06.561Z",
-  "attempts": 2,
-  "error": "reset for improved discovery: https://www.mga.edu/health-sciences/nursing/index.php: no usable prereq list || https://www.mga.edu/health-sciences/nurs"
+  "stage": "failed",
+  "lastAttempt": "2026-08-18T20:26:11.355Z",
+  "attempts": 3,
+  "error": "https://www.mga.edu/health-sciences/nursing/index.php: OpenAI HTTP 401: {\n  \"error\": {\n    \"message\": \"Incorrect API key provided: sk-proj-********************************************pABv. You can find your API key at https://platform.openai.com/account/api-keys.\",\n    \"type\": \"invalid_request_error\",\n    \"code\": \"invalid_api_key\",\n    \"param\": null\n  },\n  \"status\": 401 || https://www.mga.edu/health-sciences/nursing/index.php: OpenAI HTTP 401: {\n  \"error\": {\n    \"message\": \"Incorrect API key pro",
+  "sourceUrl": "https://www.mga.edu/graduate-school/index.php"
  },
  "751": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-17T19:25:28.858Z",
-  "attempts": 1,
-  "error": "reset for improved discovery: https://www.msoe.edu/admissions-aid/graduate-admissions/graduate-admission-requirements/: no usable prereq list || https"
+  "stage": "failed",
+  "lastAttempt": "2026-08-18T20:32:18.924Z",
+  "attempts": 2,
+  "error": "https://www.msoe.edu/admissions-aid/graduate-admissions/graduate-admission-requirements/: OpenAI HTTP 401: {\n  \"error\": {\n    \"message\": \"Incorrect API key provided: sk-proj-********************************************pABv. You can find your API key at https://platform.openai.com/account/api-keys.\",\n    \"type\": \"invalid_request_error\",\n    \"code\": \"invalid_api_key\",\n    \"param\": null\n  },\n  \"status\": 401 || https://www.msoe.edu/admissions-aid/transfer-admissions/transfer-admissions-requirements/",
+  "sourceUrl": "https://www.msoe.edu/admissions-aid/international-admissions/"
  },
  "752": {
   "stage": "finalized",
@@ -4005,10 +4017,11 @@
   "finalStatus": "verified"
  },
  "758": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-17T18:06:34.126Z",
-  "attempts": 1,
-  "error": "reset for improved discovery: https://www.mccn.edu/: fetch failed"
+  "stage": "failed",
+  "lastAttempt": "2026-08-18T20:25:48.234Z",
+  "attempts": 2,
+  "error": "https://www.mccn.edu/: OpenAI HTTP 401: {\n  \"error\": {\n    \"message\": \"Incorrect API key provided: sk-proj-********************************************pABv. You can find your API key at https://platform.openai.com/account/api-keys.\",\n    \"type\": \"invalid_request_error\",\n    \"code\": \"invalid_api_key\",\n    \"param\": null\n  },\n  \"status\": 401",
+  "sourceUrl": "https://www.mccn.edu/"
  },
  "759": {
   "stage": "finalized",
@@ -4074,10 +4087,11 @@
   "finalStatus": "verified"
  },
  "768": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-17T19:30:59.597Z",
-  "attempts": 1,
-  "error": "reset for improved discovery: https://www.nyu.edu/admissions/undergraduate-admissions/how-to-apply.html: too little text || https://www.nyu.edu/admiss"
+  "stage": "failed",
+  "lastAttempt": "2026-08-18T20:37:38.863Z",
+  "attempts": 2,
+  "error": "https://nyu.edu/: OpenAI HTTP 401: {\n  \"error\": {\n    \"message\": \"Incorrect API key provided: sk-proj-********************************************pABv. You can find your API key at https://platform.openai.com/account/api-keys.\",\n    \"type\": \"invalid_request_error\",\n    \"code\": \"invalid_api_key\",\n    \"param\": null\n  },\n  \"status\": 401",
+  "sourceUrl": "https://nyu.edu/"
  },
  "769": {
   "stage": "finalized",
@@ -4115,16 +4129,18 @@
   "finalStatus": "verified"
  },
  "774": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-17T18:07:22.921Z",
-  "attempts": 1,
-  "error": "reset for improved discovery: https://degree-search.nau.edu/degree/NURABSNXPB: too little text || https://degree-search.nau.edu/degree/NURBSNX: too li"
+  "stage": "failed",
+  "lastAttempt": "2026-08-18T20:28:44.755Z",
+  "attempts": 2,
+  "error": "https://degree-search.nau.edu/degree/NURABSNXPB: OpenAI HTTP 401: {\n  \"error\": {\n    \"message\": \"Incorrect API key provided: sk-proj-********************************************pABv. You can find your API key at https://platform.openai.com/account/api-keys.\",\n    \"type\": \"invalid_request_error\",\n    \"code\": \"invalid_api_key\",\n    \"param\": null\n  },\n  \"status\": 401 || https://nau.edu/college-nursing/: OpenAI HTTP 401: {\n  \"error\": {\n    \"message\": \"Incorrect API key provided: sk-proj-************",
+  "sourceUrl": "https://programapplication.nau.edu/?tag=nursing"
  },
  "775": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-17T19:25:06.694Z",
-  "attempts": 1,
-  "error": "reset for improved discovery: https://www.nku.edu/admissions-aid/choose-your-path/graduate/admission-process/index.html: fetch failed"
+  "stage": "failed",
+  "lastAttempt": "2026-08-18T20:32:49.608Z",
+  "attempts": 2,
+  "error": "https://www.nku.edu/admissions-aid/choose-your-path/graduate/admission-process/index.html: OpenAI HTTP 401: {\n  \"error\": {\n    \"message\": \"Incorrect API key provided: sk-proj-********************************************pABv. You can find your API key at https://platform.openai.com/account/api-keys.\",\n    \"type\": \"invalid_request_error\",\n    \"code\": \"invalid_api_key\",\n    \"param\": null\n  },\n  \"status\": 401",
+  "sourceUrl": "https://www.nku.edu/admissions-aid/apply/index.html"
  },
  "776": {
   "stage": "failed",
@@ -4183,16 +4199,18 @@
   "error": "https://www.psu.edu/admission/undergraduate: OpenAI HTTP 401: {\n  \"error\": {\n    \"message\": \"Incorrect API key provided: sk-proj-********************************************pABv. You can find your API key at https://platform.openai.com/account/api-keys.\",\n    \"type\": \"invalid_request_error\",\n    \"code\": \"invalid_api_key\",\n    \"param\": null\n  },\n  \"status\": 401 || https://www.psu.edu/admission/undergraduate/how-to-apply: OpenAI HTTP 401: {\n  \"error\": {\n    \"message\": \"Incorrect API key provided: "
  },
  "784": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-17T19:30:01.174Z",
-  "attempts": 1,
-  "error": "reset for improved discovery: https://harrisburg.psu.edu/behavioral-sciences-education/nursing-bsn: HTTP 403"
+  "stage": "failed",
+  "lastAttempt": "2026-08-18T20:37:10.054Z",
+  "attempts": 2,
+  "error": "https://harrisburg.psu.edu/behavioral-sciences-education/nursing-bsn: OpenAI HTTP 401: {\n  \"error\": {\n    \"message\": \"Incorrect API key provided: sk-proj-********************************************pABv. You can find your API key at https://platform.openai.com/account/api-keys.\",\n    \"type\": \"invalid_request_error\",\n    \"code\": \"invalid_api_key\",\n    \"param\": null\n  },\n  \"status\": 401",
+  "sourceUrl": "https://harrisburg.psu.edu/behavioral-sciences-education/nursing-bsn"
  },
  "785": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-17T18:11:18.399Z",
-  "attempts": 0,
-  "error": "reset for improved discovery: https://www.pennwest.edu/admissions/graduate/index.php: no usable prereq list"
+  "stage": "failed",
+  "lastAttempt": "2026-08-18T20:32:13.528Z",
+  "attempts": 1,
+  "error": "https://www.pennwest.edu/admissions/graduate/index.php: OpenAI HTTP 401: {\n  \"error\": {\n    \"message\": \"Incorrect API key provided: sk-proj-********************************************pABv. You can find your API key at https://platform.openai.com/account/api-keys.\",\n    \"type\": \"invalid_request_error\",\n    \"code\": \"invalid_api_key\",\n    \"param\": null\n  },\n  \"status\": 401",
+  "sourceUrl": "https://www.pennwest.edu/admissions/undergraduate/index.php"
  },
  "786": {
   "stage": "failed",
@@ -4202,10 +4220,11 @@
   "sourceUrl": "https://www.purdue.edu/hhs/nur/"
  },
  "787": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-17T18:07:57.848Z",
-  "attempts": 1,
-  "error": "reset for improved discovery: https://www.purduecal.edu/: fetch failed"
+  "stage": "failed",
+  "lastAttempt": "2026-08-18T20:28:16.004Z",
+  "attempts": 2,
+  "error": "https://www.purduecal.edu/: too little text || https://admissions.purdue.edu/: OpenAI HTTP 401: {\n  \"error\": {\n    \"message\": \"Incorrect API key provided: sk-proj-********************************************pABv. You can find your API key at https://platform.openai.com/account/api-keys.\",\n    \"type\": \"invalid_request_error\",\n    \"code\": \"invalid_api_key\",\n    \"param\": null\n  },\n  \"status\": 401",
+  "sourceUrl": "https://admissions.purdue.edu/"
  },
  "788": {
   "stage": "finalized",
@@ -4299,10 +4318,11 @@
   "finalStatus": "verified"
  },
  "801": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-17T19:30:43.224Z",
-  "attempts": 1,
-  "error": "reset for improved discovery: https://www.sacredheart.edu/majors--programs/second-degree-accelerated-bsn/: no usable prereq list || https://www.sacred"
+  "stage": "failed",
+  "lastAttempt": "2026-08-18T20:36:53.113Z",
+  "attempts": 2,
+  "error": "https://www.sacredheart.edu/majors--programs/second-degree-accelerated-bsn/application-process--admissions-requirements/: OpenAI HTTP 401: {\n  \"error\": {\n    \"message\": \"Incorrect API key provided: sk-proj-********************************************pABv. You can find your API key at https://platform.openai.com/account/api-keys.\",\n    \"type\": \"invalid_request_error\",\n    \"code\": \"invalid_api_key\",\n    \"param\": null\n  },\n  \"status\": 401 || https://www.sacredheart.edu/majors--programs/second-degre",
+  "sourceUrl": "https://www.sacredheart.edu/phonebook/rebecca-jones.php"
  },
  "802": {
   "stage": "finalized",
@@ -4340,10 +4360,11 @@
   "finalStatus": "verified"
  },
  "807": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-17T18:08:04.351Z",
-  "attempts": 2,
-  "error": "reset for improved discovery: https://www.slu.edu/admission/visit/index.php: no usable prereq list || https://catalog.slu.edu/programs/: no usable pre"
+  "stage": "failed",
+  "lastAttempt": "2026-08-18T20:29:19.964Z",
+  "attempts": 3,
+  "error": "https://www.slu.edu/admission/visit/index.php: OpenAI HTTP 401: {\n  \"error\": {\n    \"message\": \"Incorrect API key provided: sk-proj-********************************************pABv. You can find your API key at https://platform.openai.com/account/api-keys.\",\n    \"type\": \"invalid_request_error\",\n    \"code\": \"invalid_api_key\",\n    \"param\": null\n  },\n  \"status\": 401 || https://catalog.slu.edu/programs/: OpenAI HTTP 401: {\n  \"error\": {\n    \"message\": \"Incorrect API key provided: sk-proj-*************",
+  "sourceUrl": "https://www.slu.edu/apply.php"
  },
  "808": {
   "stage": "finalized",
@@ -4416,10 +4437,11 @@
   "finalStatus": "verified"
  },
  "818": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-17T18:08:40.104Z",
-  "attempts": 1,
-  "error": "reset for improved discovery: https://catalog.southeastern.edu/content.php?catoid=5&navoid=154: too little text || https://www.southeastern.edu/school"
+  "stage": "failed",
+  "lastAttempt": "2026-08-18T20:29:25.467Z",
+  "attempts": 2,
+  "error": "https://www.southeastern.edu/school-of-nursing/undergrad_degree/rn_bsn/: OpenAI HTTP 401: {\n  \"error\": {\n    \"message\": \"Incorrect API key provided: sk-proj-********************************************pABv. You can find your API key at https://platform.openai.com/account/api-keys.\",\n    \"type\": \"invalid_request_error\",\n    \"code\": \"invalid_api_key\",\n    \"param\": null\n  },\n  \"status\": 401 || https://www.southeastern.edu/school-of-nursing/undergrad_degree/: OpenAI HTTP 401: {\n  \"error\": {\n    \"mes",
+  "sourceUrl": "https://www.southeastern.edu/school-of-nursing/"
  },
  "819": {
   "stage": "finalized",
@@ -4526,9 +4548,11 @@
   "finalStatus": "verified"
  },
  "834": {
-  "stage": "source_discovery",
-  "lastAttempt": "2026-08-18T20:21:39.418Z",
-  "attempts": 2
+  "stage": "failed",
+  "lastAttempt": "2026-08-18T20:22:08.260Z",
+  "attempts": 2,
+  "error": "https://www.tcnj.edu/: OpenAI HTTP 401: {\n  \"error\": {\n    \"message\": \"Incorrect API key provided: sk-proj-********************************************pABv. You can find your API key at https://platform.openai.com/account/api-keys.\",\n    \"type\": \"invalid_request_error\",\n    \"code\": \"invalid_api_key\",\n    \"param\": null\n  },\n  \"status\": 401",
+  "sourceUrl": "https://www.tcnj.edu/"
  },
  "835": {
   "stage": "finalized",
@@ -4538,16 +4562,18 @@
   "finalStatus": "verified"
  },
  "836": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-17T19:26:12.761Z",
-  "attempts": 1,
-  "error": "reset for improved discovery: https://gpadmissions.osu.edu/intl/additional-requirements-to-apply.html: no usable prereq list || https://gpadmissions.o"
+  "stage": "failed",
+  "lastAttempt": "2026-08-18T20:33:28.394Z",
+  "attempts": 2,
+  "error": "https://gpadmissions.osu.edu/intl/additional-requirements-to-apply.html: OpenAI HTTP 401: {\n  \"error\": {\n    \"message\": \"Incorrect API key provided: sk-proj-********************************************pABv. You can find your API key at https://platform.openai.com/account/api-keys.\",\n    \"type\": \"invalid_request_error\",\n    \"code\": \"invalid_api_key\",\n    \"param\": null\n  },\n  \"status\": 401 || https://gpadmissions.osu.edu/prof/steps-to-apply.html: OpenAI HTTP 401: {\n  \"error\": {\n    \"message\": \"Inc",
+  "sourceUrl": "https://online.osu.edu/content-hub/"
  },
  "837": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-17T18:06:48.113Z",
-  "attempts": 1,
-  "error": "reset for improved discovery: https://www.uakron.edu/nursing/prospective-students/: no usable prereq list || https://www.uakron.edu/nursing/academic-p"
+  "stage": "failed",
+  "lastAttempt": "2026-08-18T20:25:23.551Z",
+  "attempts": 2,
+  "error": "https://www.uakron.edu/nursing/prospective-students/: OpenAI HTTP 401: {\n  \"error\": {\n    \"message\": \"Incorrect API key provided: sk-proj-********************************************pABv. You can find your API key at https://platform.openai.com/account/api-keys.\",\n    \"type\": \"invalid_request_error\",\n    \"code\": \"invalid_api_key\",\n    \"param\": null\n  },\n  \"status\": 401 || https://www.uakron.edu/nursing/academic-programs/graduate-programs/msn/: OpenAI HTTP 401: {\n  \"error\": {\n    \"message\": \"Inco",
+  "sourceUrl": "https://www.uakron.edu/admissions/undergraduate/admissions-counselors/"
  },
  "838": {
   "stage": "finalized",
@@ -4584,10 +4610,11 @@
   "sourceUrl": "https://www.trinitycollegeqc.edu/future-students/admissions/undergraduate-students"
  },
  "843": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-17T19:26:16.533Z",
-  "attempts": 0,
-  "error": "reset for improved discovery: https://www.truman.edu/majors-programs/majors-minors/nursing-major/admission-to-nursing/: no usable prereq list || https"
+  "stage": "failed",
+  "lastAttempt": "2026-08-18T20:33:30.435Z",
+  "attempts": 1,
+  "error": "https://www.truman.edu/majors-programs/majors-minors/nursing-major/admission-to-nursing/: OpenAI HTTP 401: {\n  \"error\": {\n    \"message\": \"Incorrect API key provided: sk-proj-********************************************pABv. You can find your API key at https://platform.openai.com/account/api-keys.\",\n    \"type\": \"invalid_request_error\",\n    \"code\": \"invalid_api_key\",\n    \"param\": null\n  },\n  \"status\": 401 || https://www.truman.edu/majors-programs/majors-minors/nursing-major/admission-to-nursing/?",
+  "sourceUrl": "https://www.truman.edu/admission-cost/cost-aid/"
  },
  "844": {
   "stage": "finalized",
@@ -4730,10 +4757,11 @@
   "error": "refusing mismatched institution URL https://online.umfk.edu/nursing/master-of-science-nursing/"
  },
  "864": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-17T18:09:47.335Z",
-  "attempts": 1,
-  "error": "reset for improved discovery: https://online.umary.edu/admissions-aid/requirements-deadlines: no usable prereq list || https://www.umary.edu/admission"
+  "stage": "failed",
+  "lastAttempt": "2026-08-18T20:30:01.330Z",
+  "attempts": 2,
+  "error": "https://online.umary.edu/admissions-aid/requirements-deadlines: OpenAI HTTP 401: {\n  \"error\": {\n    \"message\": \"Incorrect API key provided: sk-proj-********************************************pABv. You can find your API key at https://platform.openai.com/account/api-keys.\",\n    \"type\": \"invalid_request_error\",\n    \"code\": \"invalid_api_key\",\n    \"param\": null\n  },\n  \"status\": 401 || https://www.umary.edu/academics/undergraduate-programs/nursing: OpenAI HTTP 401: {\n  \"error\": {\n    \"message\": \"Inc",
+  "sourceUrl": "https://www.umary.edu/academics/undergraduate-programs/nursing"
  },
  "865": {
   "stage": "finalized",
@@ -4778,10 +4806,11 @@
   "sourceUrl": "https://events.umflint.edu/nursing/events/21599"
  },
  "871": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-17T19:26:25.401Z",
-  "attempts": 1,
-  "error": "reset for improved discovery: https://www.umc.edu/son: fetch failed"
+  "stage": "failed",
+  "lastAttempt": "2026-08-18T20:36:11.912Z",
+  "attempts": 2,
+  "error": "https://www.umc.edu/son: OpenAI HTTP 401: {\n  \"error\": {\n    \"message\": \"Incorrect API key provided: sk-proj-********************************************pABv. You can find your API key at https://platform.openai.com/account/api-keys.\",\n    \"type\": \"invalid_request_error\",\n    \"code\": \"invalid_api_key\",\n    \"param\": null\n  },\n  \"status\": 401",
+  "sourceUrl": "https://www.umc.edu/son"
  },
  "872": {
   "stage": "finalized",
@@ -4791,10 +4820,10 @@
   "finalStatus": "verified"
  },
  "873": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-17T18:09:36.356Z",
-  "attempts": 1,
-  "error": "reset for improved discovery: https://sonhs.umkc.edu/: HTTP 404"
+  "stage": "failed",
+  "lastAttempt": "2026-08-18T20:29:49.527Z",
+  "attempts": 2,
+  "error": "https://sonhs.umkc.edu/: HTTP 404"
  },
  "874": {
   "stage": "finalized",
@@ -4963,10 +4992,11 @@
   "finalStatus": "verified"
  },
  "898": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-17T18:10:26.492Z",
-  "attempts": 1,
-  "error": "reset for improved discovery: https://www.usm.edu/professional-nursing-practice/index.php: no usable prereq list || https://www.usm.edu/professional-n"
+  "stage": "failed",
+  "lastAttempt": "2026-08-18T20:31:31.871Z",
+  "attempts": 2,
+  "error": "https://www.usm.edu/professional-nursing-practice/index.php: OpenAI HTTP 401: {\n  \"error\": {\n    \"message\": \"Incorrect API key provided: sk-proj-********************************************pABv. You can find your API key at https://platform.openai.com/account/api-keys.\",\n    \"type\": \"invalid_request_error\",\n    \"code\": \"invalid_api_key\",\n    \"param\": null\n  },\n  \"status\": 401 || https://www.usm.edu/professional-nursing-practice/index.php: OpenAI HTTP 401: {\n  \"error\": {\n    \"message\": \"Incorrect",
+  "sourceUrl": "https://www.usm.edu/admissions/apply.php"
  },
  "899": {
   "stage": "finalized",
@@ -4990,10 +5020,11 @@
   "finalStatus": "verified"
  },
  "902": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-17T18:11:14.472Z",
-  "attempts": 1,
-  "error": "reset for improved discovery: https://www.utrgv.edu/nursing/student-success-network/white-coat/index.htm: too little text || https://www.utrgv.edu/nur"
+  "stage": "failed",
+  "lastAttempt": "2026-08-18T20:31:32.462Z",
+  "attempts": 2,
+  "error": "https://www.utrgv.edu/admissions/graduate/index.htm: OpenAI HTTP 401: {\n  \"error\": {\n    \"message\": \"Incorrect API key provided: sk-proj-********************************************pABv. You can find your API key at https://platform.openai.com/account/api-keys.\",\n    \"type\": \"invalid_request_error\",\n    \"code\": \"invalid_api_key\",\n    \"param\": null\n  },\n  \"status\": 401 || https://www.utrgv.edu/admissions/graduate/how-to-apply/international/index.htm: OpenAI HTTP 401: {\n  \"error\": {\n    \"message\":",
+  "sourceUrl": "https://www.utrgv.edu/admissions/index.htm"
  },
  "903": {
   "stage": "finalized",
@@ -5059,10 +5090,11 @@
   "finalStatus": "verified"
  },
  "912": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-17T19:27:37.114Z",
-  "attempts": 1,
-  "error": "reset for improved discovery: https://www.villanova.edu/university/undergraduate-admission/faqs.html: no usable prereq list || https://www.villanova.e"
+  "stage": "failed",
+  "lastAttempt": "2026-08-18T20:35:14.432Z",
+  "attempts": 2,
+  "error": "https://www.villanova.edu/university/undergraduate-admission/faqs.html: OpenAI HTTP 401: {\n  \"error\": {\n    \"message\": \"Incorrect API key provided: sk-proj-********************************************pABv. You can find your API key at https://platform.openai.com/account/api-keys.\",\n    \"type\": \"invalid_request_error\",\n    \"code\": \"invalid_api_key\",\n    \"param\": null\n  },\n  \"status\": 401 || https://www.villanova.edu/university/undergraduate-admission/international-prospective-students.html: OpenA",
+  "sourceUrl": "https://www.villanova.edu/university/undergraduate-admission.html"
  },
  "913": {
   "stage": "finalized",
@@ -5135,10 +5167,11 @@
   "finalStatus": "verified"
  },
  "923": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-17T19:31:00.160Z",
-  "attempts": 1,
-  "error": "reset for improved discovery: https://www.wichita.edu/nursing: too little text"
+  "stage": "failed",
+  "lastAttempt": "2026-08-18T20:37:17.500Z",
+  "attempts": 2,
+  "error": "https://www.wichita.edu/nursing: OpenAI HTTP 401: {\n  \"error\": {\n    \"message\": \"Incorrect API key provided: sk-proj-********************************************pABv. You can find your API key at https://platform.openai.com/account/api-keys.\",\n    \"type\": \"invalid_request_error\",\n    \"code\": \"invalid_api_key\",\n    \"param\": null\n  },\n  \"status\": 401",
+  "sourceUrl": "https://www.wichita.edu/nursing"
  },
  "924": {
   "stage": "finalized",
@@ -5239,9 +5272,11 @@
   "finalStatus": "verified"
  },
  "938": {
-  "stage": "source_discovery",
-  "lastAttempt": "2026-08-18T20:19:53.911Z",
-  "attempts": 2
+  "stage": "failed",
+  "lastAttempt": "2026-08-18T20:29:28.056Z",
+  "attempts": 2,
+  "error": "https://www.aurora.edu/nursing/: OpenAI HTTP 401: {\n  \"error\": {\n    \"message\": \"Incorrect API key provided: sk-proj-********************************************pABv. You can find your API key at https://platform.openai.com/account/api-keys.\",\n    \"type\": \"invalid_request_error\",\n    \"code\": \"invalid_api_key\",\n    \"param\": null\n  },\n  \"status\": 401",
+  "sourceUrl": "https://www.aurora.edu/nursing/"
  },
  "939": {
   "stage": "finalized",
@@ -5251,10 +5286,11 @@
   "finalStatus": "verified"
  },
  "940": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-17T19:28:29.602Z",
-  "attempts": 2,
-  "error": "reset for improved discovery: https://www.baypath.edu/academics/undergraduate-programs/nursing-rn-to-bsn/course-requirements/: no usable prereq list |"
+  "stage": "failed",
+  "lastAttempt": "2026-08-18T20:35:53.620Z",
+  "attempts": 3,
+  "error": "https://catalog.baypath.edu/search/?P=BSN%20220: OpenAI HTTP 401: {\n  \"error\": {\n    \"message\": \"Incorrect API key provided: sk-proj-********************************************pABv. You can find your API key at https://platform.openai.com/account/api-keys.\",\n    \"type\": \"invalid_request_error\",\n    \"code\": \"invalid_api_key\",\n    \"param\": null\n  },\n  \"status\": 401 || https://catalog.baypath.edu/search/?P=BSN%20350: OpenAI HTTP 401: {\n  \"error\": {\n    \"message\": \"Incorrect API key provided: sk-pr",
+  "sourceUrl": "https://www.baypath.edu/admissions-aid/undergraduate-online-programs/admissions-requirements-undergraduate-online-programs/"
  },
  "941": {
   "stage": "failed",
@@ -5366,10 +5402,11 @@
   "finalStatus": "verified"
  },
  "957": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-17T19:28:59.186Z",
-  "attempts": 2,
-  "error": "reset for improved discovery: https://www.nursing.emory.edu/admissions: no usable prereq list || https://sph.emory.edu/degrees-programs/dual-degree/ms"
+  "stage": "failed",
+  "lastAttempt": "2026-08-18T20:36:13.773Z",
+  "attempts": 3,
+  "error": "https://www.nursing.emory.edu/admissions: OpenAI HTTP 401: {\n  \"error\": {\n    \"message\": \"Incorrect API key provided: sk-proj-********************************************pABv. You can find your API key at https://platform.openai.com/account/api-keys.\",\n    \"type\": \"invalid_request_error\",\n    \"code\": \"invalid_api_key\",\n    \"param\": null\n  },\n  \"status\": 401 || https://sph.emory.edu/degrees-programs/dual-degree/msn-mph: OpenAI HTTP 401: {\n  \"error\": {\n    \"message\": \"Incorrect API key provided: s",
+  "sourceUrl": "https://sph.emory.edu/admissions/how-to-apply"
  },
  "958": {
   "stage": "finalized",
@@ -5380,9 +5417,9 @@
  },
  "959": {
   "stage": "failed",
-  "lastAttempt": "2026-08-18T07:08:04.631Z",
-  "attempts": 2,
-  "error": "https://www.fdu.edu/admissions/graduate/: OpenAI HTTP 429: {\n    \"error\": {\n        \"message\": \"You have no credits remaining. Add credits to continue using the API at https://platform.openai.com/settings/organization/billing/.\",\n        \"type\": \"insufficient_quota\",\n        \"param\": null,\n        \"code\": \"credit_balance_exhausted\"\n    }\n}\n || https://www.fdu.edu/admissions/graduate/admissions-status/: OpenAI HTTP 429: {\n    \"error\": {\n        \"message\": \"You have no credits remaining. Add credi",
+  "lastAttempt": "2026-08-18T20:34:55.008Z",
+  "attempts": 3,
+  "error": "https://www.fdu.edu/admissions/graduate/: OpenAI HTTP 401: {\n  \"error\": {\n    \"message\": \"Incorrect API key provided: sk-proj-********************************************pABv. You can find your API key at https://platform.openai.com/account/api-keys.\",\n    \"type\": \"invalid_request_error\",\n    \"code\": \"invalid_api_key\",\n    \"param\": null\n  },\n  \"status\": 401 || https://www.fdu.edu/admissions/graduate/admissions-status/: OpenAI HTTP 401: {\n  \"error\": {\n    \"message\": \"Incorrect API key provided: s",
   "sourceUrl": "https://www.fdu.edu/campuses/vancouver-campus/admissions/"
  },
  "960": {
@@ -5421,10 +5458,11 @@
   "finalStatus": "verified"
  },
  "965": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-17T17:53:41.748Z",
-  "attempts": 1,
-  "error": "reset for improved discovery: https://www.ju.edu/apply/index.php: no usable prereq list || https://www.ju.edu/admissions/transfer/index.php: no usable"
+  "stage": "failed",
+  "lastAttempt": "2026-08-18T20:37:58.733Z",
+  "attempts": 2,
+  "error": "https://www.ju.edu/apply/index.php: OpenAI HTTP 401: {\n  \"error\": {\n    \"message\": \"Incorrect API key provided: sk-proj-********************************************pABv. You can find your API key at https://platform.openai.com/account/api-keys.\",\n    \"type\": \"invalid_request_error\",\n    \"code\": \"invalid_api_key\",\n    \"param\": null\n  },\n  \"status\": 401 || https://www.ju.edu/admissions/transfer/index.php: OpenAI HTTP 401: {\n  \"error\": {\n    \"message\": \"Incorrect API key provided: sk-proj-*********",
+  "sourceUrl": "https://www.ju.edu/admissions/prospective-students.php"
  },
  "966": {
   "stage": "unstarted",
@@ -5606,10 +5644,11 @@
   "finalStatus": "verified"
  },
  "992": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-17T19:26:51.584Z",
-  "attempts": 1,
-  "error": "reset for improved discovery: https://www.sentara.edu/admissions-aid: no usable prereq list"
+  "stage": "failed",
+  "lastAttempt": "2026-08-18T20:34:04.912Z",
+  "attempts": 2,
+  "error": "https://www.sentara.edu/admissions-aid: OpenAI HTTP 401: {\n  \"error\": {\n    \"message\": \"Incorrect API key provided: sk-proj-********************************************pABv. You can find your API key at https://platform.openai.com/account/api-keys.\",\n    \"type\": \"invalid_request_error\",\n    \"code\": \"invalid_api_key\",\n    \"param\": null\n  },\n  \"status\": 401",
+  "sourceUrl": "https://www.sentara.edu/sentara-vwu-student-notification"
  },
  "993": {
   "stage": "finalized",
@@ -5856,10 +5895,11 @@
   "finalStatus": "verified"
  },
  "1028": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-17T19:27:10.564Z",
-  "attempts": 1,
-  "error": "reset for improved discovery: https://uwm.edu/admission/: no usable prereq list || https://uwm.edu/graduateschool/students/admission/: no usable prere"
+  "stage": "failed",
+  "lastAttempt": "2026-08-18T20:34:11.386Z",
+  "attempts": 2,
+  "error": "https://uwm.edu/admission/: OpenAI HTTP 401: {\n  \"error\": {\n    \"message\": \"Incorrect API key provided: sk-proj-********************************************pABv. You can find your API key at https://platform.openai.com/account/api-keys.\",\n    \"type\": \"invalid_request_error\",\n    \"code\": \"invalid_api_key\",\n    \"param\": null\n  },\n  \"status\": 401 || https://uwm.edu/graduateschool/students/admission/: OpenAI HTTP 401: {\n  \"error\": {\n    \"message\": \"Incorrect API key provided: sk-proj-***************",
+  "sourceUrl": "https://uwm.edu/admission/"
  },
  "1029": {
   "stage": "finalized",
@@ -11426,10 +11466,10 @@
   "finalStatus": "verified"
  },
  "1849": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-17T19:32:10.540Z",
-  "attempts": 2,
-  "error": "reset for improved discovery: https://nau.edu/how-to-apply/graduate/: no usable prereq list || https://nau.edu/how-to-apply/graduate/apply-steps/: no "
+  "stage": "source_fetched",
+  "lastAttempt": "2026-08-18T20:38:08.051Z",
+  "attempts": 3,
+  "sourceUrl": "https://nau.edu/how-to-apply/"
  },
  "1850": {
   "stage": "finalized",
@@ -11720,10 +11760,9 @@
   "finalStatus": "verified"
  },
  "1892": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-17T19:33:16.080Z",
-  "attempts": 1,
-  "error": "reset for improved discovery: https://www.mdc.edu/physicianassistant/admission-requirements.aspx: HTTP 404 || https://www.mdc.edu/admissions/: too lit"
+  "stage": "source_discovery",
+  "lastAttempt": "2026-08-18T20:37:58.820Z",
+  "attempts": 2
  },
  "1893": {
   "stage": "finalized",
@@ -12579,10 +12618,10 @@
   "finalStatus": "verified"
  },
  "2016": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-17T21:05:00.422Z",
-  "attempts": 2,
-  "error": "reset for improved discovery: https://www.shu.edu/undergraduate-admissions/: no usable prereq list || https://www.shu.edu/undergraduate-admissions/app"
+  "stage": "source_fetched",
+  "lastAttempt": "2026-08-18T20:38:18.284Z",
+  "attempts": 3,
+  "sourceUrl": "https://www.shu.edu/core-curriculum/"
  },
  "2017": {
   "stage": "finalized",
