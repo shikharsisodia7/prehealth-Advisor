@@ -333,6 +333,73 @@ async function fetchOfficial(url: string): Promise<Fetched> {
   throw lastError instanceof Error ? lastError : new Error(String(lastError));
 }
 
+let sharedBrowserPromise: Promise<import("playwright").Browser> | null = null;
+async function getSharedBrowser(): Promise<import("playwright").Browser> {
+  if (!sharedBrowserPromise) {
+    sharedBrowserPromise = import("playwright").then(({ chromium }) =>
+      chromium.launch({ headless: true, args: ["--no-sandbox", "--disable-dev-shm-usage"] })
+    );
+  }
+  return sharedBrowserPromise;
+}
+
+async function closeSharedBrowser() {
+  if (sharedBrowserPromise) {
+    try {
+      const browser = await sharedBrowserPromise;
+      await browser.close();
+    } catch { /* ignore */ }
+    sharedBrowserPromise = null;
+  }
+}
+
+/** Renders JS-heavy admissions/prerequisite pages via headless Chromium when plain fetch yields thin content. */
+async function fetchRendered(url: string): Promise<Fetched> {
+  await politeDelay(url);
+  const browser = await getSharedBrowser();
+  const context = await browser.newContext({
+    userAgent: USER_AGENT,
+    viewport: { width: 1366, height: 900 },
+  });
+  const page = await context.newPage();
+  try {
+    await page.route("**/*", (route) => {
+      const type = route.request().resourceType();
+      if (type === "image" || type === "font" || type === "media") return route.abort();
+      return route.continue();
+    });
+    const res = await page.goto(url, { waitUntil: "domcontentloaded", timeout: 30_000 });
+    if (!res) throw new Error("Browser render: no response");
+    if (!res.ok() && res.status() !== 304) throw new Error(`Browser render HTTP ${res.status()}`);
+    // Give hydration/accordion content a moment to settle.
+    await page.waitForTimeout(1500);
+    // Expand common accordion/tab admissions widgets so hidden prerequisite text becomes visible text.
+    try {
+      await page.evaluate(`
+        (function () {
+          var clickable = document.querySelectorAll('[aria-expanded="false"], .accordion-button, .accordion-header, [role="tab"], summary');
+          for (var i = 0; i < clickable.length; i++) { try { clickable[i].click(); } catch (e) {} }
+        })()
+      `);
+      await page.waitForTimeout(500);
+    } catch { /* best effort */ }
+    const html = await page.content();
+    const finalUrl = page.url();
+    const text = stripHtml(html).slice(0, 160_000);
+    if (text.length < 200) throw new Error("Browser render: too little text");
+    return {
+      url: finalUrl,
+      html,
+      text,
+      hash: crypto.createHash("sha256").update(html).digest("hex"),
+      contentType: "text/html",
+    };
+  } finally {
+    await page.close().catch(() => {});
+    await context.close().catch(() => {});
+  }
+}
+
 const BLOCKED_SEARCH_HOSTS =
   /reddit\.com|facebook\.com|twitter\.com|x\.com|youtube\.com|tiktok\.com|quora\.com|studentdoctor\.net|collegevine\.com|niche\.com|gradschools\.com|petersons\.com|wikipedia\.org|linkedin\.com|indeed\.com|glassdoor\.com|nextgenmedprep\.com|skillnation\.|admitva\.com|myworkdaysite\.com|collegexpress|cappex\.com|princetonreview|shemmassian|accepted\.com|prospectivedoctor|beatthegmat/i;
 
@@ -1319,8 +1386,10 @@ async function fetchWithFallback(url: string): Promise<Fetched> {
       try { return await keenableFetch(url); } catch { /* fall through */ }
     }
     if (FIRECRAWL_KEY) {
-      try { return await firecrawlScrape(url); } catch { return fetched; }
+      try { return await firecrawlScrape(url); } catch { /* fall through */ }
     }
+    // Thin content from plain fetch usually means client-rendered JS — render it locally.
+    try { return await fetchRendered(url); } catch { /* fall through */ }
     return fetched;
   } catch (e) {
     const msg = e instanceof Error ? e.message : String(e);
@@ -1329,7 +1398,10 @@ async function fetchWithFallback(url: string): Promise<Fetched> {
       try { return await keenableFetch(url); } catch { /* try jina next */ }
     }
     if (blocked && JINA_KEY) {
-      try { return await fetchJinaReader(url); } catch { /* try wayback next */ }
+      try { return await fetchJinaReader(url); } catch { /* try browser next */ }
+    }
+    if (blocked) {
+      try { return await fetchRendered(url); } catch { /* try firecrawl next */ }
     }
     if (FIRECRAWL_KEY && blocked) {
       try { return await firecrawlScrape(url); } catch { /* try wayback next */ }
@@ -1338,8 +1410,9 @@ async function fetchWithFallback(url: string): Promise<Fetched> {
       try { return await fetchWayback(url); } catch { /* fall through */ }
     }
     if (FIRECRAWL_KEY) {
-      try { return await firecrawlScrape(url); } catch { throw e; }
+      try { return await firecrawlScrape(url); } catch { /* try browser as last resort */ }
     }
+    try { return await fetchRendered(url); } catch { /* fall through */ }
     throw e;
   }
 }
@@ -1538,10 +1611,15 @@ async function main() {
   console.log("Outcome counts:", JSON.stringify(counts));
   const failed = Object.entries(state).filter(([, s]) => s.stage === "failed");
   console.log(`Failure queue size: ${failed.length}`);
+  await closeSharedBrowser();
   process.exit(0);
 }
 
-main().catch((e) => { console.error(e); process.exit(1); });
+main().catch(async (e) => {
+  console.error(e);
+  await closeSharedBrowser().catch(() => {});
+  process.exit(1);
+});
 
 // Neon/pg can emit async socket errors that would otherwise kill the whole queue.
 function isTransientNetworkError(err: unknown): boolean {
@@ -1550,18 +1628,12 @@ function isTransientNetworkError(err: unknown): boolean {
   return /Connection terminated|ECONNRESET|ECONNREFUSED|read ECONNRESET|Client has encountered a connection error|ERR_ASSERTION|UND_ERR|socket hang up|fetch failed|EPIPE|ETIMEDOUT/i.test(`${code} ${msg}`);
 }
 
+// This worker must survive for hours unattended. Every program is already isolated in its
+// own try/catch inside workerLoop, so an exception that escapes to here is always safe to
+// log-and-continue rather than kill the whole run and lose accumulated progress.
 process.on("uncaughtException", (err) => {
-  if (isTransientNetworkError(err)) {
-    console.warn(`non-fatal connection exception (continuing): ${err instanceof Error ? err.message : err}`);
-    return;
-  }
-  console.error(err);
-  process.exit(1);
+  console.warn(`non-fatal uncaught exception (continuing): ${err instanceof Error ? err.stack || err.message : err}`);
 });
 process.on("unhandledRejection", (reason) => {
-  if (isTransientNetworkError(reason)) {
-    console.warn(`non-fatal connection rejection (continuing): ${reason instanceof Error ? reason.message : reason}`);
-    return;
-  }
-  console.error(reason);
+  console.warn(`non-fatal unhandled rejection (continuing): ${reason instanceof Error ? reason.stack || reason.message : reason}`);
 });

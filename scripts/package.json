@@ -17,7 +17,8 @@
   },
   "dependencies": {
     "@workspace/db": "workspace:*",
-    "drizzle-orm": "catalog:"
+    "drizzle-orm": "catalog:",
+    "playwright": "1.62.1"
   },
   "devDependencies": {
     "@types/node": "catalog:",
