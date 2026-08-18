@@ -2970,10 +2970,11 @@
   "finalStatus": "verified"
  },
  "608": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-17T17:52:53.706Z",
-  "attempts": 1,
-  "error": "reset for improved discovery: https://www.bsu.edu/academics/collegesanddepartments/nursing: no usable prereq list || https://www.bsu.edu/academics/col"
+  "stage": "failed",
+  "lastAttempt": "2026-08-18T04:34:43.725Z",
+  "attempts": 2,
+  "error": "https://www.bsu.edu/academics/collegesanddepartments/nursing: OpenAI HTTP 429: {\n    \"error\": {\n        \"message\": \"You have no credits remaining. Add credits to continue using the API at https://platform.openai.com/settings/organization/billing/.\",\n        \"type\": \"insufficient_quota\",\n        \"param\": null,\n        \"code\": \"credit_balance_exhausted\"\n    }\n}\n || https://www.bsu.edu/academics/collegesanddepartments/nursing: OpenAI HTTP 429: {\n    \"error\": {\n        \"message\": \"You have no credit",
+  "sourceUrl": "https://www.bsu.edu/admissions/international"
  },
  "609": {
   "stage": "finalized",
@@ -3078,10 +3079,11 @@
   "finalStatus": "verified"
  },
  "624": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-17T17:53:21.343Z",
-  "attempts": 2,
-  "error": "reset for improved discovery: https://admissions.sdsu.edu/international/graduate: no usable prereq list || https://admissions.sdsu.edu/graduate: no us"
+  "stage": "failed",
+  "lastAttempt": "2026-08-18T04:19:47.043Z",
+  "attempts": 3,
+  "error": "https://admissions.sdsu.edu/international/graduate: OpenAI HTTP 429: {\n    \"error\": {\n        \"message\": \"You have no credits remaining. Add credits to continue using the API at https://platform.openai.com/settings/organization/billing/.\",\n        \"type\": \"insufficient_quota\",\n        \"param\": null,\n        \"code\": \"credit_balance_exhausted\"\n    }\n}\n || https://admissions.sdsu.edu/graduate: OpenAI HTTP 429: {\n    \"error\": {\n        \"message\": \"You have no credits remaining. Add credits to contin",
+  "sourceUrl": "https://www.sdsu.edu/"
  },
  "625": {
   "stage": "finalized",
@@ -3228,10 +3230,11 @@
   "finalStatus": "verified"
  },
  "646": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-17T17:54:09.439Z",
-  "attempts": 2,
-  "error": "reset for improved discovery: https://cui.edu/academicprograms/nursing: HTTP 403"
+  "stage": "failed",
+  "lastAttempt": "2026-08-18T04:24:56.275Z",
+  "attempts": 3,
+  "error": "https://cui.edu/academicprograms/nursing: OpenAI HTTP 429: {\n    \"error\": {\n        \"message\": \"You have no credits remaining. Add credits to continue using the API at https://platform.openai.com/settings/organization/billing/.\",\n        \"type\": \"insufficient_quota\",\n        \"param\": null,\n        \"code\": \"credit_balance_exhausted\"\n    }\n}\n || https://www.cui.edu/apply: OpenAI HTTP 429: {\n    \"error\": {\n        \"message\": \"You have no credits remaining. Add credits to continue using the API at h",
+  "sourceUrl": "https://www.cui.edu/apply"
  },
  "647": {
   "stage": "finalized",
@@ -3366,10 +3369,11 @@
   "finalStatus": "verified"
  },
  "666": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-17T17:58:35.819Z",
-  "attempts": 2,
-  "error": "reset for improved discovery: https://www.edgewood.edu/academics/programs/associate-degree-in-nursing-master-of-science-in-nursing-pathway-adn-msn/: n"
+  "stage": "failed",
+  "lastAttempt": "2026-08-18T08:24:35.292Z",
+  "attempts": 3,
+  "error": "https://www.edgewood.edu/academics/programs/associate-degree-in-nursing-master-of-science-in-nursing-pathway-adn-msn/: OpenAI HTTP 429: {\n    \"error\": {\n        \"message\": \"You have no credits remaining. Add credits to continue using the API at https://platform.openai.com/settings/organization/billing/.\",\n        \"type\": \"insufficient_quota\",\n        \"param\": null,\n        \"code\": \"credit_balance_exhausted\"\n    }\n}\n || https://www.edgewood.edu/academics/programs/clinical-nurse-specialist-msn/: O",
+  "sourceUrl": "https://www.edgewood.edu/admissions/how-to-apply/transfer-student-admissions/"
  },
  "667": {
   "stage": "finalized",
@@ -3400,10 +3404,11 @@
   "finalStatus": "verified"
  },
  "671": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-17T17:56:35.536Z",
-  "attempts": 2,
-  "error": "reset for improved discovery: https://www.endicott.edu/academics/schools/nursing: no usable prereq list || https://www.endicott.edu/admission/graduate"
+  "stage": "failed",
+  "lastAttempt": "2026-08-18T07:59:38.761Z",
+  "attempts": 3,
+  "error": "https://www.endicott.edu/academics/schools/nursing: OpenAI HTTP 429: {\n    \"error\": {\n        \"message\": \"You have no credits remaining. Add credits to continue using the API at https://platform.openai.com/settings/organization/billing/.\",\n        \"type\": \"insufficient_quota\",\n        \"param\": null,\n        \"code\": \"credit_balance_exhausted\"\n    }\n}\n || https://www.endicott.edu/admission/graduate-admission/apply: OpenAI HTTP 429: {\n    \"error\": {\n        \"message\": \"You have no credits remaining",
+  "sourceUrl": "https://www.endicott.edu/admission/undergraduate-admission/how-to-apply"
  },
  "672": {
   "stage": "finalized",
@@ -3525,10 +3530,11 @@
   "finalStatus": "verified"
  },
  "689": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-17T17:56:36.086Z",
-  "attempts": 2,
-  "error": "reset for improved discovery: https://www.gvsu.edu/admissions/welcome-future-graduate-student-105.htm: no usable prereq list || https://www.gvsu.edu/k"
+  "stage": "failed",
+  "lastAttempt": "2026-08-18T07:29:00.736Z",
+  "attempts": 3,
+  "error": "https://www.gvsu.edu/admissions/welcome-future-graduate-student-105.htm: OpenAI HTTP 429: {\n    \"error\": {\n        \"message\": \"You have no credits remaining. Add credits to continue using the API at https://platform.openai.com/settings/organization/billing/.\",\n        \"type\": \"insufficient_quota\",\n        \"param\": null,\n        \"code\": \"credit_balance_exhausted\"\n    }\n}\n || https://www.gvsu.edu/kcon/application-page-all-programs-9: OpenAI HTTP 429: {\n    \"error\": {\n        \"message\": \"You have n",
+  "sourceUrl": "https://www.gvsu.edu/kcon/module/47494897-988e-43ac-93c5-0411f099d0d6/event/db4851fe-7481-4c6f-a973-8e0f3850fe96"
  },
  "690": {
   "stage": "finalized",
@@ -3649,10 +3655,11 @@
   "error": "reset for improved discovery: https://www.usi.edu/admissions: no usable prereq list || https://www.usi.edu/graduatestudies/admission-to-graduate-progr"
  },
  "707": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-17T17:57:51.379Z",
-  "attempts": 2,
-  "error": "reset for improved discovery: https://columbus.iu.edu/academics/divisions-programs/honors-program/admission/index.html: no usable prereq list"
+  "stage": "failed",
+  "lastAttempt": "2026-08-18T08:06:01.214Z",
+  "attempts": 3,
+  "error": "https://columbus.iu.edu/academics/divisions-programs/honors-program/admission/index.html: OpenAI HTTP 429: {\n    \"error\": {\n        \"message\": \"You have no credits remaining. Add credits to continue using the API at https://platform.openai.com/settings/organization/billing/.\",\n        \"type\": \"insufficient_quota\",\n        \"param\": null,\n        \"code\": \"credit_balance_exhausted\"\n    }\n}\n",
+  "sourceUrl": "https://columbus.iu.edu/academics/divisions-programs/honors-program/curriculum/index.html"
  },
  "708": {
   "stage": "unstarted",
@@ -3803,10 +3810,10 @@
   "error": "reset for improved discovery: https://nursing.lsuhsc.edu/: no usable prereq list"
  },
  "730": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-17T18:10:32.930Z",
-  "attempts": 2,
-  "error": "reset for improved discovery: https://www.luc.edu/nursing/admission/apply/nursing/rfi/: no usable prereq list || https://www.luc.edu/nursing/admission"
+  "stage": "source_fetched",
+  "lastAttempt": "2026-08-18T08:24:55.639Z",
+  "attempts": 3,
+  "sourceUrl": "https://news.luc.edu/stories/press-releases/university-breaks-ground-on-1144-west-loyola/"
  },
  "731": {
   "stage": "finalized",
@@ -4048,10 +4055,11 @@
   "finalStatus": "verified"
  },
  "766": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-17T17:58:15.226Z",
-  "attempts": 2,
-  "error": "reset for improved discovery: https://www.kean.edu/offices/admissions/non-matriculatedvisiting-students: no usable prereq list"
+  "stage": "failed",
+  "lastAttempt": "2026-08-18T08:29:18.268Z",
+  "attempts": 3,
+  "error": "https://www.kean.edu/offices/admissions/non-matriculatedvisiting-students: OpenAI HTTP 429: {\n    \"error\": {\n        \"message\": \"You have no credits remaining. Add credits to continue using the API at https://platform.openai.com/settings/organization/billing/.\",\n        \"type\": \"insufficient_quota\",\n        \"param\": null,\n        \"code\": \"credit_balance_exhausted\"\n    }\n}\n",
+  "sourceUrl": "https://www.kean.edu/kean-jersey-city/apply"
  },
  "767": {
   "stage": "finalized",
@@ -4163,10 +4171,10 @@
   "finalStatus": "verified"
  },
  "783": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-17T17:58:44.828Z",
-  "attempts": 2,
-  "error": "reset for improved discovery: https://www.psu.edu/admission/undergraduate: no usable prereq list || https://www.psu.edu/admission/undergraduate/how-to"
+  "stage": "source_fetched",
+  "lastAttempt": "2026-08-18T08:19:03.639Z",
+  "attempts": 3,
+  "sourceUrl": "https://www.psu.edu/admission/undergraduate/explore/well-being-safety"
  },
  "784": {
   "stage": "unstarted",
@@ -4561,9 +4569,10 @@
   "finalStatus": "verified"
  },
  "842": {
-  "stage": "source_fetched",
-  "lastAttempt": "2026-08-18T03:27:33.826Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-18T03:46:45.268Z",
   "attempts": 2,
+  "error": "https://www.trinitycollegeqc.edu/about-us/news/trinityaugustana-22-program: HTTP 404 || https://www.trinitycollegeqc.edu/our-programs/nursing-programs/masters-of-science-nursing: OpenAI HTTP 429: {\n    \"error\": {\n        \"message\": \"You have no credits remaining. Add credits to continue using the API at https://platform.openai.com/settings/organization/billing/.\",\n        \"type\": \"insufficient_quota\",\n        \"param\": null,\n        \"code\": \"credit_balance_exhausted\"\n    }\n}\n || https://www.trini",
   "sourceUrl": "https://www.trinitycollegeqc.edu/future-students/admissions/undergraduate-students"
  },
  "843": {
@@ -4580,10 +4589,9 @@
   "finalStatus": "verified"
  },
  "845": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-17T17:59:16.536Z",
-  "attempts": 2,
-  "error": "reset for improved discovery: https://www.uu.edu/admissions/undergraduate/academic-requirements/: no usable prereq list || https://www.uu.edu/admissio"
+  "stage": "source_discovery",
+  "lastAttempt": "2026-08-18T08:29:18.850Z",
+  "attempts": 3
  },
  "846": {
   "stage": "finalized",
@@ -4621,9 +4629,10 @@
   "finalStatus": "verified"
  },
  "851": {
-  "stage": "source_fetched",
-  "lastAttempt": "2026-08-18T03:25:23.675Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-18T03:54:40.978Z",
   "attempts": 3,
+  "error": "https://www.uco.edu/admissions/apply/: OpenAI HTTP 429: {\n    \"error\": {\n        \"message\": \"You have no credits remaining. Add credits to continue using the API at https://platform.openai.com/settings/organization/billing/.\",\n        \"type\": \"insufficient_quota\",\n        \"param\": null,\n        \"code\": \"credit_balance_exhausted\"\n    }\n}\n || https://www.uco.edu/admissions/enroll/guide: OpenAI HTTP 429: {\n    \"error\": {\n        \"message\": \"You have no credits remaining. Add credits to continue usi",
   "sourceUrl": "https://www.uco.edu/admissions/after-admin/"
  },
  "852": {
@@ -4634,9 +4643,10 @@
   "finalStatus": "verified"
  },
  "853": {
-  "stage": "source_fetched",
-  "lastAttempt": "2026-08-18T03:19:45.028Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-18T03:36:11.450Z",
   "attempts": 3,
+  "error": "https://graduateschool.uccs.edu/admissions: OpenAI HTTP 429: {\n    \"error\": {\n        \"message\": \"You have no credits remaining. Add credits to continue using the API at https://platform.openai.com/settings/organization/billing/.\",\n        \"type\": \"insufficient_quota\",\n        \"param\": null,\n        \"code\": \"credit_balance_exhausted\"\n    }\n}\n",
   "sourceUrl": "https://johnsonbethel.uccs.edu/"
  },
  "854": {
@@ -4751,10 +4761,11 @@
   "finalStatus": "verified"
  },
  "870": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-17T17:50:27.023Z",
-  "attempts": 2,
-  "error": "reset for improved discovery: https://www.umflint.edu/nursing: HTTP 403"
+  "stage": "failed",
+  "lastAttempt": "2026-08-18T03:51:41.811Z",
+  "attempts": 3,
+  "error": "https://www.umflint.edu/nursing/accelerated-bs-nursing/: HTTP 403 || https://www.umflint.edu/nursing: HTTP 403 || https://www.umflint.edu/nursing/bs-nursing/: HTTP 403 || https://www..umflint.edu/graduateprograms/msn-dnp/: fetch failed",
+  "sourceUrl": "https://events.umflint.edu/nursing/events/21599"
  },
  "871": {
   "stage": "unstarted",
@@ -4928,10 +4939,11 @@
   "finalStatus": "no_prereqs_published"
  },
  "896": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-17T17:52:00.467Z",
-  "attempts": 1,
-  "error": "reset for improved discovery: https://www.usf.edu/undergrad-catalog-programs-a-z: too little text || https://www.usf.edu/admissions/graduate/admission"
+  "stage": "failed",
+  "lastAttempt": "2026-08-18T04:11:32.085Z",
+  "attempts": 2,
+  "error": "https://www.usf.edu/admissions/graduate/admission-information/academic-requirements.aspx: OpenAI HTTP 429: {\n    \"error\": {\n        \"message\": \"You have no credits remaining. Add credits to continue using the API at https://platform.openai.com/settings/organization/billing/.\",\n        \"type\": \"insufficient_quota\",\n        \"param\": null,\n        \"code\": \"credit_balance_exhausted\"\n    }\n}\n",
+  "sourceUrl": "https://www.usf.edu/"
  },
  "897": {
   "stage": "finalized",
@@ -5133,10 +5145,11 @@
   "finalStatus": "verified"
  },
  "926": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-17T17:42:04.755Z",
-  "attempts": 2,
-  "error": "reset for improved discovery: https://www.wmcarey.edu/_assets/documents/cohs/2nd-degree-hybrid-bsn-fact-sheet.pdf: PDF extract failed: Traceback (most"
+  "stage": "failed",
+  "lastAttempt": "2026-08-18T07:08:04.469Z",
+  "attempts": 3,
+  "error": "https://www.wmcarey.edu/_assets/documents/cohs/2nd-degree-hybrid-bsn-fact-sheet.pdf: PDF extract failed: Traceback (most recent call last):\r\n  File \"<string>\", line 2, in <module>\r\n    from pypdf import PdfReader\r\nModuleNotFoundError: No module named 'pypdf'\r\n || https://www.wmcarey.edu/_assets/documents/cohs/healthcare-transitions-hybrid-bsn-fact-sheet.pdf: PDF extract failed: Traceback (most recent call last):\r\n  File \"<string>\", line 2, in <module>\r\n    from pypdf import PdfReader\r\nModuleNotF",
+  "sourceUrl": "https://www.wmcarey.edu/admissions/undergraduate/application"
  },
  "927": {
   "stage": "finalized",
@@ -5234,10 +5247,11 @@
   "error": "reset for improved discovery: https://www.baypath.edu/academics/undergraduate-programs/nursing-rn-to-bsn/course-requirements/: no usable prereq list |"
  },
  "941": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-17T17:53:22.188Z",
-  "attempts": 2,
-  "error": "reset for improved discovery: https://www.bc.edu/content/bc-web/schools/cson/academics/undergraduate-programs/bsn-nursing.html: no usable prereq list"
+  "stage": "failed",
+  "lastAttempt": "2026-08-18T04:19:04.436Z",
+  "attempts": 3,
+  "error": "https://www.bc.edu/content/bc-web/schools/cson/academics/undergraduate-programs/bsn-nursing.html: OpenAI HTTP 429: {\n    \"error\": {\n        \"message\": \"You have no credits remaining. Add credits to continue using the API at https://platform.openai.com/settings/organization/billing/.\",\n        \"type\": \"insufficient_quota\",\n        \"param\": null,\n        \"code\": \"credit_balance_exhausted\"\n    }\n}\n",
+  "sourceUrl": "https://www.bc.edu/content/bc-web/schools/cson/academics/undergraduate-programs/bsn-nursing.html"
  },
  "942": {
   "stage": "finalized",
@@ -5296,10 +5310,11 @@
   "finalStatus": "verified"
  },
  "950": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-17T17:57:25.421Z",
-  "attempts": 2,
-  "error": "reset for improved discovery: https://www.depaul.edu/admission/undergraduate-admission: no usable prereq list || https://www.depaul.edu/admission/unde"
+  "stage": "failed",
+  "lastAttempt": "2026-08-18T08:18:43.243Z",
+  "attempts": 3,
+  "error": "https://www.depaul.edu/admission/graduate-admission: OpenAI HTTP 429: {\n    \"error\": {\n        \"message\": \"You have no credits remaining. Add credits to continue using the API at https://platform.openai.com/settings/organization/billing/.\",\n        \"type\": \"insufficient_quota\",\n        \"param\": null,\n        \"code\": \"credit_balance_exhausted\"\n    }\n}\n || https://www.depaul.edu/admission/undergraduate-admission: OpenAI HTTP 429: {\n    \"error\": {\n        \"message\": \"You have no credits remaining. ",
+  "sourceUrl": "https://www.depaul.edu/admission/undergraduate-admission/deadlines"
  },
  "951": {
   "stage": "finalized",
@@ -5354,10 +5369,11 @@
   "finalStatus": "verified"
  },
  "959": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-17T17:54:48.983Z",
-  "attempts": 1,
-  "error": "reset for improved discovery: https://www.fdu.edu/admissions/graduate/: no usable prereq list || https://www.fdu.edu/admissions/graduate/admissions-st"
+  "stage": "failed",
+  "lastAttempt": "2026-08-18T07:08:04.631Z",
+  "attempts": 2,
+  "error": "https://www.fdu.edu/admissions/graduate/: OpenAI HTTP 429: {\n    \"error\": {\n        \"message\": \"You have no credits remaining. Add credits to continue using the API at https://platform.openai.com/settings/organization/billing/.\",\n        \"type\": \"insufficient_quota\",\n        \"param\": null,\n        \"code\": \"credit_balance_exhausted\"\n    }\n}\n || https://www.fdu.edu/admissions/graduate/admissions-status/: OpenAI HTTP 429: {\n    \"error\": {\n        \"message\": \"You have no credits remaining. Add credi",
+  "sourceUrl": "https://www.fdu.edu/campuses/vancouver-campus/admissions/"
  },
  "960": {
   "stage": "finalized",
@@ -5407,10 +5423,11 @@
   "error": "reset for improved discovery: http://nursing.jhu.edu/index.html: HTTP 403"
  },
  "967": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-17T17:53:34.005Z",
-  "attempts": 2,
-  "error": "reset for improved discovery: https://www.linfield.edu/nursing: too little text"
+  "stage": "failed",
+  "lastAttempt": "2026-08-18T04:21:49.265Z",
+  "attempts": 3,
+  "error": "https://www.linfield.edu/nursing: OpenAI HTTP 429: {\n    \"error\": {\n        \"message\": \"You have no credits remaining. Add credits to continue using the API at https://platform.openai.com/settings/organization/billing/.\",\n        \"type\": \"insufficient_quota\",\n        \"param\": null,\n        \"code\": \"credit_balance_exhausted\"\n    }\n}\n",
+  "sourceUrl": "https://www.linfield.edu/nursing"
  },
  "968": {
   "stage": "finalized",
@@ -5482,10 +5499,11 @@
   "finalStatus": "verified"
  },
  "978": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-17T17:54:28.757Z",
-  "attempts": 1,
-  "error": "reset for improved discovery: https://www.northpark.edu/admissions-aid/apply/: no usable prereq list || https://www.northpark.edu/admissions-aid/trans"
+  "stage": "failed",
+  "lastAttempt": "2026-08-18T07:20:44.889Z",
+  "attempts": 2,
+  "error": "https://www.northpark.edu/admissions-aid/apply/: OpenAI HTTP 429: {\n    \"error\": {\n        \"message\": \"You have no credits remaining. Add credits to continue using the API at https://platform.openai.com/settings/organization/billing/.\",\n        \"type\": \"insufficient_quota\",\n        \"param\": null,\n        \"code\": \"credit_balance_exhausted\"\n    }\n}\n || https://www.northpark.edu/admissions-aid/transfer-students/: OpenAI HTTP 429: {\n    \"error\": {\n        \"message\": \"You have no credits remaining. A",
+  "sourceUrl": "https://www.northpark.edu/admissions-aid/admitted-undergraduate-students/"
  },
  "979": {
   "stage": "finalized",
@@ -5502,10 +5520,11 @@
   "finalStatus": "verified"
  },
  "981": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-17T17:55:06.493Z",
-  "attempts": 2,
-  "error": "reset for improved discovery: https://www.regiscollege.edu/academics/schools/richard-and-sheila-young-school-nursing: too little text"
+  "stage": "failed",
+  "lastAttempt": "2026-08-18T07:22:30.667Z",
+  "attempts": 3,
+  "error": "https://www.regiscollege.edu/academics/schools/richard-and-sheila-young-school-nursing: OpenAI HTTP 429: {\n    \"error\": {\n        \"message\": \"You have no credits remaining. Add credits to continue using the API at https://platform.openai.com/settings/organization/billing/.\",\n        \"type\": \"insufficient_quota\",\n        \"param\": null,\n        \"code\": \"credit_balance_exhausted\"\n    }\n}\n",
+  "sourceUrl": "https://www.regiscollege.edu/academics/schools/richard-and-sheila-young-school-nursing"
  },
  "982": {
   "stage": "finalized",
@@ -5522,10 +5541,11 @@
   "finalStatus": "verified"
  },
  "984": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-17T17:56:37.598Z",
-  "attempts": 1,
-  "error": "reset for improved discovery: https://www.sbu.edu/admissions/admitted-students: no usable prereq list"
+  "stage": "failed",
+  "lastAttempt": "2026-08-18T07:32:42.021Z",
+  "attempts": 2,
+  "error": "https://www.sbu.edu/admissions/admitted-students: OpenAI HTTP 429: {\n    \"error\": {\n        \"message\": \"You have no credits remaining. Add credits to continue using the API at https://platform.openai.com/settings/organization/billing/.\",\n        \"type\": \"insufficient_quota\",\n        \"param\": null,\n        \"code\": \"credit_balance_exhausted\"\n    }\n}\n",
+  "sourceUrl": "https://www.sbu.edu/admissions/visit-sbu"
  },
  "985": {
   "stage": "finalized",
@@ -5595,10 +5615,11 @@
   "finalStatus": "verified"
  },
  "995": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-17T17:55:43.146Z",
-  "attempts": 2,
-  "error": "reset for improved discovery: https://gpadmissions.osu.edu/intl/additional-requirements-to-apply.html: no usable prereq list || https://gpadmissions.o"
+  "stage": "failed",
+  "lastAttempt": "2026-08-18T07:54:44.393Z",
+  "attempts": 3,
+  "error": "https://gpadmissions.osu.edu/intl/additional-requirements-to-apply.html: OpenAI HTTP 429: {\n    \"error\": {\n        \"message\": \"You have no credits remaining. Add credits to continue using the API at https://platform.openai.com/settings/organization/billing/.\",\n        \"type\": \"insufficient_quota\",\n        \"param\": null,\n        \"code\": \"credit_balance_exhausted\"\n    }\n}\n || https://gpadmissions.osu.edu/prof/steps-to-apply.html: OpenAI HTTP 429: {\n    \"error\": {\n        \"message\": \"You have no cr",
+  "sourceUrl": "https://online.osu.edu/content-hub/"
  },
  "996": {
   "stage": "finalized",
@@ -5615,10 +5636,11 @@
   "finalStatus": "verified"
  },
  "998": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-17T17:55:41.189Z",
-  "attempts": 1,
-  "error": "reset for improved discovery: https://www.trinitycollegeqc.edu/about-us/news/trinityaugustana-22-program: HTTP 404 || https://www.trinitycollegeqc.edu"
+  "stage": "failed",
+  "lastAttempt": "2026-08-18T07:42:28.495Z",
+  "attempts": 2,
+  "error": "https://www.trinitycollegeqc.edu/about-us/news/trinityaugustana-22-program: HTTP 404 || https://www.trinitycollegeqc.edu/our-programs/nursing-programs/masters-of-science-nursing: OpenAI HTTP 429: {\n    \"error\": {\n        \"message\": \"You have no credits remaining. Add credits to continue using the API at https://platform.openai.com/settings/organization/billing/.\",\n        \"type\": \"insufficient_quota\",\n        \"param\": null,\n        \"code\": \"credit_balance_exhausted\"\n    }\n}\n || https://www.trini",
+  "sourceUrl": "https://www.trinitycollegeqc.edu/future-students/admissions/undergraduate-students"
  },
  "999": {
   "stage": "finalized",
