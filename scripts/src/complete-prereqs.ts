@@ -360,9 +360,39 @@ async function closeSharedBrowser() {
   }
 }
 
+let browserUseCount = 0;
+
 /** Renders JS-heavy admissions/prerequisite pages via headless Chromium when plain fetch yields thin content. */
 async function fetchRendered(url: string): Promise<Fetched> {
+  // Every Playwright call below (newContext/newPage/route/evaluate/content) has no built-in
+  // timeout of its own. If the shared Chromium process wedges — which happens over a multi-hour
+  // run rendering hundreds of pages — those calls hang forever and permanently strand whichever
+  // worker called in. A hard outer race is the only thing that can recover from that; on timeout
+  // we also drop the shared browser instance so the NEXT call launches a fresh one instead of
+  // reusing whatever got stuck.
+  const TIMEOUT_MS = 45_000;
+  let timer: NodeJS.Timeout;
+  const timeout = new Promise<never>((_, reject) => {
+    timer = setTimeout(() => reject(new Error(`Browser render: hard timeout after ${TIMEOUT_MS}ms`)), TIMEOUT_MS);
+  });
+  try {
+    return await Promise.race([fetchRenderedInner(url), timeout]);
+  } catch (e) {
+    if (e instanceof Error && e.message.includes("hard timeout")) {
+      sharedBrowserPromise = null; // force a fresh browser next call — this one may be wedged
+    }
+    throw e;
+  } finally {
+    clearTimeout(timer!);
+  }
+}
+
+async function fetchRenderedInner(url: string): Promise<Fetched> {
   await politeDelay(url);
+  browserUseCount += 1;
+  // Recycle the shared browser periodically — long-lived Chromium instances accumulate memory/
+  // zombie-tab pressure over hundreds of renders in a multi-hour run and become more likely to wedge.
+  if (browserUseCount % 100 === 0) await closeSharedBrowser();
   const browser = await getSharedBrowser();
   const context = await browser.newContext({
     userAgent: USER_AGENT,
