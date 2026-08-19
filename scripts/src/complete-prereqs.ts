@@ -111,6 +111,12 @@ type Stage =
   | "unstarted" | "source_discovery" | "source_fetched" | "extracted"
   | "validated" | "persisted" | "finalized" | "failed";
 
+// Bump this when the retrieval/extraction architecture changes materially (new fallback method,
+// a previously-broken dependency fixed, etc). Programs that exhausted their attempt budget under
+// an older generation get exactly one fresh attempt under the new one, without losing their prior
+// failure history (state[id].error still holds the last message from whichever generation).
+const CURRENT_PIPELINE_GEN = 2;
+
 interface ProgramState {
   stage: Stage;
   lastAttempt: string;
@@ -118,6 +124,7 @@ interface ProgramState {
   finalStatus?: string;
   error?: string;
   sourceUrl?: string;
+  pipelineGen?: number;
 }
 type StateMap = Record<string, ProgramState>;
 
@@ -1141,7 +1148,15 @@ const EXTRACTION_SCHEMA = {
   additionalProperties: false,
 } as const;
 
+let openaiDisabledReason = "";
+function disableOpenAI(reason: string) {
+  if (!OPENAI_KEY) return;
+  console.warn(`OpenAI semantic enhancement unavailable; continuing deterministic-only extraction. Reason: ${reason}`);
+  openaiDisabledReason = reason;
+}
+
 async function extractWithOpenAI(program: ProgramRow, pageText: string, url: string): Promise<Extraction> {
+  if (openaiDisabledReason) throw new Error(openaiDisabledReason);
   const payload = {
     model: OPENAI_MODEL,
     temperature: 0,
@@ -1185,6 +1200,12 @@ async function extractWithOpenAI(program: ProgramRow, pageText: string, url: str
     }
     const errBody = await res.text().catch(() => "");
     lastError = new Error(`OpenAI HTTP ${res.status}: ${errBody.slice(0, 300)}`);
+    // A dead account (no credits, revoked key) fails identically on every subsequent call —
+    // trip the breaker immediately instead of burning a 4-attempt backoff per remaining program.
+    if (res.status === 401 || /insufficient_quota|credit_balance_exhausted/i.test(errBody)) {
+      disableOpenAI(`HTTP ${res.status} ${errBody.slice(0, 120)}`);
+      throw lastError;
+    }
     if (res.status === 429 || res.status >= 500) {
       await new Promise((r) => setTimeout(r, 5000 * 2 ** attempt));
       continue;
@@ -1418,7 +1439,13 @@ async function fetchWithFallback(url: string): Promise<Fetched> {
 }
 
 async function processProgram(program: ProgramRow): Promise<string> {
-  setState(program.id, { stage: "source_discovery", attempts: (state[program.id]?.attempts ?? 0) + 1, error: undefined });
+  const isNewGen = (state[program.id]?.pipelineGen ?? 1) < CURRENT_PIPELINE_GEN;
+  setState(program.id, {
+    stage: "source_discovery",
+    attempts: isNewGen ? 1 : (state[program.id]?.attempts ?? 0) + 1,
+    error: undefined,
+    pipelineGen: CURRENT_PIPELINE_GEN,
+  });
 
   // Fix scheme-less directory URLs in Neon so crawl/search can use them.
   const normWeb = program.websiteUrl ? normalizeCandidateUrl(program.websiteUrl) : null;
@@ -1579,7 +1606,11 @@ async function main() {
     const s = state[r.id];
     if (s?.stage === "finalized") return false;
     if (retryFailures) return s?.stage === "failed";
-    if (s?.stage === "failed" && (s.attempts ?? 0) >= 3) return false;
+    // Programs that exhausted retries under an older pipeline generation (e.g. before PDF/browser
+    // rendering fallbacks or a working OpenAI key existed) get exactly one fresh shot under the
+    // current generation rather than staying excluded forever.
+    const exhaustedThisGen = (s?.pipelineGen ?? 1) >= CURRENT_PIPELINE_GEN && (s?.attempts ?? 0) >= 3;
+    if (s?.stage === "failed" && exhaustedThisGen) return false;
     return true;
   });
   queue.sort((a, b) => {
