@@ -1224,8 +1224,34 @@ function disableOpenAI(reason: string) {
   openaiDisabledReason = reason;
 }
 
+// With CONCURRENCY=4 workers each free to fire an OpenAI call whenever they reach extraction,
+// bursts regularly exceed the account's requests-per-minute limit ("Rate limit reached for
+// gpt-4o-mini" observed repeatedly in practice) even though the account has quota. A small
+// counting semaphore smooths those bursts without serializing the whole pipeline down to the
+// network-bound crawl/fetch work, which doesn't hit this limit.
+const OPENAI_MAX_CONCURRENT = 2;
+let openaiInFlight = 0;
+const openaiWaitQueue: Array<() => void> = [];
+async function withOpenAiSlot<T>(fn: () => Promise<T>): Promise<T> {
+  if (openaiInFlight >= OPENAI_MAX_CONCURRENT) {
+    await new Promise<void>((resolve) => openaiWaitQueue.push(resolve));
+  }
+  openaiInFlight += 1;
+  try {
+    return await fn();
+  } finally {
+    openaiInFlight -= 1;
+    const next = openaiWaitQueue.shift();
+    if (next) next();
+  }
+}
+
 async function extractWithOpenAI(program: ProgramRow, pageText: string, url: string): Promise<Extraction> {
   if (openaiDisabledReason) throw new Error(openaiDisabledReason);
+  return withOpenAiSlot(() => extractWithOpenAIInner(program, pageText, url));
+}
+
+async function extractWithOpenAIInner(program: ProgramRow, pageText: string, url: string): Promise<Extraction> {
   const payload = {
     model: OPENAI_MODEL,
     temperature: 0,
