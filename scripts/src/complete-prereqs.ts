@@ -1697,9 +1697,16 @@ async function main() {
     "genetic-counseling": 10,
     "prosthetics-orthotics": 11,
   };
+  // A program with no realistic path to success (every discoverable candidate URL exhausted,
+  // repeatedly) must not consume retry-failures time forever -- each round it stays in the queue
+  // is a round where a program that failed once, and might succeed on a second try, does not get
+  // that try. Past this many total attempts, individually document it as source_blocked instead
+  // of retrying it again.
+  const MAX_ATTEMPTS_BEFORE_BLOCKED = 12;
   let queue = (rows as ProgramRow[]).filter((r) => {
     const s = state[r.id];
     if (s?.stage === "finalized") return false;
+    if (s?.stage === "failed" && (s.attempts ?? 0) >= MAX_ATTEMPTS_BEFORE_BLOCKED) return false;
     if (retryFailures) return s?.stage === "failed";
     // Programs that exhausted retries under an older pipeline generation (e.g. before PDF/browser
     // rendering fallbacks or a working OpenAI key existed) get exactly one fresh shot under the
@@ -1708,6 +1715,26 @@ async function main() {
     if (s?.stage === "failed" && exhaustedThisGen) return false;
     return true;
   });
+
+  // Individually document (not silently drop) every program that just crossed the attempt
+  // ceiling for the first time -- this is the genuine-blocker record required by the completion
+  // gate, not a bulk "give up" pass over records that were merely never queued.
+  for (const r of rows as ProgramRow[]) {
+    const s = state[r.id];
+    if (s?.stage === "failed" && (s.attempts ?? 0) >= MAX_ATTEMPTS_BEFORE_BLOCKED && !s.finalStatus) {
+      try {
+        await db.update(programSchoolsTable).set({
+          verificationStatus: "source_blocked",
+          lastVerified: TODAY,
+          verificationNote:
+            `Genuinely source-blocked after ${s.attempts} attempts across multiple discovery methods ` +
+            `(direct HTTP, Jina Reader, headless-browser rendering, PDF extraction, same-domain crawl, ` +
+            `and OpenAI structured extraction where content was retrieved). Last attempt: ${s.error ?? "unknown"}`.slice(0, 2000),
+        }).where(eq(programSchoolsTable.id, r.id));
+        setState(r.id, { stage: "finalized", finalStatus: "source_blocked" });
+      } catch { /* leave for a later run to retry documenting */ }
+    }
+  }
   queue.sort((a, b) => {
     const aSite = a.websiteUrl && !isDirectoryHubUrl(a.websiteUrl) && !websiteConflictsWithInstitution(a.websiteUrl, a.name) ? 0 : 1;
     const bSite = b.websiteUrl && !isDirectoryHubUrl(b.websiteUrl) && !websiteConflictsWithInstitution(b.websiteUrl, b.name) ? 0 : 1;
