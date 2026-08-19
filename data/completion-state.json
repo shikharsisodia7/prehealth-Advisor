@@ -4005,11 +4005,12 @@
   "finalStatus": "source_blocked"
  },
  "750": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-19T19:49:24.730Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-19T20:07:13.204Z",
   "attempts": 11,
   "sourceUrl": "https://www.mga.edu/graduate-school/index.php",
-  "pipelineGen": 2
+  "pipelineGen": 2,
+  "error": "https://www.mga.edu/health-sciences/nursing/index.php: no usable prereq list || https://www.mga.edu/health-sciences/nursing/index.php: no usable prereq list || https://www.mga.edu/graduate-school/programs/nursing-agacnp-ms.php: no usable prereq list || https://www.mga.edu/admissions/new-students/first-time-students.php: no usable prereq list"
  },
  "751": {
   "stage": "finalized",
@@ -4120,11 +4121,12 @@
   "finalStatus": "verified"
  },
  "766": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-19T19:48:09.071Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-19T20:00:39.847Z",
   "attempts": 10,
   "sourceUrl": "https://www.kean.edu/kean-jersey-city/apply",
-  "pipelineGen": 2
+  "pipelineGen": 2,
+  "error": "https://www.kean.edu/offices/admissions/non-matriculatedvisiting-students: no usable prereq list"
  },
  "767": {
   "stage": "finalized",
@@ -4134,11 +4136,12 @@
   "finalStatus": "verified"
  },
  "768": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-19T19:49:40.778Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-19T20:00:45.921Z",
   "attempts": 12,
   "sourceUrl": "https://www.nyu.edu/?challenge=d06e90d7-4d8f-4b88-9d8c-10b73beb60f1",
-  "pipelineGen": 2
+  "pipelineGen": 2,
+  "error": "https://nursing.nyu.edu/: no usable prereq list"
  },
  "769": {
   "stage": "finalized",
@@ -4184,11 +4187,12 @@
   "pipelineGen": 2
  },
  "775": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-19T19:49:24.839Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-19T20:07:19.539Z",
   "attempts": 11,
   "sourceUrl": "https://www.nku.edu/admissions-aid/index.html",
-  "pipelineGen": 2
+  "pipelineGen": 2,
+  "error": "https://www.nku.edu/chhs/schools/nursing/index.html: no usable prereq list || https://www.nku.edu/chhs/schools/nursing/resources/grad-form-requests-fees/index.html: no usable prereq list || https://www.nku.edu/chhs/schools/nursing/index.html: no usable prereq list || https://www.nku.edu/chhs/schools/nursing/about/our-people/index.html: no usable prereq list"
  },
  "776": {
   "stage": "finalized",
@@ -5403,11 +5407,12 @@
   "finalStatus": "no_prereqs_published"
  },
  "941": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-19T19:48:09.507Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-19T20:01:12.337Z",
   "attempts": 8,
   "sourceUrl": "https://www.bc.edu/content/bc-web/schools/cson/academics/undergraduate-programs/bsn-nursing.html",
-  "pipelineGen": 2
+  "pipelineGen": 2,
+  "error": "https://www.bc.edu/content/bc-web/schools/cson/academics/undergraduate-programs/bsn-nursing.html: no usable prereq list"
  },
  "942": {
   "stage": "finalized",
@@ -5864,11 +5869,12 @@
   "finalStatus": "verified"
  },
  "1005": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-19T19:49:41.522Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-19T20:06:10.270Z",
   "attempts": 8,
   "sourceUrl": "https://dentistry.ucsf.edu/programs/dds",
-  "pipelineGen": 2
+  "pipelineGen": 2,
+  "error": "https://nursing.ucsf.edu/admissions/welcome-ucsf-nursing/doctoral-programs/phd-nursing: no usable prereq list || https://nursing.ucsf.edu/admissions/welcome-ucsf-nursing/healthcare-administration-and-interprofessional-leadership-program: no usable prereq list || https://nursing.ucsf.edu/admissions/welcome-ucsf-nursing/our-programs-application-information: no usable prereq list || https://nursing.ucsf.edu/bsn-entry-dnp-advanced-nursing-focus: no usable prereq list"
  },
  "1006": {
   "stage": "finalized",
@@ -6309,11 +6315,12 @@
   "finalStatus": "verified"
  },
  "1070": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-19T18:59:47.532Z",
-  "attempts": 2,
+  "stage": "failed",
+  "lastAttempt": "2026-08-19T20:19:30.757Z",
+  "attempts": 3,
   "pipelineGen": 2,
-  "sourceUrl": "https://www.emich.edu/chhs/health-sciences/programs/occupational-therapy/lectureship/index.php"
+  "sourceUrl": "https://www.emich.edu/chhs/health-sciences/programs/occupational-therapy/lectureship/index.php",
+  "error": "https://www.emich.edu/chhs/health-sciences/programs/occupational-therapy/documents/studenthandbook.pdf: PDF HTTP 403 || https://www.emich.edu/chhs/health-sciences/programs/occupational-therapy/admissions/: no usable prereq list || https://www.emich.edu/chhs/health-sciences/programs/occupational-therapy/admissions/index.php: no usable prereq list"
  },
  "1071": {
   "stage": "finalized",
@@ -6393,8 +6400,8 @@
  },
  "1082": {
   "stage": "extracted",
-  "lastAttempt": "2026-08-19T18:59:24.854Z",
-  "attempts": 1,
+  "lastAttempt": "2026-08-19T20:07:42.448Z",
+  "attempts": 2,
   "pipelineGen": 2,
   "sourceUrl": "https://www.hofstra.edu/admission/graduate-admission/"
  },
@@ -6413,11 +6420,12 @@
   "finalStatus": "verified"
  },
  "1085": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-19T19:01:00.801Z",
-  "attempts": 1,
+  "stage": "failed",
+  "lastAttempt": "2026-08-19T20:19:24.072Z",
+  "attempts": 2,
   "pipelineGen": 2,
-  "sourceUrl": "https://www.usi.edu/core39"
+  "sourceUrl": "https://www.usi.edu/core39",
+  "error": "https://www.usi.edu/admissions: no usable prereq list || https://www.usi.edu/graduatestudies/admission-to-graduate-programs: no usable prereq list || https://www.usi.edu/international/admissions: no usable prereq list || https://www.usi.edu/registrar/registration/readmission: no usable prereq list"
  },
  "1086": {
   "stage": "finalized",
@@ -6712,8 +6720,8 @@
  },
  "1128": {
   "stage": "failed",
-  "lastAttempt": "2026-08-19T18:59:37.554Z",
-  "attempts": 1,
+  "lastAttempt": "2026-08-19T20:07:41.331Z",
+  "attempts": 2,
   "error": "https://www.radford.edu/content/JCHS-RU-merger/home.html: HTTP 404",
   "pipelineGen": 2
  },
@@ -6732,11 +6740,12 @@
   "finalStatus": "verified"
  },
  "1131": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-19T18:59:20.240Z",
-  "attempts": 1,
-  "error": "https://www.sage.edu/academics/schools/health-sciences/occupational-therapy-programs-ms: HTTP 403",
-  "pipelineGen": 2
+  "stage": "finalized",
+  "lastAttempt": "2026-08-19T20:08:26.168Z",
+  "attempts": 2,
+  "pipelineGen": 2,
+  "sourceUrl": "https://www.sage.edu/academics/schools/health-sciences/occupational-therapy-programs-ms",
+  "finalStatus": "verified"
  },
  "1132": {
   "stage": "finalized",
@@ -7034,11 +7043,12 @@
   "finalStatus": "verified"
  },
  "1175": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-19T19:02:34.442Z",
-  "attempts": 1,
+  "stage": "failed",
+  "lastAttempt": "2026-08-19T20:17:09.763Z",
+  "attempts": 2,
   "pipelineGen": 2,
-  "sourceUrl": "https://www.scranton.edu/academics/pcps/occupational-therapy/ot-pdf-file/revised-essential-functions-for-occupational-therapy-students-ay-2017-2018.pdf"
+  "sourceUrl": "https://www.scranton.edu/academics/pcps/occupational-therapy/ot-pdf-file/revised-essential-functions-for-occupational-therapy-students-ay-2017-2018.pdf",
+  "error": "https://www.scranton.edu/academics/pcps/occupational-therapy/index.shtml: no usable prereq list || https://gradadmissions.scranton.edu/how-to-apply.shtml: no usable prereq list"
  },
  "1176": {
   "stage": "finalized",
@@ -7105,8 +7115,8 @@
  },
  "1185": {
   "stage": "extracted",
-  "lastAttempt": "2026-08-19T19:01:43.991Z",
-  "attempts": 1,
+  "lastAttempt": "2026-08-19T20:11:19.862Z",
+  "attempts": 2,
   "pipelineGen": 2,
   "sourceUrl": "https://www.washington.edu/"
  },
@@ -7167,8 +7177,8 @@
  },
  "1194": {
   "stage": "extracted",
-  "lastAttempt": "2026-08-19T19:01:34.398Z",
-  "attempts": 1,
+  "lastAttempt": "2026-08-19T20:10:23.720Z",
+  "attempts": 2,
   "pipelineGen": 2,
   "sourceUrl": "https://www.wssu.edu/academics/colleges-and-departments/school-of-health-sciences/_Files/documents/hierarchy-charts/occupational-therapy-organizational-chart.pdf"
  },
@@ -7208,10 +7218,11 @@
   "finalStatus": "verified"
  },
  "1200": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-17T20:20:42.099Z",
-  "attempts": 2,
-  "error": "reset for improved discovery: https://www.astate.edu/college/conhp/departments/occupational-therapy/: HTTP 404"
+  "stage": "source_fetched",
+  "lastAttempt": "2026-08-19T20:20:59.238Z",
+  "attempts": 1,
+  "pipelineGen": 2,
+  "sourceUrl": "https://calendar.astate.edu/admissions/event/20694-general-information-session-walking-tour"
  },
  "1201": {
   "stage": "finalized",
@@ -7308,10 +7319,12 @@
   "finalStatus": "verified"
  },
  "1215": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-17T20:20:28.557Z",
-  "attempts": 2,
-  "error": "reset for improved discovery: https://www.dmu.edu/ot/: HTTP 403"
+  "stage": "failed",
+  "lastAttempt": "2026-08-19T20:18:24.037Z",
+  "attempts": 1,
+  "error": "https://www.dmu.edu/giving/: no usable prereq list",
+  "pipelineGen": 2,
+  "sourceUrl": "https://www.dmu.edu/giving/"
  },
  "1216": {
   "stage": "finalized",
@@ -7425,10 +7438,11 @@
   "error": "reset for improved discovery: https://www.hpu.edu/graduate-admissions/admission-requirements/index.html: no usable prereq list"
  },
  "1232": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-17T20:21:48.624Z",
-  "attempts": 2,
-  "error": "reset for improved discovery: https://www.hpu.edu/graduate-admissions/admission-requirements/index.html: no usable prereq list"
+  "stage": "extracted",
+  "lastAttempt": "2026-08-19T20:21:03.334Z",
+  "attempts": 1,
+  "pipelineGen": 2,
+  "sourceUrl": "https://www.hpu.edu/"
  },
  "1233": {
   "stage": "unstarted",
@@ -7472,10 +7486,11 @@
   "finalStatus": "verified"
  },
  "1239": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-17T20:20:58.007Z",
-  "attempts": 2,
-  "error": "reset for improved discovery: https://www.jwu.edu/otd: too little text"
+  "stage": "source_fetched",
+  "lastAttempt": "2026-08-19T20:21:31.192Z",
+  "attempts": 1,
+  "pipelineGen": 2,
+  "sourceUrl": "https://www.jwu.edu/academics/programs-by-campus/providence-programs/occupational-therapy-otd.html"
  },
  "1240": {
   "stage": "finalized",
@@ -16688,8 +16703,8 @@
  },
  "2597": {
   "stage": "failed",
-  "lastAttempt": "2026-08-19T18:57:40.406Z",
-  "attempts": 2,
+  "lastAttempt": "2026-08-19T20:10:56.921Z",
+  "attempts": 3,
   "pipelineGen": 2,
   "sourceUrl": "https://www.fsu.edu/",
   "error": "https://gradschool.fsu.edu/prospective-students/graduate-admissions: no usable prereq list || https://admissions.fsu.edu/transfer/apply: no usable prereq list"
