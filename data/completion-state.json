@@ -3087,9 +3087,10 @@
   "finalStatus": "verified"
  },
  "624": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-19T13:56:07.581Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-19T14:06:30.153Z",
   "attempts": 10,
+  "error": "https://admissions.sdsu.edu/international/graduate: no usable prereq list || https://admissions.sdsu.edu/graduate: no usable prereq list || https://admissions.sdsu.edu/application-admission-status: no usable prereq list || https://sacd.sdsu.edu/veterans/admissions: no usable prereq list",
   "sourceUrl": "https://www.sdsu.edu/",
   "pipelineGen": 2
  },
@@ -3655,11 +3656,11 @@
  },
  "703": {
   "stage": "failed",
-  "lastAttempt": "2026-08-19T13:04:43.700Z",
-  "attempts": 11,
+  "lastAttempt": "2026-08-19T14:21:22.797Z",
+  "attempts": 13,
   "sourceUrl": "https://www.isu.edu/graduate/student-resources/future-students/",
   "pipelineGen": 2,
-  "error": "https://www.isu.edu/nursing/about/news-and-announcements/: OpenAI HTTP 429: {\n    \"error\": {\n        \"message\": \"Rate limit reached for gpt-4o-mini in organization org-kRjpmgXqcLrwkVTY20gVZyOd on requests per day (RPD): Limit 10000, Used 10000, Requested 1. Please try again in 8.64s. Visit https://platform.openai.com/account/rate-limits to learn more.\",\n        \"type\": \"req || https://www.isu.edu/apply/graduate/: no usable prereq list || https://www.isu.edu/admissions/: no usable prereq list || "
+  "error": "https://www.isu.edu/nursing/about/news-and-announcements/: no usable prereq list || https://www.isu.edu/apply/graduate/: no usable prereq list || https://www.isu.edu/admissions/: no usable prereq list || https://www.isu.edu/gnecp/: no usable prereq list"
  },
  "704": {
   "stage": "finalized",
@@ -3677,8 +3678,8 @@
  },
  "706": {
   "stage": "failed",
-  "lastAttempt": "2026-08-19T13:06:06.373Z",
-  "attempts": 11,
+  "lastAttempt": "2026-08-19T14:23:40.905Z",
+  "attempts": 13,
   "sourceUrl": "https://www.usi.edu/registrar/registration/readmission",
   "pipelineGen": 2,
   "error": "https://www.usi.edu/health/graduate-nursing-program/graduate-nursing-handbook/full-admission-requirements-to-the-graduate-nursing-program: no usable prereq list || https://www.usi.edu/health/graduate-nursing-program/graduate-nursing-handbook/clinical-practice-requirements: no usable prereq list || https://www.usi.edu/health/graduate-nursing-program/graduate-nursing-handbook/clinical-practice-requirements/course-requirements: no usable prereq list || https://www.usi.edu/health/nursing/bsn-program"
@@ -3915,8 +3916,8 @@
  },
  "739": {
   "stage": "failed",
-  "lastAttempt": "2026-08-19T13:05:42.641Z",
-  "attempts": 11,
+  "lastAttempt": "2026-08-19T14:22:46.167Z",
+  "attempts": 13,
   "sourceUrl": "https://www.mcphs.edu/admission-and-aid/undergraduate-applicants",
   "pipelineGen": 2,
   "error": "https://www.mcphs.edu/academics/prerequisite-courses: no usable prereq list || https://www.mcphs.edu/academics/schools/nursing: no usable prereq list || https://www.mcphs.edu/academics/schools/nursing: no usable prereq list || https://www.mcphs.edu/admission-and-aid/graduate-applicants: no usable prereq list"
@@ -4055,8 +4056,8 @@
  },
  "758": {
   "stage": "failed",
-  "lastAttempt": "2026-08-19T10:20:24.723Z",
-  "attempts": 7,
+  "lastAttempt": "2026-08-19T14:20:54.619Z",
+  "attempts": 9,
   "sourceUrl": "https://www.mccn.edu/",
   "pipelineGen": 2,
   "error": "https://www.mccn.edu/: fetch failed"
@@ -4246,8 +4247,8 @@
  },
  "784": {
   "stage": "failed",
-  "lastAttempt": "2026-08-19T12:51:24.876Z",
-  "attempts": 9,
+  "lastAttempt": "2026-08-19T14:07:27.650Z",
+  "attempts": 10,
   "error": "https://harrisburg.psu.edu/academics: no usable prereq list",
   "sourceUrl": "https://harrisburg.psu.edu/academics",
   "pipelineGen": 2
@@ -5689,9 +5690,10 @@
   "finalStatus": "verified"
  },
  "984": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-19T13:58:52.721Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-19T14:07:48.401Z",
   "attempts": 10,
+  "error": "https://www.sbu.edu/academics/nursing-programs/nursing-rn-to-bs: no usable prereq list || https://www.sbu.edu/academics/nursing-programs/dual-degree-nursing-program: OpenAI HTTP 429: {\n    \"error\": {\n        \"message\": \"Rate limit reached for gpt-4o-mini in organization org-kRjpmgXqcLrwkVTY20gVZyOd on requests per day (RPD): Limit 10000, Used 10000, Requested 1. Please try again in 8.64s. Visit https://platform.openai.com/account/rate-limits to learn more.\",\n        \"type\": \"req || https://www.s",
   "sourceUrl": "https://www.sbu.edu/docs/default-source/academics-documents/nursing/bona-nurse-bulletin-sp25.pdf?sfvrsn=32d12be3_2",
   "pipelineGen": 2
  },
@@ -5767,9 +5769,10 @@
   "finalStatus": "verified"
  },
  "995": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-19T13:58:08.846Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-19T14:07:05.264Z",
   "attempts": 10,
+  "error": "https://gpadmissions.osu.edu/intl/additional-requirements-to-apply.html: no usable prereq list || https://gpadmissions.osu.edu/prof/steps-to-apply.html: no usable prereq list",
   "sourceUrl": "https://online.osu.edu/content-hub/",
   "pipelineGen": 2
  },
@@ -5824,11 +5827,12 @@
   "finalStatus": "verified"
  },
  "1003": {
-  "stage": "source_discovery",
-  "lastAttempt": "2026-08-19T14:05:13.551Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-19T14:06:30.992Z",
   "attempts": 11,
   "sourceUrl": "https://grad.uci.edu/",
-  "pipelineGen": 2
+  "pipelineGen": 2,
+  "error": "refusing mismatched institution URL https://www.admissions.uci.edu/apply/transfer-students/requirements.php"
  },
  "1004": {
   "stage": "finalized",
@@ -16693,11 +16697,12 @@
   "pipelineGen": 2
  },
  "2604": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-19T13:30:47.765Z",
-  "attempts": 3,
+  "stage": "failed",
+  "lastAttempt": "2026-08-19T14:34:10.746Z",
+  "attempts": 4,
   "pipelineGen": 2,
-  "sourceUrl": "https://www.georgiasouthern.edu/"
+  "sourceUrl": "https://www.georgiasouthern.edu/search?q=Admissions",
+  "error": "https://www.georgiasouthern.edu/admissions-aid/apply/deadlines-requirements: no usable prereq list || https://www.georgiasouthern.edu/admissions-aid/transfer/transfer-requirements: no usable prereq list || https://www.georgiasouthern.edu/admissions-aid/graduate-students: no usable prereq list || https://www.georgiasouthern.edu/admissions-aid/apply: OpenAI HTTP 429: {\n    \"error\": {\n        \"message\": \"Rate limit reached for gpt-4o-mini in organization org-kRjpmgXqcLrwkVTY20gVZyOd on requests per"
  },
  "2605": {
   "stage": "failed",
@@ -16744,11 +16749,12 @@
   "finalStatus": "verified"
  },
  "2611": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-19T13:32:36.471Z",
-  "attempts": 3,
+  "stage": "failed",
+  "lastAttempt": "2026-08-19T14:31:52.528Z",
+  "attempts": 4,
   "sourceUrl": "https://admission.howard.edu/sites/admission.howard.edu/files/2026-08/Domestic%20Transfer%20Application%20Checklist%207.27.26.pdf",
-  "pipelineGen": 2
+  "pipelineGen": 2,
+  "error": "https://admission.howard.edu/: no usable prereq list || https://admission.howard.edu/graduate: no usable prereq list || https://admission.howard.edu/undergraduate/transfer: no usable prereq list || https://admission.howard.edu/undergraduate/admission-policy: no usable prereq list"
  },
  "2612": {
   "stage": "finalized",
@@ -16906,11 +16912,12 @@
   "sourceUrl": "https://www.liu.edu/~/link.aspx?_id=551347875BAC4778A170C1EE5F0B6A2D&amp;_z=z"
  },
  "2633": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-19T13:26:25.684Z",
-  "attempts": 3,
+  "stage": "failed",
+  "lastAttempt": "2026-08-19T14:28:41.034Z",
+  "attempts": 4,
   "sourceUrl": "https://llu.edu/academics/programs/school-pharmacy/pharmacy-pharmd",
-  "pipelineGen": 2
+  "pipelineGen": 2,
+  "error": "https://llu.edu/admissions-aid: no usable prereq list || https://llu.edu/admissions-aid/visit-our-campus/open-house: no usable prereq list || https://llu.edu/admissions-aid/how-apply/you-apply-checklist: no usable prereq list || https://llu.edu/academics/programs/school-pharmacy/pharmacy-pharmd: no usable prereq list"
  },
  "2634": {
   "stage": "finalized",
@@ -16920,11 +16927,12 @@
   "finalStatus": "verified"
  },
  "2635": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-19T13:28:54.267Z",
-  "attempts": 3,
+  "stage": "failed",
+  "lastAttempt": "2026-08-19T14:31:42.835Z",
+  "attempts": 4,
   "sourceUrl": "https://www.lsuhsc.edu/administration/academic/docs/FacultyHandbook.pdf",
-  "pipelineGen": 2
+  "pipelineGen": 2,
+  "error": "https://catalog.lsuhsc.edu/content.php?catoid=17&amp;navoid=3646: too little text || https://www.lsuhsc.edu/administration/academic/docs/FacultyHandbook.pdf: OpenAI HTTP 429: {\n    \"error\": {\n        \"message\": \"Rate limit reached for gpt-4o-mini in organization org-kRjpmgXqcLrwkVTY20gVZyOd on requests per day (RPD): Limit 10000, Used 10000, Requested 1. Please try again in 8.64s. Visit https://platform.openai.com/account/rate-limits to learn more.\",\n        \"type\": \"req"
  },
  "2636": {
   "stage": "failed",
@@ -17688,11 +17696,10 @@
   "finalStatus": "verified"
  },
  "2740": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-19T09:29:16.291Z",
-  "attempts": 2,
-  "error": "https://www.trine.edu/academics/majors-degrees/graduate/doctor-physical-therapy/admission-requirements.aspx: no usable prereq list || https://www.trine.edu/academics/colleges-schools/health-professions/admission-aid/index.aspx: no usable prereq list || https://www.trine.edu/academics/colleges-schools/health-professions/admission-aid/apply.aspx: no usable prereq list || https://www.trine.edu/academics/majors-degrees/undergraduate/online-rn-to-bsn-bachelor/index.aspx: no usable prereq list",
-  "sourceUrl": "https://www.trine.edu/academics/majors-degrees/undergraduate/online-rn-to-bsn-bachelor/index.aspx",
+  "stage": "extracted",
+  "lastAttempt": "2026-08-19T14:39:26.301Z",
+  "attempts": 3,
+  "sourceUrl": "https://www.trine.edu/academics/majors-degrees/graduate/master-physician-assistant-studies/admission-requirements.aspx",
   "pipelineGen": 2
  },
  "2741": {
@@ -17747,18 +17754,16 @@
   "pipelineGen": 2
  },
  "2748": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-19T09:28:00.179Z",
-  "attempts": 2,
-  "error": "https://onlinegiving.uark.edu/?designation=Other+Department+or+Program&amp;otherDesignation=Communication+Sciences+and+Disorders: too little text || https://csdi.uark.edu/certificate/: no usable prereq list || https://csdi.uark.edu/certificate/: no usable prereq list || https://law.uark.edu/academics/jd/jd-how-to-apply.php: no usable prereq list",
+  "stage": "extracted",
+  "lastAttempt": "2026-08-19T14:33:55.047Z",
+  "attempts": 3,
   "sourceUrl": "https://www.uark.edu/apply/apply/",
   "pipelineGen": 2
  },
  "2749": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-19T09:26:04.379Z",
-  "attempts": 2,
-  "error": "https://www.uwosh.edu/admissions/how-to-apply/freshmen/: no usable prereq list || https://www.uwosh.edu/admissions/how-to-apply/special-students-and-guests-admission-guidelines/: no usable prereq list || https://www.uwosh.edu/gradschool/programs/: no usable prereq list || https://www.uwosh.edu/admissions/how-to-apply/high-school-programs/: no usable prereq list",
+  "stage": "extracted",
+  "lastAttempt": "2026-08-19T14:32:35.267Z",
+  "attempts": 3,
   "sourceUrl": "https://www.uwosh.edu/admissions/how-to-apply/high-school-programs/",
   "pipelineGen": 2
  },
@@ -18050,10 +18055,9 @@
   "finalStatus": "verified"
  },
  "2789": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-19T09:30:41.880Z",
-  "attempts": 2,
-  "error": "https://und.edu/admissions/graduate/requirements.html: no usable prereq list || https://und.edu/admissions/index.html: no usable prereq list || https://und.edu/admissions/visit/index.html: no usable prereq list || https://und.edu/admissions/apply.html: no usable prereq list",
+  "stage": "extracted",
+  "lastAttempt": "2026-08-19T14:36:28.591Z",
+  "attempts": 3,
   "sourceUrl": "https://und.edu/",
   "pipelineGen": 2
  },
