@@ -2987,8 +2987,8 @@
  },
  "610": {
   "stage": "failed",
-  "lastAttempt": "2026-08-19T21:34:31.890Z",
-  "attempts": 10,
+  "lastAttempt": "2026-08-19T22:23:44.612Z",
+  "attempts": 11,
   "sourceUrl": "https://nursing.baylor.edu/academics/undergraduate-bsn-program-resources/traditional-bsn-track",
   "pipelineGen": 2,
   "error": "https://nursing.baylor.edu/about/news-and-media/videos/2020-videos/dabsn-white-coat-ceremony-fall-2020: no usable prereq list || https://nursing.baylor.edu/about/news-and-media/videos/2021-videos/march-2021-dabsn-white-coat-ceremony: no usable prereq list || https://nursing.baylor.edu/admissions: no usable prereq list || https://nursing.baylor.edu/: no usable prereq list"
@@ -3442,9 +3442,10 @@
   "finalStatus": "verified"
  },
  "673": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-19T21:49:44.122Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-19T22:03:11.293Z",
   "attempts": 11,
+  "error": "https://www.fdu.edu/admissions/graduate/: no usable prereq list || https://www.fdu.edu/admissions/graduate/admissions-status/: no usable prereq list",
   "sourceUrl": "https://www.fdu.edu/campuses/vancouver-campus/admissions/",
   "pipelineGen": 2
  },
@@ -4121,11 +4122,13 @@
   "finalStatus": "verified"
  },
  "766": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-19T21:48:11.488Z",
+  "stage": "finalized",
+  "lastAttempt": "2026-08-19T22:27:44.221Z",
   "attempts": 12,
   "sourceUrl": "https://www.kean.edu/kean-jersey-city/apply",
-  "pipelineGen": 2
+  "pipelineGen": 2,
+  "error": "https://www.kean.edu/offices/admissions/non-matriculatedvisiting-students: no usable prereq list",
+  "finalStatus": "source_blocked"
  },
  "767": {
   "stage": "finalized",
@@ -4251,11 +4254,13 @@
   "finalStatus": "verified"
  },
  "783": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-19T21:48:06.091Z",
+  "stage": "finalized",
+  "lastAttempt": "2026-08-19T22:27:44.146Z",
   "attempts": 12,
   "sourceUrl": "https://www.psu.edu/admission/undergraduate/explore/well-being-safety",
-  "pipelineGen": 2
+  "pipelineGen": 2,
+  "error": "https://www.psu.edu/admission/undergraduate: no usable prereq list || https://www.psu.edu/admission/undergraduate/how-to-apply: no usable prereq list",
+  "finalStatus": "source_blocked"
  },
  "784": {
   "stage": "finalized",
@@ -4344,9 +4349,10 @@
   "finalStatus": "verified"
  },
  "795": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-19T21:56:42.272Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-19T22:04:05.111Z",
   "attempts": 11,
+  "error": "https://snhs.rmu.edu/OurPrograms/Nursing/2ndDegreeAcceleratedBSN: fetch failed || https://snhs.rmu.edu/OurPrograms/GraduateDegrees/GraduateNursing: fetch failed || https://snhs.rmu.edu/OurPrograms/Nursing/WelcometoNursingatRMU: fetch failed || https://snhs.rmu.edu/OurPrograms/UndergraduateDegrees/UndergraduateNursing: no usable prereq list",
   "sourceUrl": "https://snhs.rmu.edu/OurPrograms/UndergraduateDegrees/UndergraduateNursing",
   "pipelineGen": 2
  },
@@ -5412,11 +5418,12 @@
   "finalStatus": "no_prereqs_published"
  },
  "941": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-19T21:51:21.491Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-19T22:02:27.866Z",
   "attempts": 10,
   "sourceUrl": "https://www.bc.edu/content/bc-web/schools/cson/academics/undergraduate-programs/bsn-nursing.html",
-  "pipelineGen": 2
+  "pipelineGen": 2,
+  "error": "https://www.bc.edu/content/bc-web/schools/cson/academics/undergraduate-programs/bsn-nursing.html: no usable prereq list"
  },
  "942": {
   "stage": "finalized",
@@ -5537,11 +5544,13 @@
   "finalStatus": "verified"
  },
  "959": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-19T21:49:27.547Z",
+  "stage": "finalized",
+  "lastAttempt": "2026-08-19T22:27:44.070Z",
   "attempts": 12,
   "sourceUrl": "https://www.fdu.edu/campuses/vancouver-campus/admissions/",
-  "pipelineGen": 2
+  "pipelineGen": 2,
+  "error": "https://www.fdu.edu/admissions/graduate/: no usable prereq list || https://www.fdu.edu/admissions/graduate/admissions-status/: no usable prereq list",
+  "finalStatus": "source_blocked"
  },
  "960": {
   "stage": "finalized",
@@ -5873,8 +5882,8 @@
  },
  "1005": {
   "stage": "failed",
-  "lastAttempt": "2026-08-19T21:06:36.540Z",
-  "attempts": 9,
+  "lastAttempt": "2026-08-19T22:18:08.240Z",
+  "attempts": 10,
   "sourceUrl": "https://dentistry.ucsf.edu/programs/dds",
   "pipelineGen": 2,
   "error": "https://nursing.ucsf.edu/admissions/welcome-ucsf-nursing/doctoral-programs/phd-nursing: no usable prereq list || https://nursing.ucsf.edu/admissions/welcome-ucsf-nursing/healthcare-administration-and-interprofessional-leadership-program: no usable prereq list || https://nursing.ucsf.edu/admissions/welcome-ucsf-nursing/our-programs-application-information: no usable prereq list || https://nursing.ucsf.edu/bsn-entry-dnp-advanced-nursing-focus: no usable prereq list"
@@ -11827,11 +11836,11 @@
  },
  "1874": {
   "stage": "failed",
-  "lastAttempt": "2026-08-19T21:21:27.431Z",
-  "attempts": 8,
+  "lastAttempt": "2026-08-19T22:19:37.677Z",
+  "attempts": 9,
   "sourceUrl": "https://www.colorado.edu/",
   "pipelineGen": 2,
-  "error": "https://www.colorado.edu/graduateschool/academics/graduation-requirements/masters-graduation-information/masters-degree-checklist: no usable prereq list || https://www.colorado.edu/graduateschool/academics/graduation-requirements/doctoral-graduation-information/doctoral-degree-checklist: no usable prereq list || https://www.colorado.edu/admissions/visit/graduate: no usable prereq list"
+  "error": "https://www.colorado.edu/graduateschool/academics/graduation-requirements/masters-graduation-information/masters-degree-checklist: no usable prereq list || https://www.colorado.edu/graduateschool/academics/graduation-requirements/doctoral-graduation-information/doctoral-degree-checklist: OpenAI HTTP 429: {\n    \"error\": {\n        \"message\": \"Rate limit reached for gpt-4o-mini in organization org-kRjpmgXqcLrwkVTY20gVZyOd on requests per day (RPD): Limit 10000, Used 10000, Requested 1. Please try a"
  },
  "1875": {
   "stage": "finalized",
@@ -12265,9 +12274,9 @@
  },
  "1936": {
   "stage": "failed",
-  "lastAttempt": "2026-08-19T21:07:33.909Z",
-  "attempts": 7,
-  "error": "https://www.k-state.edu/admissions/undergrad/manhattan/apply/: no usable prereq list || https://www.k-state.edu/admissions/: OpenAI HTTP 429: {\n    \"error\": {\n        \"message\": \"Rate limit reached for gpt-4o-mini in organization org-kRjpmgXqcLrwkVTY20gVZyOd on requests per day (RPD): Limit 10000, Used 10000, Requested 1. Please try again in 8.64s. Visit https://platform.openai.com/account/rate-limits to learn more.\",\n        \"type\": \"req || https://www.k-state.edu/admissions/undergrad/manhattan",
+  "lastAttempt": "2026-08-19T22:11:39.509Z",
+  "attempts": 8,
+  "error": "https://www.k-state.edu/admissions/undergrad/manhattan/apply/: no usable prereq list || https://www.k-state.edu/admissions/: no usable prereq list || https://www.k-state.edu/admissions/undergrad/manhattan/: no usable prereq list || https://www.k-state.edu/grad/admissions/application-process/: no usable prereq list",
   "sourceUrl": "https://www.k-state.edu/admissions/request-info/",
   "pipelineGen": 2
  },
@@ -12787,8 +12796,8 @@
  },
  "2010": {
   "stage": "failed",
-  "lastAttempt": "2026-08-19T21:24:24.483Z",
-  "attempts": 8,
+  "lastAttempt": "2026-08-19T22:18:50.051Z",
+  "attempts": 9,
   "sourceUrl": "https://www.fdu.edu/academics/colleges-schools/pharmacy/pa/",
   "pipelineGen": 2,
   "error": "https://www.fdu.edu/admissions/graduate/: no usable prereq list || https://www.fdu.edu/admissions/graduate/admissions-status/: no usable prereq list"
@@ -12830,8 +12839,8 @@
  },
  "2016": {
   "stage": "failed",
-  "lastAttempt": "2026-08-19T21:16:30.769Z",
-  "attempts": 8,
+  "lastAttempt": "2026-08-19T22:20:47.446Z",
+  "attempts": 9,
   "sourceUrl": "https://www.shu.edu/core-curriculum/",
   "pipelineGen": 2,
   "error": "https://www.shu.edu/core-curriculum/faculty-advisement.html: no usable prereq list"
@@ -13505,11 +13514,11 @@
  },
  "2112": {
   "stage": "failed",
-  "lastAttempt": "2026-08-19T21:22:23.721Z",
-  "attempts": 8,
+  "lastAttempt": "2026-08-19T22:18:32.780Z",
+  "attempts": 9,
   "sourceUrl": "https://apply.presby.edu/register/undergraduate",
   "pipelineGen": 2,
-  "error": "https://www.presby.edu/admissions/: no usable prereq list || https://www.presby.edu/admissions/resources-for-counselors/: no usable prereq list || https://www.presby.edu/admissions/: fetch failed || https://apply.presby.edu/register/undergraduate: no usable prereq list"
+  "error": "https://www.presby.edu/admissions/: no usable prereq list || https://www.presby.edu/admissions/resources-for-counselors/: no usable prereq list || https://www.presby.edu/admissions/: no usable prereq list || https://apply.presby.edu/register/undergraduate: OpenAI HTTP 429: {\n    \"error\": {\n        \"message\": \"Rate limit reached for gpt-4o-mini in organization org-kRjpmgXqcLrwkVTY20gVZyOd on requests per day (RPD): Limit 10000, Used 10000, Requested 1. Please try again in 8.64s. Visit https://pla"
  },
  "2113": {
   "stage": "finalized",
@@ -16321,12 +16330,11 @@
   "finalStatus": "verified"
  },
  "2543": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-19T21:20:05.501Z",
-  "attempts": 8,
+  "stage": "extracted",
+  "lastAttempt": "2026-08-19T22:29:06.677Z",
+  "attempts": 10,
   "sourceUrl": "https://www.bradley.edu/wp-content/uploads/ADMISSION-REQUIREMENTS-for-website-reviewed-6-9-25.pdf",
-  "pipelineGen": 2,
-  "error": "https://www.bradley.edu/admissions/graduate/: no usable prereq list || https://www.bradley.edu/wp-content/uploads/ADMISSION-REQUIREMENTS-for-website-reviewed-6-9-25.pdf: no usable prereq list"
+  "pipelineGen": 2
  },
  "2544": {
   "stage": "failed",
@@ -16359,10 +16367,9 @@
   "finalStatus": "verified"
  },
  "2548": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-19T15:26:14.353Z",
-  "attempts": 6,
-  "error": "https://www.csuchico.edu/admissions/graduate/requirements.shtml: HTTP 401 {\n  \"error\": {\n    \"message\": \"Incorrect API key provided: sk-proj-********************************************pABv. You || https://www.csuchico.edu/admissions/first-time/requirements.shtml: HTTP 401 {\n  \"error\": {\n    \"message\": \"Incorrect API key provided: sk-proj-********************************************pABv. You || https://www.csuchico.edu/admissions/transfer/requirements.shtml: HTTP 401 {\n  \"error\": {\n    \"message\"",
+  "stage": "extracted",
+  "lastAttempt": "2026-08-19T22:29:30.457Z",
+  "attempts": 8,
   "pipelineGen": 2,
   "sourceUrl": "https://www.csuchico.edu/admissions/returning.shtml"
  },
@@ -16960,10 +16967,9 @@
   "finalStatus": "verified"
  },
  "2628": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-19T15:38:11.380Z",
-  "attempts": 4,
-  "error": "https://www.lamar.edu/nursing-health-professions/speech-and-hearing-sciences/about/index.html: HTTP 401 {\n  \"error\": {\n    \"message\": \"Incorrect API key provided: sk-proj-********************************************pABv. You || https://www.lamar.edu/nursing-health-professions/speech-and-hearing-sciences/contact.html: HTTP 401 {\n  \"error\": {\n    \"message\": \"Incorrect API key provided: sk-proj-********************************************pABv. You || https://www.lamar.edu/forms/nursing-health/speec",
+  "stage": "extracted",
+  "lastAttempt": "2026-08-19T22:29:13.581Z",
+  "attempts": 6,
   "sourceUrl": "https://www.lamar.edu/nursing-health-professions/speech-and-hearing-sciences/research-and-seminars/index.html",
   "pipelineGen": 2
  },
@@ -17021,8 +17027,8 @@
  },
  "2636": {
   "stage": "failed",
-  "lastAttempt": "2026-08-19T18:42:50.530Z",
-  "attempts": 3,
+  "lastAttempt": "2026-08-19T22:25:28.961Z",
+  "attempts": 4,
   "error": "https://www.lsuhscshreveport.edu/departments/allied-health-professions-departments/speech-language-pathology: fetch failed",
   "pipelineGen": 2
  },
@@ -17721,10 +17727,9 @@
   "pipelineGen": 2
  },
  "2731": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-19T15:26:00.292Z",
-  "attempts": 6,
-  "error": "https://tsu.edu/admissions/tiger-transfer.php: HTTP 401 {\n  \"error\": {\n    \"message\": \"Incorrect API key provided: sk-proj-********************************************pABv. You || https://www.tsu.edu/admissions/tiger-transfer.php: HTTP 401 {\n  \"error\": {\n    \"message\": \"Incorrect API key provided: sk-proj-********************************************pABv. You || https://www.tsu.edu/admissions/transient-visiting-admissions.php: HTTP 401 {\n  \"error\": {\n    \"message\": \"Incorrect API key provided: sk",
+  "stage": "extracted",
+  "lastAttempt": "2026-08-19T22:29:29.469Z",
+  "attempts": 8,
   "sourceUrl": "https://www.tsu.edu/",
   "pipelineGen": 2
  },
@@ -17871,10 +17876,9 @@
   "finalStatus": "verified"
  },
  "2751": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-19T15:26:34.696Z",
-  "attempts": 6,
-  "error": "https://graduate.ucf.edu/application-deadlines-and-requirements/: HTTP 401 {\n  \"error\": {\n    \"message\": \"Incorrect API key provided: sk-proj-********************************************pABv. You || https://graduate.ucf.edu/applying-to-ucf/: HTTP 401 {\n  \"error\": {\n    \"message\": \"Incorrect API key provided: sk-proj-********************************************pABv. You || https://www.ucf.edu/online/graduate-admissions/: HTTP 401 {\n  \"error\": {\n    \"message\": \"Incorrect API key provided: sk-proj-",
+  "stage": "extracted",
+  "lastAttempt": "2026-08-19T22:28:25.351Z",
+  "attempts": 8,
   "sourceUrl": "https://www.ucf.edu/online/degree/nursing-m-s-n/",
   "pipelineGen": 2
  },
@@ -18111,12 +18115,11 @@
   "error": "refusing mismatched institution URL https://catalog.unl.edu/undergraduate/education-human-sciences/communication-sciences-disorders/"
  },
  "2783": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-19T18:56:15.369Z",
-  "attempts": 3,
+  "stage": "extracted",
+  "lastAttempt": "2026-08-19T22:28:57.928Z",
+  "attempts": 5,
   "sourceUrl": "https://www.unomaha.edu/college-of-education-health-and-human-sciences/special-education-communication-disorders/graduate/dyslexia-specialist-certificate.php",
-  "pipelineGen": 2,
-  "error": "https://www.unomaha.edu/college-of-education-health-and-human-sciences/special-education-communication-disorders/graduate/speech-language-pathology.php: no usable prereq list || https://www.unomaha.edu/college-of-education-health-and-human-sciences/special-education-communication-disorders/undergraduate/index.php: no usable prereq list || https://www.unomaha.edu/college-of-education-health-and-human-sciences/special-education-communication-disorders/undergraduate/speech-language-pathology.php: n"
+  "pipelineGen": 2
  },
  "2784": {
   "stage": "finalized",
