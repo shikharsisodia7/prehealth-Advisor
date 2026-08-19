@@ -1007,6 +1007,26 @@ async function discoverCandidates(program: ProgramRow): Promise<string[]> {
       } catch { /* non-fatal */ }
     }
   }
+  // A stored directory URL can be syntactically fine but dead (departments get renamed/merged
+  // years after the directory import). Detect that up front so a 404 seed doesn't silently
+  // starve the whole crawl -- fall back to a freshly rediscovered homepage instead.
+  if (usableWebsite) {
+    try {
+      await fetchOfficial(usableWebsite);
+    } catch (e) {
+      if (e instanceof Error && /HTTP 404|HTTP 410/.test(e.message)) {
+        const freshHome = await wikidataOfficialWebsite(program.name);
+        if (freshHome && freshHome !== usableWebsite) {
+          usableWebsite = freshHome;
+          program.websiteUrl = freshHome;
+          candidates.push(freshHome);
+          try {
+            await db.update(programSchoolsTable).set({ websiteUrl: freshHome }).where(eq(programSchoolsTable.id, program.id));
+          } catch { /* non-fatal */ }
+        }
+      }
+    }
+  }
   const seedPages = [usableWebsite, program.sourceUrl].filter((u): u is string => !!u && !isDirectoryHubUrl(u));
 
   // Multi-hop crawl from known official pages (works without Firecrawl/search).
