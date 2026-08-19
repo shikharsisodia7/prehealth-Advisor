@@ -716,6 +716,16 @@ function campusHostConflicts(name: string, host: string): boolean {
 }
 
 /** True when a URL's host looks like a different institution (e.g. pennwest.edu for Bradley). */
+// Department/school subdomains (nursing.unc.edu, pharmacy.university.edu, grad.school.edu, ...)
+// describe the DEPARTMENT, not the institution, by design -- they will never appear in the
+// institution's own name and must not be judged against it as if they were a mismatch signal.
+const DEPARTMENT_SUBDOMAIN_WORDS = new Set([
+  "nursing", "pharmacy", "dental", "dentistry", "medicine", "medical", "health", "nutrition",
+  "engineering", "business", "law", "education", "science", "sciences", "arts", "music",
+  "kinesiology", "optometry", "podiatry", "veterinary", "psychology", "counseling", "therapy",
+  "graduate", "nursingdept", "chsp", "cshs", "shp", "hsc", "healthsciences",
+]);
+
 function websiteConflictsWithInstitution(url: string, name: string): boolean {
   try {
     const raw = /^https?:\/\//i.test(url) ? url : `https://${url}`;
@@ -727,7 +737,8 @@ function websiteConflictsWithInstitution(url: string, name: string): boolean {
     if (/^catalogs?\./i.test(host) && /\.edu$/i.test(host)) return false;
     const label = host.replace(/\.(edu|org|com|net|gov)$/i, "").replace(/\./g, "");
     if (label.length <= 6) return false; // campus acronyms like bsu.edu, csulb.edu
-    const hostWords = host.replace(/\.(edu|org|com|net|gov)$/i, "").split(/[.-]/).filter((w) => w.length >= 6);
+    const hostWords = host.replace(/\.(edu|org|com|net|gov)$/i, "").split(/[.-]/)
+      .filter((w) => w.length >= 6 && !DEPARTMENT_SUBDOMAIN_WORDS.has(w));
     return hostWords.some((w) => !nameNorm.includes(w));
   } catch {
     return false;
