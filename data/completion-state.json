@@ -2970,10 +2970,9 @@
   "finalStatus": "verified"
  },
  "608": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-19T15:08:53.233Z",
-  "attempts": 11,
-  "error": "https://www.bsu.edu/academics/collegesanddepartments/nursing: HTTP 401 {\n  \"error\": {\n    \"message\": \"Incorrect API key provided: sk-proj-********************************************pABv. You || https://www.bsu.edu/academics/collegesanddepartments/nursing: HTTP 401 {\n  \"error\": {\n    \"message\": \"Incorrect API key provided: sk-proj-********************************************pABv. You || https://www.bsu.edu/academics/collegesanddepartments/nursing/academics/bachelors-degrees/bachelors: HTTP 401 {",
+  "stage": "extracted",
+  "lastAttempt": "2026-08-19T16:31:30.786Z",
+  "attempts": 12,
   "sourceUrl": "https://www.bsu.edu/academics/collegesanddepartments/nursing/current-students",
   "pipelineGen": 2
  },
@@ -3088,9 +3087,9 @@
  },
  "624": {
   "stage": "failed",
-  "lastAttempt": "2026-08-19T15:07:52.820Z",
-  "attempts": 11,
-  "error": "https://admissions.sdsu.edu/international/graduate: HTTP 401 {\n  \"error\": {\n    \"message\": \"Incorrect API key provided: sk-proj-********************************************pABv. You || https://admissions.sdsu.edu/graduate: HTTP 401 {\n  \"error\": {\n    \"message\": \"Incorrect API key provided: sk-proj-********************************************pABv. You || https://admissions.sdsu.edu/application-admission-status: HTTP 401 {\n  \"error\": {\n    \"message\": \"Incorrect API key provided: sk-proj-**********",
+  "lastAttempt": "2026-08-19T16:42:31.812Z",
+  "attempts": 12,
+  "error": "https://admissions.sdsu.edu/international/graduate: no usable prereq list || https://admissions.sdsu.edu/graduate: no usable prereq list || https://admissions.sdsu.edu/application-admission-status: no usable prereq list || https://sacd.sdsu.edu/veterans/admissions: no usable prereq list",
   "sourceUrl": "https://www.sdsu.edu/",
   "pipelineGen": 2
  },
@@ -3986,11 +3985,11 @@
  },
  "748": {
   "stage": "failed",
-  "lastAttempt": "2026-08-19T15:12:48.507Z",
-  "attempts": 10,
-  "sourceUrl": "https://msuspartans.com/",
+  "lastAttempt": "2026-08-19T16:44:41.467Z",
+  "attempts": 11,
+  "sourceUrl": "https://msu.edu/",
   "pipelineGen": 2,
-  "error": "https://msuspartans.com/: HTTP 401 {\n  \"error\": {\n    \"message\": \"Incorrect API key provided: sk-proj-********************************************pABv. You"
+  "error": "https://msu.edu/: too little text"
  },
  "749": {
   "stage": "finalized",
@@ -4060,12 +4059,11 @@
   "finalStatus": "verified"
  },
  "758": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-19T15:17:32.484Z",
-  "attempts": 10,
+  "stage": "source_discovery",
+  "lastAttempt": "2026-08-19T16:44:42.211Z",
+  "attempts": 11,
   "sourceUrl": "https://www.mccn.edu/",
-  "pipelineGen": 2,
-  "error": "https://www.mccn.edu/: fetch failed"
+  "pipelineGen": 2
  },
  "759": {
   "stage": "finalized",
@@ -4252,10 +4250,9 @@
   "error": "https://www.psu.edu/admission/undergraduate: HTTP 401 {\n  \"error\": {\n    \"message\": \"Incorrect API key provided: sk-proj-********************************************pABv. You || https://www.psu.edu/admission/undergraduate/how-to-apply: HTTP 401 {\n  \"error\": {\n    \"message\": \"Incorrect API key provided: sk-proj-********************************************pABv. You"
  },
  "784": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-19T15:10:28.369Z",
-  "attempts": 11,
-  "error": "https://harrisburg.psu.edu/academics: HTTP 401 {\n  \"error\": {\n    \"message\": \"Incorrect API key provided: sk-proj-********************************************pABv. You",
+  "stage": "source_fetched",
+  "lastAttempt": "2026-08-19T16:44:34.085Z",
+  "attempts": 12,
   "sourceUrl": "https://harrisburg.psu.edu/academics",
   "pipelineGen": 2
  },
@@ -4396,12 +4393,13 @@
   "finalStatus": "verified"
  },
  "803": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-19T16:02:51.096Z",
+  "stage": "finalized",
+  "lastAttempt": "2026-08-19T16:27:15.644Z",
   "attempts": 12,
   "sourceUrl": "https://www.stedwards.edu/admission/undergraduate",
   "pipelineGen": 2,
-  "error": "https://www.stedwards.edu/admission: no usable prereq list || https://www.stedwards.edu/admission/graduate/deadlines-checklist: no usable prereq list || https://www.stedwards.edu/admission/admission-counselors: no usable prereq list"
+  "error": "https://www.stedwards.edu/admission: no usable prereq list || https://www.stedwards.edu/admission/graduate/deadlines-checklist: no usable prereq list || https://www.stedwards.edu/admission/admission-counselors: no usable prereq list",
+  "finalStatus": "source_blocked"
  },
  "804": {
   "stage": "finalized",
@@ -4526,12 +4524,13 @@
   "finalStatus": "no_prereqs_published"
  },
  "821": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-19T16:04:44.380Z",
+  "stage": "finalized",
+  "lastAttempt": "2026-08-19T16:27:15.719Z",
   "attempts": 12,
   "sourceUrl": "https://www.siue.edu/nursing/academic-programs/undergraduate/index.shtml",
   "pipelineGen": 2,
-  "error": "https://www.siue.edu/academics/graduate/degrees-and-programs/nursing-administration/: no usable prereq list || https://www.siue.edu/academics/graduate/degrees-and-programs/healthcare-informatics-nursing-administration/: no usable prereq list || https://www.siue.edu/academics/undergraduate/degrees-and-programs/nursing/traditional/admission-requirements.shtml: no usable prereq list || https://www.siue.edu/academics/undergraduate/degrees-and-programs/nursing/accelerated-nursing/: no usable prereq l"
+  "error": "https://www.siue.edu/academics/graduate/degrees-and-programs/nursing-administration/: no usable prereq list || https://www.siue.edu/academics/graduate/degrees-and-programs/healthcare-informatics-nursing-administration/: no usable prereq list || https://www.siue.edu/academics/undergraduate/degrees-and-programs/nursing/traditional/admission-requirements.shtml: no usable prereq list || https://www.siue.edu/academics/undergraduate/degrees-and-programs/nursing/accelerated-nursing/: no usable prereq l",
+  "finalStatus": "source_blocked"
  },
  "822": {
   "stage": "finalized",
@@ -4571,12 +4570,13 @@
   "finalStatus": "verified"
  },
  "827": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-19T16:04:53.163Z",
+  "stage": "finalized",
+  "lastAttempt": "2026-08-19T16:27:15.796Z",
   "attempts": 12,
   "sourceUrl": "https://www.temple.edu/academics/degree-programs/nursing-major-hp-nurs-bsnu/nursing-bsn-clinical-education",
   "pipelineGen": 2,
-  "error": "https://temple.edu/academics/degree-programs/graduate-programs/nursing-dnp-nurs/nursing-dnp-labs-research-centers: HTTP 503 || https://www.temple.edu/academics/degree-programs/nursing-major-hp-nur4-bsnu/admissions: fetch failed || https://www.temple.edu/academics/degree-programs/nursing-major-hp-nur4-bsnu/admissions: no usable prereq list || https://temple.edu/academics/degree-programs/nursing-major-hp-nurs-bsnu: OpenAI HTTP 429: {\n    \"error\": {\n        \"message\": \"Rate limit reached for gpt-4o"
+  "error": "https://temple.edu/academics/degree-programs/graduate-programs/nursing-dnp-nurs/nursing-dnp-labs-research-centers: HTTP 503 || https://www.temple.edu/academics/degree-programs/nursing-major-hp-nur4-bsnu/admissions: fetch failed || https://www.temple.edu/academics/degree-programs/nursing-major-hp-nur4-bsnu/admissions: no usable prereq list || https://temple.edu/academics/degree-programs/nursing-major-hp-nurs-bsnu: OpenAI HTTP 429: {\n    \"error\": {\n        \"message\": \"Rate limit reached for gpt-4o",
+  "finalStatus": "source_blocked"
  },
  "828": {
   "stage": "finalized",
@@ -4620,12 +4620,11 @@
   "finalStatus": "verified"
  },
  "834": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-19T15:08:46.320Z",
-  "attempts": 11,
-  "sourceUrl": "https://campuslife.tcnj.edu/",
-  "pipelineGen": 2,
-  "error": "https://www.tcnj.edu/: HTTP 403"
+  "stage": "extracted",
+  "lastAttempt": "2026-08-19T16:31:14.124Z",
+  "attempts": 12,
+  "sourceUrl": "https://nhs.tcnj.edu/about/",
+  "pipelineGen": 2
  },
  "835": {
   "stage": "finalized",
@@ -4760,9 +4759,9 @@
  },
  "853": {
   "stage": "failed",
-  "lastAttempt": "2026-08-19T15:07:39.402Z",
-  "attempts": 11,
-  "error": "https://johnsonbethel.uccs.edu/academics/programs/nursing-bsn: HTTP 401 {\n  \"error\": {\n    \"message\": \"Incorrect API key provided: sk-proj-********************************************pABv. You || https://johnsonbethel.uccs.edu/academics/nursing/accelerated-bsn: HTTP 401 {\n  \"error\": {\n    \"message\": \"Incorrect API key provided: sk-proj-********************************************pABv. You || https://johnsonbethel.uccs.edu/academics/programs/rn-to-bsn-and-dual-enrollment-option: HTTP 401 {\n  \"err",
+  "lastAttempt": "2026-08-19T16:44:01.329Z",
+  "attempts": 12,
+  "error": "refusing mismatched institution URL https://johnsonbethel.uccs.edu/academics/nursing/accelerated-bsn",
   "sourceUrl": "https://johnsonbethel.uccs.edu/",
   "pipelineGen": 2
  },
@@ -4810,9 +4809,9 @@
  },
  "860": {
   "stage": "failed",
-  "lastAttempt": "2026-08-19T15:07:16.138Z",
-  "attempts": 11,
-  "error": "https://nursing.uky.edu/: HTTP 401 {\n  \"error\": {\n    \"message\": \"Incorrect API key provided: sk-proj-********************************************pABv. You || https://nursing.uky.edu/news/alumni-spotlight-lauren-cole-brown-bsn-rn-class-december-2007: HTTP 401 {\n  \"error\": {\n    \"message\": \"Incorrect API key provided: sk-proj-********************************************pABv. You || https://nursing.uky.edu/: HTTP 401 {\n  \"error\": {\n    \"message\": \"Incorrect API key provided: sk-proj-**************",
+  "lastAttempt": "2026-08-19T16:42:37.939Z",
+  "attempts": 12,
+  "error": "https://nursing.uky.edu/: no usable prereq list || https://nursing.uky.edu/news/alumni-spotlight-lauren-cole-brown-bsn-rn-class-december-2007: no usable prereq list || https://nursing.uky.edu/: no usable prereq list || https://nursing.uky.edu/news/farm-shows-front-lines-uk-college-nursing-delivers-life-saving-care-rural-kentuckians: no usable prereq list",
   "sourceUrl": "https://admission.uky.edu/apply",
   "pipelineGen": 2
  },
@@ -5067,9 +5066,9 @@
  },
  "896": {
   "stage": "failed",
-  "lastAttempt": "2026-08-19T15:07:49.759Z",
-  "attempts": 11,
-  "error": "https://www.usf.edu/admissions/graduate/admission-information/academic-requirements.aspx: HTTP 401 {\n  \"error\": {\n    \"message\": \"Incorrect API key provided: sk-proj-********************************************pABv. You",
+  "lastAttempt": "2026-08-19T16:41:52.773Z",
+  "attempts": 12,
+  "error": "https://www.usf.edu/admissions/graduate/admission-information/academic-requirements.aspx: no usable prereq list",
   "sourceUrl": "https://www.usf.edu/",
   "pipelineGen": 2
  },
@@ -5697,10 +5696,9 @@
   "finalStatus": "verified"
  },
  "984": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-19T15:09:52.739Z",
-  "attempts": 11,
-  "error": "https://www.sbu.edu/academics/nursing-programs/nursing-rn-to-bs: HTTP 401 {\n  \"error\": {\n    \"message\": \"Incorrect API key provided: sk-proj-********************************************pABv. You || https://www.sbu.edu/academics/nursing-programs/dual-degree-nursing-program: HTTP 401 {\n  \"error\": {\n    \"message\": \"Incorrect API key provided: sk-proj-********************************************pABv. You || https://www.sbu.edu/admissions/admitted-students: HTTP 401 {\n  \"error\": {\n    \"message\": \"Inc",
+  "stage": "extracted",
+  "lastAttempt": "2026-08-19T16:44:46.479Z",
+  "attempts": 12,
   "sourceUrl": "https://www.sbu.edu/docs/default-source/academics-documents/nursing/bona-nurse-bulletin-sp25.pdf?sfvrsn=32d12be3_2",
   "pipelineGen": 2
  },
@@ -5727,9 +5725,9 @@
  },
  "988": {
   "stage": "failed",
-  "lastAttempt": "2026-08-19T15:14:14.481Z",
-  "attempts": 11,
-  "error": "https://www.saintmarys.edu/academics/departments/nursing-science: HTTP 401 {\n  \"error\": {\n    \"message\": \"Incorrect API key provided: sk-proj-********************************************pABv. You || https://www.saintmarys.edu/graduate-studies: HTTP 401 {\n  \"error\": {\n    \"message\": \"Incorrect API key provided: sk-proj-********************************************pABv. You || https://www.saintmarys.edu/admission-aid: HTTP 401 {\n  \"error\": {\n    \"message\": \"Incorrect API key provided: sk-proj-*****",
+  "lastAttempt": "2026-08-19T16:43:54.392Z",
+  "attempts": 12,
+  "error": "https://www.saintmarys.edu/academics/departments/nursing-science: no usable prereq list || https://www.saintmarys.edu/graduate-studies: no usable prereq list || https://www.saintmarys.edu/admission-aid: no usable prereq list || https://www.saintmarys.edu/admission-aid/next-steps: no usable prereq list",
   "sourceUrl": "https://catalog.saintmarys.edu/",
   "pipelineGen": 2
  },
@@ -5776,10 +5774,9 @@
   "finalStatus": "verified"
  },
  "995": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-19T15:09:26.150Z",
-  "attempts": 11,
-  "error": "https://gpadmissions.osu.edu/intl/additional-requirements-to-apply.html: HTTP 401 {\n  \"error\": {\n    \"message\": \"Incorrect API key provided: sk-proj-********************************************pABv. You || https://gpadmissions.osu.edu/prof/steps-to-apply.html: HTTP 401 {\n  \"error\": {\n    \"message\": \"Incorrect API key provided: sk-proj-********************************************pABv. You",
+  "stage": "extracted",
+  "lastAttempt": "2026-08-19T16:43:10.342Z",
+  "attempts": 12,
   "sourceUrl": "https://online.osu.edu/content-hub/",
   "pipelineGen": 2
  },
@@ -16152,18 +16149,20 @@
   "attempts": 0
  },
  "2528": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-19T16:08:50.515Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-19T16:22:07.459Z",
   "attempts": 2,
+  "error": "https://www.aamu.edu/academics/colleges/education-humanities-behavioral-sciences/departments/human-performance-communicative-disorders/communicative-sciences-disorders/graduate-admission-requirements.html: no usable prereq list || https://www.aamu.edu/academics/colleges/education-humanities-behavioral-sciences/departments/human-performance-communicative-disorders/communicative-sciences-disorders/graduate-course-requirements.html: no usable prereq list || https://www.aamu.edu/academics/colleges/e",
   "sourceUrl": "https://www.aamu.edu/academics/colleges/education-humanities-behavioral-sciences/departments/human-performance-communicative-disorders/communicative-sciences-disorders/student-forms-manuals.html",
   "pipelineGen": 2
  },
  "2529": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-18T20:44:11.377Z",
-  "attempts": 3,
-  "error": "https://www.albizu.edu/admission-requirements/: OpenAI HTTP 401: {\n  \"error\": {\n    \"message\": \"Incorrect API key provided: sk-proj-********************************************pABv. You can find your API key at https://platform.openai.com/account/api-keys.\",\n    \"type\": \"invalid_request_error\",\n    \"code\": \"invalid_api_key\",\n    \"param\": null\n  },\n  \"status\": 401 || https://www.albizu.edu/admissions/: OpenAI HTTP 401: {\n  \"error\": {\n    \"message\": \"Incorrect API key provided: sk-proj-***********",
-  "sourceUrl": "https://www.albizu.edu/about-us/"
+  "stage": "finalized",
+  "lastAttempt": "2026-08-19T16:22:56.101Z",
+  "attempts": 1,
+  "sourceUrl": "https://www.albizu.edu/academics/programs/master-science/speech-language-pathology/",
+  "pipelineGen": 2,
+  "finalStatus": "verified"
  },
  "2530": {
   "stage": "unstarted",
@@ -16308,10 +16307,9 @@
   "finalStatus": "verified"
  },
  "2550": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-19T02:18:35.530Z",
-  "attempts": 1,
-  "error": "https://chhs.fresnostate.edu/csds/about/policies-handbooks.html: HTTP 401 {\n  \"error\": {\n    \"message\": \"Incorrect API key provided: sk-proj-********************************************pABv. You || https://chhs.fresnostate.edu/csds/: HTTP 401 {\n  \"error\": {\n    \"message\": \"Incorrect API key provided: sk-proj-********************************************pABv. You || https://chhs.fresnostate.edu/csds/index.html: HTTP 401 {\n  \"error\": {\n    \"message\": \"Incorrect API key provided: sk-proj-***********",
+  "stage": "extracted",
+  "lastAttempt": "2026-08-19T16:23:00.902Z",
+  "attempts": 2,
   "pipelineGen": 2,
   "sourceUrl": "https://chhs.fresnostate.edu/csds/"
  },
@@ -16492,11 +16490,11 @@
   "pipelineGen": 2
  },
  "2575": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-18T22:39:35.554Z",
-  "attempts": 2,
-  "error": "https://www.brooklyn.edu/events/category/admissions-graduate/: no usable prereq list || https://www.brooklyn.edu/admissions-aid/graduate/how-to-apply/faq/: no usable prereq list",
-  "sourceUrl": "https://www.brooklyn.edu/admissions-aid/nontraditional/"
+  "stage": "extracted",
+  "lastAttempt": "2026-08-19T16:22:46.000Z",
+  "attempts": 1,
+  "sourceUrl": "https://www.brooklyn.edu/admissions-aid/nontraditional/",
+  "pipelineGen": 2
  },
  "2576": {
   "stage": "unstarted",
@@ -16604,11 +16602,11 @@
   "finalStatus": "verified"
  },
  "2590": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-18T21:09:50.599Z",
-  "attempts": 3,
-  "error": "https://www.pennwest.edu/admissions/graduate/index.php: OpenAI HTTP 401: {\n  \"error\": {\n    \"message\": \"Incorrect API key provided: sk-proj-********************************************pABv. You can find your API key at https://platform.openai.com/account/api-keys.\",\n    \"type\": \"invalid_request_error\",\n    \"code\": \"invalid_api_key\",\n    \"param\": null\n  },\n  \"status\": 401",
-  "sourceUrl": "https://www.pennwest.edu/admissions/undergraduate/index.php"
+  "stage": "extracted",
+  "lastAttempt": "2026-08-19T16:23:35.005Z",
+  "attempts": 1,
+  "sourceUrl": "https://www.pennwest.edu/admissions/undergraduate/index.php",
+  "pipelineGen": 2
  },
  "2591": {
   "stage": "finalized",
@@ -16873,11 +16871,12 @@
   "finalStatus": "verified"
  },
  "2626": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-18T22:40:34.134Z",
-  "attempts": 2,
-  "error": "https://www.kent.edu/admissions/international-transfer-student-requirements: no usable prereq list || https://www.kent.edu/admissions/international-graduate-student-requirements: no usable prereq list || https://www.kent.edu/admissions/graduate-degree-student-requirements: no usable prereq list || https://www.kent.edu/admissions/apply: no usable prereq list",
-  "sourceUrl": "https://www.kent.edu/archive/phhs/hs-school-handbook-2023"
+  "stage": "finalized",
+  "lastAttempt": "2026-08-19T16:23:34.345Z",
+  "attempts": 1,
+  "sourceUrl": "https://www.kent.edu/phhs/spa/speech-pathology-and-audiology-bs",
+  "pipelineGen": 2,
+  "finalStatus": "verified"
  },
  "2627": {
   "stage": "finalized",
@@ -16917,9 +16916,10 @@
   "finalStatus": "verified"
  },
  "2632": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-19T16:07:16.217Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-19T16:16:14.318Z",
   "attempts": 2,
+  "error": "https://www.liu.edu/~/media/RedesignFiles/LIUPost/Academics/Bulletins/Post-UG-GRA-Catalog.ashx?la=en: no usable prereq list",
   "pipelineGen": 2,
   "sourceUrl": "https://www.liu.edu/~/link.aspx?_id=551347875BAC4778A170C1EE5F0B6A2D&amp;_z=z"
  },
@@ -17032,11 +17032,12 @@
   "finalStatus": "verified"
  },
  "2648": {
-  "stage": "source_discovery",
-  "lastAttempt": "2026-08-19T02:29:37.642Z",
-  "attempts": 1,
+  "stage": "failed",
+  "lastAttempt": "2026-08-19T16:22:30.129Z",
+  "attempts": 2,
   "sourceUrl": "https://msu.edu/",
-  "pipelineGen": 2
+  "pipelineGen": 2,
+  "error": "https://msu.edu/: too little text"
  },
  "2649": {
   "stage": "finalized",
@@ -17074,12 +17075,12 @@
   "finalStatus": "verified"
  },
  "2654": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-19T02:04:14.327Z",
-  "attempts": 1,
-  "error": "https://www.misericordia.edu/speech-language-pathology/admissions-requirements: HTTP 401 {\n  \"error\": {\n    \"message\": \"Incorrect API key provided: sk-proj-********************************************pABv. You || https://www.misericordia.edu/speech-language-pathology: HTTP 401 {\n  \"error\": {\n    \"message\": \"Incorrect API key provided: sk-proj-********************************************pABv. You || https://www.misericordia.edu/speech-language-pathology: HTTP 401 {\n  \"error\": {\n    \"message\": \"In",
+  "stage": "finalized",
+  "lastAttempt": "2026-08-19T16:19:37.605Z",
+  "attempts": 2,
   "pipelineGen": 2,
-  "sourceUrl": "https://www.misericordia.edu/admissions-aid/ruth-matthews-bourger-women-with-children-programs"
+  "sourceUrl": "https://www.misericordia.edu/speech-language-pathology/online-slp-masters-program",
+  "finalStatus": "verified"
  },
  "2655": {
   "stage": "finalized",
@@ -17155,12 +17156,12 @@
   "finalStatus": "verified"
  },
  "2665": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-19T02:05:05.103Z",
-  "attempts": 1,
-  "sourceUrl": "https://www.adelphi.edu/admissions/graduate/apply/",
-  "error": "https://www.adelphi.edu/program/doctoral/audiology/: HTTP 401 {\n  \"error\": {\n    \"message\": \"Incorrect API key provided: sk-proj-********************************************pABv. You || https://www.adelphi.edu/program/doctoral/audiology/program-requirements/: HTTP 401 {\n  \"error\": {\n    \"message\": \"Incorrect API key provided: sk-proj-********************************************pABv. You || https://www.adelphi.edu/health/forms-and-requirements/: HTTP 401 {\n  \"error\": {\n    \"message\": \"Incorrect A",
-  "pipelineGen": 2
+  "stage": "finalized",
+  "lastAttempt": "2026-08-19T16:21:35.677Z",
+  "attempts": 2,
+  "sourceUrl": "https://www.adelphi.edu/program/graduate/speech-language-pathology/",
+  "pipelineGen": 2,
+  "finalStatus": "verified"
  },
  "2666": {
   "stage": "failed",
@@ -17291,8 +17292,8 @@
  },
  "2683": {
   "stage": "failed",
-  "lastAttempt": "2026-08-19T02:29:37.562Z",
-  "attempts": 1,
+  "lastAttempt": "2026-08-19T16:22:03.364Z",
+  "attempts": 2,
   "error": "https://www.phillips.edu/: HTTP 404",
   "pipelineGen": 2
  },
@@ -17319,9 +17320,10 @@
   "finalStatus": "verified"
  },
  "2687": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-19T16:10:14.739Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-19T16:23:51.906Z",
   "attempts": 2,
+  "error": "https://www.radford.edu/waldron-college-health-human-services/communication-sciences-and-disorders-department/speech-language-hearing-clinic.html: no usable prereq list || https://www.radford.edu/admissions/apply/index.html: no usable prereq list || https://www.radford.edu/admissions/apply/index.html: no usable prereq list",
   "pipelineGen": 2,
   "sourceUrl": "https://www.radford.edu/waldron-college-health-human-services/index.html"
  },
@@ -17720,11 +17722,11 @@
   "pipelineGen": 2
  },
  "2741": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-18T22:46:51.352Z",
+  "stage": "extracted",
+  "lastAttempt": "2026-08-19T16:26:38.245Z",
   "attempts": 1,
-  "error": "https://www.truman.edu/academics/school-of-business-and-professional-studies/about-the-communication-disorders-department/: no usable prereq list || https://www.truman.edu/majors-programs/graduate-studies/communication-disorders/: no usable prereq list || https://www.truman.edu/academics/school-of-business-and-professional-studies/about-the-communication-disorders-department/communications-disorders-faculty-staff/: no usable prereq list || https://www.truman.edu/academics/school-of-business-and-",
-  "sourceUrl": "https://www.truman.edu/majors-programs/majors-minors/communication-disorders-major/communications-disorders-facilities/"
+  "sourceUrl": "https://www.truman.edu/majors-programs/majors-minors/communication-disorders-major/communications-disorders-facilities/",
+  "pipelineGen": 2
  },
  "2742": {
   "stage": "failed",
@@ -17735,11 +17737,11 @@
   "pipelineGen": 2
  },
  "2743": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-18T22:51:27.731Z",
+  "stage": "source_discovery",
+  "lastAttempt": "2026-08-19T16:24:26.124Z",
   "attempts": 1,
-  "error": "https://uagm.edu/es/estudiante-consumidor/academia/catalogo: no usable prereq list || https://uagm.edu/es/ofrecimientos/ciencias-en-patologia-del-habla-lenguaje: no usable prereq list",
-  "sourceUrl": "https://uagm.edu/es/ofrecimientos/ciencias-en-patologia-del-habla-lenguaje"
+  "sourceUrl": "https://uagm.edu/es/ofrecimientos/ciencias-en-patologia-del-habla-lenguaje",
+  "pipelineGen": 2
  },
  "2744": {
   "stage": "finalized",
@@ -17847,11 +17849,12 @@
   "finalStatus": "verified"
  },
  "2758": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-19T16:06:05.933Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-19T16:17:34.787Z",
   "attempts": 3,
   "sourceUrl": "https://www.uwosh.edu/admissions/how-to-apply/high-school-programs/",
-  "pipelineGen": 2
+  "pipelineGen": 2,
+  "error": "https://www.uwosh.edu/admissions/how-to-apply/freshmen/: no usable prereq list || https://www.uwosh.edu/admissions/how-to-apply/special-students-and-guests-admission-guidelines/: no usable prereq list || https://www.uwosh.edu/gradschool/programs/: no usable prereq list || https://www.uwosh.edu/admissions/how-to-apply/high-school-programs/: no usable prereq list"
  },
  "2759": {
   "stage": "finalized",
@@ -17928,16 +17931,18 @@
   "finalStatus": "verified"
  },
  "2769": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-19T16:12:03.931Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-19T16:22:23.510Z",
   "attempts": 3,
   "sourceUrl": "https://umaine.edu/admissions/",
-  "pipelineGen": 2
+  "pipelineGen": 2,
+  "error": "https://engage.umaine.edu/campaigns/78775/donations/new: OpenAI HTTP 429: {\n    \"error\": {\n        \"message\": \"Rate limit reached for gpt-4o-mini in organization org-kRjpmgXqcLrwkVTY20gVZyOd on requests per day (RPD): Limit 10000, Used 10000, Requested 1. Please try again in 8.64s. Visit https://platform.openai.com/account/rate-limits to learn more.\",\n        \"type\": \"req || https://umaine.edu/comscidis/conley-speech-language-hearing-center/: no usable prereq list || https://umaine.edu/prospecti"
  },
  "2770": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-19T16:07:22.292Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-19T16:20:32.662Z",
   "attempts": 2,
+  "error": "https://www.umary.edu/academics/graduate-programs/speech-language-pathology: no usable prereq list",
   "pipelineGen": 2,
   "sourceUrl": "https://www.umary.edu/admission-aid/online-and-evening-admissions"
  },
@@ -17993,11 +17998,12 @@
   "error": "reset for improved discovery: https://olemiss.edu/csd/: no usable prereq list"
  },
  "2778": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-18T22:50:03.698Z",
+  "stage": "finalized",
+  "lastAttempt": "2026-08-19T16:24:26.120Z",
   "attempts": 1,
-  "error": "https://gradschool.missouri.edu/admissions/apply/: no usable prereq list || https://admissions.missouri.edu/apply/freshmen/test-optional/: no usable prereq list || https://admissions.missouri.edu/apply/freshmen/: no usable prereq list || https://admissions.missouri.edu/apply/international/: no usable prereq list",
-  "sourceUrl": "https://healthsciences.missouri.edu/prospective-students/"
+  "sourceUrl": "https://healthsciences.missouri.edu/speech-language-and-hearing-sciences/masters-degree/prerequisite-course-work/",
+  "pipelineGen": 2,
+  "finalStatus": "verified"
  },
  "2779": {
   "stage": "failed",
@@ -18030,11 +18036,11 @@
   "error": "refusing mismatched institution URL https://catalog.unl.edu/undergraduate/education-human-sciences/communication-sciences-disorders/"
  },
  "2783": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-18T22:50:28.381Z",
+  "stage": "extracted",
+  "lastAttempt": "2026-08-19T16:26:37.123Z",
   "attempts": 1,
-  "error": "https://www.unomaha.edu/college-of-education-health-and-human-sciences/special-education-communication-disorders/graduate/speech-language-pathology.php: no usable prereq list || https://www.unomaha.edu/college-of-education-health-and-human-sciences/special-education-communication-disorders/undergraduate/index.php: no usable prereq list || https://www.unomaha.edu/college-of-education-health-and-human-sciences/special-education-communication-disorders/undergraduate/speech-language-pathology.php: n",
-  "sourceUrl": "https://www.unomaha.edu/college-of-education-health-and-human-sciences/special-education-communication-disorders/graduate/dyslexia-specialist-certificate.php"
+  "sourceUrl": "https://www.unomaha.edu/college-of-education-health-and-human-sciences/special-education-communication-disorders/graduate/dyslexia-specialist-certificate.php",
+  "pipelineGen": 2
  },
  "2784": {
   "stage": "finalized",
