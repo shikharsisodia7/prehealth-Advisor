@@ -861,7 +861,15 @@ function keywordLinks(html: string, base: string, professionTerms: string[]): st
       if (!u.hostname.endsWith(rootDomain)) continue;
       if (isLowValueCandidate(u.toString())) continue;
       const hay = `${u.pathname} ${stripHtml(m[2])}`.toLowerCase();
-      if (!KEYWORDS.some((k) => hay.includes(k))) continue;
+      // A link labeled/pathed with the program's own profession (e.g. "Nursing", "/nursing/")
+      // must be followable even when it doesn't also contain a generic admissions keyword yet —
+      // otherwise the crawl can never reach the department page it would discover "requirements"
+      // from in the first place, and falls back to a search layer that's frequently bot-blocked.
+      const matchesKeyword = KEYWORDS.some((k) => hay.includes(k));
+      const matchesProfession = professionTerms.some(
+        (t) => hay.includes(normalize(t).replace(/ /g, "-")) || hay.includes(normalize(t)),
+      );
+      if (!matchesKeyword && !matchesProfession) continue;
       u.hash = "";
       let score = 0;
       if (/prereq|pre-requisite/.test(hay)) score += 5;
