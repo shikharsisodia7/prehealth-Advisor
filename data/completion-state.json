@@ -6178,16 +6178,20 @@
   "finalStatus": "verified"
  },
  "1048": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-17T20:30:19.134Z",
-  "attempts": 2,
-  "error": "reset for improved discovery: https://www.brenau.edu/admissions/online/: no usable prereq list"
+  "stage": "finalized",
+  "lastAttempt": "2026-08-19T23:00:59.866Z",
+  "attempts": 1,
+  "pipelineGen": 2,
+  "sourceUrl": "https://www.brenau.edu/programs/ms-occupational-therapy/",
+  "finalStatus": "verified"
  },
  "1049": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-17T20:29:24.669Z",
-  "attempts": 2,
-  "error": "reset for improved discovery: https://www.brenau.edu/admissions/online/: no usable prereq list"
+  "stage": "finalized",
+  "lastAttempt": "2026-08-19T22:54:37.485Z",
+  "attempts": 1,
+  "pipelineGen": 2,
+  "sourceUrl": "https://www.brenau.edu/programs/ms-occupational-therapy/",
+  "finalStatus": "verified"
  },
  "1050": {
   "stage": "finalized",
@@ -6405,10 +6409,11 @@
   "finalStatus": "verified"
  },
  "1081": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-17T20:31:05.194Z",
-  "attempts": 2,
-  "error": "reset for improved discovery: https://www.harding.edu/admissions/: no usable prereq list || https://www.harding.edu/admissions/request-info/: no usabl"
+  "stage": "source_fetched",
+  "lastAttempt": "2026-08-19T23:01:26.186Z",
+  "attempts": 1,
+  "pipelineGen": 2,
+  "sourceUrl": "https://www.harding.edu/"
  },
  "1082": {
   "stage": "failed",
@@ -6671,10 +6676,11 @@
   "finalStatus": "verified"
  },
  "1119": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-17T20:29:13.178Z",
-  "attempts": 2,
-  "error": "reset for improved discovery: https://nyu.edu/: too little text"
+  "stage": "extracted",
+  "lastAttempt": "2026-08-19T22:57:37.093Z",
+  "attempts": 1,
+  "pipelineGen": 2,
+  "sourceUrl": "https://www.nyu.edu/?challenge=d06e90d7-4d8f-4b88-9d8c-10b73beb60f1"
  },
  "1120": {
   "stage": "unstarted",
@@ -7233,12 +7239,11 @@
   "finalStatus": "verified"
  },
  "1200": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-19T21:44:25.339Z",
-  "attempts": 2,
+  "stage": "extracted",
+  "lastAttempt": "2026-08-19T22:50:15.630Z",
+  "attempts": 3,
   "pipelineGen": 2,
-  "sourceUrl": "https://calendar.astate.edu/admissions/event/20765-general-information-session-walking-tour",
-  "error": "https://www.astate.edu/admissions-and-aid/graduate-admissions/graduate-admissions-requirements.html: no usable prereq list || https://www.astate.edu/admissions-and-aid/graduate-admissions/: no usable prereq list || https://www.astate.edu/admissions-and-aid/graduate-admissions/how-to-apply.html: no usable prereq list || https://www.astate.edu/admissions-and-aid/international-student-admission/graduate-students.html: no usable prereq list"
+  "sourceUrl": "https://calendar.astate.edu/admissions/event/20765-general-information-session-walking-tour"
  },
  "1201": {
   "stage": "finalized",
@@ -7336,8 +7341,8 @@
  },
  "1215": {
   "stage": "failed",
-  "lastAttempt": "2026-08-19T21:29:23.945Z",
-  "attempts": 2,
+  "lastAttempt": "2026-08-19T22:43:57.529Z",
+  "attempts": 3,
   "error": "https://www.dmu.edu/giving/: no usable prereq list",
   "pipelineGen": 2,
   "sourceUrl": "https://www.dmu.edu/giving/"
@@ -7449,24 +7454,25 @@
  },
  "1231": {
   "stage": "extracted",
-  "lastAttempt": "2026-08-19T21:39:41.210Z",
-  "attempts": 2,
+  "lastAttempt": "2026-08-19T22:49:13.080Z",
+  "attempts": 3,
   "pipelineGen": 2,
   "sourceUrl": "https://www.hpu.edu/"
  },
  "1232": {
   "stage": "failed",
-  "lastAttempt": "2026-08-19T21:46:47.910Z",
-  "attempts": 2,
+  "lastAttempt": "2026-08-19T22:59:43.994Z",
+  "attempts": 3,
   "pipelineGen": 2,
   "sourceUrl": "https://www.hpu.edu/",
-  "error": "https://www.hpu.edu/graduate-admissions/admission-requirements/index.html: no usable prereq list || https://www.hpu.edu/admissions/apply/nursing-transfer-application.html: no usable prereq list || https://www.hpu.edu/admissions/apply/current-hpu-pre-nursing-application.html: OpenAI HTTP 429: {\n    \"error\": {\n        \"message\": \"Rate limit reached for gpt-4o-mini in organization org-kRjpmgXqcLrwkVTY20gVZyOd on requests per day (RPD): Limit 10000, Used 10000, Requested 1. Please try again in 8.64s"
+  "error": "https://www.hpu.edu/graduate-admissions/admission-requirements/index.html: no usable prereq list || https://www.hpu.edu/admissions/apply/nursing-transfer-application.html: no usable prereq list || https://www.hpu.edu/admissions/apply/current-hpu-pre-nursing-application.html: no usable prereq list"
  },
  "1233": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-17T20:29:33.228Z",
+  "stage": "extracted",
+  "lastAttempt": "2026-08-19T22:59:37.329Z",
   "attempts": 1,
-  "error": "reset for improved discovery: https://cnahs.howard.edu/programs/occupational-therapy: HTTP 404"
+  "pipelineGen": 2,
+  "sourceUrl": "https://admission.howard.edu/sites/admission.howard.edu/files/2026-08/Domestic%20Transfer%20Application%20Checklist%207.27.26.pdf"
  },
  "1234": {
   "stage": "finalized",
@@ -7681,11 +7687,12 @@
   "finalStatus": "verified"
  },
  "1264": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-19T21:38:31.708Z",
-  "attempts": 2,
+  "stage": "failed",
+  "lastAttempt": "2026-08-19T23:00:45.857Z",
+  "attempts": 3,
   "pipelineGen": 2,
-  "sourceUrl": "https://www.pacificu.edu/occupational-therapy-otd/curriculum"
+  "sourceUrl": "https://www.pacificu.edu/occupational-therapy-otd/curriculum",
+  "error": "https://www.pacificu.edu/occupational-therapy-otd/admissions/prerequisites: no usable prereq list || https://www.pacificu.edu/occupational-therapy-otd/admissions: no usable prereq list || https://www.pacificu.edu/occupational-therapy-otd/admissions/occupational-therapy-guaranteed-admission: no usable prereq list || https://www.pacificu.edu/occupational-therapy-otd/admissions: no usable prereq list"
  },
  "1265": {
   "stage": "finalized",
@@ -7695,11 +7702,12 @@
   "finalStatus": "verified"
  },
  "1266": {
-  "stage": "source_fetched",
-  "lastAttempt": "2026-08-19T21:47:09.484Z",
-  "attempts": 2,
+  "stage": "finalized",
+  "lastAttempt": "2026-08-19T22:55:36.000Z",
+  "attempts": 3,
   "pipelineGen": 2,
-  "sourceUrl": "https://www.qu.edu/admissions/undergraduate/connect-admissions-counselor/"
+  "sourceUrl": "https://www.qu.edu/admissions/undergraduate/admission-requirements/",
+  "finalStatus": "verified"
  },
  "1267": {
   "stage": "finalized",
@@ -7820,10 +7828,11 @@
   "finalStatus": "verified"
  },
  "1284": {
-  "stage": "unstarted",
-  "lastAttempt": "2026-08-17T20:24:13.706Z",
-  "attempts": 2,
-  "error": "reset for improved discovery: https://catalog.stkate.edu/graduate/health/occupational-science-therapy/otd-el/: no usable prereq list || https://catalo"
+  "stage": "source_fetched",
+  "lastAttempt": "2026-08-19T23:01:09.981Z",
+  "attempts": 1,
+  "pipelineGen": 2,
+  "sourceUrl": "https://www.stkate.edu/admission-and-aid/gc/maot-application-instructions"
  },
  "1285": {
   "stage": "finalized",
@@ -7847,11 +7856,12 @@
   "finalStatus": "verified"
  },
  "1288": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-19T21:45:13.685Z",
-  "attempts": 1,
+  "stage": "finalized",
+  "lastAttempt": "2026-08-19T22:48:51.559Z",
+  "attempts": 2,
   "pipelineGen": 2,
-  "sourceUrl": "https://twu.edu/admissions/application-process/"
+  "sourceUrl": "https://twu.edu/occupational-therapy/graduate-programs/doctor-of-occupational-therapy-entry-level/",
+  "finalStatus": "verified"
  },
  "1289": {
   "stage": "finalized",
@@ -8055,11 +8065,12 @@
   "finalStatus": "no_prereqs_published"
  },
  "1318": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-19T21:43:42.772Z",
-  "attempts": 1,
+  "stage": "failed",
+  "lastAttempt": "2026-08-19T22:53:26.799Z",
+  "attempts": 2,
   "pipelineGen": 2,
-  "sourceUrl": "https://www.scranton.edu/academics/pcps/occupational-therapy/ot-pdf-file/revised-essential-functions-for-occupational-therapy-students-ay-2017-2018.pdf"
+  "sourceUrl": "https://www.scranton.edu/academics/pcps/occupational-therapy/ot-pdf-file/revised-essential-functions-for-occupational-therapy-students-ay-2017-2018.pdf",
+  "error": "https://www.scranton.edu/academics/pcps/occupational-therapy/index.shtml: no usable prereq list || https://gradadmissions.scranton.edu/how-to-apply.shtml: no usable prereq list"
  },
  "1319": {
   "stage": "finalized",
@@ -8173,11 +8184,12 @@
   "finalStatus": "no_prereqs_published"
  },
  "1335": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-19T21:47:05.596Z",
-  "attempts": 1,
+  "stage": "finalized",
+  "lastAttempt": "2026-08-19T22:51:36.637Z",
+  "attempts": 2,
   "pipelineGen": 2,
-  "sourceUrl": "https://www.utoledo.edu/hhs/ot/"
+  "sourceUrl": "https://www.utoledo.edu/hhs/ot/occupational-therapy-as-a-career.html",
+  "finalStatus": "verified"
  },
  "1336": {
   "stage": "finalized",
@@ -16330,11 +16342,12 @@
   "finalStatus": "verified"
  },
  "2543": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-19T22:29:06.677Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-19T22:42:40.196Z",
   "attempts": 10,
   "sourceUrl": "https://www.bradley.edu/wp-content/uploads/ADMISSION-REQUIREMENTS-for-website-reviewed-6-9-25.pdf",
-  "pipelineGen": 2
+  "pipelineGen": 2,
+  "error": "https://www.bradley.edu/admissions/graduate/: no usable prereq list || https://www.bradley.edu/wp-content/uploads/ADMISSION-REQUIREMENTS-for-website-reviewed-6-9-25.pdf: no usable prereq list"
  },
  "2544": {
   "stage": "failed",
@@ -16367,11 +16380,12 @@
   "finalStatus": "verified"
  },
  "2548": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-19T22:29:30.457Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-19T22:46:56.116Z",
   "attempts": 8,
   "pipelineGen": 2,
-  "sourceUrl": "https://www.csuchico.edu/admissions/returning.shtml"
+  "sourceUrl": "https://www.csuchico.edu/admissions/returning.shtml",
+  "error": "https://www.csuchico.edu/admissions/graduate/requirements.shtml: no usable prereq list || https://www.csuchico.edu/admissions/first-time/requirements.shtml: no usable prereq list || https://www.csuchico.edu/admissions/transfer/requirements.shtml: no usable prereq list || https://www.csuchico.edu/admissions/online.shtml: no usable prereq list"
  },
  "2549": {
   "stage": "finalized",
@@ -16967,11 +16981,12 @@
   "finalStatus": "verified"
  },
  "2628": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-19T22:29:13.581Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-19T22:47:28.999Z",
   "attempts": 6,
   "sourceUrl": "https://www.lamar.edu/nursing-health-professions/speech-and-hearing-sciences/research-and-seminars/index.html",
-  "pipelineGen": 2
+  "pipelineGen": 2,
+  "error": "https://www.lamar.edu/nursing-health-professions/speech-and-hearing-sciences/about/index.html: no usable prereq list || https://www.lamar.edu/nursing-health-professions/speech-and-hearing-sciences/contact.html: no usable prereq list || https://www.lamar.edu/forms/nursing-health/speech-and-hearing/leveling-program-interest-form.html: no usable prereq list || https://www.lamar.edu/nursing-health-professions/speech-and-hearing-sciences/degrees-and-programs/bachelor-of-science-in-speech-and-hearing-"
  },
  "2629": {
   "stage": "finalized",
@@ -17727,11 +17742,12 @@
   "pipelineGen": 2
  },
  "2731": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-19T22:29:29.469Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-19T22:44:02.251Z",
   "attempts": 8,
   "sourceUrl": "https://www.tsu.edu/",
-  "pipelineGen": 2
+  "pipelineGen": 2,
+  "error": "https://tsu.edu/admissions/tiger-transfer.php: no usable prereq list || https://www.tsu.edu/admissions/tiger-transfer.php: no usable prereq list || https://www.tsu.edu/admissions/transient-visiting-admissions.php: no usable prereq list || https://www.tsu.edu/admissions/testing-center/tsi-assessment/index.php: no usable prereq list"
  },
  "2732": {
   "stage": "failed",
@@ -17876,11 +17892,12 @@
   "finalStatus": "verified"
  },
  "2751": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-19T22:28:25.351Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-19T22:47:30.006Z",
   "attempts": 8,
   "sourceUrl": "https://www.ucf.edu/online/degree/nursing-m-s-n/",
-  "pipelineGen": 2
+  "pipelineGen": 2,
+  "error": "https://graduate.ucf.edu/application-deadlines-and-requirements/: no usable prereq list || https://graduate.ucf.edu/applying-to-ucf/: no usable prereq list || https://www.ucf.edu/online/graduate-admissions/: no usable prereq list || https://nursing.ucf.edu/admissions/masters-degrees/: OpenAI HTTP 429: {\n    \"error\": {\n        \"message\": \"Rate limit reached for gpt-4o-mini in organization org-kRjpmgXqcLrwkVTY20gVZyOd on requests per day (RPD): Limit 10000, Used 10000, Requested 1. Please try agai"
  },
  "2752": {
   "stage": "failed",
@@ -18115,11 +18132,12 @@
   "error": "refusing mismatched institution URL https://catalog.unl.edu/undergraduate/education-human-sciences/communication-sciences-disorders/"
  },
  "2783": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-19T22:28:57.928Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-19T22:44:24.045Z",
   "attempts": 5,
   "sourceUrl": "https://www.unomaha.edu/college-of-education-health-and-human-sciences/special-education-communication-disorders/graduate/dyslexia-specialist-certificate.php",
-  "pipelineGen": 2
+  "pipelineGen": 2,
+  "error": "https://www.unomaha.edu/college-of-education-health-and-human-sciences/special-education-communication-disorders/graduate/speech-language-pathology.php: no usable prereq list || https://www.unomaha.edu/college-of-education-health-and-human-sciences/special-education-communication-disorders/undergraduate/index.php: no usable prereq list || https://www.unomaha.edu/college-of-education-health-and-human-sciences/special-education-communication-disorders/undergraduate/speech-language-pathology.php: n"
  },
  "2784": {
   "stage": "finalized",
