@@ -63,10 +63,9 @@
   "sourceUrl": "https://nursing.baylor.edu/academics/undergraduate-bsn-program-resources/traditional-bsn-track/faqs"
  },
  "624": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-20T21:55:09.362Z",
-  "attempts": 1,
-  "error": "https://admissions.sdsu.edu/international/graduate: no usable prereq list || https://admissions.sdsu.edu/graduate: no usable prereq list || https://admissions.sdsu.edu/application-admission-status: no usable prereq list || https://sacd.sdsu.edu/veterans/admissions: no usable prereq list",
+  "stage": "source_discovery",
+  "lastAttempt": "2026-08-20T22:59:28.908Z",
+  "attempts": 2,
   "pipelineGen": 4,
   "sourceUrl": "https://www.sdsu.edu/"
  },
@@ -87,9 +86,10 @@
   "finalStatus": "verified"
  },
  "706": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-20T22:47:05.026Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-20T22:59:28.345Z",
   "attempts": 2,
+  "error": "https://www.usi.edu/health/graduate-nursing-program/graduate-nursing-handbook/clinical-practice-requirements/course-requirements: no usable prereq list || https://www.usi.edu/health/graduate-nursing-program/graduate-nursing-handbook/full-admission-requirements-to-the-graduate-nursing-program: no usable prereq list || https://www.usi.edu/health/graduate-nursing-program/graduate-nursing-handbook/clinical-practice-requirements: no usable prereq list || https://www.usi.edu/health/nursing/bsn-program",
   "pipelineGen": 4,
   "sourceUrl": "https://www.usi.edu/graduatestudies/admission-to-graduate-programs"
  },
@@ -102,10 +102,9 @@
   "sourceUrl": "https://iucat.iu.edu/catalog/advanced"
  },
  "739": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-20T21:54:05.322Z",
-  "attempts": 1,
-  "error": "https://www.mcphs.edu/academics/prerequisite-courses: no usable prereq list || https://www.mcphs.edu/academics/schools/nursing: no usable prereq list || https://www.mcphs.edu/academics/schools/nursing: no usable prereq list || https://www.mcphs.edu/academics/programs/nursing-bs-accelerated: no usable prereq list",
+  "stage": "source_discovery",
+  "lastAttempt": "2026-08-20T23:00:02.053Z",
+  "attempts": 2,
   "pipelineGen": 4,
   "sourceUrl": "https://www.mcphs.edu/admission-and-aid/undergraduate-applicants/international-applicants"
  },
@@ -142,9 +141,10 @@
   "finalStatus": "verified"
  },
  "766": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-20T22:48:14.574Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-20T23:00:01.497Z",
   "attempts": 2,
+  "error": "https://www.kean.edu/offices/admissions-0/special-program-admissions-requirements: no usable prereq list || https://www.kean.edu/offices/admissions/contact-admissions: no usable prereq list || https://www.kean.edu/offices/admissions/non-matriculatedvisiting-students: no usable prereq list || https://www.kean.edu/offices/admissions/transfer-admissions/transfer-application-instructions: no usable prereq list",
   "pipelineGen": 4,
   "sourceUrl": "https://www.kean.edu/kean-jersey-city/apply"
  },
@@ -501,7 +501,7 @@
  },
  "1019": {
   "stage": "extracted",
-  "lastAttempt": "2026-08-20T22:54:43.066Z",
+  "lastAttempt": "2026-08-20T22:55:34.006Z",
   "attempts": 2,
   "pipelineGen": 4,
   "sourceUrl": "https://www.sandiego.edu/nursing/about/"
