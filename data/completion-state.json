@@ -482,11 +482,12 @@
   "finalStatus": "verified"
  },
  "1030": {
-  "stage": "source_fetched",
-  "lastAttempt": "2026-08-20T19:18:17.972Z",
+  "stage": "finalized",
+  "lastAttempt": "2026-08-20T19:18:22.750Z",
   "attempts": 1,
   "pipelineGen": 3,
-  "sourceUrl": "https://www.viterbo.edu/dnp"
+  "sourceUrl": "https://www.viterbo.edu/programs/direct-entry-master-science-nursing",
+  "finalStatus": "verified"
  },
  "1031": {
   "stage": "finalized",
@@ -915,9 +916,10 @@
   "pipelineGen": 3
  },
  "1937": {
-  "stage": "source_discovery",
-  "lastAttempt": "2026-08-20T19:17:16.744Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-20T19:19:00.526Z",
   "attempts": 1,
+  "error": "https://www.ottawa.edu/paprogram: HTTP 307",
   "pipelineGen": 3
  },
  "1939": {
@@ -968,9 +970,10 @@
   "finalStatus": "verified"
  },
  "1946": {
-  "stage": "source_discovery",
-  "lastAttempt": "2026-08-20T19:17:49.631Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-20T19:20:53.283Z",
   "attempts": 1,
+  "error": "https://www.lsuhscshreveport.edu/: too little text",
   "pipelineGen": 3,
   "sourceUrl": "https://www.lsuhscshreveport.edu/"
  },
@@ -983,9 +986,10 @@
   "finalStatus": "verified"
  },
  "1951": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-20T19:18:12.866Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-20T19:18:49.336Z",
   "attempts": 1,
+  "error": "https://www.mcphs.edu/academics/prerequisite-courses: no usable prereq list || https://www.mcphs.edu/academics/programs/physician-assistant-studies-mpas: no usable prereq list || https://www.mcphs.edu/admission-and-aid/graduate-applicants: no usable prereq list || https://www.mcphs.edu/admission-and-aid/apply: no usable prereq list",
   "pipelineGen": 3,
   "sourceUrl": "https://www.mcphs.edu/admission-and-aid/undergraduate-applicants"
  },
@@ -1143,10 +1147,10 @@
  },
  "1984": {
   "stage": "failed",
-  "lastAttempt": "2026-08-20T18:52:52.012Z",
+  "lastAttempt": "2026-08-20T19:19:20.465Z",
   "attempts": 1,
   "error": "https://admissions.missouri.edu/apply/freshmen/test-optional/: no usable prereq list || https://admissions.missouri.edu/apply/freshmen/: no usable prereq list || https://admissions.missouri.edu/apply/international/: no usable prereq list || https://admissions.missouri.edu/apply/military/: no usable prereq list",
-  "pipelineGen": 2,
+  "pipelineGen": 3,
   "sourceUrl": "https://admissions.missouri.edu/apply/"
  },
  "1985": {
@@ -1238,11 +1242,12 @@
   "finalStatus": "verified"
  },
  "2004": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-20T18:54:33.971Z",
+  "stage": "finalized",
+  "lastAttempt": "2026-08-20T19:20:56.282Z",
   "attempts": 1,
-  "error": "https://www.csm.edu/academics/health-human-services/master-science-physician-assistant-studies: HTTP 403",
-  "pipelineGen": 2
+  "pipelineGen": 3,
+  "sourceUrl": "https://catalog.csm.edu/physician-assistant-studies/pasaep/physician-assistant-studies-accelerated-entry-pathway-pasaep",
+  "finalStatus": "verified"
  },
  "2005": {
   "stage": "finalized",
@@ -1278,10 +1283,10 @@
  },
  "2009": {
   "stage": "failed",
-  "lastAttempt": "2026-08-20T18:55:42.667Z",
+  "lastAttempt": "2026-08-20T19:19:59.651Z",
   "attempts": 1,
   "error": "https://www.mcphs.edu/academics/prerequisite-courses: no usable prereq list || https://www.mcphs.edu/admission-and-aid/graduate-applicants: no usable prereq list || https://www.mcphs.edu/admission-and-aid/apply: no usable prereq list || https://www.mcphs.edu/admission-and-aid: no usable prereq list",
-  "pipelineGen": 2,
+  "pipelineGen": 3,
   "sourceUrl": "https://www.mcphs.edu/admission-and-aid/undergraduate-applicants/transfer-applicants/tips-for-transfers"
  },
  "2010": {
@@ -1500,18 +1505,18 @@
  },
  "2064": {
   "stage": "failed",
-  "lastAttempt": "2026-08-20T18:59:30.730Z",
+  "lastAttempt": "2026-08-20T19:21:12.558Z",
   "attempts": 1,
-  "error": "https://www.findlay.edu/healthprofessions/physicianassistant-ma/: HTTP 404 || https://www.findlay.edu/admissions-aid/transfer-students/: no usable prereq list || https://www.findlay.edu/admissions-aid/transfer-students/transfer-admission-criteria/: no usable prereq list",
-  "pipelineGen": 2,
+  "error": "https://www.findlay.edu/admissions-aid/transfer-students/: no usable prereq list || https://www.findlay.edu/admissions-aid/transfer-students/transfer-admission-criteria/: no usable prereq list",
+  "pipelineGen": 3,
   "sourceUrl": "https://www.findlay.edu/"
  },
  "2066": {
   "stage": "failed",
-  "lastAttempt": "2026-08-20T19:00:01.113Z",
+  "lastAttempt": "2026-08-20T19:20:34.459Z",
   "attempts": 1,
   "error": "https://www.utoledo.edu/admission/international/admissionrequirements/: no usable prereq list || https://www.utoledo.edu/admission/international/transcript-requirements/: no usable prereq list || https://www.utoledo.edu/admission/transfer-adult-student/: no usable prereq list || https://www.utoledo.edu/admission/international/: no usable prereq list",
-  "pipelineGen": 2,
+  "pipelineGen": 3,
   "sourceUrl": "https://www.utoledo.edu/med/grad/pa/"
  },
  "2071": {
@@ -1563,19 +1568,17 @@
   "finalStatus": "verified"
  },
  "2078": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-20T19:01:37.610Z",
+  "stage": "extracted",
+  "lastAttempt": "2026-08-20T19:21:25.183Z",
   "attempts": 1,
-  "error": "https://www.carlow.edu/wp-content/uploads/2026/03/A3.09a-Carlow_PA_Admissions_Policy.pdf: PDF extract failed:  || https://www.carlow.edu/academic-programs/healthcare-degrees/physician-assistant-masters/: no usable prereq list || https://www.carlow.edu/academic-programs/healthcare-degrees/physician-assistant-masters/mission-and-goals/: no usable prereq list || https://www.carlow.edu/academic-programs/academic-information/general-education-curriculum/: no usable prereq list",
-  "pipelineGen": 2,
-  "sourceUrl": "https://www.carlow.edu/academic-programs/academic-information/general-education-curriculum/"
+  "pipelineGen": 3,
+  "sourceUrl": "https://www.carlow.edu/wp-content/uploads/2026/03/A3.09a-Carlow_PA_Admissions_Policy.pdf"
  },
  "2080": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-20T19:00:30.592Z",
+  "stage": "source_discovery",
+  "lastAttempt": "2026-08-20T19:20:34.999Z",
   "attempts": 1,
-  "error": "https://delval.edu/programs/graduate-programs/physician-assistant-studies: HTTP 403",
-  "pipelineGen": 2
+  "pipelineGen": 3
  },
  "2081": {
   "stage": "finalized",
@@ -1634,11 +1637,10 @@
   "finalStatus": "verified"
  },
  "2094": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-20T19:02:39.332Z",
+  "stage": "source_fetched",
+  "lastAttempt": "2026-08-20T19:21:24.650Z",
   "attempts": 1,
-  "error": "https://www.jefferson.edu/admissions/graduate/prerequisite-guides.html: no usable prereq list || https://www.jefferson.edu/admissions/graduate/apply.html: no usable prereq list || https://www.jefferson.edu/admissions/undergraduate/transfer/apply.html: no usable prereq list || https://www.jefferson.edu/admissions/undergraduate/second-degree-seeking-students/apply.html: no usable prereq list",
-  "pipelineGen": 2,
+  "pipelineGen": 3,
   "sourceUrl": "https://www.jefferson.edu/admissions/undergraduate/second-degree-seeking-students/apply.html"
  },
  "2096": {
@@ -1769,11 +1771,10 @@
   "finalStatus": "verified"
  },
  "2114": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-20T19:04:58.359Z",
+  "stage": "source_discovery",
+  "lastAttempt": "2026-08-20T19:21:12.636Z",
   "attempts": 1,
-  "error": "https://www.usd.edu/Academics/Graduate-Programs/Physician-Assistant-Studies: no usable prereq list || https://www.usd.edu/Admissions-and-Aid/International-Admissions/Applying-for-International-Graduate-Admission: no usable prereq list || https://www.usd.edu/Admissions-and-Aid/Graduate-Admissions/How-to-Apply/Specialty-Graduate-Program-Applications: no usable prereq list",
-  "pipelineGen": 2,
+  "pipelineGen": 3,
   "sourceUrl": "https://www.usd.edu/pa"
  },
  "2115": {
