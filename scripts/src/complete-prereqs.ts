@@ -1008,7 +1008,7 @@ async function crawlSiteForCandidates(
     );
   if (hard) {
     maxDepth = Math.max(maxDepth, 4);
-    maxPages = Math.max(maxPages, 28);
+    maxPages = Math.max(maxPages, 20);
   }
   // PDFs are allowed — fetchWithFallback/extractPdfText can read them without Firecrawl.
   const seen = new Set<string>();
@@ -1017,6 +1017,8 @@ async function crawlSiteForCandidates(
   const terms = professionKeywords(program.professionSlug);
 
   while (queue.length && seen.size < maxPages) {
+    // Early-exit once we have several strong prereq pages — avoids 20–28 page crawls starving the queue.
+    if (found.length >= 4) break;
     const next = queue.shift();
     if (!next) break;
     const { url, depth } = next;
@@ -1037,7 +1039,7 @@ async function crawlSiteForCandidates(
         found.push(page.url);
       }
       if (depth >= maxDepth) continue;
-      for (const link of keywordLinks(page.html, page.url, terms).slice(0, 12)) {
+      for (const link of keywordLinks(page.html, page.url, terms).slice(0, 10)) {
         const linkKey = link.split("#")[0];
         if (!seen.has(linkKey) && !isDirectoryHubUrl(link) && !isLowValueCandidate(link)) {
           queue.push({ url: link, depth: depth + 1 });
