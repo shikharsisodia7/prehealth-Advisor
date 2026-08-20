@@ -929,7 +929,7 @@ function keywordLinks(html: string, base: string, professionTerms: string[]): st
 }
 
 const PREREQ_PAGE_HINT =
-  /prerequi|pre-requisit|required courses|admission requirements|course requirements|prerequisite coursework|minimum requirements|leveling|pre-professional|pre-pharmacy|pre-nursing/i;
+  /prerequi|pre-requisit|required courses|admission requirements|course requirements|prerequisite coursework|minimum requirements|leveling|pre-professional|pre-pharmacy|pre-nursing|communication sciences|communication disorders|non-csd|csd background|essential functions|applicant requirements|coursework requirements|academic requirements/i;
 
 /** BFS same-domain crawl from program website — primary discovery when search APIs are blocked. */
 async function crawlSiteForCandidates(
