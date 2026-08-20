@@ -6685,11 +6685,11 @@
  },
  "1119": {
   "stage": "failed",
-  "lastAttempt": "2026-08-20T00:11:37.207Z",
-  "attempts": 2,
-  "error": "https://www.nyu.edu/admissions.html?challenge=d06e90d7-4d8f-4b88-9d8c-10b73beb60f1: no usable prereq list || https://www.nyu.edu/?challenge=d06e90d7-4d8f-4b88-9d8c-10b73beb60f1: no usable prereq list",
+  "lastAttempt": "2026-08-20T01:23:37.832Z",
+  "attempts": 3,
+  "error": "https://www.nyu.edu/admissions.html: no usable prereq list || https://www.nyu.edu/: no usable prereq list",
   "pipelineGen": 2,
-  "sourceUrl": "https://www.nyu.edu/?challenge=d06e90d7-4d8f-4b88-9d8c-10b73beb60f1"
+  "sourceUrl": "https://www.nyu.edu/"
  },
  "1120": {
   "stage": "unstarted",
@@ -7479,10 +7479,9 @@
   "error": "https://www.hpu.edu/graduate-admissions/admission-requirements/index.html: no usable prereq list || https://www.hpu.edu/admissions/apply/nursing-transfer-application.html: no usable prereq list || https://www.hpu.edu/admissions/apply/current-hpu-pre-nursing-application.html: no usable prereq list"
  },
  "1233": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-20T00:18:40.791Z",
-  "attempts": 2,
-  "error": "https://admission.howard.edu/: no usable prereq list || https://admission.howard.edu/graduate: no usable prereq list || https://admission.howard.edu/undergraduate/transfer: no usable prereq list || https://admission.howard.edu/undergraduate/admission-policy: no usable prereq list",
+  "stage": "extracted",
+  "lastAttempt": "2026-08-20T01:28:12.873Z",
+  "attempts": 3,
   "pipelineGen": 2,
   "sourceUrl": "https://admission.howard.edu/sites/admission.howard.edu/files/2026-08/Domestic%20Transfer%20Application%20Checklist%207.27.26.pdf"
  },
@@ -7840,12 +7839,11 @@
   "finalStatus": "verified"
  },
  "1284": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-20T00:23:27.176Z",
-  "attempts": 2,
+  "stage": "extracted",
+  "lastAttempt": "2026-08-20T01:28:29.860Z",
+  "attempts": 3,
   "pipelineGen": 2,
-  "sourceUrl": "https://www.stkate.edu/admission-and-aid/gc/maot-application-instructions",
-  "error": "https://catalog.stkate.edu/graduate/health/occupational-science-therapy/otd-el/: no usable prereq list || https://catalog.stkate.edu/graduate/admissions/: no usable prereq list || https://www.stkate.edu/admission-and-aid/gc: OpenAI HTTP 429: {\n    \"error\": {\n        \"message\": \"Rate limit reached for gpt-4o-mini in organization org-kRjpmgXqcLrwkVTY20gVZyOd on requests per day (RPD): Limit 10000, Used 10000, Requested 1. Please try again in 8.64s. Visit https://platform.openai.com/account/rate-li"
+  "sourceUrl": "https://www.stkate.edu/admission-and-aid/gc/maot-application-instructions"
  },
  "1285": {
   "stage": "finalized",
@@ -7971,8 +7969,8 @@
  },
  "1302": {
   "stage": "failed",
-  "lastAttempt": "2026-08-20T00:19:47.684Z",
-  "attempts": 2,
+  "lastAttempt": "2026-08-20T01:37:34.291Z",
+  "attempts": 3,
   "pipelineGen": 2,
   "sourceUrl": "https://www.umary.edu/admission-aid/online-and-evening-admissions",
   "error": "https://www.umary.edu/academics/graduate-programs/occupational-therapy: no usable prereq list"
@@ -14229,8 +14227,8 @@
  },
  "2211": {
   "stage": "extracted",
-  "lastAttempt": "2026-08-20T00:16:28.547Z",
-  "attempts": 2,
+  "lastAttempt": "2026-08-20T01:31:57.632Z",
+  "attempts": 3,
   "pipelineGen": 2,
   "sourceUrl": "https://www.salus.edu/_files/pdf/Factsheet-Postbacc-SLP.pdf"
  },
@@ -14324,8 +14322,8 @@
  },
  "2225": {
   "stage": "extracted",
-  "lastAttempt": "2026-08-20T00:19:17.638Z",
-  "attempts": 1,
+  "lastAttempt": "2026-08-20T01:36:29.291Z",
+  "attempts": 2,
   "pipelineGen": 2,
   "sourceUrl": "https://www.nsuok.edu/"
  },
@@ -14351,8 +14349,8 @@
  },
  "2229": {
   "stage": "extracted",
-  "lastAttempt": "2026-08-20T00:19:41.349Z",
-  "attempts": 1,
+  "lastAttempt": "2026-08-20T01:38:18.333Z",
+  "attempts": 2,
   "pipelineGen": 2,
   "sourceUrl": "https://sse.tulane.edu/cell/masters-program"
  },
@@ -14515,8 +14513,8 @@
  },
  "2253": {
   "stage": "extracted",
-  "lastAttempt": "2026-08-20T00:24:24.586Z",
-  "attempts": 1,
+  "lastAttempt": "2026-08-20T01:39:08.651Z",
+  "attempts": 2,
   "pipelineGen": 2,
   "sourceUrl": "https://www2.lehigh.edu/"
  },
@@ -15477,8 +15475,8 @@
  },
  "2402": {
   "stage": "failed",
-  "lastAttempt": "2026-08-20T00:21:58.700Z",
-  "attempts": 2,
+  "lastAttempt": "2026-08-20T01:37:24.882Z",
+  "attempts": 3,
   "pipelineGen": 2,
   "sourceUrl": "https://www.gwu.edu/",
   "error": "https://graduate.admissions.gwu.edu/international-student-application-requirements: no usable prereq list"
@@ -16465,11 +16463,12 @@
   "finalStatus": "verified"
  },
  "2555": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-20T01:08:05.933Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-20T01:13:37.505Z",
   "attempts": 7,
   "pipelineGen": 2,
-  "sourceUrl": "https://www.csun.edu/"
+  "sourceUrl": "https://www.csun.edu/",
+  "error": "refusing mismatched institution URL https://tsengcollege.csun.edu/programs/PSLP/curriculum"
  },
  "2556": {
   "stage": "finalized",
@@ -16479,11 +16478,12 @@
   "finalStatus": "verified"
  },
  "2557": {
-  "stage": "source_fetched",
-  "lastAttempt": "2026-08-20T01:08:16.607Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-20T01:23:54.520Z",
   "attempts": 7,
   "sourceUrl": "https://catalog.csusb.edu/",
-  "pipelineGen": 2
+  "pipelineGen": 2,
+  "error": "https://www.csusb.edu/join-the-pack/future-students/apply/graduate-admissions-requirements: no usable prereq list || https://www.csusb.edu/join-the-pack/future-students/apply/freshmen-admissions-requirements: no usable prereq list || https://www.csusb.edu/join-the-pack/future-students/apply/transfer-admissions-requirements: no usable prereq list || https://www.csusb.edu/graduate-studies/prospective-students/how-apply/admissions-requirements: no usable prereq list"
  },
  "2558": {
   "stage": "finalized",
@@ -16505,11 +16505,12 @@
   "error": "reset for improved discovery: https://www.pennwest.edu//: fetch failed"
  },
  "2561": {
-  "stage": "source_fetched",
-  "lastAttempt": "2026-08-20T01:08:17.912Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-20T01:23:00.534Z",
   "attempts": 8,
-  "sourceUrl": "https://calvin.edu/academics/school-health/speech-pathology-and-audiology",
-  "pipelineGen": 2
+  "sourceUrl": "https://calvin.edu/news/all?department=16931",
+  "pipelineGen": 2,
+  "error": "https://calvin.edu/admissions/dual-enrollment: no usable prereq list || https://calvin.edu/events/all?department=16931: no usable prereq list"
  },
  "2562": {
   "stage": "finalized",
@@ -16534,11 +16535,12 @@
   "finalStatus": "verified"
  },
  "2565": {
-  "stage": "source_discovery",
-  "lastAttempt": "2026-08-20T01:07:50.789Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-20T01:27:47.790Z",
   "attempts": 8,
-  "sourceUrl": "https://www.catholic.edu/admission-aid",
-  "pipelineGen": 2
+  "sourceUrl": "https://www.catholic.edu/admission-aid/undergraduate-admission/visiting-campus",
+  "pipelineGen": 2,
+  "error": "https://www.catholic.edu/admission-aid/international-admission: OpenAI HTTP 429: {\n    \"error\": {\n        \"message\": \"Rate limit reached for gpt-4o-mini in organization org-kRjpmgXqcLrwkVTY20gVZyOd on requests per day (RPD): Limit 10000, Used 10000, Requested 1. Please try again in 8.64s. Visit https://platform.openai.com/account/rate-limits to learn more.\",\n        \"type\": \"req || https://www.catholic.edu/admission-aid/graduate-admission/frequently-asked-questions: no usable prereq list || http"
  },
  "2566": {
   "stage": "finalized",
@@ -16571,11 +16573,12 @@
   "sourceUrl": "https://health.csuohio.edu/communication-sciences-disorde"
  },
  "2570": {
-  "stage": "source_discovery",
-  "lastAttempt": "2026-08-20T01:07:50.783Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-20T01:32:13.618Z",
   "attempts": 8,
-  "sourceUrl": "https://admissions.tcnj.edu/apply/",
-  "pipelineGen": 2
+  "sourceUrl": "https://www.tcnj.edu/",
+  "pipelineGen": 2,
+  "error": "https://admissions.tcnj.edu/visit/: no usable prereq list || https://graduate.tcnj.edu/resources/: no usable prereq list || https://admissions.tcnj.edu/visit/: no usable prereq list || https://admissions.tcnj.edu/visit/: no usable prereq list"
  },
  "2571": {
   "stage": "failed",
@@ -16600,11 +16603,12 @@
   "finalStatus": "verified"
  },
  "2574": {
-  "stage": "source_fetched",
-  "lastAttempt": "2026-08-20T01:08:17.792Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-20T01:24:30.280Z",
   "attempts": 7,
-  "sourceUrl": "https://www.cuw.edu/",
-  "pipelineGen": 2
+  "sourceUrl": "https://www.cuw.edu/academics/programs/post-bsn-dnp/index.html",
+  "pipelineGen": 2,
+  "error": "https://www.cuw.edu/academics/programs/speech-language-pathology-masters/index.html: no usable prereq list || https://www.cuw.edu/admissions/graduate-admissions/admission-process.html: no usable prereq list || https://www.cuw.edu/admissions/transfer-admissions/index.html: no usable prereq list || https://www.cuw.edu/admissions/international-admissions/admission-process/index.html: fetch failed"
  },
  "2575": {
   "stage": "failed",
