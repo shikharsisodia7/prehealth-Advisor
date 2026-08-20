@@ -459,9 +459,10 @@
   "sourceUrl": "https://www.nursing.upenn.edu/academics/a-penn-nursing-education/undergraduate-honors-program/"
  },
  "1019": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-20T19:15:42.557Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-20T19:17:49.556Z",
   "attempts": 1,
+  "error": "https://www.sandiego.edu/nursing/about/: no usable prereq list || https://www.sandiego.edu/nursing/about/: no usable prereq list || https://www.sandiego.edu/nursing/about/: no usable prereq list || https://www.sandiego.edu/nursing/about/: no usable prereq list",
   "pipelineGen": 3,
   "sourceUrl": "https://www.sandiego.edu/nursing/about/"
  },
@@ -481,10 +482,11 @@
   "finalStatus": "verified"
  },
  "1030": {
-  "stage": "source_discovery",
-  "lastAttempt": "2026-08-20T19:15:04.658Z",
+  "stage": "source_fetched",
+  "lastAttempt": "2026-08-20T19:18:17.972Z",
   "attempts": 1,
-  "pipelineGen": 3
+  "pipelineGen": 3,
+  "sourceUrl": "https://www.viterbo.edu/dnp"
  },
  "1031": {
   "stage": "finalized",
@@ -757,11 +759,10 @@
   "finalStatus": "verified"
  },
  "1907": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-20T19:01:19.431Z",
+  "stage": "source_discovery",
+  "lastAttempt": "2026-08-20T19:16:15.262Z",
   "attempts": 1,
-  "error": "https://www.emorypa.org/admissions.htm: fetch failed || https://www.emorypa.org/: no usable prereq list",
-  "pipelineGen": 2,
+  "pipelineGen": 3,
   "sourceUrl": "https://www.emorypa.org/"
  },
  "1909": {
@@ -781,9 +782,10 @@
   "finalStatus": "verified"
  },
  "1912": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-20T19:16:03.232Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-20T19:16:15.190Z",
   "attempts": 1,
+  "error": "https://www.dmu.edu/giving/: no usable prereq list",
   "pipelineGen": 3,
   "sourceUrl": "https://www.dmu.edu/giving/"
  },
@@ -850,9 +852,10 @@
   "finalStatus": "verified"
  },
  "1926": {
-  "stage": "source_discovery",
-  "lastAttempt": "2026-08-20T19:15:56.521Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-20T19:17:16.671Z",
   "attempts": 1,
+  "error": "https://illinois.touro.edu/physician-assistant/: no usable prereq list || https://illinois.touro.edu/physician-assistant/academics/: no usable prereq list || https://illinois.touro.edu/physician-assistant/mission-goals--outcomes/: no usable prereq list || https://illinois.touro.edu/physician-assistant/academics/courses/: no usable prereq list",
   "pipelineGen": 3,
   "sourceUrl": "https://illinois.touro.edu/physician-assistant/mission-goals--outcomes/pance-scores/"
  },
@@ -865,9 +868,10 @@
   "finalStatus": "verified"
  },
  "1929": {
-  "stage": "source_discovery",
-  "lastAttempt": "2026-08-20T19:16:00.315Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-20T19:17:12.952Z",
   "attempts": 1,
+  "error": "https://indianastate.edu/academics/colleges/health-human-services/pa/isu-physician-assistant-veteran-outreach: no usable prereq list || https://indianastate.edu/admissions/re-admission-application: no usable prereq list || https://indianastate.edu/admissions/international/international-graduate-admissions: no usable prereq list || https://indianastate.edu/academics/colleges/health-human-services/amr/pa: no usable prereq list",
   "pipelineGen": 3,
   "sourceUrl": "https://indianastate.edu/academics/colleges/health-human-services/amr/pa/physician-assistant-program-information"
  },
@@ -911,18 +915,17 @@
   "pipelineGen": 3
  },
  "1937": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-20T18:47:59.197Z",
+  "stage": "source_discovery",
+  "lastAttempt": "2026-08-20T19:17:16.744Z",
   "attempts": 1,
-  "error": "https://www.ottawa.edu/paprogram: HTTP 307",
-  "pipelineGen": 2
+  "pipelineGen": 3
  },
  "1939": {
   "stage": "failed",
-  "lastAttempt": "2026-08-20T18:47:21.812Z",
+  "lastAttempt": "2026-08-20T19:17:46.807Z",
   "attempts": 1,
   "error": "https://www.brescia.edu/program/physician-assistant-program/: HTTP 403",
-  "pipelineGen": 2
+  "pipelineGen": 3
  },
  "1940": {
   "stage": "finalized",
@@ -965,11 +968,10 @@
   "finalStatus": "verified"
  },
  "1946": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-20T18:49:16.928Z",
+  "stage": "source_discovery",
+  "lastAttempt": "2026-08-20T19:17:49.631Z",
   "attempts": 1,
-  "error": "https://www.lsuhscshreveport.edu/: too little text || https://www.lsuhs.edu/departments/allied-health-professions-departments/physician-assistant: HTTP 404",
-  "pipelineGen": 2,
+  "pipelineGen": 3,
   "sourceUrl": "https://www.lsuhscshreveport.edu/"
  },
  "1949": {
@@ -981,12 +983,11 @@
   "finalStatus": "verified"
  },
  "1951": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-20T18:48:58.304Z",
+  "stage": "extracted",
+  "lastAttempt": "2026-08-20T19:18:12.866Z",
   "attempts": 1,
-  "error": "https://www.mcphs.edu/academics/prerequisite-courses: no usable prereq list || https://www.mcphs.edu/academics/programs/physician-assistant-studies-mpas: no usable prereq list || https://www.mcphs.edu/admission-and-aid/graduate-applicants: no usable prereq list || https://www.mcphs.edu/admission-and-aid/apply: no usable prereq list",
-  "pipelineGen": 2,
-  "sourceUrl": "https://www.mcphs.edu/admission-and-aid/undergraduate-applicants/transfer-applicants/tips-for-transfers"
+  "pipelineGen": 3,
+  "sourceUrl": "https://www.mcphs.edu/admission-and-aid/undergraduate-applicants"
  },
  "1953": {
   "stage": "finalized",
