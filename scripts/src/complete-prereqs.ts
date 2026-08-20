@@ -1110,6 +1110,8 @@ async function discoverCandidates(program: ProgramRow): Promise<string[]> {
               `${program.name} PharmD prerequisite courses site:${host}`,
               `${program.name} pre-pharmacy requirements site:${host}`,
               `${program.name} PharmD admission requirements checklist PDF site:${host}`,
+              `${program.name} PharmD required coursework biology chemistry site:${host}`,
+              `${program.name} pharmacy school prerequisite course list site:${host}`,
             ]
           : []),
         ...(program.professionSlug === "medicine"
@@ -1121,6 +1123,8 @@ async function discoverCandidates(program: ProgramRow): Promise<string[]> {
               `${program.name} AACOMAS prerequisites site:${host}`,
               `${program.name} medical school competency based admissions site:${host}`,
               `${program.name} entering class requirements coursework site:${host}`,
+              `${program.name} MD program required undergraduate courses site:${host}`,
+              `${program.name} medical school admissions course requirements PDF site:${host}`,
             ]
           : []),
         ...(program.professionSlug === "postbac"
@@ -1129,6 +1133,7 @@ async function discoverCandidates(program: ProgramRow): Promise<string[]> {
               `${program.name} post-bacc admission requirements site:${host}`,
               `${program.name} premed postbacc prerequisites site:${host}`,
               `${program.name} linkage program prerequisites site:${host}`,
+              `${program.name} post-baccalaureate premedical coursework requirements site:${host}`,
             ]
           : []),
         ...(program.professionSlug === "occupational-therapy"
