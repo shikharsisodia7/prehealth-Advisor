@@ -98,6 +98,8 @@ const KEYWORDS = [
   "apply", "eligibility", "prospective", "application-requirements", "catalog", "handbook",
   "curriculum", "coursework", "bsn", "absn", "msn", "mepn", "dpt", "otd", "pharmd",
   "leveling", "communication-sciences", "communication-disorders", "pre-pharmacy", "csd",
+  "checksheet", "plan-of-study", "course-list", "required-coursework", "pre-professional",
+  "non-csd", "background-course", "prerequisite-coursework", "academic-requirements",
 ];
 const CONCURRENCY = Number(process.env.COMPLETION_CONCURRENCY || 3);
 const PER_DOMAIN_DELAY_MS = 900;
@@ -115,9 +117,9 @@ type Stage =
 // a previously-broken dependency fixed, etc). Programs that exhausted their attempt budget under
 // an older generation get exactly one fresh attempt under the new one, without losing their prior
 // failure history (state[id].error still holds the last message from whichever generation).
-// Gen 3: re-open attempt-limit source_blocked rows for another discovery pass now that
-// nursing/PA success rates are high and many SLP schools were blocked too aggressively.
-const CURRENT_PIPELINE_GEN = 3;
+// Gen 4: news/media URL filtering + expanded SLP/nursing/medicine/pharmacy/postbac discovery
+// queries + deeper department crawl — re-queue gen-3 exhausted "no usable list" failures.
+const CURRENT_PIPELINE_GEN = 4;
 
 interface ProgramState {
   stage: Stage;
@@ -944,6 +946,19 @@ function keywordLinks(html: string, base: string, professionTerms: string[]): st
 const PREREQ_PAGE_HINT =
   /prerequi|pre-requisit|required courses|admission requirements|course requirements|prerequisite coursework|minimum requirements|leveling|pre-professional|pre-pharmacy|pre-nursing|communication sciences|communication disorders|non-csd|csd background|essential functions|applicant requirements|coursework requirements|academic requirements/i;
 
+/** Detect SPA/bot shells that look "fetched" but lack usable course text. */
+function looksLikeJsShell(html: string, text: string): boolean {
+  if (text.length >= 2500) return false;
+  const h = html.slice(0, 8000).toLowerCase();
+  if (/__next_data__|window\.__nuxt|ng-version=|data-reactroot|id=["']root["']|id=["']app["']/i.test(h) && text.length < 1200) {
+    return true;
+  }
+  if (/enable javascript|please enable cookies|checking your browser|cf-browser-verification|attention required/i.test(text)) {
+    return true;
+  }
+  return text.length < 500 && /<script/i.test(html);
+}
+
 /** BFS same-domain crawl from program website — primary discovery when search APIs are blocked. */
 async function crawlSiteForCandidates(
   seedUrl: string,
@@ -952,6 +967,15 @@ async function crawlSiteForCandidates(
   maxPages = 18,
 ): Promise<string[]> {
   if (!seedUrl || seedUrl.startsWith("cache:") || isDirectoryHubUrl(seedUrl)) return [];
+  // Hard professions need a deeper crawl — department hubs rarely list courses on the landing page.
+  const hard =
+    /speech-language-pathology|nursing|medicine|pharmacy|postbac|occupational-therapy|physical-therapy/.test(
+      program.professionSlug,
+    );
+  if (hard) {
+    maxDepth = Math.max(maxDepth, 4);
+    maxPages = Math.max(maxPages, 28);
+  }
   // PDFs are allowed — fetchWithFallback/extractPdfText can read them without Firecrawl.
   const seen = new Set<string>();
   const found: string[] = [];
@@ -969,7 +993,7 @@ async function crawlSiteForCandidates(
       let page: Fetched;
       try {
         page = await fetchOfficial(url);
-        if (page.text.length < 400) {
+        if (page.text.length < 400 || looksLikeJsShell(page.html, page.text)) {
           try { page = await fetchWithFallback(url); } catch { /* keep thin official page */ }
         }
       } catch {
@@ -979,7 +1003,7 @@ async function crawlSiteForCandidates(
         found.push(page.url);
       }
       if (depth >= maxDepth) continue;
-      for (const link of keywordLinks(page.html, page.url, terms).slice(0, 10)) {
+      for (const link of keywordLinks(page.html, page.url, terms).slice(0, 12)) {
         const linkKey = link.split("#")[0];
         if (!seen.has(linkKey) && !isDirectoryHubUrl(link) && !isLowValueCandidate(link)) {
           queue.push({ url: link, depth: depth + 1 });
@@ -1555,7 +1579,7 @@ async function fetchWithFallback(url: string): Promise<Fetched> {
   }
   try {
     const fetched = await fetchOfficial(url);
-    if (fetched.text.length >= 300) return fetched;
+    if (fetched.text.length >= 300 && !looksLikeJsShell(fetched.html, fetched.text)) return fetched;
     if (JINA_KEY) {
       try { return await fetchJinaReader(url); } catch { /* fall through */ }
     }
@@ -1565,7 +1589,7 @@ async function fetchWithFallback(url: string): Promise<Fetched> {
     if (FIRECRAWL_KEY) {
       try { return await firecrawlScrape(url); } catch { /* fall through */ }
     }
-    // Thin content from plain fetch usually means client-rendered JS — render it locally.
+    // Thin content / JS shell from plain fetch — render it locally.
     try { return await fetchRendered(url); } catch { /* fall through */ }
     return fetched;
   } catch (e) {
