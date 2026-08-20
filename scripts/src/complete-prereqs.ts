@@ -1090,13 +1090,18 @@ async function discoverCandidates(program: ProgramRow): Promise<string[]> {
           ? [
               `${program.name} PharmD prerequisite courses site:${host}`,
               `${program.name} pre-pharmacy requirements site:${host}`,
+              `${program.name} PharmD admission requirements checklist PDF site:${host}`,
             ]
           : []),
         ...(program.professionSlug === "medicine"
           ? [
               `${program.name} medical school prerequisite courses site:${host}`,
               `${program.name} MD admission requirements coursework site:${host}`,
+              `${program.name} DO admission requirements coursework site:${host}`,
               `${program.name} AMCAS prerequisites site:${host}`,
+              `${program.name} AACOMAS prerequisites site:${host}`,
+              `${program.name} medical school competency based admissions site:${host}`,
+              `${program.name} entering class requirements coursework site:${host}`,
             ]
           : []),
         ...(program.professionSlug === "postbac"
