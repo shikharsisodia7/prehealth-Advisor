@@ -41,7 +41,7 @@
  },
  "608": {
   "stage": "extracted",
-  "lastAttempt": "2026-08-20T21:57:32.465Z",
+  "lastAttempt": "2026-08-20T21:58:12.443Z",
   "attempts": 1,
   "pipelineGen": 4,
   "sourceUrl": "https://www.bsu.edu/admissions/graduate/apply?dyno=grad-certificate-nursing-family-nurse-practitioner"
@@ -103,12 +103,11 @@
   "sourceUrl": "https://www.mcphs.edu/admission-and-aid/undergraduate-applicants/international-applicants"
  },
  "748": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-20T21:16:29.412Z",
-  "attempts": 3,
-  "error": "https://msu.edu/: too little text",
-  "pipelineGen": 3,
-  "sourceUrl": "https://msu.edu/"
+  "stage": "extracted",
+  "lastAttempt": "2026-08-20T21:59:44.117Z",
+  "attempts": 1,
+  "pipelineGen": 4,
+  "sourceUrl": "https://msuspartans.com/"
  },
  "749": {
   "stage": "finalized",
@@ -144,7 +143,7 @@
  },
  "768": {
   "stage": "extracted",
-  "lastAttempt": "2026-08-20T21:57:34.716Z",
+  "lastAttempt": "2026-08-20T21:58:14.974Z",
   "attempts": 1,
   "pipelineGen": 4,
   "sourceUrl": "https://www.nyu.edu/"
@@ -166,11 +165,12 @@
   "sourceUrl": "https://www.nku.edu/admissions-aid/index.html"
  },
  "776": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-20T21:57:05.727Z",
+  "stage": "finalized",
+  "lastAttempt": "2026-08-20T21:58:37.915Z",
   "attempts": 1,
   "pipelineGen": 4,
-  "sourceUrl": "https://documentproviderviewer.nsula.edu/?id=18394"
+  "sourceUrl": "https://documentproviderviewer.nsula.edu/?id=17753",
+  "finalStatus": "verified"
  },
  "777": {
   "stage": "failed",
@@ -205,15 +205,15 @@
   "sourceUrl": "https://www.pennwest.edu/admissions/undergraduate/index.php"
  },
  "786": {
-  "stage": "source_discovery",
-  "lastAttempt": "2026-08-20T21:55:53.847Z",
+  "stage": "extracted",
+  "lastAttempt": "2026-08-20T21:59:44.848Z",
   "attempts": 1,
   "pipelineGen": 4,
   "sourceUrl": "https://www.purdue.edu/hhs/nur/"
  },
  "787": {
-  "stage": "source_discovery",
-  "lastAttempt": "2026-08-20T21:57:57.646Z",
+  "stage": "source_fetched",
+  "lastAttempt": "2026-08-20T21:59:43.114Z",
   "attempts": 1,
   "pipelineGen": 4,
   "sourceUrl": "https://admissions.purdue.edu/"
