@@ -1883,8 +1883,8 @@
   "finalStatus": "verified"
  },
  "2126": {
-  "stage": "source_discovery",
-  "lastAttempt": "2026-08-20T21:19:10.009Z",
+  "stage": "extracted",
+  "lastAttempt": "2026-08-20T21:31:49.908Z",
   "attempts": 3,
   "pipelineGen": 3,
   "sourceUrl": "https://medcoe.army.mil/dotd/"
@@ -2184,9 +2184,10 @@
   "pipelineGen": 3
  },
  "2568": {
-  "stage": "source_discovery",
-  "lastAttempt": "2026-08-20T21:30:37.330Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-20T21:31:32.493Z",
   "attempts": 3,
+  "error": "https://www.pennwest.edu/: no usable prereq list || https://www.pennwest.edu/admissions/graduate/index.php: no usable prereq list || https://www.pennwest.edu/: no usable prereq list",
   "pipelineGen": 3,
   "sourceUrl": "https://www.pennwest.edu/admissions/undergraduate/index.php"
  },
@@ -2199,9 +2200,10 @@
   "sourceUrl": "https://campuslife.tcnj.edu/"
  },
  "2571": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-20T21:30:01.582Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-20T21:31:00.993Z",
   "attempts": 3,
+  "error": "https://www.strose.edu/about/past-college-catalogs/: no usable prereq list || https://www.strose.edu/: no usable prereq list",
   "pipelineGen": 3,
   "sourceUrl": "https://www.strose.edu/"
  },
@@ -2258,10 +2260,10 @@
  },
  "2592": {
   "stage": "source_fetched",
-  "lastAttempt": "2026-08-20T20:14:41.478Z",
-  "attempts": 1,
+  "lastAttempt": "2026-08-20T21:31:55.049Z",
+  "attempts": 2,
   "pipelineGen": 3,
-  "sourceUrl": "https://emerson.edu/admission-aid/"
+  "sourceUrl": "https://emerson.edu/admission-aid/graduate-admissions/"
  },
  "2593": {
   "stage": "failed",
@@ -2295,10 +2297,9 @@
   "pipelineGen": 3
  },
  "2599": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-20T21:06:40.290Z",
-  "attempts": 2,
-  "error": "https://www.fhsu.edu/admissions/admission-requirements/: no usable prereq list || https://www.fhsu.edu/international/admissions/: no usable prereq list || https://www.fhsu.edu/academic/gradschl/admission/: no usable prereq list || https://www.fhsu.edu/commsciencesanddisorders/: no usable prereq list",
+  "stage": "source_discovery",
+  "lastAttempt": "2026-08-20T21:31:49.104Z",
+  "attempts": 3,
   "pipelineGen": 3,
   "sourceUrl": "https://www.fhsu.edu/commsciencesanddisorders/"
  },
@@ -2335,8 +2336,8 @@
  },
  "2608": {
   "stage": "source_discovery",
-  "lastAttempt": "2026-08-20T20:14:10.790Z",
-  "attempts": 1,
+  "lastAttempt": "2026-08-20T21:31:33.049Z",
+  "attempts": 2,
   "pipelineGen": 3
  },
  "2611": {
@@ -2761,9 +2762,10 @@
   "finalStatus": "verified"
  },
  "2783": {
-  "stage": "source_discovery",
-  "lastAttempt": "2026-08-20T21:30:33.554Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-20T21:31:49.032Z",
   "attempts": 3,
+  "error": "https://www.unomaha.edu/college-of-education-health-and-human-sciences/special-education-communication-disorders/graduate/speech-language-pathology.php: no usable prereq list || https://www.unomaha.edu/college-of-education-health-and-human-sciences/special-education-communication-disorders/undergraduate/index.php: no usable prereq list || https://www.unomaha.edu/college-of-education-health-and-human-sciences/special-education-communication-disorders/undergraduate/sign-language-interpreter.php: n",
   "pipelineGen": 3,
   "sourceUrl": "https://www.unomaha.edu/college-of-education-health-and-human-sciences/special-education-communication-disorders/graduate/dyslexia-specialist-certificate.php"
  },
