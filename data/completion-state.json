@@ -212,11 +212,10 @@
   "sourceUrl": "https://www.purdue.edu/hhs/nur/"
  },
  "787": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-20T21:18:02.450Z",
-  "attempts": 3,
-  "error": "https://www.purduecal.edu/: too little text || https://admissions.purdue.edu/: no usable prereq list",
-  "pipelineGen": 3,
+  "stage": "source_discovery",
+  "lastAttempt": "2026-08-20T21:57:57.646Z",
+  "attempts": 1,
+  "pipelineGen": 4,
   "sourceUrl": "https://admissions.purdue.edu/"
  },
  "795": {
@@ -331,9 +330,10 @@
   "sourceUrl": "https://www.umary.edu/academics/undergraduate-programs/nursing"
  },
  "873": {
-  "stage": "source_discovery",
-  "lastAttempt": "2026-08-20T21:57:26.200Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-20T21:57:57.569Z",
   "attempts": 1,
+  "error": "https://www.umkc.edu/: HTTP 404",
   "pipelineGen": 4
  },
  "896": {
