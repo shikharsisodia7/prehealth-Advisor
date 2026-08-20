@@ -2132,8 +2132,8 @@
  },
  "2546": {
   "stage": "failed",
-  "lastAttempt": "2026-08-20T21:05:50.335Z",
-  "attempts": 2,
+  "lastAttempt": "2026-08-20T21:30:38.169Z",
+  "attempts": 3,
   "error": "https://enrollment.byu.edu/admissions/preparation-recommendations: no usable prereq list",
   "pipelineGen": 3,
   "sourceUrl": "https://www.byu.edu/"
@@ -2161,9 +2161,10 @@
   "finalStatus": "verified"
  },
  "2557": {
-  "stage": "source_discovery",
-  "lastAttempt": "2026-08-20T21:29:31.892Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-20T21:30:33.021Z",
   "attempts": 3,
+  "error": "https://www.csusb.edu/join-the-pack/future-students/apply/graduate-admissions-requirements: no usable prereq list || https://www.csusb.edu/join-the-pack/future-students/apply/freshmen-admissions-requirements: no usable prereq list || https://www.csusb.edu/join-the-pack/future-students/apply/transfer-admissions-requirements: no usable prereq list || https://www.csusb.edu/graduate-studies/prospective-students/how-apply/admissions-requirements: no usable prereq list",
   "pipelineGen": 3,
   "sourceUrl": "https://www.csusb.edu/"
  },
@@ -2183,10 +2184,9 @@
   "pipelineGen": 3
  },
  "2568": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-20T21:06:24.490Z",
-  "attempts": 2,
-  "error": "https://www.pennwest.edu/: no usable prereq list || https://www.pennwest.edu/admissions/graduate/index.php: no usable prereq list || https://www.pennwest.edu/: no usable prereq list",
+  "stage": "source_discovery",
+  "lastAttempt": "2026-08-20T21:30:37.330Z",
+  "attempts": 3,
   "pipelineGen": 3,
   "sourceUrl": "https://www.pennwest.edu/admissions/undergraduate/index.php"
  },
@@ -2199,11 +2199,11 @@
   "sourceUrl": "https://campuslife.tcnj.edu/"
  },
  "2571": {
-  "stage": "source_fetched",
-  "lastAttempt": "2026-08-20T21:29:36.991Z",
+  "stage": "extracted",
+  "lastAttempt": "2026-08-20T21:30:01.582Z",
   "attempts": 3,
   "pipelineGen": 3,
-  "sourceUrl": "https://www.strose.edu/about/past-college-catalogs/"
+  "sourceUrl": "https://www.strose.edu/"
  },
  "2574": {
   "stage": "unstarted",
@@ -2244,8 +2244,8 @@
  },
  "2587": {
   "stage": "source_discovery",
-  "lastAttempt": "2026-08-20T20:13:13.401Z",
-  "attempts": 1,
+  "lastAttempt": "2026-08-20T21:30:38.242Z",
+  "attempts": 2,
   "pipelineGen": 3
  },
  "2590": {
@@ -2469,9 +2469,10 @@
   "pipelineGen": 3
  },
  "2683": {
-  "stage": "source_discovery",
-  "lastAttempt": "2026-08-20T21:29:29.880Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-20T21:29:59.219Z",
   "attempts": 3,
+  "error": "https://www.phillips.edu/: HTTP 404",
   "pipelineGen": 3
  },
  "2685": {
@@ -2588,9 +2589,10 @@
   "pipelineGen": 3
  },
  "2731": {
-  "stage": "source_discovery",
-  "lastAttempt": "2026-08-20T21:29:36.957Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-20T21:30:37.258Z",
   "attempts": 3,
+  "error": "https://tsu.edu/admissions/tiger-transfer.php: no usable prereq list || https://www.tsu.edu/admissions/tiger-transfer.php: no usable prereq list || https://www.tsu.edu/admissions/transient-visiting-admissions.php: no usable prereq list || https://www.tsu.edu/admissions/testing-center/tsi-assessment/index.php: no usable prereq list",
   "pipelineGen": 3,
   "sourceUrl": "https://www.tsu.edu/"
  },
@@ -2759,10 +2761,9 @@
   "finalStatus": "verified"
  },
  "2783": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-20T21:06:12.794Z",
-  "attempts": 2,
-  "error": "https://www.unomaha.edu/college-of-education-health-and-human-sciences/special-education-communication-disorders/graduate/speech-language-pathology.php: no usable prereq list || https://www.unomaha.edu/college-of-education-health-and-human-sciences/special-education-communication-disorders/undergraduate/index.php: no usable prereq list || https://www.unomaha.edu/college-of-education-health-and-human-sciences/special-education-communication-disorders/undergraduate/sign-language-interpreter.php: n",
+  "stage": "source_discovery",
+  "lastAttempt": "2026-08-20T21:30:33.554Z",
+  "attempts": 3,
   "pipelineGen": 3,
   "sourceUrl": "https://www.unomaha.edu/college-of-education-health-and-human-sciences/special-education-communication-disorders/graduate/dyslexia-specialist-certificate.php"
  },
