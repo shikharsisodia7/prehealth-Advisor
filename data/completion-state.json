@@ -1,17 +1,19 @@
 {
  "596": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-20T22:29:30.094Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-20T22:42:01.604Z",
   "attempts": 2,
+  "error": "https://www.aub.edu.lb/admissions/Pages/EnglishRequirements.aspx: no usable prereq list || https://www.aub.edu.lb/admissions/Pages/default.aspx: no usable prereq list || https://www.aub.edu.lb/admissions/Pages/TC/index.html: no usable prereq list || https://www.aub.edu.lb/admissions/applications/Pages/SpecialVisiting.aspx: no usable prereq list",
   "pipelineGen": 4,
   "sourceUrl": "https://www.aub.edu.lb/hson/Pages/Nursing-summer-camp.aspx"
  },
  "599": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-20T22:29:22.107Z",
+  "stage": "finalized",
+  "lastAttempt": "2026-08-20T22:30:39.347Z",
   "attempts": 1,
   "pipelineGen": 4,
-  "sourceUrl": "https://degrees.asu.edu/masters-phd/major/ASU00/NUANPAGDNP/advanced-nursing-practice-adult-gerontology-nurse-practitioner-dnp"
+  "sourceUrl": "https://degrees.asu.edu/masters-phd/major/ASU00/NUNRENPRMS/nursing-entry-to-nursing-practice-ms",
+  "finalStatus": "verified"
  },
  "600": {
   "stage": "finalized",
@@ -54,10 +56,9 @@
   "sourceUrl": "https://www.bsu.edu/admissions/graduate/apply?dyno=grad-certificate-nursing-family-nurse-practitioner"
  },
  "610": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-20T21:54:08.082Z",
-  "attempts": 1,
-  "error": "https://nursing.baylor.edu/admissions: no usable prereq list || https://nursing.baylor.edu/: no usable prereq list || https://nursing.baylor.edu/: no usable prereq list || https://nursing.baylor.edu/global: no usable prereq list",
+  "stage": "extracted",
+  "lastAttempt": "2026-08-20T22:48:33.521Z",
+  "attempts": 2,
   "pipelineGen": 4,
   "sourceUrl": "https://nursing.baylor.edu/academics/undergraduate-bsn-program-resources/traditional-bsn-track/faqs"
  },
@@ -86,10 +87,9 @@
   "finalStatus": "verified"
  },
  "706": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-20T21:55:53.775Z",
-  "attempts": 1,
-  "error": "https://www.usi.edu/health/graduate-nursing-program/graduate-nursing-handbook/clinical-practice-requirements/course-requirements: no usable prereq list || https://www.usi.edu/health/graduate-nursing-program/graduate-nursing-handbook/full-admission-requirements-to-the-graduate-nursing-program: no usable prereq list || https://www.usi.edu/health/graduate-nursing-program/graduate-nursing-handbook/clinical-practice-requirements: no usable prereq list || https://www.usi.edu/health/nursing/bsn-program",
+  "stage": "extracted",
+  "lastAttempt": "2026-08-20T22:47:05.026Z",
+  "attempts": 2,
   "pipelineGen": 4,
   "sourceUrl": "https://www.usi.edu/graduatestudies/admission-to-graduate-programs"
  },
@@ -142,10 +142,9 @@
   "finalStatus": "verified"
  },
  "766": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-20T21:50:57.509Z",
-  "attempts": 1,
-  "error": "https://www.kean.edu/offices/admissions-0/special-program-admissions-requirements: no usable prereq list || https://www.kean.edu/offices/admissions/contact-admissions: no usable prereq list || https://www.kean.edu/offices/admissions/non-matriculatedvisiting-students: no usable prereq list || https://www.kean.edu/offices/admissions/transfer-admissions/transfer-application-instructions: no usable prereq list",
+  "stage": "extracted",
+  "lastAttempt": "2026-08-20T22:48:14.574Z",
+  "attempts": 2,
   "pipelineGen": 4,
   "sourceUrl": "https://www.kean.edu/kean-jersey-city/apply"
  },
@@ -203,9 +202,10 @@
   "finalStatus": "verified"
  },
  "785": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-20T22:29:38.446Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-20T22:44:47.210Z",
   "attempts": 2,
+  "error": "https://www.pennwest.edu/: no usable prereq list || https://www.pennwest.edu/admissions/graduate/index.php: no usable prereq list || https://www.pennwest.edu/admissions/graduate/: no usable prereq list || https://www.pennwest.edu/: no usable prereq list",
   "pipelineGen": 4,
   "sourceUrl": "https://www.pennwest.edu/admissions/undergraduate/index.php"
  },
@@ -233,35 +233,34 @@
   "sourceUrl": "https://snhs.rmu.edu/"
  },
  "799": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-20T21:50:27.841Z",
-  "attempts": 1,
-  "error": "https://admissions.rutgers.edu/apply: no usable prereq list || https://admissions.camden.rutgers.edu/camden-graduate-admissions: no usable prereq list",
+  "stage": "extracted",
+  "lastAttempt": "2026-08-20T22:49:12.027Z",
+  "attempts": 2,
   "pipelineGen": 4,
   "sourceUrl": "https://gradstudy.rutgers.edu/"
  },
  "803": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-20T22:27:56.098Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-20T22:40:53.334Z",
   "attempts": 2,
+  "error": "https://www.stedwards.edu/admission: no usable prereq list || https://www.stedwards.edu/admission/graduate/deadlines-checklist: no usable prereq list || https://www.stedwards.edu/admission/admission-counselors: no usable prereq list",
   "pipelineGen": 4,
   "sourceUrl": "https://www.stedwards.edu/admission/undergraduate"
  },
  "821": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-20T21:51:38.218Z",
-  "attempts": 1,
-  "error": "https://www.siue.edu/academics/graduate/degrees-and-programs/nursing-administration/: no usable prereq list || https://www.siue.edu/academics/graduate/degrees-and-programs/healthcare-informatics-nursing-administration/: no usable prereq list || https://www.siue.edu/academics/undergraduate/degrees-and-programs/nursing/traditional/admission-requirements.shtml: no usable prereq list || https://www.siue.edu/academics/undergraduate/degrees-and-programs/nursing/accelerated-nursing/: no usable prereq l",
+  "stage": "extracted",
+  "lastAttempt": "2026-08-20T22:51:15.160Z",
+  "attempts": 2,
   "pipelineGen": 4,
   "sourceUrl": "https://www.siue.edu/academics/undergraduate/degrees-and-programs/nursing/traditional/degree-requirements.shtml"
  },
  "827": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-20T21:52:55.139Z",
-  "attempts": 1,
-  "error": "https://temple.edu/academics/degree-programs/graduate-programs/nursing-dnp-nurs/nursing-dnp-labs-research-centers: HTTP 503 || https://temple.edu/academics/degree-programs/undergraduate-majors-minors/nursing-major-bsnurs-nurs/required-courses: HTTP 404 || https://temple.edu/academics/degree-programs/undergraduate-majors-minors/nursing-major-bsnurs-nurs/ug-nursing-scholarships-and-aid: HTTP 404 || https://www.temple.edu/academics/degree-programs/nursing-major-hp-nur4-bsnu/admissions: no usable pr",
+  "stage": "finalized",
+  "lastAttempt": "2026-08-20T22:50:28.049Z",
+  "attempts": 2,
   "pipelineGen": 4,
-  "sourceUrl": "https://www.temple.edu/academics/degree-programs/nursing-major-hp-nura-bsnu"
+  "sourceUrl": "https://www.temple.edu/academics/degree-programs/nursing-major-hp-nura-bsnu/admissions",
+  "finalStatus": "verified"
  },
  "830": {
   "stage": "finalized",
@@ -437,9 +436,10 @@
   "finalStatus": "verified"
  },
  "997": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-20T22:28:58.551Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-20T22:45:39.019Z",
   "attempts": 2,
+  "error": "https://www.towson.edu/chp/departments/nursing/facultystaff/: no usable prereq list || https://www.towson.edu/chp/departments/nursing/studentorgs/: no usable prereq list || https://www.towson.edu/chp/departments/nursing/scholarships.html: no usable prereq list || https://www.towson.edu/chp/departments/nursing/undergrad/nursing/: no usable prereq list",
   "pipelineGen": 4,
   "sourceUrl": "https://www.towson.edu/chp/departments/nursing/whystudy/"
  },
@@ -476,9 +476,10 @@
   "finalStatus": "verified"
  },
  "1013": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-20T22:29:54.606Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-20T22:47:56.377Z",
   "attempts": 2,
+  "error": "https://www.unlv.edu/nursing: no usable prereq list || https://www.unlv.edu/nursing/graduate-studies: no usable prereq list || https://www.unlv.edu/announcement/school-nursing/unlv-school-nursings-online-bsn-dnp-program-named-among-nations-top-20: OpenAI HTTP 429: {\n    \"error\": {\n        \"message\": \"Rate limit reached for gpt-4o-mini in organization org-kRjpmgXqcLrwkVTY20gVZyOd on requests per day (RPD): Limit 10000, Used 10000, Requested 1. Please try again in 8.64s. Visit https://platform.ope",
   "pipelineGen": 4,
   "sourceUrl": "https://www.unlv.edu/nursing/bsn/compliance"
  },
@@ -492,19 +493,26 @@
  },
  "1016": {
   "stage": "failed",
-  "lastAttempt": "2026-08-20T21:49:22.099Z",
-  "attempts": 1,
+  "lastAttempt": "2026-08-20T22:47:06.003Z",
+  "attempts": 2,
   "error": "https://www.nursing.upenn.edu/bachelor-of-science-in-nursing-bsn/: no usable prereq list",
   "pipelineGen": 4,
   "sourceUrl": "https://www.nursing.upenn.edu/academics/a-penn-nursing-education/undergraduate-honors-program/"
  },
  "1019": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-20T21:55:13.751Z",
-  "attempts": 1,
-  "error": "https://www.sandiego.edu/nursing/students-and-alumni/global.php: too little text || https://www.sandiego.edu/nursing/about/: no usable prereq list || https://www.sandiego.edu/nursing/about/: no usable prereq list || https://www.sandiego.edu/nursing/about/: no usable prereq list",
+  "stage": "extracted",
+  "lastAttempt": "2026-08-20T22:54:43.066Z",
+  "attempts": 2,
   "pipelineGen": 4,
-  "sourceUrl": "https://www.sandiego.edu/nursing/students-and-alumni/global.php"
+  "sourceUrl": "https://www.sandiego.edu/nursing/about/"
+ },
+ "1027": {
+  "stage": "finalized",
+  "lastAttempt": "2026-08-20T22:42:06.555Z",
+  "attempts": 1,
+  "pipelineGen": 4,
+  "sourceUrl": "https://uwf.edu/programs/online/nursing-rn-to-bsn/",
+  "finalStatus": "verified"
  },
  "1028": {
   "stage": "failed",
