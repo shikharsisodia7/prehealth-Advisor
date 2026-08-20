@@ -256,10 +256,10 @@
  },
  "1896": {
   "stage": "source_fetched",
-  "lastAttempt": "2026-08-20T18:44:19.341Z",
+  "lastAttempt": "2026-08-20T18:46:20.241Z",
   "attempts": 1,
   "pipelineGen": 2,
-  "sourceUrl": "https://undergrad.nova.edu/academics/premier-programs/dual-admission/physician-assistant/index.html"
+  "sourceUrl": "https://md.nova.edu/academic-departments/physician-assistant/index.html"
  },
  "1897": {
   "stage": "finalized",
@@ -295,10 +295,10 @@
  },
  "1904": {
   "stage": "source_fetched",
-  "lastAttempt": "2026-08-20T18:45:27.438Z",
+  "lastAttempt": "2026-08-20T18:46:16.502Z",
   "attempts": 1,
   "pipelineGen": 2,
-  "sourceUrl": "https://www.augusta.edu/alliedhealth/physician-assistant/"
+  "sourceUrl": "https://www.augusta.edu/admissions/apply.php"
  },
  "1906": {
   "stage": "finalized",
@@ -416,17 +416,47 @@
   "finalStatus": "verified"
  },
  "1929": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-20T18:45:31.913Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-20T18:45:55.315Z",
   "attempts": 1,
+  "error": "https://indianastate.edu/media/1674/download?inline: PDF extract failed:  || https://indianastate.edu/media/3593/download?inline: PDF extract failed:  || https://indianastate.edu/media/1684/download: PDF extract failed:  || https://indianastate.edu/academics/colleges/health-human-services/pa/isu-physician-assistant-veteran-outreach: no usable prereq list",
   "pipelineGen": 2,
   "sourceUrl": "https://indianastate.edu/academics/colleges/health-human-services/amr/pa/physician-assistant-program-information"
  },
  "1930": {
-  "stage": "source_fetched",
-  "lastAttempt": "2026-08-20T18:45:26.408Z",
+  "stage": "finalized",
+  "lastAttempt": "2026-08-20T18:45:41.936Z",
   "attempts": 1,
   "pipelineGen": 2,
-  "sourceUrl": "https://graduate.indianapolis.iu.edu/admissions/apply.html"
+  "sourceUrl": "https://shhs.indianapolis.iu.edu/academics/prerequisite-courses.html",
+  "finalStatus": "verified"
+ },
+ "1931": {
+  "stage": "finalized",
+  "lastAttempt": "2026-08-20T18:46:03.424Z",
+  "attempts": 1,
+  "pipelineGen": 2,
+  "sourceUrl": "https://www.taylor.edu/academics/degrees/physician-assistant/admissions",
+  "finalStatus": "verified"
+ },
+ "1932": {
+  "stage": "finalized",
+  "lastAttempt": "2026-08-20T18:46:20.585Z",
+  "attempts": 1,
+  "pipelineGen": 2,
+  "sourceUrl": "https://www.trine.edu/academics/majors-degrees/graduate/master-physician-assistant-studies/admission-requirements.aspx",
+  "finalStatus": "verified"
+ },
+ "1933": {
+  "stage": "source_discovery",
+  "lastAttempt": "2026-08-20T18:46:03.427Z",
+  "attempts": 1,
+  "pipelineGen": 2
+ },
+ "1937": {
+  "stage": "source_discovery",
+  "lastAttempt": "2026-08-20T18:46:20.587Z",
+  "attempts": 1,
+  "pipelineGen": 2
  }
 }
