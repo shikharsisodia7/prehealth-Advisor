@@ -1568,11 +1568,12 @@
   "finalStatus": "verified"
  },
  "2078": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-20T19:21:25.183Z",
+  "stage": "finalized",
+  "lastAttempt": "2026-08-20T19:21:36.780Z",
   "attempts": 1,
   "pipelineGen": 3,
-  "sourceUrl": "https://www.carlow.edu/wp-content/uploads/2026/03/A3.09a-Carlow_PA_Admissions_Policy.pdf"
+  "sourceUrl": "https://www.carlow.edu/wp-content/uploads/2026/03/A3.09a-Carlow_PA_Admissions_Policy.pdf",
+  "finalStatus": "verified"
  },
  "2080": {
   "stage": "source_discovery",
@@ -1637,8 +1638,8 @@
   "finalStatus": "verified"
  },
  "2094": {
-  "stage": "source_fetched",
-  "lastAttempt": "2026-08-20T19:21:24.650Z",
+  "stage": "extracted",
+  "lastAttempt": "2026-08-20T19:21:29.811Z",
   "attempts": 1,
   "pipelineGen": 3,
   "sourceUrl": "https://www.jefferson.edu/admissions/undergraduate/second-degree-seeking-students/apply.html"
@@ -1771,11 +1772,11 @@
   "finalStatus": "verified"
  },
  "2114": {
-  "stage": "source_discovery",
-  "lastAttempt": "2026-08-20T19:21:12.636Z",
+  "stage": "source_fetched",
+  "lastAttempt": "2026-08-20T19:21:49.956Z",
   "attempts": 1,
   "pipelineGen": 3,
-  "sourceUrl": "https://www.usd.edu/pa"
+  "sourceUrl": "https://www.usd.edu/Admissions-and-Aid/Graduate-Admissions/How-to-Apply/Specialty-Graduate-Program-Applications"
  },
  "2115": {
   "stage": "finalized",
@@ -1810,12 +1811,11 @@
   "finalStatus": "verified"
  },
  "2120": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-20T19:05:12.141Z",
+  "stage": "extracted",
+  "lastAttempt": "2026-08-20T19:21:48.084Z",
   "attempts": 1,
-  "error": "https://www.mtsu.edu/wp-content/uploads/2023/10/Student-Handbook-2026-final.pdf: PDF extract failed:  || https://www.mtsu.edu/program/physician-assistant-studies-m-s/: no usable prereq list || https://www.mtsu.edu/program/physician-assistant-studies-m-s/: no usable prereq list || https://www.mtsu.edu/wp-content/uploads/2024/03/Clinical-Preceptor2024.docx: no usable prereq list",
-  "pipelineGen": 2,
-  "sourceUrl": "https://www.mtsu.edu/wp-content/uploads/2024/03/Clinical-Preceptor2024.docx"
+  "pipelineGen": 3,
+  "sourceUrl": "https://www.mtsu.edu/wp-content/uploads/2023/10/Student-Handbook-2026-final.pdf"
  },
  "2125": {
   "stage": "finalized",
