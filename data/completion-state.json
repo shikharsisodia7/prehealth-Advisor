@@ -255,10 +255,11 @@
   "finalStatus": "verified"
  },
  "1896": {
-  "stage": "source_discovery",
-  "lastAttempt": "2026-08-20T18:38:50.742Z",
+  "stage": "source_fetched",
+  "lastAttempt": "2026-08-20T18:44:19.341Z",
   "attempts": 1,
-  "pipelineGen": 2
+  "pipelineGen": 2,
+  "sourceUrl": "https://undergrad.nova.edu/academics/premier-programs/dual-admission/physician-assistant/index.html"
  },
  "1897": {
   "stage": "finalized",
@@ -293,10 +294,11 @@
   "finalStatus": "verified"
  },
  "1904": {
-  "stage": "source_discovery",
-  "lastAttempt": "2026-08-20T18:39:33.039Z",
+  "stage": "source_fetched",
+  "lastAttempt": "2026-08-20T18:45:27.438Z",
   "attempts": 1,
-  "pipelineGen": 2
+  "pipelineGen": 2,
+  "sourceUrl": "https://www.augusta.edu/alliedhealth/physician-assistant/"
  },
  "1906": {
   "stage": "finalized",
@@ -336,11 +338,12 @@
   "pipelineGen": 2
  },
  "1914": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-20T18:42:25.853Z",
+  "stage": "finalized",
+  "lastAttempt": "2026-08-20T18:42:34.592Z",
   "attempts": 1,
   "pipelineGen": 2,
-  "sourceUrl": "https://sau.edu/admissions/international-students/undergraduate-requirements/"
+  "sourceUrl": "https://sau.edu/academic-programs/masters/health-sciences/mpas/",
+  "finalStatus": "verified"
  },
  "1915": {
   "stage": "finalized",
@@ -365,9 +368,65 @@
   "pipelineGen": 2
  },
  "1919": {
-  "stage": "source_discovery",
-  "lastAttempt": "2026-08-20T18:42:20.335Z",
+  "stage": "finalized",
+  "lastAttempt": "2026-08-20T18:42:58.695Z",
   "attempts": 1,
-  "pipelineGen": 2
+  "pipelineGen": 2,
+  "sourceUrl": "https://www.dom.edu/academics/grad-phd/health-sciences/mms-physician-assistant-studies/prerequisite-coursework",
+  "finalStatus": "verified"
+ },
+ "1920": {
+  "stage": "finalized",
+  "lastAttempt": "2026-08-20T18:43:06.467Z",
+  "attempts": 1,
+  "pipelineGen": 2,
+  "sourceUrl": "https://catalog.il.midwestern.edu/admissions-2",
+  "finalStatus": "verified"
+ },
+ "1922": {
+  "stage": "finalized",
+  "lastAttempt": "2026-08-20T18:43:53.389Z",
+  "attempts": 1,
+  "pipelineGen": 2,
+  "sourceUrl": "https://www.feinberg.northwestern.edu/sites/pa/curriculum/timeline.html",
+  "finalStatus": "verified"
+ },
+ "1923": {
+  "stage": "finalized",
+  "lastAttempt": "2026-08-20T18:43:29.484Z",
+  "attempts": 1,
+  "pipelineGen": 2,
+  "sourceUrl": "https://www.rosalindfranklin.edu/academics/college-of-health-professions/degree-programs/physician-assistant-practice-ms/application-requirements/",
+  "finalStatus": "verified"
+ },
+ "1926": {
+  "stage": "failed",
+  "lastAttempt": "2026-08-20T18:44:52.483Z",
+  "attempts": 1,
+  "error": "https://illinois.touro.edu/physician-assistant/: no usable prereq list || https://illinois.touro.edu/physician-assistant/academics/: no usable prereq list || https://illinois.touro.edu/physician-assistant/mission-goals--outcomes/: no usable prereq list || https://illinois.touro.edu/physician-assistant/academics/courses/: no usable prereq list",
+  "pipelineGen": 2,
+  "sourceUrl": "https://illinois.touro.edu/physician-assistant/mission-goals--outcomes/pance-scores/"
+ },
+ "1927": {
+  "stage": "finalized",
+  "lastAttempt": "2026-08-20T18:44:36.163Z",
+  "attempts": 1,
+  "pipelineGen": 2,
+  "sourceUrl": "https://www.butler.edu/health-professions/physician-assistant/admission/",
+  "finalStatus": "verified"
+ },
+ "1929": {
+  "stage": "extracted",
+  "lastAttempt": "2026-08-20T18:45:31.913Z",
+  "attempts": 1,
+  "pipelineGen": 2,
+  "sourceUrl": "https://indianastate.edu/academics/colleges/health-human-services/amr/pa/physician-assistant-program-information"
+ },
+ "1930": {
+  "stage": "source_fetched",
+  "lastAttempt": "2026-08-20T18:45:26.408Z",
+  "attempts": 1,
+  "pipelineGen": 2,
+  "sourceUrl": "https://graduate.indianapolis.iu.edu/admissions/apply.html"
  }
 }

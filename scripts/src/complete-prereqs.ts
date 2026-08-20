@@ -115,7 +115,9 @@ type Stage =
 // a previously-broken dependency fixed, etc). Programs that exhausted their attempt budget under
 // an older generation get exactly one fresh attempt under the new one, without losing their prior
 // failure history (state[id].error still holds the last message from whichever generation).
-const CURRENT_PIPELINE_GEN = 2;
+// Gen 3: re-open attempt-limit source_blocked rows for another discovery pass now that
+// nursing/PA success rates are high and many SLP schools were blocked too aggressively.
+const CURRENT_PIPELINE_GEN = 3;
 
 interface ProgramState {
   stage: Stage;
@@ -1668,6 +1670,36 @@ async function main() {
   }
   if (!OPENAI_KEY) throw new Error("OPENAI_API_KEY is required for structured extraction");
 
+  // On a new pipeline generation, reopen attempt-limit source_blocked rows so they get another
+  // real discovery pass instead of remaining permanently blocked from older worker limits.
+  if (allUnfinished || retryFailures) {
+    const reopenNote = ` | Reopened for pipeline gen ${CURRENT_PIPELINE_GEN} retry (prior attempt-limit block is not a final professor outcome).`;
+    const reopened = await db.execute(sql`
+      update program_schools
+      set verification_status = 'needs_review',
+          verification_note = left(coalesce(verification_note,'') || ${reopenNote}, 2000)
+      where directory_status = 'active'
+        and verification_status = 'source_blocked'
+        and verification_note ilike '%Genuinely source-blocked after%attempts%'
+      returning id
+    `);
+    const ids = (((reopened as unknown as { rows?: Array<{ id: number }> }).rows) ?? []);
+    for (const row of ids) {
+      const prev = state[row.id];
+      state[row.id] = {
+        stage: "unstarted",
+        lastAttempt: new Date().toISOString(),
+        attempts: Math.min(prev?.attempts ?? 0, 2),
+        error: `reopened for pipeline gen ${CURRENT_PIPELINE_GEN}`,
+        pipelineGen: CURRENT_PIPELINE_GEN,
+      };
+    }
+    if (ids.length) {
+      saveState();
+      console.log(`Reopened ${ids.length} attempt-limit source_blocked program(s) for pipeline gen ${CURRENT_PIPELINE_GEN}.`);
+    }
+  }
+
   const [{ count, dbName }] = await db
     .select({
       count: sql<number>`count(*)::int`,
@@ -1702,7 +1734,7 @@ async function main() {
   // is a round where a program that failed once, and might succeed on a second try, does not get
   // that try. Past this many total attempts, individually document it as source_blocked instead
   // of retrying it again.
-  const MAX_ATTEMPTS_BEFORE_BLOCKED = 12;
+  const MAX_ATTEMPTS_BEFORE_BLOCKED = 18;
   let queue = (rows as ProgramRow[]).filter((r) => {
     const s = state[r.id];
     if (s?.stage === "finalized") return false;
