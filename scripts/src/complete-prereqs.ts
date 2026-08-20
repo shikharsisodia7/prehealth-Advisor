@@ -479,6 +479,10 @@ function isLowValueCandidate(url: string): boolean {
       !/nursing|absn|mepn|prerequisite|accelerated/.test(hay)) {
     return true;
   }
+  if (/library\.|\/library\/|iucat\.|worldcat|summer-camp|studentorgs|facultystaff|faculty-staff|alumni|giving|donate/i.test(hay) &&
+      !/prereq|admission|requirement|nursing|slp|csd|dpt|otd|pharm/i.test(hay)) {
+    return true;
+  }
   return false;
 }
 
@@ -1335,24 +1339,30 @@ function toPrereqItem(c: ExtractedCourse): PrereqItem {
 }
 
 const PLACEHOLDER_NAME = /^(prerequisite|required)?\s*course\s*\d*$|^(course|subject|requirement)\s+\d+$/i;
-const SUBJECT_HINT = /biolog|chem|physic|anatom|physiol|psych|stat|math|calc|english|writ|composit|sociolog|microbio|genetic|biochem|kinesiol|nutrit|exercise|humanit|social|science|communicat|econom|algebra|literature|history|language|medical|terminolog|gpa|gre|degree|bachelor|experience|hours|observ|shadow|cpr|certif|phonetic|audiolog|speech|hearing|aural|linguist|swallow|dysphag|voice|fluency|articulat|disorder|neurolog|csd|patholog|organic|immunolog|pathophys|lifespan|developmental|pharmacol|patient|clinical|statistics|calculus|physics|lab/i;
+const SUBJECT_HINT = /biolog|chem|physic|anatom|physiol|a\s*&\s*p|psych|stat|math|calc|english|writ|composit|sociolog|microbio|genetic|biochem|kinesiol|nutrit|exercise|humanit|social|science|communicat|econom|algebra|literature|history|language|medical|terminolog|gpa|gre|degree|bachelor|experience|hours|observ|shadow|cpr|certif|phonetic|audiolog|speech|hearing|aural|linguist|swallow|dysphag|voice|fluency|articulat|disorder|neurolog|csd|patholog|organic|immunolog|pathophys|lifespan|developmental|pharmacol|patient|clinical|statistics|calculus|physics|lab|health assessment|human development|microbiology|organic chem|general chem|nursing|holistic|epidemiolog|research methods|public health|biostat/i;
 const NO_PREREQ_ASSERTION =
   /(no|not\s+require|not\s+have|without)[^.]{0,60}prerequis|prerequis[^.]{0,60}(are\s+not|not\s+required|none)/i;
 
 function validExtraction(ex: Extraction, pageText: string, program: ProgramRow): boolean {
   const pageNorm = normalize(pageText);
-  const onTopic = professionKeywords(program.professionSlug).some((k) => pageNorm.includes(normalize(k)));
+  const onTopic =
+    professionKeywords(program.professionSlug).some((k) => pageNorm.includes(normalize(k))) ||
+    (program.professionSlug === "nursing" && /\b(bsn|msn|absn|mepn|rn\b|dnp)\b/i.test(pageText)) ||
+    (program.professionSlug === "physician-assistant" && /\b(pa\b|physician assistant|caspa)\b/i.test(pageText)) ||
+    (program.professionSlug === "medicine" && /\b(md\b|do\b|amcas|aacomas|medical school)\b/i.test(pageText));
   if (ex.statesNoPrereqs) {
     const quote = ex.noPrereqsEvidenceQuote?.trim() ?? "";
     return quote.length >= 15 && pageNorm.includes(normalize(quote)) &&
       NO_PREREQ_ASSERTION.test(quote) && onTopic;
   }
   if (!ex.hasPrereqList || !onTopic) return false;
-  if (!Array.isArray(ex.courses) || ex.courses.length < 3) return false;
+  if (!Array.isArray(ex.courses) || ex.courses.length < 2) return false;
   const names = ex.courses.map((c) => c.name ?? "");
   if (names.some((n) => typeof n !== "string" || n.length < 2 || n.length > 300)) return false;
   if (names.some((n) => PLACEHOLDER_NAME.test(n.trim()))) return false;
   const plausible = names.filter((n) => SUBJECT_HINT.test(n)).length;
+  // Short official lists (2 courses) must both be plausible subjects; longer lists need majority.
+  if (names.length <= 2) return plausible === names.length;
   return plausible >= Math.ceil(names.length / 2);
 }
 
