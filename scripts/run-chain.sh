@@ -1,18 +1,42 @@
 #!/bin/bash
-export DATABASE_URL="postgresql://neondb_owner:npg_liqbn4v7UCOS@ep-small-dream-au9wymwk-pooler.c-10.us-east-1.aws.neon.tech/prehealth_advisor?sslmode=require&channel_binding=require"
-export OPENAI_API_KEY=$(grep "^OPENAI_API_KEY=" ../.env | cut -d= -f2-)
-export FIRECRAWL_API_KEY="fc-124faa6835824a72a4f140bbd093ebab"
-export KEENABLE_API_KEY="36eb8a04-11ec-4e57-b906-f9766a3920eb"
-export JINA_API_KEY=$(grep "^JINA_API_KEY=" ../.env | cut -d= -f2-)
-export COMPLETION_CONCURRENCY=6
+# Self-recovering completion supervisor.
+# Loads secrets from repo-root .env only — never hardcode credentials here.
+set -euo pipefail
+cd "$(dirname "$0")"
+ROOT="$(cd .. && pwd)"
+ENV_FILE="$ROOT/.env"
+
+if [[ -f "$ENV_FILE" ]]; then
+  # Export KEY=VALUE lines; strip optional quotes; ignore comments/blank.
+  set -a
+  # shellcheck disable=SC1090
+  while IFS= read -r line || [[ -n "$line" ]]; do
+    line="${line#"${line%%[![:space:]]*}"}"
+    [[ -z "$line" || "$line" == \#* ]] && continue
+    [[ "$line" != *=* ]] && continue
+    key="${line%%=*}"
+    val="${line#*=}"
+    key="${key%"${key##*[![:space:]]}"}"
+    val="${val#"${val%%[![:space:]]*}"}"
+    val="${val%"${val##*[![:space:]]}"}"
+    if [[ "${val}" == \"*\" && "${val}" == *\" ]]; then val="${val:1:${#val}-2}"; fi
+    if [[ "${val}" == \'*\' && "${val}" == *\' ]]; then val="${val:1:${#val}-2}"; fi
+    export "$key=$val"
+  done < "$ENV_FILE"
+  set +a
+fi
+
+: "${DATABASE_URL:?DATABASE_URL missing from environment/.env}"
+: "${OPENAI_API_KEY:?OPENAI_API_KEY missing from environment/.env}"
+export COMPLETION_CONCURRENCY="${COMPLETION_CONCURRENCY:-6}"
 
 for round in $(seq 1 500); do
   echo "=== ROUND $round: retry-failures $(date) ===" >> chain.log
-  timeout 2400 pnpm exec tsx ./src/complete-prereqs.ts -- --retry-failures >> chain.log 2>&1
+  timeout 2400 pnpm exec tsx ./src/complete-prereqs.ts -- --retry-failures >> chain.log 2>&1 || true
   echo "=== ROUND $round: retry-failures exit=$? $(date) ===" >> chain.log
 
   echo "=== ROUND $round: all-unfinished $(date) ===" >> chain.log
-  timeout 2400 pnpm exec tsx ./src/complete-prereqs.ts -- --all-unfinished >> chain.log 2>&1
+  timeout 2400 pnpm exec tsx ./src/complete-prereqs.ts -- --all-unfinished >> chain.log 2>&1 || true
   echo "=== ROUND $round: all-unfinished exit=$? $(date) ===" >> chain.log
 done
 
