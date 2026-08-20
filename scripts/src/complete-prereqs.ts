@@ -1026,20 +1026,14 @@ async function crawlSiteForCandidates(
     if (seen.has(key)) continue;
     seen.add(key);
     try {
-      let page: Fetched;
-      try {
-        page = await fetchOfficial(url);
-        if (page.text.length < 400 || looksLikeJsShell(page.html, page.text)) {
-          try { page = await fetchWithFallback(url); } catch { /* keep thin official page */ }
-        }
-      } catch {
-        page = await fetchWithFallback(url);
-      }
+      // Crawl must stay fast: direct HTTP only. Jina/browser/PDF fallbacks run later on ranked candidates.
+      const page = await fetchOfficial(url);
       if (page.text.length >= 300 && PREREQ_PAGE_HINT.test(page.text)) {
         found.push(page.url);
       }
       if (depth >= maxDepth) continue;
-      for (const link of keywordLinks(page.html, page.url, terms).slice(0, 10)) {
+      // Thin/JS shells still expose useful <a href> targets for the next hop.
+      for (const link of keywordLinks(page.html || page.text, page.url, terms).slice(0, 10)) {
         const linkKey = link.split("#")[0];
         if (!seen.has(linkKey) && !isDirectoryHubUrl(link) && !isLowValueCandidate(link)) {
           queue.push({ url: link, depth: depth + 1 });
