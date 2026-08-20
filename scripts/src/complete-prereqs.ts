@@ -1405,6 +1405,10 @@ async function extractPdfText(url: string): Promise<Fetched> {
   if (!res.ok) throw new Error(`PDF HTTP ${res.status}`);
   const buf = Buffer.from(await res.arrayBuffer());
   if (buf.length < 100) throw new Error("PDF too small");
+  // Some "download?inline" endpoints return HTML error shells — require a real PDF header.
+  if (buf.slice(0, 5).toString("utf8") !== "%PDF-") {
+    throw new Error("PDF response missing %PDF- header");
+  }
   const tmpPdf = path.join(CACHE_DIR, `pdf-${process.pid}-${Date.now()}.pdf`);
   const tmpTxt = `${tmpPdf}.txt`;
   fs.mkdirSync(CACHE_DIR, { recursive: true });
@@ -1412,21 +1416,36 @@ async function extractPdfText(url: string): Promise<Fetched> {
   try {
     const { spawnSync } = await import("node:child_process");
     const py = `
-from pypdf import PdfReader
 import sys
-reader = PdfReader(sys.argv[1])
-parts = []
-for page in reader.pages[:40]:
+text = ""
+try:
+    from pypdf import PdfReader
+    reader = PdfReader(sys.argv[1])
+    parts = []
+    for page in reader.pages[:40]:
+        try:
+            parts.append(page.extract_text() or "")
+        except Exception:
+            pass
+    text = "\\n".join(parts).strip()
+except Exception as e:
+    sys.stderr.write(f"pypdf:{e}\\n")
+if len(text) < 200:
     try:
-        parts.append(page.extract_text() or "")
-    except Exception:
-        pass
-text = "\\n".join(parts).strip()
+        import fitz  # PyMuPDF
+        doc = fitz.open(sys.argv[1])
+        parts = []
+        for i, page in enumerate(doc):
+            if i >= 40: break
+            parts.append(page.get_text() or "")
+        text = "\\n".join(parts).strip()
+    except Exception as e:
+        sys.stderr.write(f"pymupdf:{e}\\n")
 open(sys.argv[2], "w", encoding="utf-8").write(text)
 print(len(text))
 `;
-    const first = spawnSync("python", ["-c", py, tmpPdf, tmpTxt], { encoding: "utf8", timeout: 60_000 });
-    const run = first.status === 0 ? first : spawnSync("python3", ["-c", py, tmpPdf, tmpTxt], { encoding: "utf8", timeout: 60_000 });
+    const first = spawnSync("python", ["-c", py, tmpPdf, tmpTxt], { encoding: "utf8", timeout: 90_000 });
+    const run = first.status === 0 ? first : spawnSync("python3", ["-c", py, tmpPdf, tmpTxt], { encoding: "utf8", timeout: 90_000 });
     if (run.status !== 0) {
       throw new Error(`PDF extract failed: ${(run.stderr || run.stdout || "").slice(0, 200)}`);
     }
@@ -1488,11 +1507,16 @@ async function fetchWayback(url: string): Promise<Fetched> {
 
 async function fetchWithFallback(url: string): Promise<Fetched> {
   // Prefer fast direct HTTP; use Keenable/Jina/Firecrawl for PDFs, blocks, JS shells, and fetch failures.
-  if (/\.pdf($|\?)/i.test(url)) {
+  const looksPdf = /\.pdf($|\?)/i.test(url) || /\/media\/\d+\/download/i.test(url) || /[?&]inline(?:=|$)/i.test(url);
+  if (looksPdf) {
     if (FIRECRAWL_KEY) {
       try { return await firecrawlScrape(url); } catch { /* fall through to local PDF extract */ }
     }
-    return extractPdfText(url);
+    try { return await extractPdfText(url); } catch { /* try Jina on PDF URLs */ }
+    if (JINA_KEY) {
+      try { return await fetchJinaReader(url); } catch { /* fall through */ }
+    }
+    throw new Error(`PDF extract failed for ${url}`);
   }
   try {
     const fetched = await fetchOfficial(url);
