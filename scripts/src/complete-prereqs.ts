@@ -483,6 +483,11 @@ function isLowValueCandidate(url: string): boolean {
       !/prereq|admission|requirement|nursing|slp|csd|dpt|otd|pharm/i.test(hay)) {
     return true;
   }
+  // News/media/events and tech checklists drown discovery without course lists.
+  if (/\/news\/|news-and-media|white-coat|videos?\/|spotlight|alumni-spotlight|laptop-requirements|blog\//i.test(hay) &&
+      !/prerequisite|pre-requisite|admission-requirements|coursework/i.test(hay)) {
+    return true;
+  }
   return false;
 }
 
@@ -884,6 +889,10 @@ function scoreCandidateUrl(url: string, program: ProgramRow): number {
         !hasGradOrProfessionPath(hay)) {
       score -= 8;
     }
+    if (/\/news\/|news-and-media|white-coat|videos?\/|spotlight|laptop-requirements|summer-camp|blog\//i.test(hay)) {
+      score -= 10;
+    }
+    if (/leveling|non-csd|prerequisite-courses|course-requirements|checksheet/i.test(hay)) score += 5;
     if (program.websiteUrl) {
       try {
         const host = new URL(program.websiteUrl).hostname.replace(/^www\./, "");
@@ -1074,6 +1083,8 @@ async function discoverCandidates(program: ProgramRow): Promise<string[]> {
               `${program.name} ABSN prerequisite courses site:${host}`,
               `${program.name} MEPN prerequisite courses site:${host}`,
               `${program.name} accelerated nursing prerequisites site:${host}`,
+              `${program.name} BSN prerequisite coursework site:${host}`,
+              `${program.name} nursing admission requirements biology chemistry site:${host}`,
             ]
           : []),
         ...(program.professionSlug === "speech-language-pathology"
