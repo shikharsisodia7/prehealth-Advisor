@@ -1082,6 +1082,10 @@ async function discoverCandidates(program: ProgramRow): Promise<string[]> {
               `${program.name} communication sciences disorders prerequisites site:${host}`,
               `${program.name} CSD leveling courses site:${host}`,
               `${program.name} speech-language pathology admission requirements site:${host}`,
+              `${program.name} MS SLP prerequisite coursework site:${host}`,
+              `${program.name} communication disorders graduate admissions prerequisites site:${host}`,
+              `${program.name} non-CSD applicant leveling requirements site:${host}`,
+              `${program.name} ASHA SLP prerequisite courses site:${host}`,
             ]
           : []),
         ...(program.professionSlug === "physician-assistant"
