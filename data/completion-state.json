@@ -364,9 +364,10 @@
   "finalStatus": "verified"
  },
  "1918": {
-  "stage": "source_discovery",
-  "lastAttempt": "2026-08-20T18:42:14.317Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-20T18:47:32.824Z",
   "attempts": 1,
+  "error": "https://www.chamberlain.edu/academics/master-of-physician-assistant-studies/illinois/chicago: fetch failed",
   "pipelineGen": 2
  },
  "1919": {
@@ -458,15 +459,17 @@
   "finalStatus": "verified"
  },
  "1937": {
-  "stage": "source_discovery",
-  "lastAttempt": "2026-08-20T18:46:20.587Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-20T18:47:59.197Z",
   "attempts": 1,
+  "error": "https://www.ottawa.edu/paprogram: HTTP 307",
   "pipelineGen": 2
  },
  "1939": {
-  "stage": "source_discovery",
-  "lastAttempt": "2026-08-20T18:46:40.219Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-20T18:47:21.812Z",
   "attempts": 1,
+  "error": "https://www.brescia.edu/program/physician-assistant-program/: HTTP 403",
   "pipelineGen": 2
  },
  "1940": {
@@ -478,15 +481,82 @@
   "finalStatus": "verified"
  },
  "1941": {
-  "stage": "source_fetched",
-  "lastAttempt": "2026-08-20T18:47:21.642Z",
+  "stage": "finalized",
+  "lastAttempt": "2026-08-20T18:47:41.737Z",
   "attempts": 1,
   "pipelineGen": 2,
-  "sourceUrl": "https://chs.uky.edu/physician-assistant-studies/admissions/info-sessions"
+  "sourceUrl": "https://chs.uky.edu/physician-assistant-studies/admissions/pre-reqs",
+  "finalStatus": "verified"
  },
  "1942": {
+  "stage": "finalized",
+  "lastAttempt": "2026-08-20T18:47:50.116Z",
+  "attempts": 1,
+  "pipelineGen": 2,
+  "sourceUrl": "https://www.ucumberlands.edu/admissions/admission-requirements",
+  "finalStatus": "verified"
+ },
+ "1943": {
+  "stage": "finalized",
+  "lastAttempt": "2026-08-20T18:47:55.812Z",
+  "attempts": 1,
+  "pipelineGen": 2,
+  "sourceUrl": "https://www.ucumberlands.edu/admissions/admission-requirements",
+  "finalStatus": "verified"
+ },
+ "1944": {
+  "stage": "finalized",
+  "lastAttempt": "2026-08-20T18:48:30.659Z",
+  "attempts": 1,
+  "pipelineGen": 2,
+  "sourceUrl": "https://franu.edu/academics/programs/pa/index.html",
+  "finalStatus": "verified"
+ },
+ "1946": {
   "stage": "source_discovery",
-  "lastAttempt": "2026-08-20T18:47:17.631Z",
+  "lastAttempt": "2026-08-20T18:47:41.740Z",
+  "attempts": 1,
+  "pipelineGen": 2
+ },
+ "1949": {
+  "stage": "finalized",
+  "lastAttempt": "2026-08-20T18:48:09.576Z",
+  "attempts": 1,
+  "pipelineGen": 2,
+  "sourceUrl": "https://www.baypath.edu/academics/graduate-programs/physician-assistant-studies-ms/admission-requirements/",
+  "finalStatus": "verified"
+ },
+ "1951": {
+  "stage": "extracted",
+  "lastAttempt": "2026-08-20T18:48:31.379Z",
+  "attempts": 1,
+  "pipelineGen": 2,
+  "sourceUrl": "https://www.mcphs.edu/admission-and-aid/undergraduate-applicants/transfer-applicants/tips-for-transfers"
+ },
+ "1953": {
+  "stage": "finalized",
+  "lastAttempt": "2026-08-20T18:48:35.759Z",
+  "attempts": 1,
+  "pipelineGen": 2,
+  "sourceUrl": "https://bouve.northeastern.edu/programs/physician-assistant-ms/",
+  "finalStatus": "verified"
+ },
+ "1954": {
+  "stage": "source_fetched",
+  "lastAttempt": "2026-08-20T18:48:35.974Z",
+  "attempts": 1,
+  "pipelineGen": 2,
+  "sourceUrl": "https://springfield.edu/graduate-programs/physician-assistant-studies/mission-policies-procedures"
+ },
+ "1955": {
+  "stage": "source_discovery",
+  "lastAttempt": "2026-08-20T18:48:30.661Z",
+  "attempts": 1,
+  "pipelineGen": 2
+ },
+ "1956": {
+  "stage": "source_discovery",
+  "lastAttempt": "2026-08-20T18:48:35.762Z",
   "attempts": 1,
   "pipelineGen": 2
  }
