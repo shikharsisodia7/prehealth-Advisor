@@ -442,7 +442,7 @@ async function fetchRenderedInner(url: string): Promise<Fetched> {
 }
 
 const BLOCKED_SEARCH_HOSTS =
-  /reddit\.com|facebook\.com|twitter\.com|x\.com|youtube\.com|tiktok\.com|quora\.com|studentdoctor\.net|collegevine\.com|niche\.com|gradschools\.com|petersons\.com|wikipedia\.org|linkedin\.com|indeed\.com|glassdoor\.com|nextgenmedprep\.com|skillnation\.|admitva\.com|myworkdaysite\.com|collegexpress|cappex\.com|princetonreview|shemmassian|accepted\.com|prospectivedoctor|beatthegmat/i;
+  /reddit\.com|facebook\.com|twitter\.com|x\.com|youtube\.com|tiktok\.com|quora\.com|studentdoctor\.net|collegevine\.com|niche\.com|gradschools\.com|petersons\.com|wikipedia\.org|linkedin\.com|indeed\.com|glassdoor\.com|nextgenmedprep\.com|skillnation\.|admitva\.com|myworkdaysite\.com|collegexpress|cappex\.com|princetonreview|shemmassian|accepted\.com|prospectivedoctor|beatthegmat|msuspartans\.com|sidearmsports|ncaa\.com/i;
 
 const DIRECTORY_HUB_HOSTS =
   /ada\.org|adea\.org|lcme\.org|aacom\.org|aacomas\.|acpe-accredit\.org|aae\.org|optometriceducation\.org|aaopt\.org|caspa\.liaison|otcas\.|ptcas\.|pharmacycas\.|aavmc\.org|liaisoncas\.|ncope\.org|capteonline\.org|acoteonline\.org|caahep\.org|caahi?m\.org|naacls\.org|acend\.|eatright\.org|aamc\.org|students-residents\.aamc|apps\.asha\.org|asha\.org\/eweb/i;
@@ -458,9 +458,18 @@ function isDirectoryHubUrl(url: string | null | undefined): boolean {
   }
 }
 
+/** Athletics marketing sites mistakenly stored as program websites (e.g. msuspartans.com). */
+function isAthleticsOrSportsUrl(url: string | null | undefined): boolean {
+  if (!url) return false;
+  const hay = url.toLowerCase();
+  return /spartans\.com|sidearm|athletics|\/sports\/|gogoes|goducks|gohuskies|und\.com|ncaa/i.test(hay) &&
+    !/nursing|pharmacy|medicine|therapy|physician|slp|csd|prerequisite/i.test(hay);
+}
+
 /** Application portals and undergrad marketing pages that drown out graduate prereq lists. */
 function isLowValueCandidate(url: string): boolean {
   const hay = url.toLowerCase();
+  if (isAthleticsOrSportsUrl(url)) return true;
   if (/ellucian|crmrecruit|apply-gobaylor|myworkday|commonapp|slate\.|targetx/.test(hay)) return true;
   if (/financial-aid|tuition|video-tour|virtual-office|visit-campus|campus-tour|housing/.test(hay)) return true;
   // State/federal portals that match institution tokens (e.g. "Texas", "Virginia") but are not schools.
@@ -1058,14 +1067,14 @@ async function discoverCandidates(program: ProgramRow): Promise<string[]> {
   } catch { /* no queue file */ }
 
   if (program.sourceUrl && !isDirectoryHubUrl(program.sourceUrl)) candidates.push(program.sourceUrl);
-  if (program.websiteUrl && !isDirectoryHubUrl(program.websiteUrl)) candidates.push(program.websiteUrl);
+  if (program.websiteUrl && !isDirectoryHubUrl(program.websiteUrl) && !isAthleticsOrSportsUrl(program.websiteUrl)) candidates.push(program.websiteUrl);
 
   let usableWebsite =
-    program.websiteUrl && !isDirectoryHubUrl(program.websiteUrl) && !websiteConflictsWithInstitution(program.websiteUrl, program.name)
+    program.websiteUrl && !isDirectoryHubUrl(program.websiteUrl) && !isAthleticsOrSportsUrl(program.websiteUrl) && !websiteConflictsWithInstitution(program.websiteUrl, program.name)
       ? program.websiteUrl
       : null;
   // Wrong-institution websites (e.g. Bradley → pennwest.edu) must not seed the crawl.
-  if (program.websiteUrl && websiteConflictsWithInstitution(program.websiteUrl, program.name)) {
+  if (program.websiteUrl && (websiteConflictsWithInstitution(program.websiteUrl, program.name) || isAthleticsOrSportsUrl(program.websiteUrl))) {
     program.websiteUrl = null;
   }
   if (!usableWebsite) {
@@ -1412,13 +1421,21 @@ const SUBJECT_HINT = /biolog|chem|physic|anatom|physiol|a\s*&\s*p|psych|stat|mat
 const NO_PREREQ_ASSERTION =
   /(no|not\s+require|not\s+have|without)[^.]{0,60}prerequis|prerequis[^.]{0,60}(are\s+not|not\s+required|none)/i;
 
-function validExtraction(ex: Extraction, pageText: string, program: ProgramRow): boolean {
+function validExtraction(ex: Extraction, pageText: string, program: ProgramRow, sourceUrl = ""): boolean {
   const pageNorm = normalize(pageText);
+  const urlHay = sourceUrl.toLowerCase();
   const onTopic =
     professionKeywords(program.professionSlug).some((k) => pageNorm.includes(normalize(k))) ||
     (program.professionSlug === "nursing" && /\b(bsn|msn|absn|mepn|rn\b|dnp)\b/i.test(pageText)) ||
     (program.professionSlug === "physician-assistant" && /\b(pa\b|physician assistant|caspa)\b/i.test(pageText)) ||
-    (program.professionSlug === "medicine" && /\b(md\b|do\b|amcas|aacomas|medical school)\b/i.test(pageText));
+    (program.professionSlug === "medicine" && /\b(md\b|do\b|amcas|aacomas|medical school)\b/i.test(pageText)) ||
+    // Shared prerequisite-course hubs (e.g. MCPHS) often omit the profession word in body copy.
+    (/prerequi|admission-requirements|required-coursework|course-requirements/i.test(urlHay) &&
+      SUBJECT_HINT.test(pageText) &&
+      (professionKeywords(program.professionSlug).some((k) => urlHay.includes(normalize(k).replace(/ /g, "-")) || pageNorm.includes(normalize(k))) ||
+        program.professionSlug === "nursing" ||
+        program.professionSlug === "pharmacy" ||
+        program.professionSlug === "medicine"));
   if (ex.statesNoPrereqs) {
     const quote = ex.noPrereqsEvidenceQuote?.trim() ?? "";
     return quote.length >= 15 && pageNorm.includes(normalize(quote)) &&
@@ -1717,7 +1734,7 @@ async function processProgram(program: ProgramRow): Promise<string> {
       }
       const ex = await extractWithOpenAI(program, fetched.text, fetched.url);
       setState(program.id, { stage: "extracted" });
-      if (!validExtraction(ex, fetched.text, program)) {
+      if (!validExtraction(ex, fetched.text, program, fetched.url)) {
         errors.push(`${fetched.url}: no usable prereq list`);
         continue;
       }
@@ -1738,7 +1755,7 @@ async function processProgram(program: ProgramRow): Promise<string> {
             const fetched = await fetchWithFallback(link);
             if (fetched.text.length < 300) continue;
             const ex = await extractWithOpenAI(program, fetched.text, fetched.url);
-            if (validExtraction(ex, fetched.text, program)) { best = { fetched, ex }; break; }
+            if (validExtraction(ex, fetched.text, program, fetched.url)) { best = { fetched, ex }; break; }
           } catch { /* try next link */ }
         }
       } catch { /* try next candidate */ }
