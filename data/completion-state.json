@@ -255,11 +255,12 @@
   "finalStatus": "verified"
  },
  "1896": {
-  "stage": "source_fetched",
-  "lastAttempt": "2026-08-20T18:46:20.241Z",
+  "stage": "finalized",
+  "lastAttempt": "2026-08-20T18:46:40.217Z",
   "attempts": 1,
   "pipelineGen": 2,
-  "sourceUrl": "https://md.nova.edu/academic-departments/physician-assistant/index.html"
+  "sourceUrl": "https://md.nova.edu/degrees/masters/physician-assistant/orlando/index.html",
+  "finalStatus": "verified"
  },
  "1897": {
   "stage": "finalized",
@@ -294,11 +295,12 @@
   "finalStatus": "verified"
  },
  "1904": {
-  "stage": "source_fetched",
-  "lastAttempt": "2026-08-20T18:46:16.502Z",
+  "stage": "finalized",
+  "lastAttempt": "2026-08-20T18:46:55.506Z",
   "attempts": 1,
   "pipelineGen": 2,
-  "sourceUrl": "https://www.augusta.edu/admissions/apply.php"
+  "sourceUrl": "https://www.augusta.edu/programs/physician-assistant-mpa.php",
+  "finalStatus": "verified"
  },
  "1906": {
   "stage": "finalized",
@@ -448,14 +450,43 @@
   "finalStatus": "verified"
  },
  "1933": {
-  "stage": "source_discovery",
-  "lastAttempt": "2026-08-20T18:46:03.427Z",
+  "stage": "finalized",
+  "lastAttempt": "2026-08-20T18:46:44.476Z",
   "attempts": 1,
-  "pipelineGen": 2
+  "pipelineGen": 2,
+  "sourceUrl": "https://www.evansville.edu/majors/physicianassistant/requirements.cfm",
+  "finalStatus": "verified"
  },
  "1937": {
   "stage": "source_discovery",
   "lastAttempt": "2026-08-20T18:46:20.587Z",
+  "attempts": 1,
+  "pipelineGen": 2
+ },
+ "1939": {
+  "stage": "source_discovery",
+  "lastAttempt": "2026-08-20T18:46:40.219Z",
+  "attempts": 1,
+  "pipelineGen": 2
+ },
+ "1940": {
+  "stage": "finalized",
+  "lastAttempt": "2026-08-20T18:47:17.629Z",
+  "attempts": 1,
+  "pipelineGen": 2,
+  "sourceUrl": "https://www.sullivan.edu/admissions/pa-school",
+  "finalStatus": "verified"
+ },
+ "1941": {
+  "stage": "source_fetched",
+  "lastAttempt": "2026-08-20T18:47:21.642Z",
+  "attempts": 1,
+  "pipelineGen": 2,
+  "sourceUrl": "https://chs.uky.edu/physician-assistant-studies/admissions/info-sessions"
+ },
+ "1942": {
+  "stage": "source_discovery",
+  "lastAttempt": "2026-08-20T18:47:17.631Z",
   "attempts": 1,
   "pipelineGen": 2
  }
