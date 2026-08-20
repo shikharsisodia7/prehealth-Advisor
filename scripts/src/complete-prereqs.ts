@@ -724,8 +724,24 @@ const CAMPUS_HOST_HINTS: Array<[RegExp, RegExp]> = [
   [/\bchapel hill\b|\bchapel-hill\b/i, /(^|\.)unc\.edu$/i],
 ];
 
+/** Known official host aliases that do not literally contain institution name tokens. */
+const INSTITUTION_HOST_ALIASES: Array<[RegExp, RegExp]> = [
+  [/\bnew jersey\b/i, /tcnj/i],
+  [/\bcolorado(?:\s+springs)?\b/i, /uccs|colorado\.edu|uccs\.edu/i],
+  [/\bnorth texas\b/i, /unt|unthealth|unthsc/i],
+  [/\bwashington\b/i, /(^|\.)uw\.edu$|washington\.edu|uw\.edu/i],
+  [/\bnorthern arizona\b/i, /nau\.edu/i],
+  [/\buniversity of arizona\b/i, /arizona\.edu/i],
+  [/\bnorthwestern state\b/i, /nsula/i],
+  [/\btexas christian\b|\bchristian university\b/i, /tcu\.edu/i],
+];
+
 function campusHostConflicts(name: string, host: string): boolean {
   return CAMPUS_HOST_HINTS.some(([nameRe, hostRe]) => nameRe.test(name) && !hostRe.test(host));
+}
+
+function hostMatchesInstitutionAlias(name: string, host: string): boolean {
+  return INSTITUTION_HOST_ALIASES.some(([nameRe, hostRe]) => nameRe.test(name) && hostRe.test(host));
 }
 
 /** True when a URL's host looks like a different institution (e.g. pennwest.edu for Bradley). */
@@ -737,6 +753,12 @@ const DEPARTMENT_SUBDOMAIN_WORDS = new Set([
   "engineering", "business", "law", "education", "science", "sciences", "arts", "music",
   "kinesiology", "optometry", "podiatry", "veterinary", "psychology", "counseling", "therapy",
   "graduate", "nursingdept", "chsp", "cshs", "shp", "hsc", "healthsciences",
+  // Campus chrome / application portals — not institution names.
+  "programs", "admissions", "admission", "applicant", "applicants", "application", "apply",
+  "portal", "document", "viewer", "provider", "documentproviderviewer", "programapplication",
+  "academic", "academics", "catalog", "catalogs", "online", "students", "student", "faculty",
+  "alumni", "news", "events", "college", "school", "department", "offices", "office", "services",
+  "familymedicine", "mdschool", "medex", "johnsonbethel", "tcom", "physician", "assistants",
 ]);
 
 function websiteConflictsWithInstitution(url: string, name: string): boolean {
@@ -744,15 +766,18 @@ function websiteConflictsWithInstitution(url: string, name: string): boolean {
     const raw = /^https?:\/\//i.test(url) ? url : `https://${url}`;
     const host = new URL(raw).hostname.replace(/^www\./i, "").toLowerCase();
     if (campusHostConflicts(name, host)) return true;
+    if (hostMatchesInstitutionAlias(name, host)) return false;
     const nameNorm = normalize(name);
     if (institutionTokens(name).some((t) => host.includes(t))) return false;
     // Campus catalog hosts (catalog.dyu.edu, catalogs.eku.edu) are usually official.
     if (/^catalogs?\./i.test(host) && /\.edu$/i.test(host)) return false;
-    const label = host.replace(/\.(edu|org|com|net|gov)$/i, "").replace(/\./g, "");
-    if (label.length <= 6) return false; // campus acronyms like bsu.edu, csulb.edu
-    const hostWords = host.replace(/\.(edu|org|com|net|gov)$/i, "").split(/[.-]/)
-      .filter((w) => w.length >= 6 && !DEPARTMENT_SUBDOMAIN_WORDS.has(w));
-    return hostWords.some((w) => !nameNorm.includes(w));
+    // Judge the registrable campus label only (tcnj.edu / programs.tcnj.edu → "tcnj"),
+    // not department subdomains that previously caused false "mismatched institution" rejects.
+    const labels = host.replace(/\.(edu|org|com|net|gov)$/i, "").split(".");
+    const base = labels[labels.length - 1] ?? "";
+    if (base.length <= 6 && /\.edu$/i.test(host)) return false; // tcnj, uccs, bsu, uw, nau
+    const hostWords = [base].filter((w) => w.length >= 6 && !DEPARTMENT_SUBDOMAIN_WORDS.has(w));
+    return hostWords.some((w) => !nameNorm.includes(w) && !institutionTokens(name).some((t) => w.includes(t) || t.includes(w)));
   } catch {
     return false;
   }
