@@ -442,7 +442,7 @@ async function fetchRenderedInner(url: string): Promise<Fetched> {
 }
 
 const BLOCKED_SEARCH_HOSTS =
-  /reddit\.com|facebook\.com|twitter\.com|x\.com|youtube\.com|tiktok\.com|quora\.com|studentdoctor\.net|collegevine\.com|niche\.com|gradschools\.com|petersons\.com|wikipedia\.org|linkedin\.com|indeed\.com|glassdoor\.com|nextgenmedprep\.com|skillnation\.|admitva\.com|myworkdaysite\.com|collegexpress|cappex\.com|princetonreview|shemmassian|accepted\.com|prospectivedoctor|beatthegmat|msuspartans\.com|sidearmsports|ncaa\.com/i;
+  /reddit\.com|facebook\.com|twitter\.com|x\.com|youtube\.com|tiktok\.com|quora\.com|studentdoctor\.net|collegevine\.com|niche\.com|gradschools\.com|petersons\.com|wikipedia\.org|linkedin\.com|indeed\.com|glassdoor\.com|nextgenmedprep\.com|skillnation\.|admitva\.com|myworkdaysite\.com|collegexpress|cappex\.com|princetonreview|shemmassian|accepted\.com|prospectivedoctor|beatthegmat|msuspartans\.com|sidearmsports|ncaa\.com|perfdrive\.com|botmanager|akamaihd\.net|challenge\.cloudflare/i;
 
 const DIRECTORY_HUB_HOSTS =
   /ada\.org|adea\.org|lcme\.org|aacom\.org|aacomas\.|acpe-accredit\.org|aae\.org|optometriceducation\.org|aaopt\.org|caspa\.liaison|otcas\.|ptcas\.|pharmacycas\.|aavmc\.org|liaisoncas\.|ncope\.org|capteonline\.org|acoteonline\.org|caahep\.org|caahi?m\.org|naacls\.org|acend\.|eatright\.org|aamc\.org|students-residents\.aamc|apps\.asha\.org|asha\.org\/eweb/i;
@@ -486,7 +486,7 @@ function isLowValueCandidate(url: string): boolean {
   if (isAthleticsOrSportsUrl(url)) return true;
   if (isGarbageDiscoveredUrl(url)) return true;
   // Bot/WAF challenge interstitial pages (e.g. NYU admissions.html?challenge=...).
-  if (/[?&]challenge=|cf-challenge|captcha|akamai|_guard|security-check/i.test(hay)) return true;
+  if (/[?&]challenge=|cf-challenge|captcha|akamai|_guard|security-check|perfdrive|botmanager|ssa=/i.test(hay)) return true;
   if (/ellucian|crmrecruit|apply-gobaylor|myworkday|commonapp|slate\.|targetx/.test(hay)) return true;
   if (/financial-aid|tuition|video-tour|virtual-office|visit-campus|campus-tour|housing/.test(hay)) return true;
   // State/federal portals that match institution tokens (e.g. "Texas", "Virginia") but are not schools.
@@ -1257,18 +1257,35 @@ async function discoverCandidates(program: ProgramRow): Promise<string[]> {
   );
   if (!usableWebsite || !hasStrongCandidate) {
     try {
-      const urls = (await webSearch(
+      const openQueries = [
         `${program.name} ${program.programName} official admissions prerequisites coursework`,
-      )).filter((u) => looksLikeOfficialProgramUrl(u, program));
-      candidates.push(...urls);
-      const validated = urls
-        .filter((u) => /\.edu$/i.test(new URL(u).hostname))
-        .sort((a, b) => scoreCandidateUrl(b, program) - scoreCandidateUrl(a, program))[0];
-      if (validated && (!program.websiteUrl || isDirectoryHubUrl(program.websiteUrl) || isGarbageDiscoveredUrl(program.websiteUrl))) {
-        await db
-          .update(programSchoolsTable)
-          .set({ websiteUrl: new URL(validated).origin })
-          .where(eq(programSchoolsTable.id, program.id));
+        ...(program.professionSlug === "medicine"
+          ? [
+              `${program.name} medical school prerequisite courses site:.edu`,
+              `${universitySearchName(program.name)} school of medicine admission requirements prerequisites`,
+            ]
+          : []),
+        ...(program.professionSlug === "pharmacy"
+          ? [`${universitySearchName(program.name)} PharmD prerequisite courses site:.edu`]
+          : []),
+      ];
+      for (const q of openQueries) {
+        const urls = (await webSearch(q)).filter((u) => looksLikeOfficialProgramUrl(u, program) && !isGarbageDiscoveredUrl(u));
+        candidates.push(...urls);
+        const validated = urls
+          .filter((u) => {
+            try { return /\.edu$/i.test(new URL(u).hostname) || /\.org$/i.test(new URL(u).hostname); } catch { return false; }
+          })
+          .sort((a, b) => scoreCandidateUrl(b, program) - scoreCandidateUrl(a, program))[0];
+        if (validated && (!program.websiteUrl || isDirectoryHubUrl(program.websiteUrl) || isGarbageDiscoveredUrl(program.websiteUrl))) {
+          await db
+            .update(programSchoolsTable)
+            .set({ websiteUrl: new URL(validated).origin })
+            .where(eq(programSchoolsTable.id, program.id));
+          program.websiteUrl = new URL(validated).origin;
+          usableWebsite = program.websiteUrl;
+        }
+        if (candidates.filter((c) => /prereq|requirement|admiss/i.test(c)).length >= 3) break;
       }
     } catch { /* non-fatal */ }
   }
