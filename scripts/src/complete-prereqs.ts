@@ -117,9 +117,9 @@ type Stage =
 // a previously-broken dependency fixed, etc). Programs that exhausted their attempt budget under
 // an older generation get exactly one fresh attempt under the new one, without losing their prior
 // failure history (state[id].error still holds the last message from whichever generation).
-// Gen 6: reject/clear xn-- garbage website URLs written by bad search scrapes; expand
-// institution host aliases (UNT/NSUOK/SIU/SDSU/Kaiser/Loma Linda/Geisinger).
-const CURRENT_PIPELINE_GEN = 6;
+// Gen 7: reject music/law/wrong-dept medicine crawls; boost medschool/pharmd URL scoring;
+// broader open-web medicine discovery; longer OpenAI 429 backoff.
+const CURRENT_PIPELINE_GEN = 7;
 
 interface ProgramState {
   stage: Stage;
@@ -516,6 +516,11 @@ function isLowValueCandidate(url: string): boolean {
       !/prerequisite|pre-requisite|admission-requirements|coursework/i.test(hay)) {
     return true;
   }
+  // Wrong-department chrome that medicine/pharmacy crawls keep landing on.
+  if (/\/music\/|faculty-development-center|graduate-certificate-academic-medicine|collegeadmissions\./i.test(hay) &&
+      !/medicine\/admissions|medschool|pharmd|prerequisite/i.test(hay)) {
+    return true;
+  }
   return false;
 }
 
@@ -765,7 +770,11 @@ const INSTITUTION_HOST_ALIASES: Array<[RegExp, RegExp]> = [
   [/\bsan diego state\b/i, /sdsu\.edu/i],
   [/\bkaiser\b/i, /kaiserpermanente|kp\.org|medschool\.kp\.edu|schoolofmedicine\.kaiser/i],
   [/\bloma linda\b/i, /llu\.edu|lluh\.org/i],
-  [/\bgeisinger\b/i, /geisinger\.edu|geisinger\.org/i],
+  [/\bucla\b|geffen\b/i, /medschool\.ucla|ucla\.edu/i],
+  [/\byale\b/i, /medicine\.yale|yale\.edu/i],
+  [/\bstanford\b/i, /med\.stanford|stanford\.edu/i],
+  [/\bnorthwestern\b/i, /feinberg\.northwestern|northwestern\.edu/i],
+  [/\bhackensack\b/i, /hackensackmeridian|hmhn\.org/i],
 ];
 
 function campusHostConflicts(name: string, host: string): boolean {
@@ -908,13 +917,15 @@ function looksLikeOfficialProgramUrl(url: string, program: ProgramRow): boolean 
     const professionHit = professionKeywords(program.professionSlug).some((k) =>
       hay.includes(normalize(k).replace(/ /g, "-")) || hay.includes(normalize(k)),
     );
-    // Reject clear cross-profession paths (e.g. SLP crawl landing on /nursing/).
+    // Reject clear cross-profession / wrong-department paths.
     const foreign =
       (program.professionSlug === "speech-language-pathology" && /\/nursing|\/dpt|\/otd|\/physician-assistant|\/pharm|\/occupational/i.test(hay) && !/speech|slp|csd|communicat|language/i.test(hay)) ||
       (program.professionSlug === "nursing" && /\/slp|\/csd|\/speech-language|\/dpt|\/otd|\/physician-assistant|\/occupational/i.test(hay) && !/nursing|bsn|msn|absn|mepn/i.test(hay)) ||
       (program.professionSlug === "physical-therapy" && /\/nursing|\/slp|\/csd|\/otd|\/physician-assistant|\/occupational/i.test(hay) && !/physical|dpt|pt-/i.test(hay)) ||
       (program.professionSlug === "occupational-therapy" && /\/nursing|\/slp|\/csd|\/dpt|\/physician-assistant|\/pharm/i.test(hay) && !/occupational|otd|msot|ot-/i.test(hay)) ||
-      (program.professionSlug === "physician-assistant" && /\/nursing|\/slp|\/csd|\/dpt|\/otd|\/pharm/i.test(hay) && !/physician|assistant|pa-program|\/pa\//i.test(hay));
+      (program.professionSlug === "physician-assistant" && /\/nursing|\/slp|\/csd|\/dpt|\/otd|\/pharm/i.test(hay) && !/physician|assistant|pa-program|\/pa\//i.test(hay)) ||
+      (program.professionSlug === "medicine" && /\/music\/|\/law\/|\/business\/|\/engineering\/|faculty-development|graduate-certificate-academic|collegeadmissions\./i.test(hay) && !/medicine|medical|medschool|osteopath|amcas|md-/i.test(hay)) ||
+      (program.professionSlug === "pharmacy" && /\/nursing|\/dpt|\/otd|\/medicine|\/slp|\/physician-assistant/i.test(hay) && !/pharm|pharmacy/i.test(hay));
     if (foreign) return false;
     const eduHost = /\.edu$/i.test(u.hostname) || /\.ac\.[a-z.]+$/i.test(u.hostname);
     const pathHint = /admissions|prerequisite|catalog|handbook|apply|requirements/i.test(hay);
@@ -954,6 +965,15 @@ function scoreCandidateUrl(url: string, program: ProgramRow): number {
       score -= 10;
     }
     if (/leveling|non-csd|prerequisite-courses|course-requirements|checksheet/i.test(hay)) score += 5;
+    if (program.professionSlug === "medicine" && /medschool|school-of-medicine|medicine\/admissions|md-program|osteopathic|amcas|aacomas/i.test(hay)) {
+      score += 8;
+    }
+    if (program.professionSlug === "medicine" && /\/music\/|\/law\/|\/business\/|faculty-development|collegeadmissions/i.test(hay)) {
+      score -= 15;
+    }
+    if (program.professionSlug === "pharmacy" && /pharmd|pharmacy\/admissions|pre-pharmacy|prepharmacy/i.test(hay)) {
+      score += 8;
+    }
     if (program.websiteUrl) {
       try {
         const host = new URL(program.websiteUrl).hostname.replace(/^www\./, "");
@@ -1261,8 +1281,9 @@ async function discoverCandidates(program: ProgramRow): Promise<string[]> {
         `${program.name} ${program.programName} official admissions prerequisites coursework`,
         ...(program.professionSlug === "medicine"
           ? [
-              `${program.name} medical school prerequisite courses site:.edu`,
               `${universitySearchName(program.name)} school of medicine admission requirements prerequisites`,
+              `${universitySearchName(program.name)} MD program prerequisite courses site:.edu`,
+              `"${universitySearchName(program.name)}" "prerequisite" (biology OR chemistry OR physics) (medicine OR "medical school" OR MD) site:.edu`,
             ]
           : []),
         ...(program.professionSlug === "pharmacy"
@@ -1434,7 +1455,7 @@ async function extractWithOpenAIInner(program: ProgramRow, pageText: string, url
       throw lastError;
     }
     if (res.status === 429 || res.status >= 500) {
-      await new Promise((r) => setTimeout(r, 5000 * 2 ** attempt));
+      await new Promise((r) => setTimeout(r, 12_000 * 2 ** attempt));
       continue;
     }
     throw lastError;
