@@ -117,9 +117,9 @@ type Stage =
 // a previously-broken dependency fixed, etc). Programs that exhausted their attempt budget under
 // an older generation get exactly one fresh attempt under the new one, without losing their prior
 // failure history (state[id].error still holds the last message from whichever generation).
-// Gen 5: rebalance queue toward medicine/pharmacy/postbac; reject bot-wall challenge URLs;
-// cooler chronic retry + stronger PDF/checklist discovery for hard professions.
-const CURRENT_PIPELINE_GEN = 5;
+// Gen 6: reject/clear xn-- garbage website URLs written by bad search scrapes; expand
+// institution host aliases (UNT/NSUOK/SIU/SDSU/Kaiser/Loma Linda/Geisinger).
+const CURRENT_PIPELINE_GEN = 6;
 
 interface ProgramState {
   stage: Stage;
@@ -466,10 +466,25 @@ function isAthleticsOrSportsUrl(url: string | null | undefined): boolean {
     !/nursing|pharmacy|medicine|therapy|physician|slp|csd|prerequisite/i.test(hay);
 }
 
+/** Search scrapes sometimes emit broken punycode hosts (xn--...) that are not real campuses. */
+function isGarbageDiscoveredUrl(url: string | null | undefined): boolean {
+  if (!url) return false;
+  try {
+    const host = new URL(/^https?:\/\//i.test(url) ? url : `https://${url}`).hostname.toLowerCase();
+    if (/xn--/i.test(host)) return true; // US .edu programs do not need punycode hosts
+    if (host.length > 80) return true;
+    if (/urgentcaremap|locationsloma|wikigeisinger/i.test(host)) return true;
+    return false;
+  } catch {
+    return true;
+  }
+}
+
 /** Application portals and undergrad marketing pages that drown out graduate prereq lists. */
 function isLowValueCandidate(url: string): boolean {
   const hay = url.toLowerCase();
   if (isAthleticsOrSportsUrl(url)) return true;
+  if (isGarbageDiscoveredUrl(url)) return true;
   // Bot/WAF challenge interstitial pages (e.g. NYU admissions.html?challenge=...).
   if (/[?&]challenge=|cf-challenge|captcha|akamai|_guard|security-check/i.test(hay)) return true;
   if (/ellucian|crmrecruit|apply-gobaylor|myworkday|commonapp|slate\.|targetx/.test(hay)) return true;
@@ -739,12 +754,18 @@ const CAMPUS_HOST_HINTS: Array<[RegExp, RegExp]> = [
 const INSTITUTION_HOST_ALIASES: Array<[RegExp, RegExp]> = [
   [/\bnew jersey\b/i, /tcnj/i],
   [/\bcolorado(?:\s+springs)?\b/i, /uccs|colorado\.edu|uccs\.edu/i],
-  [/\bnorth texas\b/i, /unt|unthealth|unthsc/i],
-  [/\bwashington\b/i, /(^|\.)uw\.edu$|washington\.edu|uw\.edu/i],
+  [/\bnorth texas\b|\bunthsc\b|\bhs center\b/i, /unt|unthealth|unthsc/i],
+  [/\bwashington\b/i, /(^|\.)uw\.edu$|washington\.edu|uw\.edu|depts\.washington/i],
   [/\bnorthern arizona\b/i, /nau\.edu/i],
   [/\buniversity of arizona\b/i, /arizona\.edu/i],
   [/\bnorthwestern state\b/i, /nsula/i],
-  [/\btexas christian\b|\bchristian university\b/i, /tcu\.edu/i],
+  [/\bnortheastern state\b/i, /nsuok/i],
+  [/\btexas christian\b|\bchristian university\b/i, /tcu\.edu|mdschool\.tcu/i],
+  [/\bsouthern illinois\b/i, /siu\.edu/i],
+  [/\bsan diego state\b/i, /sdsu\.edu/i],
+  [/\bkaiser\b/i, /kaiserpermanente|kp\.org|medschool\.kp\.edu|schoolofmedicine\.kaiser/i],
+  [/\bloma linda\b/i, /llu\.edu|lluh\.org/i],
+  [/\bgeisinger\b/i, /geisinger\.edu|geisinger\.org/i],
 ];
 
 function campusHostConflicts(name: string, host: string): boolean {
@@ -1074,7 +1095,7 @@ async function discoverCandidates(program: ProgramRow): Promise<string[]> {
       ? program.websiteUrl
       : null;
   // Wrong-institution websites (e.g. Bradley → pennwest.edu) must not seed the crawl.
-  if (program.websiteUrl && (websiteConflictsWithInstitution(program.websiteUrl, program.name) || isAthleticsOrSportsUrl(program.websiteUrl))) {
+  if (program.websiteUrl && (websiteConflictsWithInstitution(program.websiteUrl, program.name) || isAthleticsOrSportsUrl(program.websiteUrl) || isGarbageDiscoveredUrl(program.websiteUrl))) {
     program.websiteUrl = null;
   }
   if (!usableWebsite) {
@@ -1243,7 +1264,7 @@ async function discoverCandidates(program: ProgramRow): Promise<string[]> {
       const validated = urls
         .filter((u) => /\.edu$/i.test(new URL(u).hostname))
         .sort((a, b) => scoreCandidateUrl(b, program) - scoreCandidateUrl(a, program))[0];
-      if (validated && (!program.websiteUrl || isDirectoryHubUrl(program.websiteUrl))) {
+      if (validated && (!program.websiteUrl || isDirectoryHubUrl(program.websiteUrl) || isGarbageDiscoveredUrl(program.websiteUrl))) {
         await db
           .update(programSchoolsTable)
           .set({ websiteUrl: new URL(validated).origin })
@@ -1702,7 +1723,7 @@ async function processProgram(program: ProgramRow): Promise<string> {
       }).where(eq(programSchoolsTable.id, program.id));
     } catch { /* non-fatal */ }
   }
-  if (program.websiteUrl && websiteConflictsWithInstitution(program.websiteUrl, program.name)) {
+  if (program.websiteUrl && (websiteConflictsWithInstitution(program.websiteUrl, program.name) || isGarbageDiscoveredUrl(program.websiteUrl))) {
     program.websiteUrl = null;
     try {
       await db.update(programSchoolsTable).set({ websiteUrl: null }).where(eq(programSchoolsTable.id, program.id));
