@@ -1875,7 +1875,12 @@ async function main() {
     const s = state[r.id];
     if (s?.stage === "finalized") return false;
     if (s?.stage === "failed" && (s.attempts ?? 0) >= MAX_ATTEMPTS_BEFORE_BLOCKED) return false;
-    if (retryFailures) return s?.stage === "failed";
+    if (retryFailures) {
+      // Cool off chronic failures so each retry round can spend time on fresher misses.
+      // They remain eligible for all-unfinished until attempt ceiling / next pipeline gen.
+      if ((s?.attempts ?? 0) >= 8) return false;
+      return s?.stage === "failed";
+    }
     // Programs that exhausted retries under an older pipeline generation (e.g. before PDF/browser
     // rendering fallbacks or a working OpenAI key existed) get exactly one fresh shot under the
     // current generation rather than staying excluded forever.
