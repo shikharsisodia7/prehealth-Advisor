@@ -25,16 +25,15 @@
  },
  "397": {
   "stage": "extracted",
-  "lastAttempt": "2026-08-21T05:14:11.008Z",
-  "attempts": 1,
+  "lastAttempt": "2026-08-21T05:53:19.031Z",
+  "attempts": 2,
   "pipelineGen": 6,
   "sourceUrl": "https://osteopathicmedicine.msu.edu/current-students/college-osteopathic-medicine-registrar"
  },
  "398": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-21T05:26:31.404Z",
-  "attempts": 1,
-  "error": "https://osteopathicmedicine.msu.edu/about-us/our-three-sites: no usable prereq list || https://osteopathicmedicine.msu.edu/about-us/graduate-medical-education: no usable prereq list || https://osteopathicmedicine.msu.edu/info/graduate-medical-education: no usable prereq list || https://osteopathicmedicine.msu.edu/about-us/what-osteo-med: no usable prereq list",
+  "stage": "extracted",
+  "lastAttempt": "2026-08-21T05:54:59.718Z",
+  "attempts": 2,
   "pipelineGen": 6,
   "sourceUrl": "https://osteopathicmedicine.msu.edu/current-students/college-osteopathic-medicine-registrar"
  },
@@ -160,8 +159,8 @@
  },
  "420": {
   "stage": "failed",
-  "lastAttempt": "2026-08-21T05:10:33.418Z",
-  "attempts": 1,
+  "lastAttempt": "2026-08-21T05:50:55.892Z",
+  "attempts": 2,
   "error": "https://thevalley.com.org/: fetch failed",
   "pipelineGen": 6
  },
@@ -206,10 +205,9 @@
   "finalStatus": "verified"
  },
  "427": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-21T05:26:24.985Z",
-  "attempts": 1,
-  "error": "https://www.unthealth.edu/tcom/faculty-development-center/graduate-certificate-academic-medicine/graduate-certificate-in-academic-medicine-gcam.html: no usable prereq list || https://www.unthealth.edu/research/laboratory-animal-medicine/training.html: no usable prereq list",
+  "stage": "extracted",
+  "lastAttempt": "2026-08-21T05:51:47.867Z",
+  "attempts": 2,
   "pipelineGen": 6,
   "sourceUrl": "https://www.unthealth.edu/patient-care/specialties/primary-care-2.html"
  },
@@ -254,11 +252,19 @@
   "finalStatus": "verified"
  },
  "440": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-21T05:29:18.575Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-21T05:34:27.368Z",
   "attempts": 1,
   "pipelineGen": 6,
-  "sourceUrl": "https://alicelwaltonfoundation.org/news_post/whole-health-school-of-medicine-to-become-alice-l-walton-school-of-medicine/"
+  "sourceUrl": "https://alicelwaltonfoundation.org/news_post/whole-health-school-of-medicine-to-become-alice-l-walton-school-of-medicine/",
+  "error": "https://alicelwaltonfoundation.org/: no usable prereq list || https://alicelwaltonfoundation.org/school-of-medicine/: no usable prereq list || https://alicelwaltonfoundation.org/school-of-medicine/: no usable prereq list || https://alicelwaltonfoundation.org/news_post/whole-health-school-of-medicine-to-become-alice-l-walton-school-of-medicine/: no usable prereq list"
+ },
+ "445": {
+  "stage": "failed",
+  "lastAttempt": "2026-08-21T05:34:21.628Z",
+  "attempts": 1,
+  "error": "no official candidate URLs",
+  "pipelineGen": 6
  },
  "446": {
   "stage": "finalized",
@@ -277,48 +283,70 @@
   "finalStatus": "verified"
  },
  "449": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-21T05:26:13.674Z",
-  "attempts": 1,
-  "error": "https://gradadmissions.stanford.edu/: no usable prereq list",
+  "stage": "extracted",
+  "lastAttempt": "2026-08-21T05:51:24.539Z",
+  "attempts": 2,
   "pipelineGen": 6,
   "sourceUrl": "https://med.stanford.edu/"
  },
  "458": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-21T05:27:05.319Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-21T05:35:13.274Z",
   "attempts": 1,
   "pipelineGen": 6,
-  "sourceUrl": "https://www.yale.edu/"
+  "sourceUrl": "https://www.yale.edu/",
+  "error": "https://www.yale.edu/admissions/graduate-professional-schools: no usable prereq list"
+ },
+ "462": {
+  "stage": "failed",
+  "lastAttempt": "2026-08-21T05:39:57.959Z",
+  "attempts": 1,
+  "error": "no official candidate URLs",
+  "pipelineGen": 6
  },
  "475": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-21T05:28:23.451Z",
+  "stage": "extracted",
+  "lastAttempt": "2026-08-21T05:58:50.540Z",
+  "attempts": 2,
+  "pipelineGen": 6,
+  "sourceUrl": "https://www.uchicago.edu/"
+ },
+ "476": {
+  "stage": "finalized",
+  "lastAttempt": "2026-08-21T05:35:59.702Z",
   "attempts": 1,
   "pipelineGen": 6,
-  "sourceUrl": "https://www.uchicago.edu/",
-  "error": "https://www.uchicago.edu/medicine: no usable prereq list || https://collegeadmissions.uchicago.edu/: no usable prereq list || https://grad.uchicago.edu/admissions/: no usable prereq list || https://www.uchicago.edu/admissions: no usable prereq list"
+  "sourceUrl": "https://www.loyola.edu/academics/pre-health/explore-pre-health/pre-medicine.html",
+  "finalStatus": "verified"
  },
  "477": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-21T05:26:48.637Z",
-  "attempts": 1,
+  "stage": "extracted",
+  "lastAttempt": "2026-08-21T05:52:10.570Z",
+  "attempts": 2,
   "pipelineGen": 6,
-  "sourceUrl": "https://www.northwestern.edu/",
-  "error": "https://music.northwestern.edu/admission/graduate/overview: no usable prereq list"
+  "sourceUrl": "https://www.northwestern.edu/"
  },
  "478": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-21T05:32:08.007Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-21T05:46:58.429Z",
   "attempts": 1,
+  "error": "https://www.rushu.rush.edu/education-training/graduate-medical-education: no usable prereq list || https://www.rush.edu/schedule-your-medical-appointment-rush: no usable prereq list || https://www.rush.edu/medical-professional-resources/refer-or-transfer-patient: no usable prereq list || https://www.rush.edu/locations/rush-university-medical-center: no usable prereq list",
   "pipelineGen": 6,
   "sourceUrl": "https://www.rush.edu/locations?specialty=1286&amp;sort=asc&amp;page=0"
  },
+ "501": {
+  "stage": "failed",
+  "lastAttempt": "2026-08-21T05:35:07.114Z",
+  "attempts": 1,
+  "error": "https://med.wmich.edu/: too little text",
+  "pipelineGen": 6,
+  "sourceUrl": "https://med.wmich.edu/"
+ },
  "513": {
   "stage": "failed",
-  "lastAttempt": "2026-08-21T05:10:33.799Z",
-  "attempts": 1,
-  "error": "https://medicine.nevada.edu/: fetch failed",
+  "lastAttempt": "2026-08-21T05:51:22.101Z",
+  "attempts": 2,
+  "error": "https://medicine.nevada.edu/: no usable prereq list",
   "pipelineGen": 6,
   "sourceUrl": "https://medicine.nevada.edu/"
  },
@@ -330,6 +358,13 @@
   "pipelineGen": 6,
   "sourceUrl": "https://www.hackensackmeridianhealth.org/en"
  },
+ "532": {
+  "stage": "extracted",
+  "lastAttempt": "2026-08-21T05:38:57.436Z",
+  "attempts": 1,
+  "pipelineGen": 6,
+  "sourceUrl": "https://www.suny.edu/"
+ },
  "535": {
   "stage": "failed",
   "lastAttempt": "2026-08-21T04:42:42.562Z",
@@ -339,19 +374,26 @@
  },
  "543": {
   "stage": "failed",
-  "lastAttempt": "2026-08-21T05:12:40.729Z",
-  "attempts": 1,
+  "lastAttempt": "2026-08-21T05:50:25.607Z",
+  "attempts": 2,
   "error": "https://admissions.northeastern.edu/: no usable prereq list || https://admissions.northeastern.edu/application-information/admissions-deadlines-decisions/: no usable prereq list || https://admissions.northeastern.edu/application-information/frequently-asked-admissions-questions/: no usable prereq list || https://admissions.northeastern.edu/academics/pre-professional-and-graduate-programs/: no usable prereq list",
   "pipelineGen": 6,
   "sourceUrl": "https://www.northeastern.edu/"
  },
+ "545": {
+  "stage": "extracted",
+  "lastAttempt": "2026-08-21T05:38:20.098Z",
+  "attempts": 1,
+  "pipelineGen": 6,
+  "sourceUrl": "https://www.uc.edu/about/provost/faculty/Resources/AcademicProgramDefinitions.html"
+ },
  "550": {
   "stage": "failed",
-  "lastAttempt": "2026-08-21T05:13:22.446Z",
-  "attempts": 1,
-  "error": "https://validate.perfdrive.com/?ssa=1892199e-a373-4fd0-bb41-9882ac5a14a9&ssb=55205278383&ssc=https%3A%2F%2Fwww.geisinger.edu%2Feducation%2Fcolleges%2Fmedicine&ssi=7dc72a24-d5ku-437b-81fb-60a0863e53aa&ssk=botmanager_support@radware.com&ssm=88935797399432576103818438035054&ssn=3534b65c3f673a9cb4ec9b57de7b870abb4b98395897-268f-4ed4-8b8e48&sso=0c6fadc5-2ff8f5409c3f5a4ad1b3ad349da16e0a8ca4f7b039c9ace5&ssp=71620533001787258390178722042631638&ssq=26492148914120309987089141819288946533806&ssr=OTkuNy42MC",
+  "lastAttempt": "2026-08-21T05:52:40.237Z",
+  "attempts": 2,
+  "error": "https://validate.perfdrive.com/?ssa=78defcb3-3946-42b6-98ed-049576c6df9a&ssb=91182245985&ssc=https%3A%2F%2Fwww.geisinger.edu%2Feducation%2Fcolleges%2Fmedicine&ssi=e13e5206-d5ku-4bd1-8692-63f5a5cb4cc4&ssk=botmanager_support@radware.com&ssm=12440208259651170105452954790830&ssn=d17fb0b25297d9bcd97279b9f22456e0a8a56639f09d-f1d2-4abe-ae0b7b&sso=22f1f1fe-9adac6990dbfbe48ce3efbbd7d7b48a52f56372653efafa0&ssp=84645515461787226505178728522613876&ssq=39709459150970572405791509304722267775783&ssr=OTkuNy42MC",
   "pipelineGen": 6,
-  "sourceUrl": "https://validate.perfdrive.com/?ssa=1892199e-a373-4fd0-bb41-9882ac5a14a9&ssb=55205278383&ssc=https%3A%2F%2Fwww.geisinger.edu%2Feducation%2Fcolleges%2Fmedicine&ssi=7dc72a24-d5ku-437b-81fb-60a0863e53aa&ssk=botmanager_support@radware.com&ssm=88935797399432576103818438035054&ssn=3534b65c3f673a9cb4ec9b57de7b870abb4b98395897-268f-4ed4-8b8e48&sso=0c6fadc5-2ff8f5409c3f5a4ad1b3ad349da16e0a8ca4f7b039c9ace5&ssp=71620533001787258390178722042631638&ssq=26492148914120309987089141819288946533806&ssr=OTkuNy42MC4yMzg=&sst=Mozilla/5.0%20(Windows%20NT%2010.0;%20Win64;%20x64)%20AppleWebKit/537.36%20(KHTML,%20like%20Gecko)%20Chrome/126.0%20Safari/537.36%20HealthProfessionsPlanner/1.0&ssu=&ssv=&ssw=&ssx=eyJfX3V6bWYiOiI3ZjkwMDA5ODM5NTg5Ny0yNjhmLTRlZDQtOGRjNS0yZmY4ZjU0MDljM2YxLTE3ODcyODkxNDE1MjUwLTAwNDZiNzgzOTE5NjE2YmQ4NzcxMCIsInV6bXgiOiI3ZmMwMDAwNjAzZWI4ZS05NTdlLTQwNzAtYjNhZi04MmNjNDhiNzVmMGYxLTE3ODcyODkxNDE1MjUwLTAwMTkzNWJmNTlmM2Y4NjgyZGMxMCIsInJkIjoiZ2Vpc2luZ2VyLm9yZyJ9"
+  "sourceUrl": "https://validate.perfdrive.com/?ssa=78defcb3-3946-42b6-98ed-049576c6df9a&ssb=91182245985&ssc=https%3A%2F%2Fwww.geisinger.edu%2Feducation%2Fcolleges%2Fmedicine&ssi=e13e5206-d5ku-4bd1-8692-63f5a5cb4cc4&ssk=botmanager_support@radware.com&ssm=12440208259651170105452954790830&ssn=d17fb0b25297d9bcd97279b9f22456e0a8a56639f09d-f1d2-4abe-ae0b7b&sso=22f1f1fe-9adac6990dbfbe48ce3efbbd7d7b48a52f56372653efafa0&ssp=84645515461787226505178728522613876&ssq=39709459150970572405791509304722267775783&ssr=OTkuNy42MC4yMzg=&sst=Mozilla/5.0%20(Windows%20NT%2010.0;%20Win64;%20x64)%20AppleWebKit/537.36%20(KHTML,%20like%20Gecko)%20Chrome/126.0%20Safari/537.36%20HealthProfessionsPlanner/1.0&ssu=&ssv=&ssw=&ssx=eyJyZCI6ImdlaXNpbmdlci5vcmciLCJfX3V6bWYiOiI3ZjkwMDA2NjM5ZjA5ZC1mMWQyLTRhYmUtYTFmZS05YWRhYzY5OTBkYmYxLTE3ODcyOTE1MDkwNzYwLTAwNDNhOGMzMjQ2YmZkNGI2NDQxMCIsInV6bXgiOiI3ZmMwMDAyMDc3YTY1Ni1hYzJlLTQxZDUtYWUyZC03NjE4ZDQ1ZDliZDAxLTE3ODcyOTE1MDkwNzYwLTAwMTZlNTBlMjQ2NmIwZjI0ZDkxMCJ9"
  },
  "552": {
   "stage": "finalized",
@@ -361,37 +403,61 @@
   "sourceUrl": "https://www.dental.upenn.edu/admissions-academics/dmd-program/admissions/",
   "finalStatus": "verified"
  },
+ "555": {
+  "stage": "extracted",
+  "lastAttempt": "2026-08-21T05:41:12.144Z",
+  "attempts": 1,
+  "pipelineGen": 6,
+  "sourceUrl": "https://catalog.phsu.edu/"
+ },
  "559": {
   "stage": "failed",
-  "lastAttempt": "2026-08-21T05:11:03.638Z",
-  "attempts": 1,
+  "lastAttempt": "2026-08-21T05:51:08.181Z",
+  "attempts": 2,
   "error": "no official candidate URLs",
   "pipelineGen": 6
  },
- "561": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-21T05:30:43.101Z",
+ "560": {
+  "stage": "finalized",
+  "lastAttempt": "2026-08-21T05:35:07.638Z",
   "attempts": 1,
   "pipelineGen": 6,
-  "sourceUrl": "https://www.sc.edu/about/offices_and_divisions/undergraduate_admissions/index.php"
+  "sourceUrl": "https://dentistry.musc.edu/programs/doctor-dental-medicine",
+  "finalStatus": "verified"
+ },
+ "561": {
+  "stage": "failed",
+  "lastAttempt": "2026-08-21T05:43:50.402Z",
+  "attempts": 1,
+  "pipelineGen": 6,
+  "sourceUrl": "https://www.sc.edu/about/offices_and_divisions/undergraduate_admissions/index.php",
+  "error": "https://www.sc.edu/study/colleges_schools/medicine_greenville/medical_education/pcat/: no usable prereq list || https://sc.edu/admissions-at-sc/graduate-school-admissions/index.php: no usable prereq list"
  },
  "574": {
   "stage": "failed",
-  "lastAttempt": "2026-08-21T05:08:53.610Z",
-  "attempts": 1,
+  "lastAttempt": "2026-08-21T05:49:11.016Z",
+  "attempts": 2,
   "error": "no official candidate URLs",
   "pipelineGen": 6
  },
  "584": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-21T05:30:44.422Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-21T05:38:56.392Z",
   "attempts": 1,
   "pipelineGen": 6,
-  "sourceUrl": "https://www.eastern.edu/"
+  "sourceUrl": "https://www.eastern.edu/",
+  "error": "https://www.eastern.edu/node/2619: HTTP 404 || https://www.eastern.edu/admissions: no usable prereq list || https://www.eastern.edu/apply: OpenAI HTTP 429: {\n    \"error\": {\n        \"message\": \"Rate limit reached for gpt-4o-mini in organization org-kRjpmgXqcLrwkVTY20gVZyOd on requests per day (RPD): Limit 10000, Used 10000, Requested 1. Please try again in 8.64s. Visit https://platform.openai.com/account/rate-limits to learn more.\",\n        \"type\": \"req || https://www.eastern.edu/: no usable prer"
  },
  "586": {
   "stage": "failed",
   "lastAttempt": "2026-08-21T05:27:14.356Z",
+  "attempts": 1,
+  "error": "no official candidate URLs",
+  "pipelineGen": 6
+ },
+ "587": {
+  "stage": "failed",
+  "lastAttempt": "2026-08-21T05:39:25.923Z",
   "attempts": 1,
   "error": "no official candidate URLs",
   "pipelineGen": 6
@@ -1075,6 +1141,41 @@
   "attempts": 0,
   "error": "reopened for pipeline gen 3",
   "pipelineGen": 3
+ },
+ "1417": {
+  "stage": "finalized",
+  "lastAttempt": "2026-08-21T05:46:57.563Z",
+  "attempts": 1,
+  "pipelineGen": 6,
+  "sourceUrl": "https://www.harding.edu/pharmacy/admissions/",
+  "finalStatus": "verified"
+ },
+ "1468": {
+  "stage": "failed",
+  "lastAttempt": "2026-08-21T05:47:19.328Z",
+  "attempts": 1,
+  "error": "no official candidate URLs",
+  "pipelineGen": 6
+ },
+ "1472": {
+  "stage": "extracted",
+  "lastAttempt": "2026-08-21T05:47:15.989Z",
+  "attempts": 1,
+  "pipelineGen": 6,
+  "sourceUrl": "https://www.uu.edu/admissions/undergraduate/"
+ },
+ "1482": {
+  "stage": "source_fetched",
+  "lastAttempt": "2026-08-21T05:47:07.725Z",
+  "attempts": 1,
+  "pipelineGen": 6,
+  "sourceUrl": "https://uconn.edu/"
+ },
+ "1483": {
+  "stage": "source_discovery",
+  "lastAttempt": "2026-08-21T05:47:19.339Z",
+  "attempts": 1,
+  "pipelineGen": 6
  },
  "1874": {
   "stage": "failed",

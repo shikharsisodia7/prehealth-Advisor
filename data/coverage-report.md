@@ -1,6 +1,6 @@
 # Prerequisite Coverage Audit
 
-Generated: 2026-08-21T05:32:19.285Z
+Generated: 2026-08-21T06:02:29.148Z
 
 | Profession | Active | Verified | No specific courses | Blocked | Unfinished | Final-status coverage | Directory reconciliation |
 |---|---:|---:|---:|---:|---:|---:|---|
@@ -8,12 +8,12 @@ Generated: 2026-08-21T05:32:19.285Z
 | Dental School (DDS/DMD) | 78 | 65 | 2 | 0 | 11 | 85.9% | reconciled |
 | Dietetics (RD/RDN) | 152 | 103 | 4 | 0 | 45 | 70.4% | reconciled |
 | Genetic Counseling (MS) | 64 | 62 | 1 | 0 | 1 | 98.4% | under-source-count |
-| Medical School (MD/DO) | 236 | 104 | 0 | 0 | 132 | 44.1% | reconciled |
+| Medical School (MD/DO) | 236 | 106 | 0 | 0 | 130 | 44.9% | reconciled |
 | Nursing (ABSN/MEPN) | 446 | 387 | 13 | 1 | 45 | 89.7% | reconciled |
 | Occupational Therapy (OTD/MOT) | 318 | 211 | 5 | 0 | 102 | 67.9% | reconciled |
 | Optometry (OD) | 24 | 24 | 0 | 0 | 0 | 100% | reconciled |
 | Pathologists' Assistant (PathA) | 20 | 19 | 1 | 0 | 0 | 100% | reconciled |
-| Pharmacy (PharmD) | 140 | 27 | 0 | 0 | 113 | 19.3% | reconciled |
+| Pharmacy (PharmD) | 140 | 28 | 0 | 0 | 112 | 20% | reconciled |
 | Physical Therapy (DPT) | 308 | 229 | 1 | 0 | 78 | 74.7% | reconciled |
 | Physician Assistant (PA) | 330 | 301 | 3 | 0 | 26 | 92.1% | reconciled |
 | Podiatric Medicine (DPM) | 11 | 11 | 0 | 0 | 0 | 100% | reconciled |
