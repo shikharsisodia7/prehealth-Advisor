@@ -1957,8 +1957,12 @@ async function main() {
     }
   }
   queue.sort((a, b) => {
-    const aSite = a.websiteUrl && !isDirectoryHubUrl(a.websiteUrl) && !websiteConflictsWithInstitution(a.websiteUrl, a.name) ? 0 : 1;
-    const bSite = b.websiteUrl && !isDirectoryHubUrl(b.websiteUrl) && !websiteConflictsWithInstitution(b.websiteUrl, b.name) ? 0 : 1;
+    const aAttempts = state[a.id]?.attempts ?? 0;
+    const bAttempts = state[b.id]?.attempts ?? 0;
+    // Prefer fresh / low-attempt programs so chronic hard cases do not monopolize every round.
+    if (aAttempts !== bAttempts) return aAttempts - bAttempts;
+    const aSite = a.websiteUrl && !isDirectoryHubUrl(a.websiteUrl) && !isGarbageDiscoveredUrl(a.websiteUrl) && !websiteConflictsWithInstitution(a.websiteUrl, a.name) ? 0 : 1;
+    const bSite = b.websiteUrl && !isDirectoryHubUrl(b.websiteUrl) && !isGarbageDiscoveredUrl(b.websiteUrl) && !websiteConflictsWithInstitution(b.websiteUrl, b.name) ? 0 : 1;
     if (aSite !== bSite) return aSite - bSite;
     return (professionPriority[a.professionSlug] ?? 50) - (professionPriority[b.professionSlug] ?? 50);
   });
