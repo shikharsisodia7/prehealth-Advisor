@@ -117,9 +117,9 @@ type Stage =
 // a previously-broken dependency fixed, etc). Programs that exhausted their attempt budget under
 // an older generation get exactly one fresh attempt under the new one, without losing their prior
 // failure history (state[id].error still holds the last message from whichever generation).
-// Gen 4: news/media URL filtering + expanded SLP/nursing/medicine/pharmacy/postbac discovery
-// queries + deeper department crawl — re-queue gen-3 exhausted "no usable list" failures.
-const CURRENT_PIPELINE_GEN = 4;
+// Gen 5: rebalance queue toward medicine/pharmacy/postbac; reject bot-wall challenge URLs;
+// cooler chronic retry + stronger PDF/checklist discovery for hard professions.
+const CURRENT_PIPELINE_GEN = 5;
 
 interface ProgramState {
   stage: Stage;
@@ -470,6 +470,8 @@ function isAthleticsOrSportsUrl(url: string | null | undefined): boolean {
 function isLowValueCandidate(url: string): boolean {
   const hay = url.toLowerCase();
   if (isAthleticsOrSportsUrl(url)) return true;
+  // Bot/WAF challenge interstitial pages (e.g. NYU admissions.html?challenge=...).
+  if (/[?&]challenge=|cf-challenge|captcha|akamai|_guard|security-check/i.test(hay)) return true;
   if (/ellucian|crmrecruit|apply-gobaylor|myworkday|commonapp|slate\.|targetx/.test(hay)) return true;
   if (/financial-aid|tuition|video-tour|virtual-office|visit-campus|campus-tour|housing/.test(hay)) return true;
   // State/federal portals that match institution tokens (e.g. "Texas", "Virginia") but are not schools.
@@ -867,6 +869,7 @@ function looksLikeOfficialProgramUrl(url: string, program: ProgramRow): boolean 
     if (!/^https?:$/i.test(u.protocol)) return false;
     if (BLOCKED_SEARCH_HOSTS.test(u.hostname)) return false;
     if (isDirectoryHubUrl(url)) return false;
+    if (isLowValueCandidate(url)) return false;
     if (websiteConflictsWithInstitution(url, program.name)) return false;
     // Reject generic state/federal portals that match a token like "illinois"/"georgia".
     if (/\.(gov)$/i.test(u.hostname) && !/\.edu$/i.test(u.hostname)) {
@@ -910,6 +913,7 @@ function scoreCandidateUrl(url: string, program: ProgramRow): number {
     if (/\.edu$/i.test(u.hostname)) score += 5;
     if (/prereq|pre-requisite/.test(hay)) score += 8;
     if (/requirement/.test(hay)) score += 4;
+    if (/\.pdf($|\?)/i.test(hay) && /prereq|requirement|checklist|coursework/i.test(hay)) score += 6;
     if (/admiss|apply|prospective/.test(hay)) score += 3;
     if (/catalog|handbook|checksheet/.test(hay)) score += 3;
     if (/academic-catalog|core-curriculum|course-catalog/.test(hay) && !/prereq|nursing|absn|mepn|dpt|otd|slp|pharm/.test(hay)) {
@@ -1166,6 +1170,8 @@ async function discoverCandidates(program: ProgramRow): Promise<string[]> {
               `${program.name} PharmD admission requirements checklist PDF site:${host}`,
               `${program.name} PharmD required coursework biology chemistry site:${host}`,
               `${program.name} pharmacy school prerequisite course list site:${host}`,
+              `${program.name} PharmD prerequisites filetype:pdf site:${host}`,
+              `${program.name} prepharmacy course requirements site:${host}`,
             ]
           : []),
         ...(program.professionSlug === "medicine"
@@ -1179,6 +1185,8 @@ async function discoverCandidates(program: ProgramRow): Promise<string[]> {
               `${program.name} entering class requirements coursework site:${host}`,
               `${program.name} MD program required undergraduate courses site:${host}`,
               `${program.name} medical school admissions course requirements PDF site:${host}`,
+              `${program.name} medical school prerequisites filetype:pdf site:${host}`,
+              `${program.name} school of medicine admission requirements biology chemistry physics site:${host}`,
             ]
           : []),
         ...(program.professionSlug === "postbac"
@@ -1188,6 +1196,7 @@ async function discoverCandidates(program: ProgramRow): Promise<string[]> {
               `${program.name} premed postbacc prerequisites site:${host}`,
               `${program.name} linkage program prerequisites site:${host}`,
               `${program.name} post-baccalaureate premedical coursework requirements site:${host}`,
+              `${program.name} postbacc curriculum required courses site:${host}`,
             ]
           : []),
         ...(program.professionSlug === "occupational-therapy"
@@ -1852,15 +1861,16 @@ async function main() {
   ));
 
   const professionPriority: Record<string, number> = {
-    nursing: 0,
-    "physician-assistant": 1,
-    "speech-language-pathology": 2,
-    "occupational-therapy": 3,
-    postbac: 4,
+    // Prefer largest unfinished gaps once nursing/PA are mostly done.
+    medicine: 0,
+    pharmacy: 1,
+    postbac: 2,
+    "speech-language-pathology": 3,
+    "occupational-therapy": 4,
     "physical-therapy": 5,
-    medicine: 6,
-    dietetics: 7,
-    pharmacy: 8,
+    dietetics: 6,
+    nursing: 7,
+    "physician-assistant": 8,
     dental: 9,
     "genetic-counseling": 10,
     "prosthetics-orthotics": 11,
