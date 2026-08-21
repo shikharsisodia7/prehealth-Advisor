@@ -1413,7 +1413,10 @@ function toPrereqItem(c: ExtractedCourse): PrereqItem {
 }
 
 const PLACEHOLDER_NAME = /^(prerequisite|required)?\s*course\s*\d*$|^(course|subject|requirement)\s+\d+$/i;
-const SUBJECT_HINT = /biolog|chem|physic|anatom|physiol|a\s*&\s*p|psych|stat|math|calc|english|writ|composit|sociolog|microbio|genetic|biochem|kinesiol|nutrit|exercise|humanit|social|science|communicat|econom|algebra|literature|history|language|medical|terminolog|gpa|gre|degree|bachelor|experience|hours|observ|shadow|cpr|certif|phonetic|audiolog|speech|hearing|aural|linguist|swallow|dysphag|voice|fluency|articulat|disorder|neurolog|csd|patholog|organic|immunolog|pathophys|lifespan|developmental|pharmacol|patient|clinical|statistics|calculus|physics|lab|health assessment|human development|microbiology|organic chem|general chem|nursing|holistic|epidemiolog|research methods|public health|biostat/i;
+const META_ADMISSION_NAME =
+  /^(completion of|cumulative gpa|minimum gpa|overall gpa|foreign language|uk core|please view|bachelor(?:'s)? degree|bs or ba|ba or bs|lpn program|military training|active license|observation hours|shadowing|cpr certification|background check|drug screen|immunization|technical standards|essential functions)\b/i;
+const SUBJECT_HINT = /biolog|chem|physic|anatom|physiol|a\s*&\s*p|psych|stat|math|calc|english|writ|composit|sociolog|microbio|genetic|biochem|kinesiol|nutrit|exercise|humanit|social|science|communicat|econom|algebra|literature|history|language|medical terminolog|gpa|gre|degree|bachelor|experience|hours|observ|shadow|cpr|certif|phonetic|audiolog|speech|hearing|aural|linguist|swallow|dysphag|voice|fluency|articulat|disorder|neurolog|csd|patholog|organic|immunolog|pathophys|lifespan|developmental|pharmacol|patient|clinical|statistics|calculus|physics|lab|health assessment|human development|microbiology|organic chem|general chem|nursing|holistic|epidemiolog|research methods|public health|biostat/i;
+const COURSE_SUBJECT_HINT = /biolog|chem|physic|anatom|physiol|a\s*&\s*p|psych|stat(?:istics)?|math|calc|english|writ|composit|sociolog|microbio|genetic|biochem|kinesiol|nutrit|phonetic|audiolog|speech|hearing|linguist|organic|immunolog|pathophys|pharmacol|epidemiolog|biostat|microbiology|physics|algebra|literature|history|economics|communication sciences|medical terminolog/i;
 const NO_PREREQ_ASSERTION =
   /(no|not\s+require|not\s+have|without)[^.]{0,60}prerequis|prerequis[^.]{0,60}(are\s+not|not\s+required|none)/i;
 
@@ -1427,7 +1430,7 @@ function validExtraction(ex: Extraction, pageText: string, program: ProgramRow, 
     (program.professionSlug === "medicine" && /\b(md\b|do\b|amcas|aacomas|medical school)\b/i.test(pageText)) ||
     // Shared prerequisite-course hubs (e.g. MCPHS) often omit the profession word in body copy.
     (/prerequi|admission-requirements|required-coursework|course-requirements/i.test(urlHay) &&
-      SUBJECT_HINT.test(pageText) &&
+      COURSE_SUBJECT_HINT.test(pageText) &&
       (professionKeywords(program.professionSlug).some((k) => urlHay.includes(normalize(k).replace(/ /g, "-")) || pageNorm.includes(normalize(k))) ||
         program.professionSlug === "nursing" ||
         program.professionSlug === "pharmacy" ||
@@ -1442,9 +1445,13 @@ function validExtraction(ex: Extraction, pageText: string, program: ProgramRow, 
   const names = ex.courses.map((c) => c.name ?? "");
   if (names.some((n) => typeof n !== "string" || n.length < 2 || n.length > 300)) return false;
   if (names.some((n) => PLACEHOLDER_NAME.test(n.trim()))) return false;
+  // Reject admissions-meta lists (GPA/degree/license) with no real coursework subjects.
+  if (names.filter((n) => META_ADMISSION_NAME.test(n.trim())).length >= Math.ceil(names.length / 2)) return false;
+  const courseLike = names.filter((n) => COURSE_SUBJECT_HINT.test(n) && !META_ADMISSION_NAME.test(n.trim())).length;
+  if (courseLike < 2) return false;
   const plausible = names.filter((n) => SUBJECT_HINT.test(n)).length;
   // Short official lists (2 courses) must both be plausible subjects; longer lists need majority.
-  if (names.length <= 2) return plausible === names.length;
+  if (names.length <= 2) return plausible === names.length && courseLike === names.length;
   return plausible >= Math.ceil(names.length / 2);
 }
 
@@ -1468,19 +1475,27 @@ async function persistResult(
   const cacheFile = path.join(CACHE_DIR, `${program.id}-${source.hash.slice(0, 16)}.html`);
   if (!fs.existsSync(cacheFile)) fs.writeFileSync(cacheFile, source.html);
 
-  await db.update(programSchoolsTable).set({
-    prereqCourses: items,
-    prereqSources: sources,
-    sourceUrl: source.url,
-    lastVerified: TODAY,
-    verificationStatus: status,
-    verificationNote:
-      `Machine-verified from official source via automated completion worker (${OPENAI_MODEL} structured extraction), no human review.` +
-      (status === "no_prereqs_published" && ex.noPrereqsEvidenceQuote
-        ? ` Source statement: "${ex.noPrereqsEvidenceQuote.slice(0, 300)}"`
-        : "") +
-      (ex.otherConditions ? ` Page conditions: ${ex.otherConditions}` : ""),
-  }).where(eq(programSchoolsTable.id, program.id));
+  try {
+    await db.update(programSchoolsTable).set({
+      prereqCourses: items,
+      prereqSources: sources,
+      sourceUrl: source.url,
+      lastVerified: TODAY,
+      verificationStatus: status,
+      verificationNote:
+        `Machine-verified from official source via automated completion worker (${OPENAI_MODEL} structured extraction), no human review.` +
+        (status === "no_prereqs_published" && ex.noPrereqsEvidenceQuote
+          ? ` Source statement: "${ex.noPrereqsEvidenceQuote.slice(0, 300)}"`
+          : "") +
+        (ex.otherConditions ? ` Page conditions: ${ex.otherConditions.slice(0, 400)}` : ""),
+    }).where(eq(programSchoolsTable.id, program.id));
+  } catch (e) {
+    const err = e as { message?: string; cause?: { message?: string; code?: string } };
+    throw new Error(
+      `persist failed for ${program.id}: ${err?.cause?.message || err?.message || String(e)}` +
+        (err?.cause?.code ? ` [${err.cause.code}]` : ""),
+    );
+  }
 
   const [check] = await db.select().from(programSchoolsTable).where(eq(programSchoolsTable.id, program.id));
   if (!check || check.verificationStatus !== status || check.sourceUrl !== source.url ||
