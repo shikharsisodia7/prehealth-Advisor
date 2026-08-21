@@ -48,11 +48,12 @@
   "finalStatus": "verified"
  },
  "608": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-21T02:29:56.505Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-21T02:46:25.512Z",
   "attempts": 7,
   "pipelineGen": 4,
-  "sourceUrl": "https://www.bsu.edu/academics/collegesanddepartments/nursing/current-students"
+  "sourceUrl": "https://www.bsu.edu/academics/collegesanddepartments/nursing/current-students",
+  "error": "https://www.bsu.edu/academics/collegesanddepartments/nursing: no usable prereq list || https://www.bsu.edu/academics/collegesanddepartments/nursing: no usable prereq list || https://www.bsu.edu/academics/collegesanddepartments/nursing/academics/bachelors-degrees/bachelors: OpenAI HTTP 429: {\n    \"error\": {\n        \"message\": \"Rate limit reached for gpt-4o-mini in organization org-kRjpmgXqcLrwkVTY20gVZyOd on requests per day (RPD): Limit 10000, Used 10000, Requested 1. Please try again in 8.64s. "
  },
  "610": {
   "stage": "failed",
@@ -71,11 +72,12 @@
   "error": "https://admissions.sdsu.edu/international/graduate: no usable prereq list || https://admissions.sdsu.edu/graduate: no usable prereq list || https://admissions.sdsu.edu/application-admission-status: no usable prereq list || https://sacd.sdsu.edu/veterans/admissions: no usable prereq list"
  },
  "673": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-21T02:28:58.849Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-21T02:44:04.250Z",
   "attempts": 7,
   "pipelineGen": 4,
-  "sourceUrl": "https://www.fdu.edu/campuses/vancouver-campus/admissions/"
+  "sourceUrl": "https://www.fdu.edu/campuses/vancouver-campus/admissions/",
+  "error": "https://www.fdu.edu/admissions/graduate/: no usable prereq list || https://www.fdu.edu/admissions/graduate/admissions-status/: no usable prereq list"
  },
  "701": {
   "stage": "finalized",
@@ -102,11 +104,12 @@
   "sourceUrl": "https://iucat.iu.edu/catalog/advanced"
  },
  "739": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-21T02:30:52.521Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-21T02:44:32.158Z",
   "attempts": 7,
   "pipelineGen": 4,
-  "sourceUrl": "https://www.mcphs.edu/admission-and-aid/undergraduate-applicants"
+  "sourceUrl": "https://www.mcphs.edu/admission-and-aid/undergraduate-applicants",
+  "error": "https://www.mcphs.edu/academics/prerequisite-courses: no usable prereq list || https://www.mcphs.edu/academics/schools/nursing: no usable prereq list || https://www.mcphs.edu/academics/schools/nursing: no usable prereq list || https://www.mcphs.edu/admission-and-aid/graduate-applicants: OpenAI HTTP 429: {\n    \"error\": {\n        \"message\": \"Rate limit reached for gpt-4o-mini in organization org-kRjpmgXqcLrwkVTY20gVZyOd on requests per day (RPD): Limit 10000, Used 10000, Requested 1. Please try ag"
  },
  "748": {
   "stage": "failed",
@@ -149,11 +152,12 @@
   "sourceUrl": "https://www.kean.edu/kean-jersey-city/apply"
  },
  "768": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-21T02:29:40.089Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-21T02:35:46.215Z",
   "attempts": 7,
   "pipelineGen": 4,
-  "sourceUrl": "https://www.nyu.edu/"
+  "sourceUrl": "https://www.nyu.edu/",
+  "error": "https://www.nyu.edu/admissions.html?challenge=d06e90d7-4d8f-4b88-9d8c-10b73beb60f1: no usable prereq list || https://www.nyu.edu/: no usable prereq list"
  },
  "774": {
   "stage": "finalized",
@@ -316,11 +320,12 @@
   "finalStatus": "verified"
  },
  "860": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-21T02:30:34.073Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-21T02:35:29.037Z",
   "attempts": 6,
   "pipelineGen": 4,
-  "sourceUrl": "https://admission.uky.edu/apply"
+  "sourceUrl": "https://admission.uky.edu/apply",
+  "error": "https://nursing.uky.edu/: no usable prereq list || https://nursing.uky.edu/: no usable prereq list || https://admission.uky.edu/apply: no usable prereq list"
  },
  "863": {
   "stage": "failed",
@@ -355,8 +360,8 @@
  },
  "941": {
   "stage": "failed",
-  "lastAttempt": "2026-08-21T01:42:44.731Z",
-  "attempts": 2,
+  "lastAttempt": "2026-08-21T02:49:42.470Z",
+  "attempts": 3,
   "pipelineGen": 4,
   "sourceUrl": "https://www.bc.edu/content/bc-web/schools/cson/academics/undergraduate-programs/bsn-nursing.html",
   "error": "https://www.bc.edu/content/bc-web/schools/cson/academics/undergraduate-programs/bsn-nursing.html: no usable prereq list"
@@ -426,11 +431,12 @@
   "finalStatus": "verified"
  },
  "992": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-21T02:27:44.795Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-21T02:38:54.034Z",
   "attempts": 7,
   "pipelineGen": 4,
-  "sourceUrl": "https://www.sentara.edu/"
+  "sourceUrl": "https://www.sentara.edu/",
+  "error": "https://www.sentara.edu/admissions-aid: no usable prereq list"
  },
  "995": {
   "stage": "finalized",
@@ -816,9 +822,9 @@
   "finalStatus": "verified"
  },
  "1907": {
-  "stage": "source_discovery",
-  "lastAttempt": "2026-08-21T01:42:45.280Z",
-  "attempts": 1,
+  "stage": "extracted",
+  "lastAttempt": "2026-08-21T02:52:27.204Z",
+  "attempts": 2,
   "pipelineGen": 4,
   "sourceUrl": "https://www.emorypa.org/"
  },
@@ -919,11 +925,12 @@
   "finalStatus": "verified"
  },
  "1926": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-21T01:41:45.308Z",
-  "attempts": 1,
+  "stage": "failed",
+  "lastAttempt": "2026-08-21T02:52:43.273Z",
+  "attempts": 2,
   "pipelineGen": 4,
-  "sourceUrl": "https://tun.touro.edu/admissions--aid/"
+  "sourceUrl": "https://tun.touro.edu/admissions--aid/",
+  "error": "https://tun.touro.edu/admissions--aid/: no usable prereq list"
  },
  "1927": {
   "stage": "finalized",
@@ -934,11 +941,12 @@
   "finalStatus": "verified"
  },
  "1929": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-21T01:44:49.169Z",
-  "attempts": 1,
+  "stage": "failed",
+  "lastAttempt": "2026-08-21T03:01:32.199Z",
+  "attempts": 2,
   "pipelineGen": 4,
-  "sourceUrl": "https://indianastate.edu/academics/colleges/health-human-services/amr/pa/physician-assistant-program-information"
+  "sourceUrl": "https://indianastate.edu/academics/colleges/health-human-services/amr/pa/physician-assistant-program-information",
+  "error": "https://indianastate.edu/academics/colleges/health-human-services/pa/isu-physician-assistant-veteran-outreach: no usable prereq list || https://indianastate.edu/academics/colleges/health-human-services/amr/pa: no usable prereq list || https://indianastate.edu/academics/colleges/health-human-services/amr/pa: no usable prereq list || https://indianastate.edu/media/3593/download?inline: no usable prereq list"
  },
  "1930": {
   "stage": "finalized",
@@ -973,10 +981,12 @@
   "finalStatus": "verified"
  },
  "1934": {
-  "stage": "source_discovery",
-  "lastAttempt": "2026-08-21T01:47:24.762Z",
-  "attempts": 1,
-  "pipelineGen": 4
+  "stage": "finalized",
+  "lastAttempt": "2026-08-21T02:50:38.018Z",
+  "attempts": 2,
+  "pipelineGen": 4,
+  "sourceUrl": "https://www.sf.edu/wp-content/uploads/2026/02/admissions_and_enrollment_policies_20262027.pdf",
+  "finalStatus": "verified"
  },
  "1936": {
   "stage": "failed",
@@ -988,10 +998,10 @@
  },
  "1937": {
   "stage": "failed",
-  "lastAttempt": "2026-08-20T20:32:31.260Z",
-  "attempts": 3,
+  "lastAttempt": "2026-08-21T02:52:25.133Z",
+  "attempts": 1,
   "error": "https://www.ottawa.edu/paprogram: HTTP 307",
-  "pipelineGen": 3
+  "pipelineGen": 4
  },
  "1939": {
   "stage": "finalized",
@@ -1041,12 +1051,20 @@
   "sourceUrl": "https://franu.edu/academics/programs/pa/index.html",
   "finalStatus": "verified"
  },
+ "1945": {
+  "stage": "finalized",
+  "lastAttempt": "2026-08-21T02:55:26.110Z",
+  "attempts": 1,
+  "pipelineGen": 4,
+  "sourceUrl": "https://alliedhealth.lsuhsc.edu/pa/docs/admissionrequirements.pdf",
+  "finalStatus": "verified"
+ },
  "1946": {
   "stage": "failed",
-  "lastAttempt": "2026-08-20T20:32:31.979Z",
-  "attempts": 3,
-  "error": "https://www.lsuhscshreveport.edu/: fetch failed",
-  "pipelineGen": 3,
+  "lastAttempt": "2026-08-21T02:52:57.570Z",
+  "attempts": 1,
+  "error": "https://www.lsuhscshreveport.edu/: too little text",
+  "pipelineGen": 4,
   "sourceUrl": "https://www.lsuhscshreveport.edu/"
  },
  "1949": {
@@ -1059,8 +1077,8 @@
  },
  "1951": {
   "stage": "extracted",
-  "lastAttempt": "2026-08-21T01:47:18.949Z",
-  "attempts": 1,
+  "lastAttempt": "2026-08-21T02:49:11.517Z",
+  "attempts": 2,
   "pipelineGen": 4,
   "sourceUrl": "https://www.mcphs.edu/admission-and-aid/undergraduate-applicants"
  },
@@ -1217,12 +1235,11 @@
   "finalStatus": "verified"
  },
  "1984": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-20T20:31:37.402Z",
-  "attempts": 3,
-  "error": "https://admissions.missouri.edu/apply/freshmen/test-optional/: no usable prereq list || https://admissions.missouri.edu/apply/freshmen/: no usable prereq list || https://admissions.missouri.edu/apply/international/: no usable prereq list || https://admissions.missouri.edu/apply/military/: no usable prereq list",
-  "pipelineGen": 3,
-  "sourceUrl": "https://admissions.missouri.edu/apply/"
+  "stage": "extracted",
+  "lastAttempt": "2026-08-21T02:55:37.416Z",
+  "attempts": 1,
+  "pipelineGen": 4,
+  "sourceUrl": "https://gradschool.missouri.edu/"
  },
  "1985": {
   "stage": "finalized",
@@ -1577,19 +1594,19 @@
   "finalStatus": "verified"
  },
  "2064": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-21T01:42:02.667Z",
-  "attempts": 1,
+  "stage": "failed",
+  "lastAttempt": "2026-08-21T02:50:53.927Z",
+  "attempts": 2,
   "pipelineGen": 4,
-  "sourceUrl": "https://www.findlay.edu/"
+  "sourceUrl": "https://www.findlay.edu/",
+  "error": "https://www.findlay.edu/admissions-aid/transfer-students/: no usable prereq list || https://www.findlay.edu/admissions-aid/transfer-students/transfer-admission-criteria/: OpenAI HTTP 429: {\n    \"error\": {\n        \"message\": \"Rate limit reached for gpt-4o-mini in organization org-kRjpmgXqcLrwkVTY20gVZyOd on requests per day (RPD): Limit 10000, Used 10000, Requested 1. Please try again in 8.64s. Visit https://platform.openai.com/account/rate-limits to learn more.\",\n        \"type\": \"req"
  },
  "2066": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-20T20:32:04.504Z",
-  "attempts": 3,
-  "error": "https://www.utoledo.edu/admission/international/admissionrequirements/: no usable prereq list || https://www.utoledo.edu/admission/international/transcript-requirements/: no usable prereq list || https://www.utoledo.edu/admission/transfer-adult-student/: no usable prereq list || https://www.utoledo.edu/admission/international/: no usable prereq list",
-  "pipelineGen": 3,
-  "sourceUrl": "https://www.utoledo.edu/med/grad/pa/"
+  "stage": "extracted",
+  "lastAttempt": "2026-08-21T02:58:06.013Z",
+  "attempts": 1,
+  "pipelineGen": 4,
+  "sourceUrl": "https://www.utoledo.edu/admission/undergraduate/"
  },
  "2071": {
   "stage": "finalized",
@@ -1712,11 +1729,10 @@
   "finalStatus": "verified"
  },
  "2094": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-20T20:32:41.206Z",
-  "attempts": 3,
-  "error": "https://www.jefferson.edu/admissions/graduate/prerequisite-guides.html: no usable prereq list || https://www.jefferson.edu/admissions/graduate/apply.html: no usable prereq list || https://www.jefferson.edu/admissions/undergraduate/transfer/apply.html: no usable prereq list || https://www.jefferson.edu/admissions/undergraduate/second-degree-seeking-students/apply.html: no usable prereq list",
-  "pipelineGen": 3,
+  "stage": "extracted",
+  "lastAttempt": "2026-08-21T02:59:04.010Z",
+  "attempts": 1,
+  "pipelineGen": 4,
   "sourceUrl": "https://www.jefferson.edu/admissions/undergraduate/second-degree-seeking-students/apply.html"
  },
  "2096": {
@@ -1888,11 +1904,10 @@
   "finalStatus": "verified"
  },
  "2120": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-20T20:32:39.503Z",
-  "attempts": 3,
-  "error": "https://www.mtsu.edu/wp-content/uploads/2023/10/Student-Handbook-2026-final.pdf: no usable prereq list",
-  "pipelineGen": 3,
+  "stage": "source_discovery",
+  "lastAttempt": "2026-08-21T03:01:32.732Z",
+  "attempts": 1,
+  "pipelineGen": 4,
   "sourceUrl": "https://www.mtsu.edu/wp-content/uploads/2023/10/Student-Handbook-2026-final.pdf"
  },
  "2125": {
