@@ -24,18 +24,18 @@
   "finalStatus": "verified"
  },
  "397": {
-  "stage": "source_discovery",
-  "lastAttempt": "2026-08-21T21:47:50.937Z",
+  "stage": "source_fetched",
+  "lastAttempt": "2026-08-21T21:49:43.126Z",
   "attempts": 4,
   "pipelineGen": 6,
-  "sourceUrl": "https://osteopathicmedicine.msu.edu/"
+  "sourceUrl": "https://osteopathicmedicine.msu.edu/current-students/preclerkship-medical-education"
  },
  "398": {
-  "stage": "source_discovery",
-  "lastAttempt": "2026-08-21T21:47:51.876Z",
+  "stage": "source_fetched",
+  "lastAttempt": "2026-08-21T21:49:40.430Z",
   "attempts": 4,
   "pipelineGen": 6,
-  "sourceUrl": "https://osteopathicmedicine.msu.edu/about-us/our-three-sites"
+  "sourceUrl": "https://osteopathicmedicine.msu.edu/future-students/pa-medicine-program"
  },
  "400": {
   "stage": "finalized",
@@ -346,10 +346,9 @@
   "sourceUrl": "https://med.wmich.edu/"
  },
  "513": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-21T06:31:19.933Z",
-  "attempts": 3,
-  "error": "https://medicine.nevada.edu/: no usable prereq list",
+  "stage": "source_discovery",
+  "lastAttempt": "2026-08-21T21:49:02.627Z",
+  "attempts": 4,
   "pipelineGen": 6,
   "sourceUrl": "https://medicine.nevada.edu/"
  },
@@ -1540,11 +1539,12 @@
   "finalStatus": "verified"
  },
  "1926": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-21T21:47:17.291Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-21T21:49:02.048Z",
   "attempts": 1,
   "pipelineGen": 6,
-  "sourceUrl": "https://illinois.touro.edu/physician-assistant/mission-goals--outcomes/pance-scores/"
+  "sourceUrl": "https://illinois.touro.edu/physician-assistant/mission-goals--outcomes/pance-scores/",
+  "error": "https://illinois.touro.edu/physician-assistant/: no usable prereq list || https://illinois.touro.edu/physician-assistant/academics/: no usable prereq list || https://illinois.touro.edu/physician-assistant/mission-goals--outcomes/: no usable prereq list || https://illinois.touro.edu/physician-assistant/academics/courses/: no usable prereq list"
  },
  "1927": {
   "stage": "finalized",
