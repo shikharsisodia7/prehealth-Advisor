@@ -1,9 +1,9 @@
 {
  "596": {
   "stage": "failed",
-  "lastAttempt": "2026-08-21T02:02:47.784Z",
-  "attempts": 5,
-  "error": "https://www.aub.edu.lb/admissions/Pages/EnglishRequirements.aspx: no usable prereq list || https://www.aub.edu.lb/admissions/Pages/default.aspx: no usable prereq list || https://www.aub.edu.lb/admissions/Pages/TC/index.html: no usable prereq list || https://www.aub.edu.lb/admissions/applications/Pages/SpecialVisiting.aspx: OpenAI HTTP 429: {\n    \"error\": {\n        \"message\": \"Rate limit reached for gpt-4o-mini in organization org-kRjpmgXqcLrwkVTY20gVZyOd on requests per day (RPD): Limit 10000, U",
+  "lastAttempt": "2026-08-21T03:22:52.558Z",
+  "attempts": 6,
+  "error": "https://www.aub.edu.lb/admissions/Pages/EnglishRequirements.aspx: no usable prereq list || https://www.aub.edu.lb/admissions/Pages/default.aspx: no usable prereq list || https://www.aub.edu.lb/admissions/Pages/TC/index.html: OpenAI HTTP 429: {\n    \"error\": {\n        \"message\": \"Rate limit reached for gpt-4o-mini in organization org-kRjpmgXqcLrwkVTY20gVZyOd on requests per day (RPD): Limit 10000, Used 10000, Requested 1. Please try again in 8.64s. Visit https://platform.openai.com/account/rate-li",
   "pipelineGen": 4,
   "sourceUrl": "https://www.aub.edu.lb/hson/Pages/Nursing-summer-camp.aspx"
  },
@@ -56,20 +56,18 @@
   "error": "https://www.bsu.edu/academics/collegesanddepartments/nursing: no usable prereq list || https://www.bsu.edu/academics/collegesanddepartments/nursing: no usable prereq list || https://www.bsu.edu/academics/collegesanddepartments/nursing/academics/bachelors-degrees/bachelors: OpenAI HTTP 429: {\n    \"error\": {\n        \"message\": \"Rate limit reached for gpt-4o-mini in organization org-kRjpmgXqcLrwkVTY20gVZyOd on requests per day (RPD): Limit 10000, Used 10000, Requested 1. Please try again in 8.64s. "
  },
  "610": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-21T02:25:47.315Z",
-  "attempts": 5,
-  "error": "https://nursing.baylor.edu/: no usable prereq list || https://nursing.baylor.edu/global: no usable prereq list || https://admissions.web.baylor.edu/: no usable prereq list || https://nursing.baylor.edu/academics/undergraduate-bsn-program-resources: no usable prereq list",
+  "stage": "extracted",
+  "lastAttempt": "2026-08-21T03:25:31.307Z",
+  "attempts": 6,
   "pipelineGen": 4,
   "sourceUrl": "https://nursing.baylor.edu/academics/undergraduate-bsn-program-resources/traditional-bsn-track/faqs"
  },
  "624": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-21T02:25:05.809Z",
-  "attempts": 5,
+  "stage": "extracted",
+  "lastAttempt": "2026-08-21T03:31:18.748Z",
+  "attempts": 6,
   "pipelineGen": 4,
-  "sourceUrl": "https://www.sdsu.edu/",
-  "error": "https://admissions.sdsu.edu/international/graduate: no usable prereq list || https://admissions.sdsu.edu/graduate: no usable prereq list || https://admissions.sdsu.edu/application-admission-status: no usable prereq list || https://sacd.sdsu.edu/veterans/admissions: no usable prereq list"
+  "sourceUrl": "https://www.sdsu.edu/"
  },
  "673": {
   "stage": "failed",
@@ -144,10 +142,9 @@
   "finalStatus": "verified"
  },
  "766": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-21T02:20:28.121Z",
-  "attempts": 5,
-  "error": "https://www.kean.edu/offices/admissions/contact-admissions: no usable prereq list || https://www.kean.edu/offices/admissions/non-matriculatedvisiting-students: no usable prereq list || https://www.kean.edu/offices/admissions/transfer-admissions/transfer-application-instructions: no usable prereq list",
+  "stage": "extracted",
+  "lastAttempt": "2026-08-21T03:23:50.457Z",
+  "attempts": 6,
   "pipelineGen": 4,
   "sourceUrl": "https://www.kean.edu/kean-jersey-city/apply"
  },
@@ -209,9 +206,9 @@
  },
  "785": {
   "stage": "failed",
-  "lastAttempt": "2026-08-21T02:04:29.105Z",
-  "attempts": 5,
-  "error": "https://www.pennwest.edu/: no usable prereq list || https://www.pennwest.edu/admissions/graduate/index.php: no usable prereq list || https://www.pennwest.edu/: no usable prereq list || https://adm.pennwest.edu/register/calurfi: no usable prereq list",
+  "lastAttempt": "2026-08-21T03:26:35.227Z",
+  "attempts": 6,
+  "error": "https://www.pennwest.edu/: no usable prereq list || https://www.pennwest.edu/admissions/graduate/index.php: OpenAI HTTP 429: {\n    \"error\": {\n        \"message\": \"Rate limit reached for gpt-4o-mini in organization org-kRjpmgXqcLrwkVTY20gVZyOd on requests per day (RPD): Limit 10000, Used 10000, Requested 1. Please try again in 8.64s. Visit https://platform.openai.com/account/rate-limits to learn more.\",\n        \"type\": \"req || https://www.pennwest.edu/: no usable prereq list || https://adm.pennwes",
   "pipelineGen": 4,
   "sourceUrl": "https://www.pennwest.edu/admissions/undergraduate/index.php"
  },
@@ -240,26 +237,24 @@
   "error": "https://snhs.rmu.edu/OurPrograms/Nursing/2ndDegreeAcceleratedBSN: fetch failed || https://snhs.rmu.edu/OurPrograms/UndergraduateDegrees/UndergraduateNursing: no usable prereq list"
  },
  "799": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-21T02:19:10.300Z",
-  "attempts": 5,
-  "error": "https://admissions.rutgers.edu/apply: OpenAI HTTP 429: {\n    \"error\": {\n        \"message\": \"Rate limit reached for gpt-4o-mini in organization org-kRjpmgXqcLrwkVTY20gVZyOd on requests per day (RPD): Limit 10000, Used 10000, Requested 1. Please try again in 8.64s. Visit https://platform.openai.com/account/rate-limits to learn more.\",\n        \"type\": \"req",
+  "stage": "extracted",
+  "lastAttempt": "2026-08-21T03:27:26.810Z",
+  "attempts": 6,
   "pipelineGen": 4,
   "sourceUrl": "https://gradstudy.rutgers.edu/"
  },
  "803": {
   "stage": "failed",
-  "lastAttempt": "2026-08-21T02:01:53.721Z",
-  "attempts": 5,
+  "lastAttempt": "2026-08-21T03:22:21.711Z",
+  "attempts": 6,
   "error": "https://www.stedwards.edu/admission: no usable prereq list || https://www.stedwards.edu/admission/graduate/deadlines-checklist: no usable prereq list || https://www.stedwards.edu/admission/admission-counselors: no usable prereq list",
   "pipelineGen": 4,
   "sourceUrl": "https://www.stedwards.edu/admission/undergraduate"
  },
  "821": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-21T02:19:19.864Z",
-  "attempts": 5,
-  "error": "https://www.siue.edu/academics/graduate/degrees-and-programs/nursing-administration/: no usable prereq list || https://www.siue.edu/academics/graduate/degrees-and-programs/healthcare-informatics-nursing-administration/: no usable prereq list || https://www.siue.edu/academics/undergraduate/degrees-and-programs/nursing/traditional/admission-requirements.shtml: no usable prereq list || https://www.siue.edu/nursing/academic-programs/undergraduate/index.shtml: no usable prereq list",
+  "stage": "extracted",
+  "lastAttempt": "2026-08-21T03:25:16.978Z",
+  "attempts": 6,
   "pipelineGen": 4,
   "sourceUrl": "https://www.siue.edu/nursing/academic-programs/undergraduate/index.shtml"
  },
@@ -448,9 +443,9 @@
  },
  "997": {
   "stage": "failed",
-  "lastAttempt": "2026-08-21T02:08:48.961Z",
-  "attempts": 5,
-  "error": "https://www.towson.edu/chp/departments/nursing/facultystaff/: OpenAI HTTP 429: {\n    \"error\": {\n        \"message\": \"Rate limit reached for gpt-4o-mini in organization org-kRjpmgXqcLrwkVTY20gVZyOd on requests per day (RPD): Limit 10000, Used 10000, Requested 1. Please try again in 8.64s. Visit https://platform.openai.com/account/rate-limits to learn more.\",\n        \"type\": \"req || https://www.towson.edu/chp/departments/nursing/studentorgs/: no usable prereq list || https://www.towson.edu/chp/depa",
+  "lastAttempt": "2026-08-21T03:26:34.129Z",
+  "attempts": 6,
+  "error": "https://www.towson.edu/chp/departments/nursing/facultystaff/: no usable prereq list || https://www.towson.edu/chp/departments/nursing/studentorgs/: no usable prereq list || https://www.towson.edu/chp/departments/nursing/scholarships.html: no usable prereq list || https://www.towson.edu/chp/departments/nursing/undergrad/nursing/: no usable prereq list",
   "pipelineGen": 4,
   "sourceUrl": "https://catalog.towson.edu/"
  },
@@ -488,8 +483,8 @@
  },
  "1013": {
   "stage": "failed",
-  "lastAttempt": "2026-08-21T02:05:06.732Z",
-  "attempts": 5,
+  "lastAttempt": "2026-08-21T03:28:14.452Z",
+  "attempts": 6,
   "error": "https://www.unlv.edu/nursing: no usable prereq list || https://www.unlv.edu/nursing/graduate-studies: no usable prereq list || https://www.unlv.edu/announcement/school-nursing/unlv-school-nursings-online-bsn-dnp-program-named-among-nations-top-20: no usable prereq list || https://www.unlv.edu/nursing/about: no usable prereq list",
   "pipelineGen": 4,
   "sourceUrl": "https://www.unlv.edu/nursing/undergraduate-advising"
@@ -504,19 +499,18 @@
  },
  "1016": {
   "stage": "failed",
-  "lastAttempt": "2026-08-21T02:00:06.827Z",
-  "attempts": 5,
+  "lastAttempt": "2026-08-21T03:20:15.515Z",
+  "attempts": 6,
   "error": "https://www.nursing.upenn.edu/bachelor-of-science-in-nursing-bsn/: no usable prereq list",
   "pipelineGen": 4,
   "sourceUrl": "https://www.nursing.upenn.edu/academics/a-penn-nursing-education/undergraduate-honors-program/"
  },
  "1019": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-21T02:26:25.732Z",
-  "attempts": 5,
+  "stage": "extracted",
+  "lastAttempt": "2026-08-21T03:31:02.329Z",
+  "attempts": 6,
   "pipelineGen": 4,
-  "sourceUrl": "https://www.sandiego.edu/nursing/about/",
-  "error": "https://www.sandiego.edu/nursing/about/: no usable prereq list || https://www.sandiego.edu/nursing/about/: no usable prereq list || https://www.sandiego.edu/nursing/about/: no usable prereq list || https://www.sandiego.edu/nursing/about/: no usable prereq list"
+  "sourceUrl": "https://www.sandiego.edu/nursing/about/"
  },
  "1027": {
   "stage": "finalized",
@@ -822,11 +816,12 @@
   "finalStatus": "verified"
  },
  "1907": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-21T02:52:27.204Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-21T03:02:36.031Z",
   "attempts": 2,
   "pipelineGen": 4,
-  "sourceUrl": "https://www.emorypa.org/"
+  "sourceUrl": "https://www.emorypa.org/",
+  "error": "https://apply.emory.edu/discover/index.html: no usable prereq list || https://apply.emory.edu/discover/about/index.html: no usable prereq list || https://www.emorypa.org/: no usable prereq list"
  },
  "1909": {
   "stage": "finalized",
@@ -1076,11 +1071,12 @@
   "finalStatus": "verified"
  },
  "1951": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-21T02:49:11.517Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-21T03:02:24.909Z",
   "attempts": 2,
   "pipelineGen": 4,
-  "sourceUrl": "https://www.mcphs.edu/admission-and-aid/undergraduate-applicants"
+  "sourceUrl": "https://www.mcphs.edu/admission-and-aid/undergraduate-applicants",
+  "error": "https://www.mcphs.edu/academics/prerequisite-courses: no usable prereq list || https://www.mcphs.edu/academics/programs/physician-assistant-studies-mpas: no usable prereq list || https://www.mcphs.edu/admission-and-aid/graduate-applicants: no usable prereq list || https://www.mcphs.edu/admission-and-aid/apply: fetch failed"
  },
  "1953": {
   "stage": "finalized",
@@ -1776,19 +1772,17 @@
   "finalStatus": "verified"
  },
  "2101": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-20T20:34:46.314Z",
-  "attempts": 3,
-  "error": "https://www.thiel.edu/academics/departments/physician-assistant-dept/pa-program-resources: no usable prereq list || https://www.thiel.edu/pdfs/Thiel-College-Physician-Assistant-Program-Pathway-2-Admissions-Checklist.pdf?n=a: no usable prereq list || https://www.thiel.edu/images/2023/PA-Program-Pathway2-Admission-Requirements-Checklist-Feb-2023.pdf: no usable prereq list",
-  "pipelineGen": 3,
-  "sourceUrl": "https://www.thiel.edu/images/2023/PA-Program-Pathway2-Admission-Requirements-Checklist-Feb-2023.pdf"
+  "stage": "extracted",
+  "lastAttempt": "2026-08-21T03:04:32.924Z",
+  "attempts": 1,
+  "pipelineGen": 4,
+  "sourceUrl": "https://www.thiel.edu/pdfs/Thiel-College-Physician-Assistant-Program-Pathway-2-Admissions-Checklist.pdf?n=a"
  },
  "2102": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-20T20:33:38.572Z",
-  "attempts": 3,
-  "error": "https://www.jefferson.edu/admissions/undergraduate/transfer/apply.html: no usable prereq list || https://www.jefferson.edu/admissions/undergraduate/second-degree-seeking-students/apply.html: no usable prereq list",
-  "pipelineGen": 3,
+  "stage": "extracted",
+  "lastAttempt": "2026-08-21T03:04:08.682Z",
+  "attempts": 1,
+  "pipelineGen": 4,
   "sourceUrl": "https://www.jefferson.edu/admissions/undergraduate.html"
  },
  "2104": {
@@ -1904,8 +1898,8 @@
   "finalStatus": "verified"
  },
  "2120": {
-  "stage": "source_discovery",
-  "lastAttempt": "2026-08-21T03:01:32.732Z",
+  "stage": "extracted",
+  "lastAttempt": "2026-08-21T03:02:29.908Z",
   "attempts": 1,
   "pipelineGen": 4,
   "sourceUrl": "https://www.mtsu.edu/wp-content/uploads/2023/10/Student-Handbook-2026-final.pdf"
