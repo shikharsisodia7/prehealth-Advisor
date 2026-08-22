@@ -17,15 +17,15 @@
  },
  "120": {
   "stage": "failed",
-  "lastAttempt": "2026-08-22T21:05:08.641Z",
-  "attempts": 1,
+  "lastAttempt": "2026-08-22T22:15:25.802Z",
+  "attempts": 2,
   "error": "no official candidate URLs",
   "pipelineGen": 7
  },
  "124": {
   "stage": "failed",
-  "lastAttempt": "2026-08-22T21:05:10.076Z",
-  "attempts": 1,
+  "lastAttempt": "2026-08-22T22:15:27.629Z",
+  "attempts": 2,
   "error": "no official candidate URLs",
   "pipelineGen": 7
  },
@@ -147,8 +147,8 @@
  },
  "177": {
   "stage": "failed",
-  "lastAttempt": "2026-08-22T21:04:40.030Z",
-  "attempts": 1,
+  "lastAttempt": "2026-08-22T22:14:42.188Z",
+  "attempts": 2,
   "error": "no official candidate URLs",
   "pipelineGen": 7
  },
@@ -186,8 +186,8 @@
  },
  "186": {
   "stage": "failed",
-  "lastAttempt": "2026-08-22T21:04:44.447Z",
-  "attempts": 1,
+  "lastAttempt": "2026-08-22T22:14:55.204Z",
+  "attempts": 2,
   "error": "no official candidate URLs",
   "pipelineGen": 7
  },
@@ -249,15 +249,15 @@
  },
  "212": {
   "stage": "failed",
-  "lastAttempt": "2026-08-22T21:04:47.480Z",
-  "attempts": 1,
+  "lastAttempt": "2026-08-22T22:14:58.874Z",
+  "attempts": 2,
   "error": "no official candidate URLs",
   "pipelineGen": 7
  },
  "213": {
   "stage": "failed",
-  "lastAttempt": "2026-08-22T21:04:45.928Z",
-  "attempts": 1,
+  "lastAttempt": "2026-08-22T22:14:57.150Z",
+  "attempts": 2,
   "error": "no official candidate URLs",
   "pipelineGen": 7
  },
@@ -279,8 +279,8 @@
  },
  "226": {
   "stage": "failed",
-  "lastAttempt": "2026-08-22T21:04:41.489Z",
-  "attempts": 1,
+  "lastAttempt": "2026-08-22T22:14:47.722Z",
+  "attempts": 2,
   "error": "no official candidate URLs",
   "pipelineGen": 7
  },
@@ -326,8 +326,8 @@
  },
  "255": {
   "stage": "failed",
-  "lastAttempt": "2026-08-22T21:04:42.929Z",
-  "attempts": 1,
+  "lastAttempt": "2026-08-22T22:14:49.472Z",
+  "attempts": 2,
   "error": "no official candidate URLs",
   "pipelineGen": 7
  },
@@ -742,8 +742,8 @@
  },
  "439": {
   "stage": "failed",
-  "lastAttempt": "2026-08-22T21:08:57.937Z",
-  "attempts": 2,
+  "lastAttempt": "2026-08-22T22:16:09.039Z",
+  "attempts": 3,
   "error": "https://www.arizona.edu/https&: HTTP 404 || https://www.arizona.edu/admissions/graduate: no usable prereq list || https://www.arizona.edu/admissions/online: no usable prereq list || https://www.arizona.edu/: no usable prereq list",
   "pipelineGen": 7,
   "sourceUrl": "https://www.arizona.edu/admissions/undergraduate/admitted-students"
@@ -773,8 +773,8 @@
  },
  "447": {
   "stage": "failed",
-  "lastAttempt": "2026-08-22T21:08:52.518Z",
-  "attempts": 2,
+  "lastAttempt": "2026-08-22T22:18:54.637Z",
+  "attempts": 3,
   "error": "https://www.keckmedicine.org/: no usable prereq list || https://www.keckmedicine.org/services/urology/: no usable prereq list || https://www.keckmedicine.org/conditions-and-treatments/: no usable prereq list || https://www.keckmedicine.org/keck-medicine-careers-onboarding/: no usable prereq list",
   "pipelineGen": 7,
   "sourceUrl": "https://medresources.keckmedicine.org/"
@@ -812,8 +812,8 @@
  },
  "453": {
   "stage": "failed",
-  "lastAttempt": "2026-08-22T21:08:08.331Z",
-  "attempts": 2,
+  "lastAttempt": "2026-08-22T22:17:45.258Z",
+  "attempts": 3,
   "error": "https://a5.ucsd.edu/tritON/profile/SAML2/Redirect/SSO?execution=e1s1: no usable prereq list",
   "pipelineGen": 7,
   "sourceUrl": "https://a5.ucsd.edu/tritON/profile/SAML2/Redirect/SSO?execution=e1s1"
@@ -828,8 +828,8 @@
  },
  "455": {
   "stage": "failed",
-  "lastAttempt": "2026-08-22T21:06:58.816Z",
-  "attempts": 2,
+  "lastAttempt": "2026-08-22T22:16:16.817Z",
+  "attempts": 3,
   "error": "https://www.colorado.edu/graduateschool/academics/graduation-requirements/masters-graduation-information/masters-degree-checklist: no usable prereq list || https://www.colorado.edu/graduateschool/academics/graduation-requirements/doctoral-graduation-information/doctoral-degree-checklist: no usable prereq list || https://www.colorado.edu/admissions/visit/graduate: no usable prereq list",
   "pipelineGen": 7,
   "sourceUrl": "https://www.colorado.edu/"
@@ -842,12 +842,11 @@
   "pipelineGen": 7
  },
  "457": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-22T21:27:32.561Z",
-  "attempts": 2,
-  "error": "https://medicine.uchc.edu/prospective/index.html: no usable prereq list || https://medicine.uchc.edu/: no usable prereq list",
+  "stage": "source_fetched",
+  "lastAttempt": "2026-08-22T22:22:17.889Z",
+  "attempts": 3,
   "pipelineGen": 7,
-  "sourceUrl": "https://medicine.uchc.edu/"
+  "sourceUrl": "https://medicine.uchc.edu/prospective/index.html"
  },
  "458": {
   "stage": "failed",
@@ -928,8 +927,8 @@
  },
  "472": {
   "stage": "failed",
-  "lastAttempt": "2026-08-22T21:10:06.686Z",
-  "attempts": 2,
+  "lastAttempt": "2026-08-22T22:18:42.928Z",
+  "attempts": 3,
   "error": "https://www.uga.edu/: no usable prereq list",
   "pipelineGen": 7,
   "sourceUrl": "https://www.uga.edu/"
@@ -975,8 +974,8 @@
  },
  "479": {
   "stage": "failed",
-  "lastAttempt": "2026-08-22T21:10:35.811Z",
-  "attempts": 2,
+  "lastAttempt": "2026-08-22T22:19:03.958Z",
+  "attempts": 3,
   "error": "https://www.siumed.edu/im-donor: no usable prereq list || https://www.siumed.edu/correctional-medicine: no usable prereq list || https://www.siumed.edu/siu-medicine-strategic-plan: no usable prereq list || https://www.siumed.edu/history-siu-school-medicine: no usable prereq list",
   "pipelineGen": 7,
   "sourceUrl": "https://www.siumed.edu/siu-leadership"
@@ -1007,8 +1006,8 @@
  },
  "484": {
   "stage": "failed",
-  "lastAttempt": "2026-08-22T21:11:30.299Z",
-  "attempts": 2,
+  "lastAttempt": "2026-08-22T22:20:06.956Z",
+  "attempts": 3,
   "error": "https://med.uky.edu/: no usable prereq list",
   "pipelineGen": 7,
   "sourceUrl": "https://med.uky.edu/"
@@ -1039,8 +1038,8 @@
  },
  "488": {
   "stage": "failed",
-  "lastAttempt": "2026-08-22T21:12:29.628Z",
-  "attempts": 2,
+  "lastAttempt": "2026-08-22T22:21:09.549Z",
+  "attempts": 3,
   "error": "https://www.som.tulane.edu/: too little text || https://admission.tulane.edu/apply: no usable prereq list",
   "pipelineGen": 7,
   "sourceUrl": "https://admission.tulane.edu/apply"
@@ -1061,8 +1060,8 @@
  },
  "494": {
   "stage": "failed",
-  "lastAttempt": "2026-08-22T21:11:09.601Z",
-  "attempts": 2,
+  "lastAttempt": "2026-08-22T22:19:39.898Z",
+  "attempts": 3,
   "error": "https://medicine.tufts.edu/academics/medicine/curriculum: no usable prereq list || https://gsbs.tufts.edu/academics/experiential-phd-biomedical-therapeutics/phd-biomedical-therapeutics-program-faqs: no usable prereq list",
   "pipelineGen": 7,
   "sourceUrl": "https://medicine.tufts.edu/"
@@ -1132,8 +1131,8 @@
  },
  "505": {
   "stage": "failed",
-  "lastAttempt": "2026-08-22T05:47:34.127Z",
-  "attempts": 2,
+  "lastAttempt": "2026-08-22T22:18:48.549Z",
+  "attempts": 3,
   "error": "https://medschool.slu.edu/: too little text",
   "pipelineGen": 7,
   "sourceUrl": "https://medschool.slu.edu/"
@@ -1148,8 +1147,8 @@
  },
  "508": {
   "stage": "failed",
-  "lastAttempt": "2026-08-22T21:11:51.677Z",
-  "attempts": 2,
+  "lastAttempt": "2026-08-22T22:19:24.058Z",
+  "attempts": 3,
   "error": "https://medicine.washu.edu/education/admissions/: no usable prereq list",
   "pipelineGen": 7,
   "sourceUrl": "https://medicine.washu.edu/impact/"
@@ -1187,8 +1186,8 @@
  },
  "515": {
   "stage": "failed",
-  "lastAttempt": "2026-08-22T21:14:32.725Z",
-  "attempts": 2,
+  "lastAttempt": "2026-08-22T22:22:18.400Z",
+  "attempts": 3,
   "error": "https://www.rowan.edu/coopermed: HTTP 500",
   "pipelineGen": 7
  },
@@ -1240,17 +1239,16 @@
   "sourceUrl": "https://einstein.yu.edu/education/"
  },
  "522": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-22T21:20:39.279Z",
-  "attempts": 2,
-  "error": "https://events.columbia.edu/cal/event/eventView.do?b=de&amp;calPath=/public/cals/MainCal&amp;guid=CAL-00bbdb71-9dbe892f-019d-c07a7e25-00005ec9events%40columbia.edu&amp;recurrenceId=: HTTP 403 || https://events.columbia.edu/cal/event/eventView.do?b=de&amp;calPath=/public/cals/MainCal&amp;guid=CAL-00bbdb71-9dbe892f-019d-c07ae17c-00005edbevents%40columbia.edu&amp;recurrenceId=: HTTP 403 || https://events.columbia.edu/cal/event/eventView.do?b=de&amp;calPath=/public/cals/MainCal&amp;guid=CAL-00bbdb71",
+  "stage": "source_discovery",
+  "lastAttempt": "2026-08-22T22:22:18.475Z",
+  "attempts": 3,
   "pipelineGen": 7,
   "sourceUrl": "https://www.cuimc.columbia.edu/"
  },
  "523": {
   "stage": "failed",
-  "lastAttempt": "2026-08-22T21:16:50.678Z",
-  "attempts": 2,
+  "lastAttempt": "2026-08-22T22:21:55.946Z",
+  "attempts": 3,
   "error": "https://www.ccny.cuny.edu/admissions/gradstep-1choosingprogram: no usable prereq list || https://www.ccny.cuny.edu/admissions/graduate-studies: no usable prereq list || https://www.ccny.cuny.edu/admissions/transfer-students: no usable prereq list || https://www.cuny.edu/admissions/undergraduate/apply/: no usable prereq list",
   "pipelineGen": 7,
   "sourceUrl": "https://www.cuny.edu/admissions/undergraduate/apply/"
@@ -1324,17 +1322,16 @@
  },
  "536": {
   "stage": "failed",
-  "lastAttempt": "2026-08-22T21:21:53.646Z",
-  "attempts": 2,
+  "lastAttempt": "2026-08-22T22:22:29.105Z",
+  "attempts": 3,
   "error": "https://www.methodisthealthsystem.org/patients-visitors/patient-tools-support/accessing-your-medical-records: no usable prereq list || https://www.methodisthealthsystem.org/medical-education: no usable prereq list || https://www.methodisthealthsystem.org/methodist-dallas-medical-center: no usable prereq list || https://www.methodisthealthsystem.org/methodist-richardson-medical-center: no usable prereq list",
   "pipelineGen": 7,
   "sourceUrl": "https://www.methodisthealthsystem.org/locations?location_types=1586"
  },
  "537": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-22T21:18:52.341Z",
-  "attempts": 2,
-  "error": "https://medschool.duke.edu/about-us/contact-duke-university-school-medicine: no usable prereq list || https://medschool.duke.edu/education/duke-university-school-medicine-bulletin: no usable prereq list || https://medschool.duke.edu/education/biomedical-phd-programs/office-biomedical-graduate-education/academics/biotrain: no usable prereq list || https://gme.duke.edu/training-programs/applicants/requirements-standards: no usable prereq list",
+  "stage": "extracted",
+  "lastAttempt": "2026-08-22T22:22:17.648Z",
+  "attempts": 3,
   "pipelineGen": 7,
   "sourceUrl": "https://gme.duke.edu/"
  },
@@ -1355,12 +1352,11 @@
   "finalStatus": "verified"
  },
  "540": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-22T21:20:13.882Z",
-  "attempts": 2,
+  "stage": "source_discovery",
+  "lastAttempt": "2026-08-22T22:21:56.458Z",
+  "attempts": 3,
   "pipelineGen": 7,
-  "sourceUrl": "https://und.edu/admissions/apply.html",
-  "error": "https://www.med.und.edu/: fetch failed"
+  "sourceUrl": "https://und.edu/admissions/apply.html"
  },
  "541": {
   "stage": "finalized",
@@ -1371,12 +1367,11 @@
   "finalStatus": "verified"
  },
  "542": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-22T21:51:30.110Z",
-  "attempts": 2,
-  "error": "https://casemed.case.edu/admissions/: no usable prereq list || https://casemed.case.edu/admissions/education/dualdegrees.cfm: no usable prereq list || https://casemed.case.edu/: no usable prereq list || https://casemed.case.edu/gradprog/phd.cfm: no usable prereq list",
+  "stage": "source_fetched",
+  "lastAttempt": "2026-08-22T22:22:30.515Z",
+  "attempts": 3,
   "pipelineGen": 7,
-  "sourceUrl": "https://casemed.case.edu/cme/"
+  "sourceUrl": "https://casemed.case.edu/admissions/"
  },
  "543": {
   "stage": "failed",
@@ -1388,8 +1383,8 @@
  },
  "544": {
   "stage": "failed",
-  "lastAttempt": "2026-08-22T21:12:34.436Z",
-  "attempts": 2,
+  "lastAttempt": "2026-08-22T22:20:14.722Z",
+  "attempts": 3,
   "error": "https://gpadmissions.osu.edu/prof/steps-to-apply.html: no usable prereq list",
   "pipelineGen": 7,
   "sourceUrl": "https://online.osu.edu/content-hub/"
@@ -1549,12 +1544,11 @@
   "error": "https://admissions.web.baylor.edu/: no usable prereq list || https://law.baylor.edu/admissions: no usable prereq list || https://truettseminary.baylor.edu/admissions: no usable prereq list"
  },
  "571": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-22T21:28:50.393Z",
-  "attempts": 2,
+  "stage": "source_discovery",
+  "lastAttempt": "2026-08-22T22:22:29.179Z",
+  "attempts": 3,
   "pipelineGen": 7,
-  "sourceUrl": "https://dellmed.utexas.edu/education/academics/undergraduate-medical-education/leading-edge-curriculum",
-  "error": "https://dellmed.utexas.edu/: no usable prereq list || https://dellmed.utexas.edu/education/academics/graduate-medical-education: no usable prereq list || https://dellmed.utexas.edu/education/academics/continuing-medical-education: no usable prereq list || https://www.utexas.edu/medical-center: no usable prereq list"
+  "sourceUrl": "https://dellmed.utexas.edu/education/academics/undergraduate-medical-education/leading-edge-curriculum"
  },
  "572": {
   "stage": "failed",
@@ -1776,8 +1770,8 @@
  },
  "641": {
   "stage": "failed",
-  "lastAttempt": "2026-08-22T21:04:59.651Z",
-  "attempts": 1,
+  "lastAttempt": "2026-08-22T22:15:15.016Z",
+  "attempts": 2,
   "error": "no official candidate URLs",
   "pipelineGen": 7
  },
@@ -1814,15 +1808,15 @@
  },
  "728": {
   "stage": "failed",
-  "lastAttempt": "2026-08-22T21:04:56.782Z",
-  "attempts": 1,
+  "lastAttempt": "2026-08-22T22:15:11.249Z",
+  "attempts": 2,
   "error": "no official candidate URLs",
   "pipelineGen": 7
  },
  "729": {
   "stage": "failed",
-  "lastAttempt": "2026-08-22T21:05:01.079Z",
-  "attempts": 1,
+  "lastAttempt": "2026-08-22T22:15:16.708Z",
+  "attempts": 2,
   "error": "no official candidate URLs",
   "pipelineGen": 7
  },
@@ -1994,8 +1988,8 @@
  },
  "829": {
   "stage": "failed",
-  "lastAttempt": "2026-08-22T21:04:50.597Z",
-  "attempts": 1,
+  "lastAttempt": "2026-08-22T22:15:04.404Z",
+  "attempts": 2,
   "error": "no official candidate URLs",
   "pipelineGen": 7
  },
@@ -2033,8 +2027,8 @@
  },
  "839": {
   "stage": "failed",
-  "lastAttempt": "2026-08-22T21:05:02.532Z",
-  "attempts": 1,
+  "lastAttempt": "2026-08-22T22:15:18.370Z",
+  "attempts": 2,
   "error": "no official candidate URLs",
   "pipelineGen": 7
  },
@@ -2102,22 +2096,22 @@
  },
  "952": {
   "stage": "failed",
-  "lastAttempt": "2026-08-22T21:04:58.214Z",
-  "attempts": 1,
+  "lastAttempt": "2026-08-22T22:15:13.147Z",
+  "attempts": 2,
   "error": "no official candidate URLs",
   "pipelineGen": 7
  },
  "953": {
   "stage": "failed",
-  "lastAttempt": "2026-08-22T21:05:03.970Z",
-  "attempts": 1,
+  "lastAttempt": "2026-08-22T22:15:20.233Z",
+  "attempts": 2,
   "error": "no official candidate URLs",
   "pipelineGen": 7
  },
  "955": {
   "stage": "failed",
-  "lastAttempt": "2026-08-22T21:04:52.252Z",
-  "attempts": 1,
+  "lastAttempt": "2026-08-22T22:15:06.048Z",
+  "attempts": 2,
   "error": "no official candidate URLs",
   "pipelineGen": 7
  },
@@ -2131,15 +2125,15 @@
  },
  "971": {
   "stage": "failed",
-  "lastAttempt": "2026-08-22T21:05:05.414Z",
-  "attempts": 1,
+  "lastAttempt": "2026-08-22T22:15:21.987Z",
+  "attempts": 2,
   "error": "no official candidate URLs",
   "pipelineGen": 7
  },
  "974": {
   "stage": "failed",
-  "lastAttempt": "2026-08-22T21:04:53.904Z",
-  "attempts": 1,
+  "lastAttempt": "2026-08-22T22:15:07.841Z",
+  "attempts": 2,
   "error": "no official candidate URLs",
   "pipelineGen": 7
  },
@@ -2272,8 +2266,8 @@
  },
  "1015": {
   "stage": "failed",
-  "lastAttempt": "2026-08-22T21:04:49.121Z",
-  "attempts": 1,
+  "lastAttempt": "2026-08-22T22:15:00.768Z",
+  "attempts": 2,
   "error": "no official candidate URLs",
   "pipelineGen": 7
  },
@@ -2342,17 +2336,18 @@
  },
  "1034": {
   "stage": "failed",
-  "lastAttempt": "2026-08-22T21:04:55.340Z",
-  "attempts": 1,
+  "lastAttempt": "2026-08-22T22:15:09.595Z",
+  "attempts": 2,
   "error": "no official candidate URLs",
   "pipelineGen": 7
  },
  "1050": {
   "stage": "failed",
-  "lastAttempt": "2026-08-22T21:04:25.502Z",
-  "attempts": 1,
-  "error": "no official candidate URLs",
-  "pipelineGen": 7
+  "lastAttempt": "2026-08-22T22:15:05.761Z",
+  "attempts": 2,
+  "error": "https://www.cabarruscounty.us/Government/Departments/Human-Resources/Working-for-Cabarrus-County/Equal-Opportunity-and-Pre-Employment: no usable prereq list || https://aca-prod.accela.com/CABARRUS/Default.aspx: no usable prereq list || https://www.cabarruscounty.us/Home: no usable prereq list || https://marriage.cabarruscounty.us/: no usable prereq list",
+  "pipelineGen": 7,
+  "sourceUrl": "https://www.cabarruscounty.us/Home"
  },
  "1052": {
   "stage": "finalized",
@@ -2388,8 +2383,8 @@
  },
  "1060": {
   "stage": "failed",
-  "lastAttempt": "2026-08-22T21:04:24.046Z",
-  "attempts": 1,
+  "lastAttempt": "2026-08-22T22:14:11.462Z",
+  "attempts": 2,
   "error": "no official candidate URLs",
   "pipelineGen": 7
  },
@@ -2674,11 +2669,12 @@
   "finalStatus": "verified"
  },
  "1180": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-22T21:04:27.037Z",
-  "attempts": 1,
-  "error": "no official candidate URLs",
-  "pipelineGen": 7
+  "stage": "finalized",
+  "lastAttempt": "2026-08-22T22:15:20.205Z",
+  "attempts": 2,
+  "pipelineGen": 7,
+  "sourceUrl": "https://www.usa.edu/college-of-rehabilitative-sciences/master-science-speech-language-pathology-ms-slp/leveling-courses/",
+  "finalStatus": "verified"
  },
  "1183": {
   "stage": "finalized",
@@ -2746,15 +2742,15 @@
  },
  "1209": {
   "stage": "failed",
-  "lastAttempt": "2026-08-22T21:04:29.901Z",
-  "attempts": 1,
+  "lastAttempt": "2026-08-22T22:14:14.826Z",
+  "attempts": 2,
   "error": "no official candidate URLs",
   "pipelineGen": 7
  },
  "1213": {
   "stage": "failed",
-  "lastAttempt": "2026-08-22T21:04:28.473Z",
-  "attempts": 1,
+  "lastAttempt": "2026-08-22T22:14:13.168Z",
+  "attempts": 2,
   "error": "no official candidate URLs",
   "pipelineGen": 7
  },
@@ -3016,8 +3012,8 @@
  },
  "1313": {
   "stage": "failed",
-  "lastAttempt": "2026-08-22T21:04:22.583Z",
-  "attempts": 1,
+  "lastAttempt": "2026-08-22T22:14:07.854Z",
+  "attempts": 2,
   "error": "no official candidate URLs",
   "pipelineGen": 7
  },
@@ -3079,8 +3075,8 @@
  },
  "1330": {
   "stage": "failed",
-  "lastAttempt": "2026-08-22T21:04:31.376Z",
-  "attempts": 1,
+  "lastAttempt": "2026-08-22T22:14:20.291Z",
+  "attempts": 2,
   "error": "no official candidate URLs",
   "pipelineGen": 7
  },
@@ -3719,9 +3715,10 @@
   "sourceUrl": "https://law.ku.edu/academics/degrees/llm-international/curriculum"
  },
  "1492": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-22T22:01:59.111Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-22T22:13:47.134Z",
   "attempts": 2,
+  "error": "https://pharmacy.mc.uky.edu/: no usable prereq list || https://pharmacy.mc.uky.edu/prospective/: no usable prereq list",
   "pipelineGen": 7,
   "sourceUrl": "https://pharmacy.mc.uky.edu/"
  },
@@ -3765,18 +3762,20 @@
   "sourceUrl": "https://gradschool.missouri.edu/"
  },
  "1498": {
-  "stage": "source_fetched",
-  "lastAttempt": "2026-08-22T22:12:28.224Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-22T22:12:58.493Z",
   "attempts": 2,
+  "error": "https://www.umt.edu/admissions/admission-requirements/international/apply-international.php: no usable prereq list || https://www.umt.edu/admissions/admission-requirements/default.php: no usable prereq list || https://www.umt.edu/admissions/visit.php: no usable prereq list || https://www.umt.edu/admissions/apply-undergraduate.php: no usable prereq list",
   "pipelineGen": 7,
-  "sourceUrl": "https://www.umt.edu/"
+  "sourceUrl": "https://www.umt.edu/admissions/apply-undergraduate.php"
  },
  "1499": {
-  "stage": "source_fetched",
-  "lastAttempt": "2026-08-22T22:12:27.699Z",
+  "stage": "finalized",
+  "lastAttempt": "2026-08-22T22:12:38.435Z",
   "attempts": 2,
   "pipelineGen": 7,
-  "sourceUrl": "https://www.unmc.edu/education/admissions-financialaid.html"
+  "sourceUrl": "https://www.unmc.edu/pharmacy/programs/pharmd/admissions.html",
+  "finalStatus": "verified"
  },
  "1500": {
   "stage": "failed",
@@ -3793,15 +3792,17 @@
   "pipelineGen": 7
  },
  "1502": {
-  "stage": "source_discovery",
-  "lastAttempt": "2026-08-22T22:12:25.063Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-22T22:12:30.677Z",
   "attempts": 2,
+  "error": "no official candidate URLs",
   "pipelineGen": 7
  },
  "1503": {
-  "stage": "source_discovery",
-  "lastAttempt": "2026-08-22T22:12:25.788Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-22T22:12:34.098Z",
   "attempts": 2,
+  "error": "no official candidate URLs",
   "pipelineGen": 7
  },
  "1504": {
@@ -3821,9 +3822,10 @@
   "sourceUrl": "https://www.pharmacy.pitt.edu/sites/default/files/docs/Pitt-Pharmacy-Magazine-Spring-2026.pdf"
  },
  "1506": {
-  "stage": "source_discovery",
-  "lastAttempt": "2026-08-22T22:12:27.302Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-22T22:12:38.007Z",
   "attempts": 2,
+  "error": "no official candidate URLs",
   "pipelineGen": 7
  },
  "1507": {
@@ -3852,50 +3854,50 @@
  },
  "1510": {
   "stage": "failed",
-  "lastAttempt": "2026-08-22T21:02:54.377Z",
-  "attempts": 1,
+  "lastAttempt": "2026-08-22T22:12:41.575Z",
+  "attempts": 2,
   "error": "no official candidate URLs",
   "pipelineGen": 7
  },
  "1511": {
   "stage": "failed",
-  "lastAttempt": "2026-08-22T21:02:55.973Z",
-  "attempts": 1,
+  "lastAttempt": "2026-08-22T22:12:47.019Z",
+  "attempts": 2,
   "error": "no official candidate URLs",
   "pipelineGen": 7
  },
  "1513": {
   "stage": "failed",
-  "lastAttempt": "2026-08-22T21:03:00.271Z",
-  "attempts": 1,
+  "lastAttempt": "2026-08-22T22:12:50.576Z",
+  "attempts": 2,
   "error": "no official candidate URLs",
   "pipelineGen": 7
  },
  "1514": {
   "stage": "failed",
-  "lastAttempt": "2026-08-22T21:03:01.747Z",
-  "attempts": 1,
+  "lastAttempt": "2026-08-22T22:12:52.315Z",
+  "attempts": 2,
   "error": "no official candidate URLs",
   "pipelineGen": 7
  },
  "1515": {
   "stage": "failed",
-  "lastAttempt": "2026-08-22T21:03:06.160Z",
-  "attempts": 1,
+  "lastAttempt": "2026-08-22T22:12:55.947Z",
+  "attempts": 2,
   "error": "no official candidate URLs",
   "pipelineGen": 7
  },
  "1516": {
   "stage": "failed",
-  "lastAttempt": "2026-08-22T21:03:07.579Z",
-  "attempts": 1,
+  "lastAttempt": "2026-08-22T22:13:01.341Z",
+  "attempts": 2,
   "error": "no official candidate URLs",
   "pipelineGen": 7
  },
  "1517": {
   "stage": "failed",
-  "lastAttempt": "2026-08-22T21:03:10.397Z",
-  "attempts": 1,
+  "lastAttempt": "2026-08-22T22:13:05.069Z",
+  "attempts": 2,
   "error": "no official candidate URLs",
   "pipelineGen": 7
  },
@@ -3933,38 +3935,38 @@
  },
  "1522": {
   "stage": "failed",
-  "lastAttempt": "2026-08-22T21:03:22.219Z",
-  "attempts": 1,
+  "lastAttempt": "2026-08-22T22:13:08.840Z",
+  "attempts": 2,
   "error": "no official candidate URLs",
   "pipelineGen": 7
  },
  "1523": {
   "stage": "failed",
-  "lastAttempt": "2026-08-22T21:03:25.259Z",
-  "attempts": 1,
+  "lastAttempt": "2026-08-22T22:13:10.585Z",
+  "attempts": 2,
   "error": "no official candidate URLs",
   "pipelineGen": 7
  },
  "1524": {
   "stage": "failed",
-  "lastAttempt": "2026-08-22T21:03:28.624Z",
-  "attempts": 1,
+  "lastAttempt": "2026-08-22T22:13:12.240Z",
+  "attempts": 2,
   "error": "no official candidate URLs",
   "pipelineGen": 7
  },
  "1525": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-22T21:03:41.037Z",
-  "attempts": 1,
-  "error": "https://westolympiapharmacy.com/: no usable prereq list",
+  "stage": "finalized",
+  "lastAttempt": "2026-08-22T22:13:32.366Z",
+  "attempts": 2,
   "pipelineGen": 7,
-  "sourceUrl": "https://westolympiapharmacy.com/"
+  "sourceUrl": "https://westcoastuniversity.edu/programs/pharmd",
+  "finalStatus": "verified"
  },
  "1526": {
   "stage": "failed",
-  "lastAttempt": "2026-08-22T21:03:40.143Z",
-  "attempts": 1,
-  "error": "https://westolympiapharmacy.com/: no usable prereq list",
+  "lastAttempt": "2026-08-22T22:14:33.573Z",
+  "attempts": 2,
+  "error": "https://www.wvu.edu/: no usable prereq list || https://westolympiapharmacy.com/: no usable prereq list",
   "pipelineGen": 7,
   "sourceUrl": "https://westolympiapharmacy.com/"
  },
@@ -3978,10 +3980,11 @@
  },
  "1530": {
   "stage": "failed",
-  "lastAttempt": "2026-08-22T21:03:47.065Z",
-  "attempts": 1,
-  "error": "no official candidate URLs",
-  "pipelineGen": 7
+  "lastAttempt": "2026-08-22T22:13:50.819Z",
+  "attempts": 2,
+  "error": "https://www.wmcarey.edu/admissions/transfer/: no usable prereq list || https://www.wmcarey.edu/admissions/undergraduate/admission-requirements: no usable prereq list || https://www.wmcarey.edu/admissions/undergraduate/: no usable prereq list || https://www.wmcarey.edu/admissions/undergraduate/: no usable prereq list",
+  "pipelineGen": 7,
+  "sourceUrl": "https://www.wmcarey.edu/admissions/undergraduate/application"
  },
  "1532": {
   "stage": "failed",
@@ -4121,10 +4124,11 @@
  },
  "1626": {
   "stage": "failed",
-  "lastAttempt": "2026-08-22T21:04:32.792Z",
-  "attempts": 1,
-  "error": "no official candidate URLs",
-  "pipelineGen": 7
+  "lastAttempt": "2026-08-22T22:14:48.953Z",
+  "attempts": 2,
+  "error": "https://catalog.registrar.uiowa.edu/: no usable prereq list || https://grad.admissions.uiowa.edu/new-students: no usable prereq list",
+  "pipelineGen": 7,
+  "sourceUrl": "https://www.maui.uiowa.edu/maui/pub/admissions/webinquiry/undergraduate.page"
  },
  "1627": {
   "stage": "finalized",
@@ -4263,11 +4267,12 @@
   "finalStatus": "verified"
  },
  "1655": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-22T21:04:34.212Z",
-  "attempts": 1,
-  "error": "no official candidate URLs",
-  "pipelineGen": 7
+  "stage": "finalized",
+  "lastAttempt": "2026-08-22T22:14:47.533Z",
+  "attempts": 2,
+  "pipelineGen": 7,
+  "sourceUrl": "https://www.cuaa.edu/academics/programs/doctor-physical-therapy/index.html",
+  "finalStatus": "verified"
  },
  "1656": {
   "stage": "finalized",
@@ -4558,15 +4563,15 @@
  },
  "1740": {
   "stage": "failed",
-  "lastAttempt": "2026-08-22T21:04:35.671Z",
-  "attempts": 1,
+  "lastAttempt": "2026-08-22T22:14:27.832Z",
+  "attempts": 2,
   "error": "no official candidate URLs",
   "pipelineGen": 7
  },
  "1743": {
   "stage": "failed",
-  "lastAttempt": "2026-08-22T21:04:38.541Z",
-  "attempts": 1,
+  "lastAttempt": "2026-08-22T22:14:40.295Z",
+  "attempts": 2,
   "error": "no official candidate URLs",
   "pipelineGen": 7
  },
@@ -4580,8 +4585,8 @@
  },
  "1781": {
   "stage": "failed",
-  "lastAttempt": "2026-08-22T21:04:37.097Z",
-  "attempts": 1,
+  "lastAttempt": "2026-08-22T22:14:35.068Z",
+  "attempts": 2,
   "error": "no official candidate URLs",
   "pipelineGen": 7
  },
@@ -5248,8 +5253,8 @@
  },
  "1999": {
   "stage": "failed",
-  "lastAttempt": "2026-08-22T21:05:07.152Z",
-  "attempts": 1,
+  "lastAttempt": "2026-08-22T22:15:23.857Z",
+  "attempts": 2,
   "error": "no official candidate URLs",
   "pipelineGen": 7
  },
@@ -6074,8 +6079,8 @@
  },
  "2188": {
   "stage": "failed",
-  "lastAttempt": "2026-08-22T21:03:48.765Z",
-  "attempts": 1,
+  "lastAttempt": "2026-08-22T22:13:17.736Z",
+  "attempts": 2,
   "error": "no official candidate URLs",
   "pipelineGen": 7
  },
@@ -6104,8 +6109,8 @@
  },
  "2196": {
   "stage": "failed",
-  "lastAttempt": "2026-08-22T21:03:50.348Z",
-  "attempts": 1,
+  "lastAttempt": "2026-08-22T22:13:15.955Z",
+  "attempts": 2,
   "error": "no official candidate URLs",
   "pipelineGen": 7
  },
@@ -6441,8 +6446,8 @@
  },
  "2245": {
   "stage": "failed",
-  "lastAttempt": "2026-08-22T21:03:51.854Z",
-  "attempts": 1,
+  "lastAttempt": "2026-08-22T22:13:21.298Z",
+  "attempts": 2,
   "error": "no official candidate URLs",
   "pipelineGen": 7
  },
@@ -6734,8 +6739,8 @@
  },
  "2333": {
   "stage": "failed",
-  "lastAttempt": "2026-08-22T21:04:03.574Z",
-  "attempts": 1,
+  "lastAttempt": "2026-08-22T22:13:39.607Z",
+  "attempts": 2,
   "error": "no official candidate URLs",
   "pipelineGen": 7
  },
@@ -6828,8 +6833,8 @@
  },
  "2355": {
   "stage": "failed",
-  "lastAttempt": "2026-08-22T21:03:53.379Z",
-  "attempts": 1,
+  "lastAttempt": "2026-08-22T22:13:23.171Z",
+  "attempts": 2,
   "error": "no official candidate URLs",
   "pipelineGen": 7
  },
@@ -6843,8 +6848,8 @@
  },
  "2358": {
   "stage": "failed",
-  "lastAttempt": "2026-08-22T21:04:05.001Z",
-  "attempts": 1,
+  "lastAttempt": "2026-08-22T22:13:41.518Z",
+  "attempts": 2,
   "error": "no official candidate URLs",
   "pipelineGen": 7
  },
@@ -7042,15 +7047,15 @@
  },
  "2393": {
   "stage": "failed",
-  "lastAttempt": "2026-08-22T21:03:57.946Z",
-  "attempts": 1,
+  "lastAttempt": "2026-08-22T22:13:32.038Z",
+  "attempts": 2,
   "error": "no official candidate URLs",
   "pipelineGen": 7
  },
  "2395": {
   "stage": "failed",
-  "lastAttempt": "2026-08-22T21:03:56.383Z",
-  "attempts": 1,
+  "lastAttempt": "2026-08-22T22:13:28.458Z",
+  "attempts": 2,
   "error": "no official candidate URLs",
   "pipelineGen": 7
  },
@@ -7072,8 +7077,8 @@
  },
  "2399": {
   "stage": "failed",
-  "lastAttempt": "2026-08-22T21:03:54.856Z",
-  "attempts": 1,
+  "lastAttempt": "2026-08-22T22:13:26.651Z",
+  "attempts": 2,
   "error": "no official candidate URLs",
   "pipelineGen": 7
  },
@@ -7175,8 +7180,8 @@
  },
  "2416": {
   "stage": "failed",
-  "lastAttempt": "2026-08-22T21:03:59.472Z",
-  "attempts": 1,
+  "lastAttempt": "2026-08-22T22:13:33.966Z",
+  "attempts": 2,
   "error": "no official candidate URLs",
   "pipelineGen": 7
  },
@@ -7269,8 +7274,8 @@
  },
  "2437": {
   "stage": "failed",
-  "lastAttempt": "2026-08-22T21:04:01.219Z",
-  "attempts": 1,
+  "lastAttempt": "2026-08-22T22:13:37.718Z",
+  "attempts": 2,
   "error": "no official candidate URLs",
   "pipelineGen": 7
  },
@@ -7613,8 +7618,8 @@
  },
  "2553": {
   "stage": "failed",
-  "lastAttempt": "2026-08-22T21:04:10.732Z",
-  "attempts": 1,
+  "lastAttempt": "2026-08-22T22:13:51.847Z",
+  "attempts": 2,
   "error": "no official candidate URLs",
   "pipelineGen": 7
  },
@@ -7636,15 +7641,15 @@
  },
  "2559": {
   "stage": "failed",
-  "lastAttempt": "2026-08-22T21:04:07.876Z",
-  "attempts": 1,
+  "lastAttempt": "2026-08-22T22:13:46.599Z",
+  "attempts": 2,
   "error": "no official candidate URLs",
   "pipelineGen": 7
  },
  "2560": {
   "stage": "failed",
-  "lastAttempt": "2026-08-22T21:04:09.305Z",
-  "attempts": 1,
+  "lastAttempt": "2026-08-22T22:13:48.305Z",
+  "attempts": 2,
   "error": "no official candidate URLs",
   "pipelineGen": 7
  },
@@ -7672,8 +7677,8 @@
  },
  "2569": {
   "stage": "failed",
-  "lastAttempt": "2026-08-22T21:04:19.566Z",
-  "attempts": 1,
+  "lastAttempt": "2026-08-22T22:14:04.345Z",
+  "attempts": 2,
   "error": "no official candidate URLs",
   "pipelineGen": 7
  },
@@ -7694,8 +7699,8 @@
  },
  "2572": {
   "stage": "failed",
-  "lastAttempt": "2026-08-22T21:04:21.142Z",
-  "attempts": 1,
+  "lastAttempt": "2026-08-22T22:14:06.085Z",
+  "attempts": 2,
   "error": "no official candidate URLs",
   "pipelineGen": 7
  },
@@ -7903,15 +7908,15 @@
  },
  "2637": {
   "stage": "failed",
-  "lastAttempt": "2026-08-22T21:04:06.439Z",
-  "attempts": 1,
+  "lastAttempt": "2026-08-22T22:13:44.897Z",
+  "attempts": 2,
   "error": "no official candidate URLs",
   "pipelineGen": 7
  },
  "2638": {
   "stage": "failed",
-  "lastAttempt": "2026-08-22T21:04:13.617Z",
-  "attempts": 1,
+  "lastAttempt": "2026-08-22T22:13:55.385Z",
+  "attempts": 2,
   "error": "no official candidate URLs",
   "pipelineGen": 7
  },
@@ -7925,8 +7930,8 @@
  },
  "2652": {
   "stage": "failed",
-  "lastAttempt": "2026-08-22T21:04:12.184Z",
-  "attempts": 1,
+  "lastAttempt": "2026-08-22T22:13:53.691Z",
+  "attempts": 2,
   "error": "no official candidate URLs",
   "pipelineGen": 7
  },
@@ -7993,8 +7998,8 @@
  },
  "2682": {
   "stage": "failed",
-  "lastAttempt": "2026-08-22T21:04:15.059Z",
-  "attempts": 1,
+  "lastAttempt": "2026-08-22T22:13:57.105Z",
+  "attempts": 2,
   "error": "no official candidate URLs",
   "pipelineGen": 7
  },
@@ -8139,8 +8144,8 @@
  },
  "2734": {
   "stage": "failed",
-  "lastAttempt": "2026-08-22T21:04:16.514Z",
-  "attempts": 1,
+  "lastAttempt": "2026-08-22T22:14:00.657Z",
+  "attempts": 2,
   "error": "no official candidate URLs",
   "pipelineGen": 7
  },
@@ -8299,8 +8304,8 @@
  },
  "2777": {
   "stage": "failed",
-  "lastAttempt": "2026-08-22T21:04:18.137Z",
-  "attempts": 1,
+  "lastAttempt": "2026-08-22T22:14:02.631Z",
+  "attempts": 2,
   "error": "no official candidate URLs",
   "pipelineGen": 7
  },

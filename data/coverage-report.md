@@ -1,6 +1,6 @@
 # Prerequisite Coverage Audit
 
-Generated: 2026-08-22T22:12:03.937Z
+Generated: 2026-08-22T22:22:35.544Z
 
 | Profession | Active | Verified | No specific courses | Blocked | Unfinished | Final-status coverage | Directory reconciliation |
 |---|---:|---:|---:|---:|---:|---:|---|
@@ -10,11 +10,11 @@ Generated: 2026-08-22T22:12:03.937Z
 | Genetic Counseling (MS) | 64 | 62 | 1 | 0 | 1 | 98.4% | under-source-count |
 | Medical School (MD/DO) | 236 | 141 | 2 | 0 | 93 | 60.6% | reconciled |
 | Nursing (ABSN/MEPN) | 446 | 387 | 13 | 1 | 45 | 89.7% | reconciled |
-| Occupational Therapy (OTD/MOT) | 318 | 281 | 6 | 0 | 31 | 90.3% | reconciled |
+| Occupational Therapy (OTD/MOT) | 318 | 282 | 6 | 0 | 30 | 90.6% | reconciled |
 | Optometry (OD) | 24 | 24 | 0 | 0 | 0 | 100% | reconciled |
 | Pathologists' Assistant (PathA) | 20 | 19 | 1 | 0 | 0 | 100% | reconciled |
-| Pharmacy (PharmD) | 140 | 48 | 0 | 0 | 92 | 34.3% | reconciled |
-| Physical Therapy (DPT) | 308 | 287 | 1 | 0 | 20 | 93.5% | reconciled |
+| Pharmacy (PharmD) | 140 | 51 | 0 | 0 | 89 | 36.4% | reconciled |
+| Physical Therapy (DPT) | 308 | 288 | 1 | 0 | 19 | 93.8% | reconciled |
 | Physician Assistant (PA) | 330 | 302 | 3 | 0 | 25 | 92.4% | reconciled |
 | Podiatric Medicine (DPM) | 11 | 11 | 0 | 0 | 0 | 100% | reconciled |
 | Postbaccalaureate Programs | 336 | 183 | 4 | 0 | 149 | 55.7% | under-source-count |
