@@ -648,10 +648,10 @@
  },
  "435": {
   "stage": "source_fetched",
-  "lastAttempt": "2026-08-22T05:44:46.458Z",
+  "lastAttempt": "2026-08-22T05:44:52.788Z",
   "attempts": 1,
   "pipelineGen": 7,
-  "sourceUrl": "https://www.uab.edu/admissions/cost/scholarships"
+  "sourceUrl": "https://www.uab.edu/home/"
  },
  "440": {
   "stage": "failed",
@@ -753,24 +753,22 @@
   "sourceUrl": "https://med.wmich.edu/"
  },
  "504": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-22T05:43:21.950Z",
-  "attempts": 1,
-  "error": "https://som.umc.edu/: too little text",
+  "stage": "source_discovery",
+  "lastAttempt": "2026-08-22T05:45:11.005Z",
+  "attempts": 2,
   "pipelineGen": 7,
   "sourceUrl": "https://som.umc.edu/"
  },
  "505": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-22T05:44:12.740Z",
-  "attempts": 1,
-  "error": "https://medschool.slu.edu/: too little text",
+  "stage": "source_discovery",
+  "lastAttempt": "2026-08-22T05:45:11.003Z",
+  "attempts": 2,
   "pipelineGen": 7,
   "sourceUrl": "https://medschool.slu.edu/"
  },
  "506": {
   "stage": "extracted",
-  "lastAttempt": "2026-08-22T05:44:01.797Z",
+  "lastAttempt": "2026-08-22T05:44:49.516Z",
   "attempts": 1,
   "pipelineGen": 7,
   "sourceUrl": "https://gradschool.missouri.edu/"
@@ -2241,12 +2239,11 @@
   "finalStatus": "verified"
  },
  "1442": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-22T03:43:44.888Z",
-  "attempts": 1,
-  "error": "https://www.ohio.edu/graduate/apply: no usable prereq list || https://www.ohio.edu/medicine/med-admissions/apply: no usable prereq list || https://www.ohio.edu/admissions/transfer-credits: no usable prereq list || https://www.ohio.edu/medicine/med-admissions: no usable prereq list",
+  "stage": "source_fetched",
+  "lastAttempt": "2026-08-22T05:45:30.961Z",
+  "attempts": 2,
   "pipelineGen": 7,
-  "sourceUrl": "https://www.ohio.edu/registrar"
+  "sourceUrl": "https://www.ohio.edu/medicine/med-admissions"
  },
  "1443": {
   "stage": "failed",
@@ -2280,10 +2277,9 @@
   "finalStatus": "verified"
  },
  "1467": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-22T03:43:45.044Z",
-  "attempts": 1,
-  "error": "no official candidate URLs",
+  "stage": "source_discovery",
+  "lastAttempt": "2026-08-22T05:45:11.011Z",
+  "attempts": 2,
   "pipelineGen": 7
  },
  "1468": {
@@ -2323,18 +2319,16 @@
   "sourceUrl": "https://www.findlay.edu/"
  },
  "1491": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-22T03:43:43.473Z",
-  "attempts": 1,
-  "error": "https://law.ku.edu/current-students/academic-resources/prerequisites: no usable prereq list || https://law.ku.edu/academics/degrees/jd-program/requirements: no usable prereq list || https://law.ku.edu/admissions: no usable prereq list || https://law.ku.edu/academics/degrees/llm-international/curriculum: no usable prereq list",
+  "stage": "extracted",
+  "lastAttempt": "2026-08-22T05:45:25.957Z",
+  "attempts": 2,
   "pipelineGen": 7,
   "sourceUrl": "https://law.ku.edu/academics/degrees/llm-international/curriculum"
  },
  "1497": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-22T03:44:28.492Z",
-  "attempts": 1,
-  "error": "https://admissions.missouri.edu/apply/freshmen/test-optional/: no usable prereq list || https://admissions.missouri.edu/apply/freshmen/: no usable prereq list || https://admissions.missouri.edu/apply/international/: no usable prereq list || https://admissions.missouri.edu/apply/military/: no usable prereq list",
+  "stage": "extracted",
+  "lastAttempt": "2026-08-22T05:45:26.218Z",
+  "attempts": 2,
   "pipelineGen": 7,
   "sourceUrl": "https://gradschool.missouri.edu/"
  },
