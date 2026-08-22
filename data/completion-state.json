@@ -8,9 +8,10 @@
   "sourceUrl": "https://ac.suagm.edu/"
  },
  "117": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-22T05:28:03.990Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-22T05:42:16.213Z",
   "attempts": 1,
+  "error": "https://admissions.utah.edu/apply/graduate-students/: no usable prereq list || https://admissions.utah.edu/apply/international/international-graduate-admissions-graduate-costs/: no usable prereq list || https://curriculum.utah.edu/: no usable prereq list",
   "pipelineGen": 7,
   "sourceUrl": "https://curriculum.utah.edu/"
  },
@@ -379,7 +380,7 @@
  },
  "356": {
   "stage": "extracted",
-  "lastAttempt": "2026-08-22T05:40:58.000Z",
+  "lastAttempt": "2026-08-22T05:42:03.007Z",
   "attempts": 1,
   "pipelineGen": 7,
   "sourceUrl": "https://www.jefferson.edu/admissions/undergraduate.html"
@@ -487,6 +488,13 @@
   "pipelineGen": 5,
   "sourceUrl": "https://www.ohio.edu/medicine/med-admissions/requirements",
   "finalStatus": "verified"
+ },
+ "409": {
+  "stage": "failed",
+  "lastAttempt": "2026-08-22T05:44:20.980Z",
+  "attempts": 1,
+  "error": "no official candidate URLs",
+  "pipelineGen": 7
  },
  "411": {
   "stage": "finalized",
@@ -638,6 +646,13 @@
   "sourceUrl": "https://www.xavier.edu/college-of-medicine/admission/do-admission/undergraduate-path",
   "finalStatus": "verified"
  },
+ "435": {
+  "stage": "source_fetched",
+  "lastAttempt": "2026-08-22T05:44:46.458Z",
+  "attempts": 1,
+  "pipelineGen": 7,
+  "sourceUrl": "https://www.uab.edu/admissions/cost/scholarships"
+ },
  "440": {
   "stage": "failed",
   "lastAttempt": "2026-08-21T06:44:01.120Z",
@@ -738,10 +753,27 @@
   "sourceUrl": "https://med.wmich.edu/"
  },
  "504": {
-  "stage": "source_discovery",
-  "lastAttempt": "2026-08-22T05:41:33.338Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-22T05:43:21.950Z",
   "attempts": 1,
-  "pipelineGen": 7
+  "error": "https://som.umc.edu/: too little text",
+  "pipelineGen": 7,
+  "sourceUrl": "https://som.umc.edu/"
+ },
+ "505": {
+  "stage": "failed",
+  "lastAttempt": "2026-08-22T05:44:12.740Z",
+  "attempts": 1,
+  "error": "https://medschool.slu.edu/: too little text",
+  "pipelineGen": 7,
+  "sourceUrl": "https://medschool.slu.edu/"
+ },
+ "506": {
+  "stage": "extracted",
+  "lastAttempt": "2026-08-22T05:44:01.797Z",
+  "attempts": 1,
+  "pipelineGen": 7,
+  "sourceUrl": "https://gradschool.missouri.edu/"
  },
  "513": {
   "stage": "failed",
@@ -5767,11 +5799,11 @@
   "sourceUrl": "https://hhpr.robbins.baylor.edu/undergraduate/health-kinesiology-and-leisure-studies/allied-health-pre-professional"
  },
  "2518": {
-  "stage": "source_fetched",
-  "lastAttempt": "2026-08-22T05:41:33.250Z",
+  "stage": "extracted",
+  "lastAttempt": "2026-08-22T05:44:15.030Z",
   "attempts": 1,
   "pipelineGen": 7,
-  "sourceUrl": "https://www.emich.edu/admissions/graduate/index.php"
+  "sourceUrl": "https://www.emich.edu/"
  },
  "2528": {
   "stage": "failed",
