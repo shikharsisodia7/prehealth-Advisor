@@ -85,16 +85,18 @@
   "pipelineGen": 7
  },
  "150": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-23T10:00:19.773Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-23T10:11:38.668Z",
   "attempts": 3,
+  "error": "https://graduate.ua.edu/applicants/requirements/: no usable prereq list || https://graduate.ua.edu/applicants/: no usable prereq list || https://graduate.ua.edu/applicants/international-students/: no usable prereq list",
   "pipelineGen": 7,
   "sourceUrl": "https://graduate.ua.edu/applicants/international-students/"
  },
  "154": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-23T10:02:17.947Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-23T10:19:18.884Z",
   "attempts": 3,
+  "error": "https://seaver.pepperdine.edu/graduate/admission/: no usable prereq list || https://seaver.pepperdine.edu/graduate/admission/process.htm: no usable prereq list || https://seaver.pepperdine.edu/graduate/admission/resources.htm: no usable prereq list || https://seaver.pepperdine.edu/academics/: no usable prereq list",
   "pipelineGen": 7,
   "sourceUrl": "https://admission.pepperdine.edu/apply/undergraduate/transfer.htm"
  },
@@ -106,10 +108,9 @@
   "sourceUrl": "https://www.desu.edu/admissions/undergraduate-students/how-download-your-satact-score-report"
  },
  "162": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-22T22:02:31.264Z",
-  "attempts": 2,
-  "error": "https://isss.gsu.edu/incoming-students/step-1-admissions/: no usable prereq list || https://admissions.gsu.edu/associate-degree/: no usable prereq list || https://graduate.gsu.edu/future/admissions/: no usable prereq list || https://isss.gsu.edu/incoming-students/step-1-admissions/: no usable prereq list",
+  "stage": "extracted",
+  "lastAttempt": "2026-08-23T10:24:39.641Z",
+  "attempts": 3,
   "pipelineGen": 7,
   "sourceUrl": "https://www.gsu.edu/"
  },
@@ -123,8 +124,8 @@
  },
  "166": {
   "stage": "failed",
-  "lastAttempt": "2026-08-22T22:02:54.891Z",
-  "attempts": 2,
+  "lastAttempt": "2026-08-23T10:33:09.186Z",
+  "attempts": 3,
   "error": "https://www.dom.edu/admission/scholarships-dominican: no usable prereq list || https://www.dom.edu/admission/undergraduate/post-baccalaureate-programs: no usable prereq list",
   "pipelineGen": 7,
   "sourceUrl": "https://www.dom.edu/admission/undergraduate/behind-the-rankings"
@@ -207,8 +208,8 @@
  },
  "195": {
   "stage": "failed",
-  "lastAttempt": "2026-08-22T21:59:33.171Z",
-  "attempts": 2,
+  "lastAttempt": "2026-08-23T10:33:22.191Z",
+  "attempts": 3,
   "error": "https://www.usu.edu/admissions/apply/: no usable prereq list || https://gradschool.usu.edu/admissions/: no usable prereq list",
   "pipelineGen": 7,
   "sourceUrl": "https://qanr.usu.edu/ndfs/"
@@ -230,16 +231,18 @@
   "sourceUrl": "https://nau.edu/"
  },
  "204": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-23T10:02:55.743Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-23T10:17:50.261Z",
   "attempts": 3,
+  "error": "https://www.gcu.edu/admissions: no usable prereq list || https://www.gcu.edu/admissions/graduate-doctoral: no usable prereq list || https://www.gcu.edu/admissions/visit-gcu-campus: no usable prereq list || https://www.gcu.edu/admissions/college-transfer-center.php: no usable prereq list",
   "pipelineGen": 7,
   "sourceUrl": "https://www.gcu.edu/admissions/undergraduate"
  },
  "210": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-23T10:02:57.025Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-23T10:20:11.210Z",
   "attempts": 3,
+  "error": "https://calbaptist.edu/admissions-aid/graduate/requirements: no usable prereq list || https://calbaptist.edu/admissions-aid/graduate/how-to-apply: no usable prereq list || https://calbaptist.edu/admissions-aid/undergraduate/homeschool: no usable prereq list",
   "pipelineGen": 7,
   "sourceUrl": "https://calbaptist.edu/admissions-aid/undergraduate/"
  },
@@ -267,8 +270,8 @@
  },
  "225": {
   "stage": "failed",
-  "lastAttempt": "2026-08-22T22:02:49.277Z",
-  "attempts": 2,
+  "lastAttempt": "2026-08-23T10:27:21.999Z",
+  "attempts": 3,
   "error": "https://www.manchester.edu/admissions-aid/graduate-admissions/international-student/: no usable prereq list || https://www.manchester.edu/admissions-aid/graduate-admissions/articulations-course-equivalencies/: no usable prereq list",
   "pipelineGen": 7,
   "sourceUrl": "https://www.manchester.edu/academics/colleges/"
@@ -288,9 +291,10 @@
   "sourceUrl": "https://www.jhu.edu/"
  },
  "234": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-23T10:02:54.737Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-23T10:19:15.681Z",
   "attempts": 3,
+  "error": "https://www.cmich.edu/academics/colleges/college-of-medicine/education/md/admissions: no usable prereq list || https://www.cmich.edu/graduate/how-to-apply: no usable prereq list || https://www.cmich.edu/undergraduate/apply: no usable prereq list",
   "pipelineGen": 7,
   "sourceUrl": "https://www.cmich.edu/undergraduate"
  },
@@ -303,9 +307,10 @@
   "finalStatus": "verified"
  },
  "243": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-23T10:02:57.199Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-23T10:17:46.258Z",
   "attempts": 3,
+  "error": "https://www.montclair.edu/admissions-aid/graduate-admissions: no usable prereq list || https://www.montclair.edu/admissions-aid: no usable prereq list || https://www.montclair.edu/admissions-aid/summer-winter-sessions: no usable prereq list || https://www.montclair.edu/admissions-aid/how-apply-montclair-state-university: no usable prereq list",
   "pipelineGen": 7,
   "sourceUrl": "https://www.montclair.edu/"
  },
@@ -4763,10 +4768,9 @@
   "sourceUrl": "https://www.dmu.edu/giving/"
  },
  "1913": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-22T22:03:57.791Z",
-  "attempts": 2,
-  "error": "https://www.unwsp.edu/admissions/pseo-early-college/: no usable prereq list || https://www.unwsp.edu/admissions/apply/graduate-application/: no usable prereq list || https://www.unwsp.edu/admissions/apply/pseo-application/: no usable prereq list",
+  "stage": "extracted",
+  "lastAttempt": "2026-08-23T10:30:19.660Z",
+  "attempts": 3,
   "pipelineGen": 7,
   "sourceUrl": "https://www.unwsp.edu/admissions/undergraduate/"
  },
@@ -4859,12 +4863,11 @@
   "finalStatus": "verified"
  },
  "1929": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-22T22:04:49.424Z",
-  "attempts": 2,
+  "stage": "extracted",
+  "lastAttempt": "2026-08-23T10:24:23.957Z",
+  "attempts": 3,
   "pipelineGen": 7,
-  "sourceUrl": "https://indianastate.edu/academics/colleges/health-human-services/amr/pa/physician-assistant-program-information",
-  "error": "https://indianastate.edu/academics/colleges/health-human-services/pa/isu-physician-assistant-veteran-outreach: no usable prereq list || https://indianastate.edu/academics/colleges/health-human-services/amr/pa: no usable prereq list || https://indianastate.edu/academics/colleges/health-human-services/amr/pa: no usable prereq list || https://indianastate.edu/media/3593/download?inline: no usable prereq list"
+  "sourceUrl": "https://indianastate.edu/academics/colleges/health-human-services/amr/pa/physician-assistant-program-information"
  },
  "1930": {
   "stage": "finalized",
@@ -4915,10 +4918,9 @@
   "sourceUrl": "https://www.k-state.edu/admissions/request-info/"
  },
  "1937": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-22T22:04:27.508Z",
-  "attempts": 2,
-  "error": "https://www.ottawa.edu/paprogram: HTTP 307",
+  "stage": "source_discovery",
+  "lastAttempt": "2026-08-23T10:33:10.361Z",
+  "attempts": 3,
   "pipelineGen": 7
  },
  "1939": {
@@ -4978,10 +4980,9 @@
   "finalStatus": "verified"
  },
  "1946": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-22T22:04:19.240Z",
-  "attempts": 2,
-  "error": "https://www.lsuhscshreveport.edu/: too little text",
+  "stage": "source_discovery",
+  "lastAttempt": "2026-08-23T10:33:22.272Z",
+  "attempts": 3,
   "pipelineGen": 7,
   "sourceUrl": "https://www.lsuhscshreveport.edu/"
  },
@@ -5521,12 +5522,11 @@
   "finalStatus": "verified"
  },
  "2064": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-22T22:03:34.166Z",
-  "attempts": 2,
+  "stage": "extracted",
+  "lastAttempt": "2026-08-23T10:21:18.028Z",
+  "attempts": 3,
   "pipelineGen": 7,
-  "sourceUrl": "https://www.findlay.edu/",
-  "error": "https://www.findlay.edu/admissions-aid/transfer-students/: no usable prereq list || https://www.findlay.edu/admissions-aid/transfer-students/transfer-admission-criteria/: no usable prereq list"
+  "sourceUrl": "https://www.findlay.edu/"
  },
  "2066": {
   "stage": "failed",
