@@ -2417,10 +2417,9 @@
   "sourceUrl": "https://www.emich.edu/chhs/health-sciences/programs/occupational-therapy/lectureship/index.php"
  },
  "1074": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-22T03:35:59.049Z",
-  "attempts": 2,
-  "error": "https://catalog.famu.edu/: no usable prereq list || https://catalog.famu.edu/index.php?catoid=16: no usable prereq list || https://law.famu.edu/students/prospective/apply-to-law.php: no usable prereq list || https://catalog.famu.edu/mime/media/view/16/1825/Student+Affairs+Student_Handbook_2021-2026-1.pdf: no usable prereq list",
+  "stage": "extracted",
+  "lastAttempt": "2026-08-23T08:24:04.943Z",
+  "attempts": 3,
   "pipelineGen": 7,
   "sourceUrl": "https://catalog.famu.edu/mime/media/view/16/1825/Student+Affairs+Student_Handbook_2021-2026-1.pdf"
  },
@@ -2537,10 +2536,9 @@
   "finalStatus": "verified"
  },
  "1128": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-22T03:35:56.681Z",
-  "attempts": 2,
-  "error": "https://www.radford.edu/content/JCHS-RU-merger/home.html: HTTP 404",
+  "stage": "source_discovery",
+  "lastAttempt": "2026-08-23T08:33:28.296Z",
+  "attempts": 3,
   "pipelineGen": 7,
   "sourceUrl": "https://www.radford.edu/admissions/graduate/index.html"
  },
@@ -2657,10 +2655,9 @@
   "sourceUrl": "https://www.unc.edu/"
  },
  "1175": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-22T03:39:45.260Z",
-  "attempts": 2,
-  "error": "https://admissions.scranton.edu/academic-programs/...: HTTP 404 || https://www.scranton.edu/academics/pcps/occupational-therapy/index.shtml: no usable prereq list || https://www.scranton.edu/academics/pcps/occupational-therapy/staff.shtml: no usable prereq list || https://www.scranton.edu/academics/pcps/occupational-therapy/emeritus-faculty.shtml: no usable prereq list",
+  "stage": "extracted",
+  "lastAttempt": "2026-08-23T08:24:56.954Z",
+  "attempts": 3,
   "pipelineGen": 7,
   "sourceUrl": "https://www.scranton.edu/academics/pcps/occupational-therapy/ot-pdf-file/revised-essential-functions-for-occupational-therapy-students-ay-2017-2018.pdf"
  },
@@ -7567,9 +7564,10 @@
   "error": "https://www.emich.edu/admissions/index.php: no usable prereq list || https://www.emich.edu/admissions/graduate/index.php: no usable prereq list || https://www.emich.edu/admissions/scholarships/index.php: no usable prereq list || https://www.emich.edu/admissions/request-information/index.php: no usable prereq list"
  },
  "2528": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-23T08:00:47.141Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-23T08:16:57.917Z",
   "attempts": 3,
+  "error": "https://www.aamu.edu/academics/colleges/education-humanities-behavioral-sciences/departments/human-performance-communicative-disorders/communicative-sciences-disorders/graduate-course-requirements.html: no usable prereq list || https://www.aamu.edu/academics/colleges/education-humanities-behavioral-sciences/departments/human-performance-communicative-disorders/communicative-sciences-disorders/graduate-admission-requirements.html: no usable prereq list || https://www.aamu.edu/academics/colleges/e",
   "pipelineGen": 7,
   "sourceUrl": "https://www.aamu.edu/academics/colleges/education-humanities-behavioral-sciences/departments/human-performance-communicative-disorders/communicative-sciences-disorders/undergraduate-admission-requirements.html"
  },
@@ -7717,12 +7715,11 @@
   "sourceUrl": "https://www.brooklyn.edu/admissions-aid/nontraditional/"
  },
  "2576": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-22T23:28:18.175Z",
-  "attempts": 2,
+  "stage": "extracted",
+  "lastAttempt": "2026-08-23T08:21:42.987Z",
+  "attempts": 3,
   "pipelineGen": 7,
-  "sourceUrl": "https://www.cuny.edu/admissions/undergraduate/tours/",
-  "error": "https://www.cuny.edu/admissions/undergraduate/apply/: no usable prereq list || https://www.cuny.edu/admissions/undergraduate/tours/: no usable prereq list || https://www.cuny.edu/admissions/undergraduate/apply/application-review/: no usable prereq list || https://www.cuny.edu/admissions/undergraduate/tours/: no usable prereq list"
+  "sourceUrl": "https://www.cuny.edu/admissions/undergraduate/tours/"
  },
  "2582": {
   "stage": "failed",
@@ -7790,8 +7787,8 @@
  },
  "2597": {
   "stage": "failed",
-  "lastAttempt": "2026-08-22T03:36:03.168Z",
-  "attempts": 2,
+  "lastAttempt": "2026-08-23T08:33:27.047Z",
+  "attempts": 3,
   "error": "https://gradschool.fsu.edu/prospective-students/graduate-admissions: no usable prereq list || https://admissions.fsu.edu/transfer/apply: no usable prereq list",
   "pipelineGen": 7,
   "sourceUrl": "https://www.fsu.edu/"
@@ -7829,8 +7826,8 @@
  },
  "2605": {
   "stage": "extracted",
-  "lastAttempt": "2026-08-22T07:02:57.400Z",
-  "attempts": 2,
+  "lastAttempt": "2026-08-23T08:22:32.971Z",
+  "attempts": 3,
   "pipelineGen": 7,
   "sourceUrl": "https://www.gsu.edu/"
  },
@@ -7987,11 +7984,12 @@
   "sourceUrl": "https://osuokc.edu/academics/general-education"
  },
  "2679": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-23T08:01:53.326Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-23T08:17:11.800Z",
   "attempts": 3,
   "pipelineGen": 7,
-  "sourceUrl": "https://www.pace.edu/admission-and-aid/undergraduate-admission/transfer"
+  "sourceUrl": "https://www.pace.edu/admission-and-aid/undergraduate-admission/transfer",
+  "error": "https://www.pace.edu/admission-and-aid/graduate-admission/how-apply/international-graduate-admission: no usable prereq list || https://www.pace.edu/admission-and-aid/graduate-admission/how-apply/masters-programs/toefl-ielts-pearson-pte: no usable prereq list || https://www.pace.edu/admission-and-aid/undergraduate-admission/how-apply/international-undergraduate-admission: no usable prereq list"
  },
  "2681": {
   "stage": "extracted",
@@ -8023,9 +8021,10 @@
   "sourceUrl": "https://admissions.purdue.edu/become-student/apply/"
  },
  "2687": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-23T08:02:58.859Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-23T08:19:46.447Z",
   "attempts": 3,
+  "error": "https://www.radford.edu/waldron-college-health-human-services/communication-sciences-and-disorders-department/index.html: no usable prereq list || https://www.radford.edu/waldron-college-health-human-services/communication-sciences-and-disorders-department/speech-language-hearing-clinic.html: no usable prereq list || https://www.radford.edu/admissions/apply/index.html: no usable prereq list || https://www.radford.edu/admissions/apply/index.html: no usable prereq list",
   "pipelineGen": 7,
   "sourceUrl": "https://www.radford.edu/waldron-college-health-human-services/index.html"
  },
@@ -8171,9 +8170,10 @@
   "sourceUrl": "https://www.trine.edu/academics/majors-degrees/undergraduate/online-rn-to-bsn-bachelor/index.aspx"
  },
  "2741": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-23T08:03:11.603Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-23T08:20:26.083Z",
   "attempts": 3,
+  "error": "https://www.truman.edu/academics/school-of-business-and-professional-studies/about-the-communication-disorders-department/: no usable prereq list || https://www.truman.edu/majors-programs/graduate-studies/communication-disorders/: no usable prereq list || https://www.truman.edu/academics/school-of-business-and-professional-studies/about-the-communication-disorders-department/contact/: no usable prereq list || https://www.truman.edu/majors-programs/majors-minors/communication-disorders-major/: no",
   "pipelineGen": 7,
   "sourceUrl": "https://www.truman.edu/academics/school-of-business-and-professional-studies/about-the-communication-disorders-department/"
  },
@@ -8231,17 +8231,17 @@
   "error": "https://www.ucmo.edu/future-students/admissions/international-admissions/index.php: no usable prereq list || https://www.ucmo.edu/future-students/admissions/graduate-admissions/index.php: no usable prereq list || https://www.ucmo.edu/future-students/admissions/other-applicant-types/index.php: no usable prereq list || https://www.ucmo.edu/future-students/admissions/incoming-freshman/high-school-counselor-resources/index.php: no usable prereq list"
  },
  "2756": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-22T23:27:28.075Z",
-  "attempts": 2,
+  "stage": "extracted",
+  "lastAttempt": "2026-08-23T08:21:41.507Z",
+  "attempts": 3,
   "pipelineGen": 7,
-  "sourceUrl": "https://uconn.edu/",
-  "error": "https://admissions.uconn.edu/apply/: no usable prereq list || https://grad.uconn.edu/prospective-student/: no usable prereq list || https://grad.uconn.edu/admissions/: no usable prereq list || https://admissions.uconn.edu/apply/transfer/gap/: no usable prereq list"
+  "sourceUrl": "https://uconn.edu/"
  },
  "2758": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-23T08:03:11.891Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-23T08:18:29.616Z",
   "attempts": 3,
+  "error": "https://www.uwosh.edu/admissions/how-to-apply/freshmen/: no usable prereq list || https://www.uwosh.edu/admissions/how-to-apply/special-students-and-guests-admission-guidelines/: no usable prereq list || https://www.uwosh.edu/gradschool/programs/: no usable prereq list || https://www.uwosh.edu/admissions/how-to-apply/high-school-programs/: no usable prereq list",
   "pipelineGen": 7,
   "sourceUrl": "https://www.uwosh.edu/admissions/how-to-apply/high-school-programs/"
  },
@@ -8557,11 +8557,12 @@
   "sourceUrl": "https://uwm.edu/geosciences/"
  },
  "2822": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-23T08:02:32.427Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-23T08:18:04.371Z",
   "attempts": 3,
   "pipelineGen": 7,
-  "sourceUrl": "https://www.uwosh.edu/admissions/how-to-apply/high-school-programs/"
+  "sourceUrl": "https://www.uwosh.edu/admissions/how-to-apply/high-school-programs/",
+  "error": "https://www.uwosh.edu/admissions/how-to-apply/freshmen/: no usable prereq list || https://www.uwosh.edu/admissions/how-to-apply/special-students-and-guests-admission-guidelines/: no usable prereq list || https://www.uwosh.edu/gradschool/programs/: no usable prereq list || https://www.uwosh.edu/admissions/how-to-apply/high-school-programs/: no usable prereq list"
  },
  "2823": {
   "stage": "failed",
