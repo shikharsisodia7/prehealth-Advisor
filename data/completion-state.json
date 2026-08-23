@@ -746,17 +746,16 @@
   "sourceUrl": "https://www.arizona.edu/admissions/undergraduate/admitted-students"
  },
  "440": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-23T13:27:57.399Z",
-  "attempts": 3,
+  "stage": "extracted",
+  "lastAttempt": "2026-08-23T14:05:15.323Z",
+  "attempts": 4,
   "pipelineGen": 7,
-  "sourceUrl": "https://alicelwaltonfoundation.org/",
-  "error": "https://alicelwaltonfoundation.org/school-of-medicine/: no usable prereq list || https://alicelwaltonfoundation.org/category/alice-l-walton-school-of-medicine-2/: no usable prereq list || https://alicelwaltonfoundation.org/school-of-medicine/: no usable prereq list || https://alicelwaltonfoundation.org/: no usable prereq list"
+  "sourceUrl": "https://alicelwaltonfoundation.org/"
  },
  "445": {
   "stage": "failed",
-  "lastAttempt": "2026-08-23T13:23:24.436Z",
-  "attempts": 3,
+  "lastAttempt": "2026-08-23T14:03:50.182Z",
+  "attempts": 4,
   "error": "no official candidate URLs",
   "pipelineGen": 7
  },
@@ -848,8 +847,8 @@
  },
  "458": {
   "stage": "failed",
-  "lastAttempt": "2026-08-23T13:21:49.673Z",
-  "attempts": 3,
+  "lastAttempt": "2026-08-23T14:01:51.839Z",
+  "attempts": 4,
   "pipelineGen": 7,
   "sourceUrl": "https://www.yale.edu/",
   "error": "https://www.yale.edu/admissions/graduate-professional-schools: no usable prereq list"
@@ -863,8 +862,8 @@
  },
  "462": {
   "stage": "failed",
-  "lastAttempt": "2026-08-23T13:22:23.268Z",
-  "attempts": 2,
+  "lastAttempt": "2026-08-23T14:02:26.172Z",
+  "attempts": 3,
   "pipelineGen": 7,
   "error": "no official candidate URLs"
  },
@@ -961,8 +960,8 @@
  },
  "478": {
   "stage": "extracted",
-  "lastAttempt": "2026-08-23T13:27:20.331Z",
-  "attempts": 3,
+  "lastAttempt": "2026-08-23T14:05:02.340Z",
+  "attempts": 4,
   "pipelineGen": 7,
   "sourceUrl": "https://www.rush.edu/locations?specialty=1286&amp;sort=asc&amp;page=0"
  },
@@ -1106,8 +1105,8 @@
  },
  "501": {
   "stage": "failed",
-  "lastAttempt": "2026-08-23T13:24:09.146Z",
-  "attempts": 3,
+  "lastAttempt": "2026-08-23T14:04:33.923Z",
+  "attempts": 4,
   "error": "https://med.wmich.edu/: too little text",
   "pipelineGen": 7,
   "sourceUrl": "https://med.wmich.edu/"
@@ -1184,8 +1183,8 @@
  },
  "516": {
   "stage": "failed",
-  "lastAttempt": "2026-08-23T13:22:21.007Z",
-  "attempts": 3,
+  "lastAttempt": "2026-08-23T14:02:27.002Z",
+  "attempts": 4,
   "error": "https://www.hackensackmeridianhealth.org/en: no usable prereq list",
   "pipelineGen": 7,
   "sourceUrl": "https://www.hackensackmeridianhealth.org/en"
@@ -1305,8 +1304,8 @@
  },
  "535": {
   "stage": "extracted",
-  "lastAttempt": "2026-08-23T13:27:17.224Z",
-  "attempts": 3,
+  "lastAttempt": "2026-08-23T14:02:54.939Z",
+  "attempts": 4,
   "pipelineGen": 7,
   "sourceUrl": "https://catalog.ecu.edu/"
  },
@@ -1441,9 +1440,9 @@
   "pipelineGen": 7
  },
  "555": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-23T13:28:35.689Z",
-  "attempts": 3,
+  "stage": "source_fetched",
+  "lastAttempt": "2026-08-23T14:05:21.583Z",
+  "attempts": 4,
   "pipelineGen": 7,
   "sourceUrl": "https://catalog.phsu.edu/"
  },
@@ -1487,8 +1486,8 @@
  },
  "561": {
   "stage": "extracted",
-  "lastAttempt": "2026-08-23T13:22:37.853Z",
-  "attempts": 3,
+  "lastAttempt": "2026-08-23T14:03:31.541Z",
+  "attempts": 4,
   "pipelineGen": 7,
   "sourceUrl": "https://www.sc.edu/about/offices_and_divisions/undergraduate_admissions/index.php"
  },
@@ -1626,12 +1625,11 @@
   "pipelineGen": 7
  },
  "584": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-23T13:32:04.883Z",
-  "attempts": 3,
+  "stage": "extracted",
+  "lastAttempt": "2026-08-23T14:05:15.336Z",
+  "attempts": 4,
   "pipelineGen": 7,
-  "sourceUrl": "https://www.eastern.edu/",
-  "error": "https://www.eastern.edu/node/2619: HTTP 404 || https://www.eastern.edu/admissions: no usable prereq list || https://www.eastern.edu/apply: no usable prereq list || https://www.eastern.edu/: no usable prereq list"
+  "sourceUrl": "https://www.eastern.edu/"
  },
  "585": {
   "stage": "extracted",
@@ -1642,8 +1640,8 @@
  },
  "586": {
   "stage": "failed",
-  "lastAttempt": "2026-08-23T13:22:12.488Z",
-  "attempts": 3,
+  "lastAttempt": "2026-08-23T14:02:22.575Z",
+  "attempts": 4,
   "error": "no official candidate URLs",
   "pipelineGen": 7
  },
@@ -3180,11 +3178,12 @@
   "finalStatus": "verified"
  },
  "1416": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-23T13:31:38.836Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-23T13:47:13.290Z",
   "attempts": 4,
   "pipelineGen": 7,
-  "sourceUrl": "https://catalog.famu.edu/mime/media/view/16/1825/Student+Affairs+Student_Handbook_2021-2026-1.pdf"
+  "sourceUrl": "https://catalog.famu.edu/mime/media/view/16/1825/Student+Affairs+Student_Handbook_2021-2026-1.pdf",
+  "error": "https://catalog.famu.edu/: no usable prereq list || https://catalog.famu.edu/index.php?catoid=16: no usable prereq list || https://law.famu.edu/students/prospective/apply-to-law.php: no usable prereq list || https://catalog.famu.edu/mime/media/view/16/1825/Student+Affairs+Student_Handbook_2021-2026-1.pdf: no usable prereq list"
  },
  "1417": {
   "stage": "finalized",
@@ -3255,11 +3254,11 @@
   "pipelineGen": 7
  },
  "1427": {
-  "stage": "source_fetched",
-  "lastAttempt": "2026-08-22T23:18:25.348Z",
-  "attempts": 3,
+  "stage": "extracted",
+  "lastAttempt": "2026-08-23T13:48:18.364Z",
+  "attempts": 4,
   "pipelineGen": 7,
-  "sourceUrl": "https://manchester.ac.uk/study/undergraduate/applying/clearing/"
+  "sourceUrl": "https://www.manchester.ac.uk/study/undergraduate/applying/after-you-apply/offer-holders/"
  },
  "1428": {
   "stage": "finalized",
@@ -3270,18 +3269,20 @@
   "finalStatus": "verified"
  },
  "1430": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-23T13:34:52.061Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-23T13:52:35.756Z",
   "attempts": 4,
   "pipelineGen": 7,
-  "sourceUrl": "https://www.mcphs.edu/admission-and-aid/undergraduate-applicants"
+  "sourceUrl": "https://www.mcphs.edu/admission-and-aid/undergraduate-applicants",
+  "error": "https://www.mcphs.edu/academics/prerequisite-courses: no usable prereq list || https://www.mcphs.edu/admission-and-aid/graduate-applicants: no usable prereq list || https://www.mcphs.edu/admission-and-aid/apply: no usable prereq list || https://www.mcphs.edu/admission-and-aid: no usable prereq list"
  },
  "1431": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-23T11:16:33.453Z",
-  "attempts": 3,
+  "stage": "failed",
+  "lastAttempt": "2026-08-23T13:54:45.643Z",
+  "attempts": 4,
   "pipelineGen": 7,
-  "sourceUrl": "https://www.mcphs.edu/admission-and-aid/undergraduate-applicants"
+  "sourceUrl": "https://www.mcphs.edu/admission-and-aid/undergraduate-applicants",
+  "error": "https://www.mcphs.edu/academics/prerequisite-courses: no usable prereq list || https://www.mcphs.edu/admission-and-aid/graduate-applicants: no usable prereq list || https://www.mcphs.edu/admission-and-aid/apply: no usable prereq list || https://www.mcphs.edu/admission-and-aid: no usable prereq list"
  },
  "1432": {
   "stage": "failed",
@@ -3299,11 +3300,12 @@
   "finalStatus": "verified"
  },
  "1434": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-23T11:19:26.413Z",
-  "attempts": 3,
+  "stage": "finalized",
+  "lastAttempt": "2026-08-23T13:46:10.900Z",
+  "attempts": 4,
   "pipelineGen": 7,
-  "sourceUrl": "https://events.mercer.edu/event/leading-the-way-with-an-online-mba-webinar-3/"
+  "sourceUrl": "https://professionaladvancement.mercer.edu/academic-programs/undergraduate/pre-pharmacy-track/",
+  "finalStatus": "verified"
  },
  "1435": {
   "stage": "failed",
@@ -3533,10 +3535,10 @@
  },
  "1468": {
   "stage": "failed",
-  "lastAttempt": "2026-08-21T07:02:58.837Z",
-  "attempts": 3,
+  "lastAttempt": "2026-08-23T14:01:26.094Z",
+  "attempts": 2,
   "error": "no official candidate URLs",
-  "pipelineGen": 6
+  "pipelineGen": 7
  },
  "1469": {
   "stage": "failed",
@@ -3628,17 +3630,18 @@
  },
  "1482": {
   "stage": "extracted",
-  "lastAttempt": "2026-08-23T01:59:19.376Z",
-  "attempts": 3,
+  "lastAttempt": "2026-08-23T13:46:07.620Z",
+  "attempts": 4,
   "pipelineGen": 7,
   "sourceUrl": "https://uconn.edu/"
  },
  "1483": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-23T01:57:12.071Z",
-  "attempts": 3,
+  "stage": "failed",
+  "lastAttempt": "2026-08-23T13:58:10.692Z",
+  "attempts": 4,
   "pipelineGen": 7,
-  "sourceUrl": "https://www.findlay.edu/"
+  "sourceUrl": "https://www.findlay.edu/",
+  "error": "https://www.findlay.edu/academics/pharmacy/pharmd-dual-degrees/: no usable prereq list || https://www.findlay.edu/academics/pharmacy/: no usable prereq list || https://www.findlay.edu/admissions-aid/transfer-students/: no usable prereq list || https://www.findlay.edu/admissions-aid/transfer-students/admissions-for-health-professions/: no usable prereq list"
  },
  "1484": {
   "stage": "failed",
@@ -3700,8 +3703,8 @@
  },
  "1492": {
   "stage": "extracted",
-  "lastAttempt": "2026-08-22T23:14:17.797Z",
-  "attempts": 3,
+  "lastAttempt": "2026-08-23T13:56:02.673Z",
+  "attempts": 4,
   "pipelineGen": 7,
   "sourceUrl": "https://pharmacy.mc.uky.edu/"
  },
@@ -6399,11 +6402,12 @@
   "finalStatus": "verified"
  },
  "2240": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-23T01:59:10.879Z",
-  "attempts": 3,
+  "stage": "failed",
+  "lastAttempt": "2026-08-23T13:56:53.795Z",
+  "attempts": 4,
   "pipelineGen": 7,
-  "sourceUrl": "https://www.liberty.edu/"
+  "sourceUrl": "https://www.liberty.edu/",
+  "error": "https://apply.liberty.edu/?acode=C27223: no usable prereq list || https://apply.liberty.edu/: no usable prereq list || https://www.liberty.edu/: no usable prereq list"
  },
  "2241": {
   "stage": "source_fetched",
@@ -6901,22 +6905,22 @@
  },
  "2368": {
   "stage": "extracted",
-  "lastAttempt": "2026-08-23T02:39:12.653Z",
-  "attempts": 3,
+  "lastAttempt": "2026-08-23T13:59:28.699Z",
+  "attempts": 4,
   "pipelineGen": 7,
   "sourceUrl": "https://www.lsus.edu/academics/undergraduate-programs/pre-professional-programs"
  },
  "2369": {
   "stage": "extracted",
-  "lastAttempt": "2026-08-23T02:35:58.701Z",
-  "attempts": 3,
+  "lastAttempt": "2026-08-23T13:57:36.108Z",
+  "attempts": 4,
   "pipelineGen": 7,
   "sourceUrl": "https://www.luc.edu/stritch/indiri/graduateprogram/curriculum/"
  },
  "2370": {
   "stage": "extracted",
-  "lastAttempt": "2026-08-23T02:38:33.040Z",
-  "attempts": 3,
+  "lastAttempt": "2026-08-23T13:59:27.655Z",
+  "attempts": 4,
   "pipelineGen": 7,
   "sourceUrl": "https://www.iit.edu/admissions-aid/undergraduate-admission"
  },
