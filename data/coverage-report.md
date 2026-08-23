@@ -1,6 +1,6 @@
 # Prerequisite Coverage Audit
 
-Generated: 2026-08-23T11:34:43.441Z
+Generated: 2026-08-23T12:04:53.485Z
 
 | Profession | Active | Verified | No specific courses | Blocked | Unfinished | Final-status coverage | Directory reconciliation |
 |---|---:|---:|---:|---:|---:|---:|---|
@@ -8,7 +8,7 @@ Generated: 2026-08-23T11:34:43.441Z
 | Dental School (DDS/DMD) | 78 | 66 | 2 | 0 | 10 | 87.2% | reconciled |
 | Dietetics (RD/RDN) | 152 | 114 | 4 | 0 | 34 | 77.6% | reconciled |
 | Genetic Counseling (MS) | 64 | 62 | 1 | 0 | 1 | 98.4% | under-source-count |
-| Medical School (MD/DO) | 236 | 142 | 2 | 0 | 92 | 61% | reconciled |
+| Medical School (MD/DO) | 236 | 143 | 2 | 0 | 91 | 61.4% | reconciled |
 | Nursing (ABSN/MEPN) | 446 | 387 | 13 | 1 | 45 | 89.7% | reconciled |
 | Occupational Therapy (OTD/MOT) | 318 | 282 | 6 | 0 | 30 | 90.6% | reconciled |
 | Optometry (OD) | 24 | 24 | 0 | 0 | 0 | 100% | reconciled |

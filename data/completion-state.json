@@ -738,9 +738,10 @@
   "finalStatus": "verified"
  },
  "439": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-23T11:25:45.564Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-23T11:38:48.636Z",
   "attempts": 4,
+  "error": "https://www.arizona.edu/https&: HTTP 404 || https://www.arizona.edu/admissions/graduate: no usable prereq list || https://www.arizona.edu/admissions/online: no usable prereq list || https://www.arizona.edu/: no usable prereq list",
   "pipelineGen": 7,
   "sourceUrl": "https://www.arizona.edu/admissions/undergraduate/admitted-students"
  },
@@ -768,9 +769,10 @@
   "finalStatus": "verified"
  },
  "447": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-23T11:31:56.592Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-23T11:42:48.501Z",
   "attempts": 4,
+  "error": "https://www.keckmedicine.org/: no usable prereq list || https://www.keckmedicine.org/services/urology/: no usable prereq list || https://www.keckmedicine.org/conditions-and-treatments/: no usable prereq list || https://www.keckmedicine.org/keck-medicine-careers-onboarding/: no usable prereq list",
   "pipelineGen": 7,
   "sourceUrl": "https://medresources.keckmedicine.org/"
  },
@@ -822,9 +824,10 @@
   "finalStatus": "verified"
  },
  "455": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-23T11:25:06.209Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-23T11:40:12.517Z",
   "attempts": 4,
+  "error": "https://www.colorado.edu/graduateschool/academics/graduation-requirements/masters-graduation-information/masters-degree-checklist: no usable prereq list || https://www.colorado.edu/graduateschool/academics/graduation-requirements/doctoral-graduation-information/doctoral-degree-checklist: no usable prereq list || https://www.colorado.edu/admissions/visit/graduate: no usable prereq list",
   "pipelineGen": 7,
   "sourceUrl": "https://www.colorado.edu/"
  },
@@ -836,9 +839,9 @@
   "pipelineGen": 7
  },
  "457": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-22T22:23:57.835Z",
-  "attempts": 3,
+  "stage": "source_discovery",
+  "lastAttempt": "2026-08-23T11:59:43.012Z",
+  "attempts": 4,
   "pipelineGen": 7,
   "sourceUrl": "https://medicine.uchc.edu/"
  },
@@ -920,9 +923,10 @@
   "finalStatus": "verified"
  },
  "472": {
-  "stage": "source_fetched",
-  "lastAttempt": "2026-08-23T11:33:42.312Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-23T11:35:00.998Z",
   "attempts": 4,
+  "error": "https://www.uga.edu/: no usable prereq list",
   "pipelineGen": 7,
   "sourceUrl": "https://www.uga.edu/"
  },
@@ -966,10 +970,9 @@
   "sourceUrl": "https://www.rush.edu/locations?specialty=1286&amp;sort=asc&amp;page=0"
  },
  "479": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-22T22:19:03.958Z",
-  "attempts": 3,
-  "error": "https://www.siumed.edu/im-donor: no usable prereq list || https://www.siumed.edu/correctional-medicine: no usable prereq list || https://www.siumed.edu/siu-medicine-strategic-plan: no usable prereq list || https://www.siumed.edu/history-siu-school-medicine: no usable prereq list",
+  "stage": "extracted",
+  "lastAttempt": "2026-08-23T11:43:15.244Z",
+  "attempts": 4,
   "pipelineGen": 7,
   "sourceUrl": "https://www.siumed.edu/siu-leadership"
  },
@@ -999,8 +1002,8 @@
  },
  "484": {
   "stage": "failed",
-  "lastAttempt": "2026-08-22T22:20:06.956Z",
-  "attempts": 3,
+  "lastAttempt": "2026-08-23T11:39:20.820Z",
+  "attempts": 4,
   "error": "https://med.uky.edu/: no usable prereq list",
   "pipelineGen": 7,
   "sourceUrl": "https://med.uky.edu/"
@@ -1030,11 +1033,11 @@
  },
  "488": {
   "stage": "failed",
-  "lastAttempt": "2026-08-22T22:21:09.549Z",
-  "attempts": 3,
-  "error": "https://www.som.tulane.edu/: too little text || https://admission.tulane.edu/apply: no usable prereq list",
+  "lastAttempt": "2026-08-23T11:39:26.830Z",
+  "attempts": 4,
+  "error": "https://www.som.tulane.edu/: too little text",
   "pipelineGen": 7,
-  "sourceUrl": "https://admission.tulane.edu/apply"
+  "sourceUrl": "https://www.som.tulane.edu/"
  },
  "490": {
   "stage": "failed",
@@ -1051,12 +1054,12 @@
   "pipelineGen": 7
  },
  "494": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-22T22:19:39.898Z",
-  "attempts": 3,
-  "error": "https://medicine.tufts.edu/academics/medicine/curriculum: no usable prereq list || https://gsbs.tufts.edu/academics/experiential-phd-biomedical-therapeutics/phd-biomedical-therapeutics-program-faqs: no usable prereq list",
+  "stage": "finalized",
+  "lastAttempt": "2026-08-23T11:37:46.898Z",
+  "attempts": 4,
   "pipelineGen": 7,
-  "sourceUrl": "https://medicine.tufts.edu/"
+  "sourceUrl": "https://admissions.tufts.edu/blogs/jumbo-talk/post/the-pre-medical-track-at-tufts/",
+  "finalStatus": "verified"
  },
  "495": {
   "stage": "failed",
@@ -1138,8 +1141,8 @@
  },
  "508": {
   "stage": "failed",
-  "lastAttempt": "2026-08-22T22:19:24.058Z",
-  "attempts": 3,
+  "lastAttempt": "2026-08-23T11:50:15.272Z",
+  "attempts": 4,
   "error": "https://medicine.washu.edu/education/admissions/: no usable prereq list",
   "pipelineGen": 7,
   "sourceUrl": "https://medicine.washu.edu/impact/"
@@ -1177,8 +1180,8 @@
  },
  "515": {
   "stage": "failed",
-  "lastAttempt": "2026-08-22T22:22:18.400Z",
-  "attempts": 3,
+  "lastAttempt": "2026-08-23T11:40:45.094Z",
+  "attempts": 4,
   "error": "https://www.rowan.edu/coopermed: HTTP 500",
   "pipelineGen": 7
  },
@@ -1223,24 +1226,23 @@
   "finalStatus": "verified"
  },
  "521": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-22T23:06:37.419Z",
-  "attempts": 3,
+  "stage": "source_discovery",
+  "lastAttempt": "2026-08-23T11:59:43.016Z",
+  "attempts": 4,
   "pipelineGen": 7,
   "sourceUrl": "https://einstein.yu.edu/"
  },
  "522": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-22T22:24:41.012Z",
-  "attempts": 3,
-  "error": "https://events.columbia.edu/cal/event/eventView.do?b=de&amp;calPath=/public/cals/MainCal&amp;guid=CAL-00bbdb71-9dbe892f-019d-c07a7e25-00005ec9events%40columbia.edu&amp;recurrenceId=: HTTP 403 || https://events.columbia.edu/cal/event/eventView.do?b=de&amp;calPath=/public/cals/MainCal&amp;guid=CAL-00bbdb71-9dbe892f-019d-c07ae17c-00005edbevents%40columbia.edu&amp;recurrenceId=: HTTP 403 || https://events.columbia.edu/cal/event/eventView.do?b=de&amp;calPath=/public/cals/MainCal&amp;guid=CAL-00bbdb71",
+  "stage": "extracted",
+  "lastAttempt": "2026-08-23T11:54:49.760Z",
+  "attempts": 4,
   "pipelineGen": 7,
   "sourceUrl": "https://www.cuimc.columbia.edu/"
  },
  "523": {
   "stage": "failed",
-  "lastAttempt": "2026-08-22T22:21:55.946Z",
-  "attempts": 3,
+  "lastAttempt": "2026-08-23T11:57:39.941Z",
+  "attempts": 4,
   "error": "https://www.ccny.cuny.edu/admissions/gradstep-1choosingprogram: no usable prereq list || https://www.ccny.cuny.edu/admissions/graduate-studies: no usable prereq list || https://www.ccny.cuny.edu/admissions/transfer-students: no usable prereq list || https://www.cuny.edu/admissions/undergraduate/apply/: no usable prereq list",
   "pipelineGen": 7,
   "sourceUrl": "https://www.cuny.edu/admissions/undergraduate/apply/"
@@ -1314,17 +1316,16 @@
  },
  "536": {
   "stage": "failed",
-  "lastAttempt": "2026-08-22T22:22:29.105Z",
-  "attempts": 3,
+  "lastAttempt": "2026-08-23T11:58:33.775Z",
+  "attempts": 4,
   "error": "https://www.methodisthealthsystem.org/patients-visitors/patient-tools-support/accessing-your-medical-records: no usable prereq list || https://www.methodisthealthsystem.org/medical-education: no usable prereq list || https://www.methodisthealthsystem.org/methodist-dallas-medical-center: no usable prereq list || https://www.methodisthealthsystem.org/methodist-richardson-medical-center: no usable prereq list",
   "pipelineGen": 7,
   "sourceUrl": "https://www.methodisthealthsystem.org/locations?location_types=1586"
  },
  "537": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-22T22:22:55.414Z",
-  "attempts": 3,
-  "error": "https://medschool.duke.edu/about-us/contact-duke-university-school-medicine: no usable prereq list || https://medschool.duke.edu/education/duke-university-school-medicine-bulletin: no usable prereq list || https://medschool.duke.edu/education/biomedical-phd-programs/office-biomedical-graduate-education/academics/biotrain: no usable prereq list || https://gme.duke.edu/training-programs/applicants/requirements-standards: no usable prereq list",
+  "stage": "extracted",
+  "lastAttempt": "2026-08-23T11:47:55.714Z",
+  "attempts": 4,
   "pipelineGen": 7,
   "sourceUrl": "https://gme.duke.edu/"
  },
@@ -1345,9 +1346,9 @@
   "finalStatus": "verified"
  },
  "540": {
-  "stage": "source_fetched",
-  "lastAttempt": "2026-08-22T22:30:59.737Z",
-  "attempts": 3,
+  "stage": "source_discovery",
+  "lastAttempt": "2026-08-23T11:59:43.019Z",
+  "attempts": 4,
   "pipelineGen": 7,
   "sourceUrl": "https://www.med.und.edu/"
  },
@@ -1361,10 +1362,10 @@
  },
  "542": {
   "stage": "extracted",
-  "lastAttempt": "2026-08-22T22:27:51.712Z",
-  "attempts": 3,
+  "lastAttempt": "2026-08-23T12:02:50.746Z",
+  "attempts": 4,
   "pipelineGen": 7,
-  "sourceUrl": "https://casemed.case.edu/cme/"
+  "sourceUrl": "https://casemed.case.edu/"
  },
  "543": {
   "stage": "failed",
@@ -1376,8 +1377,8 @@
  },
  "544": {
   "stage": "failed",
-  "lastAttempt": "2026-08-22T22:20:14.722Z",
-  "attempts": 3,
+  "lastAttempt": "2026-08-23T11:51:32.922Z",
+  "attempts": 4,
   "error": "https://gpadmissions.osu.edu/prof/steps-to-apply.html: no usable prereq list",
   "pipelineGen": 7,
   "sourceUrl": "https://online.osu.edu/content-hub/"
@@ -1406,10 +1407,9 @@
   "finalStatus": "verified"
  },
  "548": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-22T22:26:00.428Z",
-  "attempts": 3,
-  "error": "https://www.ohsu.edu/school-of-medicine/graduate-studies/admissions: no usable prereq list || https://www.ohsu.edu/school-of-medicine/academic-and-training-programs: no usable prereq list || https://www.ohsu.edu/school-of-medicine/graduate-medical-education/preparing-start: no usable prereq list || https://www.ohsu.edu/school-of-medicine/graduate-medical-education/employment-and-benefits: no usable prereq list",
+  "stage": "extracted",
+  "lastAttempt": "2026-08-23T11:58:06.714Z",
+  "attempts": 4,
   "pipelineGen": 7,
   "sourceUrl": "https://www.ohsu.edu/school-of-medicine/our-impact-ohsu-school-medicine"
  },
@@ -1498,10 +1498,9 @@
   "error": "https://www.sc.edu/study/colleges_schools/medicine_greenville/medical_education/pcat/: no usable prereq list || https://sc.edu/admissions-at-sc/graduate-school-admissions/index.php: no usable prereq list"
  },
  "562": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-22T22:27:32.256Z",
-  "attempts": 3,
-  "error": "https://www.sc.edu/study/colleges_schools/medicine_greenville/medical_education/pcat/: no usable prereq list || https://sc.edu/admissions-at-sc/graduate-school-admissions/index.php: no usable prereq list",
+  "stage": "extracted",
+  "lastAttempt": "2026-08-23T11:59:38.484Z",
+  "attempts": 4,
   "pipelineGen": 7,
   "sourceUrl": "https://www.sc.edu/about/offices_and_divisions/undergraduate_admissions/index.php"
  },
@@ -1537,12 +1536,11 @@
   "error": "https://admissions.web.baylor.edu/: no usable prereq list || https://law.baylor.edu/admissions: no usable prereq list || https://truettseminary.baylor.edu/admissions: no usable prereq list"
  },
  "571": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-22T22:24:18.728Z",
-  "attempts": 3,
+  "stage": "extracted",
+  "lastAttempt": "2026-08-23T11:59:13.938Z",
+  "attempts": 4,
   "pipelineGen": 7,
-  "sourceUrl": "https://dellmed.utexas.edu/education/academics/undergraduate-medical-education/leading-edge-curriculum",
-  "error": "https://dellmed.utexas.edu/: no usable prereq list || https://dellmed.utexas.edu/education/academics/graduate-medical-education: no usable prereq list || https://dellmed.utexas.edu/education/academics/continuing-medical-education: no usable prereq list || https://www.utexas.edu/medical-center: no usable prereq list"
+  "sourceUrl": "https://dellmed.utexas.edu/education/academics/undergraduate-medical-education/leading-edge-curriculum"
  },
  "572": {
   "stage": "failed",
@@ -1552,9 +1550,9 @@
   "pipelineGen": 7
  },
  "573": {
-  "stage": "source_fetched",
-  "lastAttempt": "2026-08-22T22:31:21.007Z",
-  "attempts": 3,
+  "stage": "source_discovery",
+  "lastAttempt": "2026-08-23T11:59:43.020Z",
+  "attempts": 4,
   "pipelineGen": 7,
   "sourceUrl": "https://www.ttuhsc.edu/fostersom/gme/"
  },
@@ -1641,9 +1639,9 @@
   "error": "https://www.eastern.edu/node/2619: HTTP 404 || https://www.eastern.edu/admissions: no usable prereq list || https://www.eastern.edu/apply: no usable prereq list || https://www.eastern.edu/: no usable prereq list"
  },
  "585": {
-  "stage": "source_fetched",
-  "lastAttempt": "2026-08-23T01:58:38.810Z",
-  "attempts": 3,
+  "stage": "source_discovery",
+  "lastAttempt": "2026-08-23T11:59:43.022Z",
+  "attempts": 4,
   "pipelineGen": 7,
   "sourceUrl": "https://www.medicine.virginia.edu/education/phd/biomedical-sciences-graduate-studies"
  },
@@ -3508,9 +3506,10 @@
   "pipelineGen": 7
  },
  "1463": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-23T11:22:41.129Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-23T11:35:47.963Z",
   "attempts": 3,
+  "error": "https://www.stjohns.edu/admission/graduate-admission: no usable prereq list || https://www.stjohns.edu/admission/undergraduate-admission/application-requirements: no usable prereq list || https://www.stjohns.edu/admission/international-admission/undergraduate-application-requirements: no usable prereq list || https://www.stjohns.edu/admission/undergraduate-admission: no usable prereq list",
   "pipelineGen": 7,
   "sourceUrl": "https://www.stjohns.edu/admission/undergraduate-admission"
  },
@@ -3856,9 +3855,10 @@
   "finalStatus": "verified"
  },
  "1513": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-23T11:23:21.637Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-23T11:37:05.828Z",
   "attempts": 3,
+  "error": "https://admissions.utexas.edu/: no usable prereq list || https://admissions.utexas.edu/apply/application-materials/high-school-prerequisites/: no usable prereq list || https://admissions.utexas.edu/apply/alternative-pathways-to-enrollment/cap/: no usable prereq list || https://admissions.utexas.edu/apply/alternative-pathways-to-enrollment/cap/cap-faq/: no usable prereq list",
   "pipelineGen": 7,
   "sourceUrl": "https://www.utexas.edu/academics/core"
  },
