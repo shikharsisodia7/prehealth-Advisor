@@ -30,6 +30,7 @@
  *   pnpm --filter @workspace/scripts run complete:prereqs -- --all-unfinished
  *   pnpm --filter @workspace/scripts run complete:prereqs -- --retry-failures
  */
+import { AsyncLocalStorage } from "node:async_hooks";
 import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
@@ -385,7 +386,30 @@ async function closeSharedBrowser() {
 let browserUseCount = 0;
 
 /** Renders JS-heavy admissions/prerequisite pages via headless Chromium when plain fetch yields thin content. */
+/**
+ * Per-program budget for headless-browser renders.
+ *
+ * Each render is capped at 45s, but nothing capped how many a single program could trigger:
+ * six ranked candidates each falling through to a render is 270s of rendering alone, on top
+ * of the crawl, which is why programs kept exceeding even a 420s bound. Workers run
+ * concurrently inside one process, so the budget has to be per-program rather than a module
+ * counter -- AsyncLocalStorage scopes it to the program currently being processed.
+ */
+const renderBudget = new AsyncLocalStorage<{ remaining: number }>();
+const MAX_RENDERS_PER_PROGRAM = Number(process.env.COMPLETION_MAX_RENDERS || 2);
+
 async function fetchRendered(url: string): Promise<Fetched> {
+  const budget = renderBudget.getStore();
+  if (budget) {
+    if (budget.remaining <= 0) {
+      throw new Error("Browser render: per-program render budget exhausted");
+    }
+    budget.remaining -= 1;
+  }
+  return fetchRenderedGuarded(url);
+}
+
+async function fetchRenderedGuarded(url: string): Promise<Fetched> {
   // Every Playwright call below (newContext/newPage/route/evaluate/content) has no built-in
   // timeout of its own. If the shared Chromium process wedges — which happens over a multi-hour
   // run rendering hundreds of pages — those calls hang forever and permanently strand whichever
@@ -2081,7 +2105,12 @@ async function fetchWithFallback(url: string): Promise<Fetched> {
   }
 }
 
-async function processProgram(program: ProgramRow): Promise<string> {
+function processProgram(program: ProgramRow): Promise<string> {
+  // Give each program its own headless-render budget for the whole of its processing.
+  return renderBudget.run({ remaining: MAX_RENDERS_PER_PROGRAM }, () => processProgramInner(program));
+}
+
+async function processProgramInner(program: ProgramRow): Promise<string> {
   const isNewGen = (state[program.id]?.pipelineGen ?? 1) < CURRENT_PIPELINE_GEN;
   setState(program.id, {
     stage: "source_discovery",
