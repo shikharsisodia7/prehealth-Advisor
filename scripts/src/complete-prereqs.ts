@@ -1309,7 +1309,15 @@ async function crawlSiteForCandidates(
   const queue: Array<{ url: string; depth: number }> = [{ url: seedUrl, depth: 0 }];
   const terms = professionKeywords(program.professionSlug);
 
+  // Stop crawling on a wall-clock deadline, not just a page count. A deep crawl over slow
+  // pages could consume a program's entire time budget and then be killed outright, throwing
+  // away every candidate it had already found; medicine and pharmacy programs seeded with a
+  // bare homepage were timing out this way. Returning what has been found so far lets
+  // extraction still run against the best candidates instead of the program failing wholesale.
+  const crawlDeadline = Date.now() + Number(process.env.COMPLETION_CRAWL_BUDGET_MS || 90_000);
+
   while (queue.length && seen.size < maxPages) {
+    if (Date.now() > crawlDeadline) break;
     // Early-exit once we have several strong prereq pages — avoids 20–28 page crawls starving the queue.
     if (found.length >= 4) break;
     const next = queue.shift();
@@ -2340,7 +2348,10 @@ async function main() {
    * checkpoints state and writes verified results as it goes. If the abandoned work does
    * finish afterwards its result still lands, which is strictly a bonus.
    */
-  const PROGRAM_TIMEOUT_MS = Number(process.env.COMPLETION_PROGRAM_TIMEOUT_MS || 240_000);
+  // Sized so a bounded crawl (COMPLETION_CRAWL_BUDGET_MS) plus discovery and up to six
+  // extraction attempts fit inside it; at 240s the crawl alone could exhaust the budget and
+  // the program was killed with its candidates unused.
+  const PROGRAM_TIMEOUT_MS = Number(process.env.COMPLETION_PROGRAM_TIMEOUT_MS || 420_000);
   async function processWithTimeout(program: ProgramRow): Promise<string> {
     let timer: NodeJS.Timeout | undefined;
     try {
