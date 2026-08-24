@@ -1352,6 +1352,7 @@ async function discoverCandidates(program: ProgramRow): Promise<string[]> {
         host,
         [`${professionQuery} prerequisites`, `${professionQuery} admission requirements`],
         fetchOfficial,
+        program.professionSlug,
       );
       candidates.push(...hits.filter((u) => !isDirectoryHubUrl(u) && !isLowValueCandidate(u)));
     } catch { /* site search unavailable */ }
@@ -1543,7 +1544,7 @@ async function discoverCandidates(program: ProgramRow): Promise<string[]> {
         for (const host of [...new Set([canonicalHost, ...candidates.map((c) => { try { return new URL(c).hostname; } catch { return ""; } }).filter(Boolean)])].slice(0, 2)) {
           try {
             candidates.push(
-              ...(await nativeSiteSearch(host, [`${professionQuery} prerequisites`], fetchOfficial)),
+              ...(await nativeSiteSearch(host, [`${professionQuery} prerequisites`], fetchOfficial, program.professionSlug)),
             );
           } catch { /* site search unavailable */ }
           try {

@@ -149,8 +149,17 @@ async function probeProgramHostsUncached(
   return [...new Set(found)];
 }
 
-/** Extract same-root-domain result links from a search results page. */
-function resultLinks(html: string, base: string, rootDomain: string): string[] {
+/**
+ * Extract same-root-domain result links from a search results page.
+ *
+ * Many university CMSes answer an unsupported search endpoint with the homepage rather than
+ * a 404. Accepting any link that merely mentions "admission" then harvests the site's
+ * top-level admissions nav ("/admissions/first-year/"), which is never the program's
+ * prerequisite page and costs a fetch and an extraction attempt per program. A link must
+ * therefore either name this profession or explicitly mention prerequisites; generic
+ * top-level admissions pages are rejected outright.
+ */
+function resultLinks(html: string, base: string, rootDomain: string, slug: string): string[] {
   const out = new Map<string, number>();
   for (const m of html.matchAll(/<a\b[^>]*href=["']([^"']+)["'][^>]*>([\s\S]*?)<\/a>/gi)) {
     try {
@@ -161,10 +170,18 @@ function resultLinks(html: string, base: string, rootDomain: string): string[] {
       const label = m[2].replace(/<[^>]+>/g, " ").toLowerCase();
       const hay = `${u.pathname} ${label}`;
       if (!RELEVANT.test(hay)) continue;
+
+      const professionRelevant = matchesProfession(full, slug) || matchesProfession(hay, slug);
+      const mentionsPrereq = /prereq|pre-requisit|required\s*cours|coursework/i.test(hay);
+      if (!professionRelevant && !mentionsPrereq) continue;
+      // Generic top-level admissions funnels ("/admissions/", "/admissions/transfer/").
+      if (!professionRelevant && /^\/admissions?\/?[a-z-]*\/?$/i.test(u.pathname)) continue;
+
       let score = 0;
       if (/prereq|pre-requisit/.test(hay)) score += 6;
       if (/requirement/.test(hay)) score += 3;
       if (/admission/.test(hay)) score += 2;
+      if (professionRelevant) score += 5;
       if (/\.pdf$/i.test(u.pathname)) score += 2;
       u.hash = "";
       out.set(u.toString(), Math.max(out.get(u.toString()) ?? 0, score));
@@ -183,10 +200,11 @@ export async function nativeSiteSearch(
   host: string,
   queries: string[],
   fetcher: Fetcher,
+  slug = "",
 ): Promise<string[]> {
   const clean = host.replace(/^https?:\/\//, "").replace(/\/.*$/, "");
-  return memoized(`sitesearch:${clean}:${queries[0] ?? ""}`, () =>
-    nativeSiteSearchUncached(clean, queries, fetcher),
+  return memoized(`sitesearch:${clean}:${slug}:${queries[0] ?? ""}`, () =>
+    nativeSiteSearchUncached(clean, queries, fetcher, slug),
   );
 }
 
@@ -197,6 +215,7 @@ async function nativeSiteSearchUncached(
   clean: string,
   queries: string[],
   fetcher: Fetcher,
+  slug: string,
 ): Promise<string[]> {
   if (noSearchEndpoint.has(clean)) return [];
   const rootDomain = rootDomainOf(clean);
@@ -208,7 +227,7 @@ async function nativeSiteSearchUncached(
         const page = await fetcher(build(clean, q));
         if (!page.html || page.text.length < 300) continue;
         anyEndpointWorked = true;
-        const links = resultLinks(page.html, page.url, rootDomain);
+        const links = resultLinks(page.html, page.url, rootDomain, slug);
         if (links.length) {
           found.push(...links);
           break;
