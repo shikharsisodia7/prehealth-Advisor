@@ -1759,10 +1759,12 @@ function disableOpenAI(reason: string) {
  * the measurement wraps the semaphore -- which is why bounding the crawl and capping browser
  * renders changed nothing: the bottleneck was downstream of both.
  *
- * gpt-4o-mini's request limits are far above this; the ceiling here is our own throughput.
- * Transient 429s remain handled by the existing backoff.
+ * Raising it to 12 turned out to be counterproductive: the account sits at gpt-4o-mini's
+ * per-day request cap, whose rolling limiter frees roughly one request every nine seconds, so
+ * a wide pool just produces bursts that are immediately rejected. Keep the pool narrow and let
+ * Retry-After pace the calls -- throughput here is bounded by the account's quota, not by us.
  */
-const OPENAI_MAX_CONCURRENT = Number(process.env.COMPLETION_OPENAI_CONCURRENCY || 12);
+const OPENAI_MAX_CONCURRENT = Number(process.env.COMPLETION_OPENAI_CONCURRENCY || 3);
 let openaiInFlight = 0;
 const openaiWaitQueue: Array<() => void> = [];
 async function withOpenAiSlot<T>(fn: () => Promise<T>): Promise<T> {
@@ -1858,18 +1860,17 @@ async function extractWithOpenAIInner(program: ProgramRow, pageText: string, url
       disableOpenAI(`HTTP ${res.status} ${errBody.slice(0, 120)}`);
       throw lastError;
     }
-    // A per-DAY request cap is not a transient 429. Backing off through it burns the whole
-    // retry budget, then records the program as a failure and consumes one of its attempts --
-    // so a quota ceiling silently degrades data instead of surfacing as a quota problem. Trip
-    // the breaker so the run stops cleanly and the affected programs stay retryable.
-    if (res.status === 429 && /per day|\bRPD\b/i.test(errBody)) {
-      disableOpenAI(
-        `daily request quota exhausted (RPD). ${errBody.replace(/\s+/g, " ").slice(0, 200)}`,
-      );
-      throw lastError;
-    }
     if (res.status === 429 || res.status >= 500) {
-      await new Promise((r) => setTimeout(r, 12_000 * 2 ** attempt));
+      // Honour Retry-After. The account sits at gpt-4o-mini's per-day request cap, but that
+      // limiter is a rolling one that frees requests continuously -- it answers 429 with
+      // "try again in ~9s", not a day. Blind 12/24/48s backoff therefore slept far longer
+      // than needed, which is why a 1.3s API call presented as a 109-183s extraction and
+      // programs blew their time budget waiting.
+      const retryAfter = Number(res.headers.get("retry-after"));
+      const waitMs = Number.isFinite(retryAfter) && retryAfter > 0
+        ? Math.min(retryAfter * 1000 + 500, 30_000)
+        : Math.min(3_000 * 2 ** attempt, 30_000);
+      await new Promise((r) => setTimeout(r, waitMs));
       continue;
     }
     throw lastError;
