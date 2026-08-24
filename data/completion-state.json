@@ -7916,8 +7916,8 @@
  },
  "2613": {
   "stage": "source_fetched",
-  "lastAttempt": "2026-08-24T15:00:21.569Z",
-  "attempts": 1,
+  "lastAttempt": "2026-08-24T16:07:51.564Z",
+  "attempts": 2,
   "pipelineGen": 9,
   "sourceUrl": "https://illinoisstate.edu/admissions/"
  },
@@ -8053,18 +8053,19 @@
   "sourceUrl": "https://osuokc.edu/academics/general-education"
  },
  "2679": {
-  "stage": "source_fetched",
-  "lastAttempt": "2026-08-24T15:01:16.582Z",
-  "attempts": 1,
+  "stage": "source_discovery",
+  "lastAttempt": "2026-08-24T16:06:32.658Z",
+  "attempts": 2,
   "pipelineGen": 9,
   "sourceUrl": "https://www.pace.edu/admission-and-aid/undergraduate-admission/how-apply/program-specific-requirements/auditions-sands"
  },
  "2681": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-24T16:03:00.714Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-24T16:06:17.402Z",
   "attempts": 2,
   "pipelineGen": 9,
-  "sourceUrl": "https://hhd.psu.edu/"
+  "sourceUrl": "https://hhd.psu.edu/",
+  "error": "program timeout after 420s"
  },
  "2682": {
   "stage": "failed",
@@ -8082,9 +8083,10 @@
   "pipelineGen": 9
  },
  "2685": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-24T16:03:30.195Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-24T16:06:32.654Z",
   "attempts": 2,
+  "error": "program timeout after 420s",
   "pipelineGen": 9,
   "sourceUrl": "https://www.admissions.purdue.edu/apply/apply.php"
  },
@@ -8152,11 +8154,12 @@
   "sourceUrl": "https://www.subr.edu/assets/subr/SpeechPathology/SPAU_UNDERGRADUATE_CURRICULUM.pdf"
  },
  "2711": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-24T16:04:02.096Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-24T16:07:25.429Z",
   "attempts": 2,
   "pipelineGen": 9,
-  "sourceUrl": "https://www.stcloudstate.edu/apply/default.aspx"
+  "sourceUrl": "https://www.stcloudstate.edu/apply/default.aspx",
+  "error": "program timeout after 420s"
  },
  "2718": {
   "stage": "source_discovery",
@@ -8244,8 +8247,8 @@
  },
  "2742": {
   "stage": "source_discovery",
-  "lastAttempt": "2026-08-24T14:59:23.954Z",
-  "attempts": 1,
+  "lastAttempt": "2026-08-24T16:07:25.433Z",
+  "attempts": 2,
   "pipelineGen": 9,
   "sourceUrl": "https://tulane.edu/"
  },
@@ -8266,11 +8269,12 @@
   "sourceUrl": "https://www.uams.edu/"
  },
  "2748": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-24T16:02:30.261Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-24T16:06:54.150Z",
   "attempts": 2,
   "pipelineGen": 9,
-  "sourceUrl": "https://communication.uark.edu/_resources/images/grad-handbook-fall-2019.pdf"
+  "sourceUrl": "https://communication.uark.edu/_resources/images/grad-handbook-fall-2019.pdf",
+  "error": "program timeout after 420s"
  },
  "2749": {
   "stage": "failed",
@@ -8625,9 +8629,9 @@
   "sourceUrl": "https://uwm.edu/undergrad-admission/apply/new-freshman/"
  },
  "2822": {
-  "stage": "source_fetched",
-  "lastAttempt": "2026-08-24T15:00:13.333Z",
-  "attempts": 1,
+  "stage": "extracted",
+  "lastAttempt": "2026-08-24T16:07:33.761Z",
+  "attempts": 2,
   "pipelineGen": 9,
   "sourceUrl": "https://www.uwosh.edu/admissions/how-to-apply/high-school-programs/"
  },
