@@ -1724,9 +1724,24 @@ async function discoverCandidates(program: ProgramRow, deadline = Infinity): Pro
     } catch { /* non-fatal */ }
   }
 
-  const hasStrongCandidate = candidates.some((c) =>
-    /prereq|requirement|catalog|handbook|admission/i.test(c) && !/\/admissions\/prerequisites$/i.test(c),
-  );
+  // A candidate only counts as "strong" if it is plausibly about THIS programme.
+  //
+  // Matching the bare word "requirement" or "admission" meant a university-wide intake page
+  // satisfied this test and suppressed the search layer entirely, so the programs that most
+  // needed searching never got it: GWU sat on
+  // graduate.admissions.gwu.edu/international-student-application-requirements and never
+  // looked further. Require either a profession signal or an explicit prerequisite/catalog
+  // page before deciding no search is needed.
+  const hasStrongCandidate = candidates.some((c) => {
+    if (/\/admissions\/prerequisites$/i.test(c)) return false;
+    const hay = c.toLowerCase();
+    const professionSignal =
+      professionKeywords(program.professionSlug).some(
+        (k) => hay.includes(normalize(k).replace(/ /g, "-")) || hay.includes(normalize(k).replace(/ /g, "")),
+      ) || /csd|slp|speech|communicat|nursing|dpt|otd|pharm|dental|physician-assistant|dietet|optometr|podiatr|veterin|anesthes|patholog|prosthet|genetic/.test(hay);
+    const explicitPrereqPage = /prereq|pre-requisit|catalog|handbook|checksheet|required-cours|course-requirement/i.test(hay);
+    return professionSignal || explicitPrereqPage;
+  });
   // Past the discovery deadline, stop opening new avenues and rank what we already have.
   if (!outOfTime() && (!usableWebsite || !hasStrongCandidate)) {
     try {
