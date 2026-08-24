@@ -5,5 +5,8 @@
     "rootDir": "src",
     "types": ["node"]
   },
-  "include": ["src"]
+  "include": ["src"],
+  // tmp-*.ts are local, gitignored diagnostic probes. They are intentionally
+  // throwaway and must not be able to break typecheck or the production build.
+  "exclude": ["src/tmp-*.ts"]
 }
