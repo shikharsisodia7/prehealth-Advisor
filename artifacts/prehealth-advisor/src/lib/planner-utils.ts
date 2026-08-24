@@ -143,7 +143,8 @@ export const EXPORT_HEADERS = [
   "Degree Type",
   "School",
   "Program",
-  "Required Prerequisite",
+  "Requirement",
+  "Requirement Type",
   "Requirement Details",
   "Course Count",
   "Semester Credits",
@@ -160,6 +161,8 @@ export interface ExportRow {
   school: string;
   program: string;
   prereqName: string;
+  /** required | recommended | preferred | informational | unclear */
+  requirementType: string;
   details: string;
   courseCount: string;
   semesterCredits: string;
@@ -212,16 +215,24 @@ export function buildExportRows(
   school: ProgramSchoolLike,
   professionName: string,
 ): ExportRow[] {
-  const requiredPrereqs = school.prereqCourses.filter(
-    (p) => p.classification === "required",
-  );
-  if (requiredPrereqs.length === 0) return [];
-  return requiredPrereqs.map((prereq) => ({
+  // Mirrors the workbook: export every published requirement and let the requirementType
+  // column distinguish required coursework from recommended courses and non-course
+  // admissions conditions (GPA, GRE/MCAT, observation hours, interviews).
+  const exportablePrereqs = [
+    ...school.prereqCourses.filter((p) => p.classification === "required"),
+    ...school.prereqCourses.filter(
+      (p) => p.classification === "recommended" || p.classification === "preferred",
+    ),
+    ...otherRequirementItems(school.prereqCourses),
+  ];
+  if (exportablePrereqs.length === 0) return [];
+  return exportablePrereqs.map((prereq) => ({
     profession: professionName,
     degreeType: school.degreeType ?? "",
     school: school.name,
     program: school.programName,
     prereqName: prereq.name,
+    requirementType: prereq.classification ?? "",
     details: prereq.details ?? "",
     courseCount: prereq.courseCount != null ? String(prereq.courseCount) : "",
     semesterCredits:
@@ -296,11 +307,19 @@ export function buildPrereqsSheetRows(
     ];
   }
 
-  const requiredPrereqs = school.prereqCourses.filter(
-    (p) => p.classification === "required",
-  );
+  // Export every published requirement, not just required coursework. The sheet carries a
+  // "Requirement Type" column precisely so required / recommended / other conditions can be
+  // told apart, and dropping the others meant a program's official GPA, GRE and observation
+  // -hour requirements never reached the workbook at all.
+  const exportablePrereqs = [
+    ...school.prereqCourses.filter((p) => p.classification === "required"),
+    ...school.prereqCourses.filter(
+      (p) => p.classification === "recommended" || p.classification === "preferred",
+    ),
+    ...otherRequirementItems(school.prereqCourses),
+  ];
 
-  if (requiredPrereqs.length === 0) {
+  if (exportablePrereqs.length === 0) {
     return [
       {
         ...base,
@@ -319,7 +338,7 @@ export function buildPrereqsSheetRows(
     ];
   }
 
-  return requiredPrereqs.map((prereq) => ({
+  return exportablePrereqs.map((prereq) => ({
     ...base,
     prereqName: prereq.name,
     details: prereq.details ?? "",
@@ -356,6 +375,7 @@ export function rowToTsv(row: ExportRow): string {
     row.school,
     row.program,
     row.prereqName,
+    row.requirementType,
     row.details,
     row.courseCount,
     row.semesterCredits,
@@ -378,6 +398,7 @@ export function rowToCsv(row: ExportRow): string {
     esc(row.school),
     esc(row.program),
     esc(row.prereqName),
+    esc(row.requirementType),
     esc(row.details),
     esc(row.courseCount),
     esc(row.semesterCredits),
@@ -449,6 +470,27 @@ export function formatProgramForCopy(
           : "Required prerequisites: None listed in current verified data",
       );
     }
+
+    // Recommended coursework and non-course admissions conditions (GPA, GRE/MCAT,
+    // observation or patient-care hours, interviews, English-proficiency tests) are part of
+    // what a program requires. Copy previously emitted only the required list, so a student
+    // pasting their results lost them entirely.
+    const recommended = school.prereqCourses.filter(
+      (p) => p.classification === "recommended" || p.classification === "preferred",
+    );
+    if (recommended.length > 0) {
+      lines.push("Recommended:");
+      for (const prereq of recommended) {
+        lines.push(`  • ${prereq.name}${prereq.details ? `: ${prereq.details}` : ""}`);
+      }
+    }
+    const other = otherRequirementItems(school.prereqCourses);
+    if (other.length > 0) {
+      lines.push("Other admissions requirements:");
+      for (const prereq of other) {
+        lines.push(`  • ${prereq.name}${prereq.details ? `: ${prereq.details}` : ""}`);
+      }
+    }
   } else {
     lines.push(`Prerequisites: ${verificationStatusMessage(school.verificationStatus)}`);
   }
@@ -487,6 +529,23 @@ export function alphabetize<T extends { name: string }>(items: T[]): T[] {
 
 export function requiredPrereqs(prereqs: PrereqItem[]): PrereqItem[] {
   return prereqs.filter((p) => p.classification === "required");
+}
+
+/**
+ * Requirement items that are neither required nor recommended coursework.
+ *
+ * Extraction records non-course admissions conditions -- minimum GPA, GRE/MCAT, observation
+ * or patient-care hours, interviews, English-proficiency tests -- with classifications such
+ * as "informational" or "unclear". They are genuine published requirements, so they belong
+ * in the card and in exports rather than being silently dropped.
+ */
+export function otherRequirementItems(prereqs: PrereqItem[]): PrereqItem[] {
+  return prereqs.filter(
+    (p) =>
+      p.classification !== "required" &&
+      p.classification !== "recommended" &&
+      p.classification !== "preferred",
+  );
 }
 
 // ── Directory search (Step 2) ─────────────────────────────────────────────────
@@ -598,6 +657,7 @@ export function buildSelectionExportRows(
         school: school.name,
         program: school.programName,
         prereqName: "",
+        requirementType: "",
         details: statusNote,
         courseCount: "",
         semesterCredits: "",

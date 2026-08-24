@@ -138,17 +138,31 @@ describe("filterByNursingType", () => {
 // ── CSV export — one row per requirement ──────────────────────────────────────
 
 describe("buildExportRows", () => {
-  it("produces one row per required prerequisite", () => {
+  it("produces one row per published requirement, labeled by requirement type", () => {
     const school = makeSchool({
       prereqCourses: [
         { name: "Biology", classification: "required", labRequired: true, semesterCredits: 8 },
         { name: "Chemistry", classification: "required", labRequired: true, semesterCredits: 8 },
-        { name: "Statistics", classification: "recommended" }, // should be excluded
+        { name: "Statistics", classification: "recommended" },
+        { name: "Minimum GPA 3.0", classification: "informational" },
       ],
     });
     const rows = buildExportRows(school, "Physical Therapy");
-    expect(rows).toHaveLength(2); // only required
-    expect(rows.every((r) => r.prereqName !== "Statistics")).toBe(true);
+    // Every published requirement is exported; requirementType distinguishes them. Exporting
+    // only "required" hid programs' official GPA/GRE/observation-hour requirements entirely.
+    expect(rows).toHaveLength(4);
+    expect(rows.map((r) => r.prereqName)).toEqual([
+      "Biology",
+      "Chemistry",
+      "Statistics",
+      "Minimum GPA 3.0",
+    ]);
+    expect(rows.map((r) => r.requirementType)).toEqual([
+      "required",
+      "required",
+      "recommended",
+      "informational",
+    ]);
   });
 
   it("populates all expected columns", () => {
@@ -182,11 +196,39 @@ describe("buildExportRows", () => {
     expect(row.lastVerified).toBe("2026-07-23");
   });
 
-  it("returns empty array when school has no required prereqs", () => {
+  // Regression: University of South Alabama DPT stores 15 published requirements -- 9
+  // required courses plus 6 non-course conditions (bachelor's degree, minimum GPA, GRE,
+  // 50 observation hours, TOEFL/IELTS, interview). Filtering exports to "required" dropped
+  // all 6, so the workbook and copy output silently understated what the program requires.
+  it("exports non-course admissions conditions alongside required coursework", () => {
+    const school = makeSchool({
+      verificationStatus: "verified",
+      prereqCourses: [
+        { name: "College Physics with labs", classification: "required", labRequired: true },
+        { name: "Statistics", classification: "required" },
+        { name: "Minimum overall GPA 3.0", classification: "informational" },
+        { name: "Minimum 50 observation hours verified through PTCAS", classification: "informational" },
+        { name: "GRE Verbal, Quantitative and Analytic Writing required", classification: "unclear" },
+      ],
+    });
+    const rows = buildExportRows(school, "Physical Therapy");
+    expect(rows).toHaveLength(5);
+    const names = rows.map((r) => r.prereqName);
+    expect(names).toContain("Minimum overall GPA 3.0");
+    expect(names).toContain("Minimum 50 observation hours verified through PTCAS");
+    expect(names).toContain("GRE Verbal, Quantitative and Analytic Writing required");
+  });
+
+  it("exports a recommended-only program, labeled as recommended", () => {
     const school = makeSchool({
       prereqCourses: [{ name: "Biochem", classification: "recommended" }],
     });
-    expect(buildExportRows(school, "Medicine")).toHaveLength(0);
+    // A program whose only published requirement is recommended coursework still carries
+    // information worth exporting; it is labeled by requirementType rather than dropped.
+    const rows = buildExportRows(school, "Medicine");
+    expect(rows).toHaveLength(1);
+    expect(rows[0].prereqName).toBe("Biochem");
+    expect(rows[0].requirementType).toBe("recommended");
   });
 
   it("returns empty array when school has no prereqs at all", () => {
@@ -504,10 +546,14 @@ describe("imported status shows collected courses labeled as pending verificatio
     ],
   });
 
-  it("export rows include the collected required courses (never presented as verified)", () => {
+  it("export rows include the collected courses (never presented as verified)", () => {
     const rows = buildSelectionExportRows([imported], "Pathologists' Assistant");
-    expect(rows).toHaveLength(1);
+    // Required coursework first, then recommended -- each labeled by requirementType.
+    expect(rows).toHaveLength(2);
     expect(rows[0].prereqName).toBe("Organic Chemistry");
+    expect(rows[0].requirementType).toBe("required");
+    expect(rows[1].prereqName).toBe("Genetics");
+    expect(rows[1].requirementType).toBe("recommended");
   });
 
   it("copy output lists courses under an explicit pending-verification heading", () => {
@@ -972,7 +1018,7 @@ describe("buildProgramsSheetRow", () => {
 // ── Spec: Prerequisites sheet rows ────────────────────────────────────────────
 
 describe("buildPrereqsSheetRows", () => {
-  it("verified school with prereqs: one row per required prereq", () => {
+  it("verified school with prereqs: one row per published requirement", () => {
     const school = makeSchool({
       verificationStatus: "verified",
       prereqCourses: [
@@ -981,10 +1027,13 @@ describe("buildPrereqsSheetRows", () => {
       ],
     });
     const rows = buildPrereqsSheetRows(school, "Medicine");
-    expect(rows).toHaveLength(1);
+    expect(rows).toHaveLength(2);
     expect(rows[0].prereqName).toBe("Biology");
     expect(rows[0].labRequired).toBe("Yes");
     expect(rows[0].semesterCredits).toBe("8");
+    expect(rows[0].requirementType).toBe("required");
+    expect(rows[1].prereqName).toBe("Statistics");
+    expect(rows[1].requirementType).toBe("recommended");
   });
 
   it("unverified school: one status row with empty prereqName", () => {

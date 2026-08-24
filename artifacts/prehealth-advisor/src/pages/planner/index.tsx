@@ -429,6 +429,21 @@ function SchoolResult({ school }: { school: ProgramSchool }) {
   const recommendedPrereqs = school.prereqCourses.filter(
     (p) => p.classification === "recommended" || p.classification === "preferred",
   );
+  // Non-course admissions conditions (GPA, GRE/MCAT, observation or patient-care hours,
+  // interviews, English-proficiency tests) are captured with a classification other than
+  // required/recommended. They were previously filtered out of the card entirely, so a
+  // program's published GPA and observation-hour requirements were stored but never shown --
+  // e.g. South Alabama DPT displayed 9 of its 15 official requirements. They are part of what
+  // the program requires, so surface them as their own section rather than dropping them.
+  // The needs_review blocker note is excluded: it is an internal status message, not a
+  // requirement, and it is already rendered by VerificationMessage.
+  const otherRequirements = school.prereqCourses.filter(
+    (p) =>
+      p.classification !== "required" &&
+      p.classification !== "recommended" &&
+      p.classification !== "preferred" &&
+      !(blockerNote && p.details === blockerNote),
+  );
 
   return (
     <div className="py-4 first:pt-0">
@@ -447,7 +462,9 @@ function SchoolResult({ school }: { school: ProgramSchool }) {
       </div>
 
       {showPrereqs ? (
-        requiredPrereqs.length > 0 || recommendedPrereqs.length > 0 ? (
+        requiredPrereqs.length > 0 ||
+        recommendedPrereqs.length > 0 ||
+        otherRequirements.length > 0 ? (
           <>
             {school.verificationStatus === "imported" && <ImportedNotice />}
             {requiredPrereqs.length > 0 && (
@@ -482,6 +499,26 @@ function SchoolResult({ school }: { school: ProgramSchool }) {
                 </p>
                 <ul className="space-y-1 mb-3">
                   {recommendedPrereqs.map((prereq, i) => (
+                    <li key={i} className="flex items-start gap-2 text-sm">
+                      <span className="text-muted-foreground mt-1 shrink-0" aria-hidden="true">◦</span>
+                      <span>
+                        <span className="font-medium">{prereq.name}</span>
+                        {prereq.details && (
+                          <span className="text-muted-foreground"> — {prereq.details}</span>
+                        )}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </>
+            )}
+            {otherRequirements.length > 0 && (
+              <>
+                <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground mb-1.5">
+                  Other admissions requirements:
+                </p>
+                <ul className="space-y-1 mb-3">
+                  {otherRequirements.map((prereq, i) => (
                     <li key={i} className="flex items-start gap-2 text-sm">
                       <span className="text-muted-foreground mt-1 shrink-0" aria-hidden="true">◦</span>
                       <span>
