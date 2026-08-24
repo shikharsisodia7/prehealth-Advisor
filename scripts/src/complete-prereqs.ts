@@ -1323,8 +1323,16 @@ async function discoverCandidates(program: ProgramRow): Promise<string[]> {
   // institution's own site search and sitemap. Everything found is on the institution's
   // own domain, so it is authoritative by construction.
   // ---------------------------------------------------------------------------
+  // Skip official-domain discovery when a stored seed already points at a program-specific
+  // prerequisite/admissions page. Probing subdomains, five CMS search endpoints and the
+  // sitemap costs tens of requests per program, which is wasted when the answer is already
+  // in hand -- and that cost is paid on every program in every round.
+  const seedAlreadySpecific = candidates.some(
+    (c) => !c.startsWith("cache:") && /prereq|admission|requirement|apply|coursework/i.test(c),
+  );
+
   const nativeHosts: string[] = [];
-  if (usableWebsite) {
+  if (usableWebsite && !seedAlreadySpecific) {
     try {
       const root = rootDomainOf(new URL(usableWebsite).hostname);
       const probed = await probeProgramHosts(root, program.professionSlug, fetchOfficial);
