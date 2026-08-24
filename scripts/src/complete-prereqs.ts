@@ -946,6 +946,16 @@ function normalizeCandidateUrl(url: string): string | null {
  */
 function institutionNameVariants(name: string): string[] {
   const variants = [name, universitySearchName(name)];
+
+  // Many medical schools name the parent institution AFTER the school:
+  // "Frank H. Netter MD School of Medicine at Quinnipiac University",
+  // "Sidney Kimmel Medical College at Thomas Jefferson University",
+  // "Medical College of Georgia at Augusta University".
+  // Trailing-word truncation destroys exactly the part that identifies the
+  // institution, so lift the "... at <Parent>" tail out as its own variant.
+  const atParent = /\bat\s+(.{4,}?)\s*$/i.exec(name);
+  if (atParent) variants.push(atParent[1].trim());
+
   const words = universitySearchName(name).split(/\s+/);
   for (let end = words.length - 1; end >= 2; end--) {
     const candidate = words.slice(0, end).join(" ");
@@ -956,25 +966,72 @@ function institutionNameVariants(name: string): string[] {
   return [...new Set(variants.map((v) => v.trim()).filter((v) => v.length >= 6))].slice(0, 6);
 }
 
+/**
+ * Wikidata is the fallback that rescues programs with a missing or wrong stored website,
+ * so it must not be squandered. Every program tries several name variants and workers run
+ * concurrently, which trips Wikidata's rate limiter; a throttled reply is plain text, so
+ * `.json()` throws and the lookup silently degrades into "unresolved" exactly when it is
+ * needed most. Cache per institution name (many programs share one) and serialise requests
+ * with a small delay plus backoff on throttling.
+ */
+const wikidataCache = new Map<string, Promise<string | null>>();
+let wikidataChain: Promise<unknown> = Promise.resolve();
+let wikidataBackoffUntil = 0;
+
+async function wikidataFetchJson(url: string): Promise<any | null> {
+  const run = async (): Promise<any | null> => {
+    if (Date.now() < wikidataBackoffUntil) return null;
+    await new Promise((r) => setTimeout(r, 350));
+    const res = await fetch(url, {
+      headers: { "user-agent": USER_AGENT, accept: "application/json" },
+      signal: AbortSignal.timeout(15_000),
+    });
+    if (res.status === 429 || res.status === 503) {
+      wikidataBackoffUntil = Date.now() + 60_000;
+      return null;
+    }
+    if (!res.ok) return null;
+    const body = await res.text();
+    // A throttled/error reply is plain text, not JSON.
+    if (!body.startsWith("{") && !body.startsWith("[")) {
+      if (/too many requests|rate limit/i.test(body)) wikidataBackoffUntil = Date.now() + 60_000;
+      return null;
+    }
+    try {
+      return JSON.parse(body);
+    } catch {
+      return null;
+    }
+  };
+  const next = wikidataChain.then(run, run);
+  wikidataChain = next.catch(() => undefined);
+  return next;
+}
+
 async function wikidataOfficialWebsite(name: string): Promise<string | null> {
+  const hit = wikidataCache.get(name);
+  if (hit) return hit;
+  const p = wikidataOfficialWebsiteUncached(name).catch(() => null);
+  wikidataCache.set(name, p);
+  return p;
+}
+
+async function wikidataOfficialWebsiteUncached(name: string): Promise<string | null> {
   const queries = institutionNameVariants(name);
   for (const q of queries) {
     try {
-      const searchRes = await fetch(
+      const searchJsonRaw = await wikidataFetchJson(
         `https://www.wikidata.org/w/api.php?action=wbsearchentities&search=${encodeURIComponent(q)}&language=en&format=json&limit=5`,
-        { headers: { "user-agent": USER_AGENT, accept: "application/json" }, signal: AbortSignal.timeout(15_000) },
       );
-      if (!searchRes.ok) continue;
-      const searchJson = (await searchRes.json()) as { search?: Array<{ id: string; label?: string }> };
+      if (!searchJsonRaw) continue;
+      const searchJson = searchJsonRaw as { search?: Array<{ id: string; label?: string }> };
       for (const hit of searchJson.search ?? []) {
-        const entRes = await fetch(`https://www.wikidata.org/wiki/Special:EntityData/${hit.id}.json`, {
-          headers: { "user-agent": USER_AGENT, accept: "application/json" },
-          signal: AbortSignal.timeout(15_000),
-        });
-        if (!entRes.ok) continue;
-        const entJson = (await entRes.json()) as {
+        const entJson = (await wikidataFetchJson(
+          `https://www.wikidata.org/wiki/Special:EntityData/${hit.id}.json`,
+        )) as {
           entities?: Record<string, { claims?: { P856?: Array<{ mainsnak?: { datavalue?: { value?: string } } }> } }>;
-        };
+        } | null;
+        if (!entJson) continue;
         const url = entJson.entities?.[hit.id]?.claims?.P856?.[0]?.mainsnak?.datavalue?.value;
         if (url && /^https?:\/\//i.test(url) && !BLOCKED_SEARCH_HOSTS.test(url) && !isDirectoryHubUrl(url) && !websiteConflictsWithInstitution(url, name)) {
           return url.replace(/\/$/, "");
