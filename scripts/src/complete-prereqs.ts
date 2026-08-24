@@ -833,6 +833,7 @@ export function allSearchEnginesDown(): boolean {
   return ["keenable", "firecrawl", "ddglite", "marginalia", "bravehtml", "google", "bing", "duckduckgo"].every((e) => !engineAvailable(e));
 }
 
+let keylessRotation = 0;
 async function webSearch(query: string): Promise<string[]> {
   // Skip the global search lock entirely when nothing is answering — the 1.2s serialized
   // delay is pure cost if every engine is circuit-open.
@@ -846,18 +847,20 @@ async function webSearch(query: string): Promise<string[]> {
       const r = await tryEngine("firecrawl", () => firecrawlSearch(query), (u) => u);
       if (r) return r;
     }
-    // Keyless engines first: measured 6/6 for DuckDuckGo lite, 4/6 Marginalia, 2/6 Brave,
-    // against 0/6 for the Google and Bing scrapers, which only serve bot-challenge pages.
-    {
-      const r = await tryEngine("ddglite", () => duckDuckGoLiteSearch(query), (u) => u.filter((x) => !BLOCKED_SEARCH_HOSTS.test(x)));
-      if (r) return r;
-    }
-    {
-      const r = await tryEngine("marginalia", () => marginaliaSearch(query), (u) => u.filter((x) => !BLOCKED_SEARCH_HOSTS.test(x)));
-      if (r) return r;
-    }
-    {
-      const r = await tryEngine("bravehtml", () => braveHtmlSearch(query), (u) => u.filter((x) => !BLOCKED_SEARCH_HOSTS.test(x)));
+    // Keyless engines, rotated. Measured in isolation: DuckDuckGo lite 6/6, Marginalia 4/6,
+    // Brave 2/6, against 0/6 for the Google and Bing scrapers which serve only bot-challenge
+    // pages. Always trying them in the same order put the entire query load on DuckDuckGo,
+    // which then rate-limited and returned nothing -- so rotate the starting point and spread
+    // the load across all three.
+    const keyless: Array<[string, () => Promise<string[]>]> = [
+      ["ddglite", () => duckDuckGoLiteSearch(query)],
+      ["marginalia", () => marginaliaSearch(query)],
+      ["bravehtml", () => braveHtmlSearch(query)],
+    ];
+    const offset = keylessRotation++ % keyless.length;
+    for (let i = 0; i < keyless.length; i++) {
+      const [name, fn] = keyless[(offset + i) % keyless.length];
+      const r = await tryEngine(name, fn, (u) => u.filter((x) => !BLOCKED_SEARCH_HOSTS.test(x)));
       if (r) return r;
     }
     {
@@ -1712,7 +1715,13 @@ async function discoverCandidates(program: ProgramRow, deadline = Infinity): Pro
             ]
           : []),
       ];
-      for (const q of queries) {
+      // Cap queries per program. The profession-specific lists run to a dozen or more, and at
+      // one search apiece the keyless engines are driven far past the rate they tolerate --
+      // DuckDuckGo lite answered 6/6 in isolation at 2.5s spacing but returns nothing once the
+      // worker is issuing every query for every program. The list is ordered most-specific
+      // first, so the later entries add little.
+      const MAX_SEARCH_QUERIES = Number(process.env.COMPLETION_MAX_QUERIES || 4);
+      for (const q of queries.slice(0, MAX_SEARCH_QUERIES)) {
         const urls = await webSearch(q);
         candidates.push(...urls.filter((u) => {
           try {
@@ -2556,7 +2565,10 @@ async function main() {
   const profession = get("--profession");
   const retryFailures = argv.includes("--retry-failures");
   const allUnfinished = argv.includes("--all-unfinished");
-  if (!profession && !allUnfinished && !retryFailures && !Number.isFinite(limit)) {
+  // --ids 123,456 : process exactly these program ids, bypassing the eligibility filters.
+  // Needed to reproduce and debug one program without waiting for a full sweep.
+  const explicitIds = (get("--ids") ?? "").split(",").map((x) => Number(x.trim())).filter((n) => Number.isFinite(n) && n > 0);
+  if (!profession && !allUnfinished && !retryFailures && !explicitIds.length && !Number.isFinite(limit)) {
     throw new Error("Choose --limit N, --profession <slug>, --all-unfinished, or --retry-failures");
   }
   if (!OPENAI_KEY) throw new Error("OPENAI_API_KEY is required for structured extraction");
@@ -2627,7 +2639,9 @@ async function main() {
   // that try. Past this many total attempts, individually document it as source_blocked instead
   // of retrying it again.
   const MAX_ATTEMPTS_BEFORE_BLOCKED = 18;
-  let queue = (rows as ProgramRow[]).filter((r) => {
+  let queue = explicitIds.length
+    ? (rows as ProgramRow[]).filter((r) => explicitIds.includes(r.id))
+    : (rows as ProgramRow[]).filter((r) => {
     const s = state[r.id];
     if (s?.stage === "finalized") return false;
     if (s?.stage === "failed" && (s.attempts ?? 0) >= MAX_ATTEMPTS_BEFORE_BLOCKED) return false;
