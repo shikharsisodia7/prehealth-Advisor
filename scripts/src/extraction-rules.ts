@@ -48,15 +48,28 @@ export function entityLabelMatchesInstitution(label: string, name: string): bool
   const b = words(name);
   if (!a.length || !b.length) return false;
   const [shorter, longer] = a.length <= b.length ? [a, b] : [b, a];
-  // A single distinctive word is not enough to establish identity: "University of Michigan"
-  // reduces to ["michigan"], which is a subset of "Michigan State University"
-  // (["michigan","state"]) though they are different institutions -- and "Miami University"
-  // versus "University of Miami" is indistinguishable this way. Require at least two
-  // distinctive words and let such names fall back to the host-name heuristic, which already
-  // handles the short .edu domains these schools use.
-  if (shorter.length < 2) return false;
-  const longerSet = new Set(longer);
-  if (!shorter.every((w) => longerSet.has(w))) return false;
+  // A single distinctive word cannot establish identity by word-overlap alone: "University of
+  // Michigan" reduces to ["michigan"], a subset of "Michigan State University", though they
+  // are different institutions.
+  //
+  // Requiring two distinctive words rejected those correctly but also rejected legitimate
+  // single-word institutions -- "Boston University" reduces to ["boston"], so the Chobanian &
+  // Avedisian School of Medicine never matched its own parent. Fall back to phrase
+  // containment, which separates the two cases exactly: "Boston University Aram V. Chobanian
+  // ..." contains the phrase "boston university", whereas "Michigan State University" does not
+  // contain "university of michigan" and "University of Miami" does not contain "miami
+  // university".
+  let identityMatches: boolean;
+  if (shorter.length < 2) {
+    const phrase = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
+    const a2 = phrase(label);
+    const b2 = phrase(name);
+    identityMatches = a2.length >= 6 && (b2.includes(a2) || a2.includes(b2));
+  } else {
+    const longerSet = new Set(longer);
+    identityMatches = shorter.every((w) => longerSet.has(w));
+  }
+  if (!identityMatches) return false;
 
   // A subset match alone accepts the PARENT system as if it were the campus: "University of
   // North Carolina" reduces to [north, carolina], a subset of "University of North

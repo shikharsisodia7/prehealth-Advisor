@@ -14,6 +14,10 @@ describe("entityLabelMatchesInstitution", () => {
     ["Appalachian State University", "Appalachian State University"],
     // Directory data hyphenates the campus where Wikidata writes "at".
     ["University of North Carolina at Greensboro", "University of North Carolina-Greensboro"],
+    // Single distinctive word, but the name contains the label as a phrase: these are the
+    // donor-named schools whose parent is a one-word institution.
+    ["Boston University", "Boston University Aram V. Chobanian & Edward Avedisian School of Medicine"],
+    ["Yale University", "Yale University School of Medicine"],
   ])("matches the same institution: %s ~ %s", (label, name) => {
     expect(entityLabelMatchesInstitution(label, name)).toBe(true);
   });

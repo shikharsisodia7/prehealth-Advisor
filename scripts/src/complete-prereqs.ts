@@ -985,8 +985,11 @@ function institutionNameVariants(name: string): string[] {
   // "Medical College of Georgia at Augusta University".
   // Trailing-word truncation destroys exactly the part that identifies the
   // institution, so lift the "... at <Parent>" tail out as its own variant.
+  // Drop a leading article: the tail of "... at the University of South Alabama" is "the
+  // University of South Alabama", which matches no Wikidata entity even though the
+  // institution is perfectly well known.
   const atParent = /\bat\s+(.{4,}?)\s*$/i.exec(name);
-  if (atParent) variants.push(atParent[1].trim());
+  if (atParent) variants.push(atParent[1].trim().replace(/^the\s+/i, ""));
 
   // Directory data writes campus names with a dash ("University of North Carolina-Greensboro")
   // where Wikidata writes "at" ("University of North Carolina at Greensboro"), so no entity
@@ -1000,14 +1003,22 @@ function institutionNameVariants(name: string): string[] {
     variants.push(name.replace(/\s*[-–—]\s*/u, ", "));
   }
 
+  // Truncations, shortest first.
+  //
+  // The parent institution is the SHORTEST truncation ("Boston University" from "Boston
+  // University Aram V. Chobanian & Edward Avedisian School of Medicine"), and it is the one
+  // most likely to be a real Wikidata entity -- the intermediate forms ("Boston University
+  // Aram V.") match nothing. Generated longest-first and then capped, the useful variant was
+  // always the one cut off, so donor-named schools never resolved at all.
   const words = universitySearchName(name).split(/\s+/);
+  const truncations: string[] = [];
   for (let end = words.length - 1; end >= 2; end--) {
-    const candidate = words.slice(0, end).join(" ");
-    variants.push(candidate);
+    truncations.push(words.slice(0, end).join(" "));
     // Once the tail is the institution head word itself, further truncation changes identity.
     if (/^(university|college|institute|school|academy)$/i.test(words[end - 1])) break;
   }
-  return [...new Set(variants.map((v) => v.trim()).filter((v) => v.length >= 6))].slice(0, 6);
+  variants.push(...truncations.reverse());
+  return [...new Set(variants.map((v) => v.trim()).filter((v) => v.length >= 6))].slice(0, 8);
 }
 
 /**
