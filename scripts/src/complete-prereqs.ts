@@ -1272,6 +1272,20 @@ async function crawlSiteForCandidates(
     maxDepth = Math.max(maxDepth, 4);
     maxPages = Math.max(maxPages, 20);
   }
+  // A bare institution homepage is several hops further from the answer than a department
+  // page: homepage -> academics -> college -> department -> admissions -> prerequisites. At
+  // depth 4 the crawl reaches the department and stops just short, which is why programs
+  // seeded with only "https://www.school.edu/" fail while ones seeded with a department page
+  // succeed. Spend the extra budget only on those seeds.
+  try {
+    const seedPath = new URL(seedUrl).pathname.replace(/\/+$/, "");
+    if (hard && seedPath.length <= 1) {
+      maxDepth = Math.max(maxDepth, 6);
+      maxPages = Math.max(maxPages, 32);
+    }
+  } catch {
+    /* unparseable seed keeps the default budget */
+  }
   // PDFs are allowed — fetchWithFallback/extractPdfText can read them without Firecrawl.
   const seen = new Set<string>();
   const found: string[] = [];
