@@ -1,11 +1,11 @@
 # Prerequisite Coverage Audit
 
-Generated: 2026-08-24T08:12:02.107Z
+Generated: 2026-08-24T08:42:13.323Z
 
 | Profession | Active | Verified | No specific courses | Blocked | Unfinished | Final-status coverage | Directory reconciliation |
 |---|---:|---:|---:|---:|---:|---:|---|
 | Certified Anesthesiologist Assistant (CAA) | 25 | 25 | 0 | 0 | 0 | 100% | reconciled |
-| Dental School (DDS/DMD) | 78 | 66 | 2 | 0 | 10 | 87.2% | reconciled |
+| Dental School (DDS/DMD) | 78 | 68 | 2 | 0 | 8 | 89.7% | reconciled |
 | Dietetics (RD/RDN) | 152 | 115 | 4 | 0 | 33 | 78.3% | reconciled |
 | Genetic Counseling (MS) | 64 | 62 | 1 | 0 | 1 | 98.4% | under-source-count |
 | Medical School (MD/DO) | 236 | 144 | 2 | 0 | 90 | 61.9% | reconciled |
