@@ -2326,11 +2326,43 @@ async function main() {
 
   const counts: Record<string, number> = {};
   let index = 0;
+
+  /**
+   * Bound how long one program may hold a worker slot.
+   *
+   * processProgram had no time limit, so a pathological program -- a deep crawl over slow
+   * pages, a large PDF, a browser render that hangs -- occupied its slot indefinitely. With
+   * 16 workers that showed up as ~24 programs completed in 31 minutes, roughly 20 minutes per
+   * program, while the queue sat idle behind the stragglers.
+   *
+   * A timed-out program is left unfinished and retried in a later round rather than being
+   * finalized, so no result is invented and nothing already persisted is lost: processProgram
+   * checkpoints state and writes verified results as it goes. If the abandoned work does
+   * finish afterwards its result still lands, which is strictly a bonus.
+   */
+  const PROGRAM_TIMEOUT_MS = Number(process.env.COMPLETION_PROGRAM_TIMEOUT_MS || 240_000);
+  async function processWithTimeout(program: ProgramRow): Promise<string> {
+    let timer: NodeJS.Timeout | undefined;
+    try {
+      return await Promise.race([
+        processProgram(program),
+        new Promise<string>((_, reject) => {
+          timer = setTimeout(
+            () => reject(new Error(`program timeout after ${Math.round(PROGRAM_TIMEOUT_MS / 1000)}s`)),
+            PROGRAM_TIMEOUT_MS,
+          );
+        }),
+      ]);
+    } finally {
+      if (timer) clearTimeout(timer);
+    }
+  }
+
   async function workerLoop(workerId: number) {
     while (index < queue.length) {
       const program = queue[index++];
       try {
-        const outcome = await processProgram(program);
+        const outcome = await processWithTimeout(program);
         counts[outcome] = (counts[outcome] ?? 0) + 1;
         console.log(`[w${workerId}] ${program.id} ${program.name} (${program.professionSlug}) → ${outcome} [${index}/${queue.length}]`);
       } catch (e) {
