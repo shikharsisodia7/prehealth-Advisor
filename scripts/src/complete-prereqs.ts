@@ -2489,11 +2489,11 @@ async function processProgramInner(program: ProgramRow): Promise<string> {
   }
 
   if (!best) {
-    for (const candidate of tryCandidates.slice(0, 3)) {
+    for (const candidate of tryCandidates.slice(0, 5)) {
       if (candidate.startsWith("cache:") || isDirectoryHubUrl(candidate)) continue;
       try {
         const rootPage = await fetchWithFallback(candidate);
-        for (const link of keywordLinks(rootPage.html, rootPage.url, professionKeywords(program.professionSlug)).slice(0, 6)) {
+        for (const link of keywordLinks(rootPage.html, rootPage.url, professionKeywords(program.professionSlug)).slice(0, 10)) {
           try {
             const fetched = await fetchWithFallback(link);
             if (fetched.text.length < 300) continue;
