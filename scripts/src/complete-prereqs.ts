@@ -42,6 +42,7 @@ import {
   rootDomainOf,
   sitemapCandidates,
 } from "./native-discovery.js";
+import { NO_PREREQ_ASSERTION } from "./extraction-rules.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "../..");
@@ -1665,8 +1666,6 @@ const META_ADMISSION_NAME =
   /^(completion of|cumulative gpa|minimum gpa|overall gpa|foreign language|uk core|please view|bachelor(?:'s)? degree|bs or ba|ba or bs|lpn program|military training|active license|observation hours|shadowing|cpr certification|background check|drug screen|immunization|technical standards|essential functions)\b/i;
 const SUBJECT_HINT = /biolog|chem|physic|anatom|physiol|a\s*&\s*p|psych|stat|math|calc|english|writ|composit|sociolog|microbio|genetic|biochem|kinesiol|nutrit|exercise|humanit|social|science|communicat|econom|algebra|literature|history|language|medical terminolog|gpa|gre|degree|bachelor|experience|hours|observ|shadow|cpr|certif|phonetic|audiolog|speech|hearing|aural|linguist|swallow|dysphag|voice|fluency|articulat|disorder|neurolog|csd|patholog|organic|immunolog|pathophys|lifespan|developmental|pharmacol|patient|clinical|statistics|calculus|physics|lab|health assessment|human development|microbiology|organic chem|general chem|nursing|holistic|epidemiolog|research methods|public health|biostat/i;
 const COURSE_SUBJECT_HINT = /biolog|chem|physic|anatom|physiol|a\s*&\s*p|psych|stat(?:istics)?|math|calc|english|writ|composit|sociolog|microbio|genetic|biochem|kinesiol|nutrit|phonetic|audiolog|speech|hearing|linguist|organic|immunolog|pathophys|pharmacol|epidemiolog|biostat|microbiology|physics|algebra|literature|history|economics|communication sciences|medical terminolog/i;
-const NO_PREREQ_ASSERTION =
-  /(no|not\s+require|not\s+have|without)[^.]{0,60}prerequis|prerequis[^.]{0,60}(are\s+not|not\s+required|none)/i;
 
 function validExtraction(ex: Extraction, pageText: string, program: ProgramRow, sourceUrl = ""): boolean {
   const pageNorm = normalize(pageText);
