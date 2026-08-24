@@ -1,5 +1,35 @@
 import { describe, expect, it } from "vitest";
-import { NO_PREREQ_ASSERTION } from "./extraction-rules.js";
+import { NO_PREREQ_ASSERTION, entityLabelMatchesInstitution } from "./extraction-rules.js";
+
+describe("entityLabelMatchesInstitution", () => {
+  // Accepting an authoritative official-website claim for these is the only way rows with no
+  // stored seed ever get a candidate URL; their domains are acronyms that share no text with
+  // the school name, so a domain-spelling check rejects the correct answer.
+  it.each([
+    ["Cleveland State University", "Cleveland State University"],
+    ["Cleveland State University", "Cleveland State University School of Nursing"],
+    ["University of North Texas", "University of North Texas Health Science Center"],
+    ["University of Texas at San Antonio", "The University of Texas at San Antonio"],
+    ["Iowa State University", "Iowa State University"],
+    ["Appalachian State University", "Appalachian State University"],
+  ])("matches the same institution: %s ~ %s", (label, name) => {
+    expect(entityLabelMatchesInstitution(label, name)).toBe(true);
+  });
+
+  // A wrong match would attach another school's website, and every prerequisite discovered
+  // through it would belong to the wrong institution.
+  it.each([
+    ["Ohio State University", "Cleveland State University"],
+    ["Harvard University", "Yale University"],
+    ["University of North Carolina at Chapel Hill", "University of North Carolina-Greensboro"],
+    // A single shared word cannot establish identity, so these fall back to the host-name
+    // heuristic rather than being trusted outright.
+    ["Michigan State University", "University of Michigan"],
+    ["Miami University", "University of Miami"],
+  ])("rejects a different institution: %s vs %s", (label, name) => {
+    expect(entityLabelMatchesInstitution(label, name)).toBe(false);
+  });
+});
 
 describe("NO_PREREQ_ASSERTION", () => {
   // Genuine official statements that a program publishes no required coursework.

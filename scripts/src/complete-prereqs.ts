@@ -42,7 +42,7 @@ import {
   rootDomainOf,
   sitemapCandidates,
 } from "./native-discovery.js";
-import { NO_PREREQ_ASSERTION } from "./extraction-rules.js";
+import { NO_PREREQ_ASSERTION, entityLabelMatchesInstitution } from "./extraction-rules.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "../..");
@@ -1033,7 +1033,18 @@ async function wikidataOfficialWebsiteUncached(name: string): Promise<string | n
         } | null;
         if (!entJson) continue;
         const url = entJson.entities?.[hit.id]?.claims?.P856?.[0]?.mainsnak?.datavalue?.value;
-        if (url && /^https?:\/\//i.test(url) && !BLOCKED_SEARCH_HOSTS.test(url) && !isDirectoryHubUrl(url) && !websiteConflictsWithInstitution(url, name)) {
+        if (!url || !/^https?:\/\//i.test(url) || BLOCKED_SEARCH_HOSTS.test(url) || isDirectoryHubUrl(url)) {
+          continue;
+        }
+        // websiteConflictsWithInstitution exists to distrust a STORED url of unknown
+        // provenance. Applied to Wikidata's official-website claim it discards correct
+        // answers, because universities routinely use an acronym domain that shares no
+        // tokens with the spelled-out name: Cleveland State University -> csuohio.edu,
+        // University of North Texas -> unthealth.edu. Those are exactly the programs that
+        // reach Wikidata at all -- rows with no stored seed -- so rejecting them left the
+        // record with no candidate URL whatsoever. Trust the claim when the matched entity
+        // is genuinely this institution; otherwise fall back to the host-name heuristic.
+        if (entityLabelMatchesInstitution(hit.label ?? "", name) || !websiteConflictsWithInstitution(url, name)) {
           return url.replace(/\/$/, "");
         }
       }
