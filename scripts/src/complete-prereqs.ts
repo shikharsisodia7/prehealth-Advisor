@@ -1371,7 +1371,8 @@ async function crawlSiteForCandidates(
   return found;
 }
 
-async function discoverCandidates(program: ProgramRow): Promise<string[]> {
+async function discoverCandidates(program: ProgramRow, deadline = Infinity): Promise<string[]> {
+  const outOfTime = () => Date.now() > deadline;
   const candidates: string[] = [];
   // Normalize stored URLs once so scheme-less directory imports become fetchable.
   if (program.websiteUrl) program.websiteUrl = normalizeCandidateUrl(program.websiteUrl);
@@ -1485,6 +1486,7 @@ async function discoverCandidates(program: ProgramRow): Promise<string[]> {
 
   // Multi-hop crawl from known official pages (works without Firecrawl/search).
   for (const seed of [...nativeHosts.slice(0, 1).map((h) => `https://${h}/`), ...seedPages].slice(0, 3)) {
+    if (outOfTime()) break;
     const crawled = await crawlSiteForCandidates(seed, program);
     candidates.push(...crawled);
     // Also keep one-hop keyword links even if text hint missed (for secondary expand).
@@ -1604,7 +1606,8 @@ async function discoverCandidates(program: ProgramRow): Promise<string[]> {
   const hasStrongCandidate = candidates.some((c) =>
     /prereq|requirement|catalog|handbook|admission/i.test(c) && !/\/admissions\/prerequisites$/i.test(c),
   );
-  if (!usableWebsite || !hasStrongCandidate) {
+  // Past the discovery deadline, stop opening new avenues and rank what we already have.
+  if (!outOfTime() && (!usableWebsite || !hasStrongCandidate)) {
     try {
       const openQueries = [
         `${program.name} ${program.programName} official admissions prerequisites coursework`,
@@ -1645,7 +1648,7 @@ async function discoverCandidates(program: ProgramRow): Promise<string[]> {
   // University School of Dentistry" -> louisiana.gov). Those seeds poison every downstream hop,
   // so when nothing was discovered, re-resolve the institution against Wikidata and run
   // official-domain discovery again on the corrected domain.
-  if (!candidates.length) {
+  if (!candidates.length && !outOfTime()) {
     try {
       const canonical = await wikidataOfficialWebsite(program.name);
       const canonicalHost = canonical ? new URL(canonical).hostname : null;
@@ -2195,10 +2198,7 @@ async function processProgramInner(program: ProgramRow): Promise<string> {
   // why bare-homepage speech-language-pathology programs timed out with nothing to show.
   // Whatever has been discovered when the deadline passes is still used.
   const DISCOVERY_BUDGET_MS = Number(process.env.COMPLETION_DISCOVERY_BUDGET_MS || 150_000);
-  const candidates = await Promise.race([
-    discoverCandidates(program),
-    new Promise<string[]>((resolve) => setTimeout(() => resolve([]), DISCOVERY_BUDGET_MS)),
-  ]);
+  const candidates = await discoverCandidates(program, Date.now() + DISCOVERY_BUDGET_MS);
   const discoveryMs = Date.now() - phaseStart;
   if (discoveryMs > 60_000) {
     console.warn(`[timing] ${program.id} discovery took ${Math.round(discoveryMs / 1000)}s (${candidates.length} candidates)`);
