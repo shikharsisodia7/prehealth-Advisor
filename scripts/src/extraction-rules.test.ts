@@ -28,6 +28,11 @@ describe("entityLabelMatchesInstitution", () => {
     // heuristic rather than being trusted outright.
     ["Michigan State University", "University of Michigan"],
     ["Miami University", "University of Miami"],
+    // The parent system is not the campus: accepting it attached northcarolina.edu (the UNC
+    // system) to the Greensboro nursing program instead of uncg.edu.
+    ["University of North Carolina", "University of North Carolina-Greensboro"],
+    ["University of California", "University of California, San Diego"],
+    ["Pennsylvania State University", "Pennsylvania State University-Harrisburg"],
   ])("rejects a different institution: %s vs %s", (label, name) => {
     expect(entityLabelMatchesInstitution(label, name)).toBe(false);
   });

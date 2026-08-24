@@ -56,7 +56,24 @@ export function entityLabelMatchesInstitution(label: string, name: string): bool
   // handles the short .edu domains these schools use.
   if (shorter.length < 2) return false;
   const longerSet = new Set(longer);
-  return shorter.every((w) => longerSet.has(w));
+  if (!shorter.every((w) => longerSet.has(w))) return false;
+
+  // A subset match alone accepts the PARENT system as if it were the campus: "University of
+  // North Carolina" reduces to [north, carolina], a subset of "University of North
+  // Carolina-Greensboro", so the UNC system site (northcarolina.edu) was accepted for the
+  // Greensboro program instead of uncg.edu. Strict set equality would fix that but would
+  // reject legitimate matches like "Cleveland State University School of Nursing" or a
+  // donor-named school ("Idaho State University L.S. Skaggs College of Pharmacy").
+  //
+  // The discriminator is the campus qualifier -- the text after a dash, comma, or "at". When
+  // the program name carries one, the entity must name that campus too.
+  const qualifier = /(?:[-–—,]|\bat\b)\s*([^-–—,]+)$/i.exec(name);
+  if (qualifier) {
+    const qualifierWords = words(qualifier[1]);
+    const labelSet = new Set(words(label));
+    if (qualifierWords.length && !qualifierWords.every((w) => labelSet.has(w))) return false;
+  }
+  return true;
 }
 
 export const NO_PREREQ_ASSERTION = new RegExp(
