@@ -2139,7 +2139,14 @@ async function processProgramInner(program: ProgramRow): Promise<string> {
     } catch { /* non-fatal */ }
   }
 
+  // Phase timing. Programs were exceeding a 420s budget and neither the crawl deadline nor the
+  // render cap explained it, so record where the time actually goes instead of guessing again.
+  const phaseStart = Date.now();
   const candidates = await discoverCandidates(program);
+  const discoveryMs = Date.now() - phaseStart;
+  if (discoveryMs > 60_000) {
+    console.warn(`[timing] ${program.id} discovery took ${Math.round(discoveryMs / 1000)}s (${candidates.length} candidates)`);
+  }
   if (!candidates.length) {
     setState(program.id, { stage: "failed", error: "no official candidate URLs" });
     return "failed";
@@ -2170,6 +2177,11 @@ async function processProgramInner(program: ProgramRow): Promise<string> {
     }
   }
 
+  const fetchMs = Date.now() - phaseStart - discoveryMs;
+  if (fetchMs > 60_000) {
+    console.warn(`[timing] ${program.id} candidate fetch took ${Math.round(fetchMs / 1000)}s (${fetchedPages.length} pages)`);
+  }
+
   // Prefer pages that already mention prerequisites before spending OpenAI calls.
   const rankedPages = [...fetchedPages].sort((a, b) => {
     const as = (PREREQ_PAGE_HINT.test(a.text) ? 2 : 0) + (a.text.length > 2000 ? 1 : 0);
@@ -2182,7 +2194,12 @@ async function processProgramInner(program: ProgramRow): Promise<string> {
       if (!PREREQ_PAGE_HINT.test(fetched.text) && rankedPages.some((p) => PREREQ_PAGE_HINT.test(p.text))) {
         continue; // skip weak pages when a stronger candidate exists
       }
+      const exStart = Date.now();
       const ex = await extractWithOpenAI(program, fetched.text, fetched.url);
+      const exMs = Date.now() - exStart;
+      if (exMs > 45_000) {
+        console.warn(`[timing] ${program.id} extraction took ${Math.round(exMs / 1000)}s for ${fetched.url.slice(0, 70)}`);
+      }
       setState(program.id, { stage: "extracted" });
       if (!validExtraction(ex, fetched.text, program, fetched.url)) {
         errors.push(`${fetched.url}: no usable prereq list`);
