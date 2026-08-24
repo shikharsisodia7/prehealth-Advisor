@@ -961,8 +961,11 @@ function institutionNameVariants(name: string): string[] {
   // matches. This is not merely a miss: universitySearchName truncates at the first dash,
   // leaving "University of North Carolina" -- a DIFFERENT institution whose website would then
   // be attached to the Greensboro program. Offer the "at" spelling before any truncated form.
+  // Wikidata uses either spelling for a campus -- "University of North Carolina at
+  // Greensboro" but "California State University, Los Angeles" -- so offer both.
   if (/\S[-–—]\S|\S\s[-–—]\s\S/.test(name)) {
     variants.push(name.replace(/\s*[-–—]\s*/u, " at "));
+    variants.push(name.replace(/\s*[-–—]\s*/u, ", "));
   }
 
   const words = universitySearchName(name).split(/\s+/);
