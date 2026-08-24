@@ -1750,7 +1750,19 @@ function disableOpenAI(reason: string) {
 // gpt-4o-mini" observed repeatedly in practice) even though the account has quota. A small
 // counting semaphore smooths those bursts without serializing the whole pipeline down to the
 // network-bound crawl/fetch work, which doesn't hit this limit.
-const OPENAI_MAX_CONCURRENT = 2;
+/**
+ * How many extraction calls may be in flight at once.
+ *
+ * This was 2 while the worker pool ran 16 programs concurrently, so extractions queued behind
+ * each other and a program burned its whole time budget waiting for a slot rather than doing
+ * work. Phase timing showed extractions "taking" 104-168s -- almost entirely queue wait, since
+ * the measurement wraps the semaphore -- which is why bounding the crawl and capping browser
+ * renders changed nothing: the bottleneck was downstream of both.
+ *
+ * gpt-4o-mini's request limits are far above this; the ceiling here is our own throughput.
+ * Transient 429s remain handled by the existing backoff.
+ */
+const OPENAI_MAX_CONCURRENT = Number(process.env.COMPLETION_OPENAI_CONCURRENCY || 12);
 let openaiInFlight = 0;
 const openaiWaitQueue: Array<() => void> = [];
 async function withOpenAiSlot<T>(fn: () => Promise<T>): Promise<T> {
