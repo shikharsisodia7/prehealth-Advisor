@@ -1,21 +1,21 @@
 # Prerequisite Coverage Audit
 
-Generated: 2026-08-24T18:08:27.917Z
+Generated: 2026-08-24T18:38:38.020Z
 
 | Profession | Active | Verified | No specific courses | Blocked | Unfinished | Final-status coverage | Directory reconciliation |
 |---|---:|---:|---:|---:|---:|---:|---|
 | Certified Anesthesiologist Assistant (CAA) | 25 | 25 | 0 | 0 | 0 | 100% | reconciled |
 | Dental School (DDS/DMD) | 78 | 71 | 2 | 0 | 5 | 93.6% | reconciled |
-| Dietetics (RD/RDN) | 152 | 118 | 4 | 0 | 30 | 80.3% | reconciled |
+| Dietetics (RD/RDN) | 152 | 121 | 4 | 0 | 27 | 82.2% | reconciled |
 | Genetic Counseling (MS) | 64 | 62 | 1 | 0 | 1 | 98.4% | under-source-count |
-| Medical School (MD/DO) | 236 | 164 | 4 | 0 | 68 | 71.2% | reconciled |
-| Nursing (ABSN/MEPN) | 446 | 396 | 14 | 1 | 35 | 91.9% | reconciled |
-| Occupational Therapy (OTD/MOT) | 318 | 286 | 6 | 0 | 26 | 91.8% | reconciled |
+| Medical School (MD/DO) | 236 | 167 | 4 | 0 | 65 | 72.5% | reconciled |
+| Nursing (ABSN/MEPN) | 446 | 398 | 14 | 1 | 33 | 92.4% | reconciled |
+| Occupational Therapy (OTD/MOT) | 318 | 288 | 6 | 0 | 24 | 92.5% | reconciled |
 | Optometry (OD) | 24 | 24 | 0 | 0 | 0 | 100% | reconciled |
 | Pathologists' Assistant (PathA) | 20 | 19 | 1 | 0 | 0 | 100% | reconciled |
 | Pharmacy (PharmD) | 140 | 89 | 1 | 0 | 50 | 64.3% | reconciled |
-| Physical Therapy (DPT) | 308 | 294 | 1 | 0 | 13 | 95.8% | reconciled |
-| Physician Assistant (PA) | 330 | 307 | 3 | 0 | 20 | 93.9% | reconciled |
+| Physical Therapy (DPT) | 308 | 297 | 1 | 0 | 10 | 96.8% | reconciled |
+| Physician Assistant (PA) | 330 | 310 | 3 | 0 | 17 | 94.8% | reconciled |
 | Podiatric Medicine (DPM) | 11 | 11 | 0 | 0 | 0 | 100% | reconciled |
 | Postbaccalaureate Programs | 336 | 194 | 6 | 0 | 136 | 59.5% | under-source-count |
 | Prosthetics & Orthotics (MSPO) | 15 | 14 | 0 | 0 | 1 | 93.3% | reconciled |
