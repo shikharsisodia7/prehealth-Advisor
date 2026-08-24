@@ -6441,9 +6441,9 @@
   "finalStatus": "verified"
  },
  "2238": {
-  "stage": "source_fetched",
-  "lastAttempt": "2026-08-24T14:06:54.632Z",
-  "attempts": 1,
+  "stage": "source_discovery",
+  "lastAttempt": "2026-08-24T14:08:52.065Z",
+  "attempts": 2,
   "pipelineGen": 9,
   "sourceUrl": "https://catalog.lasalle.edu/"
  },
@@ -6550,9 +6550,9 @@
   "error": "https://www2.lehigh.edu/admissions/english-proficiency-requirement-for-graduate-studies: no usable prereq list || https://www2.lehigh.edu/admissions/applying-to-graduate-studies-at-lehigh: no usable prereq list || https://www2.lehigh.edu/: no usable prereq list"
  },
  "2255": {
-  "stage": "source_fetched",
-  "lastAttempt": "2026-08-24T14:05:02.578Z",
-  "attempts": 1,
+  "stage": "source_discovery",
+  "lastAttempt": "2026-08-24T14:08:52.060Z",
+  "attempts": 2,
   "pipelineGen": 9,
   "sourceUrl": "https://graduate.indianapolis.iu.edu/admissions/apply.html"
  },
@@ -6572,9 +6572,9 @@
   "finalStatus": "verified"
  },
  "2261": {
-  "stage": "source_fetched",
-  "lastAttempt": "2026-08-24T14:06:51.372Z",
-  "attempts": 1,
+  "stage": "source_discovery",
+  "lastAttempt": "2026-08-24T14:08:52.070Z",
+  "attempts": 2,
   "pipelineGen": 9,
   "sourceUrl": "https://exst.umd.edu/professionals-post-baccalaureates/professional-graduate-programs"
  },
@@ -6753,9 +6753,9 @@
   "finalStatus": "verified"
  },
  "2329": {
-  "stage": "source_fetched",
-  "lastAttempt": "2026-08-24T14:05:48.199Z",
-  "attempts": 1,
+  "stage": "source_discovery",
+  "lastAttempt": "2026-08-24T14:08:52.064Z",
+  "attempts": 2,
   "pipelineGen": 9,
   "sourceUrl": "https://global.rowan.edu/"
  },
@@ -6957,11 +6957,12 @@
   "error": "https://www.jhsph.edu/departments/w-harry-feinstone-department-of-molecular-microbiology-and-immunology/academics-and-degree-programs/mhs-program/: no usable prereq list"
  },
  "2367": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-24T14:04:55.783Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-24T14:08:33.154Z",
   "attempts": 4,
   "pipelineGen": 9,
-  "sourceUrl": "https://case.edu/medicine/pqhs/education/clinical-and-translational-science/ms-clinical-research"
+  "sourceUrl": "https://case.edu/medicine/pqhs/education/clinical-and-translational-science/ms-clinical-research",
+  "error": "program timeout after 420s"
  },
  "2368": {
   "stage": "extracted",
@@ -6986,9 +6987,9 @@
   "sourceUrl": "https://www.iit.edu/admissions-aid/undergraduate-admission"
  },
  "2373": {
-  "stage": "source_fetched",
-  "lastAttempt": "2026-08-24T14:05:19.511Z",
-  "attempts": 1,
+  "stage": "source_discovery",
+  "lastAttempt": "2026-08-24T14:08:52.078Z",
+  "attempts": 2,
   "pipelineGen": 9,
   "sourceUrl": "https://emu.edu/ms-biomed/"
  },
@@ -7056,9 +7057,9 @@
   "sourceUrl": "https://gateways.med.brown.edu/curriculum/clinical-sites"
  },
  "2385": {
-  "stage": "source_fetched",
-  "lastAttempt": "2026-08-24T14:06:34.848Z",
-  "attempts": 1,
+  "stage": "source_discovery",
+  "lastAttempt": "2026-08-24T14:08:52.067Z",
+  "attempts": 2,
   "pipelineGen": 9,
   "sourceUrl": "https://www.midwestern.edu/academics/degrees-programs/college-graduate-studies/master-arts-biomedical-sciences"
  },
@@ -7101,9 +7102,9 @@
   "pipelineGen": 9
  },
  "2396": {
-  "stage": "source_fetched",
-  "lastAttempt": "2026-08-24T14:05:03.925Z",
-  "attempts": 1,
+  "stage": "source_discovery",
+  "lastAttempt": "2026-08-24T14:08:52.073Z",
+  "attempts": 2,
   "pipelineGen": 9,
   "sourceUrl": "https://www.unco.edu/admissions-aid/undergraduate/"
  },
@@ -7146,11 +7147,10 @@
   "error": "https://graduate.admissions.gwu.edu/international-student-application-requirements: no usable prereq list"
  },
  "2403": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-23T23:48:27.018Z",
-  "attempts": 4,
-  "error": "https://www.cusm.edu/academics/md/requirements-for-admission/index.php: no usable prereq list || https://www.cusm.edu/academics/md/requirements-for-admission/technical-standards.php: no usable prereq list || https://www.cusm.edu/academics/md/requirements-for-admission/letters-of-recommendation.php: no usable prereq list || https://www.cusm.edu/academics/mbs/mbs-admission-requirements.php: no usable prereq list",
-  "pipelineGen": 7,
+  "stage": "source_discovery",
+  "lastAttempt": "2026-08-24T14:08:52.081Z",
+  "attempts": 2,
+  "pipelineGen": 9,
   "sourceUrl": "https://www.cusm.edu/academics/md/md-curriculum/program-outcomes.php"
  },
  "2404": {
@@ -7170,12 +7170,11 @@
   "error": "program timeout after 420s"
  },
  "2408": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-24T14:05:36.892Z",
-  "attempts": 3,
+  "stage": "source_discovery",
+  "lastAttempt": "2026-08-24T14:08:52.083Z",
+  "attempts": 4,
   "pipelineGen": 9,
-  "sourceUrl": "https://sopa.tulane.edu/degrees-programs/certificates",
-  "error": "program timeout after 420s"
+  "sourceUrl": "https://sopa.tulane.edu/degrees-programs/certificates"
  },
  "2410": {
   "stage": "failed",
@@ -7288,8 +7287,8 @@
   "error": "program timeout after 420s"
  },
  "2432": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-24T14:04:51.107Z",
+  "stage": "extracted",
+  "lastAttempt": "2026-08-24T14:07:40.677Z",
   "attempts": 4,
   "pipelineGen": 9,
   "sourceUrl": "https://www.uky.edu/",
@@ -7327,30 +7326,29 @@
   "finalStatus": "verified"
  },
  "2439": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-24T13:59:13.861Z",
-  "attempts": 3,
+  "stage": "source_discovery",
+  "lastAttempt": "2026-08-24T14:08:52.082Z",
+  "attempts": 4,
   "pipelineGen": 9,
-  "sourceUrl": "https://med.uc.edu/landing-pages/recruitment/uc-pharmacology",
-  "error": "program timeout after 420s"
+  "sourceUrl": "https://med.uc.edu/landing-pages/recruitment/uc-pharmacology"
  },
  "2440": {
-  "stage": "source_fetched",
-  "lastAttempt": "2026-08-24T14:05:18.679Z",
-  "attempts": 1,
+  "stage": "source_discovery",
+  "lastAttempt": "2026-08-24T14:08:52.076Z",
+  "attempts": 2,
   "pipelineGen": 9,
   "sourceUrl": "https://emu.edu/admissions/internships"
  },
  "2441": {
   "stage": "source_discovery",
-  "lastAttempt": "2026-08-24T14:06:20.566Z",
-  "attempts": 1,
+  "lastAttempt": "2026-08-24T14:08:52.079Z",
+  "attempts": 2,
   "pipelineGen": 9,
-  "sourceUrl": "https://www.sdstate.edu/admissions/apply-now"
+  "sourceUrl": "https://www.sdstate.edu/admissions"
  },
  "2445": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-24T14:04:51.192Z",
+  "stage": "extracted",
+  "lastAttempt": "2026-08-24T14:07:55.655Z",
   "attempts": 4,
   "pipelineGen": 9,
   "sourceUrl": "https://graduate.indianapolis.iu.edu/admissions/apply.html",
@@ -7404,9 +7402,9 @@
   "error": "program timeout after 420s"
  },
  "2456": {
-  "stage": "source_fetched",
-  "lastAttempt": "2026-08-24T14:07:13.945Z",
-  "attempts": 1,
+  "stage": "source_discovery",
+  "lastAttempt": "2026-08-24T14:08:52.071Z",
+  "attempts": 2,
   "pipelineGen": 9,
   "sourceUrl": "https://www.elms.edu/academics/center-for-student-success/international-admissions/"
  },
@@ -7506,9 +7504,9 @@
   "error": "program timeout after 420s"
  },
  "2479": {
-  "stage": "source_fetched",
-  "lastAttempt": "2026-08-24T14:05:01.134Z",
-  "attempts": 1,
+  "stage": "source_discovery",
+  "lastAttempt": "2026-08-24T14:08:52.068Z",
+  "attempts": 2,
   "pipelineGen": 9,
   "sourceUrl": "https://case.edu/medicine/pqhs/education/public-health/master-public-health"
  },
@@ -7521,16 +7519,16 @@
   "finalStatus": "verified"
  },
  "2482": {
-  "stage": "source_fetched",
-  "lastAttempt": "2026-08-24T14:06:46.596Z",
-  "attempts": 1,
+  "stage": "source_discovery",
+  "lastAttempt": "2026-08-24T14:08:52.072Z",
+  "attempts": 2,
   "pipelineGen": 9,
   "sourceUrl": "https://www.mha.cnsu.edu/"
  },
  "2483": {
-  "stage": "source_fetched",
-  "lastAttempt": "2026-08-24T14:06:50.962Z",
-  "attempts": 1,
+  "stage": "source_discovery",
+  "lastAttempt": "2026-08-24T14:08:52.075Z",
+  "attempts": 2,
   "pipelineGen": 9,
   "sourceUrl": "https://www.iastate.edu/admission-and-aid/admissions/military-and-nontraditonal-students"
  },
