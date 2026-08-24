@@ -1858,6 +1858,16 @@ async function extractWithOpenAIInner(program: ProgramRow, pageText: string, url
       disableOpenAI(`HTTP ${res.status} ${errBody.slice(0, 120)}`);
       throw lastError;
     }
+    // A per-DAY request cap is not a transient 429. Backing off through it burns the whole
+    // retry budget, then records the program as a failure and consumes one of its attempts --
+    // so a quota ceiling silently degrades data instead of surfacing as a quota problem. Trip
+    // the breaker so the run stops cleanly and the affected programs stay retryable.
+    if (res.status === 429 && /per day|\bRPD\b/i.test(errBody)) {
+      disableOpenAI(
+        `daily request quota exhausted (RPD). ${errBody.replace(/\s+/g, " ").slice(0, 200)}`,
+      );
+      throw lastError;
+    }
     if (res.status === 429 || res.status >= 500) {
       await new Promise((r) => setTimeout(r, 12_000 * 2 ** attempt));
       continue;
