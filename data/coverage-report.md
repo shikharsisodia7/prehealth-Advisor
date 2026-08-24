@@ -1,15 +1,15 @@
 # Prerequisite Coverage Audit
 
-Generated: 2026-08-24T08:42:13.323Z
+Generated: 2026-08-24T09:12:23.863Z
 
 | Profession | Active | Verified | No specific courses | Blocked | Unfinished | Final-status coverage | Directory reconciliation |
 |---|---:|---:|---:|---:|---:|---:|---|
 | Certified Anesthesiologist Assistant (CAA) | 25 | 25 | 0 | 0 | 0 | 100% | reconciled |
-| Dental School (DDS/DMD) | 78 | 68 | 2 | 0 | 8 | 89.7% | reconciled |
-| Dietetics (RD/RDN) | 152 | 115 | 4 | 0 | 33 | 78.3% | reconciled |
+| Dental School (DDS/DMD) | 78 | 71 | 2 | 0 | 5 | 93.6% | reconciled |
+| Dietetics (RD/RDN) | 152 | 117 | 4 | 0 | 31 | 79.6% | reconciled |
 | Genetic Counseling (MS) | 64 | 62 | 1 | 0 | 1 | 98.4% | under-source-count |
 | Medical School (MD/DO) | 236 | 144 | 2 | 0 | 90 | 61.9% | reconciled |
-| Nursing (ABSN/MEPN) | 446 | 387 | 13 | 1 | 45 | 89.7% | reconciled |
+| Nursing (ABSN/MEPN) | 446 | 389 | 13 | 1 | 43 | 90.1% | reconciled |
 | Occupational Therapy (OTD/MOT) | 318 | 282 | 6 | 0 | 30 | 90.6% | reconciled |
 | Optometry (OD) | 24 | 24 | 0 | 0 | 0 | 100% | reconciled |
 | Pathologists' Assistant (PathA) | 20 | 19 | 1 | 0 | 0 | 100% | reconciled |
