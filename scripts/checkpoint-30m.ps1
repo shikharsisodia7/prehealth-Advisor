@@ -55,13 +55,19 @@ function Invoke-Checkpoint {
       git reset HEAD -- data/coverage-report.json data/coverage-report.md data/completion-state.json 2>$null
       return
     }
+    # [skip ci] keeps these data-only checkpoints from triggering a Vercel build.
+    # They touch nothing but data/coverage-report.* and data/completion-state.json, yet at a
+    # 30-minute cadence (previously pushed to both the working branch and main, so two builds
+    # each time) they consumed the account's rolling daily deployment allowance and starved
+    # real code pushes of a deploy. Production reads live Neon, so coverage data is visible
+    # without a rebuild anyway.
     $msg = @"
-Checkpoint live coverage (30m cadence).
+Checkpoint live coverage (30m cadence). [skip ci]
 
 $($snap.Line)
 "@
     git commit -m $msg 2>&1 | Out-Null
-    git push origin HEAD 2>&1 | Out-Null
+    # Push only to main; the extra working-branch push doubled the deployment count.
     git push origin HEAD:main 2>&1 | Out-Null
     $sha = git rev-parse --short origin/main
     Write-Log "PUSHED $sha"
