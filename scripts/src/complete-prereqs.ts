@@ -36,6 +36,12 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { and, eq, inArray, sql } from "drizzle-orm";
 import { db, programSchoolsTable, type PrereqItem, type PrereqSource } from "@workspace/db";
+import {
+  nativeSiteSearch,
+  probeProgramHosts,
+  rootDomainOf,
+  sitemapCandidates,
+} from "./native-discovery.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "../..");
@@ -72,7 +78,14 @@ function loadRepoDotEnv() {
 loadRepoDotEnv();
 
 const OPENAI_KEY = process.env.OPENAI_API_KEY ?? "";
-const JINA_KEY = process.env.JINA_API_KEY ?? "";
+let JINA_KEY = process.env.JINA_API_KEY ?? "";
+let jinaDisabledReason = "";
+function disableJina(reason: string) {
+  if (!JINA_KEY) return;
+  console.warn(`Jina disabled for this run: ${reason}`);
+  jinaDisabledReason = reason;
+  JINA_KEY = "";
+}
 let FIRECRAWL_KEY = process.env.FIRECRAWL_API_KEY ?? "";
 let firecrawlDisabledReason = "";
 function disableFirecrawl(reason: string) {
@@ -119,7 +132,11 @@ type Stage =
 // failure history (state[id].error still holds the last message from whichever generation).
 // Gen 7: reject music/law/wrong-dept medicine crawls; boost medschool/pharmd URL scoring;
 // broader open-web medicine discovery; longer OpenAI 429 backoff.
-const CURRENT_PIPELINE_GEN = 7;
+// Gen 8: official-domain discovery (program-subdomain probing, native CMS site search,
+// sitemap harvesting) plus a circuit breaker that stops burning per-query timeouts on
+// search engines that are bot-blocked or out of credit. Records that exhausted gen 7 --
+// when discovery had no working search backend at all -- get a fresh attempt under this.
+const CURRENT_PIPELINE_GEN = 9;
 
 interface ProgramState {
   stage: Stage;
@@ -650,36 +667,95 @@ async function googleSearch(query: string): Promise<string[]> {
   return [...new Set(urls)].slice(0, 10);
 }
 
+/**
+ * Circuit breaker for search backends.
+ *
+ * Google/Bing answer HTTP 200 with a bot-challenge body and DuckDuckGo starts returning
+ * HTTP 202 after ~2 queries, so a dead engine looks "reachable" and silently costs its full
+ * timeout on every single query (Bing's is 30s). Left unguarded that burned ~96s per program
+ * on searches that can never succeed. After MAX_DEAD consecutive empty/failed results an
+ * engine is skipped until COOLDOWN_MS has passed, then given one probe to recover.
+ */
+const SEARCH_DEAD_STREAK: Record<string, number> = {};
+const SEARCH_DEAD_UNTIL: Record<string, number> = {};
+const MAX_DEAD = 3;
+const SEARCH_COOLDOWN_MS = 15 * 60_000;
+
+function engineAvailable(name: string): boolean {
+  const until = SEARCH_DEAD_UNTIL[name] ?? 0;
+  if (until && Date.now() < until) return false;
+  return true;
+}
+
+function noteEngineResult(name: string, gotResults: boolean): void {
+  if (gotResults) {
+    SEARCH_DEAD_STREAK[name] = 0;
+    SEARCH_DEAD_UNTIL[name] = 0;
+    return;
+  }
+  const streak = (SEARCH_DEAD_STREAK[name] ?? 0) + 1;
+  SEARCH_DEAD_STREAK[name] = streak;
+  if (streak >= MAX_DEAD) {
+    SEARCH_DEAD_UNTIL[name] = Date.now() + SEARCH_COOLDOWN_MS;
+    SEARCH_DEAD_STREAK[name] = 0;
+    console.warn(`search engine ${name} circuit-opened for ${SEARCH_COOLDOWN_MS / 60000}m (no usable results)`);
+  }
+}
+
+async function tryEngine(
+  name: string,
+  run: () => Promise<string[]>,
+  accept: (urls: string[]) => string[],
+): Promise<string[] | null> {
+  if (!engineAvailable(name)) return null;
+  try {
+    const useful = accept(await run());
+    noteEngineResult(name, useful.length > 0);
+    return useful.length ? useful : null;
+  } catch {
+    noteEngineResult(name, false);
+    return null;
+  }
+}
+
+/** True when every general search backend is currently circuit-open. */
+export function allSearchEnginesDown(): boolean {
+  return ["keenable", "firecrawl", "google", "bing", "duckduckgo"].every((e) => !engineAvailable(e));
+}
+
 async function webSearch(query: string): Promise<string[]> {
+  // Skip the global search lock entirely when nothing is answering — the 1.2s serialized
+  // delay is pure cost if every engine is circuit-open.
+  if (allSearchEnginesDown()) return [];
   return withSearchLock(async () => {
     if (KEENABLE_KEY) {
-      try {
-        const urls = await keenableSearch(query);
-        const useful = urls.filter((u) => !BLOCKED_SEARCH_HOSTS.test(u));
-        if (useful.length) return useful;
-      } catch { /* fall through */ }
+      const r = await tryEngine("keenable", () => keenableSearch(query), (u) => u.filter((x) => !BLOCKED_SEARCH_HOSTS.test(x)));
+      if (r) return r;
     }
     if (FIRECRAWL_KEY) {
-      try {
-        const urls = await firecrawlSearch(query);
-        if (urls.length) return urls;
-      } catch { /* fall through */ }
+      const r = await tryEngine("firecrawl", () => firecrawlSearch(query), (u) => u);
+      if (r) return r;
     }
-    try {
-      const google = await googleSearch(query);
-      const useful = google.filter((u) => !BLOCKED_SEARCH_HOSTS.test(u));
-      if (useful.length) return useful;
-    } catch { /* fall through */ }
-    try {
-      const bing = await bingSearch(query);
-      const useful = bing.filter((u) => !BLOCKED_SEARCH_HOSTS.test(u) && !/wikipedia|usnews|britannica/i.test(u));
-      if (useful.length >= 2) return useful;
-    } catch { /* fall through */ }
-    try {
-      return await duckDuckGoSearch(query);
-    } catch {
-      return [];
+    {
+      const r = await tryEngine("google", () => googleSearch(query), (u) => u.filter((x) => !BLOCKED_SEARCH_HOSTS.test(x)));
+      if (r) return r;
     }
+    {
+      const r = await tryEngine(
+        "bing",
+        () => bingSearch(query),
+        (u) => {
+          const useful = u.filter((x) => !BLOCKED_SEARCH_HOSTS.test(x) && !/wikipedia|usnews|britannica/i.test(x));
+          return useful.length >= 2 ? useful : [];
+        },
+      );
+      if (r) return r;
+    }
+    {
+      const r = await tryEngine("duckduckgo", () => duckDuckGoSearch(query), (u) => u);
+      if (r) return r;
+    }
+    return [];
   });
 }
 
@@ -807,6 +883,10 @@ function websiteConflictsWithInstitution(url: string, name: string): boolean {
     const raw = /^https?:\/\//i.test(url) ? url : `https://${url}`;
     const host = new URL(raw).hostname.replace(/^www\./i, "").toLowerCase();
     if (campusHostConflicts(name, host)) return true;
+    // A state government portal is never a program's official site, but its name token
+    // matches the institution ("Louisiana State University ..." -> louisiana.gov), which
+    // otherwise passes the alias check below and poisons the whole crawl.
+    if (/\.gov$/i.test(host)) return true;
     if (hostMatchesInstitutionAlias(name, host)) return false;
     const nameNorm = normalize(name);
     if (institutionTokens(name).some((t) => host.includes(t))) return false;
@@ -854,8 +934,29 @@ function normalizeCandidateUrl(url: string): string | null {
   }
 }
 
+/**
+ * Progressively shorter name variants for entity lookup.
+ *
+ * Directory names carry a donor-named school ("University of Pikeville Tanner College of
+ * Dental Medicine", "University of the Pacific Arthur A. Dugoni School of Dentistry").
+ * Stripping only the "<School> of <X>" clause leaves the donor tokens attached, which match
+ * no Wikidata entity, so also walk trailing words off until the parent institution remains.
+ * Stops at the institution head word so we never truncate into a different university.
+ */
+function institutionNameVariants(name: string): string[] {
+  const variants = [name, universitySearchName(name)];
+  const words = universitySearchName(name).split(/\s+/);
+  for (let end = words.length - 1; end >= 2; end--) {
+    const candidate = words.slice(0, end).join(" ");
+    variants.push(candidate);
+    // Once the tail is the institution head word itself, further truncation changes identity.
+    if (/^(university|college|institute|school|academy)$/i.test(words[end - 1])) break;
+  }
+  return [...new Set(variants.map((v) => v.trim()).filter((v) => v.length >= 6))].slice(0, 6);
+}
+
 async function wikidataOfficialWebsite(name: string): Promise<string | null> {
-  const queries = [...new Set([name, universitySearchName(name)].filter((q) => q.length >= 6))];
+  const queries = institutionNameVariants(name);
   for (const q of queries) {
     try {
       const searchRes = await fetch(
@@ -1154,8 +1255,48 @@ async function discoverCandidates(program: ProgramRow): Promise<string[]> {
   }
   const seedPages = [usableWebsite, program.sourceUrl].filter((u): u is string => !!u && !isDirectoryHubUrl(u));
 
+  // ---------------------------------------------------------------------------
+  // Official-domain discovery.
+  //
+  // Runs before the search layer because every general search backend (Google, Bing,
+  // DuckDuckGo, Firecrawl, Jina, Keenable) is bot-blocked or unfunded from this host.
+  // Stored seeds are usually a generic university homepage (utah.edu) rather than the
+  // program site, so probe the predictable program subdomain/path first, then use the
+  // institution's own site search and sitemap. Everything found is on the institution's
+  // own domain, so it is authoritative by construction.
+  // ---------------------------------------------------------------------------
+  const nativeHosts: string[] = [];
+  if (usableWebsite) {
+    try {
+      const root = rootDomainOf(new URL(usableWebsite).hostname);
+      const probed = await probeProgramHosts(root, program.professionSlug, fetchOfficial);
+      for (const p of probed) {
+        nativeHosts.push(new URL(p).hostname);
+        candidates.push(p);
+      }
+      // Always keep the stored host in play as a fallback search/sitemap target.
+      nativeHosts.push(new URL(usableWebsite).hostname);
+    } catch { /* malformed stored URL */ }
+  }
+
+  const professionQuery = professionKeywords(program.professionSlug)[0] ?? program.professionSlug;
+  for (const host of [...new Set(nativeHosts)].slice(0, 2)) {
+    try {
+      const hits = await nativeSiteSearch(
+        host,
+        [`${professionQuery} prerequisites`, `${professionQuery} admission requirements`],
+        fetchOfficial,
+      );
+      candidates.push(...hits.filter((u) => !isDirectoryHubUrl(u) && !isLowValueCandidate(u)));
+    } catch { /* site search unavailable */ }
+    try {
+      const hits = await sitemapCandidates(host, program.professionSlug, fetchOfficial);
+      candidates.push(...hits.filter((u) => !isDirectoryHubUrl(u) && !isLowValueCandidate(u)));
+    } catch { /* no sitemap */ }
+  }
+
   // Multi-hop crawl from known official pages (works without Firecrawl/search).
-  for (const seed of seedPages.slice(0, 2)) {
+  for (const seed of [...nativeHosts.slice(0, 1).map((h) => `https://${h}/`), ...seedPages].slice(0, 3)) {
     const crawled = await crawlSiteForCandidates(seed, program);
     candidates.push(...crawled);
     // Also keep one-hop keyword links even if text hint missed (for secondary expand).
@@ -1309,6 +1450,45 @@ async function discoverCandidates(program: ProgramRow): Promise<string[]> {
         if (candidates.filter((c) => /prereq|requirement|admiss/i.test(c)).length >= 3) break;
       }
     } catch { /* non-fatal */ }
+  }
+
+  // Last resort: the stored website may belong to a different institution while still passing
+  // the token check ("Northeast Ohio Medical University" -> northeastern.edu, "Louisiana State
+  // University School of Dentistry" -> louisiana.gov). Those seeds poison every downstream hop,
+  // so when nothing was discovered, re-resolve the institution against Wikidata and run
+  // official-domain discovery again on the corrected domain.
+  if (!candidates.length) {
+    try {
+      const canonical = await wikidataOfficialWebsite(program.name);
+      const canonicalHost = canonical ? new URL(canonical).hostname : null;
+      const storedHost = program.websiteUrl ? new URL(program.websiteUrl).hostname : null;
+      if (canonicalHost && (!storedHost || rootDomainOf(canonicalHost) !== rootDomainOf(storedHost))) {
+        candidates.push(canonical!);
+        program.websiteUrl = canonical!;
+        try {
+          await db
+            .update(programSchoolsTable)
+            .set({ websiteUrl: canonical! })
+            .where(eq(programSchoolsTable.id, program.id));
+        } catch { /* non-fatal */ }
+
+        const root = rootDomainOf(canonicalHost);
+        candidates.push(...(await probeProgramHosts(root, program.professionSlug, fetchOfficial)));
+        for (const host of [...new Set([canonicalHost, ...candidates.map((c) => { try { return new URL(c).hostname; } catch { return ""; } }).filter(Boolean)])].slice(0, 2)) {
+          try {
+            candidates.push(
+              ...(await nativeSiteSearch(host, [`${professionQuery} prerequisites`], fetchOfficial)),
+            );
+          } catch { /* site search unavailable */ }
+          try {
+            candidates.push(...(await sitemapCandidates(host, program.professionSlug, fetchOfficial)));
+          } catch { /* no sitemap */ }
+        }
+        for (const seed of [canonical!, ...candidates.slice(0, 2)]) {
+          candidates.push(...(await crawlSiteForCandidates(seed, program)));
+        }
+      }
+    } catch { /* wikidata unavailable */ }
   }
 
   // Prefer HTML candidates first, but keep PDFs — local pypdf extract works without Firecrawl.

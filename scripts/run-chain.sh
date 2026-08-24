@@ -32,11 +32,11 @@ export COMPLETION_CONCURRENCY="${COMPLETION_CONCURRENCY:-6}"
 
 for round in $(seq 1 500); do
   echo "=== ROUND $round: retry-failures $(date) ===" >> chain.log
-  timeout 2400 pnpm exec tsx ./src/complete-prereqs.ts -- --retry-failures >> chain.log 2>&1 || true
+  timeout 5400 pnpm exec tsx ./src/complete-prereqs.ts -- --retry-failures >> chain.log 2>&1 || true
   echo "=== ROUND $round: retry-failures exit=$? $(date) ===" >> chain.log
 
   echo "=== ROUND $round: all-unfinished $(date) ===" >> chain.log
-  timeout 2400 pnpm exec tsx ./src/complete-prereqs.ts -- --all-unfinished >> chain.log 2>&1 || true
+  timeout 5400 pnpm exec tsx ./src/complete-prereqs.ts -- --all-unfinished >> chain.log 2>&1 || true
   echo "=== ROUND $round: all-unfinished exit=$? $(date) ===" >> chain.log
 done
 

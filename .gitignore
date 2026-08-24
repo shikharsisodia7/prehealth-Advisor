@@ -62,3 +62,9 @@ Thumbs.db
 data/completion-worker.log
 data/completion-state.json
 data/prereq-source-cache/
+
+# Worker run logs and scratch probes (local only)
+scripts/*.log
+scripts/*.lock
+scripts/src/tmp-*.ts
+scripts/tmp-search-out/
