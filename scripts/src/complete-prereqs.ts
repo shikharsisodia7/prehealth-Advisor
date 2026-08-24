@@ -1784,6 +1784,30 @@ async function extractWithOpenAI(program: ProgramRow, pageText: string, url: str
   return withOpenAiSlot(() => extractWithOpenAIInner(program, pageText, url));
 }
 
+/**
+ * Narrow a fetched page to the part that can actually contain prerequisites.
+ *
+ * Extraction was sending up to 100,000 characters -- roughly 25,000 tokens of mostly
+ * navigation, footers and unrelated programme copy -- which made a single call take two
+ * minutes. Phase timing showed extractions at 113-147s while 429s stayed flat, so the cost was
+ * payload size, not rate limiting.
+ *
+ * The opening of the page is always kept because it carries the programme identity the model
+ * needs to decide whether the list belongs to THIS programme, and the window is centred on the
+ * first prerequisite-like mention. Pages under the cap are passed through untouched, so short
+ * pages behave exactly as before and nothing that was previously visible to the model is lost
+ * on them.
+ */
+export function relevantExcerpt(pageText: string, maxChars = 18_000): string {
+  if (pageText.length <= maxChars) return pageText;
+  const head = pageText.slice(0, 2_000);
+  const match = PREREQ_PAGE_HINT.exec(pageText);
+  if (!match || match.index == null) return pageText.slice(0, maxChars);
+  const windowChars = maxChars - head.length;
+  const start = Math.max(2_000, match.index - Math.floor(windowChars * 0.2));
+  return `${head}\n...\n${pageText.slice(start, start + windowChars)}`;
+}
+
 async function extractWithOpenAIInner(program: ProgramRow, pageText: string, url: string): Promise<Extraction> {
   const payload = {
     model: OPENAI_MODEL,
@@ -1810,7 +1834,7 @@ async function extractWithOpenAIInner(program: ProgramRow, pageText: string, url
         role: "user",
         content:
           `Program: ${program.programName} at ${program.name} (profession: ${program.professionSlug}).\n` +
-          `Official source URL: ${url}\n\nOFFICIAL PAGE TEXT:\n${pageText.slice(0, 100_000)}`,
+          `Official source URL: ${url}\n\nOFFICIAL PAGE TEXT:\n${relevantExcerpt(pageText)}`,
       },
     ],
   };
