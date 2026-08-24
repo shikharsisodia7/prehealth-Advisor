@@ -598,7 +598,7 @@ async function withSearchLock<T>(fn: () => Promise<T>): Promise<T> {
   try {
     // Keyless engines were measured reliable at ~2.5s spacing; tighter pacing is what
     // rate-limits them.
-    await new Promise((r) => setTimeout(r, Number(process.env.COMPLETION_SEARCH_DELAY_MS || 2500)));
+    await new Promise((r) => setTimeout(r, Number(process.env.COMPLETION_SEARCH_DELAY_MS || 9000)));
     return await fn();
   } finally {
     release();
