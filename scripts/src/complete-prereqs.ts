@@ -145,7 +145,15 @@ type Stage =
 // sitemap harvesting) plus a circuit breaker that stops burning per-query timeouts on
 // search engines that are bot-blocked or out of credit. Records that exhausted gen 7 --
 // when discovery had no working search backend at all -- get a fresh attempt under this.
-const CURRENT_PIPELINE_GEN = 9;
+// Gen 10: three keyless search backends (DuckDuckGo lite, Marginalia, Brave HTML) replacing
+// engines that only served bot-challenge pages; Groq and Gemini as extraction providers
+// alongside OpenAI, removing the per-day request ceiling; generic graduate-admissions pages
+// demoted so department pages outrank them; parent-institution name resolution fixed for
+// donor-named and campus-qualified schools; a wider second-chance crawl.
+//
+// 341 of the 421 remaining programs were locked out by gen 9's attempt limit and had never
+// been tried against any of that.
+const CURRENT_PIPELINE_GEN = 10;
 
 interface ProgramState {
   stage: Stage;
