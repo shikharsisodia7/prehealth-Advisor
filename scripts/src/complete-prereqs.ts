@@ -2236,7 +2236,14 @@ async function processProgramInner(program: ProgramRow): Promise<string> {
     return bs - as;
   });
 
-  for (const fetched of rankedPages.slice(0, 6)) {
+  // Extraction calls are the scarce resource: the account's daily request quota allows about
+  // 240 calls an hour, so spending up to six on one program starves the queue while only about
+  // a quarter of programs finalize anyway. The pages are already ranked with pages that mention
+  // prerequisites first, so the later candidates are the weakest ones -- trying three good
+  // candidates for two programs beats six mediocre ones for one. Raise COMPLETION_MAX_EXTRACTIONS
+  // once the account's rate limit is lifted.
+  const MAX_EXTRACTIONS = Number(process.env.COMPLETION_MAX_EXTRACTIONS || 3);
+  for (const fetched of rankedPages.slice(0, MAX_EXTRACTIONS)) {
     try {
       if (!PREREQ_PAGE_HINT.test(fetched.text) && rankedPages.some((p) => PREREQ_PAGE_HINT.test(p.text))) {
         continue; // skip weak pages when a stronger candidate exists
