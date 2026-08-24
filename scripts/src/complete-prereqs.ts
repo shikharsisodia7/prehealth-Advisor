@@ -992,7 +992,16 @@ let wikidataBackoffUntil = 0;
 
 async function wikidataFetchJson(url: string): Promise<any | null> {
   const run = async (): Promise<any | null> => {
-    if (Date.now() < wikidataBackoffUntil) return null;
+    // Wait out a throttle rather than failing through it. Returning null here marked the
+    // program "no official candidate URLs" and burned an attempt, and because the backoff is
+    // process-wide a single throttled response did that to every program processed in the
+    // next 60 seconds across all workers -- precisely the no-seed rows for which Wikidata is
+    // the only route to a candidate URL. Requests are already serialised, so waiting costs
+    // throughput but never correctness.
+    const waitFor = wikidataBackoffUntil - Date.now();
+    if (waitFor > 0) {
+      await new Promise((r) => setTimeout(r, Math.min(waitFor, 90_000)));
+    }
     await new Promise((r) => setTimeout(r, 350));
     const res = await fetch(url, {
       headers: { "user-agent": USER_AGENT, accept: "application/json" },
