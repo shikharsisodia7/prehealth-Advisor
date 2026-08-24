@@ -507,6 +507,14 @@ function isLowValueCandidate(url: string): boolean {
   if (/[?&]challenge=|cf-challenge|captcha|akamai|_guard|security-check|perfdrive|botmanager|ssa=/i.test(hay)) return true;
   if (/ellucian|crmrecruit|apply-gobaylor|myworkday|commonapp|slate\.|targetx/.test(hay)) return true;
   if (/financial-aid|tuition|video-tour|virtual-office|visit-campus|campus-tour|housing/.test(hay)) return true;
+  // Site chrome that can never carry prerequisite coursework. A crawl seeded at a bare
+  // homepage surfaces these constantly -- SUNY Upstate's crawl spent its candidate slots on
+  // /privacy.php and /prospective/finaid/ -- and each one costs a fetch plus an OpenAI
+  // extraction before failing as "no usable prereq list". Matched on path segments so a
+  // legitimate page is not caught by a substring.
+  if (/\/(privacy|terms|accessibility|sitemap|copyright|disclaimer|nondiscrimination|finaid|scholarships?|parking|maps?|directions|emergency|covid|alumni|giving|donate|careers|jobs|employment|library|bookstore|athletics|news|events|blog|newsroom|press|social-media|contact-us)(\.\w+)?\/?($|[?#])/i.test(hay)) {
+    return true;
+  }
   // State/federal portals that match institution tokens (e.g. "Texas", "Virginia") but are not schools.
   if (/\.(gov)([/?#]|$)/i.test(hay) && !/\.edu/i.test(hay)) return true;
   if (/undergraduate-admissions|\/freshman|first-year|high-school-students|undergrad\/apply|precollege/.test(hay) &&
