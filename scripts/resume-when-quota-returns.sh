@@ -15,19 +15,31 @@ cd "$(dirname "$0")"
 LOG=quota-watch.log
 echo "$(date -Is) waiting for OpenAI request quota" >> "$LOG"
 
-while true; do
-  code=$(curl -s -o /tmp/ph-quota-body -w '%{http_code}' \
+probe() {
+  curl -s -o /dev/null -w '%{http_code}' \
     -X POST https://api.openai.com/v1/chat/completions \
     -H "authorization: Bearer $OPENAI_API_KEY" \
     -H 'content-type: application/json' \
     --max-time 30 \
-    -d '{"model":"gpt-4o-mini","messages":[{"role":"user","content":"ok"}],"max_tokens":1}' || echo 000)
+    -d '{"model":"gpt-4o-mini","messages":[{"role":"user","content":"ok"}],"max_tokens":1}' || echo 000
+}
 
-  if [ "$code" = "200" ]; then
-    echo "$(date -Is) quota available (HTTP 200) — starting supervisor" >> "$LOG"
+while true; do
+  # Require SUSTAINED availability, not a single success. A rolling daily cap hands back the
+  # occasional token even while exhausted -- one lucky 200 previously restarted the supervisor
+  # into a wall where it burned each program's retry budget and recorded failures. Three
+  # successes in a row, spaced out, means real capacity has returned.
+  ok=0
+  for _ in 1 2 3; do
+    [ "$(probe)" = "200" ] && ok=$((ok + 1)) || break
+    sleep 20
+  done
+
+  if [ "$ok" -eq 3 ]; then
+    echo "$(date -Is) sustained quota confirmed (3/3) — starting supervisor" >> "$LOG"
     COMPLETION_CONCURRENCY="${COMPLETION_CONCURRENCY:-16}" exec bash ./run-chain.sh >> chain.log 2>&1
   fi
 
-  echo "$(date -Is) still limited (HTTP $code)" >> "$LOG"
+  echo "$(date -Is) still rate-limited ($ok/3 probes succeeded)" >> "$LOG"
   sleep 600
 done
