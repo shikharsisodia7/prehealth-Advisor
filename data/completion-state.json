@@ -7655,8 +7655,8 @@
  },
  "2548": {
   "stage": "failed",
-  "lastAttempt": "2026-08-24T15:46:47.985Z",
-  "attempts": 2,
+  "lastAttempt": "2026-08-24T17:30:53.341Z",
+  "attempts": 3,
   "error": "https://www.csuchico.edu/admissions/graduate/requirements.shtml: no usable prereq list || https://www.csuchico.edu/admissions/first-time/index.shtml: no usable prereq list || https://www.csuchico.edu/admissions/online.shtml: no usable prereq list",
   "pipelineGen": 9,
   "sourceUrl": "https://www.csuchico.edu/"
@@ -7720,8 +7720,8 @@
  },
  "2565": {
   "stage": "failed",
-  "lastAttempt": "2026-08-24T15:44:20.188Z",
-  "attempts": 2,
+  "lastAttempt": "2026-08-24T17:24:05.757Z",
+  "attempts": 3,
   "pipelineGen": 9,
   "sourceUrl": "https://www.catholic.edu/admission-aid/undergraduate-admission/visiting-campus",
   "error": "https://www.catholic.edu/admission-aid/graduate-admission: HTTP 403 || https://www.catholic.edu/admission-aid/international-admission: HTTP 403 || https://www.catholic.edu/admission-aid/professional-continuing-studies: HTTP 403 || https://www.catholic.edu/admission-aid/pre-college-dual-enrollment: HTTP 403"
@@ -7789,12 +7789,11 @@
   "error": "https://www.cuny.edu/admissions/undergraduate/apply/: no usable prereq list || https://www.cuny.edu/admissions/undergraduate/tours/: no usable prereq list || https://www.cuny.edu/admissions/undergraduate/apply/application-review/: no usable prereq list || https://www.cuny.edu/admissions/undergraduate/tours/: no usable prereq list"
  },
  "2582": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-24T16:01:39.031Z",
-  "attempts": 2,
+  "stage": "source_fetched",
+  "lastAttempt": "2026-08-24T17:30:55.443Z",
+  "attempts": 3,
   "pipelineGen": 9,
-  "sourceUrl": "https://www.ecu.edu/",
-  "error": "https://admissions.ecu.edu/apply/readmission/: no usable prereq list || https://admissions.ecu.edu/apply/freshmen/: no usable prereq list || https://admissions.ecu.edu/apply/military/: no usable prereq list"
+  "sourceUrl": "https://www.ecu.edu/"
  },
  "2585": {
   "stage": "finalized",
@@ -7829,11 +7828,12 @@
   "finalStatus": "verified"
  },
  "2593": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-24T17:06:53.893Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-24T17:09:41.082Z",
   "attempts": 3,
   "pipelineGen": 9,
-  "sourceUrl": "https://www.emory.edu/"
+  "sourceUrl": "https://www.emory.edu/",
+  "error": "https://www.emory.edu/admission-and-aid: no usable prereq list || https://www.emory.edu/apply: no usable prereq list || https://www.emory.edu/admission-aid/graduate-professional: no usable prereq list"
  },
  "2594": {
   "stage": "finalized",
@@ -7859,19 +7859,20 @@
   "sourceUrl": "https://www.fsu.edu/"
  },
  "2599": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-24T17:07:08.210Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-24T17:12:54.178Z",
   "attempts": 3,
   "pipelineGen": 9,
-  "sourceUrl": "https://www.fhsu.edu/admissions/campus-visit"
+  "sourceUrl": "https://www.fhsu.edu/admissions/campus-visit",
+  "error": "https://www.fhsu.edu/commsciencesanddisorders/early-admission-ms-in-slp/: no usable prereq list || https://www.fhsu.edu/alliedhealth/admission-requirements/: no usable prereq list || https://www.fhsu.edu/international/admissions/vc-admission-requirements/: no usable prereq list"
  },
  "2601": {
   "stage": "failed",
-  "lastAttempt": "2026-08-24T15:52:15.734Z",
-  "attempts": 2,
+  "lastAttempt": "2026-08-24T17:29:10.651Z",
+  "attempts": 3,
   "pipelineGen": 9,
   "sourceUrl": "https://apply.gallaudet.edu/register/UG_Inquiry",
-  "error": "https://gallaudet.edu/hearing-speech-and-language-sciences/m-s-in-speech-language-pathology/: HTTP 403 || https://www.gallaudet.edu/department-of-hearing-speech-and-language-sciences/: HTTP 403 || https://gallaudet.edu/hearing-speech-center/: HTTP 403 || https://gallaudet.edu/hearing-speech-and-language-sciences/: HTTP 403"
+  "error": "https://www.gallaudet.edu/department-of-hearing-speech-and-language-sciences/: HTTP 403 || https://gallaudet.edu/hearing-speech-center/: HTTP 403 || https://gallaudet.edu/admissions/graduate/: HTTP 403 || https://gallaudet.edu/graduate-admissions/: HTTP 403"
  },
  "2603": {
   "stage": "failed",
@@ -7898,11 +7899,12 @@
   "error": "https://isss.gsu.edu/incoming-students/step-1-admissions/: no usable prereq list || https://admissions.gsu.edu/associate-degree/: no usable prereq list || https://graduate.gsu.edu/future/admissions/: no usable prereq list || https://isss.gsu.edu/incoming-students/step-1-admissions/: no usable prereq list"
  },
  "2608": {
-  "stage": "source_discovery",
-  "lastAttempt": "2026-08-24T17:05:19.501Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-24T17:12:31.661Z",
   "attempts": 3,
   "pipelineGen": 9,
-  "sourceUrl": "https://home.hamptonu.edu/academics/wp-content/uploads/sites/3/2026/06/556805-HU-Academic-Catalogue-2026-27_6.17.26-2.pdf"
+  "sourceUrl": "https://home.hamptonu.edu/",
+  "error": "https://home.hamptonu.edu/: no usable prereq list || https://home.hamptonu.edu/: no usable prereq list"
  },
  "2611": {
   "stage": "failed",
@@ -7929,12 +7931,11 @@
   "error": "https://admissions.iusb.edu/oiss/admissions/requirements/index.html: no usable prereq list || https://admissions.iusb.edu/oiss/admissions/apply/check-list.html: no usable prereq list || https://admissions.iusb.edu/apply/index.html: OpenAI HTTP 429: {\n    \"error\": {\n        \"message\": \"Rate limit reached for gpt-4o-mini in organization org-kRjpmgXqcLrwkVTY20gVZyOd on requests per day (RPD): Limit 10000, Used 10000, Requested 1. Please try again in 8.64s. Visit https://platform.openai.com/account/"
  },
  "2621": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-24T16:08:24.947Z",
-  "attempts": 2,
+  "stage": "source_discovery",
+  "lastAttempt": "2026-08-24T17:31:03.197Z",
+  "attempts": 3,
   "pipelineGen": 9,
-  "sourceUrl": "https://www.jsums.edu/",
-  "error": "https://www.jsums.edu/graduateschool/prospective-students-home/: no usable prereq list || https://www.jsums.edu/admissions/international/: no usable prereq list || https://www.jsums.edu/graduateschool/masters-admissions/: OpenAI HTTP 429: {\n    \"error\": {\n        \"message\": \"Rate limit reached for gpt-4o-mini in organization org-kRjpmgXqcLrwkVTY20gVZyOd on requests per day (RPD): Limit 10000, Used 10000, Requested 1. Please try again in 8.64s. Visit https://platform.openai.com/account/rate-limit"
+  "sourceUrl": "https://www.jsums.edu/"
  },
  "2628": {
   "stage": "extracted",
@@ -7960,20 +7961,19 @@
   "error": "https://www.liu.edu/~/media/RedesignFiles/LIUPost/Academics/Bulletins/Post-UG-GRA-Catalog.ashx?la=en: no usable prereq list"
  },
  "2633": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-24T15:54:52.082Z",
-  "attempts": 2,
+  "stage": "source_discovery",
+  "lastAttempt": "2026-08-24T17:30:41.730Z",
+  "attempts": 3,
   "pipelineGen": 9,
-  "sourceUrl": "https://llu.edu/",
-  "error": "https://llu.edu/events/communication-sciences-and-disorders-virtual-information-session-09-16-2026: no usable prereq list || https://llu.edu/admissions-aid: no usable prereq list || https://llu.edu/admissions-aid/visit-our-campus/information-sessions: OpenAI HTTP 429: {\n    \"error\": {\n        \"message\": \"Rate limit reached for gpt-4o-mini in organization org-kRjpmgXqcLrwkVTY20gVZyOd on requests per day (RPD): Limit 10000, Used 10000, Requested 1. Please try again in 8.64s. Visit https://platform"
+  "sourceUrl": "https://llu.edu/"
  },
  "2635": {
   "stage": "failed",
-  "lastAttempt": "2026-08-24T15:56:03.362Z",
-  "attempts": 2,
+  "lastAttempt": "2026-08-24T17:31:06.293Z",
+  "attempts": 3,
   "pipelineGen": 9,
   "sourceUrl": "https://www.lsuhsc.edu/administration/academic/docs/FacultyHandbook.pdf",
-  "error": "https://catalog.lsuhsc.edu/content.php?catoid=17&amp;navoid=3646: too little text || https://www.lsuhsc.edu/administration/academic/docs/FacultyHandbook.pdf: no usable prereq list"
+  "error": "program timeout after 420s"
  },
  "2637": {
   "stage": "source_fetched",
@@ -8007,11 +8007,11 @@
  },
  "2656": {
   "stage": "failed",
-  "lastAttempt": "2026-08-24T15:34:36.889Z",
-  "attempts": 2,
+  "lastAttempt": "2026-08-24T17:17:41.378Z",
+  "attempts": 3,
   "pipelineGen": 9,
   "sourceUrl": "https://www.missouristate.edu/Admissions/default.htm",
-  "error": "program timeout after 420s"
+  "error": "https://www.missouristate.edu/SHCP/CSD/: no usable prereq list || https://www.missouristate.edu/SHCP/CSD/: no usable prereq list || https://www.missouristate.edu/SHS/CLS/AdmissionRequirements.htm: no usable prereq list"
  },
  "2666": {
   "stage": "finalized",
@@ -8046,11 +8046,12 @@
   "finalStatus": "verified"
  },
  "2676": {
-  "stage": "source_discovery",
-  "lastAttempt": "2026-08-24T17:07:47.501Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-24T17:10:03.077Z",
   "attempts": 3,
+  "error": "https://osuokc.edu/admissions: HTTP 403 || https://osuokc.edu/admissions/apply: HTTP 403 || https://osuokc.edu/admissions/recruitment: HTTP 403 || https://www.osuokc.edu/: HTTP 403",
   "pipelineGen": 9,
-  "sourceUrl": "https://osuokc.edu/academics/general-education"
+  "sourceUrl": "https://apply.osuokc.edu/apply/"
  },
  "2679": {
   "stage": "finalized",
@@ -8061,12 +8062,11 @@
   "finalStatus": "verified"
  },
  "2681": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-24T16:15:29.822Z",
-  "attempts": 2,
+  "stage": "extracted",
+  "lastAttempt": "2026-08-24T17:37:03.645Z",
+  "attempts": 3,
   "pipelineGen": 9,
-  "sourceUrl": "https://hhd.psu.edu/",
-  "error": "https://hhd.psu.edu/csd/graduate/masters-degree-communication-sciences-and-disorders/admission-requirements-masters-degree: no usable prereq list || https://hhd.psu.edu/csd/graduate/phd-program-communication-sciences-and-disorders/admission-requirements-phd-program: OpenAI HTTP 429: {\n    \"error\": {\n        \"message\": \"Rate limit reached for gpt-4o-mini in organization org-kRjpmgXqcLrwkVTY20gVZyOd on requests per day (RPD): Limit 10000, Used 10000, Requested 1. Please try again in 8.64s. Visit h"
+  "sourceUrl": "https://hhd.psu.edu/"
  },
  "2682": {
   "stage": "failed",
@@ -8084,10 +8084,9 @@
   "pipelineGen": 9
  },
  "2685": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-24T16:09:55.282Z",
-  "attempts": 2,
-  "error": "https://www.purdue.edu/academics/ogsps/prospective/gradrequirements/fortwayne/slp-pfw.html: no usable prereq list || https://www.purdue.edu/speech-language-pathology: no usable prereq list || https://www.purdue.edu/csd: no usable prereq list",
+  "stage": "extracted",
+  "lastAttempt": "2026-08-24T17:35:00.806Z",
+  "attempts": 3,
   "pipelineGen": 9,
   "sourceUrl": "https://www.admissions.purdue.edu/apply/apply.php"
  },
@@ -8141,8 +8140,8 @@
  },
  "2708": {
   "stage": "failed",
-  "lastAttempt": "2026-08-24T15:34:29.967Z",
-  "attempts": 2,
+  "lastAttempt": "2026-08-24T17:18:13.194Z",
+  "attempts": 3,
   "error": "https://www.smu.edu/cape/programs/certificates/att-data-science/prerequisites: no usable prereq list || https://www.smu.edu/admission/apply: no usable prereq list || https://www.smu.edu/admission/majors-minors: no usable prereq list",
   "pipelineGen": 9,
   "sourceUrl": "https://www.smu.edu/admission/campus-visit/virtual-experience"
@@ -8164,8 +8163,8 @@
  },
  "2718": {
   "stage": "source_discovery",
-  "lastAttempt": "2026-08-24T15:34:36.893Z",
-  "attempts": 2,
+  "lastAttempt": "2026-08-24T17:31:42.963Z",
+  "attempts": 3,
   "pipelineGen": 9,
   "sourceUrl": "https://www2.cortland.edu/admissions/undergraduate/visit/index.dot"
  },
@@ -8187,18 +8186,18 @@
  },
  "2724": {
   "stage": "extracted",
-  "lastAttempt": "2026-08-24T15:33:59.191Z",
-  "attempts": 2,
+  "lastAttempt": "2026-08-24T17:33:57.731Z",
+  "attempts": 3,
   "pipelineGen": 9,
   "sourceUrl": "https://www.syracuse.edu/admissions-aid/application-process/undergraduate/parents-families/"
  },
  "2725": {
   "stage": "failed",
-  "lastAttempt": "2026-08-24T15:55:43.174Z",
-  "attempts": 2,
+  "lastAttempt": "2026-08-24T17:31:03.193Z",
+  "attempts": 3,
   "pipelineGen": 9,
   "sourceUrl": "https://www.trine.edu/academics/colleges-schools/health-professions/admission-aid/cost.aspx",
-  "error": "https://www.trine.edu/academics/majors-degrees/graduate/doctor-physical-therapy/admission-requirements.aspx: no usable prereq list || https://www.trine.edu/admission-aid/transfer-resources/index.aspx: no usable prereq list || https://www.trine.edu/academics/colleges-schools/health-professions/admission-aid/index.aspx: no usable prereq list"
+  "error": "program timeout after 420s"
  },
  "2730": {
   "stage": "finalized",
@@ -8223,19 +8222,19 @@
   "pipelineGen": 9
  },
  "2735": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-24T15:34:29.884Z",
-  "attempts": 2,
+  "stage": "failed",
+  "lastAttempt": "2026-08-24T17:36:22.015Z",
+  "attempts": 3,
   "pipelineGen": 9,
-  "sourceUrl": "https://www.utrgv.edu/"
+  "sourceUrl": "https://www.utrgv.edu/",
+  "error": "https://www.utrgv.edu/cohp/schools-and-departments/department-of-communication-disorders/: no usable prereq list || https://www.utrgv.edu/admissions/graduate/index.htm: no usable prereq list || https://www.utrgv.edu/admissions/info/apply/index.htm: no usable prereq list || https://www.utrgv.edu/admissions/graduate/how-to-apply/international/index.htm: no usable prereq list"
  },
  "2740": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-24T16:08:13.389Z",
-  "attempts": 2,
+  "stage": "extracted",
+  "lastAttempt": "2026-08-24T17:34:57.744Z",
+  "attempts": 3,
   "pipelineGen": 9,
-  "sourceUrl": "https://www.trine.edu/academics/colleges-schools/health-professions/admission-aid/cost.aspx",
-  "error": "https://www.trine.edu/academics/majors-degrees/graduate/doctor-physical-therapy/admission-requirements.aspx: no usable prereq list || https://www.trine.edu/admission-aid/transfer-resources/index.aspx: no usable prereq list || https://www.trine.edu/academics/colleges-schools/health-professions/admission-aid/index.aspx: no usable prereq list"
+  "sourceUrl": "https://www.trine.edu/academics/colleges-schools/health-professions/admission-aid/cost.aspx"
  },
  "2741": {
   "stage": "failed",
@@ -8263,27 +8262,25 @@
  },
  "2747": {
   "stage": "failed",
-  "lastAttempt": "2026-08-24T15:38:54.016Z",
-  "attempts": 2,
+  "lastAttempt": "2026-08-24T17:15:02.678Z",
+  "attempts": 3,
   "error": "https://students.uams.edu/apply/: no usable prereq list || https://www.uams.edu/: no usable prereq list",
   "pipelineGen": 9,
   "sourceUrl": "https://www.uams.edu/"
  },
  "2748": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-24T16:14:01.316Z",
-  "attempts": 2,
+  "stage": "extracted",
+  "lastAttempt": "2026-08-24T17:38:15.180Z",
+  "attempts": 3,
   "pipelineGen": 9,
-  "sourceUrl": "https://communication.uark.edu/_resources/images/grad-handbook-fall-2019.pdf",
-  "error": "https://csdi.uark.edu/: no usable prereq list || https://communication.uark.edu/academics/graduate/degree-requirements.php: no usable prereq list || https://admissions.uark.edu/apply/: OpenAI HTTP 429: {\n    \"error\": {\n        \"message\": \"Rate limit reached for gpt-4o-mini in organization org-kRjpmgXqcLrwkVTY20gVZyOd on requests per day (RPD): Limit 10000, Used 10000, Requested 1. Please try again in 8.64s. Visit https://platform.openai.com/account/rate-limits to learn more.\",\n        \"type\": \"r"
+  "sourceUrl": "https://communication.uark.edu/_resources/images/grad-handbook-fall-2019.pdf"
  },
  "2749": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-24T16:00:57.539Z",
-  "attempts": 2,
+  "stage": "source_discovery",
+  "lastAttempt": "2026-08-24T17:31:06.296Z",
+  "attempts": 3,
   "pipelineGen": 9,
-  "sourceUrl": "https://www.uwosh.edu/admissions/how-to-apply/high-school-programs/",
-  "error": "https://www.uwosh.edu/open-meetings/communication-studies-curriculum-committee/: HTTP 405 || https://www.uwosh.edu/open-meetings/school-of-media-arts-and-communication-curriculum-committee/: HTTP 405 || https://www.uwosh.edu/admissions/how-to-apply/freshmen/: OpenAI HTTP 429: {\n    \"error\": {\n        \"message\": \"Rate limit reached for gpt-4o-mini in organization org-kRjpmgXqcLrwkVTY20gVZyOd on requests per day (RPD): Limit 10000, Used 10000, Requested 1. Please try again in 8.64s. Visit https://"
+  "sourceUrl": "https://www.uwosh.edu/admissions/how-to-apply/high-school-programs/"
  },
  "2751": {
   "stage": "failed",
@@ -8294,11 +8291,12 @@
   "error": "https://graduate.ucf.edu/applying-to-ucf/: no usable prereq list || https://www.ucf.edu/: no usable prereq list || https://www.ucf.edu/admissions/undergraduate/transfer/: no usable prereq list || https://www.ucf.edu/degree/nursing-msn/: no usable prereq list"
  },
  "2752": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-24T15:34:50.156Z",
-  "attempts": 2,
+  "stage": "failed",
+  "lastAttempt": "2026-08-24T17:35:18.205Z",
+  "attempts": 3,
   "pipelineGen": 9,
-  "sourceUrl": "https://www.ucmo.edu/future-students/financing-your-education/grants/mule-grant/index.php"
+  "sourceUrl": "https://www.ucmo.edu/future-students/financing-your-education/grants/mule-grant/index.php",
+  "error": "https://www.ucmo.edu/future-students/admissions/international-admissions/international-admissions-requirements/_nav.inc: too little text || https://www.ucmo.edu/future-students/admissions/international-admissions/index.php: no usable prereq list || https://www.ucmo.edu/future-students/admissions/graduate-admissions/index.php: no usable prereq list || https://www.ucmo.edu/future-students/admissions/other-applicant-types/index.php: no usable prereq list"
  },
  "2756": {
   "stage": "failed",
@@ -8326,9 +8324,9 @@
  },
  "2763": {
   "stage": "failed",
-  "lastAttempt": "2026-08-24T15:52:20.397Z",
-  "attempts": 2,
-  "error": "https://communication.illinois.edu/admissions/apply-graduate-program: no usable prereq list || https://www.shs.illinois.edu/: no usable prereq list || https://grad.illinois.edu/admissions/country: no usable prereq list",
+  "lastAttempt": "2026-08-24T17:30:41.727Z",
+  "attempts": 3,
+  "error": "program timeout after 420s",
   "pipelineGen": 9,
   "sourceUrl": "https://grad.illinois.edu/admissions/apply-now"
  },
@@ -8341,11 +8339,11 @@
  },
  "2765": {
   "stage": "failed",
-  "lastAttempt": "2026-08-24T15:38:32.073Z",
-  "attempts": 2,
+  "lastAttempt": "2026-08-24T17:22:28.918Z",
+  "attempts": 3,
   "pipelineGen": 9,
   "sourceUrl": "https://www.uky.edu/",
-  "error": "https://gradschool.uky.edu/prospective-students: no usable prereq list || https://international.uky.edu/apply: no usable prereq list || https://gradschool.uky.edu/admissions/graduate-certificates: no usable prereq list"
+  "error": "https://gradschool.uky.edu/prospective-students: OpenAI HTTP 429: {\n    \"error\": {\n        \"message\": \"Rate limit reached for gpt-4o-mini in organization org-kRjpmgXqcLrwkVTY20gVZyOd on requests per day (RPD): Limit 10000, Used 10000, Requested 1. Please try again in 8.64s. Visit https://platform.openai.com/account/rate-limits to learn more.\",\n        \"type\": \"req || https://international.uky.edu/apply: no usable prereq list || https://gradschool.uky.edu/admissions/graduate-certificates: no usab"
  },
  "2769": {
   "stage": "failed",
@@ -8469,11 +8467,11 @@
  },
  "2790": {
   "stage": "failed",
-  "lastAttempt": "2026-08-24T15:46:59.264Z",
-  "attempts": 2,
+  "lastAttempt": "2026-08-24T17:28:45.479Z",
+  "attempts": 3,
   "pipelineGen": 9,
   "sourceUrl": "https://class.unt.edu/communication/",
-  "error": "https://pahs.unt.edu/aslp/index.html: no usable prereq list || https://class.unt.edu/communication/graduate/admission-requirements-procedures.html: no usable prereq list || https://class.unt.edu/communication/graduate/admission-requirements-procedures-teaching-assistant-information.html: no usable prereq list"
+  "error": "https://pahs.unt.edu/aslp/index.html: no usable prereq list || https://class.unt.edu/communication/graduate/admission-requirements-procedures.html: OpenAI HTTP 429: {\n    \"error\": {\n        \"message\": \"Rate limit reached for gpt-4o-mini in organization org-kRjpmgXqcLrwkVTY20gVZyOd on requests per day (RPD): Limit 10000, Used 10000, Requested 1. Please try again in 8.64s. Visit https://platform.openai.com/account/rate-limits to learn more.\",\n        \"type\": \"req || https://class.unt.edu/communica"
  },
  "2791": {
   "stage": "failed",
@@ -8628,9 +8626,9 @@
  },
  "2821": {
   "stage": "failed",
-  "lastAttempt": "2026-08-24T15:43:43.941Z",
-  "attempts": 2,
-  "error": "https://uwm.edu/graduateschool/students/admission/: no usable prereq list || https://uwm.edu/admission/: OpenAI HTTP 429: {\n    \"error\": {\n        \"message\": \"Rate limit reached for gpt-4o-mini in organization org-kRjpmgXqcLrwkVTY20gVZyOd on requests per day (RPD): Limit 10000, Used 10000, Requested 1. Please try again in 8.64s. Visit https://platform.openai.com/account/rate-limits to learn more.\",\n        \"type\": \"req || https://uwm.edu/cie/international-admissions/: no usable prereq list",
+  "lastAttempt": "2026-08-24T17:26:02.361Z",
+  "attempts": 3,
+  "error": "https://uwm.edu/graduateschool/students/admission/: no usable prereq list || https://uwm.edu/admission/: no usable prereq list || https://uwm.edu/cie/international-admissions/: no usable prereq list",
   "pipelineGen": 9,
   "sourceUrl": "https://uwm.edu/undergrad-admission/apply/new-freshman/"
  },
@@ -8709,11 +8707,11 @@
  },
  "2832": {
   "stage": "failed",
-  "lastAttempt": "2026-08-24T16:03:00.455Z",
-  "attempts": 2,
+  "lastAttempt": "2026-08-24T17:26:19.552Z",
+  "attempts": 3,
   "pipelineGen": 9,
   "sourceUrl": "https://www.wcupa.edu/",
-  "error": "https://www.wcupa.edu/healthSciences/health/MPH/admissionRequirements.aspx: no usable prereq list || https://www.wcupa.edu/healthSciences/physicianAssistant/admissionsRequirements.aspx: no usable prereq list || https://www.wcupa.edu/sciences-mathematics/biology/admissionRequirements.aspx: no usable prereq list"
+  "error": "program timeout after 420s"
  },
  "2833": {
   "stage": "finalized",
