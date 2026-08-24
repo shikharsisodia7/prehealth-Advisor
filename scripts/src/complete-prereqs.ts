@@ -1072,6 +1072,41 @@ interface ProgramRow {
   prereqCourses: PrereqItem[] | null;
 }
 
+/**
+ * True when a URL is this institution's official course catalog hosted on a catalog vendor.
+ *
+ * Universities publish the catalog -- an authoritative source for prerequisite coursework --
+ * under an institution-named subdomain on a vendor platform (unco.smartcatalogiq.com,
+ * <school>.acalog.com). The vendor's registrable domain shares no text with the school name,
+ * so the host-name heuristic refuses it. Matching the vendor subdomain against the
+ * institution's own .edu label is exact: "unco" in unco.smartcatalogiq.com is the same label
+ * as unco.edu, which we already hold for the program.
+ */
+const CATALOG_VENDOR_HOST =
+  /\.(smartcatalogiq\.com|acalog\.com|courseleaf\.com|coursedog\.com|elluciancloud\.com)$/i;
+
+function isOfficialCatalogMirror(url: string, program: ProgramRow): boolean {
+  try {
+    const host = new URL(url).hostname.replace(/^www\./i, "").toLowerCase();
+    if (!CATALOG_VENDOR_HOST.test(host)) return false;
+    const label = host.split(".")[0];
+    if (label.length < 3) return false;
+    for (const known of [program.websiteUrl, program.sourceUrl]) {
+      if (!known) continue;
+      try {
+        const knownHost = new URL(known).hostname.replace(/^www\./i, "").toLowerCase();
+        const knownLabel = knownHost.replace(/\.(edu|org|com|net)$/i, "").split(".").pop() ?? "";
+        if (knownLabel.length >= 3 && knownLabel === label) return true;
+      } catch {
+        /* skip unparseable */
+      }
+    }
+    return false;
+  } catch {
+    return false;
+  }
+}
+
 function looksLikeOfficialProgramUrl(url: string, program: ProgramRow): boolean {
   try {
     const u = new URL(url);
@@ -2116,7 +2151,7 @@ async function processProgram(program: ProgramRow): Promise<string> {
   }
 
   setState(program.id, { stage: "validated" });
-  if (websiteConflictsWithInstitution(best.fetched.url, program.name)) {
+  if (websiteConflictsWithInstitution(best.fetched.url, program.name) && !isOfficialCatalogMirror(best.fetched.url, program)) {
     setState(program.id, { stage: "failed", error: `refusing mismatched institution URL ${best.fetched.url}` });
     return "failed";
   }
