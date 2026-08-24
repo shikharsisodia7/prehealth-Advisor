@@ -2189,7 +2189,16 @@ async function processProgramInner(program: ProgramRow): Promise<string> {
   // Phase timing. Programs were exceeding a 420s budget and neither the crawl deadline nor the
   // render cap explained it, so record where the time actually goes instead of guessing again.
   const phaseStart = Date.now();
-  const candidates = await discoverCandidates(program);
+  // Bound discovery as a whole, not just the crawl inside it. Subdomain probing, CMS search
+  // and sitemap traversal sit outside the crawl deadline, and together they were measured at
+  // 116-183s; added to the extraction queue that is the entire 420s program budget, which is
+  // why bare-homepage speech-language-pathology programs timed out with nothing to show.
+  // Whatever has been discovered when the deadline passes is still used.
+  const DISCOVERY_BUDGET_MS = Number(process.env.COMPLETION_DISCOVERY_BUDGET_MS || 150_000);
+  const candidates = await Promise.race([
+    discoverCandidates(program),
+    new Promise<string[]>((resolve) => setTimeout(() => resolve([]), DISCOVERY_BUDGET_MS)),
+  ]);
   const discoveryMs = Date.now() - phaseStart;
   if (discoveryMs > 60_000) {
     console.warn(`[timing] ${program.id} discovery took ${Math.round(discoveryMs / 1000)}s (${candidates.length} candidates)`);
