@@ -80,6 +80,13 @@ function loadRepoDotEnv() {
 loadRepoDotEnv();
 
 const OPENAI_KEY = process.env.OPENAI_API_KEY ?? "";
+// Additional extraction providers. Both offer free tiers far above OpenAI's per-day request
+// cap and both answered faster than gpt-4o-mini in testing, so extraction no longer stalls
+// when any one provider is rate-limited.
+const GROQ_KEY = process.env.GROQ_API_KEY ?? "";
+const GROQ_MODEL = process.env.COMPLETION_GROQ_MODEL || "openai/gpt-oss-120b";
+const GEMINI_KEY = process.env.GEMINI_API_KEY ?? "";
+const GEMINI_MODEL = process.env.COMPLETION_GEMINI_MODEL || "gemini-2.5-flash";
 let JINA_KEY = process.env.JINA_API_KEY ?? "";
 let jinaDisabledReason = "";
 function disableJina(reason: string) {
@@ -1311,6 +1318,20 @@ function scoreCandidateUrl(url: string, program: ProgramRow): number {
         !hasGradOrProfessionPath(hay)) {
       score -= 8;
     }
+    // A university-wide graduate-admissions page scores well on generic keywords (.edu +5,
+    // "requirement" +4, "admiss" +3) while naming no specific programme, so it kept outranking
+    // the department page that actually lists the coursework -- speech-language-pathology
+    // programs were repeatedly extracting grad.uconn.edu/admissions/requirements and
+    // gradschool.fsu.edu instead of their own CSD department. Demote generic graduate-intake
+    // pages that carry no profession signal at all.
+    const mentionsProfession =
+      professionKeywords(program.professionSlug).some(
+        (k) => hay.includes(normalize(k).replace(/ /g, "-")) || hay.includes(normalize(k).replace(/ /g, "")),
+      ) || /csd|slp|speech|communicat|nursing|dpt|otd|pharm|dental|physician-assistant|dietet|optometr|podiatr|veterin/.test(hay);
+    if (!mentionsProfession &&
+        /^(grad|gradschool|graduate|admissions?)\.|\/(graduate|grad)-?(school|admissions?|studies)|\/admissions?\/(requirements?|apply|international|graduate)/.test(hay)) {
+      score -= 10;
+    }
     if (/\/news\/|news-and-media|white-coat|videos?\/|spotlight|laptop-requirements|summer-camp|blog\//i.test(hay)) {
       score -= 10;
     }
@@ -1935,42 +1956,142 @@ async function extractWithOpenAIInner(program: ProgramRow, pageText: string, url
       },
     ],
   };
-  let lastError: Error | null = null;
-  for (let attempt = 0; attempt < 4; attempt++) {
-    const res = await fetch("https://api.openai.com/v1/chat/completions", {
-      method: "POST",
-      headers: { authorization: `Bearer ${OPENAI_KEY}`, "content-type": "application/json" },
-      body: JSON.stringify(payload),
-      signal: AbortSignal.timeout(120_000),
-    });
-    if (res.ok) {
-      const body = (await res.json()) as { choices: Array<{ message: { content: string } }> };
-      return JSON.parse(body.choices[0].message.content) as Extraction;
+  return runExtractionProviders(payload);
+}
+
+/**
+ * Extraction providers, tried in order until one answers.
+ *
+ * OpenAI alone capped completion at its per-day request limit: measured capacity was ~240
+ * calls an hour against hundreds of programs needing several calls each. Groq and Gemini each
+ * offer a free tier well above that and both answered faster than OpenAI in testing
+ * (gpt-oss-20b 429ms, flash-lite 753ms, against gpt-4o-mini's 1.3s), so a provider being
+ * rate-limited no longer stalls the queue -- it just moves to the next one.
+ *
+ * Every provider is asked for the SAME strict JSON schema and the same no-fabrication system
+ * prompt, and every result goes through validExtraction, whose evidence-quote check is
+ * verified against the full page text. So which provider answered cannot change what counts
+ * as acceptable evidence.
+ */
+type ProviderName = "openai" | "groq" | "gemini";
+const providerDeadUntil: Record<string, number> = {};
+
+/** Gemini's responseSchema rejects additionalProperties; strip it recursively. */
+function geminiSchema(schema: unknown): unknown {
+  if (Array.isArray(schema)) return schema.map(geminiSchema);
+  if (schema && typeof schema === "object") {
+    const out: Record<string, unknown> = {};
+    for (const [k, v] of Object.entries(schema as Record<string, unknown>)) {
+      if (k === "additionalProperties" || k === "strict") continue;
+      out[k] = geminiSchema(v);
     }
-    const errBody = await res.text().catch(() => "");
-    lastError = new Error(`OpenAI HTTP ${res.status}: ${errBody.slice(0, 300)}`);
-    // A dead account (no credits, revoked key) fails identically on every subsequent call —
-    // trip the breaker immediately instead of burning a 4-attempt backoff per remaining program.
-    if (res.status === 401 || /insufficient_quota|credit_balance_exhausted/i.test(errBody)) {
-      disableOpenAI(`HTTP ${res.status} ${errBody.slice(0, 120)}`);
-      throw lastError;
-    }
-    if (res.status === 429 || res.status >= 500) {
-      // Honour Retry-After. The account sits at gpt-4o-mini's per-day request cap, but that
-      // limiter is a rolling one that frees requests continuously -- it answers 429 with
-      // "try again in ~9s", not a day. Blind 12/24/48s backoff therefore slept far longer
-      // than needed, which is why a 1.3s API call presented as a 109-183s extraction and
-      // programs blew their time budget waiting.
-      const retryAfter = Number(res.headers.get("retry-after"));
-      const waitMs = Number.isFinite(retryAfter) && retryAfter > 0
-        ? Math.min(retryAfter * 1000 + 500, 30_000)
-        : Math.min(3_000 * 2 ** attempt, 30_000);
-      await new Promise((r) => setTimeout(r, waitMs));
-      continue;
-    }
-    throw lastError;
+    return out;
   }
-  throw lastError ?? new Error("OpenAI extraction failed");
+  return schema;
+}
+
+async function callOpenAiCompatible(
+  name: ProviderName,
+  url: string,
+  key: string,
+  model: string,
+  payload: any,
+): Promise<{ ok: true; value: Extraction } | { ok: false; status: number; body: string; retryAfter?: number }> {
+  const res = await fetch(url, {
+    method: "POST",
+    headers: { authorization: `Bearer ${key}`, "content-type": "application/json" },
+    body: JSON.stringify({ ...payload, model }),
+    signal: AbortSignal.timeout(120_000),
+  });
+  if (res.ok) {
+    const body = (await res.json()) as { choices: Array<{ message: { content: string } }> };
+    return { ok: true, value: JSON.parse(body.choices[0].message.content) as Extraction };
+  }
+  const body = await res.text().catch(() => "");
+  const ra = Number(res.headers.get("retry-after"));
+  return { ok: false, status: res.status, body, retryAfter: Number.isFinite(ra) ? ra : undefined };
+}
+
+async function callGemini(key: string, model: string, payload: any): Promise<Extraction> {
+  const system = payload.messages.find((m: any) => m.role === "system")?.content ?? "";
+  const user = payload.messages.find((m: any) => m.role === "user")?.content ?? "";
+  const res = await fetch(
+    `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${encodeURIComponent(key)}`,
+    {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({
+        contents: [{ parts: [{ text: `${system}\n\n${user}` }] }],
+        generationConfig: {
+          temperature: 0,
+          responseMimeType: "application/json",
+          responseSchema: geminiSchema(EXTRACTION_SCHEMA),
+        },
+      }),
+      signal: AbortSignal.timeout(120_000),
+    },
+  );
+  if (!res.ok) {
+    const b = await res.text().catch(() => "");
+    const err = new Error(`Gemini HTTP ${res.status}: ${b.slice(0, 200)}`);
+    if (res.status === 429 || res.status >= 500) providerDeadUntil.gemini = Date.now() + 60_000;
+    throw err;
+  }
+  const json = (await res.json()) as any;
+  const text = json.candidates?.[0]?.content?.parts?.[0]?.text ?? "";
+  return JSON.parse(text) as Extraction;
+}
+
+async function runExtractionProviders(payload: any): Promise<Extraction> {
+  const chain: Array<{ name: ProviderName; run: () => Promise<Extraction> }> = [];
+
+  if (OPENAI_KEY && !openaiDisabledReason) {
+    chain.push({
+      name: "openai",
+      run: async () => {
+        const r = await callOpenAiCompatible("openai", "https://api.openai.com/v1/chat/completions", OPENAI_KEY, OPENAI_MODEL, payload);
+        if (r.ok) return r.value;
+        if (r.status === 401 || /insufficient_quota|credit_balance_exhausted/i.test(r.body)) {
+          disableOpenAI(`HTTP ${r.status} ${r.body.slice(0, 120)}`);
+        } else if (r.status === 429 || r.status >= 500) {
+          providerDeadUntil.openai = Date.now() + Math.min((r.retryAfter ?? 10) * 1000 + 500, 30_000);
+        }
+        throw new Error(`OpenAI HTTP ${r.status}: ${r.body.slice(0, 200)}`);
+      },
+    });
+  }
+  if (GROQ_KEY) {
+    chain.push({
+      name: "groq",
+      run: async () => {
+        const r = await callOpenAiCompatible("groq", "https://api.groq.com/openai/v1/chat/completions", GROQ_KEY, GROQ_MODEL, payload);
+        if (r.ok) return r.value;
+        if (r.status === 429 || r.status >= 500) {
+          providerDeadUntil.groq = Date.now() + Math.min((r.retryAfter ?? 10) * 1000 + 500, 60_000);
+        }
+        throw new Error(`Groq HTTP ${r.status}: ${r.body.slice(0, 200)}`);
+      },
+    });
+  }
+  if (GEMINI_KEY) {
+    chain.push({ name: "gemini", run: () => callGemini(GEMINI_KEY, GEMINI_MODEL, payload) });
+  }
+
+  let lastError: Error | null = null;
+  // Two passes: the second gives a provider that was briefly rate-limited a chance to recover
+  // rather than failing the program outright.
+  for (let pass = 0; pass < 2; pass++) {
+    for (const p of chain) {
+      if ((providerDeadUntil[p.name] ?? 0) > Date.now()) continue;
+      try {
+        return await p.run();
+      } catch (e) {
+        lastError = e instanceof Error ? e : new Error(String(e));
+      }
+    }
+    if (pass === 0 && chain.length) await new Promise((r) => setTimeout(r, 4_000));
+  }
+  throw lastError ?? new Error("all extraction providers failed");
 }
 
 // ── Validation + persistence ─────────────────────────────────────────────────
