@@ -581,11 +581,73 @@ async function withSearchLock<T>(fn: () => Promise<T>): Promise<T> {
   searchChain = new Promise<void>((r) => { release = r; });
   await prev;
   try {
-    await new Promise((r) => setTimeout(r, 1200));
+    // Keyless engines were measured reliable at ~2.5s spacing; tighter pacing is what
+    // rate-limits them.
+    await new Promise((r) => setTimeout(r, Number(process.env.COMPLETION_SEARCH_DELAY_MS || 2500)));
     return await fn();
   } finally {
     release();
   }
+}
+
+/**
+ * Keyless search backends that still work from this host.
+ *
+ * The conclusion that "every search engine is blocked" came from testing
+ * html.duckduckgo.com, which rate-limits after about two queries. The LITE endpoint behaves
+ * completely differently: measured across six stuck programs at ~2.5s spacing it returned the
+ * institution's own pages 6/6 times with no errors, where Brave HTML managed 2/6 (four 429s)
+ * and Marginalia 4/6. None needs an API key, an account or payment.
+ *
+ * Ordered by that measured reliability. Everything returned is filtered downstream by
+ * looksLikeOfficialProgramUrl, so these only ever DISCOVER a candidate -- the evidence still
+ * has to come from the institution's own domain.
+ */
+function extractResultUrls(html: string): string[] {
+  const urls = new Set<string>();
+  for (const m of html.matchAll(/https?:\/\/[^"'<> )\\]+/g)) {
+    const u = m[0].replace(/&amp;/g, "&").replace(/[.,)]+$/, "");
+    if (/duckduckgo\.com|brave\.com|marginalia\.nu|w3\.org|schema\.org|gstatic|googleapis/i.test(u)) continue;
+    if (u.length > 300) continue;
+    urls.add(u);
+  }
+  return [...urls].slice(0, 12);
+}
+
+async function duckDuckGoLiteSearch(query: string): Promise<string[]> {
+  const res = await fetch("https://lite.duckduckgo.com/lite/", {
+    method: "POST",
+    headers: {
+      "user-agent": USER_AGENT,
+      "content-type": "application/x-www-form-urlencoded",
+      accept: "text/html",
+    },
+    body: `q=${encodeURIComponent(query)}`,
+    signal: AbortSignal.timeout(15_000),
+    redirect: "follow",
+  });
+  if (!res.ok) throw new Error(`DuckDuckGo lite HTTP ${res.status}`);
+  return extractResultUrls(await res.text());
+}
+
+async function marginaliaSearch(query: string): Promise<string[]> {
+  const res = await fetch(`https://old-search.marginalia.nu/search?query=${encodeURIComponent(query)}`, {
+    headers: { "user-agent": USER_AGENT, accept: "text/html" },
+    signal: AbortSignal.timeout(15_000),
+    redirect: "follow",
+  });
+  if (!res.ok) throw new Error(`Marginalia HTTP ${res.status}`);
+  return extractResultUrls(await res.text());
+}
+
+async function braveHtmlSearch(query: string): Promise<string[]> {
+  const res = await fetch(`https://search.brave.com/search?q=${encodeURIComponent(query)}`, {
+    headers: { "user-agent": USER_AGENT, accept: "text/html", "accept-language": "en-US,en;q=0.9" },
+    signal: AbortSignal.timeout(15_000),
+    redirect: "follow",
+  });
+  if (!res.ok) throw new Error(`Brave HTML HTTP ${res.status}`);
+  return extractResultUrls(await res.text());
 }
 
 async function duckDuckGoSearch(query: string): Promise<string[]> {
@@ -753,7 +815,7 @@ async function tryEngine(
 
 /** True when every general search backend is currently circuit-open. */
 export function allSearchEnginesDown(): boolean {
-  return ["keenable", "firecrawl", "google", "bing", "duckduckgo"].every((e) => !engineAvailable(e));
+  return ["keenable", "firecrawl", "ddglite", "marginalia", "bravehtml", "google", "bing", "duckduckgo"].every((e) => !engineAvailable(e));
 }
 
 async function webSearch(query: string): Promise<string[]> {
@@ -767,6 +829,20 @@ async function webSearch(query: string): Promise<string[]> {
     }
     if (FIRECRAWL_KEY) {
       const r = await tryEngine("firecrawl", () => firecrawlSearch(query), (u) => u);
+      if (r) return r;
+    }
+    // Keyless engines first: measured 6/6 for DuckDuckGo lite, 4/6 Marginalia, 2/6 Brave,
+    // against 0/6 for the Google and Bing scrapers, which only serve bot-challenge pages.
+    {
+      const r = await tryEngine("ddglite", () => duckDuckGoLiteSearch(query), (u) => u.filter((x) => !BLOCKED_SEARCH_HOSTS.test(x)));
+      if (r) return r;
+    }
+    {
+      const r = await tryEngine("marginalia", () => marginaliaSearch(query), (u) => u.filter((x) => !BLOCKED_SEARCH_HOSTS.test(x)));
+      if (r) return r;
+    }
+    {
+      const r = await tryEngine("bravehtml", () => braveHtmlSearch(query), (u) => u.filter((x) => !BLOCKED_SEARCH_HOSTS.test(x)));
       if (r) return r;
     }
     {
@@ -929,6 +1005,11 @@ function websiteConflictsWithInstitution(url: string, name: string): boolean {
     // not department subdomains that previously caused false "mismatched institution" rejects.
     const labels = host.replace(/\.(edu|org|com|net|gov)$/i, "").split(".");
     const base = labels[labels.length - 1] ?? "";
+    // Short .edu labels are accepted: universities use opaque acronyms and contractions that
+    // share no text with their name (lmunet, iupuc, uiw, valpo, emich, mnsu, wustl, uchc), so
+    // judging them by spelling produces overwhelmingly false rejections -- an acronym-based
+    // rule flagged 309 active rows of which all but two were correct. Wrong seeds of this kind
+    // are caught by seedMentionsInstitution below, which reads the page instead of the domain.
     if (base.length <= 6 && /\.edu$/i.test(host)) return false; // tcnj, uccs, bsu, uw, nau
     const hostWords = [base].filter((w) => w.length >= 6 && !DEPARTMENT_SUBDOMAIN_WORDS.has(w));
     return hostWords.some((w) => !nameNorm.includes(w) && !institutionTokens(name).some((t) => w.includes(t) || t.includes(w)));
