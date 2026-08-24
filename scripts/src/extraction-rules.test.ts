@@ -12,6 +12,8 @@ describe("entityLabelMatchesInstitution", () => {
     ["University of Texas at San Antonio", "The University of Texas at San Antonio"],
     ["Iowa State University", "Iowa State University"],
     ["Appalachian State University", "Appalachian State University"],
+    // Directory data hyphenates the campus where Wikidata writes "at".
+    ["University of North Carolina at Greensboro", "University of North Carolina-Greensboro"],
   ])("matches the same institution: %s ~ %s", (label, name) => {
     expect(entityLabelMatchesInstitution(label, name)).toBe(true);
   });
