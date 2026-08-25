@@ -154,7 +154,13 @@ type Stage =
 //
 // 341 of the 421 remaining programs were locked out by gen 9's attempt limit and had never
 // been tried against any of that.
-const CURRENT_PIPELINE_GEN = 10;
+// Gen 11: metered search (Serper/Tavily) is now available and the query cap can be raised.
+// The 240 programs left after gen 10 are overwhelmingly "page found, but no prerequisite list
+// on it" -- discovery reaching *a* page rather than *the* page. Query depth was capped at 1
+// while the only search was free engines that throttled; with roughly 2,000 metered queries
+// still unspent against 240 programs, several targeted queries each is affordable and is a
+// materially different attempt rather than a repeat of the same work.
+const CURRENT_PIPELINE_GEN = 11;
 
 interface ProgramState {
   stage: Stage;
