@@ -859,12 +859,11 @@
   "finalStatus": "verified"
  },
  "457": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-25T00:24:11.446Z",
-  "attempts": 1,
+  "stage": "source_discovery",
+  "lastAttempt": "2026-08-25T01:04:40.501Z",
+  "attempts": 2,
   "pipelineGen": 10,
-  "sourceUrl": "https://health.uconn.edu/",
-  "error": "program timeout after 420s"
+  "sourceUrl": "https://health.uconn.edu/"
  },
  "458": {
   "stage": "finalized",
@@ -990,11 +989,11 @@
  },
  "478": {
   "stage": "failed",
-  "lastAttempt": "2026-08-25T00:22:24.975Z",
-  "attempts": 1,
+  "lastAttempt": "2026-08-25T01:08:30.834Z",
+  "attempts": 2,
   "pipelineGen": 10,
   "sourceUrl": "https://www.rush.edu/locations?specialty=1286&amp;sort=asc&amp;page=0",
-  "error": "https://www.rushu.rush.edu/education-training/graduate-medical-education: no usable prereq list || https://www.rush.edu/schedule-your-medical-appointment-rush: no usable prereq list || https://www.rush.edu/medical-professional-resources/refer-or-transfer-patient: no usable prereq list || https://www.rush.edu/locations/rush-university-medical-center: no usable prereq list"
+  "error": "https://www.rushu.rush.edu/education-training/graduate-medical-education: no usable prereq list || https://www.rush.edu/schedule-your-medical-appointment-rush: no usable prereq list || https://www.rush.edu/medical-professional-resources/refer-or-transfer-patient: no usable prereq list"
  },
  "479": {
   "stage": "finalized",
@@ -1054,11 +1053,11 @@
  },
  "487": {
   "stage": "failed",
-  "lastAttempt": "2026-08-25T00:27:26.421Z",
-  "attempts": 1,
+  "lastAttempt": "2026-08-25T01:07:21.191Z",
+  "attempts": 2,
   "pipelineGen": 10,
-  "sourceUrl": "https://medschool.lsuhsc.edu/medical_education/undergraduate/curriculum.aspx",
-  "error": "https://medschool.lsuhsc.edu/nutrition_curriculum_initiative/default.aspx: no usable prereq list"
+  "sourceUrl": "https://www.medschool.lsuhsc.edu/",
+  "error": "https://medschool.lsuhsc.edu/medical_education/cme/cds_opioid_training.aspx: no usable prereq list || https://medschool.lsuhsc.edu/nutrition_curriculum_initiative/default.aspx: no usable prereq list"
  },
  "488": {
   "stage": "finalized",
@@ -1489,12 +1488,11 @@
   "error": "program timeout after 420s"
  },
  "555": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-25T00:24:06.881Z",
-  "attempts": 1,
+  "stage": "extracted",
+  "lastAttempt": "2026-08-25T01:09:54.528Z",
+  "attempts": 2,
   "pipelineGen": 10,
-  "sourceUrl": "https://phsu.edu/",
-  "error": "https://phsu.edu/academics/schools/schools_of_medicine/school-of-medicine-pr-us.php: no usable prereq list || https://phsu.edu/academics/programs/doctor-of-medicine-lcme.php: no usable prereq list || https://phsu.edu/academics/programs/doctor-of-medicine-accm.php: no usable prereq list || https://catalog.phsu.edu/: no usable prereq list"
+  "sourceUrl": "https://phsu.edu/"
  },
  "556": {
   "stage": "finalized",
@@ -1723,11 +1721,11 @@
  },
  "589": {
   "stage": "failed",
-  "lastAttempt": "2026-08-25T00:20:36.635Z",
-  "attempts": 1,
+  "lastAttempt": "2026-08-25T01:08:05.697Z",
+  "attempts": 2,
   "pipelineGen": 10,
-  "sourceUrl": "https://www.marshallmedical.org/locations/family-medicine-placerville/",
-  "error": "https://www.marshallmedical.org/: no usable prereq list || https://www.marshallmedical.org/our-services/family-medicine/: no usable prereq list || https://www.marshallmedical.org/our-services/internal-medicine/: no usable prereq list || https://www.marshallmedical.org/our-services/medical-weight-loss/: no usable prereq list"
+  "sourceUrl": "https://www.marshallmedical.org/our-services/",
+  "error": "https://www.marshallmedical.org/: no usable prereq list || https://www.marshallmedical.org/our-services/family-medicine/: no usable prereq list || https://www.marshallmedical.org/our-services/internal-medicine/: no usable prereq list"
  },
  "590": {
   "stage": "finalized",
@@ -3319,11 +3317,11 @@
  },
  "1424": {
   "stage": "failed",
-  "lastAttempt": "2026-08-25T00:22:02.357Z",
-  "attempts": 1,
+  "lastAttempt": "2026-08-25T01:10:21.520Z",
+  "attempts": 2,
   "pipelineGen": 10,
   "sourceUrl": "https://lipscomb.edu/admissions/international-admissions/admission-requirements",
-  "error": "https://lipscomb.edu/admissions/freshmen-admissions/freshmen-admission-requirements: no usable prereq list || https://lipscomb.edu/admissions/non-traditional-admissions/non-traditional-admission-requirements: no usable prereq list || https://lipscomb.edu/admissions/freshmen-admissions/freshmen-admission-requirements/test-optional-admission-process: no usable prereq list || https://lipscomb.edu/admissions/freshmen-admissions/freshmen-admission-requirements/math-placement-test: no usable prereq li"
+  "error": "https://lipscomb.edu/admissions/freshmen-admissions/freshmen-admission-requirements: no usable prereq list || https://lipscomb.edu/admissions/non-traditional-admissions/non-traditional-admission-requirements: no usable prereq list || https://lipscomb.edu/admissions/freshmen-admissions/freshmen-admission-requirements/test-optional-admission-process: no usable prereq list"
  },
  "1425": {
   "stage": "finalized",
@@ -6378,12 +6376,11 @@
   "finalStatus": "verified"
  },
  "2216": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-25T00:25:29.222Z",
-  "attempts": 1,
+  "stage": "source_discovery",
+  "lastAttempt": "2026-08-25T01:10:22.115Z",
+  "attempts": 2,
   "pipelineGen": 10,
-  "sourceUrl": "https://www.avila.edu/admissions/graduate/",
-  "error": "https://www.avila.edu/academics/school-of-education/graduate-programs/grad-ed-admission-requirements/: no usable prereq list || https://www.avila.edu/admissions/undergraduate/: no usable prereq list"
+  "sourceUrl": "https://www.avila.edu/admissions/graduate/"
  },
  "2217": {
   "stage": "failed",
@@ -7594,12 +7591,11 @@
   "error": "https://case.edu/admission/academics: no usable prereq list || https://case.edu/admission/academics/areas-study/performing-arts: no usable prereq list || https://case.edu/admission/: no usable prereq list || https://case.edu/admission/apply/deadlines-and-requirements: no usable prereq list"
  },
  "2479": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-25T00:22:06.457Z",
-  "attempts": 1,
+  "stage": "extracted",
+  "lastAttempt": "2026-08-25T01:10:15.707Z",
+  "attempts": 2,
   "pipelineGen": 10,
-  "sourceUrl": "https://case.edu/admission/apply/deadlines-and-requirements",
-  "error": "https://case.edu/admission/academics: no usable prereq list || https://case.edu/admission/academics/areas-study/performing-arts: no usable prereq list || https://case.edu/admission/: no usable prereq list || https://case.edu/admission/apply/deadlines-and-requirements: no usable prereq list"
+  "sourceUrl": "https://case.edu/admission/apply/deadlines-and-requirements"
  },
  "2481": {
   "stage": "finalized",
