@@ -2312,13 +2312,25 @@ async function persistResult(
 // ── Per-program pipeline ─────────────────────────────────────────────────────
 
 async function extractPdfText(url: string): Promise<Fetched> {
-  await politeDelay(url);
-  const res = await fetch(url, {
-    headers: { "user-agent": USER_AGENT, accept: "application/pdf,*/*" },
-    redirect: "follow",
-    signal: AbortSignal.timeout(45_000),
-  });
-  if (!res.ok) throw new Error(`PDF HTTP ${res.status}`);
+  // A single 403 is not treated as permanent here, unlike the HTML path. Eastern Michigan's
+  // orthotics handbook answered 403 once and 200 on every retry seconds later, so the program
+  // was recorded as having no usable prerequisite list because of momentary WAF throttling.
+  let res: Response | undefined;
+  let lastStatus = 0;
+  for (let attempt = 0; attempt < 3; attempt++) {
+    await politeDelay(url);
+    if (attempt > 0) await new Promise((r) => setTimeout(r, 1500 * attempt));
+    const r = await fetch(url, {
+      headers: { "user-agent": USER_AGENT, accept: "application/pdf,*/*" },
+      redirect: "follow",
+      signal: AbortSignal.timeout(45_000),
+    });
+    if (r.ok) { res = r; break; }
+    lastStatus = r.status;
+    // 404/410 really are permanent; throttling responses are worth another attempt.
+    if (r.status === 404 || r.status === 410) break;
+  }
+  if (!res) throw new Error(`PDF HTTP ${lastStatus}`);
   const buf = Buffer.from(await res.arrayBuffer());
   if (buf.length < 100) throw new Error("PDF too small");
   // Some "download?inline" endpoints return HTML error shells — require a real PDF header.
@@ -2428,11 +2440,15 @@ async function fetchWithFallback(url: string): Promise<Fetched> {
     if (FIRECRAWL_KEY) {
       try { return await firecrawlScrape(url); } catch { /* fall through to local PDF extract */ }
     }
-    try { return await extractPdfText(url); } catch { /* try Jina on PDF URLs */ }
+    // Keep the underlying reason: "PDF extract failed" alone cannot distinguish a blocked
+    // fetch from an unparseable file, and the verification note is the audit trail for why a
+    // program was left unfinished.
+    let pdfError = "no PDF reader available";
+    try { return await extractPdfText(url); } catch (e) { pdfError = (e as Error).message; }
     if (JINA_KEY) {
       try { return await fetchJinaReader(url); } catch { /* fall through */ }
     }
-    throw new Error(`PDF extract failed for ${url}`);
+    throw new Error(`PDF extract failed for ${url}: ${pdfError}`);
   }
   try {
     const fetched = await fetchOfficial(url);
