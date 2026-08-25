@@ -61,10 +61,17 @@ export function entityLabelMatchesInstitution(label: string, name: string): bool
   // university".
   let identityMatches: boolean;
   if (shorter.length < 2) {
-    const phrase = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
-    const a2 = phrase(label);
-    const b2 = phrase(name);
-    identityMatches = a2.length >= 6 && (b2.includes(a2) || a2.includes(b2));
+    // Containment is compared over whole words, not raw text. Substring containment let a name
+    // that is a PREFIX of a different school match it -- "university of maryland" contains the
+    // string "university of mary", so University of Mary (Bismarck, ND) resolved to umd.edu.
+    const phraseWords = (s: string) =>
+      s.toLowerCase().normalize("NFKD").replace(/[̀-ͯ]/g, "").split(/[^a-z0-9]+/).filter(Boolean);
+    const contains = (hay: string[], needle: string[]) =>
+      needle.length > 0 &&
+      hay.some((_, i) => needle.every((w, j) => hay[i + j] === w));
+    const a2 = phraseWords(label);
+    const b2 = phraseWords(name);
+    identityMatches = a2.join(" ").length >= 6 && (contains(b2, a2) || contains(a2, b2));
   } else {
     const longerSet = new Set(longer);
     identityMatches = shorter.every((w) => longerSet.has(w));

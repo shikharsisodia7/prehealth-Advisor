@@ -37,6 +37,11 @@ describe("entityLabelMatchesInstitution", () => {
     ["University of North Carolina", "University of North Carolina-Greensboro"],
     ["University of California", "University of California, San Diego"],
     ["Pennsylvania State University", "Pennsylvania State University-Harrisburg"],
+    // Phrase containment compared raw text, so a name that is a PREFIX of a different school's
+    // name matched it: "university of maryland".includes("university of mary") is true, and
+    // University of Mary (Bismarck, ND) was resolved to umd.edu.
+    ["University of Maryland", "University of Mary"],
+    ["University of Mary", "University of Maryland"],
   ])("rejects a different institution: %s vs %s", (label, name) => {
     expect(entityLabelMatchesInstitution(label, name)).toBe(false);
   });
