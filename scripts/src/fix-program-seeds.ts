@@ -216,6 +216,29 @@ const ONLY = (() => {
   return i >= 0 ? new Set(process.argv[i + 1]!.split(",").map(Number)) : null;
 })();
 
+/**
+ * Third route to an institution's domain, for schools Wikidata has no confirmable entity for.
+ *
+ * Every unfinished row comes from an accreditor directory, so the institution itself is
+ * authoritative even when its stored URL is junk. The candidate domain still has to pass the
+ * same front-page identity test as the other routes, so this widens what can be looked up
+ * without lowering what counts as proof.
+ */
+async function officialDomainViaSearch(name: string): Promise<string> {
+  let links: string[];
+  try { links = await serper(`${name} official website`); } catch { return ""; }
+  const seen = new Set<string>();
+  for (const link of links.slice(0, 6)) {
+    if (BANNED.test(link)) continue;
+    let d = "";
+    try { d = registrable(new URL(link).hostname); } catch { continue; }
+    if (!d || seen.has(d)) continue;
+    seen.add(d);
+    if (await domainSelfIdentifies(d, name)) return d;
+  }
+  return "";
+}
+
 const rows = await db.execute(sql.raw(`
   select id, name, profession_slug, website_url
   from program_schools
@@ -228,7 +251,8 @@ for (const r of rows.rows as any[]) {
   if (ONLY && !ONLY.has(Number(r.id))) continue;
   const res = await officialDomain(r.name);
   if (res.error) { console.log(`ERROR  ${r.id} ${String(r.name).slice(0, 34).padEnd(36)} wikidata ${res.error}`); continue; }
-  const official = res.domain;
+  let official = res.domain;
+  if (!official) official = await officialDomainViaSearch(r.name);
   const seedHost = (() => { try { return new URL(r.website_url).hostname.replace(/^www\./, ""); } catch { return ""; } })();
   const seedDomain = seedHost ? registrable(seedHost) : "";
   const seedTrusted = seedDomain !== "" && (seedDomain === official || (await domainSelfIdentifies(seedDomain, r.name)));
