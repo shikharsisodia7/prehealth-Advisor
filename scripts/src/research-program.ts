@@ -13,6 +13,12 @@ import { db } from "@workspace/db";
 import fs from "node:fs";
 import path from "node:path";
 import { entityLabelMatchesInstitution } from "./extraction-rules.js";
+import { SearchBudget } from "./search-budget.js";
+
+const budget = new SearchBudget(path.join(process.cwd(), "..", "data", "search-usage.json"), {
+  serper: Number(process.env.COMPLETION_SERPER_CAP || 2_000),
+  tavily: Number(process.env.COMPLETION_TAVILY_CAP || 800),
+});
 
 const UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36";
 const argVal = (flag: string): string | null => {
@@ -86,8 +92,19 @@ async function pageText(b: Browser, url: string): Promise<Got> {
   }
 }
 
-/** DuckDuckGo's html endpoint needs no key and honours site: restriction. */
-async function ddg(query: string): Promise<string[]> {
+let searchFailures = 0;
+let searchCalls = 0;
+
+/**
+ * Site-restricted search.
+ *
+ * DuckDuckGo's html endpoint needs no key, but it now answers a burst of site: queries with a
+ * challenge page: HTTP 202 carrying no results. Returning [] for that made every row look like
+ * "nothing published" when nothing had actually been searched, so it is tried first and Serper
+ * is used when it comes back empty. Failures are counted and reported rather than swallowed.
+ */
+async function search(query: string): Promise<string[]> {
+  searchCalls++;
   try {
     const res = await fetch("https://html.duckduckgo.com/html/", {
       method: "POST",
@@ -95,14 +112,32 @@ async function ddg(query: string): Promise<string[]> {
       body: new URLSearchParams({ q: query }).toString(),
       signal: AbortSignal.timeout(20000),
     });
-    if (!res.ok) return [];
-    const html = await res.text();
-    const out: string[] = [];
-    for (const m of html.matchAll(/uddg=([^&"]+)/g)) {
-      try { out.push(decodeURIComponent(m[1]!)); } catch { /* skip malformed */ }
+    if (res.ok) {
+      const html = await res.text();
+      const out: string[] = [];
+      for (const m of html.matchAll(/uddg=([^&"]+)/g)) {
+        try { out.push(decodeURIComponent(m[1]!)); } catch { /* skip malformed */ }
+      }
+      const links = [...new Set(out)].filter((u) => /^https?:\/\//.test(u));
+      if (links.length) return links;
     }
-    return [...new Set(out)].filter((u) => /^https?:\/\//.test(u));
+  } catch { /* fall through to the metered provider */ }
+
+  const key = process.env.SERPER_API_KEY;
+  if (!key || !budget.canSpend("serper")) { searchFailures++; return []; }
+  try {
+    budget.spend("serper");
+    const res = await fetch("https://google.serper.dev/search", {
+      method: "POST",
+      headers: { "X-API-KEY": key, "content-type": "application/json" },
+      body: JSON.stringify({ q: query, num: 10 }),
+      signal: AbortSignal.timeout(25000),
+    });
+    if (!res.ok) { searchFailures++; return []; }
+    const j: any = await res.json();
+    return (j.organic ?? []).map((o: any) => o.link ?? "").filter(Boolean);
   } catch {
+    searchFailures++;
     return [];
   }
 }
@@ -163,11 +198,11 @@ for (const r of rows.rows as any[]) {
 
   const candidates: string[] = [];
   if (rootBelongs) {
-    for (const t of terms.slice(0, 2)) candidates.push(...(await ddg(`site:${root} ${t}`)).slice(0, 4));
+    for (const t of terms.slice(0, 2)) candidates.push(...(await search(`site:${root} ${t}`)).slice(0, 4));
     if (r.w) candidates.push(r.w);
   } else {
     // Fall back to naming the institution, and keep only results the name search itself returns.
-    for (const t of terms.slice(0, 2)) candidates.push(...(await ddg(`"${r.name}" ${t}`)).slice(0, 5));
+    for (const t of terms.slice(0, 2)) candidates.push(...(await search(`"${r.name}" ${t}`)).slice(0, 5));
   }
 
   let best: any = null;
