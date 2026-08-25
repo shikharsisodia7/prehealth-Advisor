@@ -1,6 +1,6 @@
 # Prerequisite Coverage Audit
 
-Generated: 2026-08-25T23:17:14.486Z
+Generated: 2026-08-25T23:47:21.036Z
 
 | Profession | Active | Verified | No specific courses | Blocked | Unfinished | Final-status coverage | Directory reconciliation |
 |---|---:|---:|---:|---:|---:|---:|---|
@@ -10,7 +10,7 @@ Generated: 2026-08-25T23:17:14.486Z
 | Genetic Counseling (MS) | 65 | 64 | 1 | 0 | 0 | 100% | reconciled |
 | Medical School (MD/DO) | 236 | 217 | 7 | 0 | 12 | 94.9% | reconciled |
 | Nursing (ABSN/MEPN) | 446 | 422 | 15 | 1 | 8 | 98% | reconciled |
-| Occupational Therapy (OTD/MOT) | 318 | 301 | 6 | 0 | 11 | 96.5% | reconciled |
+| Occupational Therapy (OTD/MOT) | 318 | 300 | 6 | 0 | 12 | 96.2% | reconciled |
 | Optometry (OD) | 24 | 24 | 0 | 0 | 0 | 100% | reconciled |
 | Pathologists' Assistant (PathA) | 20 | 19 | 1 | 0 | 0 | 100% | reconciled |
 | Pharmacy (PharmD) | 140 | 137 | 2 | 0 | 1 | 99.3% | reconciled |
@@ -19,7 +19,7 @@ Generated: 2026-08-25T23:17:14.486Z
 | Podiatric Medicine (DPM) | 11 | 11 | 0 | 0 | 0 | 100% | reconciled |
 | Postbaccalaureate Programs | 338 | 260 | 9 | 0 | 69 | 79.6% | over-source-count |
 | Prosthetics & Orthotics (MSPO) | 15 | 14 | 0 | 0 | 1 | 93.3% | reconciled |
-| Speech-Language Pathology (MS/MA) | 322 | 282 | 6 | 0 | 34 | 89.4% | reconciled |
+| Speech-Language Pathology (MS/MA) | 322 | 283 | 6 | 0 | 33 | 89.8% | reconciled |
 | Veterinary Medicine (DVM) | 32 | 32 | 0 | 0 | 0 | 100% | reconciled |
 
 ## Remaining externally blocked programs
