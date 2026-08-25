@@ -180,6 +180,8 @@ async function serper(q: string): Promise<string[]> {
  * College of Osteopathic Medicine pointed at ammancity.gov.jo.
  */
 const selfIdCache = new Map<string, Promise<boolean>>();
+/** Domains whose front page could not be read at all, so identity is unknown, not disproved. */
+const unreadableDomains = new Set<string>();
 function domainSelfIdentifies(host: string, name: string): Promise<boolean> {
   const key = `${host}|${name}`;
   const hit = selfIdCache.get(key);
@@ -192,10 +194,15 @@ function domainSelfIdentifies(host: string, name: string): Promise<boolean> {
     // school's words somewhere on the page. A bag-of-words test accepted stmary.edu (University
     // of SAINT Mary, Kansas) for University of Mary and okcu.edu (Oklahoma CITY University) for
     // Oklahoma State, because a single distinctive word appears in both names.
-    for (const url of [`https://${host}/`, `https://www.${host}/`]) {
+    // A front page that cannot be fetched means identity is unknown, not disproved. Returning
+    // false on a blocked request turned umich.edu's HTTP 403 into "not this institution",
+    // which is the same mistake as reading a throttled Wikidata reply as a genuine negative.
+    let everRead = false;
+    for (const url of [`https://${host}/`, `https://www.${host}/`, `https://${host}/`]) {
       try {
         const r = await fetch(url, { headers: { "user-agent": UA }, signal: AbortSignal.timeout(15000), redirect: "follow" });
-        if (!r.ok) continue;
+        if (!r.ok) { await sleep(1200); continue; }
+        everRead = true;
         const html = (await r.text()).slice(0, 60_000);
         const raw = /<title[^>]*>([\s\S]*?)<\/title>/i.exec(html)?.[1] ?? "";
         const title = raw.replace(/&[a-z]+;/gi, " ").replace(/\s+/g, " ").trim();
@@ -203,12 +210,17 @@ function domainSelfIdentifies(host: string, name: string): Promise<boolean> {
         // Site titles append a tagline ("Tufts University | Medford, MA"); test each segment.
         const segments = [title, ...title.split(/[|·—–-]/).map((x) => x.trim())].filter((x) => x.length >= 4);
         if (segments.some((seg) => entityLabelMatchesInstitution(seg, name) || entityLabelMatchesInstitution(seg, core))) return true;
-      } catch { /* try the www form */ }
+      } catch { /* try the next form */ }
     }
+    if (!everRead) unreadableDomains.add(host);
     return false;
   })();
   selfIdCache.set(key, p);
   return p;
+}
+
+function seedHostOf(u: unknown): string {
+  try { return registrable(new URL(String(u)).hostname); } catch { return ""; }
 }
 
 const ONLY = (() => {
@@ -253,13 +265,16 @@ for (const r of rows.rows as any[]) {
   if (res.error) { console.log(`ERROR  ${r.id} ${String(r.name).slice(0, 34).padEnd(36)} wikidata ${res.error}`); continue; }
   let official = res.domain;
   if (!official) official = await officialDomainViaSearch(r.name);
-  const seedHost = (() => { try { return new URL(r.website_url).hostname.replace(/^www\./, ""); } catch { return ""; } })();
+  const seedHost = seedHostOf(r.website_url);
   const seedDomain = seedHost ? registrable(seedHost) : "";
   const seedTrusted = seedDomain !== "" && (seedDomain === official || (await domainSelfIdentifies(seedDomain, r.name)));
   const trusted = new Set([official, seedTrusted ? seedDomain : ""].filter(Boolean));
   if (trusted.size === 0) {
     rejected++;
-    console.log(`REJECT ${r.id} ${String(r.name).slice(0, 34).padEnd(36)} (no confirmed official domain)`);
+    const why = unreadableDomains.size > 0 && seedHostOf(r.website_url) && unreadableDomains.has(seedHostOf(r.website_url))
+      ? "could not read the institution's site to confirm it"
+      : "no confirmed official domain";
+    console.log(`REJECT ${r.id} ${String(r.name).slice(0, 34).padEnd(36)} (${why})`);
     continue;
   }
 
