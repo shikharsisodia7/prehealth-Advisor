@@ -1,6 +1,6 @@
 # Prerequisite Coverage Audit
 
-Generated: 2026-08-25T01:40:41.096Z
+Generated: 2026-08-25T02:10:54.303Z
 
 | Profession | Active | Verified | No specific courses | Blocked | Unfinished | Final-status coverage | Directory reconciliation |
 |---|---:|---:|---:|---:|---:|---:|---|
@@ -14,7 +14,7 @@ Generated: 2026-08-25T01:40:41.096Z
 | Optometry (OD) | 24 | 24 | 0 | 0 | 0 | 100% | reconciled |
 | Pathologists' Assistant (PathA) | 20 | 19 | 1 | 0 | 0 | 100% | reconciled |
 | Pharmacy (PharmD) | 140 | 100 | 2 | 0 | 38 | 72.9% | reconciled |
-| Physical Therapy (DPT) | 308 | 298 | 1 | 0 | 9 | 97.1% | reconciled |
+| Physical Therapy (DPT) | 308 | 299 | 1 | 0 | 8 | 97.4% | reconciled |
 | Physician Assistant (PA) | 330 | 310 | 3 | 0 | 17 | 94.8% | reconciled |
 | Podiatric Medicine (DPM) | 11 | 11 | 0 | 0 | 0 | 100% | reconciled |
 | Postbaccalaureate Programs | 336 | 201 | 6 | 0 | 129 | 61.6% | under-source-count |
