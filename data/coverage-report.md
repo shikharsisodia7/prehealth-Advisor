@@ -1,6 +1,6 @@
 # Prerequisite Coverage Audit
 
-Generated: 2026-08-25T09:43:04.107Z
+Generated: 2026-08-25T10:13:12.804Z
 
 | Profession | Active | Verified | No specific courses | Blocked | Unfinished | Final-status coverage | Directory reconciliation |
 |---|---:|---:|---:|---:|---:|---:|---|
@@ -15,11 +15,11 @@ Generated: 2026-08-25T09:43:04.107Z
 | Pathologists' Assistant (PathA) | 20 | 19 | 1 | 0 | 0 | 100% | reconciled |
 | Pharmacy (PharmD) | 140 | 131 | 2 | 0 | 7 | 95% | reconciled |
 | Physical Therapy (DPT) | 308 | 303 | 1 | 0 | 4 | 98.7% | reconciled |
-| Physician Assistant (PA) | 330 | 317 | 3 | 0 | 10 | 97% | reconciled |
+| Physician Assistant (PA) | 330 | 318 | 3 | 0 | 9 | 97.3% | reconciled |
 | Podiatric Medicine (DPM) | 11 | 11 | 0 | 0 | 0 | 100% | reconciled |
 | Postbaccalaureate Programs | 336 | 225 | 8 | 0 | 103 | 69.3% | under-source-count |
 | Prosthetics & Orthotics (MSPO) | 15 | 14 | 0 | 0 | 1 | 93.3% | reconciled |
-| Speech-Language Pathology (MS/MA) | 322 | 267 | 5 | 0 | 50 | 84.5% | reconciled |
+| Speech-Language Pathology (MS/MA) | 322 | 268 | 6 | 0 | 48 | 85.1% | reconciled |
 | Veterinary Medicine (DVM) | 32 | 32 | 0 | 0 | 0 | 100% | reconciled |
 
 ## Remaining externally blocked programs
