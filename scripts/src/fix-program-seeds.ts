@@ -61,16 +61,16 @@ const PROF_TERM: Record<string, string> = {
 const PROF_HINT: Record<string, RegExp> = {
   dental: /dental|dds|dmd/i,
   "prosthetics-orthotics": /prosthet|orthot/i,
-  "physical-therapy": /physical-?therapy|dpt|pt/i,
+  "physical-therapy": /physical-?therapy|\bdpt\b|\bpt\b/i,
   pharmacy: /pharmac|pharmd/i,
   dietetics: /dietet|nutrition/i,
-  "physician-assistant": /physician-?assistant|pa|pas/i,
+  "physician-assistant": /physician-?assistant|\bpa\b|\bpas\b/i,
   // "communicat" covers both communication and COMMUNICATIVE sciences, and sphpath is the
   // program code some catalogues use -- Hampton and FIU were both rejected on spelling alone.
   "speech-language-pathology": /speech|slp|sphpath|communicat|csd|audiolog/i,
-  medicine: /md|medic|school-?of-?medicine/i,
-  nursing: /nurs|bsn|dnp/i,
-  "occupational-therapy": /occupational-?therapy|ot|otd/i,
+  medicine: /\bmd\b|medic|school-?of-?medicine/i,
+  nursing: /nurs|bsn|\bdnp\b/i,
+  "occupational-therapy": /occupational-?therapy|\bot\b|\botd\b/i,
   postbac: /post-?bac|postbaccalaureate|premed/i,
 };
 
@@ -374,7 +374,7 @@ for (const r of rows.rows as any[]) {
   }
   if (chosen && urlScore < MIN_REPLACEMENT_SCORE) {
     rejected++;
-    console.log(`WEAK   ${r.id} ${String(r.name).slice(0, 30).padEnd(32)} ${chosen.slice(0, 60)}`);
+    console.log(`WEAK   ${r.id} score=${urlScore} ${String(r.name).slice(0, 30).padEnd(32)} ${chosen.slice(0, 60)}`);
   } else if (chosen && seedScore(chosen, r.profession_slug) <= seedScore(trusted.has(seedDomain) ? String(r.website_url ?? "") : "", r.profession_slug)) {
     rejected++;
     console.log(`KEEP   ${r.id} ${String(r.name).slice(0, 30).padEnd(32)} (stored seed already aims better)`);
