@@ -44,6 +44,7 @@ import {
   sitemapCandidates,
 } from "./native-discovery.js";
 import { NO_PREREQ_ASSERTION, entityLabelMatchesInstitution } from "./extraction-rules.js";
+import { SearchBudget } from "./search-budget.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "../..");
@@ -618,6 +619,53 @@ async function withSearchLock<T>(fn: () => Promise<T>): Promise<T> {
  * looksLikeOfficialProgramUrl, so these only ever DISCOVER a candidate -- the evidence still
  * has to come from the institution's own domain.
  */
+/**
+ * Metered search providers.
+ *
+ * These are free-tier keys with a fixed lifetime allowance, and they are the only search that
+ * works reliably from this host -- both scored 3/3 on programs the keyless engines could not
+ * resolve, returning the exact pages discovery needs (GWU's MD admissions requirements,
+ * Bradley's catalog entry for its speech-language-hearing-sciences major). Every query is
+ * counted against a persisted budget so the allowance cannot be spent twice by the worker
+ * restarting, and each provider drops out of the chain once its cap is reached, falling back
+ * to the keyless engines.
+ */
+const SERPER_KEY = process.env.SERPER_API_KEY ?? "";
+const TAVILY_KEY = process.env.TAVILY_API_KEY ?? "";
+const searchBudget = new SearchBudget(
+  path.join(ROOT, "data/search-usage.json"),
+  {
+    serper: Number(process.env.COMPLETION_SERPER_CAP || 2_000),
+    tavily: Number(process.env.COMPLETION_TAVILY_CAP || 800),
+  },
+);
+
+async function serperSearch(query: string): Promise<string[]> {
+  const res = await fetch("https://google.serper.dev/search", {
+    method: "POST",
+    headers: { "X-API-KEY": SERPER_KEY, "content-type": "application/json" },
+    body: JSON.stringify({ q: query, num: 10 }),
+    signal: AbortSignal.timeout(25_000),
+  });
+  searchBudget.spend("serper");
+  if (!res.ok) throw new Error(`Serper HTTP ${res.status}`);
+  const json = (await res.json()) as { organic?: Array<{ link?: string }> };
+  return (json.organic ?? []).map((o) => o.link ?? "").filter(Boolean).slice(0, 12);
+}
+
+async function tavilySearch(query: string): Promise<string[]> {
+  const res = await fetch("https://api.tavily.com/search", {
+    method: "POST",
+    headers: { authorization: `Bearer ${TAVILY_KEY}`, "content-type": "application/json" },
+    body: JSON.stringify({ query, max_results: 10, search_depth: "basic" }),
+    signal: AbortSignal.timeout(25_000),
+  });
+  searchBudget.spend("tavily");
+  if (!res.ok) throw new Error(`Tavily HTTP ${res.status}`);
+  const json = (await res.json()) as { results?: Array<{ url?: string }> };
+  return (json.results ?? []).map((r) => r.url ?? "").filter(Boolean).slice(0, 12);
+}
+
 function extractResultUrls(html: string): string[] {
   const urls = new Set<string>();
   for (const m of html.matchAll(/https?:\/\/[^"'<> )\\]+/g)) {
@@ -830,7 +878,7 @@ async function tryEngine(
 
 /** True when every general search backend is currently circuit-open. */
 export function allSearchEnginesDown(): boolean {
-  return ["keenable", "firecrawl", "ddglite", "marginalia", "bravehtml", "google", "bing", "duckduckgo"].every((e) => !engineAvailable(e));
+  return ["serper", "tavily", "keenable", "firecrawl", "ddglite", "marginalia", "bravehtml", "google", "bing", "duckduckgo"].every((e) => !engineAvailable(e));
 }
 
 let keylessRotation = 0;
@@ -845,6 +893,17 @@ async function webSearch(query: string): Promise<string[]> {
     }
     if (FIRECRAWL_KEY) {
       const r = await tryEngine("firecrawl", () => firecrawlSearch(query), (u) => u);
+      if (r) return r;
+    }
+    // Metered providers first: they are the only search that works reliably from this host
+    // (3/3 each on programs the keyless engines could not resolve), and each stops being
+    // offered once its budget is spent.
+    if (SERPER_KEY && searchBudget.canSpend("serper")) {
+      const r = await tryEngine("serper", () => serperSearch(query), (u) => u.filter((x) => !BLOCKED_SEARCH_HOSTS.test(x)));
+      if (r) return r;
+    }
+    if (TAVILY_KEY && searchBudget.canSpend("tavily")) {
+      const r = await tryEngine("tavily", () => tavilySearch(query), (u) => u.filter((x) => !BLOCKED_SEARCH_HOSTS.test(x)));
       if (r) return r;
     }
     // Keyless engines, rotated. Measured in isolation: DuckDuckGo lite 6/6, Marginalia 4/6,
@@ -1751,8 +1810,18 @@ async function discoverCandidates(program: ProgramRow, deadline = Infinity): Pro
     const explicitPrereqPage = /prereq|pre-requisit|catalog|handbook|checksheet|required-cours|course-requirement/i.test(hay);
     return professionSignal || explicitPrereqPage;
   });
-  // Past the discovery deadline, stop opening new avenues and rank what we already have.
-  if (!outOfTime() && (!usableWebsite || !hasStrongCandidate)) {
+  // With a metered provider available, search unconditionally rather than only when the
+  // existing candidates look weak.
+  //
+  // hasStrongCandidate is satisfied by any profession-relevant URL, so a department landing
+  // page counted as "good enough" and suppressed search for the programs that most needed it:
+  // Truman State sat on its communication-disorders department page, which carries no
+  // prerequisite list, and never searched. Serper and Tavily answer 3/3 on exactly these
+  // cases. Spend is bounded by the persisted budget instead, which is the honest constraint --
+  // roughly one query per program against a 2,800-query cap.
+  const meteredSearchAvailable =
+    (SERPER_KEY && searchBudget.canSpend("serper")) || (TAVILY_KEY && searchBudget.canSpend("tavily"));
+  if (!outOfTime() && (meteredSearchAvailable || !usableWebsite || !hasStrongCandidate)) {
     try {
       const openQueries = [
         `${program.name} ${program.programName} official admissions prerequisites coursework`,

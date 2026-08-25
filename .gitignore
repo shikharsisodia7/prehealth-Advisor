@@ -68,3 +68,6 @@ scripts/*.log
 scripts/*.lock
 scripts/src/tmp-*.ts
 scripts/tmp-search-out/
+
+# Search provider spend tracking (local runtime state)
+data/search-usage.json
