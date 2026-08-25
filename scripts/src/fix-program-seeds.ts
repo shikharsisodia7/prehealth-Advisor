@@ -39,7 +39,10 @@ const budget = new SearchBudget(path.join(process.cwd(), "..", "data", "search-u
   tavily: Number(process.env.COMPLETION_TAVILY_CAP || 800),
 });
 const UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36";
-const BANNED = /allaccessdietetics|niche\.com|usnews|petersons|gradschools\.com|collegefactual|studentdoctor|reddit|wikipedia|indeed|coursera/i;
+// Aggregators are barred as evidence, and so are a school's own test/staging catalogues:
+// search offered catalogtest.olemiss.edu, whose content carries no guarantee of being the
+// requirements the school actually publishes.
+const BANNED = /allaccessdietetics|niche\.com|usnews|petersons|gradschools\.com|collegefactual|studentdoctor|reddit|wikipedia|indeed|coursera|catalogtest|\/\/test[.-]|staging[.-]|\.dev\./i;
 
 const PROF_TERM: Record<string, string> = {
   dental: "dental DDS DMD",
@@ -336,8 +339,14 @@ for (const r of rows.rows as any[]) {
       let dom = "";
       try { dom = registrable(new URL(link).hostname); } catch { continue; }
       // A school may publish on a second domain it owns (shps.lsuhs.edu for LSU Health), so a
-      // candidate domain that identifies itself as this institution counts too.
-      if (!trusted.has(dom) && !(await domainSelfIdentifies(dom, r.name))) continue;
+      // candidate domain that identifies itself as this institution counts too -- but only when
+      // no official domain was confirmed in the first place. Name matching cannot separate two
+      // institutions in the same city whose distinguishing words are all generic: "UT Health
+      // Science Center San Antonio" reduces to [san, antonio] exactly as "University of Texas
+      // at San Antonio" does, and uthscsa.edu was accepted for the utsa.edu program. Once the
+      // official domain is known, it is better evidence than any name comparison.
+      const allowSelfId = official === "";
+      if (!trusted.has(dom) && !(allowSelfId && (await domainSelfIdentifies(dom, r.name)))) continue;
       try {
         const res = await fetch(link, { headers: { "user-agent": UA }, signal: AbortSignal.timeout(15000), redirect: "follow" });
         if (res.ok) { chosen = link; break; }
