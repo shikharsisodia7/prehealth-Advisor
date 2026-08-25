@@ -567,10 +567,9 @@
   "sourceUrl": "https://www.healthsciences.okstate.edu/"
  },
  "410": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-25T06:42:45.864Z",
-  "attempts": 2,
-  "error": "https://osuokc.edu/academics/general-education: no usable prereq list",
+  "stage": "extracted",
+  "lastAttempt": "2026-08-25T08:12:00.565Z",
+  "attempts": 3,
   "pipelineGen": 10,
   "sourceUrl": "https://osuokc.edu/admissions/apply"
  },
@@ -863,11 +862,11 @@
  },
  "457": {
   "stage": "failed",
-  "lastAttempt": "2026-08-25T07:41:36.953Z",
+  "lastAttempt": "2026-08-25T07:58:13.929Z",
   "attempts": 4,
   "pipelineGen": 10,
   "sourceUrl": "https://health.uconn.edu/",
-  "error": "program timeout after 420s"
+  "error": "https://medicine.uchc.edu/: fetch failed || https://health.uconn.edu/: no usable prereq list"
  },
  "458": {
   "stage": "finalized",
@@ -1152,12 +1151,11 @@
   "finalStatus": "verified"
  },
  "504": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-25T06:44:07.795Z",
-  "attempts": 2,
+  "stage": "source_discovery",
+  "lastAttempt": "2026-08-25T08:09:01.318Z",
+  "attempts": 3,
   "pipelineGen": 10,
-  "sourceUrl": "https://som.umc.edu/",
-  "error": "https://som.umc.edu/: fetch failed"
+  "sourceUrl": "https://som.umc.edu/"
  },
  "505": {
   "stage": "finalized",
@@ -1177,8 +1175,8 @@
  },
  "508": {
   "stage": "failed",
-  "lastAttempt": "2026-08-25T06:34:25.744Z",
-  "attempts": 2,
+  "lastAttempt": "2026-08-25T08:07:17.161Z",
+  "attempts": 3,
   "error": "https://medicine.washu.edu/education/admissions/: no usable prereq list",
   "pipelineGen": 10,
   "sourceUrl": "https://medicine.washu.edu/impact/"
@@ -1409,17 +1407,16 @@
   "finalStatus": "verified"
  },
  "542": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-25T07:00:09.527Z",
-  "attempts": 2,
+  "stage": "source_fetched",
+  "lastAttempt": "2026-08-25T08:12:29.312Z",
+  "attempts": 3,
   "pipelineGen": 10,
-  "sourceUrl": "https://case.edu/medicine/",
-  "error": "https://casemed.case.edu/admissions/: no usable prereq list || https://casemed.case.edu/admissions/education/dualdegrees.cfm: no usable prereq list || https://medicine.case.edu/apply: no usable prereq list"
+  "sourceUrl": "https://casemed.case.edu/gradprog/phd.cfm"
  },
  "543": {
   "stage": "failed",
-  "lastAttempt": "2026-08-25T06:35:35.914Z",
-  "attempts": 2,
+  "lastAttempt": "2026-08-25T08:09:50.240Z",
+  "attempts": 3,
   "pipelineGen": 10,
   "sourceUrl": "https://graduate.northeastern.edu/admissions-aid/how-to-apply/",
   "error": "https://admissions.northeastern.edu/: no usable prereq list || https://admissions.northeastern.edu/application-information/admissions-deadlines-decisions/: no usable prereq list || https://admissions.northeastern.edu/application-information/frequently-asked-admissions-questions/: no usable prereq list"
@@ -1473,12 +1470,11 @@
   "finalStatus": "verified"
  },
  "550": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-25T06:39:10.164Z",
-  "attempts": 2,
+  "stage": "extracted",
+  "lastAttempt": "2026-08-25T08:12:05.340Z",
+  "attempts": 3,
   "pipelineGen": 10,
-  "sourceUrl": "https://www.geisinger.org/mlp/ghp/medicare-kit",
-  "error": "https://www.geisinger.edu/gchs/education/gcsom/academics/md-program: no usable prereq list || https://www.geisinger.edu/gchs/education/school-graduate-education/admissions/admissions-requirements: no usable prereq list"
+  "sourceUrl": "https://www.geisinger.org/mlp/ghp/medicare-kit"
  },
  "552": {
   "stage": "finalized",
@@ -6422,11 +6418,12 @@
   "finalStatus": "verified"
  },
  "2216": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-25T07:42:18.065Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-25T07:43:13.395Z",
   "attempts": 4,
   "pipelineGen": 10,
-  "sourceUrl": "https://www.avila.edu/admissions/graduate/"
+  "sourceUrl": "https://www.avila.edu/admissions/graduate/",
+  "error": "https://www.avila.edu/academics/school-of-education/graduate-programs/grad-ed-admission-requirements/: no usable prereq list || https://arizona.avila.edu/admissions/admission-requirements: no usable prereq list || https://www.avila.edu/admissions/undergraduate/: no usable prereq list"
  },
  "2217": {
   "stage": "failed",
@@ -6542,9 +6539,10 @@
   "error": "https://www.som.tulane.edu/: too little text || https://sopa.tulane.edu/: no usable prereq list"
  },
  "2236": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-25T07:42:29.149Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-25T07:44:51.624Z",
   "attempts": 4,
+  "error": "https://ox.ac.uk/: no usable prereq list || https://www.ox.ac.uk/admissions/undergraduate/courses/course-listing: no usable prereq list || https://www.ox.ac.uk/admissions/undergraduate: no usable prereq list",
   "pipelineGen": 10,
   "sourceUrl": "https://www.ox.ac.uk/admissions/graduate/courses/find-your-course"
  },
@@ -6574,11 +6572,12 @@
   "finalStatus": "verified"
  },
  "2240": {
-  "stage": "source_discovery",
-  "lastAttempt": "2026-08-25T07:41:38.149Z",
+  "stage": "finalized",
+  "lastAttempt": "2026-08-25T07:43:36.959Z",
   "attempts": 4,
   "pipelineGen": 10,
-  "sourceUrl": "https://www.liberty.edu/"
+  "sourceUrl": "https://catalog.liberty.edu/graduate/colleges-schools/health-sciences/biomedical-sciences-ms/",
+  "finalStatus": "verified"
  },
  "2241": {
   "stage": "failed",
@@ -6677,12 +6676,12 @@
   "error": "https://medicine.iu.edu/md/admissions/application-requirements: no usable prereq list || https://medicine.iu.edu/md/admissions/application-requirements/faq: no usable prereq list || https://medicine.iu.edu/obgyn/education/residency/admission-requirements: no usable prereq list"
  },
  "2256": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-24T23:34:52.352Z",
-  "attempts": 3,
+  "stage": "finalized",
+  "lastAttempt": "2026-08-25T08:01:55.081Z",
+  "attempts": 4,
   "pipelineGen": 10,
-  "sourceUrl": "https://case.edu/admission/apply/deadlines-and-requirements",
-  "error": "https://case.edu/admission/academics: no usable prereq list || https://case.edu/admission/academics/areas-study/performing-arts: no usable prereq list || https://case.edu/admission/: no usable prereq list || https://case.edu/admission/apply/deadlines-and-requirements: no usable prereq list"
+  "sourceUrl": "https://case.edu/medicine/pathology/training/ms-programs/ms-molecular-cellular-biology-disease/curriculum",
+  "finalStatus": "verified"
  },
  "2259": {
   "stage": "finalized",
@@ -6710,11 +6709,12 @@
   "finalStatus": "verified"
  },
  "2275": {
-  "stage": "source_discovery",
-  "lastAttempt": "2026-08-25T07:42:18.056Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-25T07:45:23.519Z",
   "attempts": 4,
   "pipelineGen": 10,
-  "sourceUrl": "https://admissions.ncsu.edu/"
+  "sourceUrl": "https://admissions.ncsu.edu/",
+  "error": "https://physiology.grad.ncsu.edu/prospective-students/how-to-apply/minimum-academic-requirements/: no usable prereq list || https://catalog.ncsu.edu/graduate/graduate-handbook/international-student-admissions/: no usable prereq list || https://online-distance.ncsu.edu/apply/graduate/: no usable prereq list"
  },
  "2278": {
   "stage": "finalized",
@@ -6773,12 +6773,12 @@
   "error": "https://healthsciences.dartmouth.edu/education/admissions: no usable prereq list"
  },
  "2298": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-24T23:32:30.401Z",
-  "attempts": 3,
+  "stage": "finalized",
+  "lastAttempt": "2026-08-25T07:59:38.783Z",
+  "attempts": 4,
   "pipelineGen": 10,
-  "sourceUrl": "https://law.seattleu.edu/admission/apply/",
-  "error": "https://www.seattleu.edu/academics/all-programs/nursing-bs/transfer-credit-and-prerequisite-requirements/: no usable prereq list || https://www.seattleu.edu/academics/all-programs/nursing-advanced-practice-nursing-immersion-dnp/prerequisites-for-admission/: no usable prereq list || https://law.seattleu.edu/admission/apply/jd-program-admission/jd-admission-requirements/jd-application-procedures/: no usable prereq list || https://www.seattleu.edu/admissions-aid/international-admissions/internation"
+  "sourceUrl": "https://www.seattleu.edu/academics/all-programs/diagnostic-ultrasound-certificate/information-for-post-baccalaureate-certificate-students/",
+  "finalStatus": "verified"
  },
  "2299": {
   "stage": "finalized",
@@ -6813,28 +6813,28 @@
   "error": "https://www.concordiacollege.edu/admission/campus-visits/student-ambassadors/: no usable prereq list || https://www.concordiacollege.edu/admission/apply/admission-requirements/: no usable prereq list || https://www.concordiacollege.edu/admission/apply/admission-requirements/test-optional/: no usable prereq list || https://www.concordiacollege.edu/admission/apply/: no usable prereq list"
  },
  "2318": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-24T23:32:19.634Z",
-  "attempts": 3,
+  "stage": "finalized",
+  "lastAttempt": "2026-08-25T08:00:07.171Z",
+  "attempts": 4,
   "pipelineGen": 10,
-  "sourceUrl": "https://emu.edu/admissions/apply/",
-  "error": "https://emu.edu/ms-biomed/: no usable prereq list || https://emu.edu/admissions/apply/: no usable prereq list || https://emu.edu/admissions/apply/: no usable prereq list"
+  "sourceUrl": "https://emu.edu/ms-biomed/admissions",
+  "finalStatus": "verified"
  },
  "2319": {
   "stage": "failed",
-  "lastAttempt": "2026-08-25T02:14:16.781Z",
-  "attempts": 3,
+  "lastAttempt": "2026-08-25T07:47:04.616Z",
+  "attempts": 4,
   "pipelineGen": 10,
   "sourceUrl": "https://www.buffalo.edu/admissions/apply.html",
-  "error": "https://arts-sciences.buffalo.edu/biological-sciences/graduate/overview/ma.html: HTTP 404 || https://www.buffalo.edu/grad/explore/admissions.html: no usable prereq list || https://www.buffalo.edu/admissions/visit.html: no usable prereq list || https://www.buffalo.edu/admissions/apply.html: no usable prereq list"
+  "error": "https://arts-sciences.buffalo.edu/biological-sciences/graduate/overview/ma.html: HTTP 404 || https://www.buffalo.edu/grad/explore/admissions.html: no usable prereq list || https://www.buffalo.edu/admissions/visit.html: no usable prereq list || https://suny.buffalostate.edu/graduate/apply: no usable prereq list"
  },
  "2322": {
   "stage": "failed",
-  "lastAttempt": "2026-08-25T02:16:54.752Z",
-  "attempts": 3,
+  "lastAttempt": "2026-08-25T07:48:17.473Z",
+  "attempts": 4,
   "error": "https://www.dmu.edu/msa/admission-requirements/: no usable prereq list || https://www.dmu.edu/mha/admission-requirements/: no usable prereq list || https://www.dmu.edu/pa/admission-requirements/: no usable prereq list",
   "pipelineGen": 10,
-  "sourceUrl": "https://www.dmu.edu/mbs/"
+  "sourceUrl": "https://catalog.dmu.edu/admissions/internalqualifiedadmissionpathway/internalqualifiedadmissionpathway.pdf"
  },
  "2324": {
   "stage": "failed",
@@ -6886,19 +6886,19 @@
  },
  "2330": {
   "stage": "failed",
-  "lastAttempt": "2026-08-25T02:17:53.152Z",
-  "attempts": 3,
+  "lastAttempt": "2026-08-25T07:51:36.662Z",
+  "attempts": 4,
   "pipelineGen": 10,
   "sourceUrl": "https://www.uab.edu/gradadmissions/",
   "error": "https://www.uab.edu/admissions/request-info?utm_source=home-ugform&utm_medium=navigation: no usable prereq list || https://www.uab.edu/admissions/request-info?utm_source=home-ugform-m: no usable prereq list || https://www.uab.edu/admissions/request-info?utm_source=home-ugform&amp;utm_medium=content: no usable prereq list"
  },
  "2331": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-24T23:31:55.640Z",
-  "attempts": 3,
+  "stage": "finalized",
+  "lastAttempt": "2026-08-25T08:01:14.605Z",
+  "attempts": 4,
   "pipelineGen": 10,
-  "sourceUrl": "https://www.iit.edu/academics/course-catalog",
-  "error": "https://www.iit.edu/admissions-aid/request-information: no usable prereq list || https://www.iit.edu/admissions-aid/visit-and-tour: no usable prereq list || https://www.iit.edu/admissions-aid/graduate-admission/domestic-students/admission-requirements-and-checklist: no usable prereq list"
+  "sourceUrl": "https://www.iit.edu/pre-health/pathways/pre-medical-programs/post-baccalaureate-pre-medical-program",
+  "finalStatus": "verified"
  },
  "2332": {
   "stage": "failed",
@@ -6934,19 +6934,18 @@
  },
  "2339": {
   "stage": "failed",
-  "lastAttempt": "2026-08-25T02:15:08.539Z",
-  "attempts": 3,
+  "lastAttempt": "2026-08-25T07:47:58.150Z",
+  "attempts": 4,
   "pipelineGen": 10,
   "sourceUrl": "https://heritage.edu/admissions/graduate-admissions/",
-  "error": "https://heritage.edu/admissions/: no usable prereq list || https://catalog.heritage.edu/: no usable prereq list || https://heritage.edu/admissions/nursing-admissions/: no usable prereq list"
+  "error": "https://catalog.heritage.edu/preview_entity.php?catoid=11&ent_oid=1634&p=1&print: too little text || https://heritage.edu/admissions/: no usable prereq list || https://catalog.heritage.edu/: no usable prereq list || https://heritage.edu/admissions/nursing-admissions/: no usable prereq list"
  },
  "2342": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-24T23:46:49.242Z",
-  "attempts": 3,
+  "stage": "extracted",
+  "lastAttempt": "2026-08-25T08:03:18.134Z",
+  "attempts": 4,
   "pipelineGen": 10,
-  "sourceUrl": "https://admissions.rochester.edu/",
-  "error": "https://www.rochester.edu/admissions/: no usable prereq list || https://www.rochester.edu/admissions/: no usable prereq list || https://www.rochester.edu/: no usable prereq list || https://www.rochester.edu/newscenter/: no usable prereq list"
+  "sourceUrl": "https://admissions.rochester.edu/"
  },
  "2345": {
   "stage": "failed",
@@ -6958,25 +6957,25 @@
  },
  "2346": {
   "stage": "failed",
-  "lastAttempt": "2026-08-25T02:16:39.149Z",
-  "attempts": 3,
+  "lastAttempt": "2026-08-25T07:47:52.661Z",
+  "attempts": 4,
   "pipelineGen": 10,
-  "sourceUrl": "https://www.shoreline.edu/apply-and-aid/funding-and-aid/default.aspx",
-  "error": "https://www.shoreline.edu/advising/prerequisites/documents/community-colleges.xls: no usable prereq list || https://www.shoreline.edu/international/admission/cost.aspx: no usable prereq list || https://www.shoreline.edu/apply-and-aid/underage-admissions.aspx: no usable prereq list"
+  "sourceUrl": "https://www.shoreline.edu/apply-and-aid/underage-admissions.aspx",
+  "error": "https://www.shoreline.edu/advising/prerequisites/documents/community-colleges.xls: no usable prereq list || https://www.shoreline.edu/prehealth/post-baccalaureate/default.aspx: no usable prereq list || https://www.shoreline.edu/prehealth/post-baccalaureate/seminars.aspx: no usable prereq list"
  },
  "2348": {
   "stage": "failed",
-  "lastAttempt": "2026-08-25T02:23:49.940Z",
-  "attempts": 3,
+  "lastAttempt": "2026-08-25T08:00:54.459Z",
+  "attempts": 4,
   "pipelineGen": 10,
   "sourceUrl": "https://www.manchester.edu/admissions-aid/graduate-admissions/",
   "error": "https://www.manchester.edu/academics/programs/graduate-pharmacogenomics-pgx/: no usable prereq list || https://www.manchester.edu/admissions-aid/graduate-admissions/international-student/: no usable prereq list || https://www.manchester.edu/admissions-aid/graduate-admissions/articulations-course-equivalencies/: no usable prereq list"
  },
  "2349": {
   "stage": "failed",
-  "lastAttempt": "2026-08-25T02:21:57.927Z",
-  "attempts": 3,
-  "error": "https://cas.nyu.edu/postbacc.html: too little text || https://cas.nyu.edu/content/nyu-as/cas/prehealth/courses/requirements.html: too little text || https://cas.nyu.edu/content/nyu-as/cas/admissions.html: too little text || https://cas.nyu.edu/content/nyu-as/cas/academic-programs/ucc.html: too little text",
+  "lastAttempt": "2026-08-25T07:58:54.379Z",
+  "attempts": 4,
+  "error": "https://cas.nyu.edu/prehealth/postbacc/admission/eligibility.html: too little text || https://cas.nyu.edu/postbacc.html: too little text || https://cas.nyu.edu/content/nyu-as/cas/prehealth/courses/requirements.html: too little text || https://cas.nyu.edu/prehealth/postbacc.html: too little text",
   "pipelineGen": 10,
   "sourceUrl": "https://cas.nyu.edu/content/nyu-as/cas/academic-programs/college-core-curriculum.html?challenge=d06e90d7-4d8f-4b88-9d8c-10b73beb60f1"
  },
@@ -7030,11 +7029,11 @@
  },
  "2359": {
   "stage": "failed",
-  "lastAttempt": "2026-08-25T02:18:43.381Z",
-  "attempts": 3,
+  "lastAttempt": "2026-08-25T07:50:25.512Z",
+  "attempts": 4,
   "pipelineGen": 10,
-  "sourceUrl": "https://www.hsc.wvu.edu/resoff/graduate-education/ms-programs/health-sciences/",
-  "error": "https://www.hsc.wvu.edu/resoff/graduate-education/ms-programs/health-sciences/: no usable prereq list"
+  "sourceUrl": "https://hsc.wvu.edu/media/17979/msn-handbook-2023-stacy-edits-7-19-2023.pdf",
+  "error": "https://medicine.hsc.wvu.edu/pt/future-students/admissions-requirements-and-prerequisite-courses: no usable prereq list || https://hsc.wvu.edu/media/18543/2024-2025-phd-handbook-final-sh.pdf: no usable prereq list || https://hsc.wvu.edu/media/18557/2024-2025-dnp-handbook-final-sh-june-2024.pdf: no usable prereq list"
  },
  "2360": {
   "stage": "failed",
@@ -7054,11 +7053,11 @@
  },
  "2362": {
   "stage": "failed",
-  "lastAttempt": "2026-08-24T23:32:57.201Z",
-  "attempts": 3,
+  "lastAttempt": "2026-08-25T08:02:09.787Z",
+  "attempts": 4,
   "pipelineGen": 10,
-  "sourceUrl": "https://catalog.ben.edu/lisle-undergraduate/admissions/international/",
-  "error": "https://ben.edu/admissions/admitted-freshmen/: no usable prereq list || https://ben.edu/academics/college-of-science-and-health/: no usable prereq list || https://catalog.ben.edu/lisle-undergraduate/academic-requirements-policies/: no usable prereq list || https://catalog.ben.edu/lisle-undergraduate/admissions/international/: no usable prereq list"
+  "sourceUrl": "https://ben.edu/admissions/benu-in-high-school/",
+  "error": "https://ben.edu/admissions/admitted-freshmen/: no usable prereq list || https://catalog.ben.edu/lisle-graduate/academic-programs/ms-integrative-physiology/: no usable prereq list || https://ben.edu/academics/college-of-science-and-health/: no usable prereq list"
  },
  "2363": {
   "stage": "finalized",
@@ -7070,11 +7069,11 @@
  },
  "2364": {
   "stage": "failed",
-  "lastAttempt": "2026-08-24T23:32:28.675Z",
-  "attempts": 3,
+  "lastAttempt": "2026-08-25T07:59:10.830Z",
+  "attempts": 4,
   "pipelineGen": 10,
   "sourceUrl": "https://www.ohsu.edu/school-of-medicine/graduate-studies/admissions",
-  "error": "https://www.ohsu.edu/school-of-medicine/physician-assistant/prerequisite-coursework: no usable prereq list || https://www.ohsu.edu/school-of-medicine/radiation-therapy/academic-prerequisites: no usable prereq list || https://www.ohsu.edu/school-of-dentistry/dmd-admission-requirements: no usable prereq list || https://www.ohsu.edu/school-of-medicine/medical-physics-graduate-program/admission-requirements: no usable prereq list"
+  "error": "https://www.ohsu.edu/school-of-medicine/physician-assistant/prerequisite-coursework: no usable prereq list || https://www.ohsu.edu/school-of-medicine/radiation-therapy/academic-prerequisites: no usable prereq list || https://www.ohsu.edu/school-of-dentistry/dmd-admission-requirements: no usable prereq list"
  },
  "2365": {
   "stage": "failed",
@@ -7126,19 +7125,18 @@
  },
  "2374": {
   "stage": "failed",
-  "lastAttempt": "2026-08-25T02:19:58.478Z",
-  "attempts": 3,
-  "error": "https://www.upstate.edu/medprep: HTTP 403 || https://www.upstate.edu/prospective/basics/programs/undergrad-programs.php: no usable prereq list || https://www.upstate.edu/prospective/basics/programs/graduate-programs.php: no usable prereq list || https://www.upstate.edu/prospective/: no usable prereq list",
+  "lastAttempt": "2026-08-25T07:52:41.809Z",
+  "attempts": 4,
+  "error": "https://www.upstate.edu/prospective/basics/programs/index.php: HTTP 403 || https://www.upstate.edu/chp/programs/medical-imaging-radiography/prerequisites.php: no usable prereq list || https://www.upstate.edu/chp/programs/medical-laboratory-science-bs/prerequisites.php: no usable prereq list || https://www.upstate.edu/chp/programs/medical-biotechnology/prerequisites.php: no usable prereq list",
   "pipelineGen": 10,
-  "sourceUrl": "https://www.upstate.edu/prospective/basics/programs/index.php"
+  "sourceUrl": "https://www.upstate.edu/prospective/index.php"
  },
  "2375": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-25T02:25:48.919Z",
-  "attempts": 3,
+  "stage": "extracted",
+  "lastAttempt": "2026-08-25T08:02:43.656Z",
+  "attempts": 4,
   "pipelineGen": 10,
-  "sourceUrl": "https://www.gwu.edu/graduate-admissions",
-  "error": "https://nursing.gwu.edu/international-student-requirements: no usable prereq list || https://graduate.admissions.gwu.edu/international-student-application-requirements: no usable prereq list || https://undergraduate.admissions.gwu.edu/transfer-applicants: no usable prereq list"
+  "sourceUrl": "https://www.gwu.edu/graduate-admissions"
  },
  "2376": {
   "stage": "finalized",
@@ -7245,12 +7243,12 @@
   "error": "https://www.unco.edu/admissions-aid/graduate/: no usable prereq list || https://www.unco.edu/osteopathic-medicine/admission/: no usable prereq list || https://www.unco.edu/admissions-aid/international/: no usable prereq list"
  },
  "2398": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-24T23:29:16.595Z",
-  "attempts": 3,
+  "stage": "finalized",
+  "lastAttempt": "2026-08-25T07:52:35.567Z",
+  "attempts": 4,
   "pipelineGen": 10,
-  "sourceUrl": "https://www.gwu.edu/graduate-admissions",
-  "error": "https://nursing.gwu.edu/international-student-requirements: no usable prereq list || https://graduate.admissions.gwu.edu/international-student-application-requirements: no usable prereq list || https://undergraduate.admissions.gwu.edu/transfer-applicants: no usable prereq list"
+  "sourceUrl": "https://healthsciencesprograms.gwu.edu/programs/post-bacc-certificate-chemistry-mls",
+  "finalStatus": "verified"
  },
  "2399": {
   "stage": "finalized",
@@ -7270,11 +7268,11 @@
  },
  "2401": {
   "stage": "failed",
-  "lastAttempt": "2026-08-24T23:29:42.032Z",
-  "attempts": 3,
+  "lastAttempt": "2026-08-25T07:50:15.906Z",
+  "attempts": 4,
   "pipelineGen": 10,
   "sourceUrl": "https://www.unco.edu/admissions-aid/undergraduate/",
-  "error": "https://www.unco.edu/admissions-aid/graduate/: no usable prereq list || https://www.unco.edu/osteopathic-medicine/admission/: no usable prereq list || https://www.unco.edu/admissions-aid/international/: no usable prereq list || https://www.unco.edu/nhs/biology/: no usable prereq list"
+  "error": "https://www.unco.edu/admissions-aid/graduate/: no usable prereq list || https://www.unco.edu/osteopathic-medicine/admission/: no usable prereq list || https://www.unco.edu/admissions-aid/international/: no usable prereq list"
  },
  "2402": {
   "stage": "failed",
@@ -7293,12 +7291,12 @@
   "error": "https://www.cusm.edu/academics/md/requirements-for-admission/index.php: no usable prereq list || https://www.cusm.edu/academics/md/requirements-for-admission/technical-standards.php: no usable prereq list || https://www.cusm.edu/academics/md/requirements-for-admission/letters-of-recommendation.php: no usable prereq list"
  },
  "2404": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-24T23:29:03.475Z",
-  "attempts": 3,
+  "stage": "finalized",
+  "lastAttempt": "2026-08-25T07:52:54.667Z",
+  "attempts": 4,
   "pipelineGen": 10,
-  "sourceUrl": "https://www.feinberg.northwestern.edu/sites/pph/",
-  "error": "https://www.feinberg.northwestern.edu/sites/pph/: no usable prereq list"
+  "sourceUrl": "https://www.feinberg.northwestern.edu/admissions/how-to-apply/requirements.html",
+  "finalStatus": "verified"
  },
  "2406": {
   "stage": "failed",
@@ -7318,9 +7316,9 @@
  },
  "2410": {
   "stage": "failed",
-  "lastAttempt": "2026-08-25T02:20:25.308Z",
-  "attempts": 3,
-  "error": "https://www.dmu.edu/msa/admission-requirements/: no usable prereq list || https://www.dmu.edu/mha/admission-requirements/: no usable prereq list || https://www.dmu.edu/pa/admission-requirements/: no usable prereq list",
+  "lastAttempt": "2026-08-25T07:55:53.015Z",
+  "attempts": 4,
+  "error": "https://www.dmu.edu/msa/admissions-process/: HTTP 403 || https://www.dmu.edu/msa/admission-requirements/: no usable prereq list || https://www.dmu.edu/mha/admission-requirements/: no usable prereq list || https://www.dmu.edu/pa/admission-requirements/: no usable prereq list",
   "pipelineGen": 10,
   "sourceUrl": "https://www.dmu.edu/msa/"
  },
@@ -7382,18 +7380,19 @@
  },
  "2421": {
   "stage": "failed",
-  "lastAttempt": "2026-08-25T02:19:54.208Z",
-  "attempts": 3,
-  "error": "no official candidate URLs",
-  "pipelineGen": 10
+  "lastAttempt": "2026-08-25T07:52:21.723Z",
+  "attempts": 4,
+  "error": "https://science.indianapolis.iu.edu/biology/admissions/apply.html: no usable prereq list",
+  "pipelineGen": 10,
+  "sourceUrl": "https://science.indianapolis.iu.edu/biology/admissions/apply.html"
  },
  "2422": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-24T23:34:49.541Z",
-  "attempts": 3,
+  "stage": "finalized",
+  "lastAttempt": "2026-08-25T08:01:56.029Z",
+  "attempts": 4,
   "pipelineGen": 10,
-  "sourceUrl": "https://www.midwestern.edu/academics/degrees-programs/college-graduate-studies/master-biomedical-sciences-program",
-  "error": "https://catalog.az.midwestern.edu/admissions: no usable prereq list || https://www.midwestern.edu/admissions/admissions-process/tips-applicants: no usable prereq list || https://www.midwestern.edu/admissions/admissions-process/articulation-agreements/articulation-agreement-arizona-christian-university: no usable prereq list || https://www.midwestern.edu/admissions/admissions-process/articulation-agreements/articulation-agreement-arizona-state-university: no usable prereq list"
+  "sourceUrl": "https://catalog.il.midwestern.edu/admissions-7",
+  "finalStatus": "verified"
  },
  "2423": {
   "stage": "failed",
@@ -7501,8 +7500,8 @@
  },
  "2446": {
   "stage": "failed",
-  "lastAttempt": "2026-08-25T02:20:43.017Z",
-  "attempts": 3,
+  "lastAttempt": "2026-08-25T07:54:29.222Z",
+  "attempts": 4,
   "error": "https://www.cedars-sinai.edu/education/graduate-school/masters/mshs.html: too little text || https://www.cedars-sinai.edu/education/graduate-school/masters/mshs/curriculum.html: too little text || https://www.cedars-sinai.edu/education/graduate-school/masters/mshs/application.html: too little text || https://www.cedars-sinai.edu/content/dam/cedars-sinai/education/documents/graduate-school/masters/mshs-student-handbook.pdf: no usable prereq list",
   "pipelineGen": 10,
   "sourceUrl": "https://www.cedars-sinai.edu/content/dam/cedars-sinai/education/documents/graduate-school/masters/mshs-student-handbook.pdf"
@@ -7540,12 +7539,11 @@
   "error": "https://www.siumed.edu/paprogram/mspa-prerequisites: no usable prereq list || https://www.siumed.edu/studentaffairs/requirements-selection-factors-and-policies: no usable prereq list || https://www.siumed.edu/mbbs/masters-degree-biomedical-science: no usable prereq list"
  },
  "2455": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-25T02:24:26.793Z",
-  "attempts": 3,
+  "stage": "source_fetched",
+  "lastAttempt": "2026-08-25T08:03:18.643Z",
+  "attempts": 4,
   "pipelineGen": 10,
-  "sourceUrl": "https://www.utoledo.edu/admission/international/",
-  "error": "https://www.utoledo.edu/admission/transfer-adult-student/: no usable prereq list || https://www.utoledo.edu/admission/college-credit-plus/: no usable prereq list || https://www.utoledo.edu/admission/guests.html: no usable prereq list"
+  "sourceUrl": "https://www.utoledo.edu/admission/transfer-adult-student/"
  },
  "2456": {
   "stage": "failed",
@@ -7565,11 +7563,11 @@
  },
  "2459": {
   "stage": "failed",
-  "lastAttempt": "2026-08-25T02:22:39.277Z",
-  "attempts": 3,
+  "lastAttempt": "2026-08-25T07:55:21.646Z",
+  "attempts": 4,
   "error": "https://www.roosevelt.edu/colleges/science-health-pharmacy/pharmacy/pharmd-application-pathways/pharmd-prereqs: no usable prereq list || https://www.roosevelt.edu/international-admission-requirements: no usable prereq list || https://www.roosevelt.edu/admission/accelerated-masters: no usable prereq list",
   "pipelineGen": 10,
-  "sourceUrl": "https://www.roosevelt.edu/admission/international"
+  "sourceUrl": "https://www.roosevelt.edu/admission/graduate"
  },
  "2461": {
   "stage": "failed",
@@ -7580,12 +7578,11 @@
   "error": "https://www.manchester.edu/academics/programs/graduate-pharmacogenomics-pgx/: no usable prereq list || https://www.manchester.edu/admissions-aid/graduate-admissions/international-student/: no usable prereq list || https://www.manchester.edu/admissions-aid/graduate-admissions/articulations-course-equivalencies/: no usable prereq list"
  },
  "2463": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-25T02:25:05.340Z",
-  "attempts": 3,
+  "stage": "source_discovery",
+  "lastAttempt": "2026-08-25T08:02:09.864Z",
+  "attempts": 4,
   "pipelineGen": 10,
-  "sourceUrl": "https://www.kgi.edu/academic-affairs/academic-catalog.html",
-  "error": "https://www.kgi.edu/future-students/how-to-apply.html: no usable prereq list || https://www.kgi.edu/future-students/apply-now.html: no usable prereq list || https://www.kgi.edu/admissions/admissions-team.html: no usable prereq list"
+  "sourceUrl": "https://www.kgi.edu/academic-affairs/academic-catalog.html"
  },
  "2464": {
   "stage": "failed",
@@ -7597,8 +7594,8 @@
  },
  "2465": {
   "stage": "failed",
-  "lastAttempt": "2026-08-25T02:22:31.309Z",
-  "attempts": 3,
+  "lastAttempt": "2026-08-25T07:55:28.888Z",
+  "attempts": 4,
   "error": "https://www.marquette.edu/athletic-training/documents/masterat-prerequisite-gpa-calculator.xlsx: HTTP 404 || https://www.marquette.edu/business/undergraduate/documents/buscourseprereqlist.pdf: PDF extract failed for https://www.marquette.edu/business/undergraduate/documents/buscourseprereqlist.pdf || https://www.marquette.edu/dentistry/admissions/: no usable prereq list || https://www.marquette.edu/grad/biomedical-sciences-masters.php: no usable prereq list",
   "pipelineGen": 10,
   "sourceUrl": "https://www.marquette.edu/central/registrar/documents/form-pre-requisites-for-a-professional-program-course-info.pdf"
@@ -7701,11 +7698,11 @@
  },
  "2492": {
   "stage": "failed",
-  "lastAttempt": "2026-08-24T23:28:36.366Z",
-  "attempts": 3,
+  "lastAttempt": "2026-08-25T07:58:00.171Z",
+  "attempts": 4,
   "pipelineGen": 10,
   "sourceUrl": "https://www.bumc.bu.edu/gms/academics/masters-programs/ohs/",
-  "error": "https://www.bumc.bu.edu/gms/admissions/: no usable prereq list || https://www.bumc.bu.edu/gms/admissions/accepted-students/: no usable prereq list || https://www.bumc.bu.edu/gms/admissions/fall-2025-virtual-fair-pre-registration/: no usable prereq list || https://www.bumc.bu.edu/gms/admissions/how-to-apply/: no usable prereq list"
+  "error": "https://www.bumc.bu.edu/gms/academics/masters-programs/ohs/admissions/ohs-program-faqs/: no usable prereq list"
  },
  "2496": {
   "stage": "finalized",
@@ -7724,20 +7721,20 @@
   "finalStatus": "verified"
  },
  "2499": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-24T23:29:03.143Z",
-  "attempts": 3,
+  "stage": "finalized",
+  "lastAttempt": "2026-08-25T07:57:35.688Z",
+  "attempts": 4,
   "pipelineGen": 10,
-  "sourceUrl": "https://admissions.rowan.edu/international/",
-  "error": "https://admissions.rowan.edu/admissions-process/transfer-requirements/: no usable prereq list || https://admissions.rowan.edu/admissions-process/transfer-requirements/: no usable prereq list"
+  "sourceUrl": "https://www.rowan.edu/tbes/admissions-and-aid/admissions/admissions-process.html",
+  "finalStatus": "verified"
  },
  "2500": {
   "stage": "failed",
-  "lastAttempt": "2026-08-24T23:29:42.961Z",
-  "attempts": 3,
+  "lastAttempt": "2026-08-25T07:57:17.320Z",
+  "attempts": 4,
   "pipelineGen": 10,
   "sourceUrl": "https://www.mtsu.edu/how-to-apply/undergraduate/",
-  "error": "https://www.mtsu.edu/how-to-apply/more-info/: no usable prereq list || https://www.mtsu.edu/how-to-apply/transfer-students/: no usable prereq list || https://www.mtsu.edu/how-to-apply/undergraduate/?utm_source=website&amp;utm_medium=homepage&amp;utm_campaign=undergradlink: no usable prereq list || https://www.mtsu.edu/how-to-apply/undergraduate/: no usable prereq list"
+  "error": "https://www.mtsu.edu/how-to-apply/more-info/: no usable prereq list || https://www.mtsu.edu/how-to-apply/transfer-students/: no usable prereq list || https://www.mtsu.edu/how-to-apply/undergraduate/?utm_source=website&amp;utm_medium=homepage&amp;utm_campaign=undergradlink: no usable prereq list"
  },
  "2501": {
   "stage": "finalized",
@@ -7980,11 +7977,12 @@
   "finalStatus": "verified"
  },
  "2596": {
-  "stage": "source_discovery",
-  "lastAttempt": "2026-08-25T06:30:11.416Z",
-  "attempts": 1,
+  "stage": "failed",
+  "lastAttempt": "2026-08-25T08:07:32.013Z",
+  "attempts": 2,
   "pipelineGen": 10,
-  "sourceUrl": "https://www.csd.fiu.edu/"
+  "sourceUrl": "https://carta.fiu.edu/communication/",
+  "error": "https://www.csd.fiu.edu/: too little text || https://carta.fiu.edu/students/prospective/admission-requirements/: no usable prereq list"
  },
  "2597": {
   "stage": "failed",
@@ -8122,10 +8120,12 @@
   "sourceUrl": "https://www.lsu.edu/graduateschool/admissions/programs.php"
  },
  "2638": {
-  "stage": "source_discovery",
-  "lastAttempt": "2026-08-25T06:30:13.913Z",
-  "attempts": 1,
-  "pipelineGen": 10
+  "stage": "failed",
+  "lastAttempt": "2026-08-25T08:09:07.443Z",
+  "attempts": 2,
+  "pipelineGen": 10,
+  "error": "https://www.catc.edu/: too little text",
+  "sourceUrl": "https://www.catc.edu/"
  },
  "2648": {
   "stage": "finalized",
@@ -8526,11 +8526,12 @@
   "error": "https://www.uwosh.edu/open-meetings/communication-studies-curriculum-committee/: HTTP 405 || https://www.uwosh.edu/open-meetings/school-of-media-arts-and-communication-curriculum-committee/: HTTP 405 || https://www.uwosh.edu/admissions/how-to-apply/freshmen/: no usable prereq list || https://www.uwosh.edu/admissions/how-to-apply/special-students-and-guests-admission-guidelines/: no usable prereq list"
  },
  "2777": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-25T06:32:31.610Z",
-  "attempts": 1,
+  "stage": "failed",
+  "lastAttempt": "2026-08-25T08:09:00.771Z",
+  "attempts": 2,
   "pipelineGen": 10,
-  "sourceUrl": "https://www.ox.ac.uk/admissions/graduate/courses/find-your-course"
+  "sourceUrl": "https://www.ox.ac.uk/admissions/graduate/courses/find-your-course",
+  "error": "https://www.ox.ac.uk/about/how-we-are-run/policies-and-statements/policy-hub/freedom-of-speech: no usable prereq list || https://ox.ac.uk/: no usable prereq list || https://www.ox.ac.uk/admissions/undergraduate/courses/course-listing: no usable prereq list"
  },
  "2779": {
   "stage": "finalized",
@@ -8678,11 +8679,12 @@
   "finalStatus": "verified"
  },
  "2802": {
-  "stage": "source_discovery",
-  "lastAttempt": "2026-08-25T06:32:09.354Z",
-  "attempts": 1,
+  "stage": "finalized",
+  "lastAttempt": "2026-08-25T08:06:13.373Z",
+  "attempts": 2,
   "pipelineGen": 10,
-  "sourceUrl": "https://www.usf.edu/cbcs/csd/resources/index.aspx"
+  "sourceUrl": "https://www.usf.edu/cbcs/csd/graduate/res-sun-track-admission.aspx",
+  "finalStatus": "verified"
  },
  "2803": {
   "stage": "finalized",
