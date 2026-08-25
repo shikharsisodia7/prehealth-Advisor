@@ -1,13 +1,13 @@
 # Prerequisite Coverage Audit
 
-Generated: 2026-08-25T22:47:06.641Z
+Generated: 2026-08-25T23:17:14.486Z
 
 | Profession | Active | Verified | No specific courses | Blocked | Unfinished | Final-status coverage | Directory reconciliation |
 |---|---:|---:|---:|---:|---:|---:|---|
 | Certified Anesthesiologist Assistant (CAA) | 25 | 25 | 0 | 0 | 0 | 100% | reconciled |
 | Dental School (DDS/DMD) | 78 | 75 | 2 | 0 | 1 | 98.7% | reconciled |
 | Dietetics (RD/RDN) | 152 | 143 | 4 | 0 | 5 | 96.7% | reconciled |
-| Genetic Counseling (MS) | 64 | 63 | 1 | 0 | 0 | 100% | under-source-count |
+| Genetic Counseling (MS) | 65 | 64 | 1 | 0 | 0 | 100% | reconciled |
 | Medical School (MD/DO) | 236 | 217 | 7 | 0 | 12 | 94.9% | reconciled |
 | Nursing (ABSN/MEPN) | 446 | 422 | 15 | 1 | 8 | 98% | reconciled |
 | Occupational Therapy (OTD/MOT) | 318 | 301 | 6 | 0 | 11 | 96.5% | reconciled |
@@ -17,7 +17,7 @@ Generated: 2026-08-25T22:47:06.641Z
 | Physical Therapy (DPT) | 308 | 306 | 1 | 0 | 1 | 99.7% | reconciled |
 | Physician Assistant (PA) | 330 | 321 | 3 | 0 | 6 | 98.2% | reconciled |
 | Podiatric Medicine (DPM) | 11 | 11 | 0 | 0 | 0 | 100% | reconciled |
-| Postbaccalaureate Programs | 336 | 258 | 9 | 0 | 69 | 79.5% | under-source-count |
+| Postbaccalaureate Programs | 338 | 260 | 9 | 0 | 69 | 79.6% | over-source-count |
 | Prosthetics & Orthotics (MSPO) | 15 | 14 | 0 | 0 | 1 | 93.3% | reconciled |
 | Speech-Language Pathology (MS/MA) | 322 | 282 | 6 | 0 | 34 | 89.4% | reconciled |
 | Veterinary Medicine (DVM) | 32 | 32 | 0 | 0 | 0 | 100% | reconciled |

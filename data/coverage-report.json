@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-25T22:47:06.641Z",
+  "generatedAt": "2026-08-25T23:17:14.486Z",
   "professions": [
     {
       "professionSlug": "anesthesiologist-assistant",
@@ -84,8 +84,8 @@
       ],
       "inactivePrograms": 0,
       "prereqStatusCounts": {
-        "draft": 5,
         "no_prereqs_published": 4,
+        "draft": 5,
         "verified": 143
       },
       "prereqVerifiedCount": 143,
@@ -122,15 +122,15 @@
     {
       "professionSlug": "genetic-counseling",
       "professionName": "Genetic Counseling (MS)",
-      "directoryPrograms": 64,
-      "directoryAttributedPrograms": 64,
+      "directoryPrograms": 65,
+      "directoryAttributedPrograms": 65,
       "manualPrograms": [],
-      "inactivePrograms": 1,
+      "inactivePrograms": 0,
       "prereqStatusCounts": {
-        "verified": 63,
+        "verified": 64,
         "no_prereqs_published": 1
       },
-      "prereqVerifiedCount": 63,
+      "prereqVerifiedCount": 64,
       "prereqNoSpecificPrereqsCount": 1,
       "prereqBlockedCount": 0,
       "prereqUnfinishedCount": 0,
@@ -147,10 +147,10 @@
       ],
       "reconciliation": {
         "sourceReportedTotal": 65,
-        "inDatabase": 64,
-        "directoryAttributed": 64,
-        "delta": -1,
-        "status": "under-source-count"
+        "inDatabase": 65,
+        "directoryAttributed": 65,
+        "delta": 0,
+        "status": "reconciled"
       }
     },
     {
@@ -494,37 +494,37 @@
     {
       "professionSlug": "postbac",
       "professionName": "Postbaccalaureate Programs",
-      "directoryPrograms": 336,
-      "directoryAttributedPrograms": 336,
+      "directoryPrograms": 338,
+      "directoryAttributedPrograms": 338,
       "manualPrograms": [],
       "inactivePrograms": 0,
       "prereqStatusCounts": {
-        "verified": 258,
+        "verified": 260,
         "no_prereqs_published": 9,
         "draft": 67,
         "needs_review": 2
       },
-      "prereqVerifiedCount": 258,
+      "prereqVerifiedCount": 260,
       "prereqNoSpecificPrereqsCount": 9,
       "prereqBlockedCount": 0,
       "prereqUnfinishedCount": 69,
-      "prereqVerifiedPct": 79.5,
+      "prereqVerifiedPct": 79.6,
       "sources": [
         {
           "name": "AAMC Postbaccalaureate Premedical Programs Database",
           "url": "https://mec.aamc.org/postbac/#/index",
-          "retrievedAt": "2026-08-07",
-          "sourceProgramCount": "338",
+          "retrievedAt": "2026-08-25",
+          "sourceProgramCount": "337",
           "coverageStatus": "complete",
-          "notes": "Retrieved from the AAMC Postbac program API (api.mec.aamc.org/postbac-service/services-rs/programs/), which is the same data backing the mec.aamc.org/postbac Angular SPA. Only active programs (status=A) included; 338 total. The live API was directly accessible despite the SPA shell’s Angular front-end previously failing at TLS level — the underlying REST service at api.mec.aamc.org was reachable on 2026-08-07. externalId is the AAMC program ID."
+          "notes": "Retrieved from the AAMC Postbac program API (api.mec.aamc.org/postbac-service/services-rs/programs/), which is the same data backing the mec.aamc.org/postbac Angular SPA. Only active programs (status=A) included; 338 total. The live API was directly accessible despite the SPA shell’s Angular front-end previously failing at TLS level — the underlying REST service at api.mec.aamc.org was reachable on 2026-08-07. externalId is the AAMC program ID. Recount 2026-08-25 direct from api.mec.aamc.org: 337 programmes. UC Davis School of Medicine (AAMC id 483) is no longer listed by AAMC but its programme page is live and advertising a December 2025 application opening, so its row stays active."
         }
       ],
       "reconciliation": {
-        "sourceReportedTotal": 338,
-        "inDatabase": 336,
-        "directoryAttributed": 336,
-        "delta": -2,
-        "status": "under-source-count"
+        "sourceReportedTotal": 337,
+        "inDatabase": 338,
+        "directoryAttributed": 338,
+        "delta": 1,
+        "status": "over-source-count"
       }
     },
     {
