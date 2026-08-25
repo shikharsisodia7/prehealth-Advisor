@@ -1,6 +1,6 @@
 # Prerequisite Coverage Audit
 
-Generated: 2026-08-25T13:44:21.891Z
+Generated: 2026-08-25T14:14:31.533Z
 
 | Profession | Active | Verified | No specific courses | Blocked | Unfinished | Final-status coverage | Directory reconciliation |
 |---|---:|---:|---:|---:|---:|---:|---|
@@ -9,7 +9,7 @@ Generated: 2026-08-25T13:44:21.891Z
 | Dietetics (RD/RDN) | 152 | 140 | 4 | 0 | 8 | 94.7% | reconciled |
 | Genetic Counseling (MS) | 64 | 62 | 1 | 0 | 1 | 98.4% | under-source-count |
 | Medical School (MD/DO) | 236 | 198 | 7 | 0 | 31 | 86.9% | reconciled |
-| Nursing (ABSN/MEPN) | 446 | 415 | 15 | 1 | 15 | 96.4% | reconciled |
+| Nursing (ABSN/MEPN) | 446 | 416 | 15 | 1 | 14 | 96.6% | reconciled |
 | Occupational Therapy (OTD/MOT) | 318 | 299 | 6 | 0 | 13 | 95.9% | reconciled |
 | Optometry (OD) | 24 | 24 | 0 | 0 | 0 | 100% | reconciled |
 | Pathologists' Assistant (PathA) | 20 | 19 | 1 | 0 | 0 | 100% | reconciled |
