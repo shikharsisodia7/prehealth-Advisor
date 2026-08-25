@@ -1,0 +1,4329 @@
+[
+  {
+    "id": 101,
+    "name": "Universidad Ana G. Mendez - Gurabo, School of Dental Medicine",
+    "slug": "dental",
+    "verdict": "all sources unreadable",
+    "probes": [
+      {
+        "url": "https://ac.suagm.edu/",
+        "status": "fetch failed",
+        "textLen": 0,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 154,
+    "name": "Pepperdine University",
+    "slug": "dietetics",
+    "verdict": "readable but nothing about prerequisites",
+    "probes": [
+      {
+        "url": "https://seaver.pepperdine.edu/natural-science/content/nutrionalscience/nutritional_science_handbook_2018.pdf",
+        "status": 200,
+        "textLen": 336774,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://seaver.pepperdine.edu/admission/application/undergraduate/requirements/",
+        "status": 404,
+        "textLen": 0,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://seaver.pepperdine.edu/graduate/admission/process.htm",
+        "status": 200,
+        "textLen": 12907,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 168,
+    "name": "Purdue University",
+    "slug": "dietetics",
+    "verdict": "readable but nothing about prerequisites",
+    "probes": [
+      {
+        "url": "https://www.purdue.edu/academics/ogsps/admissions/gradrequirements/westlafayette/nutrition-and-dietetics/",
+        "status": 200,
+        "textLen": 1727,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://catalog.purdue.edu/preview_program.php?catoid=15&poid=22972",
+        "status": 202,
+        "textLen": 0,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://catalog.purdue.edu/preview_program.php?catoid=7&poid=6498&print",
+        "status": 202,
+        "textLen": 0,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 177,
+    "name": "The University of Mississippi",
+    "slug": "dietetics",
+    "verdict": "course list present — retry extraction",
+    "probes": [
+      {
+        "url": "https://olemiss.edu/programs/applsci/master-science-food-and-nutrition-services/",
+        "status": 200,
+        "textLen": 27130,
+        "mentions": true,
+        "asserts": false,
+        "enumerates": true
+      },
+      {
+        "url": "https://ox.ac.uk/",
+        "status": 403,
+        "textLen": 0,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://www.ox.ac.uk/admissions/undergraduate/courses/course-listing",
+        "status": 200,
+        "textLen": 7051,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 210,
+    "name": "California Baptist University",
+    "slug": "dietetics",
+    "verdict": "references prerequisites but publishes no list",
+    "probes": [
+      {
+        "url": "https://calbaptist.edu/academics/programs/online-master-of-science-integrative-nutrition/application-requirements",
+        "status": 200,
+        "textLen": 3548,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://calbaptist.edu/admissions-aid/graduate/requirements",
+        "status": 200,
+        "textLen": 4859,
+        "mentions": true,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://graduate.catalog.calbaptist.edu/admissions/graduate",
+        "status": 200,
+        "textLen": 7219,
+        "mentions": true,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 255,
+    "name": "Appalachian State University",
+    "slug": "dietetics",
+    "verdict": "course list present — retry extraction",
+    "probes": [
+      {
+        "url": "https://nutrition.appstate.edu/academic-programs/bs-nutrition-and-foods-dietetics",
+        "status": 200,
+        "textLen": 11763,
+        "mentions": true,
+        "asserts": false,
+        "enumerates": true
+      }
+    ]
+  },
+  {
+    "id": 409,
+    "name": "Oklahoma State University Center for Health Sciences College of Osteopathic Medicine",
+    "slug": "medicine",
+    "verdict": "all sources unreadable",
+    "probes": [
+      {
+        "url": "http://www.healthsciences.okstate.edu",
+        "status": "fetch failed",
+        "textLen": 0,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://www.healthsciences.okstate.edu/",
+        "status": "fetch failed",
+        "textLen": 0,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 410,
+    "name": "Oklahoma State University Center for Health Sciences College of Osteopathic Medicine-Tahlequah",
+    "slug": "medicine",
+    "verdict": "all sources unreadable",
+    "probes": [
+      {
+        "url": "https://www.osuokc.edu/",
+        "status": 403,
+        "textLen": 0,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://osuokc.edu/academics/general-education",
+        "status": 403,
+        "textLen": 0,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 427,
+    "name": "UNT Health Fort Worth's Texas College of Osteopathic Medicine",
+    "slug": "medicine",
+    "verdict": "references prerequisites but publishes no list",
+    "probes": [
+      {
+        "url": "https://unthsc.edu/texas-college-of-osteopathic-medicine/",
+        "status": 200,
+        "textLen": 10283,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://www.unthealth.edu/tcom/faculty-development-center/graduate-certificate-academic-medicine/graduate-certificate-in-academic-medicine-gcam.html",
+        "status": 200,
+        "textLen": 9576,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://www.unthealth.edu/research/laboratory-animal-medicine/training.html",
+        "status": 200,
+        "textLen": 9509,
+        "mentions": true,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 440,
+    "name": "Alice L. Walton School of Medicine",
+    "slug": "medicine",
+    "verdict": "readable but nothing about prerequisites",
+    "probes": [
+      {
+        "url": "https://www.alwmedschool.org/admissions/requirements",
+        "status": 200,
+        "textLen": 3182,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://www.alwmedschool.org/admissions/how-to-apply",
+        "status": 200,
+        "textLen": 4623,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 447,
+    "name": "Keck School of Medicine of the University of Southern California",
+    "slug": "medicine",
+    "verdict": "readable but nothing about prerequisites",
+    "probes": [
+      {
+        "url": "https://www.keckmedicine.org/",
+        "status": 200,
+        "textLen": 10454,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://www.keckmedicine.org/services/urology/",
+        "status": 200,
+        "textLen": 14425,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 495,
+    "name": "University of Massachusetts T.H. Chan School of Medicine",
+    "slug": "medicine",
+    "verdict": "all sources unreadable",
+    "probes": [
+      {
+        "url": "https://ox.ac.uk/",
+        "status": 403,
+        "textLen": 0,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://www.ox.ac.uk/admissions/undergraduate/college-life",
+        "status": 403,
+        "textLen": 0,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 497,
+    "name": "Michigan State University College of Human Medicine",
+    "slug": "medicine",
+    "verdict": "all sources unreadable",
+    "probes": [
+      {
+        "url": "https://prehealth.natsci.msu.edu/health-careers/medicine/michigan-medical-school-prerequisites.aspx",
+        "status": 200,
+        "textLen": 84,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://humanmedicine.msu.edu/admissions/Admission-Requirements.html",
+        "status": 200,
+        "textLen": 1,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 508,
+    "name": "Washington University in St. Louis School of Medicine",
+    "slug": "medicine",
+    "verdict": "course list present — retry extraction",
+    "probes": [
+      {
+        "url": "https://medschool.wustl.edu/",
+        "status": 200,
+        "textLen": 4211,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://medicine.washu.edu/education/admissions/",
+        "status": 200,
+        "textLen": 5742,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": true
+      }
+    ]
+  },
+  {
+    "id": 513,
+    "name": "University of Nevada, Reno School of Medicine",
+    "slug": "medicine",
+    "verdict": "explicit no-prereq statement",
+    "probes": [
+      {
+        "url": "https://med.unr.edu/education/medical-education/md-admissions-process/prerequisites-requirements",
+        "status": 200,
+        "textLen": 16659,
+        "mentions": true,
+        "asserts": true,
+        "enumerates": true
+      },
+      {
+        "url": "https://med.unr.edu/education/medical-education/md-admissions-process/application-requirements",
+        "status": 200,
+        "textLen": 22518,
+        "mentions": true,
+        "asserts": true,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 543,
+    "name": "Northeast Ohio Medical University College of Medicine",
+    "slug": "medicine",
+    "verdict": "readable but nothing about prerequisites",
+    "probes": [
+      {
+        "url": "https://www.northeastern.edu/",
+        "status": 200,
+        "textLen": 3264,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://admissions.northeastern.edu/",
+        "status": 200,
+        "textLen": 6354,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://admissions.northeastern.edu/application-information/admissions-deadlines-decisions/",
+        "status": 200,
+        "textLen": 8430,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 568,
+    "name": "Vanderbilt University School of Medicine",
+    "slug": "medicine",
+    "verdict": "course list present — retry extraction",
+    "probes": [
+      {
+        "url": "https://medschool.vanderbilt.edu/md/admissions/process/",
+        "status": 200,
+        "textLen": 29616,
+        "mentions": true,
+        "asserts": false,
+        "enumerates": true
+      },
+      {
+        "url": "https://medschool.vanderbilt.edu/medical-physics/admissions/",
+        "status": 200,
+        "textLen": 9035,
+        "mentions": true,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 576,
+    "name": "The University of Texas at San Antonio Joe R. and Teresa Lozano Long School of Medicine",
+    "slug": "medicine",
+    "verdict": "all sources unreadable",
+    "probes": [
+      {
+        "url": "https://ox.ac.uk/",
+        "status": 403,
+        "textLen": 0,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://www.ox.ac.uk/about/the-university/facts-and-figures/dates-of-term",
+        "status": 403,
+        "textLen": 0,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 596,
+    "name": "American University of Beirut",
+    "slug": "nursing",
+    "verdict": "course list present — retry extraction",
+    "probes": [
+      {
+        "url": "https://www.aub.edu.lb/Registrar/catalogue2025-26/ug/Pages/hson-bsn.aspx",
+        "status": 200,
+        "textLen": 22082,
+        "mentions": true,
+        "asserts": false,
+        "enumerates": true
+      },
+      {
+        "url": "https://www.aub.edu.lb/fafs/AdmissionsFinancialAid/Pages/AdmissionRequirements.aspx",
+        "status": 404,
+        "textLen": 0,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://www.aub.edu.lb/Registrar/catalogue/Pages/graduate-hson-courses.aspx",
+        "status": 404,
+        "textLen": 0,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 641,
+    "name": "Cleveland State University",
+    "slug": "nursing",
+    "verdict": "course list present — retry extraction",
+    "probes": [
+      {
+        "url": "https://health.csuohio.edu/undergraduate-programs/traditional-bsn-programs",
+        "status": 200,
+        "textLen": 7068,
+        "mentions": true,
+        "asserts": false,
+        "enumerates": true
+      },
+      {
+        "url": "https://health.csuohio.edu/health-sci/admission-criteria-and-requirements",
+        "status": 200,
+        "textLen": 8437,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://health.csuohio.edu/pathways-practice/community-college-admission-requirements",
+        "status": 200,
+        "textLen": 3534,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": true
+      }
+    ]
+  },
+  {
+    "id": 839,
+    "name": "The University of Texas at San Antonio",
+    "slug": "nursing",
+    "verdict": "course list present — retry extraction",
+    "probes": [
+      {
+        "url": "https://catalog.utsa.edu/undergraduate/bachelorsdegreeregulations/preprofessionalcourses/healthprofessionsprograms/",
+        "status": 200,
+        "textLen": 13963,
+        "mentions": true,
+        "asserts": false,
+        "enumerates": true
+      },
+      {
+        "url": "https://www.sanantonio-quezon.webs.com/",
+        "status": "fetch failed",
+        "textLen": 0,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 851,
+    "name": "University of Central Oklahoma",
+    "slug": "nursing",
+    "verdict": "course list present — retry extraction",
+    "probes": [
+      {
+        "url": "https://uco.edu/cms/academics/nursing/",
+        "status": 200,
+        "textLen": 13726,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": true
+      },
+      {
+        "url": "https://www.uco.edu/admissions/enroll/guide",
+        "status": 200,
+        "textLen": 7242,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://www.uco.edu/admissions/aid/",
+        "status": 200,
+        "textLen": 7672,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 971,
+    "name": "Metropolitan State University",
+    "slug": "nursing",
+    "verdict": "course list present — retry extraction",
+    "probes": [
+      {
+        "url": "https://www.metrostate.edu/academics/programs/prelicensure-bsn",
+        "status": 200,
+        "textLen": 36230,
+        "mentions": true,
+        "asserts": false,
+        "enumerates": true
+      },
+      {
+        "url": "https://www.metrostate.edu/academics/nursing-and-health-sciences/practicum/requirements",
+        "status": 200,
+        "textLen": 10161,
+        "mentions": true,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://www.metrostate.edu/academics/programs/cyber-operations-ms/prerequisites",
+        "status": 200,
+        "textLen": 6708,
+        "mentions": true,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 1016,
+    "name": "University of Pennsylvania",
+    "slug": "nursing",
+    "verdict": "course list present — retry extraction",
+    "probes": [
+      {
+        "url": "https://www.nursing.upenn.edu/students/handbooks-forms/bsn-handbook/degree-requirements/",
+        "status": 200,
+        "textLen": 40921,
+        "mentions": true,
+        "asserts": false,
+        "enumerates": true
+      },
+      {
+        "url": "https://www.nursing.upenn.edu/bachelor-of-science-in-nursing-bsn/",
+        "status": 200,
+        "textLen": 11660,
+        "mentions": true,
+        "asserts": false,
+        "enumerates": true
+      }
+    ]
+  },
+  {
+    "id": 1019,
+    "name": "University of San Diego",
+    "slug": "nursing",
+    "verdict": "all sources unreadable",
+    "probes": [
+      {
+        "url": "https://www.sandiego.edu/nursing/programs/masters/msn/admissions.php",
+        "status": 200,
+        "textLen": 95,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://www.sandiego.edu/nursing/programs/masters/mepn/admissions.php",
+        "status": 200,
+        "textLen": 90,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://www.sandiego.edu/admission-and-aid/graduate/apply/mepn-application/",
+        "status": 200,
+        "textLen": 100,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 1034,
+    "name": "Wilmington University-Georgetown",
+    "slug": "nursing",
+    "verdict": "course list present — retry extraction",
+    "probes": [
+      {
+        "url": "https://wilmu.edu/health/nursing_admission.aspx",
+        "status": 200,
+        "textLen": 3372,
+        "mentions": true,
+        "asserts": false,
+        "enumerates": true
+      },
+      {
+        "url": "https://www.wilmu.edu/admission/admission-requirements.aspx",
+        "status": 200,
+        "textLen": 7045,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://www.wilmu.edu/admission/apply-now.aspx",
+        "status": 200,
+        "textLen": 1971,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 1070,
+    "name": "Eastern Michigan University",
+    "slug": "occupational-therapy",
+    "verdict": "explicit no-prereq statement",
+    "probes": [
+      {
+        "url": "https://www.emich.edu/chhs/health-sciences/programs/occupational-therapy",
+        "status": 403,
+        "textLen": 0,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://www.emich.edu/chhs/health-sciences/programs/occupational-therapy/admissions/",
+        "status": 200,
+        "textLen": 13910,
+        "mentions": true,
+        "asserts": true,
+        "enumerates": false
+      },
+      {
+        "url": "https://www.emich.edu/chhs/health-sciences/programs/occupational-therapy/admissions/index.php",
+        "status": 403,
+        "textLen": 0,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 1082,
+    "name": "Hofstra University",
+    "slug": "occupational-therapy",
+    "verdict": "readable but nothing about prerequisites",
+    "probes": [
+      {
+        "url": "https://www.hofstra.edu/occupational-therapy/",
+        "status": 200,
+        "textLen": 14168,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 1128,
+    "name": "Radford University Carilion",
+    "slug": "occupational-therapy",
+    "verdict": "explicit no-prereq statement",
+    "probes": [
+      {
+        "url": "https://www.radford.edu/",
+        "status": 200,
+        "textLen": 3830,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://www.radford.edu/waldron-college-health-human-services/physician-assistant-studies-department/admission-requirements.html",
+        "status": 200,
+        "textLen": 13085,
+        "mentions": true,
+        "asserts": true,
+        "enumerates": true
+      },
+      {
+        "url": "https://www.radford.edu/admissions/online/index.html",
+        "status": 200,
+        "textLen": 34382,
+        "mentions": true,
+        "asserts": true,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 1166,
+    "name": "University of Mary",
+    "slug": "occupational-therapy",
+    "verdict": "explicit no-prereq statement",
+    "probes": [
+      {
+        "url": "https://www.umary.edu/academics/graduate-programs/occupational-therapy",
+        "status": 200,
+        "textLen": 8685,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://online.umary.edu/admissions-aid/requirements-deadlines",
+        "status": 200,
+        "textLen": 12974,
+        "mentions": true,
+        "asserts": true,
+        "enumerates": false
+      },
+      {
+        "url": "https://online.umary.edu/index%2Ephp/admissions-aid/requirements-deadlines",
+        "status": 200,
+        "textLen": 12974,
+        "mentions": true,
+        "asserts": true,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 1175,
+    "name": "University of Scranton",
+    "slug": "occupational-therapy",
+    "verdict": "course list present — retry extraction",
+    "probes": [
+      {
+        "url": "https://admissions.scranton.edu/academic-programs/majors-minors/programs/occupational-therapy.shtml",
+        "status": 200,
+        "textLen": 10364,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": true
+      },
+      {
+        "url": "https://catalog.scranton.edu/preview_program.php?catoid=61&poid=9087&returnto=7640&print",
+        "status": 202,
+        "textLen": 0,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://www.scranton.edu/academics/acalog/course.php?major=114",
+        "status": 202,
+        "textLen": 0,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 1194,
+    "name": "Winston-Salem State University",
+    "slug": "occupational-therapy",
+    "verdict": "references prerequisites but publishes no list",
+    "probes": [
+      {
+        "url": "https://www.wssu.edu/academics/colleges-and-departments/school-of-health-sciences/department-of-occupational-therapy/admissions-and-criteria-process.html",
+        "status": 200,
+        "textLen": 4758,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://catalog.wssu.edu/preview_degree_planner.php?catoid",
+        "status": 200,
+        "textLen": 124,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://www.wssu.edu/academics/colleges-and-departments/school-of-health-sciences/department-of-occupational-therapy/early-assurance-program.html",
+        "status": 200,
+        "textLen": 4611,
+        "mentions": true,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 1209,
+    "name": "Cleveland State University",
+    "slug": "occupational-therapy",
+    "verdict": "explicit no-prereq statement",
+    "probes": [
+      {
+        "url": "https://health.csuohio.edu/occupational-therapy/admission-and-advising",
+        "status": 200,
+        "textLen": 22993,
+        "mentions": true,
+        "asserts": true,
+        "enumerates": true
+      }
+    ]
+  },
+  {
+    "id": 1302,
+    "name": "University of Mary-Bismarck",
+    "slug": "occupational-therapy",
+    "verdict": "explicit no-prereq statement",
+    "probes": [
+      {
+        "url": "https://www.umary.edu/academics/graduate-programs/occupational-therapy",
+        "status": 200,
+        "textLen": 8685,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://online.umary.edu/admissions-aid/requirements-deadlines",
+        "status": 200,
+        "textLen": 12974,
+        "mentions": true,
+        "asserts": true,
+        "enumerates": false
+      },
+      {
+        "url": "https://online.umary.edu/index%2Ephp/admissions-aid/requirements-deadlines",
+        "status": 200,
+        "textLen": 12974,
+        "mentions": true,
+        "asserts": true,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 1308,
+    "name": "University of Nebraska Medical Center",
+    "slug": "occupational-therapy",
+    "verdict": "course list present — retry extraction",
+    "probes": [
+      {
+        "url": "https://www.unmc.edu/alliedhealth/academics/programs/ot/admission/index.html",
+        "status": 200,
+        "textLen": 7745,
+        "mentions": true,
+        "asserts": false,
+        "enumerates": true
+      },
+      {
+        "url": "https://www.unmc.edu/alliedhealth/academics/programs/ot/admission/technical-standards-fx.html",
+        "status": 200,
+        "textLen": 13085,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 1314,
+    "name": "University of Oklahoma-Tulsa, Schusterman Center",
+    "slug": "occupational-therapy",
+    "verdict": "course list present — retry extraction",
+    "probes": [
+      {
+        "url": "https://www.ou.edu/admissions/academics/allied-health/occupational-therapy.html",
+        "status": 200,
+        "textLen": 3910,
+        "mentions": true,
+        "asserts": false,
+        "enumerates": true
+      },
+      {
+        "url": "https://www.ou.edu/admissions/academics/allied-health/occupational-therapy",
+        "status": 200,
+        "textLen": 3910,
+        "mentions": true,
+        "asserts": false,
+        "enumerates": true
+      }
+    ]
+  },
+  {
+    "id": 1318,
+    "name": "University of Scranton",
+    "slug": "occupational-therapy",
+    "verdict": "course list present — retry extraction",
+    "probes": [
+      {
+        "url": "https://admissions.scranton.edu/academic-programs/majors-minors/programs/occupational-therapy.shtml",
+        "status": 200,
+        "textLen": 10364,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": true
+      },
+      {
+        "url": "https://www.scranton.edu/academics/acalog/course.php?major=114",
+        "status": 202,
+        "textLen": 0,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 1330,
+    "name": "The University of Texas at San Antonio Health Science Center",
+    "slug": "occupational-therapy",
+    "verdict": "explicit no-prereq statement",
+    "probes": [
+      {
+        "url": "https://uthscsa.edu/health-professions/programs/doctor-occupational-therapy/admissions",
+        "status": 200,
+        "textLen": 5605,
+        "mentions": true,
+        "asserts": true,
+        "enumerates": true
+      },
+      {
+        "url": "https://ox.ac.uk/",
+        "status": 403,
+        "textLen": 0,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://www.ox.ac.uk/admissions/undergraduate/courses/course-listing",
+        "status": 403,
+        "textLen": 0,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 1458,
+    "name": "South Dakota State University College of Pharmacy and Allied Health Professions",
+    "slug": "pharmacy",
+    "verdict": "readable but nothing about prerequisites",
+    "probes": [
+      {
+        "url": "https://sdstate.edu",
+        "status": 200,
+        "textLen": 6543,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 1671,
+    "name": "Maryville University of Saint Louis",
+    "slug": "physical-therapy",
+    "verdict": "explicit no-prereq statement",
+    "probes": [
+      {
+        "url": "https://catalog.slu.edu/colleges-schools/health-sciences/physical-therapy-athletic-training/physical-therapy-program/",
+        "status": 200,
+        "textLen": 67066,
+        "mentions": true,
+        "asserts": true,
+        "enumerates": true
+      },
+      {
+        "url": "https://catalog.slu.edu/academic-policies/academic-policies-procedures/prerequisites/",
+        "status": 200,
+        "textLen": 47515,
+        "mentions": true,
+        "asserts": true,
+        "enumerates": true
+      },
+      {
+        "url": "https://catalog.slu.edu//academic-policies/academic-policies-procedures/prerequisites/",
+        "status": 200,
+        "textLen": 47515,
+        "mentions": true,
+        "asserts": true,
+        "enumerates": true
+      }
+    ]
+  },
+  {
+    "id": 1726,
+    "name": "University of Mary",
+    "slug": "physical-therapy",
+    "verdict": "explicit no-prereq statement",
+    "probes": [
+      {
+        "url": "https://www.umary.edu/academics/graduate-programs/physical-therapy",
+        "status": 200,
+        "textLen": 9311,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://online.umary.edu/admissions-aid/requirements-deadlines",
+        "status": 200,
+        "textLen": 12974,
+        "mentions": true,
+        "asserts": true,
+        "enumerates": false
+      },
+      {
+        "url": "https://online.umary.edu/index%2Ephp/admissions-aid/requirements-deadlines",
+        "status": 200,
+        "textLen": 12974,
+        "mentions": true,
+        "asserts": true,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 1936,
+    "name": "Kansas State University",
+    "slug": "physician-assistant",
+    "verdict": "references prerequisites but publishes no list",
+    "probes": [
+      {
+        "url": "https://catalog.k-state.edu/programs/MPAS/program-requirements-TCjHU",
+        "status": 200,
+        "textLen": 4403,
+        "mentions": true,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://www.k-state.edu/ksis/faqs/faqCourseClassPrerequisites.html",
+        "status": 200,
+        "textLen": 2744,
+        "mentions": true,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://www.k-state.edu/admissions/",
+        "status": 200,
+        "textLen": 4593,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 1946,
+    "name": "Louisiana State University Health Sciences Center Shreveport",
+    "slug": "physician-assistant",
+    "verdict": "all sources unreadable",
+    "probes": [
+      {
+        "url": "https://www.lsuhscshreveport.edu/",
+        "status": "fetch failed",
+        "textLen": 0,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 1999,
+    "name": "South College – Asheville",
+    "slug": "physician-assistant",
+    "verdict": "no source url",
+    "probes": []
+  },
+  {
+    "id": 2070,
+    "name": "Oklahoma State University",
+    "slug": "physician-assistant",
+    "verdict": "explicit no-prereq statement",
+    "probes": [
+      {
+        "url": "https://catalog.okstate.edu/courses/pa/",
+        "status": 200,
+        "textLen": 63845,
+        "mentions": true,
+        "asserts": true,
+        "enumerates": true
+      },
+      {
+        "url": "https://osuokc.edu/academics/general-education",
+        "status": 403,
+        "textLen": 0,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 2094,
+    "name": "Thomas Jefferson University, East Falls Campus",
+    "slug": "physician-assistant",
+    "verdict": "course list present — retry extraction",
+    "probes": [
+      {
+        "url": "https://catalog.jefferson.edu/colleges-schools/college-health-professions-jchp/health-sciences-pre-physician-assistant-bs/",
+        "status": 200,
+        "textLen": 26442,
+        "mentions": true,
+        "asserts": false,
+        "enumerates": true
+      },
+      {
+        "url": "https://www.jefferson.edu/academics/colleges-schools-institutes/health-professions/departments-programs/health-science-clinical-practice/degrees-programs/graduate/doctor-health-science/apply/admissions-prerequisites.html",
+        "status": 200,
+        "textLen": 5001,
+        "mentions": true,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://www.jefferson.edu/academics/colleges-schools-in",
+        "status": 404,
+        "textLen": 0,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 2102,
+    "name": "Thomas Jefferson University, Center City Campus",
+    "slug": "physician-assistant",
+    "verdict": "course list present — retry extraction",
+    "probes": [
+      {
+        "url": "https://catalog.jefferson.edu/colleges-schools/college-health-professions-jchp/health-sciences-pre-physician-assistant-bs/",
+        "status": 200,
+        "textLen": 26442,
+        "mentions": true,
+        "asserts": false,
+        "enumerates": true
+      },
+      {
+        "url": "https://www.jefferson.edu/academics/colleges-schools-institutes/health-professions/departments-programs/health-science-clinical-practice/degrees-programs/graduate/doctor-health-science/apply/admissions-prerequisites.html",
+        "status": 200,
+        "textLen": 5001,
+        "mentions": true,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://www.jefferson.edu/academics/colleges-schools-in",
+        "status": 404,
+        "textLen": 0,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 2120,
+    "name": "Middle Tennessee State University",
+    "slug": "physician-assistant",
+    "verdict": "readable but nothing about prerequisites",
+    "probes": [
+      {
+        "url": "https://www.mtsu.edu/wp-content/uploads/2023/10/MTSU-PA-Studies-Handbook-2026.pdf",
+        "status": 200,
+        "textLen": 498678,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://edu-leadership.mtsu.edu/professional_counseling-requirements/",
+        "status": 404,
+        "textLen": 0,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://catalog.mtsu.edu/content.php?catoid=33&catoid=33&navoid=7425&filter%5Bitem_type%5D=3&filter%5Bonly_active%5D=1&filter%5B3%5D=1&filter%5Bcpage%5D=19&print",
+        "status": 202,
+        "textLen": 0,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 2126,
+    "name": "Army Medical Center of Excellence",
+    "slug": "physician-assistant",
+    "verdict": "course list present — retry extraction",
+    "probes": [
+      {
+        "url": "https://medcoe.army.mil/ipap",
+        "status": 200,
+        "textLen": 30653,
+        "mentions": true,
+        "asserts": false,
+        "enumerates": true
+      },
+      {
+        "url": "https://medcoe.army.mil/ipap/",
+        "status": 200,
+        "textLen": 30653,
+        "mentions": true,
+        "asserts": false,
+        "enumerates": true
+      }
+    ]
+  },
+  {
+    "id": 2179,
+    "name": "University of Michigan Medical School",
+    "slug": "postbac",
+    "verdict": "all sources unreadable",
+    "probes": [
+      {
+        "url": "https://medicine.umich.edu/dept/molecular-integrative-physiology/education/masters-program",
+        "status": 403,
+        "textLen": 0,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://medschool.umich.edu/programs-admissions/residency-fellowship/residency-fellowship-prerequisites-employment",
+        "status": 403,
+        "textLen": 0,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://prehealth.natsci.msu.edu/health-careers/medicine/michigan-medical-school-prerequisites.aspx",
+        "status": 200,
+        "textLen": 83,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 2188,
+    "name": "Colorado State University",
+    "slug": "postbac",
+    "verdict": "course list present — retry extraction",
+    "probes": [
+      {
+        "url": "https://www.colostate.edu",
+        "status": 200,
+        "textLen": 4447,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://online.colostate.edu/certificates/post-bac-pre-health/",
+        "status": 200,
+        "textLen": 6281,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": true
+      },
+      {
+        "url": "https://catalog.colostate.edu/general-catalog/colleges/veterinary-medicine-biomedical-sciences/biomedical-sciences/plan-a-ms-biomedical-sciences/",
+        "status": 200,
+        "textLen": 16812,
+        "mentions": true,
+        "asserts": false,
+        "enumerates": true
+      },
+      {
+        "url": "https://catalog.colostate.edu/general-catalog/colleges/veterinary-medicine-biomedical-sciences/biomedical-sciences-major/",
+        "status": 200,
+        "textLen": 20975,
+        "mentions": true,
+        "asserts": false,
+        "enumerates": true
+      }
+    ]
+  },
+  {
+    "id": 2196,
+    "name": "Cleveland State University",
+    "slug": "postbac",
+    "verdict": "references prerequisites but publishes no list",
+    "probes": [
+      {
+        "url": "https://www.csuohio.edu/admissions/post-baccalaureate-students",
+        "status": 200,
+        "textLen": 5064,
+        "mentions": true,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 2197,
+    "name": "Washington University School of Medicine in St. Louis",
+    "slug": "postbac",
+    "verdict": "readable but nothing about prerequisites",
+    "probes": [
+      {
+        "url": "https://sites.wustl.edu/devbioregenmedpostbacc/",
+        "status": 200,
+        "textLen": 3259,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://sites.wustl.edu/devbioregenmedpostbacc/about/program-details/",
+        "status": 200,
+        "textLen": 6296,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://sites.wustl.edu/devbioregenmedpostbacc/about/frequently-asked-questions/",
+        "status": 200,
+        "textLen": 6473,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 2203,
+    "name": "Rosalind Franklin University of Medicine & Science",
+    "slug": "postbac",
+    "verdict": "explicit no-prereq statement",
+    "probes": [
+      {
+        "url": "https://www.rosalindfranklin.edu/academics/chicago-medical-school/degree-programs/allopathic-medicine-md/application-requirements/",
+        "status": 200,
+        "textLen": 8229,
+        "mentions": true,
+        "asserts": true,
+        "enumerates": true
+      },
+      {
+        "url": "https://www.rosalindfranklin.edu/academics/college-of-health-professions/degree-programs/biomedical-sciences-ms/application-requirements/",
+        "status": 200,
+        "textLen": 9154,
+        "mentions": true,
+        "asserts": false,
+        "enumerates": true
+      }
+    ]
+  },
+  {
+    "id": 2204,
+    "name": "Columbia University Irving Medical Center",
+    "slug": "postbac",
+    "verdict": "course list present — retry extraction",
+    "probes": [
+      {
+        "url": "https://sps.columbia.edu/academics/postbaccalaureate-studies/admissions",
+        "status": 200,
+        "textLen": 4509,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": true
+      },
+      {
+        "url": "https://sps.columbia.edu/academics/postbaccalaureate-studies",
+        "status": 200,
+        "textLen": 9194,
+        "mentions": true,
+        "asserts": false,
+        "enumerates": true
+      }
+    ]
+  },
+  {
+    "id": 2210,
+    "name": "University of Wisconsin-Madison Center for Patient Partnerships",
+    "slug": "postbac",
+    "verdict": "course list present — retry extraction",
+    "probes": [
+      {
+        "url": "https://www.med.wisc.edu/education/md-program/admissions/premedical-requirements-selection-criteria/",
+        "status": 200,
+        "textLen": 10530,
+        "mentions": true,
+        "asserts": false,
+        "enumerates": true
+      },
+      {
+        "url": "https://patientpartnerships.wisc.edu/",
+        "status": 200,
+        "textLen": 3902,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 2211,
+    "name": "Salus at Drexel University",
+    "slug": "postbac",
+    "verdict": "references prerequisites but publishes no list",
+    "probes": [
+      {
+        "url": "https://www.salus.edu/colleges/education-rehabilitation/post-baccalaureate-programs/post-baccalaureate-program-in-health-sciences-spee/index.html",
+        "status": 200,
+        "textLen": 9864,
+        "mentions": true,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://www.salus.edu/colleges/nursing-health-professions/department-of-speech-language-pathology/post-baccalaureate-program-in-health-sciences-spee/index.html",
+        "status": 200,
+        "textLen": 9864,
+        "mentions": true,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://www.salus.edu/colleges/nursing-health-professions/department-of-speech-language-pathology/post-baccalaureate",
+        "status": 404,
+        "textLen": 0,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 2216,
+    "name": "Avila University",
+    "slug": "postbac",
+    "verdict": "references prerequisites but publishes no list",
+    "probes": [
+      {
+        "url": "https://www.avila.edu/",
+        "status": 200,
+        "textLen": 7862,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://www.avila.edu/academics/school-of-education/graduate-programs/grad-ed-admission-requirements/",
+        "status": 200,
+        "textLen": 4648,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://arizona.avila.edu/admissions/admission-requirements",
+        "status": 200,
+        "textLen": 5406,
+        "mentions": true,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 2217,
+    "name": "John Carroll University",
+    "slug": "postbac",
+    "verdict": "course list present — retry extraction",
+    "probes": [
+      {
+        "url": "https://gradadmission.jcu.edu/portal/pre_med",
+        "status": 200,
+        "textLen": 1800,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://www.jcu.edu/academics/graduate-programs/pre-medical-post-baccalaureate-program",
+        "status": 200,
+        "textLen": 7730,
+        "mentions": true,
+        "asserts": false,
+        "enumerates": true
+      },
+      {
+        "url": "https://www.jcu.edu/admission-aid/undergraduate/how-to-apply/visiting-students",
+        "status": 200,
+        "textLen": 4566,
+        "mentions": true,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 2218,
+    "name": "Hampton University",
+    "slug": "postbac",
+    "verdict": "readable but nothing about prerequisites",
+    "probes": [
+      {
+        "url": "https://www.hamptonu.edu/",
+        "status": 200,
+        "textLen": 6313,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://home.hamptonu.edu/admissions/transfers/",
+        "status": 200,
+        "textLen": 5117,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://home.hamptonu.edu/admissions/readmission/",
+        "status": 200,
+        "textLen": 3995,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 2232,
+    "name": "University of Northern Colorado",
+    "slug": "postbac",
+    "verdict": "course list present — retry extraction",
+    "probes": [
+      {
+        "url": "https://www.unco.edu/osteopathic-medicine/admission/requirements/",
+        "status": 200,
+        "textLen": 6678,
+        "mentions": true,
+        "asserts": false,
+        "enumerates": true
+      },
+      {
+        "url": "https://www.unco.edu/admissions-aid/graduate/",
+        "status": 200,
+        "textLen": 15386,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://www.unco.edu/osteopathic-medicine/admission/",
+        "status": 200,
+        "textLen": 3928,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 2236,
+    "name": "University of Cincinnati, College of Medicine",
+    "slug": "postbac",
+    "verdict": "references prerequisites but publishes no list",
+    "probes": [
+      {
+        "url": "https://www.cahs.uc.edu/academic-programs/certificates-and-minors/didactic-program-in-dietetics/admission-requirements.html",
+        "status": 200,
+        "textLen": 15448,
+        "mentions": true,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://ox.ac.uk/",
+        "status": 403,
+        "textLen": 0,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://www.ox.ac.uk/admissions/undergraduate/courses/course-listing",
+        "status": 403,
+        "textLen": 0,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 2241,
+    "name": "University of Mississippi Medical Center",
+    "slug": "postbac",
+    "verdict": "explicit no-prereq statement",
+    "probes": [
+      {
+        "url": "https://umc.edu/som/Departments%20and%20Offices/SOM%20Administrative%20Offices/SOM%20Admissions/Admissions%20Criteria/Course-Requirements/Overview.html",
+        "status": 200,
+        "textLen": 7901,
+        "mentions": true,
+        "asserts": true,
+        "enumerates": true
+      },
+      {
+        "url": "https://umc.edu/som/Departments%20and%20Offices/SOM%20Administrative%20Offices/SOM%20Admissions/Admissions%20Criteria/Course",
+        "status": 404,
+        "textLen": 0,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 2245,
+    "name": "Colorado State University",
+    "slug": "postbac",
+    "verdict": "explicit no-prereq statement",
+    "probes": [
+      {
+        "url": "https://www.colostate.edu",
+        "status": 200,
+        "textLen": 4447,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://admissions.colostate.edu/2018/04/16/pre-health-csu/",
+        "status": 200,
+        "textLen": 6102,
+        "mentions": true,
+        "asserts": false,
+        "enumerates": true
+      },
+      {
+        "url": "https://catalog.colostate.edu/general-catalog/graduate-bulletin/admissions-requirements-procedures/",
+        "status": 200,
+        "textLen": 28205,
+        "mentions": true,
+        "asserts": false,
+        "enumerates": true
+      },
+      {
+        "url": "https://catalog.colostate.edu/general-catalog/colleges/veterinary-medicine-biomedical-sciences/environmental-radiological-health-sciences/plan-a-ms-toxicology/",
+        "status": 200,
+        "textLen": 16908,
+        "mentions": false,
+        "asserts": true,
+        "enumerates": true
+      }
+    ]
+  },
+  {
+    "id": 2253,
+    "name": "Lehigh University",
+    "slug": "postbac",
+    "verdict": "references prerequisites but publishes no list",
+    "probes": [
+      {
+        "url": "https://www2.lehigh.edu/",
+        "status": 200,
+        "textLen": 13013,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://www2.lehigh.edu/admissions/english-proficiency-requirement-for-graduate-studies",
+        "status": 200,
+        "textLen": 15794,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://www2.lehigh.edu/admissions/admissions-requirements",
+        "status": 200,
+        "textLen": 17872,
+        "mentions": true,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 2255,
+    "name": "Indiana University School of Medicine",
+    "slug": "postbac",
+    "verdict": "course list present — retry extraction",
+    "probes": [
+      {
+        "url": "https://science.indianapolis.iu.edu/academics/degrees-and-programs/post-bachelor.html",
+        "status": 200,
+        "textLen": 5117,
+        "mentions": true,
+        "asserts": false,
+        "enumerates": true
+      },
+      {
+        "url": "https://science.indianapolis.iu.edu/admissions/index.html",
+        "status": 200,
+        "textLen": 4385,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": true
+      }
+    ]
+  },
+  {
+    "id": 2295,
+    "name": "Creighton University",
+    "slug": "postbac",
+    "verdict": "explicit no-prereq statement",
+    "probes": [
+      {
+        "url": "https://www.creighton.edu/medicine/programs/medicine-md/admissions-requirements",
+        "status": 200,
+        "textLen": 8886,
+        "mentions": true,
+        "asserts": true,
+        "enumerates": true
+      },
+      {
+        "url": "https://www.creighton.edu/admissions/admissions-requirements/undergrad-transfer",
+        "status": 200,
+        "textLen": 25030,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 2296,
+    "name": "Mills College",
+    "slug": "postbac",
+    "verdict": "readable but nothing about prerequisites",
+    "probes": [
+      {
+        "url": "https://inside.mills.edu/academics/graduate/pmc_gr/program/index.php",
+        "status": 200,
+        "textLen": 6475,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://admissions.northeastern.edu/application-information/",
+        "status": 200,
+        "textLen": 5596,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://graduate.northeastern.edu/international-students/apply-as-an-international-student/",
+        "status": 200,
+        "textLen": 8755,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 2297,
+    "name": "Geisel School of Medicine at Dartmouth - The Dartmouth Institute for Health Policy and Clinical Practice",
+    "slug": "postbac",
+    "verdict": "references prerequisites but publishes no list",
+    "probes": [
+      {
+        "url": "https://geiselmed.dartmouth.edu/admissions/medical-education-at-geisel/health-policy/",
+        "status": 200,
+        "textLen": 5316,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://geiselmed.dartmouth.edu/qbs/the-curriculum/",
+        "status": 200,
+        "textLen": 3618,
+        "mentions": true,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://geiselmed.dartmouth.edu/admissions/applying/admissions-requirements/",
+        "status": 200,
+        "textLen": 8517,
+        "mentions": true,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 2300,
+    "name": "Carson-Newman University",
+    "slug": "postbac",
+    "verdict": "readable but nothing about prerequisites",
+    "probes": [
+      {
+        "url": "https://catalog.cn.edu/admissions",
+        "status": 200,
+        "textLen": 3342,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://www.cn.edu/graduate-studies/programs/admission-requirements/",
+        "status": 200,
+        "textLen": 6198,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 2319,
+    "name": "University at Buffalo, State University of New York",
+    "slug": "postbac",
+    "verdict": "explicit no-prereq statement",
+    "probes": [
+      {
+        "url": "https://medicine.buffalo.edu/education/md/admissions/admission_requirements/prerequisite.html",
+        "status": 200,
+        "textLen": 3975,
+        "mentions": true,
+        "asserts": true,
+        "enumerates": true
+      },
+      {
+        "url": "https://medicine.buffalo.edu/education/md/admissions/special-programs/post-bacc.html",
+        "status": 200,
+        "textLen": 3462,
+        "mentions": true,
+        "asserts": false,
+        "enumerates": true
+      }
+    ]
+  },
+  {
+    "id": 2322,
+    "name": "Des Moines University",
+    "slug": "postbac",
+    "verdict": "readable but nothing about prerequisites",
+    "probes": [
+      {
+        "url": "https://www.dmu.edu/mbs/",
+        "status": 403,
+        "textLen": 0,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://www.dmu.edu/mbs/admissions-process/",
+        "status": 200,
+        "textLen": 6339,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://www.dmu.edu/do/admissions-process/",
+        "status": 403,
+        "textLen": 0,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 2327,
+    "name": "Georgia State University",
+    "slug": "postbac",
+    "verdict": "references prerequisites but publishes no list",
+    "probes": [
+      {
+        "url": "https://admissions.gsu.edu/bachelors-degree/apply/other/",
+        "status": 200,
+        "textLen": 30226,
+        "mentions": true,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://admissions.gsu.edu/associate-degree/",
+        "status": 200,
+        "textLen": 23882,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 2330,
+    "name": "University of Alabama at Birmingham",
+    "slug": "postbac",
+    "verdict": "readable but nothing about prerequisites",
+    "probes": [
+      {
+        "url": "https://www.uab.edu/admissions/apply/non-degree-seeking/post-baccalaureate",
+        "status": 200,
+        "textLen": 5062,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://www.uab.edu/admissions/",
+        "status": 200,
+        "textLen": 5377,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://www.uab.edu/admissions/contact",
+        "status": 200,
+        "textLen": 3464,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 2332,
+    "name": "Johnson & Wales University",
+    "slug": "postbac",
+    "verdict": "all sources unreadable",
+    "probes": [
+      {
+        "url": "https://www.jwu.edu/academics/majors-and-programs/pre-medical-pre-health-professions-certificate.html",
+        "status": 200,
+        "textLen": 1,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://www.jwu.edu/international/english/admissions/english-language-requirements.html",
+        "status": 200,
+        "textLen": 1,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 2336,
+    "name": "Harvard Medical School",
+    "slug": "postbac",
+    "verdict": "all sources unreadable",
+    "probes": [
+      {
+        "url": "https://hms.harvard.edu/education-admissions/md-program/admissions/preparing-apply/prerequisite-courses",
+        "status": 200,
+        "textLen": 84,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://hms.harvard.edu/education-admissions/md-program/research-opportunities/md-research-thesis-requirement-hst",
+        "status": 200,
+        "textLen": 84,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 2339,
+    "name": "Heritage University",
+    "slug": "postbac",
+    "verdict": "references prerequisites but publishes no list",
+    "probes": [
+      {
+        "url": "https://www.heritage.edu/AcademicPrograms/GraduateDegrees/MasterofArtsinMedicalSciences.aspx",
+        "status": 403,
+        "textLen": 0,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://heritage.edu/admissions/",
+        "status": 200,
+        "textLen": 6072,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://catalog.heritage.edu/",
+        "status": 200,
+        "textLen": 5540,
+        "mentions": true,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 2342,
+    "name": "University of Rochester School of Medicine and Dentistry",
+    "slug": "postbac",
+    "verdict": "explicit no-prereq statement",
+    "probes": [
+      {
+        "url": "https://son.rochester.edu/academics/center-lifelong-learning/online-prerequisites/index.html",
+        "status": 200,
+        "textLen": 5094,
+        "mentions": true,
+        "asserts": true,
+        "enumerates": true
+      },
+      {
+        "url": "https://www.urmc.rochester.edu/education/graduate-medical-education/applicant-eligibility-requirements",
+        "status": 200,
+        "textLen": 10406,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 2348,
+    "name": "Manchester University",
+    "slug": "postbac",
+    "verdict": "readable but nothing about prerequisites",
+    "probes": [
+      {
+        "url": "https://forms.manchester.edu/postBacc/",
+        "status": 200,
+        "textLen": 2629,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://forms.manchester.edu/admissions/jsd/",
+        "status": 200,
+        "textLen": 152,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://www.manchester.edu/academics/postbacc/curriculum.htm",
+        "status": 404,
+        "textLen": 0,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 2349,
+    "name": "New York University",
+    "slug": "postbac",
+    "verdict": "all sources unreadable",
+    "probes": [
+      {
+        "url": "https://cas.nyu.edu/prehealth/postbacc/admission/eligibility.html",
+        "status": 202,
+        "textLen": 0,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://cas.nyu.edu/content/nyu-as/cas/prehealth/postbacc/admission.html",
+        "status": 202,
+        "textLen": 0,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 2350,
+    "name": "Ponce Health Sciences University - School of Medicine",
+    "slug": "postbac",
+    "verdict": "readable but nothing about prerequisites",
+    "probes": [
+      {
+        "url": "https://www.psm.edu/school-of-medicine/msms/",
+        "status": 200,
+        "textLen": 5685,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://phsu.edu/academics/programs/master-of-science-in-medical-science.php",
+        "status": 200,
+        "textLen": 5685,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://catalog.phsu.edu/",
+        "status": 200,
+        "textLen": 6132,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 2355,
+    "name": "Cleveland State University",
+    "slug": "postbac",
+    "verdict": "course list present — retry extraction",
+    "probes": [
+      {
+        "url": "https://www.csuohio.edu/admissions/post-baccalaureate-students",
+        "status": 200,
+        "textLen": 5064,
+        "mentions": true,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://www.clestatecareers.com/postbaccalaureateoptions",
+        "status": 200,
+        "textLen": 8285,
+        "mentions": true,
+        "asserts": false,
+        "enumerates": true
+      }
+    ]
+  },
+  {
+    "id": 2358,
+    "name": "University of Michigan Medical School, Office of Graduate & Postdoctoral Studies (OGPS)",
+    "slug": "postbac",
+    "verdict": "all sources unreadable",
+    "probes": [
+      {
+        "url": "https://ox.ac.uk/",
+        "status": 403,
+        "textLen": 0,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://www.ox.ac.uk/admissions/undergraduate/courses/course-listing",
+        "status": 403,
+        "textLen": 0,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 2359,
+    "name": "West Virginia University",
+    "slug": "postbac",
+    "verdict": "explicit no-prereq statement",
+    "probes": [
+      {
+        "url": "https://medicine.wvu.edu/physician-assistant-studies/admission/prerequisite-courses/",
+        "status": 200,
+        "textLen": 3925,
+        "mentions": true,
+        "asserts": true,
+        "enumerates": true
+      },
+      {
+        "url": "https://medicine.wvu.edu/physician-assistant-studies/admission/application-requirements/",
+        "status": 200,
+        "textLen": 3989,
+        "mentions": true,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 2362,
+    "name": "Benedictine University",
+    "slug": "postbac",
+    "verdict": "references prerequisites but publishes no list",
+    "probes": [
+      {
+        "url": "https://www.ben.edu/college-of-science/msip/index.cfm",
+        "status": 200,
+        "textLen": 7301,
+        "mentions": true,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://catalog.ben.edu/lisle-graduate/general-admission-information/general-admission-information/",
+        "status": 200,
+        "textLen": 11016,
+        "mentions": true,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://ben.edu/admissions/admitted-freshmen/",
+        "status": 200,
+        "textLen": 10685,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 2364,
+    "name": "Northwest Native American Center of Excellence",
+    "slug": "postbac",
+    "verdict": "explicit no-prereq statement",
+    "probes": [
+      {
+        "url": "https://www.ohsu.edu/nativehealth",
+        "status": 200,
+        "textLen": 4014,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://www.ohsu.edu/school-of-medicine/physician-assistant/prerequisite-coursework",
+        "status": 200,
+        "textLen": 16617,
+        "mentions": true,
+        "asserts": true,
+        "enumerates": true
+      },
+      {
+        "url": "https://www.ohsu.edu/school-of-medicine/radiation-therapy/academic-prerequisites",
+        "status": 200,
+        "textLen": 11472,
+        "mentions": true,
+        "asserts": true,
+        "enumerates": true
+      }
+    ]
+  },
+  {
+    "id": 2368,
+    "name": "Louisiana State University Shreveport",
+    "slug": "postbac",
+    "verdict": "course list present — retry extraction",
+    "probes": [
+      {
+        "url": "https://www.lsus.edu/",
+        "status": 200,
+        "textLen": 8050,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": true
+      },
+      {
+        "url": "https://www.lsus.edu/international-admissions/int-graduate",
+        "status": 200,
+        "textLen": 19110,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": true
+      },
+      {
+        "url": "https://www.lsus.edu/international-admissions",
+        "status": 200,
+        "textLen": 7720,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": true
+      }
+    ]
+  },
+  {
+    "id": 2374,
+    "name": "SUNY Upstate Medical University",
+    "slug": "postbac",
+    "verdict": "explicit no-prereq statement",
+    "probes": [
+      {
+        "url": "https://www.upstate.edu/medprep",
+        "status": 403,
+        "textLen": 0,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://www.upstate.edu/chp/programs/medical-imaging-radiography/prerequisites.php",
+        "status": 200,
+        "textLen": 8623,
+        "mentions": true,
+        "asserts": true,
+        "enumerates": true
+      },
+      {
+        "url": "https://www.upstate.edu/chp/programs/medical-biotechnology/prerequisites.php",
+        "status": 403,
+        "textLen": 0,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 2377,
+    "name": "University of Northern Colorado",
+    "slug": "postbac",
+    "verdict": "course list present — retry extraction",
+    "probes": [
+      {
+        "url": "https://www.unco.edu/osteopathic-medicine/admission/requirements/",
+        "status": 200,
+        "textLen": 6678,
+        "mentions": true,
+        "asserts": false,
+        "enumerates": true
+      },
+      {
+        "url": "https://www.unco.edu/admissions-aid/graduate/",
+        "status": 200,
+        "textLen": 15386,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://www.unco.edu/osteopathic-medicine/admission/",
+        "status": 200,
+        "textLen": 3928,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 2382,
+    "name": "Rutgers School of Graduate Studies New Brunswick-Piscataway",
+    "slug": "postbac",
+    "verdict": "course list present — retry extraction",
+    "probes": [
+      {
+        "url": "https://grad.rutgers.edu/academics/graduate-programs/biomedical-and-health-sciences-all-degree-programs/masters-programs/mbs",
+        "status": 200,
+        "textLen": 7025,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": true
+      },
+      {
+        "url": "https://mbs.rutgers.edu/mbs-degree-requirements",
+        "status": 200,
+        "textLen": 3856,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://mbs.rutgers.edu/master-business-and-science-mbs-degree-apply-now",
+        "status": 200,
+        "textLen": 5307,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 2390,
+    "name": "University of Alabama at Birmingham",
+    "slug": "postbac",
+    "verdict": "readable but nothing about prerequisites",
+    "probes": [
+      {
+        "url": "https://www.uab.edu/admissions/apply/non-degree-seeking/post-baccalaureate",
+        "status": 200,
+        "textLen": 5062,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://www.uab.edu/admissions/",
+        "status": 200,
+        "textLen": 5377,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://www.uab.edu/admissions/contact",
+        "status": 200,
+        "textLen": 3464,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 2391,
+    "name": "Lehman College of the City University of New York",
+    "slug": "postbac",
+    "verdict": "explicit no-prereq statement",
+    "probes": [
+      {
+        "url": "https://lehman-undergraduate.catalog.cuny.edu/programs/HTHCP-CERT",
+        "status": 200,
+        "textLen": 4753,
+        "mentions": true,
+        "asserts": true,
+        "enumerates": false
+      },
+      {
+        "url": "https://lehman-undergraduate.catalog.cuny.edu/admissions/special-admission-categories",
+        "status": 200,
+        "textLen": 16297,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 2393,
+    "name": "Iowa State University",
+    "slug": "postbac",
+    "verdict": "course list present — retry extraction",
+    "probes": [
+      {
+        "url": "https://catalog.iastate.edu/preprofessionalstudy/",
+        "status": 200,
+        "textLen": 9192,
+        "mentions": true,
+        "asserts": false,
+        "enumerates": true
+      },
+      {
+        "url": "https://apps.admissions.iastate.edu/apply/online/",
+        "status": 200,
+        "textLen": 2273,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 2395,
+    "name": "Colorado State University",
+    "slug": "postbac",
+    "verdict": "course list present — retry extraction",
+    "probes": [
+      {
+        "url": "https://www.colostate.edu",
+        "status": 200,
+        "textLen": 4447,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://admissions.colostate.edu/2018/04/16/pre-health-csu/",
+        "status": 200,
+        "textLen": 6102,
+        "mentions": true,
+        "asserts": false,
+        "enumerates": true
+      },
+      {
+        "url": "https://admissions.colostate.edu/apply/international-freshmen/",
+        "status": 200,
+        "textLen": 16827,
+        "mentions": true,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 2396,
+    "name": "University of Northern Colorado",
+    "slug": "postbac",
+    "verdict": "course list present — retry extraction",
+    "probes": [
+      {
+        "url": "https://www.unco.edu/osteopathic-medicine/admission/requirements/",
+        "status": 200,
+        "textLen": 6678,
+        "mentions": true,
+        "asserts": false,
+        "enumerates": true
+      },
+      {
+        "url": "https://www.unco.edu/admissions-aid/graduate/",
+        "status": 200,
+        "textLen": 15386,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://www.unco.edu/osteopathic-medicine/admission/",
+        "status": 200,
+        "textLen": 3928,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 2401,
+    "name": "University of Northern Colorado",
+    "slug": "postbac",
+    "verdict": "course list present — retry extraction",
+    "probes": [
+      {
+        "url": "https://www.unco.edu/osteopathic-medicine/admission/requirements/",
+        "status": 200,
+        "textLen": 6678,
+        "mentions": true,
+        "asserts": false,
+        "enumerates": true
+      },
+      {
+        "url": "https://www.unco.edu/admissions-aid/graduate/",
+        "status": 200,
+        "textLen": 15386,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://www.unco.edu/osteopathic-medicine/admission/",
+        "status": 200,
+        "textLen": 3928,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 2403,
+    "name": "California University of Science and Medicine",
+    "slug": "postbac",
+    "verdict": "explicit no-prereq statement",
+    "probes": [
+      {
+        "url": "https://www.cusm.edu/academics/mbs/index.php",
+        "status": 200,
+        "textLen": 6581,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": true
+      },
+      {
+        "url": "https://www.cusm.edu/academics/md/requirements-for-admission/index.php",
+        "status": 200,
+        "textLen": 7472,
+        "mentions": true,
+        "asserts": true,
+        "enumerates": true
+      },
+      {
+        "url": "https://www.cusm.edu/academics/md/requirements-for-admission/technical-standards.php",
+        "status": 200,
+        "textLen": 9536,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 2413,
+    "name": "Arizona State University",
+    "slug": "postbac",
+    "verdict": "explicit no-prereq statement",
+    "probes": [
+      {
+        "url": "https://medicine.asu.edu/future-students/admissions/requirements",
+        "status": 200,
+        "textLen": 10585,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": true
+      },
+      {
+        "url": "https://asuonline.asu.edu/admission/nondegree/",
+        "status": 200,
+        "textLen": 9038,
+        "mentions": true,
+        "asserts": true,
+        "enumerates": false
+      },
+      {
+        "url": "https://asuonline.asu.edu/admission/graduate/",
+        "status": 200,
+        "textLen": 9895,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 2414,
+    "name": "Marymount Manhattan College",
+    "slug": "postbac",
+    "verdict": "readable but nothing about prerequisites",
+    "probes": [
+      {
+        "url": "https://www.mmm.edu/departments/natural-sciences/post-baccalaureate.php",
+        "status": 200,
+        "textLen": 4203,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://admissions.northeastern.edu/application-information/",
+        "status": 200,
+        "textLen": 5596,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://admissions.northeastern.edu/application-information/admissions-deadlines-decisions/",
+        "status": 200,
+        "textLen": 8430,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 2416,
+    "name": "California State University, Los Angeles",
+    "slug": "postbac",
+    "verdict": "explicit no-prereq statement",
+    "probes": [
+      {
+        "url": "https://www.calstatela.edu/admissions/international-graduate-admission",
+        "status": 200,
+        "textLen": 11697,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://www.calstatela.edu/admissions/new-graduate-admits",
+        "status": 200,
+        "textLen": 10725,
+        "mentions": true,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://www.calstatela.edu/admissions/application-tips",
+        "status": 200,
+        "textLen": 22959,
+        "mentions": true,
+        "asserts": true,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 2423,
+    "name": "Manchester University",
+    "slug": "postbac",
+    "verdict": "readable but nothing about prerequisites",
+    "probes": [
+      {
+        "url": "https://forms.manchester.edu/postBacc/",
+        "status": 200,
+        "textLen": 2629,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://forms.manchester.edu/admissions/jsd/",
+        "status": 200,
+        "textLen": 152,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://www.manchester.edu/academics/postbacc/curriculum.htm",
+        "status": 404,
+        "textLen": 0,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 2424,
+    "name": "Geisinger College of Health Sciences",
+    "slug": "postbac",
+    "verdict": "readable but nothing about prerequisites",
+    "probes": [
+      {
+        "url": "https://www.geisinger.edu/gchs/education/school-graduate-education/master-biomedical-sciences-program",
+        "status": 200,
+        "textLen": 755,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://www.geisinger.edu/gchs/education/school-graduate-education/admissions/admissions-requirements",
+        "status": 200,
+        "textLen": 755,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://www.geisinger.edu/gchs/education/health-professions/school-of-medical-laboratory-science/admissions",
+        "status": 200,
+        "textLen": 761,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 2439,
+    "name": "University of Cincinnati, College of Medicine",
+    "slug": "postbac",
+    "verdict": "course list present — retry extraction",
+    "probes": [
+      {
+        "url": "https://med.uc.edu/admissions/medical-student-admissions/application-requrements",
+        "status": 200,
+        "textLen": 5990,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": true
+      },
+      {
+        "url": "https://med.uc.edu/education/graduate-education/admission-process",
+        "status": 200,
+        "textLen": 6465,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://med.uc.edu/education/medical-student-education/dual-programs/mstptraining/application/apply",
+        "status": 200,
+        "textLen": 8517,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 2441,
+    "name": "South Dakota State University",
+    "slug": "postbac",
+    "verdict": "readable but nothing about prerequisites",
+    "probes": [
+      {
+        "url": "https://catalog.sdstate.edu/preview_program.php?catoid=43&poid=10182&returnto=7068",
+        "status": 202,
+        "textLen": 0,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://www.sdstate.edu/admissions/transfer-student-admission-requirements",
+        "status": 200,
+        "textLen": 4247,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 2445,
+    "name": "Indiana University School of Medicine",
+    "slug": "postbac",
+    "verdict": "course list present — retry extraction",
+    "probes": [
+      {
+        "url": "https://science.indianapolis.iu.edu/academics/degrees-and-programs/post-bachelor.html",
+        "status": 200,
+        "textLen": 5117,
+        "mentions": true,
+        "asserts": false,
+        "enumerates": true
+      },
+      {
+        "url": "https://science.indianapolis.iu.edu/admissions/index.html",
+        "status": 200,
+        "textLen": 4385,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": true
+      }
+    ]
+  },
+  {
+    "id": 2446,
+    "name": "Cedars-Sinai Medical Center",
+    "slug": "postbac",
+    "verdict": "all sources unreadable",
+    "probes": [
+      {
+        "url": "https://www.cedars-sinai.edu/education/graduate-school/masters/mshs.html",
+        "status": 200,
+        "textLen": 126,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://www.cedars-sinai.edu/education/graduate-school/masters/mshs/curriculum.html",
+        "status": 200,
+        "textLen": 101,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 2447,
+    "name": "University of Rochester School of Medicine & Dentistry",
+    "slug": "postbac",
+    "verdict": "explicit no-prereq statement",
+    "probes": [
+      {
+        "url": "https://son.rochester.edu/academics/center-lifelong-learning/online-prerequisites/index.html",
+        "status": 200,
+        "textLen": 5094,
+        "mentions": true,
+        "asserts": true,
+        "enumerates": true
+      },
+      {
+        "url": "https://www.urmc.rochester.edu/education/graduate-medical-education/applicant-eligibility-requirements",
+        "status": 200,
+        "textLen": 10406,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 2448,
+    "name": "Hampton University",
+    "slug": "postbac",
+    "verdict": "explicit no-prereq statement",
+    "probes": [
+      {
+        "url": "https://www.hamptonu.edu/",
+        "status": 200,
+        "textLen": 6313,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://home.hamptonu.edu/orientation/prerequisite-information/",
+        "status": 200,
+        "textLen": 2456,
+        "mentions": true,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://home.hamptonu.edu/science/physical-therapy/dpt-admission-requirements/",
+        "status": 200,
+        "textLen": 4845,
+        "mentions": true,
+        "asserts": true,
+        "enumerates": true
+      }
+    ]
+  },
+  {
+    "id": 2451,
+    "name": "Southern Illinois University Carbondale",
+    "slug": "postbac",
+    "verdict": "course list present — retry extraction",
+    "probes": [
+      {
+        "url": "https://catalog.siu.edu/programs/medp/requirements.php",
+        "status": 200,
+        "textLen": 6808,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": true
+      },
+      {
+        "url": "https://catalog.siu.edu/programs/ci/",
+        "status": 200,
+        "textLen": 32120,
+        "mentions": true,
+        "asserts": false,
+        "enumerates": true
+      }
+    ]
+  },
+  {
+    "id": 2455,
+    "name": "University of Toledo",
+    "slug": "postbac",
+    "verdict": "course list present — retry extraction",
+    "probes": [
+      {
+        "url": "https://www.utoledo.edu/success/pre-health-advising/pre-med-prerequisites.html",
+        "status": 200,
+        "textLen": 0,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://www.utoledo.edu/med/grad/biomedical/requirements.html",
+        "status": 200,
+        "textLen": 13583,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": true
+      }
+    ]
+  },
+  {
+    "id": 2458,
+    "name": "Furman University",
+    "slug": "postbac",
+    "verdict": "references prerequisites but publishes no list",
+    "probes": [
+      {
+        "url": "https://www.furman.edu/academics/majors-minors-programs/post-baccalaureate-certificate/",
+        "status": 200,
+        "textLen": 9280,
+        "mentions": true,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://www.furman.edu/admissions-aid/international-admissions/",
+        "status": 200,
+        "textLen": 6031,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 2461,
+    "name": "Manchester University",
+    "slug": "postbac",
+    "verdict": "readable but nothing about prerequisites",
+    "probes": [
+      {
+        "url": "https://forms.manchester.edu/postBacc/",
+        "status": 200,
+        "textLen": 2629,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://forms.manchester.edu/admissions/jsd/",
+        "status": 200,
+        "textLen": 152,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://www.manchester.edu/academics/postbacc/curriculum.htm",
+        "status": 404,
+        "textLen": 0,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 2464,
+    "name": "Salus at Drexel University",
+    "slug": "postbac",
+    "verdict": "references prerequisites but publishes no list",
+    "probes": [
+      {
+        "url": "https://www.salus.edu/colleges/optometry/health-sciences-track/index.html",
+        "status": 200,
+        "textLen": 5903,
+        "mentions": true,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://www.salus.edu/colleges/nursing-health-professions/department-of-speech-language-pathology/post-baccalaureate-program-in-health-sciences-spee/application-process.html",
+        "status": 200,
+        "textLen": 13324,
+        "mentions": true,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://www.salus.edu/colleges/nursing-health-professions/department-of-speech-language-pathology/post",
+        "status": 404,
+        "textLen": 0,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 2465,
+    "name": "Marquette University",
+    "slug": "postbac",
+    "verdict": "explicit no-prereq statement",
+    "probes": [
+      {
+        "url": "https://bulletin.marquette.edu/admission-costs/undergrad-admission/",
+        "status": 200,
+        "textLen": 50914,
+        "mentions": true,
+        "asserts": true,
+        "enumerates": true
+      },
+      {
+        "url": "https://bulletin.marquette.edu/admission-costs/gsm-admission/",
+        "status": 200,
+        "textLen": 24269,
+        "mentions": true,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 2469,
+    "name": "Lawrence Technological University",
+    "slug": "postbac",
+    "verdict": "explicit no-prereq statement",
+    "probes": [
+      {
+        "url": "https://ltu.edu/admissions/first-year-students/",
+        "status": 200,
+        "textLen": 13321,
+        "mentions": true,
+        "asserts": true,
+        "enumerates": true
+      },
+      {
+        "url": "https://ltu.edu/programs/cert-post-baccalaureate-premedical-studies/",
+        "status": 200,
+        "textLen": 15795,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": true
+      },
+      {
+        "url": "https://ltu.edu/admissions/transfer-students/guest-students/",
+        "status": 200,
+        "textLen": 13435,
+        "mentions": true,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 2471,
+    "name": "Ponce Health Sciences University",
+    "slug": "postbac",
+    "verdict": "readable but nothing about prerequisites",
+    "probes": [
+      {
+        "url": "https://www.psm.edu/",
+        "status": 200,
+        "textLen": 1394,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://catalog.phsu.edu/",
+        "status": 200,
+        "textLen": 6132,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://phsu.edu/",
+        "status": 200,
+        "textLen": 1394,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 2483,
+    "name": "IOWA STATE UNIVERSITY",
+    "slug": "postbac",
+    "verdict": "course list present — retry extraction",
+    "probes": [
+      {
+        "url": "https://catalog.iastate.edu/preprofessionalstudy/",
+        "status": 200,
+        "textLen": 9192,
+        "mentions": true,
+        "asserts": false,
+        "enumerates": true
+      },
+      {
+        "url": "https://apps.admissions.iastate.edu/apply/online/",
+        "status": 200,
+        "textLen": 2273,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 2492,
+    "name": "Boston University Chobanian & Avedisian School of Medicine, Graduate Medical Sciences",
+    "slug": "postbac",
+    "verdict": "course list present — retry extraction",
+    "probes": [
+      {
+        "url": "https://www.bumc.bu.edu/gms/ohs/",
+        "status": 200,
+        "textLen": 7553,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://www.bumc.bu.edu/gms/academics/masters-programs/ohs/admissions/ohs-program-faqs/",
+        "status": 200,
+        "textLen": 6409,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": true
+      }
+    ]
+  },
+  {
+    "id": 2500,
+    "name": "Middle Tennessee State University",
+    "slug": "postbac",
+    "verdict": "readable but nothing about prerequisites",
+    "probes": [
+      {
+        "url": "https://hhp.mtsu.edu/graduate-admissions/",
+        "status": 200,
+        "textLen": 3199,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://hhp.mtsu.edu/prospective-forms/",
+        "status": 200,
+        "textLen": 2153,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://hhp.mtsu.edu/association-communication-disorders/",
+        "status": 200,
+        "textLen": 5177,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 2518,
+    "name": "Eastern Michigan University",
+    "slug": "prosthetics-orthotics",
+    "verdict": "all sources unreadable",
+    "probes": [
+      {
+        "url": "https://catalog.emich.edu/pdp/?catalog=61&program=10137",
+        "status": 200,
+        "textLen": 124,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://catalog.emich.edu/preview_program.php?catoid=48&poid=20805&returnto=15845",
+        "status": 202,
+        "textLen": 0,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 2528,
+    "name": "Alabama A&M University",
+    "slug": "speech-language-pathology",
+    "verdict": "references prerequisites but publishes no list",
+    "probes": [
+      {
+        "url": "https://www.aamu.edu/Academics/EHBS/HSHPCD/csd/Pages/default.aspx",
+        "status": 200,
+        "textLen": 8368,
+        "mentions": true,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://www.aamu.edu/academics/colleges/education-humanities-behavioral-sciences/departments/human-performance-communicative-disorders/communicative-sciences-disorders/graduate-course-requirements.html",
+        "status": 200,
+        "textLen": 5672,
+        "mentions": true,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://www.aamu.edu/academics/colleges/education-humanities-behavioral-sc",
+        "status": 404,
+        "textLen": 0,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 2538,
+    "name": "Ball State University",
+    "slug": "speech-language-pathology",
+    "verdict": "readable but nothing about prerequisites",
+    "probes": [
+      {
+        "url": "https://www.bsu.edu/admissions/graduate/apply/speech-pathology",
+        "status": 200,
+        "textLen": 17891,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://www.bsu.edu/academics/collegesanddepartments/spaa/academic-programs/masters-degrees/speech-language-pathology",
+        "status": 200,
+        "textLen": 10369,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 2546,
+    "name": "Brigham Young University",
+    "slug": "speech-language-pathology",
+    "verdict": "references prerequisites but publishes no list",
+    "probes": [
+      {
+        "url": "https://www.byu.edu/",
+        "status": 200,
+        "textLen": 5412,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://enrollment.byu.edu/admissions/preparation-recommendations",
+        "status": 200,
+        "textLen": 6225,
+        "mentions": true,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://enrollment.byu.edu/admissions/byu-undergraduate-english-proficiency-requirement",
+        "status": 200,
+        "textLen": 9906,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 2560,
+    "name": "California University of Pennsylvania",
+    "slug": "speech-language-pathology",
+    "verdict": "course list present — retry extraction",
+    "probes": [
+      {
+        "url": "https://www.pennwest.edu/campuses/california/convocation-center/index.html",
+        "status": 200,
+        "textLen": 835,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://online.pennwest.edu/programs/speech-language-pathology-grad/index.php",
+        "status": 200,
+        "textLen": 7843,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://www.pennwest.edu/",
+        "status": 200,
+        "textLen": 7573,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://adm.pennwest.edu/register/calurfi",
+        "status": 200,
+        "textLen": 10587,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": true
+      }
+    ]
+  },
+  {
+    "id": 2565,
+    "name": "Catholic University of America",
+    "slug": "speech-language-pathology",
+    "verdict": "readable but nothing about prerequisites",
+    "probes": [
+      {
+        "url": "https://www.catholic.edu/",
+        "status": 403,
+        "textLen": 0,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://www.catholic.edu/admission-aid/international-admission",
+        "status": 200,
+        "textLen": 3998,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://www.catholic.edu/admission-aid/professional-continuing-studies",
+        "status": 403,
+        "textLen": 0,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 2568,
+    "name": "Clarion University of Pennsylvania",
+    "slug": "speech-language-pathology",
+    "verdict": "readable but nothing about prerequisites",
+    "probes": [
+      {
+        "url": "https://www.clarion.edu/academics/colleges-and-schools/college-of-education-health-and-human-services/department-of-communication-sciences-and-disorders/",
+        "status": 200,
+        "textLen": 7573,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://www.pennwest.edu/",
+        "status": 200,
+        "textLen": 7573,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 2569,
+    "name": "Cleveland State University",
+    "slug": "speech-language-pathology",
+    "verdict": "explicit no-prereq statement",
+    "probes": [
+      {
+        "url": "http://www.csuohio.edu",
+        "status": 200,
+        "textLen": 6435,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://health.csuohio.edu/communication-sciences-disorde/admission-information-for-communication-sciences-and-disorders",
+        "status": 200,
+        "textLen": 13740,
+        "mentions": true,
+        "asserts": true,
+        "enumerates": true
+      },
+      {
+        "url": "https://www.csuohio.edu/admissions",
+        "status": 200,
+        "textLen": 5605,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://www.csuohio.edu/international-admissions",
+        "status": 200,
+        "textLen": 4120,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 2571,
+    "name": "College of Saint Rose",
+    "slug": "speech-language-pathology",
+    "verdict": "all sources unreadable",
+    "probes": [
+      {
+        "url": "https://www.strose.edu/",
+        "status": "fetch failed",
+        "textLen": 0,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://www.strose.edu/wp-content/uploads/2024/08/2020-2022-Graduate-Catalog-1.24.22.pdf",
+        "status": "fetch failed",
+        "textLen": 0,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 2587,
+    "name": "Eastern Michigan University",
+    "slug": "speech-language-pathology",
+    "verdict": "all sources unreadable",
+    "probes": [
+      {
+        "url": "https://www.emich.edu/coe/programs/resources/communication-sciences-disorders.php",
+        "status": 403,
+        "textLen": 0,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://www.emich.edu/coe/programs/communication-sciences-disorders/index.php",
+        "status": 403,
+        "textLen": 0,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 2590,
+    "name": "Edinboro University of Pennsylvania",
+    "slug": "speech-language-pathology",
+    "verdict": "readable but nothing about prerequisites",
+    "probes": [
+      {
+        "url": "https://www.edinboro.edu/academics/majors-and-programs/graduate/speech-language-pathology-ma/index.php",
+        "status": 200,
+        "textLen": 7573,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://www.pennwest.edu/",
+        "status": 200,
+        "textLen": 7573,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 2596,
+    "name": "Florida International University",
+    "slug": "speech-language-pathology",
+    "verdict": "explicit no-prereq statement",
+    "probes": [
+      {
+        "url": "https://catalog.fiu.edu/programs/SPHPATH:MS/requirements-uz47h",
+        "status": 200,
+        "textLen": 5950,
+        "mentions": true,
+        "asserts": true,
+        "enumerates": false
+      },
+      {
+        "url": "https://catalog.fiu.edu/programs/SPHPATH",
+        "status": 404,
+        "textLen": 0,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://catalog.fiu.edu/programs/SPHPATH%3AMS/requirements-uz47h",
+        "status": 200,
+        "textLen": 5950,
+        "mentions": true,
+        "asserts": true,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 2608,
+    "name": "Hampton University",
+    "slug": "speech-language-pathology",
+    "verdict": "references prerequisites but publishes no list",
+    "probes": [
+      {
+        "url": "https://home.hamptonu.edu/science/communicative-sciences-and-disorders/",
+        "status": 200,
+        "textLen": 11034,
+        "mentions": true,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://home.hamptonu.edu/admissions/family-tours/",
+        "status": 404,
+        "textLen": 0,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 2631,
+    "name": "LIU Brooklyn",
+    "slug": "speech-language-pathology",
+    "verdict": "all sources unreadable",
+    "probes": [
+      {
+        "url": "https://www.brooklyn.liu.edu/new_csd",
+        "status": "fetch failed",
+        "textLen": 0,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 2635,
+    "name": "Louisiana State University - Health Science Center, New Orleans",
+    "slug": "speech-language-pathology",
+    "verdict": "readable but nothing about prerequisites",
+    "probes": [
+      {
+        "url": "https://www.lsuhsc.edu/",
+        "status": 200,
+        "textLen": 9803,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://catalog.lsuhsc.edu/content.php?catoid=17&amp",
+        "status": "fetch failed",
+        "textLen": 0,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://www.lsuhsc.edu/administration/academic/docs/FacultyHandbook.pdf",
+        "status": 200,
+        "textLen": 487386,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 2638,
+    "name": "Louisiana Technical University",
+    "slug": "speech-language-pathology",
+    "verdict": "all sources unreadable",
+    "probes": [
+      {
+        "url": "https://www.catc.edu/",
+        "status": "fetch failed",
+        "textLen": 0,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 2681,
+    "name": "Pennsylvania State University",
+    "slug": "speech-language-pathology",
+    "verdict": "explicit no-prereq statement",
+    "probes": [
+      {
+        "url": "https://bulletins.psu.edu/graduate/programs/majors/speech-language-pathology/speech-language-pathology_admissionrequirementstext.pdf",
+        "status": 200,
+        "textLen": 14163,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://hhd.psu.edu/csd/graduate/masters-degree-communication-sciences-and-disorders/admission-requirements-masters-degree",
+        "status": 200,
+        "textLen": 21412,
+        "mentions": true,
+        "asserts": true,
+        "enumerates": true
+      },
+      {
+        "url": "https://hhd.psu.edu/csd/graduate/phd-program-communication-sciences-and-disorders/admission-requirements-phd-program",
+        "status": 200,
+        "textLen": 19406,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 2682,
+    "name": "Pennsylvania Western University",
+    "slug": "speech-language-pathology",
+    "verdict": "course list present — retry extraction",
+    "probes": [
+      {
+        "url": "https://www.pennwest.edu",
+        "status": 200,
+        "textLen": 7573,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://online.pennwest.edu/programs/speech-language-pathology-grad/index.php",
+        "status": 200,
+        "textLen": 7843,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://www.pennwest.edu/",
+        "status": 200,
+        "textLen": 7573,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://adm.pennwest.edu/register/calurfi",
+        "status": 200,
+        "textLen": 10587,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": true
+      }
+    ]
+  },
+  {
+    "id": 2683,
+    "name": "Phillips University",
+    "slug": "speech-language-pathology",
+    "verdict": "all sources unreadable",
+    "probes": [
+      {
+        "url": "http://www.phillips.edu",
+        "status": 404,
+        "textLen": 0,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://www.phillips.edu/",
+        "status": 404,
+        "textLen": 0,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 2685,
+    "name": "Purdue University",
+    "slug": "speech-language-pathology",
+    "verdict": "readable but nothing about prerequisites",
+    "probes": [
+      {
+        "url": "https://www.purdue.edu/academics/ogsps/admissions/gradrequirements/fort-wayne/speech-language-pathology/",
+        "status": 200,
+        "textLen": 1727,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://catalog.purdue.edu/preview_program.php?catoid=19&poid=35049",
+        "status": 202,
+        "textLen": 0,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://www.purdue.edu/academics/ogsps/prospective/gradrequirements/fortwayne/slp-pfw.html",
+        "status": 200,
+        "textLen": 1727,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 2687,
+    "name": "Radford University",
+    "slug": "speech-language-pathology",
+    "verdict": "explicit no-prereq statement",
+    "probes": [
+      {
+        "url": "https://www.radford.edu/admissions/online/licensure-disclosure-statements.html",
+        "status": 200,
+        "textLen": 35977,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": true
+      },
+      {
+        "url": "https://www.radford.edu/admissions/online/index.html",
+        "status": 200,
+        "textLen": 34382,
+        "mentions": true,
+        "asserts": true,
+        "enumerates": false
+      },
+      {
+        "url": "https://www.radford.edu/admissions/freshmen/application-guidelines.html",
+        "status": 200,
+        "textLen": 15523,
+        "mentions": true,
+        "asserts": true,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 2708,
+    "name": "Southern Methodist University",
+    "slug": "speech-language-pathology",
+    "verdict": "readable but nothing about prerequisites",
+    "probes": [
+      {
+        "url": "https://grad.smu.edu/a-guide-to-graduate-admissions-at-smu",
+        "status": 200,
+        "textLen": 27962,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://www.smu.edu/meadows/admissions/graduateadmissionguide/faq",
+        "status": 200,
+        "textLen": 8003,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 2711,
+    "name": "St. Cloud State University",
+    "slug": "speech-language-pathology",
+    "verdict": "readable but nothing about prerequisites",
+    "probes": [
+      {
+        "url": "https://www.stcloudstate.edu/csd/",
+        "status": 200,
+        "textLen": 4656,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://www.stcloudstate.edu/gradadmissions/?utm_source=website-homepage&utm_medium=Graduate",
+        "status": 200,
+        "textLen": 2092,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 2720,
+    "name": "SUNY at Geneseo",
+    "slug": "speech-language-pathology",
+    "verdict": "readable but nothing about prerequisites",
+    "probes": [
+      {
+        "url": "https://www.geneseony.org/",
+        "status": 200,
+        "textLen": 1762,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 2735,
+    "name": "The University of Texas Rio Grande Valley",
+    "slug": "speech-language-pathology",
+    "verdict": "readable but nothing about prerequisites",
+    "probes": [
+      {
+        "url": "https://www.utrgv.edu/communication-disorders/index.htm",
+        "status": 200,
+        "textLen": 11755,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://www.utrgv.edu/cohp/schools-and-departments/department-of-communication-disorders/",
+        "status": 200,
+        "textLen": 11755,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://www.utrgv.edu/admissions/info/apply/index.htm",
+        "status": 200,
+        "textLen": 2635,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 2740,
+    "name": "Trine University",
+    "slug": "speech-language-pathology",
+    "verdict": "explicit no-prereq statement",
+    "probes": [
+      {
+        "url": "https://www.trine.edu/resources/registrar/trinecatalogfall2021g.pdf",
+        "status": 200,
+        "textLen": 2517582,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://www.trine.edu/academics/majors-degrees/graduate/doctor-physical-therapy/admission-requirements.aspx",
+        "status": 200,
+        "textLen": 4371,
+        "mentions": true,
+        "asserts": true,
+        "enumerates": true
+      },
+      {
+        "url": "https://www.trine.edu/admission-aid/transfer-resources/index.aspx",
+        "status": 200,
+        "textLen": 3995,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 2741,
+    "name": "Truman State University",
+    "slug": "speech-language-pathology",
+    "verdict": "readable but nothing about prerequisites",
+    "probes": [
+      {
+        "url": "https://www.truman.edu/majors-programs/graduate-studies/communication-disorders/",
+        "status": 200,
+        "textLen": 5017,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://www.truman.edu/majors-programs/majors-minors/communication-disorders-major/communications-disorders-facilities/speech-hearing-clinic/",
+        "status": 200,
+        "textLen": 5277,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 2743,
+    "name": "Universidad Ana G. Méndez - Recinto de Gurabo",
+    "slug": "speech-language-pathology",
+    "verdict": "readable but nothing about prerequisites",
+    "probes": [
+      {
+        "url": "https://www.uagm.edu/es/oferta-academica/programas/ciencias-en-patologia-del-habla-lenguaje",
+        "status": 200,
+        "textLen": 4258,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://uagm.edu/es/estudiante-consumidor/academia/catalogo",
+        "status": 200,
+        "textLen": 7299,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://uagm.edu/es/ofrecimientos/ciencias-en-patologia-del-habla-lenguaje",
+        "status": 200,
+        "textLen": 4258,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 2749,
+    "name": "University of California, Santa Barbara",
+    "slug": "speech-language-pathology",
+    "verdict": "references prerequisites but publishes no list",
+    "probes": [
+      {
+        "url": "https://admissions.sa.ucsb.edu/transfer-eligibility-selection",
+        "status": 200,
+        "textLen": 7151,
+        "mentions": true,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://www.uwosh.edu/open-meetings/communication-studies-curriculum-committee/",
+        "status": 405,
+        "textLen": 0,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://www.uwosh.edu/open-meetings/school-of-media-arts-and-communication-curriculum-committee/",
+        "status": 405,
+        "textLen": 0,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 2760,
+    "name": "University of Georgia",
+    "slug": "speech-language-pathology",
+    "verdict": "readable but nothing about prerequisites",
+    "probes": [
+      {
+        "url": "https://coe.uga.edu/academics/concentrations/communication-sciences-and-disorders",
+        "status": 200,
+        "textLen": 7112,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://coe.uga.edu/academics/degrees/bsed-communication-sciences-disorders/",
+        "status": 200,
+        "textLen": 57,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://coe.uga.edu/academics/concentrations/communication-sciences-and-disorders/",
+        "status": 200,
+        "textLen": 7112,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 2774,
+    "name": "University of Michigan, Ann Arbor",
+    "slug": "speech-language-pathology",
+    "verdict": "readable but nothing about prerequisites",
+    "probes": [
+      {
+        "url": "https://www.uwosh.edu/",
+        "status": 200,
+        "textLen": 1921,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://www.uwosh.edu/open-meetings/communication-studies-curriculum-committee/",
+        "status": 405,
+        "textLen": 0,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://www.uwosh.edu/open-meetings/school-of-media-arts-and-communication-curriculum-committee/",
+        "status": 405,
+        "textLen": 0,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 2790,
+    "name": "University of North Texas",
+    "slug": "speech-language-pathology",
+    "verdict": "references prerequisites but publishes no list",
+    "probes": [
+      {
+        "url": "https://aslp.hps.unt.edu/",
+        "status": 200,
+        "textLen": 10384,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://pahs.unt.edu/aslp/index.html",
+        "status": 200,
+        "textLen": 10384,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://class.unt.edu/communication/graduate/admission-requirements-procedures.html",
+        "status": 200,
+        "textLen": 7912,
+        "mentions": true,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 2793,
+    "name": "University of Oklahoma - Health Sciences Center",
+    "slug": "speech-language-pathology",
+    "verdict": "readable but nothing about prerequisites",
+    "probes": [
+      {
+        "url": "https://www.ou.edu/admissions/academics/allied-health/speech-language-pathology.html",
+        "status": 200,
+        "textLen": 4484,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://www.ou.edu/admissions/apply/application-status/",
+        "status": 404,
+        "textLen": 0,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://www.ou.edu/admissions/academics/allied-health/speech-language-pathology",
+        "status": 200,
+        "textLen": 4484,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 2798,
+    "name": "University of Rhode Island",
+    "slug": "speech-language-pathology",
+    "verdict": "references prerequisites but publishes no list",
+    "probes": [
+      {
+        "url": "https://web.uri.edu/cmd/academics/m-s-program/admission/",
+        "status": 200,
+        "textLen": 4017,
+        "mentions": true,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://web.uri.edu/speech-hearing/staff/",
+        "status": 200,
+        "textLen": 3153,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  },
+  {
+    "id": 2813,
+    "name": "University of Tulsa",
+    "slug": "speech-language-pathology",
+    "verdict": "course list present — retry extraction",
+    "probes": [
+      {
+        "url": "https://healthsciences.utulsa.edu/communication-disorders/graduate-programs/",
+        "status": 200,
+        "textLen": 7426,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      },
+      {
+        "url": "https://utulsa.edu/programs/speech-language-pathology/",
+        "status": 200,
+        "textLen": 12815,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": true
+      },
+      {
+        "url": "https://utulsa.edu/academics/health-natural-sciences/academics/departments/communication-sciences-disorders/communication-sciences-disorders-grad/",
+        "status": 200,
+        "textLen": 13151,
+        "mentions": false,
+        "asserts": false,
+        "enumerates": false
+      }
+    ]
+  }
+]
