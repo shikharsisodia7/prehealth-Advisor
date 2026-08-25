@@ -62,7 +62,9 @@ const PROF_HINT: Record<string, RegExp> = {
   pharmacy: /pharmac|pharmd/i,
   dietetics: /dietet|nutrition/i,
   "physician-assistant": /physician-?assistant|pa|pas/i,
-  "speech-language-pathology": /speech|slp|communication-?(sciences|disorders)|csd/i,
+  // "communicat" covers both communication and COMMUNICATIVE sciences, and sphpath is the
+  // program code some catalogues use -- Hampton and FIU were both rejected on spelling alone.
+  "speech-language-pathology": /speech|slp|sphpath|communicat|csd|audiolog/i,
   medicine: /md|medic|school-?of-?medicine/i,
   nursing: /nurs|bsn|dnp/i,
   "occupational-therapy": /occupational-?therapy|ot|otd/i,
@@ -80,6 +82,31 @@ function seedScore(url: string, slug: string): number {
   return (/prereq|pre-requisit/i.test(url) ? 3 : 0)
     + (PROF_HINT[slug]?.test(url) ? 2 : 0)
     + (/admission|requirement|catalog|handbook/i.test(url) ? 1 : 0);
+}
+
+/**
+ * True when the page itself is about this profession and states requirements.
+ *
+ * Used only to rescue a candidate whose URL does not spell the profession out. Both conditions
+ * are required, so a general admissions page that happens to mention every programme, or a
+ * department page with no requirements on it, still does not qualify.
+ */
+async function pageIsProgramRelevant(url: string, slug: string): Promise<boolean> {
+  const hint = PROF_HINT[slug];
+  if (!hint) return false;
+  try {
+    const r = await fetch(url, { headers: { "user-agent": UA }, signal: AbortSignal.timeout(15000), redirect: "follow" });
+    if (!r.ok) return false;
+    const text = (await r.text())
+      .replace(/<script[\s\S]*?<\/script>/gi, " ")
+      .replace(/<style[\s\S]*?<\/style>/gi, " ")
+      .replace(/<[^>]+>/g, " ")
+      .replace(/\s+/g, " ")
+      .slice(0, 40_000);
+    return hint.test(text) && /prerequisit|required course|course requirement|admission requirement/i.test(text);
+  } catch {
+    return false;
+  }
 }
 
 /** Registrable domain, keeping the extra label for public suffixes like ac.uk / edu.pr. */
@@ -280,7 +307,24 @@ for (const r of rows.rows as any[]) {
 
   let chosen = "";
   try {
-    const links = (await serper(`${r.name} ${PROF_TERM[r.profession_slug]} admission prerequisite courses`))
+    // A plain name query returns whatever ranks highest for the school, which for a program
+    // buried in a department is often the generic admissions page -- Brigham Young, Catholic
+    // and Cleveland State all had a bare homepage seed and crawled into /admissions. Once the
+    // institution's own domain is known, a site-restricted query asks the right question.
+    // Site-restricted first: it is the more precise question, and a general query returns a
+    // full page of results, so ordering it first would leave the restricted one never run.
+    const queries: string[] = [];
+    for (const d of trusted) queries.push(`site:${d} ${PROF_TERM[r.profession_slug]} prerequisite courses admission`);
+    queries.push(`${r.name} ${PROF_TERM[r.profession_slug]} admission prerequisite courses`);
+
+    const collected: string[] = [];
+    for (const q of queries) {
+      try { collected.push(...(await serper(q))); } catch { /* budget or transport */ }
+      // Keep going while nothing looks like a prerequisites page for this profession.
+      if (collected.some((u) => /prereq|pre-requisit/i.test(u) && PROF_HINT[r.profession_slug]?.test(u))) break;
+    }
+    const links = (collected)
+      .filter((u, i, a) => a.indexOf(u) === i)
       .filter((u) => !BANNED.test(u))
       .filter((u) => { try { return registrable(new URL(u).hostname) !== ""; } catch { return false; } })
       .sort((a, b) => {
@@ -305,13 +349,38 @@ for (const r of rows.rows as any[]) {
     continue;
   }
 
-  if (chosen && seedScore(chosen, r.profession_slug) <= seedScore(trusted.has(seedDomain) ? String(r.website_url ?? "") : "", r.profession_slug)) {
+  // A replacement must promise THIS program's requirements, not merely rank above a bare
+  // homepage. Beating the stored seed alone let a generic page win whenever the seed was just
+  // the institution root: UC Santa Barbara's undergraduate transfer-eligibility page and
+  // Purdue's all-programs graduate requirements page both scored 1 against a homepage's 0.
+  const MIN_REPLACEMENT_SCORE = 2;
+  let urlScore = seedScore(chosen, r.profession_slug);
+  // Judging relevance from URL spelling alone is brittle: FIU publishes the SLP requirements
+  // under the program code SPHPATH, and Hampton under "communicative sciences", so both were
+  // dismissed for words their URLs never had to contain. When the URL is unconvincing, let the
+  // page's own text vouch for it instead -- it has to name this profession AND talk about
+  // requirements, which a generic transfer-eligibility page does not.
+  if (chosen && urlScore < MIN_REPLACEMENT_SCORE && (await pageIsProgramRelevant(chosen, r.profession_slug))) {
+    urlScore = MIN_REPLACEMENT_SCORE;
+  }
+  if (chosen && urlScore < MIN_REPLACEMENT_SCORE) {
+    rejected++;
+    console.log(`WEAK   ${r.id} ${String(r.name).slice(0, 30).padEnd(32)} ${chosen.slice(0, 60)}`);
+  } else if (chosen && seedScore(chosen, r.profession_slug) <= seedScore(trusted.has(seedDomain) ? String(r.website_url ?? "") : "", r.profession_slug)) {
     rejected++;
     console.log(`KEEP   ${r.id} ${String(r.name).slice(0, 30).padEnd(32)} (stored seed already aims better)`);
   } else if (chosen) {
     accepted++;
     console.log(`ACCEPT ${r.id} [${[...trusted].join("|")}] ${String(r.name).slice(0, 30).padEnd(32)} -> ${chosen.slice(0, 84)}`);
-    if (APPLY) await db.update(programSchoolsTable).set({ sourceUrl: chosen, websiteUrl: chosen }).where(eq(programSchoolsTable.id, r.id));
+    if (APPLY) {
+      // Record what was replaced. The first apply pass overwrote seeds with no way to put them
+      // back, which is the wrong property for a tool that rewrites data in place.
+      fs.appendFileSync(
+        path.join(process.cwd(), "..", "data", "seed-corrections.jsonl"),
+        `${JSON.stringify({ at: new Date().toISOString(), id: r.id, name: r.name, from: r.website_url ?? "", to: chosen })}\n`,
+      );
+      await db.update(programSchoolsTable).set({ sourceUrl: chosen, websiteUrl: chosen }).where(eq(programSchoolsTable.id, r.id));
+    }
   } else {
     rejected++;
     console.log(`REJECT ${r.id} [${[...trusted].join("|")}] ${String(r.name).slice(0, 30).padEnd(32)} (no page on the institution's own domain)`);
