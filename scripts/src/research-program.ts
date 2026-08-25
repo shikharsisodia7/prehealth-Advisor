@@ -54,8 +54,34 @@ const SUBJECT =
 function subjectsIn(text: string): string[] {
   return [...new Set((text.match(SUBJECT) ?? []).map((s) => s.toLowerCase()))];
 }
-function looksLikeList(text: string): boolean {
-  return subjectsIn(text).length >= 3 && /prerequisit|required course|course requirement|leveling|foundational/i.test(text);
+/** Words that identify the page as belonging to this profession, not merely to a science degree. */
+const PROF_IDENT: Record<string, RegExp> = {
+  "speech-language-pathology": /speech-language|speech language|communication sciences|communicative sciences|\bslp\b|audiolog/i,
+  medicine: /medical school|doctor of medicine|osteopathic|\bmd program\b|premedical/i,
+  "occupational-therapy": /occupational therapy|\botd\b|\bmot\b/i,
+  nursing: /nursing|\bbsn\b|\babsn\b|\bmepn\b/i,
+  "physician-assistant": /physician assistant|\bpa program\b|\bcaspa\b/i,
+  dietetics: /dietetic|nutrition and dietetics|\bdpd\b|registered dietitian/i,
+  pharmacy: /pharmacy|\bpharmd\b|pre-pharmacy/i,
+  "physical-therapy": /physical therapy|\bdpt\b|\bptcas\b/i,
+  dental: /dental|\bdds\b|\bdmd\b|predental/i,
+  "prosthetics-orthotics": /prosthetic|orthotic/i,
+  postbac: /postbaccalaureate|post-baccalaureate|postbac|premedical/i,
+};
+
+/**
+ * A page qualifies only when it both lists coursework AND identifies itself as this
+ * profession's programme.
+ *
+ * Requiring science subjects plus the word "prerequisite" was not enough: Cleveland State's
+ * Psychology B.A. and Nursing B.S.N. catalogue pages both satisfied it, and were nearly
+ * attached to nursing, occupational therapy and speech-pathology rows respectively.
+ */
+function looksLikeList(text: string, slug: string): boolean {
+  const hasCourses = subjectsIn(text).length >= 3 && /prerequisit|required course|course requirement|leveling|foundational/i.test(text);
+  if (!hasCourses) return false;
+  const ident = PROF_IDENT[slug];
+  return ident ? ident.test(text) : true;
 }
 
 interface Got { status: number | string; title: string; text: string; links: Array<{ href: string; label: string }> }
@@ -212,7 +238,7 @@ for (const r of rows.rows as any[]) {
     seen.add(url);
     const got = await pageText(browser, url);
     const subs = subjectsIn(got.text);
-    if (looksLikeList(got.text)) {
+    if (looksLikeList(got.text, r.profession_slug)) {
       if (!best || subs.length > best.subjects.length) best = { url, status: got.status, subjects: subs, textLen: got.text.length };
     } else if (/prerequisit|leveling|foundational/i.test(got.text)) {
       // A page that only REFERS to prerequisites usually links to where they live.
@@ -223,7 +249,7 @@ for (const r of rows.rows as any[]) {
         if (seen.has(f.href)) continue;
         seen.add(f.href);
         const sub = await pageText(browser, f.href);
-        if (looksLikeList(sub.text)) {
+        if (looksLikeList(sub.text, r.profession_slug)) {
           const ss = subjectsIn(sub.text);
           if (!best || ss.length > best.subjects.length) best = { url: f.href, status: sub.status, subjects: ss, textLen: sub.text.length, via: url };
         }
