@@ -1,0 +1,284 @@
+/**
+ * Correct the stored prerequisites URL for programs the completion worker cannot finish,
+ * accepting a candidate page only when it is published BY that institution.
+ *
+ * Some seeds are simply wrong: the row for Philadelphia College of Osteopathic Medicine
+ * pointed at ammancity.gov.jo. The worker then crawls the wrong site forever and the program
+ * never completes, so this repoints it at a page the school itself publishes.
+ *
+ * A first pass validated candidates by checking the page text named the school. That accepts
+ * pages that merely REFERENCE the school: University of the Pacific's transfer-equivalency
+ * tables matched both Rhode Island and Puerto Rico, stmary.edu matched University of Mary, and
+ * utc.edu matched Tennessee State. Mentioning a school is not the same as speaking for it, so
+ * provenance is established from the domain instead -- the institution's official website per
+ * Wikidata P856, with the entity label checked against the program name so a wrong entity
+ * cannot smuggle in a wrong domain.
+ *
+ * Writes only websiteUrl/sourceUrl. Prerequisite extraction still runs through the normal
+ * validated pipeline afterwards, so nothing here can put requirements into the database.
+ */
+import { sql, eq } from "drizzle-orm";
+import { db, programSchoolsTable } from "@workspace/db";
+import fs from "node:fs";
+import path from "node:path";
+import { entityLabelMatchesInstitution } from "./extraction-rules.js";
+import { SearchBudget } from "./search-budget.js";
+
+const APPLY = process.argv.includes("--apply");
+const SLUGS = (() => {
+  const i = process.argv.indexOf("--slugs");
+  if (i >= 0) return process.argv[i + 1]!.split(",");
+  return ["dental", "prosthetics-orthotics", "physical-therapy", "pharmacy", "dietetics", "physician-assistant"];
+})();
+
+// Queries here spend the same metered allowance as the worker's, so they are recorded against
+// the same persisted budget -- counting them only inside the worker would let this tool drain
+// the free tier invisibly.
+const budget = new SearchBudget(path.join(process.cwd(), "..", "data", "search-usage.json"), {
+  serper: Number(process.env.COMPLETION_SERPER_CAP || 2_000),
+  tavily: Number(process.env.COMPLETION_TAVILY_CAP || 800),
+});
+const UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36";
+const BANNED = /allaccessdietetics|niche\.com|usnews|petersons|gradschools\.com|collegefactual|studentdoctor|reddit|wikipedia|indeed|coursera/i;
+
+const PROF_TERM: Record<string, string> = {
+  dental: "dental DDS DMD",
+  "prosthetics-orthotics": "prosthetics orthotics",
+  "physical-therapy": "DPT physical therapy",
+  pharmacy: "PharmD pharmacy",
+  dietetics: "dietetics nutrition",
+  "physician-assistant": "physician assistant",
+  "speech-language-pathology": "speech language pathology SLP masters",
+  medicine: "medical school MD",
+  nursing: "nursing BSN",
+  "occupational-therapy": "occupational therapy OT",
+  postbac: "postbaccalaureate premedical",
+};
+
+const PROF_HINT: Record<string, RegExp> = {
+  dental: /dental|dds|dmd/i,
+  "prosthetics-orthotics": /prosthet|orthot/i,
+  "physical-therapy": /physical-?therapy|dpt|pt/i,
+  pharmacy: /pharmac|pharmd/i,
+  dietetics: /dietet|nutrition/i,
+  "physician-assistant": /physician-?assistant|pa|pas/i,
+  "speech-language-pathology": /speech|slp|communication-?(sciences|disorders)|csd/i,
+  medicine: /md|medic|school-?of-?medicine/i,
+  nursing: /nurs|bsn|dnp/i,
+  "occupational-therapy": /occupational-?therapy|ot|otd/i,
+  postbac: /post-?bac|postbaccalaureate|premed/i,
+};
+
+/**
+ * How well a URL promises this program's prerequisites. A corrected seed is only worth writing
+ * when it beats the seed already stored: search offered University of Mary's UNDERGRADUATE
+ * admission-requirements page while the row already pointed at its DPT program page, and
+ * overwriting would have aimed extraction at the wrong requirements entirely.
+ */
+function seedScore(url: string, slug: string): number {
+  if (!url) return -1;
+  return (/prereq|pre-requisit/i.test(url) ? 3 : 0)
+    + (PROF_HINT[slug]?.test(url) ? 2 : 0)
+    + (/admission|requirement|catalog|handbook/i.test(url) ? 1 : 0);
+}
+
+/** Registrable domain, keeping the extra label for public suffixes like ac.uk / edu.pr. */
+function registrable(host: string): string {
+  const p = host.replace(/^www\./, "").toLowerCase().split(".");
+  if (p.length > 2 && /^(edu|ac|gov|co|org|com)$/.test(p[p.length - 2]!)) return p.slice(-3).join(".");
+  return p.slice(-2).join(".");
+}
+
+/**
+ * Wikidata throttles a burst of lookups. Returning null on the first failure silently turned
+ * every throttled row into "no confirmed official domain", which reads exactly like a genuine
+ * negative -- so failures are retried with backoff and any surviving failure is reported as an
+ * error, never as an answer.
+ */
+let wdNextAllowed = 0;
+const sleep = (ms: number) => new Promise((x) => setTimeout(x, ms));
+
+async function wdJson(url: string): Promise<{ ok: true; json: any } | { ok: false; why: string }> {
+  let why = "unknown";
+  for (let attempt = 0; attempt < 5; attempt++) {
+    // Wikidata answered 429 for a burst of lookups, so requests are spaced globally rather
+    // than only backing off after a rejection.
+    await sleep(Math.max(0, wdNextAllowed - Date.now()));
+    wdNextAllowed = Date.now() + 1500;
+    try {
+      const r = await fetch(url, { headers: { "user-agent": "prehealth-advisor/1.0 (contact: repo maintainer)" }, signal: AbortSignal.timeout(20000) });
+      if (r.ok) return { ok: true, json: await r.json() };
+      why = `HTTP ${r.status}`;
+      if (r.status === 429) {
+        const retryAfter = Number(r.headers.get("retry-after"));
+        wdNextAllowed = Date.now() + (Number.isFinite(retryAfter) && retryAfter > 0 ? retryAfter * 1000 : 20_000 * (attempt + 1));
+        continue;
+      }
+      if (r.status < 500) break;
+    } catch (e) { why = (e as Error).message; }
+  }
+  return { ok: false, why };
+}
+
+/** Resolved domains persist so a rerun after a throttle does not re-query what already worked. */
+const CACHE_FILE = path.join(process.cwd(), "..", "data", "official-domains.json");
+const cache: Record<string, string> = (() => {
+  try { return JSON.parse(fs.readFileSync(CACHE_FILE, "utf8")); } catch { return {}; }
+})();
+function cachePut(name: string, domain: string) {
+  cache[name] = domain;
+  fs.mkdirSync(path.dirname(CACHE_FILE), { recursive: true });
+  fs.writeFileSync(CACHE_FILE, JSON.stringify(cache, null, 2));
+}
+
+/** The institution's own domain, or "" when Wikidata cannot confirm one for THIS school. */
+async function officialDomain(name: string): Promise<{ domain: string; error?: string }> {
+  if (name in cache) return { domain: cache[name]! };
+  const s = await wdJson(`https://www.wikidata.org/w/api.php?action=wbsearchentities&search=${encodeURIComponent(name)}&language=en&format=json&limit=5`);
+  if (!s.ok) return { domain: "", error: `search ${s.why}` };
+  for (const hit of s.json?.search ?? []) {
+    const label = hit.display?.label?.value ?? hit.label ?? "";
+    if (!entityLabelMatchesInstitution(label, name)) continue;
+    const ent = await wdJson(`https://www.wikidata.org/wiki/Special:EntityData/${hit.id}.json`);
+    if (!ent.ok) return { domain: "", error: `entity ${ent.why}` };
+    const url = ent.json?.entities?.[hit.id]?.claims?.P856?.[0]?.mainsnak?.datavalue?.value;
+    if (typeof url === "string") {
+      try {
+        const d = registrable(new URL(url).hostname);
+        cachePut(name, d);
+        return { domain: d };
+      } catch { /* malformed claim */ }
+    }
+  }
+  cachePut(name, "");
+  return { domain: "" };
+}
+
+async function serper(q: string): Promise<string[]> {
+  if (!budget.canSpend("serper")) throw new Error("serper budget exhausted");
+  budget.spend("serper");
+  const r = await fetch("https://google.serper.dev/search", {
+    method: "POST",
+    headers: { "X-API-KEY": process.env.SERPER_API_KEY ?? "", "content-type": "application/json" },
+    body: JSON.stringify({ q, num: 10 }),
+    signal: AbortSignal.timeout(25_000),
+  });
+  if (!r.ok) throw new Error(`serper HTTP ${r.status}`);
+  const j: any = await r.json();
+  return (j.organic ?? []).map((o: any) => o.link ?? "").filter(Boolean);
+}
+
+/**
+ * True when the domain's own front page identifies itself as this institution.
+ *
+ * A second provenance route, needed because Wikidata has no confirmable entity for many
+ * schools-within-universities (Tufts' DPT, Jefferson, Eastern Michigan) while their stored
+ * seed already points at the right school. Unlike checking a deep page for the school's name,
+ * this is self-identification by the domain itself, so a comparison table on someone else's
+ * site cannot satisfy it -- pacific.edu's front page says University of the Pacific, never
+ * University of Rhode Island. It also rejects the corrupt seeds: the row for Philadelphia
+ * College of Osteopathic Medicine pointed at ammancity.gov.jo.
+ */
+const selfIdCache = new Map<string, Promise<boolean>>();
+function domainSelfIdentifies(host: string, name: string): Promise<boolean> {
+  const key = `${host}|${name}`;
+  const hit = selfIdCache.get(key);
+  if (hit) return hit;
+  const p = (async () => {
+    // Compare against the name before any campus/location qualifier: the seed for
+    // "Tufts University - Boston, MA" is medicine.tufts.edu, which never says "Boston, MA".
+    const core = String(name).split(/[-–—,]/)[0] ?? name;
+    // Identity is compared with the same matcher the pipeline uses, not by looking for the
+    // school's words somewhere on the page. A bag-of-words test accepted stmary.edu (University
+    // of SAINT Mary, Kansas) for University of Mary and okcu.edu (Oklahoma CITY University) for
+    // Oklahoma State, because a single distinctive word appears in both names.
+    for (const url of [`https://${host}/`, `https://www.${host}/`]) {
+      try {
+        const r = await fetch(url, { headers: { "user-agent": UA }, signal: AbortSignal.timeout(15000), redirect: "follow" });
+        if (!r.ok) continue;
+        const html = (await r.text()).slice(0, 60_000);
+        const raw = /<title[^>]*>([\s\S]*?)<\/title>/i.exec(html)?.[1] ?? "";
+        const title = raw.replace(/&[a-z]+;/gi, " ").replace(/\s+/g, " ").trim();
+        if (!title) continue;
+        // Site titles append a tagline ("Tufts University | Medford, MA"); test each segment.
+        const segments = [title, ...title.split(/[|·—–-]/).map((x) => x.trim())].filter((x) => x.length >= 4);
+        if (segments.some((seg) => entityLabelMatchesInstitution(seg, name) || entityLabelMatchesInstitution(seg, core))) return true;
+      } catch { /* try the www form */ }
+    }
+    return false;
+  })();
+  selfIdCache.set(key, p);
+  return p;
+}
+
+const ONLY = (() => {
+  const i = process.argv.indexOf("--ids");
+  return i >= 0 ? new Set(process.argv[i + 1]!.split(",").map(Number)) : null;
+})();
+
+const rows = await db.execute(sql.raw(`
+  select id, name, profession_slug, website_url
+  from program_schools
+  where directory_status='active' and verification_status in ('draft','needs_review')
+    and profession_slug in (${SLUGS.map((s) => `'${s}'`).join(",")})
+  order by profession_slug, id`));
+
+let accepted = 0, rejected = 0;
+for (const r of rows.rows as any[]) {
+  if (ONLY && !ONLY.has(Number(r.id))) continue;
+  const res = await officialDomain(r.name);
+  if (res.error) { console.log(`ERROR  ${r.id} ${String(r.name).slice(0, 34).padEnd(36)} wikidata ${res.error}`); continue; }
+  const official = res.domain;
+  const seedHost = (() => { try { return new URL(r.website_url).hostname.replace(/^www\./, ""); } catch { return ""; } })();
+  const seedDomain = seedHost ? registrable(seedHost) : "";
+  const seedTrusted = seedDomain !== "" && (seedDomain === official || (await domainSelfIdentifies(seedDomain, r.name)));
+  const trusted = new Set([official, seedTrusted ? seedDomain : ""].filter(Boolean));
+  if (trusted.size === 0) {
+    rejected++;
+    console.log(`REJECT ${r.id} ${String(r.name).slice(0, 34).padEnd(36)} (no confirmed official domain)`);
+    continue;
+  }
+
+  let chosen = "";
+  try {
+    const links = (await serper(`${r.name} ${PROF_TERM[r.profession_slug]} admission prerequisite courses`))
+      .filter((u) => !BANNED.test(u))
+      .filter((u) => { try { return registrable(new URL(u).hostname) !== ""; } catch { return false; } })
+      .sort((a, b) => {
+        const sc = (u: string) => (/prereq|pre-requisit/i.test(u) ? 6 : 0) + (/admission|requirement/i.test(u) ? 3 : 0) + (/catalog|handbook/i.test(u) ? 2 : 0);
+        return sc(b) - sc(a);
+      });
+
+    for (const link of links.slice(0, 5)) {
+      let dom = "";
+      try { dom = registrable(new URL(link).hostname); } catch { continue; }
+      // A school may publish on a second domain it owns (shps.lsuhs.edu for LSU Health), so a
+      // candidate domain that identifies itself as this institution counts too.
+      if (!trusted.has(dom) && !(await domainSelfIdentifies(dom, r.name))) continue;
+      try {
+        const res = await fetch(link, { headers: { "user-agent": UA }, signal: AbortSignal.timeout(15000), redirect: "follow" });
+        if (res.ok) { chosen = link; break; }
+      } catch { /* unreachable candidate */ }
+      await new Promise((x) => setTimeout(x, 300));
+    }
+  } catch (e) {
+    console.log(`ERROR  ${r.id} ${(e as Error).message}`);
+    continue;
+  }
+
+  if (chosen && seedScore(chosen, r.profession_slug) <= seedScore(trusted.has(seedDomain) ? String(r.website_url ?? "") : "", r.profession_slug)) {
+    rejected++;
+    console.log(`KEEP   ${r.id} ${String(r.name).slice(0, 30).padEnd(32)} (stored seed already aims better)`);
+  } else if (chosen) {
+    accepted++;
+    console.log(`ACCEPT ${r.id} [${[...trusted].join("|")}] ${String(r.name).slice(0, 30).padEnd(32)} -> ${chosen.slice(0, 84)}`);
+    if (APPLY) await db.update(programSchoolsTable).set({ sourceUrl: chosen, websiteUrl: chosen }).where(eq(programSchoolsTable.id, r.id));
+  } else {
+    rejected++;
+    console.log(`REJECT ${r.id} [${[...trusted].join("|")}] ${String(r.name).slice(0, 30).padEnd(32)} (no page on the institution's own domain)`);
+  }
+  await new Promise((x) => setTimeout(x, 600));
+}
+console.log(`\naccepted=${accepted} rejected=${rejected} applied=${APPLY}`);
+process.exit(0);
+export {};
