@@ -1,6 +1,6 @@
 # Prerequisite Coverage Audit
 
-Generated: 2026-08-25T12:44:03.519Z
+Generated: 2026-08-25T13:14:12.155Z
 
 | Profession | Active | Verified | No specific courses | Blocked | Unfinished | Final-status coverage | Directory reconciliation |
 |---|---:|---:|---:|---:|---:|---:|---|
