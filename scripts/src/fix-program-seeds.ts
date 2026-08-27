@@ -117,6 +117,22 @@ async function pageIsProgramRelevant(url: string, slug: string): Promise<boolean
   }
 }
 
+/** Whether a stored seed still resolves. A dead URL must not outrank a live candidate. */
+const reachableCache = new Map<string, boolean>();
+async function urlIsReachable(url: string): Promise<boolean> {
+  if (!url) return false;
+  const hit = reachableCache.get(url);
+  if (hit !== undefined) return hit;
+  let ok = false;
+  try {
+    const r = await fetch(url, { headers: { "user-agent": UA }, signal: AbortSignal.timeout(15000), redirect: "follow" });
+    // A challenge answers 202 with no body; that is a readable page for a browser, so it counts.
+    ok = r.ok || r.status === 202;
+  } catch { ok = false; }
+  reachableCache.set(url, ok);
+  return ok;
+}
+
 /** Registrable domain, keeping the extra label for public suffixes like ac.uk / edu.pr. */
 function registrable(host: string): string {
   const p = host.replace(/^www\./, "").toLowerCase().split(".");
@@ -436,7 +452,13 @@ for (const r of rows.rows as any[]) {
   if (chosen && urlScore < MIN_REPLACEMENT_SCORE) {
     rejected++;
     console.log(`WEAK   ${r.id} score=${urlScore} ${String(r.name).slice(0, 30).padEnd(32)} ${chosen.slice(0, 60)}`);
-  } else if (chosen && seedScore(chosen, r.profession_slug) <= seedScore(trusted.has(seedDomain) ? String(r.website_url ?? "") : "", r.profession_slug)) {
+  } else if (
+    chosen &&
+    seedScore(chosen, r.profession_slug) <= seedScore(trusted.has(seedDomain) ? String(r.website_url ?? "") : "", r.profession_slug) &&
+    // A seed that no longer resolves cannot "aim better" than a live candidate. Four rows kept
+    // their stored URL on score alone while that URL was answering 404.
+    (await urlIsReachable(String(r.website_url ?? "")))
+  ) {
     rejected++;
     console.log(`KEEP   ${r.id} ${String(r.name).slice(0, 30).padEnd(32)} (stored seed already aims better)`);
   } else if (chosen) {
