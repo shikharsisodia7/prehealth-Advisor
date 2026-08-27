@@ -418,7 +418,12 @@ let browserUseCount = 0;
  * counter -- AsyncLocalStorage scopes it to the program currently being processed.
  */
 const renderBudget = new AsyncLocalStorage<{ remaining: number }>();
-const MAX_RENDERS_PER_PROGRAM = Number(process.env.COMPLETION_MAX_RENDERS || 2);
+// Two renders per programme was set when rendering was a rare last resort behind Jina,
+// Keenable and Firecrawl. Those keys are all dead now, so the browser is the only way to read
+// a site that refuses plain HTTP, and the budget was being exhausted before the candidate that
+// needed it -- NYU's postbaccalaureate pages answer a bot challenge and return 159 characters
+// to a plain fetch, so every candidate there needs the browser.
+const MAX_RENDERS_PER_PROGRAM = Number(process.env.COMPLETION_MAX_RENDERS || 6);
 
 async function fetchRendered(url: string): Promise<Fetched> {
   const budget = renderBudget.getStore();
@@ -478,6 +483,15 @@ async function fetchRenderedInner(url: string): Promise<Fetched> {
     if (!res.ok() && res.status() !== 304) throw new Error(`Browser render HTTP ${res.status()}`);
     // Give hydration/accordion content a moment to settle.
     await page.waitForTimeout(1500);
+    // Some sites answer the first request with a bot challenge and only serve the page after it
+    // resolves: NYU's postbaccalaureate pages redirect to ?challenge=... and return an empty
+    // 202, so a fixed wait captured nothing and the programme was recorded as "too little text".
+    // Waiting for content to appear reads the page a browser would have shown a person.
+    for (let waited = 0; waited < 8000; waited += 1000) {
+      const soFar = stripHtml(await page.content());
+      if (soFar.length >= 200) break;
+      await page.waitForTimeout(1000);
+    }
     // Expand common accordion/tab admissions widgets so hidden prerequisite text becomes visible text.
     try {
       await page.evaluate(`
@@ -489,7 +503,17 @@ async function fetchRenderedInner(url: string): Promise<Fetched> {
       await page.waitForTimeout(500);
     } catch { /* best effort */ }
     const html = await page.content();
-    const finalUrl = page.url();
+    // A bot challenge leaves its one-time token on the URL. Citing that as the official source
+    // gives a reader a link that is specific to this run rather than to the page.
+    const finalUrl = (() => {
+      try {
+        const u = new URL(page.url());
+        for (const p of ["challenge", "sessionid", "session_id", "cf_chl_tk", "__cf_chl_tk", "token"]) u.searchParams.delete(p);
+        return u.toString().replace(/\?$/, "");
+      } catch {
+        return page.url();
+      }
+    })();
     const text = stripHtml(html).slice(0, 160_000);
     if (text.length < 200) throw new Error("Browser render: too little text");
     return {
@@ -2455,7 +2479,16 @@ async function fetchWithFallback(url: string): Promise<Fetched> {
       try { return await firecrawlScrape(url); } catch { /* fall through */ }
     }
     // Thin content / JS shell from plain fetch — render it locally.
-    try { return await fetchRendered(url); } catch { /* fall through */ }
+    //
+    // The render's own error used to be discarded and the empty fetch returned instead, so the
+    // programme was recorded as "too little text" whatever had actually gone wrong. Losing the
+    // reason makes a render that never ran indistinguishable from a page with nothing on it.
+    try {
+      return await fetchRendered(url);
+    } catch (renderError) {
+      const why = renderError instanceof Error ? renderError.message : String(renderError);
+      if (fetched.text.length < 300) throw new Error(`plain fetch returned ${fetched.text.length} chars; render failed: ${why}`);
+    }
     return fetched;
   } catch (e) {
     const msg = e instanceof Error ? e.message : String(e);
