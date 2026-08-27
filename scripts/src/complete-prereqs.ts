@@ -421,9 +421,14 @@ const renderBudget = new AsyncLocalStorage<{ remaining: number }>();
 // Two renders per programme was set when rendering was a rare last resort behind Jina,
 // Keenable and Firecrawl. Those keys are all dead now, so the browser is the only way to read
 // a site that refuses plain HTTP, and the budget was being exhausted before the candidate that
-// needed it -- NYU's postbaccalaureate pages answer a bot challenge and return 159 characters
-// to a plain fetch, so every candidate there needs the browser.
-const MAX_RENDERS_PER_PROGRAM = Number(process.env.COMPLETION_MAX_RENDERS || 6);
+// needed it -- NYU's and Purdue's catalogues answer a bot challenge and return 159 characters
+// to a plain fetch, so every candidate on those hosts needs the browser.
+//
+// Raising it to six was still not enough for a programme whose whole catalogue is behind a
+// challenge. The real bound on cost is the per-programme deadline, which already stops a slow
+// programme regardless of how it is spending its time; counting renders on top of that mostly
+// stopped programmes that had a readable page in reach.
+const MAX_RENDERS_PER_PROGRAM = Number(process.env.COMPLETION_MAX_RENDERS || 14);
 
 async function fetchRendered(url: string): Promise<Fetched> {
   const budget = renderBudget.getStore();
