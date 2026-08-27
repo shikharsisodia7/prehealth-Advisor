@@ -95,6 +95,18 @@ const checks: Array<{ name: string; query: string; expectZero: boolean }> = [
               and upper(substring(source_url from '://catalog\\.([a-z]{2})\\.')) <> upper(state)`,
   },
   {
+    // A school publishes requirements on a programme page, not in a news post. Five rows cited
+    // editorial pages, and two of those were the wrong programme or the wrong institution: a
+    // physician assistant row cited an occupational therapy blog post, and East Carolina's
+    // speech row cited a Northeastern news article about prerequisites in general.
+    name: "source url is an editorial page rather than a requirements page",
+    expectZero: true,
+    query: `select id::text || ' ' || name || ' -> ' || source_url as detail, 1 n
+            from program_schools
+            where directory_status='active'
+              and source_url ~* '/(news|blog|press|stories|story|events?|profiles?|magazine)/'`,
+  },
+  {
     name: "prerequisite entries with an empty name",
     expectZero: true,
     query: `select id::text || ' ' || name as detail, 1 n from program_schools

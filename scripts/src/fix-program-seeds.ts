@@ -85,8 +85,14 @@ const PROF_HINT: Record<string, RegExp> = {
  * admission-requirements page while the row already pointed at its DPT program page, and
  * overwriting would have aimed extraction at the wrong requirements entirely.
  */
+/** A news or press URL is never the page a programme publishes its requirements on, however
+ * well its slug reads: Oklahoma Baptist's press release is titled
+ * "...-speech-language-pathology-prerequisite-courses". */
+const EDITORIAL_URL = /\/(news|blog|press|stories|story|discussion|events?|profiles?|magazine)\//i;
+
 function seedScore(url: string, slug: string): number {
   if (!url) return -1;
+  if (EDITORIAL_URL.test(url)) return -1;
   return (/prereq|pre-requisit/i.test(url) ? 3 : 0)
     + (PROF_HINT[slug]?.test(url) ? 2 : 0)
     + (/admission|requirement|catalog|handbook/i.test(url) ? 1 : 0);
@@ -99,8 +105,30 @@ function seedScore(url: string, slug: string): number {
  * are required, so a general admissions page that happens to mention every programme, or a
  * department page with no requirements on it, still does not qualify.
  */
+/**
+ * Stronger than PROF_HINT, for deciding whether a page belongs to this profession.
+ *
+ * PROF_HINT is deliberately loose because it scores URLs, where "communicat" catches
+ * communication sciences and communicative disorders alike. Applied to page text it matches
+ * "communication skills", which nearly every admissions page mentions -- South College's
+ * physician assistant admissions page was promoted onto its speech-language pathology row.
+ */
+const PROF_TEXT_IDENT: Record<string, RegExp> = {
+  "speech-language-pathology": /speech-language patholog|speech language patholog|communication sciences and disorders|communicative sciences and disorders|SLP/i,
+  "physician-assistant": /physician assistant|PA program|CASPA/i,
+  "occupational-therapy": /occupational therapy/i,
+  "physical-therapy": /physical therapy|DPT|PTCAS/i,
+  nursing: /nursing|BSN|ABSN|MEPN/i,
+  pharmacy: /pharmacy|PharmD/i,
+  dietetics: /dietetic|nutrition and dietetics/i,
+  dental: /dental|DDS|DMD/i,
+  medicine: /medical school|doctor of medicine|osteopathic/i,
+  "prosthetics-orthotics": /prosthetic|orthotic/i,
+  postbac: /postbaccalaureate|post-baccalaureate/i,
+};
+
 async function pageIsProgramRelevant(url: string, slug: string): Promise<boolean> {
-  const hint = PROF_HINT[slug];
+  const hint = PROF_TEXT_IDENT[slug] ?? PROF_HINT[slug];
   if (!hint) return false;
   try {
     const r = await fetch(url, { headers: { "user-agent": UA }, signal: AbortSignal.timeout(15000), redirect: "follow" });
