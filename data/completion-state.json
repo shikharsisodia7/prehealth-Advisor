@@ -335,12 +335,12 @@
   "finalStatus": "verified"
  },
  "255": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-27T16:42:47.093Z",
-  "attempts": 9,
+  "stage": "finalized",
+  "lastAttempt": "2026-08-27T21:05:45.641Z",
+  "attempts": 11,
   "pipelineGen": 11,
-  "sourceUrl": "https://www.appstate.edu/",
-  "error": "refusing mismatched institution URL https://nutrition.appstate.edu/academic-programs/ms-nutrition-public-health-nutrition-dietetics"
+  "sourceUrl": "https://nutrition.appstate.edu/academic-programs/ms-nutrition-public-health-nutrition-dietetics",
+  "finalStatus": "verified"
  },
  "258": {
   "stage": "finalized",
@@ -2909,12 +2909,12 @@
   "finalStatus": "verified"
  },
  "1209": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-27T16:31:10.103Z",
-  "attempts": 7,
+  "stage": "finalized",
+  "lastAttempt": "2026-08-27T21:03:44.570Z",
+  "attempts": 9,
   "pipelineGen": 11,
-  "sourceUrl": "https://www.csuohio.edu/",
-  "error": "refusing mismatched institution URL https://health.csuohio.edu/occupational-therapy/admission-and-advising"
+  "sourceUrl": "https://health.csuohio.edu/occupational-therapy/admission-and-advising",
+  "finalStatus": "verified"
  },
  "1213": {
   "stage": "finalized",
@@ -5506,10 +5506,11 @@
  },
  "1999": {
   "stage": "failed",
-  "lastAttempt": "2026-08-27T17:02:59.200Z",
-  "attempts": 7,
-  "error": "no official candidate URLs",
-  "pipelineGen": 11
+  "lastAttempt": "2026-08-27T21:03:23.261Z",
+  "attempts": 9,
+  "error": "refusing mismatched institution URL https://www.south.edu/physician-assistant-studies-asheville/admissions/",
+  "pipelineGen": 11,
+  "sourceUrl": "https://www.south.edu/program/master-of-health-science-physician-assistant-studies-indianapolis/"
  },
  "2001": {
   "stage": "finalized",
@@ -6368,12 +6369,12 @@
   "finalStatus": "verified"
  },
  "2196": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-27T16:30:17.922Z",
-  "attempts": 7,
+  "stage": "finalized",
+  "lastAttempt": "2026-08-27T21:04:53.327Z",
+  "attempts": 9,
   "pipelineGen": 11,
-  "sourceUrl": "https://www.csuohio.edu/",
-  "error": "refusing mismatched institution URL https://health.csuohio.edu/occupational-therapy/admission-and-advising"
+  "sourceUrl": "https://artsandsciences.csuohio.edu/node/4561",
+  "finalStatus": "no_prereqs_published"
  },
  "2197": {
   "stage": "failed",
