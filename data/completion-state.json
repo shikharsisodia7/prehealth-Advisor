@@ -7950,10 +7950,10 @@
  },
  "2569": {
   "stage": "failed",
-  "lastAttempt": "2026-08-27T12:21:08.220Z",
-  "attempts": 6,
+  "lastAttempt": "2026-08-27T13:40:46.065Z",
+  "attempts": 7,
   "pipelineGen": 11,
-  "sourceUrl": "https://live-csu-mainsite.pantheonsite.io/curriculum-approvals-processes/change-in-pre-requisites-only-influence-sequencing",
+  "sourceUrl": "https://www.csuohio.edu/",
   "error": "refusing mismatched institution URL https://health.csuohio.edu/communication-sciences-disorde/admission-information-for-communication-sciences-and-disorders"
  },
  "2570": {
@@ -8446,12 +8446,13 @@
   "error": "https://tsu.edu/academics/colleges-and-schools/cophs/admissions-overview/additional-requirements.php: no usable prereq list || https://tsu.edu/academics/colleges-and-schools/cophs/admissions-overview/admission-requirements.php: no usable prereq list || https://tsu.edu/academics/colleges-and-schools/graduate-school/admission-requirements-deadlines.php: no usable prereq list"
  },
  "2734": {
-  "stage": "source_fetched",
-  "lastAttempt": "2026-08-27T13:39:41.791Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-27T13:40:09.535Z",
   "attempts": 3,
   "pipelineGen": 11,
-  "sourceUrl": "https://uthscsa.edu/health-professions/programs/speech-language-pathology-ms",
-  "finalStatus": "verified"
+  "sourceUrl": "https://www.ox.ac.uk/admissions/undergraduate",
+  "finalStatus": "verified",
+  "error": "refusing mismatched institution URL https://uthscsa.edu/health-professions/programs/speech-language-pathology-ms/admissions"
  },
  "2735": {
   "stage": "failed",
@@ -9139,10 +9140,12 @@
   "finalStatus": "verified"
  },
  "2902": {
-  "stage": "source_discovery",
-  "lastAttempt": "2026-08-27T13:38:46.148Z",
+  "stage": "finalized",
+  "lastAttempt": "2026-08-27T13:41:30.852Z",
   "attempts": 1,
-  "pipelineGen": 11
+  "pipelineGen": 11,
+  "sourceUrl": "https://www.okbu.edu/news/2025/04/obu-prepares-students-for-graduate-program-admission-with-online-speech-language-pathology-prerequisite-courses",
+  "finalStatus": "verified"
  },
  "2903": {
   "stage": "failed",
@@ -9177,9 +9180,11 @@
   "finalStatus": "verified"
  },
  "2909": {
-  "stage": "source_discovery",
-  "lastAttempt": "2026-08-27T13:39:02.650Z",
+  "stage": "finalized",
+  "lastAttempt": "2026-08-27T13:41:29.175Z",
   "attempts": 1,
-  "pipelineGen": 11
+  "pipelineGen": 11,
+  "sourceUrl": "https://www.south.edu/program/master-of-science-in-speech-language-pathology/",
+  "finalStatus": "verified"
  }
 }
