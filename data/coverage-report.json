@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-27T11:39:12.245Z",
+  "generatedAt": "2026-08-27T12:09:19.140Z",
   "professions": [
     {
       "professionSlug": "anesthesiologist-assistant",
@@ -565,37 +565,37 @@
     {
       "professionSlug": "speech-language-pathology",
       "professionName": "Speech-Language Pathology (MS/MA)",
-      "directoryPrograms": 322,
-      "directoryAttributedPrograms": 322,
+      "directoryPrograms": 298,
+      "directoryAttributedPrograms": 298,
       "manualPrograms": [],
-      "inactivePrograms": 0,
+      "inactivePrograms": 24,
       "prereqStatusCounts": {
-        "verified": 281,
-        "no_prereqs_published": 6,
-        "draft": 7,
-        "needs_review": 28
+        "verified": 270,
+        "no_prereqs_published": 5,
+        "draft": 6,
+        "needs_review": 17
       },
-      "prereqVerifiedCount": 281,
-      "prereqNoSpecificPrereqsCount": 6,
+      "prereqVerifiedCount": 270,
+      "prereqNoSpecificPrereqsCount": 5,
       "prereqBlockedCount": 0,
-      "prereqUnfinishedCount": 35,
-      "prereqVerifiedPct": 89.1,
+      "prereqUnfinishedCount": 23,
+      "prereqVerifiedPct": 92.3,
       "sources": [
         {
           "name": "ASHA CAA Accredited SLP Master's Programs",
           "url": "https://apps.asha.org/eweb/ashadynamicpage.aspx?caacat=slp&site=ashacms&webcode=caalisting",
-          "retrievedAt": "2026-07-23",
-          "sourceProgramCount": "322",
+          "retrievedAt": "2026-08-27",
+          "sourceProgramCount": "337",
           "coverageStatus": "complete",
-          "notes": "Status=Accredited only; 38 candidate programs excluded; historically-listed excluded."
+          "notes": "Status=Accredited only; 38 candidate programs excluded; historically-listed excluded. Recount 2026-08-27 from the rendered CAA listing: 361 programmes listed, of which 337 hold a current status (accredited, with monitoring, on probation, candidate or applicant) and 24 are Historically Accredited. Those 24 were marked inactive here."
         }
       ],
       "reconciliation": {
-        "sourceReportedTotal": 322,
-        "inDatabase": 322,
-        "directoryAttributed": 322,
-        "delta": 0,
-        "status": "reconciled"
+        "sourceReportedTotal": 337,
+        "inDatabase": 298,
+        "directoryAttributed": 298,
+        "delta": -39,
+        "status": "under-source-count"
       }
     },
     {
