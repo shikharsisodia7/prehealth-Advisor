@@ -64,7 +64,9 @@ const PROF_HINT: Record<string, RegExp> = {
   "physical-therapy": /physical-?therapy|\bdpt\b|\bpt\b/i,
   pharmacy: /pharmac|pharmd/i,
   dietetics: /dietet|nutrition/i,
-  "physician-assistant": /physician-?assistant|\bpa\b|\bpas\b/i,
+  // Degree abbreviations are how programme URLs usually name themselves: k-state publishes
+  // its PA requirements under /programs/MPAS/, where \bpas\b cannot match.
+  "physician-assistant": /physician-?assistant|\bpa\b|\bpas\b|\bmpas\b|\bmspas\b/i,
   // "communicat" covers both communication and COMMUNICATIVE sciences, and sphpath is the
   // program code some catalogues use -- Hampton and FIU were both rejected on spelling alone.
   "speech-language-pathology": /speech|slp|sphpath|communicat|csd|audiolog/i,
