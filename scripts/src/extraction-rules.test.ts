@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { NO_PREREQ_ASSERTION, entityLabelMatchesInstitution } from "./extraction-rules.js";
+import { NO_PREREQ_ASSERTION, entityLabelMatchesInstitution, institutionTokens } from "./extraction-rules.js";
 
 describe("entityLabelMatchesInstitution", () => {
   // Accepting an authoritative official-website claim for these is the only way rows with no
@@ -75,5 +75,28 @@ describe("NO_PREREQ_ASSERTION", () => {
     "All prerequisites must be completed with a grade of C or better.",
   ])("rejects a statement that describes requirements: %s", (quote) => {
     expect(NO_PREREQ_ASSERTION.test(quote)).toBe(false);
+  });
+});
+
+describe("institutionTokens", () => {
+  // A school named for the profession it teaches must not lend that word as its identity.
+  // Treating "pharmacy" as distinctive let any host containing it pass the institution guard,
+  // which is how UC San Diego's row came to cite Colorado's pharmacy site.
+  it("does not treat a profession word as identifying", () => {
+    expect(institutionTokens("University of California, San Diego Skaggs School of Pharmacy")).not.toContain("pharmacy");
+    expect(institutionTokens("Vanderbilt University School of Nursing")).not.toContain("nursing");
+    expect(institutionTokens("The University of Texas at San Antonio Speech-Language Pathology")).not.toContain("speech");
+  });
+
+  it("keeps the words that do identify the institution", () => {
+    expect(institutionTokens("University of California, San Diego Skaggs School of Pharmacy")).toEqual(
+      expect.arrayContaining(["california", "diego", "skaggs"]),
+    );
+    expect(institutionTokens("Vanderbilt University School of Nursing")).toEqual(expect.arrayContaining(["vanderbilt"]));
+  });
+
+  it("drops generic institution words", () => {
+    const t = institutionTokens("The State University Medical Center");
+    expect(t).toHaveLength(0);
   });
 });

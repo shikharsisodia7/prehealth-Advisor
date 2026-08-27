@@ -96,6 +96,37 @@ export function entityLabelMatchesInstitution(label: string, name: string): bool
   return true;
 }
 
+/**
+ * The words in an institution's name that actually identify it.
+ *
+ * A profession word is not an identity. Schools are routinely named for the profession they
+ * teach -- "... Skaggs School of Pharmacy", "... Feik School of Pharmacy" -- and treating
+ * "pharmacy" as distinctive meant any host containing it was accepted as that institution's.
+ * That is how UC San Diego's row came to cite pharmacy.cuanschutz.edu (Colorado), Incarnate
+ * Word's pharmacy.umaryland.edu (Maryland), and UT San Antonio's slhs.utexas.edu (UT Austin):
+ * the guard meant to catch exactly this waved them through.
+ */
+export function institutionTokens(name: string): string[] {
+  const stop = new Set([
+    // Generic institution words.
+    "university", "college", "school", "institute", "health", "sciences", "science",
+    "medical", "medicine", "center", "centre", "campus", "the", "of", "and", "at", "for",
+    "state", "system", "program", "programs", "graduate", "professional", "studies",
+    // Profession and department words: these name what is taught, not who teaches it.
+    "pharmacy", "nursing", "dental", "dentistry", "therapy", "physical", "occupational",
+    "speech", "language", "pathology", "audiology", "veterinary", "optometry", "podiatric",
+    "podiatry", "nutrition", "dietetics", "physician", "assistant", "anesthesiologist",
+    "prosthetics", "orthotics", "counseling", "genetic", "rehabilitation", "allied",
+    "osteopathic", "biomedical", "communication", "disorders",
+  ]);
+  return name
+    .toLowerCase()
+    .normalize("NFKD")
+    .replace(/[^a-z0-9 ]/g, " ")
+    .split(/\s+/)
+    .filter((t) => t.length >= 4 && !stop.has(t));
+}
+
 export const NO_PREREQ_ASSERTION = new RegExp(
   [
     // "...no / does not require ... prerequisites | course requirements | specific courses"

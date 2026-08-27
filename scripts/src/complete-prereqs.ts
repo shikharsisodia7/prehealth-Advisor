@@ -43,7 +43,7 @@ import {
   rootDomainOf,
   sitemapCandidates,
 } from "./native-discovery.js";
-import { NO_PREREQ_ASSERTION, entityLabelMatchesInstitution } from "./extraction-rules.js";
+import { NO_PREREQ_ASSERTION, entityLabelMatchesInstitution, institutionTokens } from "./extraction-rules.js";
 import { SearchBudget } from "./search-budget.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -978,14 +978,6 @@ function professionKeywords(slug: string): string[] {
   return map[slug] ?? slug.split("-").filter((w) => w.length > 3);
 }
 
-function institutionTokens(name: string): string[] {
-  const stop = new Set([
-    "university", "college", "school", "institute", "health", "sciences", "science",
-    "medical", "medicine", "center", "campus", "the", "of", "and", "at", "for",
-    "state", "system", "program", "programs", "graduate", "professional",
-  ]);
-  return normalize(name).split(" ").filter((t) => t.length >= 4 && !stop.has(t));
-}
 
 function universitySearchName(name: string): string {
   return name
