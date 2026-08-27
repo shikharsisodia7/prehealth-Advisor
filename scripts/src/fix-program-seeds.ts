@@ -258,8 +258,10 @@ async function serper(q: string): Promise<string[]> {
     signal: AbortSignal.timeout(25_000),
   });
   if (!r.ok) {
-    // 400/402/429 here mean the account is out of credit, not that this query has no answer.
-    if ([400, 401, 402, 429].includes(r.status)) serperDead = true;
+    // Any refusal here is about the account, not the query: these APIs answer 200 with an empty
+    // result list when a query simply has no matches. Enumerating specific codes missed
+    // Tavily's 432 and let a dead provider go on reporting "no results" for every row.
+    serperDead = true;
     throw new Error(`serper HTTP ${r.status}`);
   }
   const j: any = await r.json();
@@ -277,7 +279,7 @@ async function tavily(q: string): Promise<string[]> {
     signal: AbortSignal.timeout(25_000),
   });
   if (!r.ok) {
-    if ([400, 401, 402, 429].includes(r.status)) tavilyDead = true;
+    tavilyDead = true;
     throw new Error(`tavily HTTP ${r.status}`);
   }
   const j: any = await r.json();
@@ -420,10 +422,19 @@ for (const r of rows.rows as any[]) {
     queries.push(`${r.name} ${PROF_TERM[r.profession_slug]} admission prerequisite courses`);
 
     const collected: string[] = [];
+    let anySearchAnswered = false;
     for (const q of queries) {
-      try { collected.push(...(await webSearch(q))); } catch { /* provider unavailable */ }
+      try {
+        collected.push(...(await webSearch(q)));
+        anySearchAnswered = true;
+      } catch { /* provider unavailable */ }
       // Keep going while nothing looks like a prerequisites page for this profession.
       if (collected.some((u) => /prereq|pre-requisit/i.test(u) && PROF_HINT[r.profession_slug]?.test(u))) break;
+    }
+    // The row that discovers the outage must not be judged by it either.
+    if (!anySearchAnswered) {
+      console.log(`HALT   no search provider answered for ${r.id}; it and everything after it were not evaluated`);
+      break;
     }
     const links = (collected)
       .filter((u, i, a) => a.indexOf(u) === i)
