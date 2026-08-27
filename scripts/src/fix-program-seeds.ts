@@ -42,7 +42,10 @@ const UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
 // Aggregators are barred as evidence, and so are a school's own test/staging catalogues:
 // search offered catalogtest.olemiss.edu, whose content carries no guarantee of being the
 // requirements the school actually publishes.
-const BANNED = /allaccessdietetics|niche\.com|usnews|petersons|gradschools\.com|collegefactual|studentdoctor|reddit|wikipedia|indeed|coursera|catalogtest|\/\/test[.-]|staging[.-]|\.dev\./i;
+// Admissions consultancies rank highly for these queries and had supplied the prerequisites
+// on eight rows, all of them marked verified. A consultancy's summary is not the school's
+// requirements, so they join the aggregators and test catalogues barred as evidence.
+const BANNED = /allaccessdietetics|niche\.com|usnews|petersons|gradschools\.com|collegefactual|studentdoctor|reddit|wikipedia|indeed|coursera|catalogtest|\/\/test[.-]|staging[.-]|\.dev\.|acceptedtogether|bemoacademicconsulting|mededits|medicalaid\.org|pharmacyschoolfinder|shemmassianconsulting|inspiraadvantage|joinleland|goelective|medschoolinsiders|prospectivedoctor|savvypremed|learn\.org/i;
 
 const PROF_TERM: Record<string, string> = {
   dental: "dental DDS DMD",
@@ -421,7 +424,13 @@ for (const r of rows.rows as any[]) {
   // dismissed for words their URLs never had to contain. When the URL is unconvincing, let the
   // page's own text vouch for it instead -- it has to name this profession AND talk about
   // requirements, which a generic transfer-eligibility page does not.
-  if (chosen && urlScore < MIN_REPLACEMENT_SCORE && (await pageIsProgramRelevant(chosen, r.profession_slug))) {
+  // The rescue only applies to a URL that is at least trying to be an admissions page. Without
+  // that floor it promoted a Mayo Clinic news post about baseball, because the wider site
+  // mentions "medical" and "requirement" somewhere and the profession hint for medicine is
+  // satisfied by the word "medic".
+  const looksAdmissionsy = chosen !== "" && /admission|requirement|prereq|catalog|handbook|curricul|apply|program/i.test(chosen)
+    && !/\/(news|blog|discussion|story|stories|press|event|profile)\//i.test(chosen);
+  if (chosen && urlScore < MIN_REPLACEMENT_SCORE && looksAdmissionsy && (await pageIsProgramRelevant(chosen, r.profession_slug))) {
     urlScore = MIN_REPLACEMENT_SCORE;
   }
   if (chosen && urlScore < MIN_REPLACEMENT_SCORE) {
