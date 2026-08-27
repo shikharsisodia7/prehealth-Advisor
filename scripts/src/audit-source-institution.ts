@@ -13,6 +13,23 @@ import { sql } from "drizzle-orm";
 import { db } from "@workspace/db";
 import { institutionTokens } from "./extraction-rules.js";
 
+/**
+ * Official sources that are not the institution's own domain, each checked individually.
+ *
+ * A profession's own application service or association publishes requirements on behalf of its
+ * schools, and a host-name test cannot recognise that. These are not exceptions to the rule
+ * that evidence must be authoritative -- they are authoritative, just not institutional.
+ */
+const OFFICIAL_NON_INSTITUTIONAL = new Map<string, string>([
+  ["admin.applytovetschool.org", "VMCAS, the AAVMC's centralized veterinary application service, publishes the official prerequisite chart"],
+  ["optometriceducation.org", "ASCO, the Association of Schools and Colleges of Optometry, and the directory this profession was imported from"],
+  ["aacpm.org", "AACPM, the podiatric medicine colleges association and this profession's directory"],
+  ["uwmedicine.org", "UW Medicine, the University of Washington's own medical enterprise"],
+  ["osfhealthcare.org", "OSF HealthCare operates Saint Francis Medical Center College of Nursing; the path names the college"],
+  ["bmcnursing.org", "Blue Mountain Christian University's own nursing site"],
+  ["emorypa.org", "Emory's own physician assistant programme site"],
+]);
+
 const DEPARTMENT_WORDS = new Set([
   "catalog", "catalogs", "bulletin", "admissions", "admission", "apply", "grad", "graduate",
   "www", "web", "sites", "programs", "academics", "future", "students", "online",
@@ -41,6 +58,7 @@ let flagged = 0;
 for (const r of rows.rows as any[]) {
   const h = host(r.s);
   if (!h) continue;
+  if (OFFICIAL_NON_INSTITUTIONAL.has(h)) continue;
   const base = baseLabel(h);
   if (!base || DEPARTMENT_WORDS.has(base)) continue;
   // Opaque acronyms are accepted: universities use labels that share no text with their name
