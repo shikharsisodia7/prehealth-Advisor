@@ -71,3 +71,7 @@ scripts/tmp-search-out/
 
 # Search provider spend tracking (local runtime state)
 data/search-usage.json
+
+# Local QA artefacts: rendered pages, downloaded exports and flow logs from the
+# production acceptance runs. Reproducible, and some are multi-megabyte.
+qa/
