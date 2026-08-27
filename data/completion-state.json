@@ -96,12 +96,11 @@
   "finalStatus": "verified"
  },
  "154": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-27T14:55:03.319Z",
-  "attempts": 6,
+  "stage": "extracted",
+  "lastAttempt": "2026-08-27T22:11:11.531Z",
+  "attempts": 7,
   "pipelineGen": 11,
-  "sourceUrl": "https://www.pepperdine.edu/admission/graduate/",
-  "error": "https://seaver.pepperdine.edu/admission/application/undergraduate/requirements/: HTTP 404 || https://seaver.pepperdine.edu/graduate/admission/process.htm: no usable prereq list || https://seaver.pepperdine.edu/graduate/admission/: no usable prereq list || https://seaver.pepperdine.edu/graduate/admission/resources.htm: no usable prereq list"
+  "sourceUrl": "https://admission.pepperdine.edu/apply/undergraduate/requirements/english-proficiency.htm"
  },
  "158": {
   "stage": "finalized",
@@ -143,12 +142,11 @@
   "pipelineGen": 11
  },
  "168": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-27T14:53:35.966Z",
-  "attempts": 6,
+  "stage": "source_fetched",
+  "lastAttempt": "2026-08-27T22:11:49.463Z",
+  "attempts": 7,
   "pipelineGen": 11,
-  "sourceUrl": "https://admissions.purdue.edu/",
-  "error": "https://www.purdue.edu/academics/ogsps/admissions/gradrequirements/westlafayette/nutrition-and-dietetics/: no usable prereq list || https://www.purdue.edu/academics/ogsps/admissions/admission-requirements/: no usable prereq list || https://www.purdue.edu/academics/ogsps/thesis/thesis-requirements/: no usable prereq list"
+  "sourceUrl": "https://www.purdue.edu/nutrition"
  },
  "177": {
   "stage": "failed",
@@ -248,8 +246,8 @@
  },
  "210": {
   "stage": "failed",
-  "lastAttempt": "2026-08-27T14:52:02.421Z",
-  "attempts": 6,
+  "lastAttempt": "2026-08-27T22:07:05.474Z",
+  "attempts": 7,
   "pipelineGen": 11,
   "sourceUrl": "https://calbaptist.edu/admissions-aid/undergraduate/",
   "error": "https://calbaptist.edu/admissions-aid/undergraduate/homeschool: no usable prereq list"
@@ -3606,10 +3604,10 @@
  },
  "1448": {
   "stage": "failed",
-  "lastAttempt": "2026-08-27T15:15:12.591Z",
-  "attempts": 7,
+  "lastAttempt": "2026-08-27T22:07:49.994Z",
+  "attempts": 8,
   "pipelineGen": 11,
-  "sourceUrl": "https://admissions.purdue.edu/",
+  "sourceUrl": "https://admissions.purdue.edu/become-student/apply/",
   "error": "https://admissions.purdue.edu/become-student/apply/: no usable prereq list"
  },
  "1450": {
@@ -3677,12 +3675,12 @@
   "finalStatus": "verified"
  },
  "1458": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-27T15:03:29.803Z",
-  "attempts": 6,
+  "stage": "finalized",
+  "lastAttempt": "2026-08-27T22:06:51.140Z",
+  "attempts": 7,
   "pipelineGen": 11,
-  "sourceUrl": "https://www.sdstate.edu/admissions/apply-now",
-  "error": "https://www.sdstate.edu/admissions/transfer-student-admission-requirements: no usable prereq list || https://www.sdstate.edu/admissions/first-time-students: no usable prereq list || https://www.sdstate.edu/admissions/graduate-admissions: no usable prereq list"
+  "sourceUrl": "https://www.sdstate.edu/pharmacy-allied-health-professions/doctor-pharmacy-pharmd/pre-professional-curriculum-pharmd",
+  "finalStatus": "verified"
  },
  "1459": {
   "stage": "finalized",
@@ -3999,13 +3997,12 @@
   "finalStatus": "verified"
  },
  "1500": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-27T14:47:37.365Z",
-  "attempts": 3,
+  "stage": "finalized",
+  "lastAttempt": "2026-08-27T22:05:40.926Z",
+  "attempts": 4,
   "pipelineGen": 11,
-  "sourceUrl": "https://www.ox.ac.uk/admissions/graduate/courses/find-your-course",
-  "finalStatus": "verified",
-  "error": "https://www.ox.ac.uk/: no usable prereq list || https://www.ox.ac.uk/admissions/undergraduate/courses/course-listing: no usable prereq list || https://www.ox.ac.uk/admissions/undergraduate: no usable prereq list"
+  "sourceUrl": "https://www.une.edu/pharmacy/admissions",
+  "finalStatus": "verified"
  },
  "1501": {
   "stage": "finalized",
@@ -4592,12 +4589,11 @@
   "finalStatus": "verified"
  },
  "1671": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-27T16:25:28.882Z",
-  "attempts": 7,
+  "stage": "extracted",
+  "lastAttempt": "2026-08-27T22:09:13.916Z",
+  "attempts": 8,
   "pipelineGen": 11,
-  "sourceUrl": "https://catalog.slu.edu/colleges-schools/health-sciences/physical-therapy-athletic-training/drake-univ-slu-mat/",
-  "error": "https://catalog.slu.edu/academic-policies/academic-policies-procedures/prerequisites/: no usable prereq list || https://catalog.slu.edu//academic-policies/academic-policies-procedures/prerequisites/: no usable prereq list || https://catalog.slu.edu/colleges-schools/health-sciences/physical-therapy-athletic-training/physical-therapy-program/: no usable prereq list"
+  "sourceUrl": "https://www.maryville.edu/admissions"
  },
  "1672": {
   "stage": "finalized",
@@ -7852,12 +7848,11 @@
   "finalStatus": "verified"
  },
  "2518": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-27T15:03:07.118Z",
-  "attempts": 6,
+  "stage": "extracted",
+  "lastAttempt": "2026-08-27T22:08:33.967Z",
+  "attempts": 7,
   "pipelineGen": 11,
-  "sourceUrl": "https://www.emich.edu/visit-emu/index.php",
-  "error": "https://catalog.emich.edu/pdp/?catalog=61&program=10137: plain fetch returned 142 chars; render failed: Browser render: too little text || https://www.emich.edu/admissions/index.php: no usable prereq list"
+  "sourceUrl": "https://www.emich.edu/admissions/international/index.php"
  },
  "2528": {
   "stage": "failed",
