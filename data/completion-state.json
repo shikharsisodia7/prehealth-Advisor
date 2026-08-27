@@ -782,6 +782,14 @@
   "sourceUrl": "https://medicine.cnsu.edu/admissions/requirements.php",
   "finalStatus": "verified"
  },
+ "443": {
+  "stage": "finalized",
+  "lastAttempt": "2026-08-27T08:29:08.888Z",
+  "attempts": 1,
+  "pipelineGen": 11,
+  "sourceUrl": "https://cusm.edu/academics/md/requirements-for-admission/index.php",
+  "finalStatus": "no_prereqs_published"
+ },
  "445": {
   "stage": "finalized",
   "lastAttempt": "2026-08-24T20:12:11.355Z",
@@ -1522,12 +1530,12 @@
   "finalStatus": "verified"
  },
  "553": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-27T08:01:41.118Z",
-  "attempts": 1,
-  "error": "program timeout after 420s",
+  "stage": "finalized",
+  "lastAttempt": "2026-08-27T08:35:19.966Z",
+  "attempts": 2,
   "pipelineGen": 11,
-  "sourceUrl": "https://www.med.upenn.edu/admissions/dual-degrees"
+  "sourceUrl": "https://www.med.upenn.edu/admissions/faq",
+  "finalStatus": "no_prereqs_published"
  },
  "554": {
   "stage": "failed",
@@ -2629,12 +2637,12 @@
   "finalStatus": "verified"
  },
  "1107": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-25T23:38:42.854Z",
-  "attempts": 1,
-  "error": "https://catalog.az.midwestern.edu/admissions: no usable prereq list || https://catalog.az.midwestern.edu/sites/default/files/pdf/pdf_generator/catalog-2026-2027.pdf?v=1783711931: no usable prereq list || https://catalog.az.midwestern.edu/sites/default/files/AZ-catalog-2025-2026.pdf: no usable prereq list",
+  "stage": "finalized",
+  "lastAttempt": "2026-08-27T08:31:09.073Z",
+  "attempts": 2,
   "pipelineGen": 11,
-  "sourceUrl": "https://catalog.az.midwestern.edu/sites/default/files/AZ-catalog-2024-2025-6-4-25.pdf"
+  "sourceUrl": "https://catalog.il.midwestern.edu/admissions-13",
+  "finalStatus": "verified"
  },
  "1108": {
   "stage": "finalized",
@@ -3967,12 +3975,13 @@
   "finalStatus": "verified"
  },
  "1500": {
-  "stage": "finalized",
-  "lastAttempt": "2026-08-25T06:42:54.485Z",
-  "attempts": 2,
-  "pipelineGen": 10,
-  "sourceUrl": "https://wne.edu/pharmacy-and-health-sciences/admissions/pharmd/prerequisite-requirements.cfm",
-  "finalStatus": "verified"
+  "stage": "failed",
+  "lastAttempt": "2026-08-27T08:38:09.065Z",
+  "attempts": 1,
+  "pipelineGen": 11,
+  "sourceUrl": "https://www.ox.ac.uk/admissions/graduate/courses/find-your-course",
+  "finalStatus": "verified",
+  "error": "program timeout after 420s"
  },
  "1501": {
   "stage": "finalized",
@@ -4176,10 +4185,10 @@
  },
  "1529": {
   "stage": "finalized",
-  "lastAttempt": "2026-08-22T21:04:02.165Z",
+  "lastAttempt": "2026-08-27T08:35:13.426Z",
   "attempts": 1,
-  "pipelineGen": 7,
-  "sourceUrl": "https://www.pharmacyschoolfinder.org/school_info/wilkes-university/",
+  "pipelineGen": 11,
+  "sourceUrl": "https://www.wilkes.edu/academics/nesbitt-school-of-pharmacy/pre-pharmacy-guaranteed-seat.aspx",
   "finalStatus": "verified"
  },
  "1530": {
@@ -6818,27 +6827,26 @@
  },
  "2295": {
   "stage": "failed",
-  "lastAttempt": "2026-08-26T00:10:03.923Z",
-  "attempts": 6,
+  "lastAttempt": "2026-08-27T08:16:26.218Z",
+  "attempts": 7,
   "pipelineGen": 11,
   "sourceUrl": "https://www.creighton.edu/admissions/find-application/undergraduate-student-applications",
   "error": "https://www.creighton.edu/medicine/programs/medicine-md/admissions-requirements: no usable prereq list || https://www.creighton.edu/admissions/admissions-requirements/undergrad-transfer: no usable prereq list || https://www.creighton.edu/admissions/admissions-requirements/graduate: no usable prereq list"
  },
  "2296": {
   "stage": "failed",
-  "lastAttempt": "2026-08-25T20:38:06.136Z",
-  "attempts": 3,
+  "lastAttempt": "2026-08-27T08:38:29.507Z",
+  "attempts": 4,
   "pipelineGen": 11,
   "sourceUrl": "https://mills.northeastern.edu/admissions/apply/",
   "error": "https://admissions.northeastern.edu/application-information/: no usable prereq list || https://graduate.northeastern.edu/international-students/apply-as-an-international-student/: no usable prereq list || https://bouve.northeastern.edu/admissions/graduate-admissions/: no usable prereq list"
  },
  "2297": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-25T20:38:27.745Z",
-  "attempts": 3,
+  "stage": "source_discovery",
+  "lastAttempt": "2026-08-27T08:38:09.068Z",
+  "attempts": 4,
   "pipelineGen": 11,
-  "sourceUrl": "https://healthsciences.dartmouth.edu/education/admissions",
-  "error": "https://geiselmed.dartmouth.edu/qbs/the-curriculum/: no usable prereq list || https://geiselmed.dartmouth.edu/admissions/applying/admissions-requirements/: no usable prereq list || https://healthsciences.dartmouth.edu/education/admissions: no usable prereq list"
+  "sourceUrl": "https://healthsciences.dartmouth.edu/education/admissions"
  },
  "2298": {
   "stage": "finalized",
@@ -7041,11 +7049,12 @@
   "error": "https://forms.manchester.edu/admissions/jsd/: too little text || https://www.manchester.edu/academics/postbacc/curriculum.htm: HTTP 404 || https://www.manchester.edu/academics/postbacc/index.htm: HTTP 404 || https://www.manchester.edu/academics/postbacc/faqs.htm: HTTP 404"
  },
  "2349": {
-  "stage": "source_discovery",
-  "lastAttempt": "2026-08-27T08:08:01.275Z",
-  "attempts": 6,
+  "stage": "finalized",
+  "lastAttempt": "2026-08-27T08:14:21.321Z",
+  "attempts": 8,
   "pipelineGen": 11,
-  "sourceUrl": "https://cas.nyu.edu/prehealth/postbacc.html?challenge=d06e90d7-4d8f-4b88-9d8c-10b73beb60f1"
+  "sourceUrl": "https://cas.nyu.edu/prehealth/postbacc/admission/eligibility.html?challenge=d06e90d7-4d8f-4b88-9d8c-10b73beb60f1",
+  "finalStatus": "verified"
  },
  "2350": {
   "stage": "failed",
@@ -7663,8 +7672,8 @@
  },
  "2465": {
   "stage": "failed",
-  "lastAttempt": "2026-08-26T00:10:26.691Z",
-  "attempts": 6,
+  "lastAttempt": "2026-08-27T08:15:04.762Z",
+  "attempts": 7,
   "error": "https://bulletin.marquette.edu/admission-costs/undergrad-admission/: no usable prereq list || https://bulletin.marquette.edu/admission-costs/gsm-admission/: no usable prereq list || https://www.marquette.edu/admissions/undergraduate/: no usable prereq list",
   "pipelineGen": 11,
   "sourceUrl": "https://www.marquette.edu/oie/prospective-students/undergraduate-students.php"
@@ -7822,12 +7831,11 @@
   "error": "https://catalog.emich.edu/pdp/?catalog=61&program=10137: too little text || https://catalog.emich.edu/preview_program.php?catoid=48&poid=20805&returnto=15845: too little text || https://catalog.emich.edu/pdp/?catalog=70&program=11004: too little text || https://www.emich.edu/chhs/hphp/programs/orthotics-prosthetics/documents/student-handbook-2022.pdf: PDF extract failed for https://www.emich.edu/chhs/hphp/programs/orthotics-prosthetics/documents/student-handbook-2022.pdf: PDF HTTP 403"
  },
  "2528": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-25T21:36:11.308Z",
-  "attempts": 3,
+  "stage": "source_discovery",
+  "lastAttempt": "2026-08-27T08:38:30.090Z",
+  "attempts": 4,
   "pipelineGen": 11,
-  "sourceUrl": "https://www.aamu.edu/admissions-aid/index.html",
-  "error": "https://www.aamu.edu/academics/colleges/education-humanities-behavioral-sciences/departments/human-performance-communicative-disorders/communicative-sciences-disorders/graduate-course-requirements.html: no usable prereq list || https://www.aamu.edu/academics/colleges/education-humanities-behavioral-sciences/departments/human-performance-communicative-disorders/communicative-sciences-disorders/graduate-admission-requirements.html: no usable prereq list || https://www.aamu.edu/academics/colleges/e"
+  "sourceUrl": "https://www.aamu.edu/admissions-aid/index.html"
  },
  "2538": {
   "stage": "failed",
@@ -8433,11 +8441,11 @@
   "error": "https://tsu.edu/academics/colleges-and-schools/cophs/admissions-overview/additional-requirements.php: no usable prereq list || https://tsu.edu/academics/colleges-and-schools/cophs/admissions-overview/admission-requirements.php: no usable prereq list || https://tsu.edu/academics/colleges-and-schools/graduate-school/admission-requirements-deadlines.php: no usable prereq list"
  },
  "2734": {
-  "stage": "finalized",
-  "lastAttempt": "2026-08-25T07:00:23.634Z",
-  "attempts": 2,
-  "pipelineGen": 10,
-  "sourceUrl": "https://slhs.utexas.edu/graduate/graduate-program-prerequisites",
+  "stage": "extracted",
+  "lastAttempt": "2026-08-27T08:38:05.480Z",
+  "attempts": 1,
+  "pipelineGen": 11,
+  "sourceUrl": "https://www.ox.ac.uk/admissions/graduate/courses/find-your-course",
   "finalStatus": "verified"
  },
  "2735": {
@@ -8986,5 +8994,21 @@
   "pipelineGen": 3,
   "sourceUrl": "https://www.wichita.edu/academics/health_professions/csd/graduate/MA/program.php",
   "finalStatus": "verified"
+ },
+ "2877": {
+  "stage": "finalized",
+  "lastAttempt": "2026-08-27T08:29:33.467Z",
+  "attempts": 1,
+  "pipelineGen": 11,
+  "sourceUrl": "https://www.jhsph.edu/academics/degree-programs/master-of-public-health/admissions/index.html",
+  "finalStatus": "verified"
+ },
+ "2878": {
+  "stage": "failed",
+  "lastAttempt": "2026-08-27T08:28:56.325Z",
+  "attempts": 1,
+  "error": "https://ddp.cellbio.jhmi.edu/: no usable prereq list || https://ddp.cellbio.jhmi.edu/2021/01/30/wondering-why-you-should-do-a-post-bac-program/: no usable prereq list || https://ddp.cellbio.jhmi.edu/2021/01/30/wondering-why-you-should-do-a-post-bac-program/: no usable prereq list",
+  "pipelineGen": 11,
+  "sourceUrl": "https://ddp.cellbio.jhmi.edu/"
  }
 }
