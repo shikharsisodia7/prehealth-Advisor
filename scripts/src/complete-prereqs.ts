@@ -1147,6 +1147,19 @@ function websiteConflictsWithInstitution(url: string, name: string): boolean {
     // rule flagged 309 active rows of which all but two were correct. Wrong seeds of this kind
     // are caught by seedMentionsInstitution below, which reads the page instead of the domain.
     if (base.length <= 6 && /\.edu$/i.test(host)) return false; // tcnj, uccs, bsu, uw, nau
+    if (/\.edu$/i.test(host)) {
+      const nameLetters = normalize(name).replace(/[^a-z0-9]/g, "");
+      // A contraction of the name: appstate.edu for Appalachian State University. Checked as a
+      // subsequence so it cannot match an unrelated school -- cuanschutz is not a subsequence
+      // of "university of california san diego".
+      let i = 0;
+      for (const ch of nameLetters) { if (ch === base[i]) i++; if (i === base.length) break; }
+      if (i === base.length) return false;
+      // Initials plus a place: csuohio.edu for Cleveland State University. The label must start
+      // with the institution's own initials, which an unrelated school's label will not.
+      const initials = normalize(name).split(" ").filter(Boolean).map((w) => w[0]).join("");
+      if (initials.length >= 3 && base.startsWith(initials.slice(0, 3))) return false;
+    }
     const hostWords = [base].filter((w) => w.length >= 6 && !DEPARTMENT_SUBDOMAIN_WORDS.has(w));
     return hostWords.some((w) => !nameNorm.includes(w) && !institutionTokens(name).some((t) => w.includes(t) || t.includes(w)));
   } catch {
