@@ -186,8 +186,23 @@ async function officialDomain(name: string): Promise<{ domain: string; error?: s
   return { domain: "" };
 }
 
+/**
+ * Set once a provider proves it cannot answer, so the run stops paying for it and, more
+ * importantly, stops reporting its silence as a result about the programme.
+ *
+ * Serper's free allowance ran out mid-run and answered every query with HTTP 400 "Not enough
+ * credits". Because the wrapper returned no links for that, 108 rows were recorded as having
+ * "no page on the institution's own domain" when nothing had been searched at all.
+ */
+let serperDead = false;
+let tavilyDead = false;
+
+export function searchUsable(): boolean {
+  return (!serperDead && budget.canSpend("serper")) || (!tavilyDead && budget.canSpend("tavily"));
+}
+
 async function serper(q: string): Promise<string[]> {
-  if (!budget.canSpend("serper")) throw new Error("serper budget exhausted");
+  if (serperDead || !budget.canSpend("serper")) throw new Error("serper unavailable");
   budget.spend("serper");
   const r = await fetch("https://google.serper.dev/search", {
     method: "POST",
@@ -195,9 +210,39 @@ async function serper(q: string): Promise<string[]> {
     body: JSON.stringify({ q, num: 10 }),
     signal: AbortSignal.timeout(25_000),
   });
-  if (!r.ok) throw new Error(`serper HTTP ${r.status}`);
+  if (!r.ok) {
+    // 400/402/429 here mean the account is out of credit, not that this query has no answer.
+    if ([400, 401, 402, 429].includes(r.status)) serperDead = true;
+    throw new Error(`serper HTTP ${r.status}`);
+  }
   const j: any = await r.json();
   return (j.organic ?? []).map((o: any) => o.link ?? "").filter(Boolean);
+}
+
+async function tavily(q: string): Promise<string[]> {
+  const key = process.env.TAVILY_API_KEY;
+  if (!key || tavilyDead || !budget.canSpend("tavily")) throw new Error("tavily unavailable");
+  budget.spend("tavily");
+  const r = await fetch("https://api.tavily.com/search", {
+    method: "POST",
+    headers: { "content-type": "application/json" },
+    body: JSON.stringify({ api_key: key, query: q, max_results: 10 }),
+    signal: AbortSignal.timeout(25_000),
+  });
+  if (!r.ok) {
+    if ([400, 401, 402, 429].includes(r.status)) tavilyDead = true;
+    throw new Error(`tavily HTTP ${r.status}`);
+  }
+  const j: any = await r.json();
+  return (j.results ?? []).map((o: any) => o.url ?? "").filter(Boolean);
+}
+
+/** Try each provider in turn; only an empty result from a working provider means "no results". */
+async function webSearch(q: string): Promise<string[]> {
+  for (const provider of [serper, tavily]) {
+    try { return await provider(q); } catch { /* try the next provider */ }
+  }
+  throw new Error("no search provider available");
 }
 
 /**
@@ -270,7 +315,7 @@ const ONLY = (() => {
  */
 async function officialDomainViaSearch(name: string): Promise<string> {
   let links: string[];
-  try { links = await serper(`${name} official website`); } catch { return ""; }
+  try { links = await webSearch(`${name} official website`); } catch { return ""; }
   const seen = new Set<string>();
   for (const link of links.slice(0, 6)) {
     if (BANNED.test(link)) continue;
@@ -293,6 +338,11 @@ const rows = await db.execute(sql.raw(`
 let accepted = 0, rejected = 0;
 for (const r of rows.rows as any[]) {
   if (ONLY && !ONLY.has(Number(r.id))) continue;
+  if (!searchUsable()) {
+    // Recording a verdict now would describe the search outage, not the programme.
+    console.log(`HALT   no search provider has credit left; ${r.id} and everything after it were not evaluated`);
+    break;
+  }
   const res = await officialDomain(r.name);
   if (res.error) { console.log(`ERROR  ${r.id} ${String(r.name).slice(0, 34).padEnd(36)} wikidata ${res.error}`); continue; }
   let official = res.domain;
@@ -324,7 +374,7 @@ for (const r of rows.rows as any[]) {
 
     const collected: string[] = [];
     for (const q of queries) {
-      try { collected.push(...(await serper(q))); } catch { /* budget or transport */ }
+      try { collected.push(...(await webSearch(q))); } catch { /* provider unavailable */ }
       // Keep going while nothing looks like a prerequisites page for this profession.
       if (collected.some((u) => /prereq|pre-requisit/i.test(u) && PROF_HINT[r.profession_slug]?.test(u))) break;
     }
