@@ -152,11 +152,11 @@
  },
  "177": {
   "stage": "failed",
-  "lastAttempt": "2026-08-26T00:04:25.709Z",
-  "attempts": 5,
+  "lastAttempt": "2026-08-27T07:31:15.998Z",
+  "attempts": 6,
   "pipelineGen": 11,
-  "sourceUrl": "https://olemiss.edu/admissions/graduate-admissions/application-guidelines/",
-  "error": "refusing mismatched institution URL https://olemiss.edu/programs/applsci/master-science-food-and-nutrition-services/"
+  "sourceUrl": "https://olemiss.edu/applynow/",
+  "error": "https://catalog.olemiss.edu/2025/spring/graduate/applied-sciences/nutrition-hospitality-management/ms-food-nutr/msfn-cp: HTTP 403 || https://olemiss.edu/programs/applsci/bachelor-science-dietetics-nutrition/: no usable prereq list || https://olemiss.edu/programs/applsci/bachelor-science-dietetics-nutrition/: no usable prereq list"
  },
  "178": {
   "stage": "finalized",
@@ -335,11 +335,12 @@
   "finalStatus": "verified"
  },
  "255": {
-  "stage": "source_discovery",
-  "lastAttempt": "2026-08-26T00:01:43.621Z",
-  "attempts": 5,
+  "stage": "failed",
+  "lastAttempt": "2026-08-27T07:31:34.596Z",
+  "attempts": 6,
   "pipelineGen": 11,
-  "sourceUrl": "https://www.appstate.edu/"
+  "sourceUrl": "https://www.appstate.edu/",
+  "error": "refusing mismatched institution URL https://nutrition.appstate.edu/academic-programs/ms-nutrition-public-health-nutrition-dietetics"
  },
  "258": {
   "stage": "finalized",
@@ -3742,10 +3743,10 @@
  },
  "1477": {
   "stage": "finalized",
-  "lastAttempt": "2026-08-25T06:42:29.661Z",
-  "attempts": 2,
-  "pipelineGen": 10,
-  "sourceUrl": "https://pharmacy.cuanschutz.edu/degreesandprograms/pharmd/undergraduate-pathway-options",
+  "lastAttempt": "2026-08-27T07:28:44.146Z",
+  "attempts": 1,
+  "pipelineGen": 11,
+  "sourceUrl": "https://pharmacy.cuanschutz.edu/degreesandprograms/pharmd/admissions-information",
   "finalStatus": "verified"
  },
  "1478": {
@@ -4047,18 +4048,18 @@
  },
  "1516": {
   "stage": "finalized",
-  "lastAttempt": "2026-08-25T05:48:46.501Z",
+  "lastAttempt": "2026-08-27T07:28:07.915Z",
   "attempts": 1,
-  "pipelineGen": 10,
-  "sourceUrl": "https://www.pharmacy.umaryland.edu/academics/pharmd/prospective-students/",
+  "pipelineGen": 11,
+  "sourceUrl": "https://pharmacy.uiw.edu/admissions/pre-pharmacy-equivalencies.html",
   "finalStatus": "verified"
  },
  "1517": {
   "stage": "finalized",
-  "lastAttempt": "2026-08-25T05:48:35.680Z",
+  "lastAttempt": "2026-08-27T07:27:51.335Z",
   "attempts": 1,
-  "pipelineGen": 10,
-  "sourceUrl": "https://www.pacificu.edu/pharmacy-pharmd/admissions/prerequisites",
+  "pipelineGen": 11,
+  "sourceUrl": "https://www.pacific.edu/pharmacy/pharmd/prerequisites",
   "finalStatus": "verified"
  },
  "1518": {
