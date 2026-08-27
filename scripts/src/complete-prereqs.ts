@@ -577,6 +577,11 @@ function isGarbageDiscoveredUrl(url: string | null | undefined): boolean {
 function isLowValueCandidate(url: string): boolean {
   const hay = url.toLowerCase();
   if (isAthleticsOrSportsUrl(url)) return true;
+  // A school announces a programme in its newsroom and publishes the requirements on the
+  // programme page. Oklahoma Baptist's press release is slugged
+  // "...-speech-language-pathology-prerequisite-courses", so it reads like the requirements
+  // page and scores like one, but a news post is not where requirements live.
+  if (/\/(news|blog|press|stories|story|events?|profiles?|magazine|newsroom)\//i.test(hay)) return true;
   if (isGarbageDiscoveredUrl(url)) return true;
   // Bot/WAF challenge interstitial pages (e.g. NYU admissions.html?challenge=...).
   if (/[?&]challenge=|cf-challenge|captcha|akamai|_guard|security-check|perfdrive|botmanager|ssa=/i.test(hay)) return true;
