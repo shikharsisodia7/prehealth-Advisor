@@ -75,6 +75,22 @@ if (DEGREE) {
   }
 }
 
+// 3c. Some professions ask for a pathway before listing programmes. Nursing keeps ABSN and
+// MEPN apart, which is why its programme list is empty until one is chosen.
+const PATHWAY = process.argv.includes("--pathway") ? process.argv[process.argv.indexOf("--pathway") + 1]! : "";
+if (PATHWAY) {
+  // Matched by visible text: these buttons carry an aria-label that hides their wording from
+  // getByRole's accessible-name filter.
+  const btn = page.locator("button").filter({ hasText: new RegExp(PATHWAY, "i") }).first();
+  if (await btn.count()) {
+    await btn.click();
+    await page.waitForTimeout(2500);
+    console.log("STEP pathway=" + PATHWAY);
+  } else {
+    console.log("PATHWAY_BUTTON=absent");
+  }
+}
+
 // 4. Select programmes. They are role=option rows inside the programme listbox, not checkboxes.
 const listbox = page.locator('[role="listbox"]').first();
 const options = listbox.locator('[role="option"]');
