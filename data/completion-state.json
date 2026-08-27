@@ -774,6 +774,14 @@
   "sourceUrl": "https://www.alwmedschool.org/admissions/requirements",
   "error": "https://www.alwmedschool.org/admissions/how-to-apply: no usable prereq list || https://www.alwmedschool.org/admissions/requirements: no usable prereq list"
  },
+ "442": {
+  "stage": "finalized",
+  "lastAttempt": "2026-08-27T07:55:26.180Z",
+  "attempts": 1,
+  "pipelineGen": 11,
+  "sourceUrl": "https://medicine.cnsu.edu/admissions/requirements.php",
+  "finalStatus": "verified"
+ },
  "445": {
   "stage": "finalized",
   "lastAttempt": "2026-08-24T20:12:11.355Z",
@@ -967,6 +975,14 @@
   "sourceUrl": "https://admissions.jabsom.hawaii.edu/admissions-requirements/index.html",
   "finalStatus": "verified"
  },
+ "474": {
+  "stage": "finalized",
+  "lastAttempt": "2026-08-27T07:55:09.167Z",
+  "attempts": 1,
+  "pipelineGen": 11,
+  "sourceUrl": "https://medicine.illinois.edu/admissions/before-you-apply",
+  "finalStatus": "verified"
+ },
  "475": {
   "stage": "finalized",
   "lastAttempt": "2026-08-23T12:08:32.895Z",
@@ -1150,6 +1166,22 @@
   "attempts": 6,
   "pipelineGen": 9,
   "sourceUrl": "https://wmed.edu/app",
+  "finalStatus": "verified"
+ },
+ "502": {
+  "stage": "finalized",
+  "lastAttempt": "2026-08-27T07:54:53.984Z",
+  "attempts": 1,
+  "pipelineGen": 11,
+  "sourceUrl": "https://college.mayo.edu/academics/mayo-clinic-alix-school-of-medicine/md-program/how-to-apply/prerequisites-and-requirements/",
+  "finalStatus": "no_prereqs_published"
+ },
+ "503": {
+  "stage": "finalized",
+  "lastAttempt": "2026-08-27T07:54:41.146Z",
+  "attempts": 1,
+  "pipelineGen": 11,
+  "sourceUrl": "https://med.umn.edu/education-training/medical-scientist-training-program-mdphd/mstp-admissions/how-apply/requirements/prerequisites",
   "finalStatus": "verified"
  },
  "504": {
@@ -1488,6 +1520,14 @@
   "pipelineGen": 5,
   "sourceUrl": "https://www.dental.upenn.edu/admissions-academics/dmd-program/admissions/",
   "finalStatus": "verified"
+ },
+ "553": {
+  "stage": "failed",
+  "lastAttempt": "2026-08-27T08:01:41.118Z",
+  "attempts": 1,
+  "error": "program timeout after 420s",
+  "pipelineGen": 11,
+  "sourceUrl": "https://www.med.upenn.edu/admissions/dual-degrees"
  },
  "554": {
   "stage": "failed",
@@ -3534,11 +3574,11 @@
  },
  "1448": {
   "stage": "failed",
-  "lastAttempt": "2026-08-25T15:32:11.940Z",
-  "attempts": 3,
+  "lastAttempt": "2026-08-27T07:56:00.159Z",
+  "attempts": 4,
   "pipelineGen": 11,
-  "sourceUrl": "https://catalog.purdue.edu/preview_program.php?catoid=10&poid=12711&returnto=13443",
-  "error": "https://catalog.purdue.edu/preview_program.php?catoid=10&poid=12711&returnto=13443: too little text || https://www.purdue.edu/advisors/codo/requirements-201819/pharmacy.php: no usable prereq list || https://www.purdue.edu/advisors/codo/requirements-201718/pharmacy.php: no usable prereq list"
+  "sourceUrl": "https://admissions.purdue.edu/become-student/apply/",
+  "error": "https://admissions.purdue.edu/become-student/apply/: no usable prereq list"
  },
  "1450": {
   "stage": "finalized",
@@ -7001,10 +7041,9 @@
   "error": "https://forms.manchester.edu/admissions/jsd/: too little text || https://www.manchester.edu/academics/postbacc/curriculum.htm: HTTP 404 || https://www.manchester.edu/academics/postbacc/index.htm: HTTP 404 || https://www.manchester.edu/academics/postbacc/faqs.htm: HTTP 404"
  },
  "2349": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-26T00:05:09.673Z",
-  "attempts": 5,
-  "error": "https://cas.nyu.edu/prehealth/postbacc/admission/eligibility.html: too little text || https://cas.nyu.edu/content/nyu-as/cas/prehealth/postbacc/admission.html: too little text || https://cas.nyu.edu/content/nyu-as/cas/prehealth/postbacc/admission/eligibility.html: too little text || https://cas.nyu.edu/content/nyu-as/cas/prehealth/postbacc/admission/deadlines.html: too little text",
+  "stage": "source_discovery",
+  "lastAttempt": "2026-08-27T08:08:01.275Z",
+  "attempts": 6,
   "pipelineGen": 11,
   "sourceUrl": "https://cas.nyu.edu/prehealth/postbacc.html?challenge=d06e90d7-4d8f-4b88-9d8c-10b73beb60f1"
  },
