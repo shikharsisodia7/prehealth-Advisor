@@ -335,11 +335,12 @@
   "finalStatus": "verified"
  },
  "255": {
-  "stage": "source_discovery",
-  "lastAttempt": "2026-08-27T12:37:07.890Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-27T12:40:31.550Z",
   "attempts": 8,
   "pipelineGen": 11,
-  "sourceUrl": "https://www.appstate.edu/"
+  "sourceUrl": "https://www.appstate.edu/",
+  "error": "refusing mismatched institution URL https://nutrition.appstate.edu/academic-programs/ms-nutrition-public-health-nutrition-dietetics"
  },
  "258": {
   "stage": "finalized",

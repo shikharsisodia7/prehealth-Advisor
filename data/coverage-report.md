@@ -1,6 +1,6 @@
 # Prerequisite Coverage Audit
 
-Generated: 2026-08-27T12:39:26.101Z
+Generated: 2026-08-27T13:09:33.477Z
 
 | Profession | Active | Verified | No specific courses | Blocked | Unfinished | Final-status coverage | Directory reconciliation |
 |---|---:|---:|---:|---:|---:|---:|---|
@@ -19,7 +19,7 @@ Generated: 2026-08-27T12:39:26.101Z
 | Podiatric Medicine (DPM) | 11 | 11 | 0 | 0 | 0 | 100% | reconciled |
 | Postbaccalaureate Programs | 338 | 264 | 9 | 0 | 65 | 80.8% | over-source-count |
 | Prosthetics & Orthotics (MSPO) | 15 | 14 | 0 | 0 | 1 | 93.3% | reconciled |
-| Speech-Language Pathology (MS/MA) | 298 | 270 | 5 | 0 | 23 | 92.3% | under-source-count |
+| Speech-Language Pathology (MS/MA) | 335 | 270 | 5 | 0 | 60 | 82.1% | under-source-count |
 | Veterinary Medicine (DVM) | 32 | 32 | 0 | 0 | 0 | 100% | reconciled |
 
 ## Remaining externally blocked programs

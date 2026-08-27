@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-27T12:39:26.101Z",
+  "generatedAt": "2026-08-27T13:09:33.477Z",
   "professions": [
     {
       "professionSlug": "anesthesiologist-assistant",
@@ -565,21 +565,21 @@
     {
       "professionSlug": "speech-language-pathology",
       "professionName": "Speech-Language Pathology (MS/MA)",
-      "directoryPrograms": 298,
-      "directoryAttributedPrograms": 298,
+      "directoryPrograms": 335,
+      "directoryAttributedPrograms": 335,
       "manualPrograms": [],
       "inactivePrograms": 24,
       "prereqStatusCounts": {
+        "draft": 43,
         "verified": 270,
         "no_prereqs_published": 5,
-        "draft": 6,
         "needs_review": 17
       },
       "prereqVerifiedCount": 270,
       "prereqNoSpecificPrereqsCount": 5,
       "prereqBlockedCount": 0,
-      "prereqUnfinishedCount": 23,
-      "prereqVerifiedPct": 92.3,
+      "prereqUnfinishedCount": 60,
+      "prereqVerifiedPct": 82.1,
       "sources": [
         {
           "name": "ASHA CAA Accredited SLP Master's Programs",
@@ -592,9 +592,9 @@
       ],
       "reconciliation": {
         "sourceReportedTotal": 337,
-        "inDatabase": 298,
-        "directoryAttributed": 298,
-        "delta": -39,
+        "inDatabase": 335,
+        "directoryAttributed": 335,
+        "delta": -2,
         "status": "under-source-count"
       }
     },
