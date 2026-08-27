@@ -1065,6 +1065,29 @@ function campusHostConflicts(name: string, host: string): boolean {
   return CAMPUS_HOST_HINTS.some(([nameRe, hostRe]) => nameRe.test(name) && !hostRe.test(host));
 }
 
+const US_STATE_CODES = new Set([
+  "al", "ak", "az", "ar", "ca", "co", "ct", "de", "fl", "ga", "hi", "id", "il", "in", "ia", "ks",
+  "ky", "la", "me", "md", "ma", "mi", "mn", "ms", "mo", "mt", "ne", "nv", "nh", "nj", "nm", "ny",
+  "nc", "nd", "oh", "ok", "or", "pa", "ri", "sc", "sd", "tn", "tx", "ut", "vt", "va", "wa", "wv",
+  "wi", "wy",
+]);
+
+/**
+ * True when a per-campus catalogue host names a different state than the programme's campus.
+ *
+ * A university with campuses in several states publishes a catalogue for each, and the
+ * institution guard cannot tell them apart because both belong to the same university.
+ * Midwestern's Glendale (Arizona) programmes kept being sourced from
+ * catalog.il.midwestern.edu, the Illinois catalogue, even after the row was repointed.
+ */
+function catalogHostStateConflicts(host: string, state: string): boolean {
+  const m = /^catalogs?\.([a-z]{2})\./i.exec(host);
+  const sub = m?.[1]?.toLowerCase();
+  if (!sub || !US_STATE_CODES.has(sub)) return false;
+  const rowState = String(state ?? "").trim().toLowerCase();
+  return rowState.length === 2 && US_STATE_CODES.has(rowState) && sub !== rowState;
+}
+
 function hostMatchesInstitutionAlias(name: string, host: string): boolean {
   return INSTITUTION_HOST_ALIASES.some(([nameRe, hostRe]) => nameRe.test(name) && hostRe.test(host));
 }
@@ -1303,6 +1326,8 @@ interface ProgramRow {
   id: number; name: string; professionSlug: string; programName: string;
   websiteUrl: string | null; sourceUrl: string | null;
   degreeType?: string | null;
+  /** Campus state, used to reject a sibling campus's catalogue. */
+  state?: string | null;
   prereqSources: PrereqSource[] | null; verificationStatus: string;
   prereqCourses: PrereqItem[] | null;
 }
@@ -2629,6 +2654,14 @@ async function processProgramInner(program: ProgramRow): Promise<string> {
         errors.push(`${fetched.url}: no usable prereq list`);
         continue;
       }
+      // A sibling campus's catalogue describes a different programme, however official it is.
+      try {
+        const fetchedHost = new URL(fetched.url).hostname.replace(/^www\./i, "").toLowerCase();
+        if (catalogHostStateConflicts(fetchedHost, program.state ?? "")) {
+          errors.push(`${fetched.url}: catalogue for a different campus than ${program.state ?? "?"}`);
+          continue;
+        }
+      } catch { /* unparsable url is handled elsewhere */ }
       best = { fetched, ex };
       if (ex.hasPrereqList && ex.courses.length >= 4) break;
     } catch (e) {
