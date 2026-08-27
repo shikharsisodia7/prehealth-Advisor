@@ -2091,14 +2091,34 @@ async function extractWithOpenAI(program: ProgramRow, pageText: string, url: str
  * pages behave exactly as before and nothing that was previously visible to the model is lost
  * on them.
  */
+/** Subject words used only to judge which part of a long page holds the coursework. */
+const EXCERPT_SUBJECTS =
+  /(biolog\w*|chemistr\w*|organic|physic\w*|anatom\w*|physiolog\w*|microbiolog\w*|biochem\w*|statistic\w*|psycholog\w*|sociolog\w*|calculus|genetic\w*|nutrition|english|composition)/gi;
+
 export function relevantExcerpt(pageText: string, maxChars = 18_000): string {
   if (pageText.length <= maxChars) return pageText;
   const head = pageText.slice(0, 2_000);
-  const match = PREREQ_PAGE_HINT.exec(pageText);
-  if (!match || match.index == null) return pageText.slice(0, maxChars);
   const windowChars = maxChars - head.length;
-  const start = Math.max(2_000, match.index - Math.floor(windowChars * 0.2));
-  return `${head}\n...\n${pageText.slice(start, start + windowChars)}`;
+
+  // Centre on the mention that actually has coursework around it, not the first one. A page
+  // titled "Admissions prerequisites and requirements" matches in its own heading and nav, so
+  // centring on the first match framed the navigation and left the list outside the window:
+  // Nevada's medical school lists biology, chemistry, organic chemistry, physics and
+  // biochemistry with credit counts, and the model was shown none of it.
+  const hint = new RegExp(PREREQ_PAGE_HINT.source, PREREQ_PAGE_HINT.flags.includes("g") ? PREREQ_PAGE_HINT.flags : `${PREREQ_PAGE_HINT.flags}g`);
+  let best: { start: number; score: number } | null = null;
+  for (const m of pageText.matchAll(hint)) {
+    if (m.index == null) continue;
+    const start = Math.max(2_000, m.index - Math.floor(windowChars * 0.2));
+    const slice = pageText.slice(start, start + windowChars);
+    const subjects = new Set((slice.match(EXCERPT_SUBJECTS) ?? []).map((x) => x.toLowerCase()));
+    // Credit counts are the strongest sign a real list is present rather than a mention of one.
+    const credits = (slice.match(/\b\d+\s*(?:semester\s+)?(?:credit|hour|unit)s?\b/gi) ?? []).length;
+    const score = subjects.size * 3 + Math.min(credits, 10);
+    if (!best || score > best.score) best = { start, score };
+  }
+  if (!best) return pageText.slice(0, maxChars);
+  return `${head}\n...\n${pageText.slice(best.start, best.start + windowChars)}`;
 }
 
 async function extractWithOpenAIInner(program: ProgramRow, pageText: string, url: string): Promise<Extraction> {
@@ -2118,6 +2138,10 @@ async function extractWithOpenAIInner(program: ProgramRow, pageText: string, url
           "Missing values must be null. Set hasPrereqList=true only when the text contains an actual prerequisite " +
           "coursework list for THIS program. Set statesNoPrereqs=true only when the text explicitly states there are " +
           "no specific course prerequisites — and then noPrereqsEvidenceQuote MUST contain the exact sentence from the " +
+          "text making that statement. A page that lists named courses with credits DOES have a prerequisite list, so " +
+          "hasPrereqList must be true and statesNoPrereqs false, even when the same page also says some other item is " +
+          "recommended rather than required: Nevada lists Biology, Chemistry, Organic Chemistry, Physics and Biochemistry " +
+          "with credit counts and adds \"although not required\" about a separate item, and was read as requiring nothing. " +
           "text making that statement. Course names must be the actual subjects as written (e.g. 'Human Anatomy with lab'); " +
           "NEVER emit placeholders like 'Prerequisite Course 1'. If the page only links to prerequisites elsewhere without " +
           "listing them, set hasPrereqList=false. Include non-course admission items (GPA, GRE, hours, degree) only when " +
@@ -2678,6 +2702,20 @@ async function processProgramInner(program: ProgramRow): Promise<string> {
       }
       setState(program.id, { stage: "extracted" });
       if (!validExtraction(ex, fetched.text, program, fetched.url)) {
+        // Set COMPLETION_DEBUG_EXTRACTION=1 to see what the model returned. "No usable prereq
+        // list" cannot distinguish a page with nothing on it from a page whose list the model
+        // missed, and those need opposite responses.
+        if (process.env.COMPLETION_DEBUG_EXTRACTION) {
+          console.warn(
+            `[extract] ${program.id} ${fetched.url}
+` +
+              `  hasPrereqList=${ex.hasPrereqList} statesNoPrereqs=${ex.statesNoPrereqs} courses=${ex.courses?.length ?? 0}
+` +
+              `  names=${JSON.stringify((ex.courses ?? []).map((c) => c.name).slice(0, 8))}
+` +
+              `  textLen=${fetched.text.length}`,
+          );
+        }
         errors.push(`${fetched.url}: no usable prereq list`);
         continue;
       }
