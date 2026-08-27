@@ -1123,6 +1123,10 @@ function websiteConflictsWithInstitution(url: string, name: string): boolean {
     // matches the institution ("Louisiana State University ..." -> louisiana.gov), which
     // otherwise passes the alias check below and poisons the whole crawl.
     if (/\.gov$/i.test(host)) return true;
+    // Municipal portals do not all use the .gov suffix, and a city shares its name with the
+    // schools in it: denvergov.org passed as "Denver College of Nursing" because "denver" is
+    // the college's distinctive word.
+    if (/(^|\.)(\w+gov|cityof\w+|\w+county)\.(org|com|net)$/i.test(host)) return true;
     if (hostMatchesInstitutionAlias(name, host)) return false;
     const nameNorm = normalize(name);
     if (institutionTokens(name).some((t) => host.includes(t))) return false;
