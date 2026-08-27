@@ -1,6 +1,6 @@
 # Prerequisite Coverage Audit
 
-Generated: 2026-08-27T14:09:48.239Z
+Generated: 2026-08-27T14:40:01.147Z
 
 | Profession | Active | Verified | No specific courses | Blocked | Unfinished | Final-status coverage | Directory reconciliation |
 |---|---:|---:|---:|---:|---:|---:|---|
@@ -9,17 +9,17 @@ Generated: 2026-08-27T14:09:48.239Z
 | Dietetics (RD/RDN) | 152 | 143 | 4 | 0 | 5 | 96.7% | reconciled |
 | Genetic Counseling (MS) | 65 | 64 | 1 | 0 | 0 | 100% | reconciled |
 | Medical School (MD/DO) | 236 | 216 | 11 | 0 | 9 | 96.2% | reconciled |
-| Nursing (ABSN/MEPN) | 446 | 419 | 15 | 1 | 11 | 97.3% | reconciled |
+| Nursing (ABSN/MEPN) | 446 | 420 | 15 | 1 | 10 | 97.5% | reconciled |
 | Occupational Therapy (OTD/MOT) | 318 | 303 | 6 | 0 | 9 | 97.2% | reconciled |
 | Optometry (OD) | 24 | 24 | 0 | 0 | 0 | 100% | reconciled |
 | Pathologists' Assistant (PathA) | 20 | 19 | 1 | 0 | 0 | 100% | reconciled |
 | Pharmacy (PharmD) | 140 | 135 | 2 | 0 | 3 | 97.9% | reconciled |
 | Physical Therapy (DPT) | 308 | 306 | 1 | 0 | 1 | 99.7% | reconciled |
-| Physician Assistant (PA) | 330 | 320 | 3 | 0 | 7 | 97.9% | reconciled |
+| Physician Assistant (PA) | 330 | 321 | 3 | 0 | 6 | 98.2% | reconciled |
 | Podiatric Medicine (DPM) | 11 | 11 | 0 | 0 | 0 | 100% | reconciled |
 | Postbaccalaureate Programs | 338 | 264 | 9 | 0 | 65 | 80.8% | over-source-count |
 | Prosthetics & Orthotics (MSPO) | 15 | 14 | 0 | 0 | 1 | 93.3% | reconciled |
-| Speech-Language Pathology (MS/MA) | 335 | 285 | 5 | 0 | 45 | 86.6% | under-source-count |
+| Speech-Language Pathology (MS/MA) | 335 | 294 | 5 | 0 | 36 | 89.3% | under-source-count |
 | Veterinary Medicine (DVM) | 32 | 32 | 0 | 0 | 0 | 100% | reconciled |
 
 ## Remaining externally blocked programs

@@ -1889,6 +1889,13 @@
   "pipelineGen": 11,
   "sourceUrl": "https://health.csuohio.edu/communication-sciences-disorde"
  },
+ "653": {
+  "stage": "failed",
+  "lastAttempt": "2026-08-27T14:36:06.947Z",
+  "attempts": 1,
+  "error": "https://www.denvergov.org/: plain fetch returned 127 chars; render failed: Browser render: too little text",
+  "pipelineGen": 11
+ },
  "673": {
   "stage": "finalized",
   "lastAttempt": "2026-08-25T10:36:58.696Z",
@@ -2250,6 +2257,22 @@
   "pipelineGen": 9,
   "sourceUrl": "https://www.fdu.edu/program/bs-nursing/",
   "finalStatus": "verified"
+ },
+ "966": {
+  "stage": "finalized",
+  "lastAttempt": "2026-08-27T14:33:04.330Z",
+  "attempts": 1,
+  "pipelineGen": 11,
+  "sourceUrl": "https://nursing.jhu.edu/",
+  "finalStatus": "verified"
+ },
+ "969": {
+  "stage": "failed",
+  "lastAttempt": "2026-08-27T14:32:13.120Z",
+  "attempts": 1,
+  "error": "https://www.marquette.edu/athletic-training/documents/masterat-prerequisite-gpa-calculator.xlsx: HTTP 404 || https://www.marquette.edu/dentistry/admissions/: no usable prereq list || https://www.marquette.edu/admissions/undergraduate/: no usable prereq list || https://www.marquette.edu/admissions/undergraduate/index.php: no usable prereq list",
+  "pipelineGen": 11,
+  "sourceUrl": "https://www.marquette.edu/nursing/documents/teachingcertificaterequirements.pdf"
  },
  "971": {
   "stage": "failed",
@@ -3975,13 +3998,12 @@
   "finalStatus": "verified"
  },
  "1500": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-27T10:21:11.538Z",
-  "attempts": 2,
+  "stage": "source_discovery",
+  "lastAttempt": "2026-08-27T14:38:38.300Z",
+  "attempts": 3,
   "pipelineGen": 11,
   "sourceUrl": "https://www.ox.ac.uk/admissions/graduate/courses/find-your-course",
-  "finalStatus": "verified",
-  "error": "https://www.ox.ac.uk/: no usable prereq list || https://www.ox.ac.uk/admissions/undergraduate/courses/course-listing: no usable prereq list || https://www.ox.ac.uk/admissions/undergraduate: no usable prereq list"
+  "finalStatus": "verified"
  },
  "1501": {
   "stage": "finalized",
@@ -6168,10 +6190,10 @@
   "finalStatus": "verified"
  },
  "2141": {
-  "stage": "finalized",
-  "lastAttempt": "2026-08-20T19:06:23.378Z",
+  "stage": "validated",
+  "lastAttempt": "2026-08-27T14:40:02.327Z",
   "attempts": 1,
-  "pipelineGen": 2,
+  "pipelineGen": 11,
   "sourceUrl": "https://westcoastuniversity.edu/blog/ot-prerequisites",
   "finalStatus": "verified"
  },
@@ -8006,11 +8028,11 @@
   "finalStatus": "verified"
  },
  "2582": {
-  "stage": "finalized",
-  "lastAttempt": "2026-08-25T08:49:50.549Z",
+  "stage": "extracted",
+  "lastAttempt": "2026-08-27T14:39:33.242Z",
   "attempts": 1,
-  "pipelineGen": 10,
-  "sourceUrl": "https://bouve.northeastern.edu/news/6-common-prerequisites-for-speech-pathology-graduate-programs/",
+  "pipelineGen": 11,
+  "sourceUrl": "https://admissions.ecu.edu/apply/",
   "finalStatus": "verified"
  },
  "2585": {
@@ -9043,6 +9065,14 @@
   "sourceUrl": "https://www.msudenver.edu/speech-language-hearing-sciences/graduate-program/admissions/",
   "finalStatus": "verified"
  },
+ "2882": {
+  "stage": "failed",
+  "lastAttempt": "2026-08-27T14:23:11.180Z",
+  "attempts": 1,
+  "error": "https://www.newhaven.edu/admissions/undergraduate/international/admission-requirements/english-language.php: no usable prereq list || https://www.newhaven.edu/admissions/undergraduate/international/admission-requirements/index.php: no usable prereq list || https://www.newhaven.edu/admissions/undergraduate/international/admission-requirements/transfer.php: no usable prereq list",
+  "pipelineGen": 11,
+  "sourceUrl": "https://www.newhaven.edu/admissions/graduate/index.php"
+ },
  "2883": {
   "stage": "finalized",
   "lastAttempt": "2026-08-27T13:34:29.802Z",
@@ -9053,8 +9083,8 @@
  },
  "2884": {
   "stage": "failed",
-  "lastAttempt": "2026-08-27T13:37:33.131Z",
-  "attempts": 1,
+  "lastAttempt": "2026-08-27T14:37:36.626Z",
+  "attempts": 2,
   "error": "https://www.sju.edu/prospective-students: no usable prereq list || https://www.sju.edu/apply: no usable prereq list || https://www.sju.edu/academics/graduate/health-degree-programs: no usable prereq list",
   "pipelineGen": 11,
   "sourceUrl": "https://www.sju.edu/admission/graduate"
@@ -9067,10 +9097,19 @@
   "sourceUrl": "https://www.wilson.edu/doctor-physical-therapy-application-and-admissions-process",
   "finalStatus": "verified"
  },
+ "2886": {
+  "stage": "finalized",
+  "lastAttempt": "2026-08-27T14:20:28.830Z",
+  "attempts": 1,
+  "error": "program timeout after 420s",
+  "pipelineGen": 11,
+  "sourceUrl": "https://www.augusta.edu/alliedhealth/speech-language-pathology/",
+  "finalStatus": "verified"
+ },
  "2887": {
   "stage": "failed",
-  "lastAttempt": "2026-08-27T13:36:23.267Z",
-  "attempts": 1,
+  "lastAttempt": "2026-08-27T14:38:37.759Z",
+  "attempts": 2,
   "error": "https://www.bethel.edu/graduate/academics/physician-assistant/prerequisites: no usable prereq list || https://www.bethel.edu/graduate/academics/physician-assistant/prerequisites-bethel-equivalent: no usable prereq list || https://www.bethel.edu/graduate/academics/physician-assistant/how-to-apply/international-applicant-admissions: no usable prereq list",
   "pipelineGen": 11,
   "sourceUrl": "https://www.bethel.edu/graduate/academics/physician-assistant/program-details/clinical"
@@ -9083,13 +9122,45 @@
   "sourceUrl": "https://www.binghamton.edu/decker/speech-language-pathology/admissions/index.html",
   "finalStatus": "verified"
  },
+ "2889": {
+  "stage": "failed",
+  "lastAttempt": "2026-08-27T14:21:05.300Z",
+  "attempts": 1,
+  "error": "https://www.bju.edu/admission/request-info.php: no usable prereq list",
+  "pipelineGen": 11,
+  "sourceUrl": "https://www.bju.edu/admission/international/"
+ },
+ "2890": {
+  "stage": "finalized",
+  "lastAttempt": "2026-08-27T14:25:28.776Z",
+  "attempts": 1,
+  "pipelineGen": 11,
+  "sourceUrl": "https://delval.edu/speech-language-pathology-assistant-slpa-graduate-certificate",
+  "finalStatus": "verified"
+ },
+ "2891": {
+  "stage": "failed",
+  "lastAttempt": "2026-08-27T14:25:46.410Z",
+  "attempts": 1,
+  "error": "https://www.dyu.edu/admissions/first-time-college-admissions: no usable prereq list || https://www.dyu.edu/admissions/transfer-admissions: no usable prereq list || https://www.dyu.edu/admissions/graduate-admissions: no usable prereq list",
+  "pipelineGen": 11,
+  "sourceUrl": "https://www.dyu.edu/admissions/international-and-canadian-admissions"
+ },
  "2892": {
   "stage": "failed",
-  "lastAttempt": "2026-08-27T13:36:36.946Z",
-  "attempts": 1,
+  "lastAttempt": "2026-08-27T14:36:56.245Z",
+  "attempts": 2,
   "error": "https://www.etbu.edu/academics/academic-schools/school-communication-performing-arts/department-speech-language-pathology: no usable prereq list || https://www.etbu.edu/admissions/apply/graduate-admissions: no usable prereq list || https://www.etbu.edu/admissions/apply/b-h-carroll-theological-seminary-admissions: no usable prereq list",
   "pipelineGen": 11,
   "sourceUrl": "https://www.etbu.edu/admissions/apply/international-admissions-undergraduates"
+ },
+ "2893": {
+  "stage": "failed",
+  "lastAttempt": "2026-08-27T14:26:53.510Z",
+  "attempts": 1,
+  "error": "https://www.gcu.edu/degree-programs/absn-accelerated-bsn/prerequisites: no usable prereq list || https://www.gcu.edu/admissions: no usable prereq list || https://www.gcu.edu/admissions/visit-gcu-campus: no usable prereq list",
+  "pipelineGen": 11,
+  "sourceUrl": "https://www.gcu.edu/admissions/graduate-doctoral"
  },
  "2894": {
   "stage": "finalized",
@@ -9117,8 +9188,8 @@
  },
  "2897": {
   "stage": "failed",
-  "lastAttempt": "2026-08-27T13:39:14.803Z",
-  "attempts": 1,
+  "lastAttempt": "2026-08-27T14:37:51.251Z",
+  "attempts": 2,
   "error": "https://www.merrimack.edu/academics/health-sciences/graduate/health-promotion-and-management-old/admission-requirements/: no usable prereq list || https://www.merrimack.edu/academics/health-sciences/graduate/health-promotion-and-management-old/admission-requirements/: no usable prereq list || https://www.merrimack.edu/academics/health-sciences/graduate/health-promotion-and-management/: no usable prereq list",
   "pipelineGen": 11,
   "sourceUrl": "https://www.merrimack.edu/admission/graduate/"
@@ -9131,12 +9202,28 @@
   "sourceUrl": "https://registrar.msj.edu/graduate-catalog/graduate-programs/speech-language-pathology/speech-language-pathology-admission-requirements.html",
   "finalStatus": "verified"
  },
+ "2899": {
+  "stage": "failed",
+  "lastAttempt": "2026-08-27T14:29:41.081Z",
+  "attempts": 1,
+  "error": "https://mvnu.edu/on-campus/undergraduate/speech-language-pathology-and-audiology-csd/: no usable prereq list || https://mvnu.edu/csd-program-named-one-of-the-best-in-ohio/: no usable prereq list || https://mvnu.edu/mvnu-launches-online-master-of-science-in-speech-language-pathology/: no usable prereq list",
+  "pipelineGen": 11,
+  "sourceUrl": "https://mvnu.edu/admissions/"
+ },
  "2900": {
   "stage": "finalized",
   "lastAttempt": "2026-08-27T13:38:46.145Z",
   "attempts": 1,
   "pipelineGen": 11,
   "sourceUrl": "https://catalog.neit.edu/curriculum/speech-language-pathology-ms/",
+  "finalStatus": "verified"
+ },
+ "2901": {
+  "stage": "finalized",
+  "lastAttempt": "2026-08-27T14:14:09.206Z",
+  "attempts": 1,
+  "pipelineGen": 11,
+  "sourceUrl": "https://nmu.edu/clinicalsciences/ms-speech-language-pathology",
   "finalStatus": "verified"
  },
  "2902": {
@@ -9149,11 +9236,11 @@
  },
  "2903": {
   "stage": "failed",
-  "lastAttempt": "2026-08-27T13:33:56.054Z",
-  "attempts": 1,
+  "lastAttempt": "2026-08-27T14:34:33.508Z",
+  "attempts": 2,
   "error": "https://hhd.psu.edu/csd/graduate/masters-degree-communication-sciences-and-disorders/admission-requirements-masters-degree: no usable prereq list || https://hhd.psu.edu/csd/phd/requirements: no usable prereq list || https://hhd.psu.edu/csd/undergraduate/major-communication-sciences-and-disorders/admission-information: no usable prereq list",
   "pipelineGen": 11,
-  "sourceUrl": "https://admissions.upenn.edu/"
+  "sourceUrl": "https://hhd.psu.edu/csd/outreach-service/speech-language-hearing-clinic/audiology-services"
  },
  "2904": {
   "stage": "finalized",
@@ -9161,6 +9248,22 @@
   "attempts": 1,
   "pipelineGen": 11,
   "sourceUrl": "https://onlinegrad.pepperdine.edu/health-science/ms-speech-language-pathology/",
+  "finalStatus": "verified"
+ },
+ "2905": {
+  "stage": "finalized",
+  "lastAttempt": "2026-08-27T14:17:01.828Z",
+  "attempts": 1,
+  "pipelineGen": 11,
+  "sourceUrl": "https://www.piedmont.edu/program/speech-language-pathology-ms/",
+  "finalStatus": "verified"
+ },
+ "2906": {
+  "stage": "finalized",
+  "lastAttempt": "2026-08-27T14:19:12.763Z",
+  "attempts": 1,
+  "pipelineGen": 11,
+  "sourceUrl": "https://colegios.pucpr.edu/educacion/master-of-sciences-in-speech-language-pathology/",
   "finalStatus": "verified"
  },
  "2907": {
@@ -9186,5 +9289,53 @@
   "pipelineGen": 11,
   "sourceUrl": "https://www.south.edu/program/master-of-science-in-speech-language-pathology/",
   "finalStatus": "verified"
+ },
+ "2910": {
+  "stage": "failed",
+  "lastAttempt": "2026-08-27T14:28:25.496Z",
+  "attempts": 1,
+  "error": "https://www.sbu.edu/admissions/admitted-students: no usable prereq list || https://www.sbu.edu/admissions/graduate-admissions: no usable prereq list || https://www.sbu.edu/admissions/apply: no usable prereq list",
+  "pipelineGen": 11,
+  "sourceUrl": "https://www.sbu.edu/admissions/apply"
+ },
+ "2911": {
+  "stage": "failed",
+  "lastAttempt": "2026-08-27T14:24:19.680Z",
+  "attempts": 1,
+  "error": "https://www.uttyler.edu/academics/colleges-schools/arts-sciences/departments/communication/speech/graduate/admission-requirements/_nav.ounav: plain fetch returned 0 chars; render failed: Browser render: too little text || https://www.uttyler.edu/academics/colleges-schools/arts-sciences/departments/communication/mass-comm/undergraduate/requirements/_nav.ounav: plain fetch returned 0 chars; render failed: Browser render: too little text || https://www.uttyler.edu/academics/colleges-schools/arts-sc",
+  "pipelineGen": 11,
+  "sourceUrl": "https://www.uttyler.edu/admissions-aid/transfer/"
+ },
+ "2912": {
+  "stage": "finalized",
+  "lastAttempt": "2026-08-27T14:29:03.287Z",
+  "attempts": 1,
+  "pipelineGen": 11,
+  "sourceUrl": "https://www.scranton.edu/academics/pcps/health-and-human-performance/programs/comm-sciences-and-disorders/assets/documents/curriculum-comm-sciences-disorders.pdf",
+  "finalStatus": "verified"
+ },
+ "2913": {
+  "stage": "failed",
+  "lastAttempt": "2026-08-27T14:36:18.174Z",
+  "attempts": 1,
+  "error": "https://www.viterbo.edu/programs/master-speech-language-pathology: HTTP 403 || https://www.viterbo.edu/bachelor-completion-admissions: no usable prereq list || https://www.viterbo.edu/graduate-admissions: no usable prereq list",
+  "pipelineGen": 11,
+  "sourceUrl": "https://www.viterbo.edu/graduate-admissions"
+ },
+ "2914": {
+  "stage": "finalized",
+  "lastAttempt": "2026-08-27T14:31:14.918Z",
+  "attempts": 1,
+  "pipelineGen": 11,
+  "sourceUrl": "https://westcoastuniversity.edu/online-programs/master-of-speech-language-pathology",
+  "finalStatus": "verified"
+ },
+ "2915": {
+  "stage": "failed",
+  "lastAttempt": "2026-08-27T14:22:47.044Z",
+  "attempts": 1,
+  "error": "https://westliberty.edu/communication-sciences-disorders/: no usable prereq list || https://westliberty.edu/communication-sciences-disorders/?utm_source=redirect&utm_medium=unknown&utm_campaign=communication+sciences+redirect+Q2+2024: no usable prereq list || https://westliberty.edu/admissions/accepted-to-wl-whats-next/: no usable prereq list",
+  "pipelineGen": 11,
+  "sourceUrl": "https://westliberty.edu/admissions/requirements/homeschool/"
  }
 }
