@@ -6,10 +6,10 @@ None of these is recorded as publishing no prerequisites. That status asserts so
 
 ## Why they are unfinished
 
-- **125** — pages read, but the programme does not publish an enumerable course list
+- **124** — pages read, but the programme does not publish an enumerable course list
 - **11** — pages could not be read even in a browser
 - **3** — not yet attempted since its source was corrected
-- **1** — the stored source no longer resolves
+- **2** — the stored source no longer resolves
 - **1** — wrong website removed; its own source is unaffected and awaiting extraction
 - **1** — no source URL and none found yet
 - **1** — evidence removed as not the school's own; awaiting a correct source
@@ -329,7 +329,7 @@ The dominant case is a programme that refers to prerequisites without listing th
   - ID 1019: pages read, but the programme does not publish an enumerable course list
   - Last source tried: https://www.sandiego.edu/nursing/programs/masters/msn/admissions.php
 - **Wilmington University-Georgetown** (DE) — Entry-Level Master's in Nursing (MEPN)
-  - ID 1034: pages read, but the programme does not publish an enumerable course list
+  - ID 1034: the stored source no longer resolves
   - Last source tried: https://www.wilmu.edu/admission/nursing_admission.aspx
 
 ## occupational-therapy (9)
