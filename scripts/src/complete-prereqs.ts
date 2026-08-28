@@ -1128,6 +1128,9 @@ function websiteConflictsWithInstitution(url: string, name: string): boolean {
     // matches the institution ("Louisiana State University ..." -> louisiana.gov), which
     // otherwise passes the alias check below and poisons the whole crawl.
     if (/\.gov$/i.test(host)) return true;
+    // Wikidata answers "University of ..." with the University of Oxford, and its host is too
+    // short for the spelling checks below to judge, so it slipped through seventeen times.
+    if (/(^|\.)ox\.ac\.uk$/i.test(host)) return true;
     // Municipal portals do not all use the .gov suffix, and a city shares its name with the
     // schools in it: denvergov.org passed as "Denver College of Nursing" because "denver" is
     // the college's distinctive word.
