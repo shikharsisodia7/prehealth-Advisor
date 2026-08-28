@@ -2,6 +2,7 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "buildCommand": "pnpm --filter @workspace/api-server run build && pnpm --filter @workspace/prehealth-advisor run build",
   "installCommand": "pnpm install",
+  "ignoreCommand": "git diff --quiet HEAD^ HEAD -- artifacts lib api package.json pnpm-lock.yaml vercel.json tsconfig.json",
   "outputDirectory": "artifacts/prehealth-advisor/dist/public",
   "functions": {
     "api/index.ts": {

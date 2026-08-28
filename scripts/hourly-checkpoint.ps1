@@ -1,4 +1,18 @@
-﻿function Import-DotEnv([string]$Path) {
+﻿# Commits a coverage checkpoint on a timer.
+#
+# The commit message carries [skip ci], but Vercel deployed these anyway -- 24 checkpoint
+# commits in twelve hours each triggered a full production build, against an account-wide
+# quota of 100 deploys per day shared with every other project. The flag is left in place
+# because it costs nothing, but the deploy is actually prevented by "ignoreCommand" in
+# vercel.json, which skips the build when a commit touches no build input.
+#
+# A checkpoint changes only data/coverage-report.*, and production reads the database
+# directly, so there is nothing in one of these commits for a deploy to publish.
+#
+# Written UTF-8 with a BOM on purpose: Windows PowerShell 5.1 decodes a BOM-less file as
+# ANSI, which mangles every non-ASCII character in it.
+
+function Import-DotEnv([string]$Path) {
   Get-Content -LiteralPath $Path | ForEach-Object {
     $line = $_.Trim().TrimStart([char]0xFEFF); if (-not $line -or $line.StartsWith('#')) { return }
     $i = $line.IndexOf('='); if ($i -lt 1) { return }
