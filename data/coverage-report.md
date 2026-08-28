@@ -1,6 +1,6 @@
 # Prerequisite Coverage Audit
 
-Generated: 2026-08-28T06:44:21.775Z
+Generated: 2026-08-28T07:14:30.343Z
 
 | Profession | Active | Verified | No specific courses | Blocked | Unfinished | Final-status coverage | Directory reconciliation |
 |---|---:|---:|---:|---:|---:|---:|---|
@@ -17,7 +17,7 @@ Generated: 2026-08-28T06:44:21.775Z
 | Physical Therapy (DPT) | 308 | 307 | 1 | 0 | 0 | 100% | reconciled |
 | Physician Assistant (PA) | 330 | 324 | 3 | 0 | 3 | 99.1% | reconciled |
 | Podiatric Medicine (DPM) | 11 | 11 | 0 | 0 | 0 | 100% | reconciled |
-| Postbaccalaureate Programs | 338 | 266 | 9 | 0 | 63 | 81.4% | over-source-count |
+| Postbaccalaureate Programs | 337 | 273 | 9 | 0 | 55 | 83.7% | reconciled |
 | Prosthetics & Orthotics (MSPO) | 15 | 14 | 0 | 0 | 1 | 93.3% | reconciled |
 | Speech-Language Pathology (MS/MA) | 335 | 318 | 5 | 0 | 12 | 96.4% | under-source-count |
 | Veterinary Medicine (DVM) | 32 | 32 | 0 | 0 | 0 | 100% | reconciled |

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-28T06:44:21.775Z",
+  "generatedAt": "2026-08-28T07:14:30.343Z",
   "professions": [
     {
       "professionSlug": "anesthesiologist-assistant",
@@ -492,21 +492,21 @@
     {
       "professionSlug": "postbac",
       "professionName": "Postbaccalaureate Programs",
-      "directoryPrograms": 338,
-      "directoryAttributedPrograms": 338,
+      "directoryPrograms": 337,
+      "directoryAttributedPrograms": 337,
       "manualPrograms": [],
-      "inactivePrograms": 0,
+      "inactivePrograms": 1,
       "prereqStatusCounts": {
-        "verified": 266,
+        "verified": 273,
+        "needs_review": 8,
         "no_prereqs_published": 9,
-        "draft": 52,
-        "needs_review": 11
+        "draft": 47
       },
-      "prereqVerifiedCount": 266,
+      "prereqVerifiedCount": 273,
       "prereqNoSpecificPrereqsCount": 9,
       "prereqBlockedCount": 0,
-      "prereqUnfinishedCount": 63,
-      "prereqVerifiedPct": 81.4,
+      "prereqUnfinishedCount": 55,
+      "prereqVerifiedPct": 83.7,
       "sources": [
         {
           "name": "AAMC Postbaccalaureate Premedical Programs Database",
@@ -519,10 +519,10 @@
       ],
       "reconciliation": {
         "sourceReportedTotal": 337,
-        "inDatabase": 338,
-        "directoryAttributed": 338,
-        "delta": 1,
-        "status": "over-source-count"
+        "inDatabase": 337,
+        "directoryAttributed": 337,
+        "delta": 0,
+        "status": "reconciled"
       }
     },
     {
