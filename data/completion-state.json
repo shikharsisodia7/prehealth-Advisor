@@ -3462,10 +3462,10 @@
  },
  "1427": {
   "stage": "finalized",
-  "lastAttempt": "2026-08-24T21:02:34.555Z",
+  "lastAttempt": "2026-08-28T05:27:07.305Z",
   "attempts": 1,
-  "pipelineGen": 9,
-  "sourceUrl": "https://www.manchester.ac.uk/study/undergraduate/courses/2027/07958/mpharm-pharmacy-with-a-preparatory-foundation-year/",
+  "pipelineGen": 11,
+  "sourceUrl": "https://www.manchester.edu/academics/programs/graduate-pharmacy-pharmd/",
   "finalStatus": "verified"
  },
  "1428": {
@@ -7868,11 +7868,11 @@
  },
  "2528": {
   "stage": "failed",
-  "lastAttempt": "2026-08-27T22:56:06.546Z",
-  "attempts": 7,
+  "lastAttempt": "2026-08-28T05:24:03.868Z",
+  "attempts": 8,
   "pipelineGen": 11,
-  "sourceUrl": "https://www.aamu.edu/academics/colleges/education-humanities-behavioral-sciences/departments/human-performance-communicative-disorders/communicative-sciences-disorders/undergraduate-admission-requirements.html",
-  "error": "https://www.aamu.edu/academics/colleges/education-humanities-behavioral-sciences/departments/human-performance-communicative-disorders/communicative-sciences-disorders/graduate-course-requirements.html: no usable prereq list || https://www.aamu.edu/academics/colleges/education-humanities-behavioral-sciences/departments/human-performance-communicative-disorders/: no usable prereq list || https://www.aamu.edu/academics/colleges/education-humanities-behavioral-sciences/departments/human-performance"
+  "sourceUrl": "https://www.aamu.edu/admissions-aid/graduate-admissions/",
+  "error": "https://www.aamu.edu/academics/colleges/education-humanities-behavioral-sciences/departments/human-performance-communicative-disorders/communicative-sciences-disorders/graduate-course-requirements.html: no usable prereq list || https://www.aamu.edu/academics/colleges/education-humanities-behavioral-sciences/departments/human-performance-communicative-disorders/communicative-sciences-disorders/graduate-admission-requirements.html: no usable prereq list || https://www.aamu.edu/academics/graduate-s"
  },
  "2538": {
   "stage": "finalized",
@@ -8222,12 +8222,12 @@
   "finalStatus": "no_prereqs_published"
  },
  "2635": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-28T00:07:07.710Z",
-  "attempts": 8,
+  "stage": "finalized",
+  "lastAttempt": "2026-08-28T05:21:45.449Z",
+  "attempts": 9,
   "pipelineGen": 11,
-  "sourceUrl": "https://www.lsuhsc.edu/administration/academic/docs/FacultyHandbook.pdf",
-  "error": "https://catalog.lsuhsc.edu/content.php?catoid=17&amp;navoid=3646: plain fetch returned 159 chars; render failed: page.goto: net::ERR_CERT_AUTHORITY_INVALID at https://catalog.lsuhsc.edu/content.php?catoid=17&amp;navoid=3646\nCall log:\n\u001b[2m  - navigating to \"https://catalog.lsuhsc.edu/content.php?catoid=17&amp;navoid=3646\", waiting until \"domcontentloaded\"\u001b[22m\n || https://www.lsuhsc.edu/administration/academic/docs/FacultyHandbook.pdf: no usable prereq list"
+  "sourceUrl": "https://alliedhealth.lsuhsc.edu/cd/slpadmission.aspx",
+  "finalStatus": "verified"
  },
  "2637": {
   "stage": "finalized",
@@ -8239,11 +8239,11 @@
  },
  "2638": {
   "stage": "failed",
-  "lastAttempt": "2026-08-27T23:57:25.078Z",
-  "attempts": 8,
+  "lastAttempt": "2026-08-28T05:23:43.204Z",
+  "attempts": 9,
   "pipelineGen": 11,
-  "error": "https://www.catc.edu/: too little text",
-  "sourceUrl": "https://www.catc.edu/"
+  "error": "https://www.latech.edu/academics/degrees-programs/applied-natural-sciences/pre-professional-speech-language-pathology-ba.php: no usable prereq list || https://www.latech.edu/liberal-arts/programs/school-of-design/M.Arch-admission-requirements.php: no usable prereq list || https://www.latech.edu/academics/degrees-programs/applied-natural-sciences/speech-pathology-ma.php: no usable prereq list",
+  "sourceUrl": "https://www.latech.edu/admissions/apply/"
  },
  "2648": {
   "stage": "finalized",
