@@ -1,0 +1,17 @@
+[
+  {
+    "id": 101,
+    "sourceUrl": "https://documento.uagm.edu/academia/dental/doctor-medicine-requirements.pdf",
+    "evidence": "The following specific courses will be required:",
+    "why": "the requirements table is stored in the PDF as a raster image, so pypdf and pdftotext -layout both return the introducing sentence followed by nothing",
+    "conditions": "A bachelor's degree is strongly recommended; a candidate is eligible with evidence of 90 completed credits from an accredited university. Minimum GPA 2.5. DAT report required, valid two years from the application deadline. Application is through the ADEA AADSAS portal.",
+    "courses": [
+      { "name": "Biology", "details": "8 credits, with laboratory.", "labRequired": true, "semesterCredits": 8 },
+      { "name": "Physics", "details": "8 credits, with laboratory.", "labRequired": true, "semesterCredits": 8 },
+      { "name": "General Chemistry", "details": "8 credits, with laboratory.", "labRequired": true, "semesterCredits": 8 },
+      { "name": "Organic Chemistry", "details": "8 credits, with laboratory.", "labRequired": true, "semesterCredits": 8 },
+      { "name": "Social Sciences, Behavioral Sciences, Languages, Arts, Statistics and/or Mathematics", "details": "30 credits across these areas.", "semesterCredits": 30 },
+      { "name": "Other Electives", "details": "28 credits.", "semesterCredits": 28, "classification": "required" }
+    ]
+  }
+]
