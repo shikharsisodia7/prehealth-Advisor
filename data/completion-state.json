@@ -198,6 +198,12 @@
   "sourceUrl": "https://catalog.ouhsc.edu/allied-health/information/academic-programs/nutritional-sciences/coordinated-dietetics-ma/",
   "finalStatus": "verified"
  },
+ "188": {
+  "stage": "source_discovery",
+  "lastAttempt": "2026-08-28T10:15:17.809Z",
+  "attempts": 1,
+  "pipelineGen": 11
+ },
  "189": {
   "stage": "finalized",
   "lastAttempt": "2026-08-25T04:04:09.482Z",
@@ -229,6 +235,12 @@
   "pipelineGen": 7,
   "sourceUrl": "https://www.uvm.edu/cals/nfs/dietetics-concentration",
   "finalStatus": "verified"
+ },
+ "201": {
+  "stage": "source_discovery",
+  "lastAttempt": "2026-08-28T10:14:59.073Z",
+  "attempts": 1,
+  "pipelineGen": 11
  },
  "203": {
   "stage": "finalized",
@@ -2850,6 +2862,14 @@
   "attempts": 1,
   "pipelineGen": 11,
   "sourceUrl": "https://www.med.unc.edu/healthsciences/ocsci/prospectivestudents/programs/prerequisites/",
+  "finalStatus": "verified"
+ },
+ "1172": {
+  "stage": "finalized",
+  "lastAttempt": "2026-08-28T10:15:17.804Z",
+  "attempts": 1,
+  "pipelineGen": 11,
+  "sourceUrl": "https://www.uncp.edu/academics/all-majors-and-minors/occupational-therapy.html",
   "finalStatus": "verified"
  },
  "1175": {
@@ -6593,11 +6613,12 @@
   "finalStatus": "no_prereqs_published"
  },
  "2220": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-28T10:03:10.791Z",
+  "stage": "finalized",
+  "lastAttempt": "2026-08-28T10:03:49.509Z",
   "attempts": 1,
   "pipelineGen": 11,
-  "sourceUrl": "https://school.wakehealth.edu/education-and-training/graduate-programs/biomedical-science/curriculum-overview"
+  "sourceUrl": "https://school.wakehealth.edu/education-and-training/md-program/application-requirements-and-technical-standards",
+  "finalStatus": "verified"
  },
  "2221": {
   "stage": "failed",
@@ -6636,6 +6657,14 @@
   "lastAttempt": "2026-08-21T20:17:16.179Z",
   "attempts": 1,
   "pipelineGen": 6,
+  "sourceUrl": "https://www.nymc.edu/shsp/programs/physical-therapy/admissions/",
+  "finalStatus": "verified"
+ },
+ "2227": {
+  "stage": "finalized",
+  "lastAttempt": "2026-08-28T10:11:43.668Z",
+  "attempts": 1,
+  "pipelineGen": 11,
   "sourceUrl": "https://www.nymc.edu/shsp/programs/physical-therapy/admissions/",
   "finalStatus": "verified"
  },
@@ -6785,10 +6814,12 @@
   "finalStatus": "verified"
  },
  "2248": {
-  "stage": "source_discovery",
-  "lastAttempt": "2026-08-28T10:02:21.127Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-28T10:04:43.974Z",
   "attempts": 1,
-  "pipelineGen": 11
+  "error": "https://case.edu/admission/academics: no usable prereq list || https://case.edu/admission/academics/areas-study/performing-arts: no usable prereq list || https://case.edu/admission/: no usable prereq list",
+  "pipelineGen": 11,
+  "sourceUrl": "https://case.edu/admission/apply/deadlines-and-requirements"
  },
  "2249": {
   "stage": "finalized",
@@ -6863,6 +6894,14 @@
   "error": "program timeout after 240s",
   "finalStatus": "verified"
  },
+ "2270": {
+  "stage": "finalized",
+  "lastAttempt": "2026-08-28T10:04:24.126Z",
+  "attempts": 1,
+  "pipelineGen": 11,
+  "sourceUrl": "https://www.neomed.edu/medicine/admissions/paths/traditional-admission/",
+  "finalStatus": "verified"
+ },
  "2275": {
   "stage": "failed",
   "lastAttempt": "2026-08-25T18:03:31.035Z",
@@ -6871,12 +6910,28 @@
   "sourceUrl": "https://admissions.ncsu.edu/",
   "error": "https://physiology.grad.ncsu.edu/prospective-students/how-to-apply/minimum-academic-requirements/: no usable prereq list || https://catalog.ncsu.edu/graduate/graduate-handbook/international-student-admissions/: no usable prereq list || https://online-distance.ncsu.edu/apply/graduate/: no usable prereq list"
  },
+ "2277": {
+  "stage": "finalized",
+  "lastAttempt": "2026-08-28T10:09:38.442Z",
+  "attempts": 1,
+  "pipelineGen": 11,
+  "sourceUrl": "https://medicine.tulane.edu/admissions/md",
+  "finalStatus": "verified"
+ },
  "2278": {
   "stage": "finalized",
   "lastAttempt": "2026-08-22T00:37:20.487Z",
   "attempts": 2,
   "pipelineGen": 7,
   "sourceUrl": "https://www.purchase.edu/academics/school-of-natural-social-sciences/premedical-studies/index.php",
+  "finalStatus": "verified"
+ },
+ "2285": {
+  "stage": "finalized",
+  "lastAttempt": "2026-08-28T10:08:25.587Z",
+  "attempts": 1,
+  "pipelineGen": 11,
+  "sourceUrl": "https://www.nwhealth.edu/admissions/virtual-visits/post-baccalaureate-pre-health-program/",
   "finalStatus": "verified"
  },
  "2288": {
@@ -6901,6 +6956,14 @@
   "attempts": 1,
   "pipelineGen": 11,
   "sourceUrl": "https://www.bumc.bu.edu/gms/academics/masters-programs/mams/admissions/application-components/",
+  "finalStatus": "verified"
+ },
+ "2294": {
+  "stage": "finalized",
+  "lastAttempt": "2026-08-28T10:09:30.126Z",
+  "attempts": 1,
+  "pipelineGen": 11,
+  "sourceUrl": "https://medicine.tulane.edu/admissions/md",
   "finalStatus": "verified"
  },
  "2295": {
@@ -6981,6 +7044,14 @@
   "attempts": 10,
   "pipelineGen": 11,
   "sourceUrl": "https://arts-sciences.buffalo.edu/cds/grad/masters/requirements.html",
+  "finalStatus": "verified"
+ },
+ "2320": {
+  "stage": "finalized",
+  "lastAttempt": "2026-08-28T10:10:22.651Z",
+  "attempts": 1,
+  "pipelineGen": 11,
+  "sourceUrl": "https://www.mville.edu/programs/post-bacc-pre-health.php",
   "finalStatus": "verified"
  },
  "2322": {
@@ -7535,11 +7606,12 @@
   "finalStatus": "verified"
  },
  "2420": {
-  "stage": "validated",
-  "lastAttempt": "2026-08-28T10:03:13.791Z",
+  "stage": "finalized",
+  "lastAttempt": "2026-08-28T10:03:14.370Z",
   "attempts": 1,
   "pipelineGen": 11,
-  "sourceUrl": "https://admissions.fiu.edu/international/incoming-freshmen/index.html"
+  "sourceUrl": "https://admissions.fiu.edu/how-to-apply/graduate-applicant/admission-requirements/index.html",
+  "finalStatus": "verified"
  },
  "2421": {
   "stage": "finalized",
@@ -7804,6 +7876,13 @@
   "sourceUrl": "https://phsu.edu/",
   "error": "https://phsu.edu/academics/programs/master-of-science-in-medical-science.php: no usable prereq list || https://catalog.phsu.edu/: no usable prereq list || https://phsu.edu/apply.php: no usable prereq list"
  },
+ "2475": {
+  "stage": "source_fetched",
+  "lastAttempt": "2026-08-28T10:13:59.750Z",
+  "attempts": 1,
+  "pipelineGen": 11,
+  "sourceUrl": "https://md.nova.edu/"
+ },
  "2477": {
   "stage": "failed",
   "lastAttempt": "2026-08-25T15:46:30.700Z",
@@ -7844,6 +7923,14 @@
   "sourceUrl": "https://www.iastate.edu/admission-and-aid/admissions/military-and-nontraditonal-students",
   "error": "https://iowastateonline.iastate.edu/admission-and-aid/military-affiliated-students/: no usable prereq list || https://iowastateonline.iastate.edu/programs-and-courses/analytics/master-of-digital-health/: no usable prereq list || https://apps.admissions.iastate.edu/apply/online/: no usable prereq list"
  },
+ "2484": {
+  "stage": "finalized",
+  "lastAttempt": "2026-08-28T10:09:59.660Z",
+  "attempts": 1,
+  "pipelineGen": 11,
+  "sourceUrl": "https://medicine.arizona.edu/education/degree-programs/md-program/admissions/pre-medical-admissions-pathway",
+  "finalStatus": "verified"
+ },
  "2486": {
   "stage": "finalized",
   "lastAttempt": "2026-08-21T20:37:19.022Z",
@@ -7851,6 +7938,14 @@
   "pipelineGen": 6,
   "sourceUrl": "https://www.rockhurst.edu/pre-med/post-baccalaureate",
   "finalStatus": "verified"
+ },
+ "2488": {
+  "stage": "failed",
+  "lastAttempt": "2026-08-28T10:06:41.461Z",
+  "attempts": 1,
+  "error": "https://www.slu.edu/admission/visit/index.php: no usable prereq list || https://catalog.slu.edu/programs/: no usable prereq list || https://catalog.slu.edu/colleges-schools/medicine/medicine/medical-sciences-ms/: no usable prereq list",
+  "pipelineGen": 11,
+  "sourceUrl": "https://www.slu.edu/public-health-social-justice/centers-institutes/-pdf/ceet_prerequisite_verification_form_edit-sept-2018.pdf"
  },
  "2490": {
   "stage": "finalized",
@@ -8239,6 +8334,14 @@
   "sourceUrl": "https://www.jsums.edu/slpaud/admission-requirements/",
   "finalStatus": "verified"
  },
+ "2625": {
+  "stage": "failed",
+  "lastAttempt": "2026-08-28T10:13:08.067Z",
+  "attempts": 1,
+  "error": "https://www.kean.edu/academics/college-health-professions-and-human-services/communication-studies-ma-admission: no usable prereq list || https://www.kean.edu/academics/programs/early-childhood-education-ma/early-childhood-education-ma-admissions-requirements: no usable prereq list || https://www.kean.edu/academics/programs/instruction-and-curriculum-ma/admission-requirements: no usable prereq list",
+  "pipelineGen": 11,
+  "sourceUrl": "https://www.kean.edu/offices/admissions/transfer-admissions/transfer-application-instructions"
+ },
  "2628": {
   "stage": "finalized",
   "lastAttempt": "2026-08-25T03:37:26.699Z",
@@ -8343,6 +8446,14 @@
   "sourceUrl": "https://academics.nsuok.edu/_resources/documents/cshp%20slp%20adp%20undergrad%20rd%20map%2022_23.pdf",
   "finalStatus": "verified"
  },
+ "2670": {
+  "stage": "finalized",
+  "lastAttempt": "2026-08-28T10:14:59.069Z",
+  "attempts": 1,
+  "pipelineGen": 11,
+  "sourceUrl": "https://bouve.northeastern.edu/academics/school-of-clinical-and-rehabilitation-sciences/communication-sciences-and-disorders/",
+  "finalStatus": "verified"
+ },
  "2673": {
   "stage": "finalized",
   "lastAttempt": "2026-08-22T22:51:35.682Z",
@@ -8404,6 +8515,14 @@
   "attempts": 9,
   "pipelineGen": 11,
   "sourceUrl": "https://www.radford.edu/programs/cosd-grad.html",
+  "finalStatus": "verified"
+ },
+ "2690": {
+  "stage": "finalized",
+  "lastAttempt": "2026-08-28T10:13:05.997Z",
+  "attempts": 1,
+  "pipelineGen": 11,
+  "sourceUrl": "https://rm.edu/medslp/requirements/",
   "finalStatus": "verified"
  },
  "2698": {

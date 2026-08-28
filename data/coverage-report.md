@@ -1,25 +1,25 @@
 # Prerequisite Coverage Audit
 
-Generated: 2026-08-28T09:45:13.544Z
+Generated: 2026-08-28T10:15:20.694Z
 
 | Profession | Active | Verified | No specific courses | Blocked | Unfinished | Final-status coverage | Directory reconciliation |
 |---|---:|---:|---:|---:|---:|---:|---|
 | Certified Anesthesiologist Assistant (CAA) | 25 | 25 | 0 | 0 | 0 | 100% | reconciled |
-| Dental School (DDS/DMD) | 78 | 76 | 2 | 0 | 0 | 100% | reconciled |
-| Dietetics (RD/RDN) | 152 | 146 | 3 | 0 | 3 | 98% | reconciled |
-| Genetic Counseling (MS) | 65 | 64 | 1 | 0 | 0 | 100% | reconciled |
-| Medical School (MD/DO) | 236 | 221 | 11 | 0 | 4 | 98.3% | reconciled |
-| Nursing (ABSN/MEPN) | 446 | 428 | 15 | 1 | 2 | 99.3% | reconciled |
-| Occupational Therapy (OTD/MOT) | 318 | 306 | 6 | 0 | 6 | 98.1% | reconciled |
+| Dental School (DDS/DMD) | 78 | 75 | 2 | 0 | 1 | 98.7% | reconciled |
+| Dietetics (RD/RDN) | 152 | 142 | 3 | 0 | 7 | 95.4% | reconciled |
+| Genetic Counseling (MS) | 65 | 63 | 1 | 0 | 1 | 98.5% | reconciled |
+| Medical School (MD/DO) | 236 | 206 | 11 | 0 | 19 | 91.9% | reconciled |
+| Nursing (ABSN/MEPN) | 446 | 422 | 15 | 1 | 8 | 98% | reconciled |
+| Occupational Therapy (OTD/MOT) | 318 | 303 | 6 | 0 | 9 | 97.2% | reconciled |
 | Optometry (OD) | 24 | 24 | 0 | 0 | 0 | 100% | reconciled |
 | Pathologists' Assistant (PathA) | 20 | 19 | 1 | 0 | 0 | 100% | reconciled |
-| Pharmacy (PharmD) | 140 | 138 | 2 | 0 | 0 | 100% | reconciled |
+| Pharmacy (PharmD) | 140 | 133 | 2 | 0 | 5 | 96.4% | reconciled |
 | Physical Therapy (DPT) | 308 | 307 | 1 | 0 | 0 | 100% | reconciled |
-| Physician Assistant (PA) | 330 | 324 | 3 | 0 | 3 | 99.1% | reconciled |
+| Physician Assistant (PA) | 330 | 323 | 3 | 0 | 4 | 98.8% | reconciled |
 | Podiatric Medicine (DPM) | 11 | 11 | 0 | 0 | 0 | 100% | reconciled |
-| Postbaccalaureate Programs | 337 | 273 | 9 | 0 | 55 | 83.7% | reconciled |
+| Postbaccalaureate Programs | 337 | 252 | 9 | 0 | 76 | 77.4% | reconciled |
 | Prosthetics & Orthotics (MSPO) | 15 | 14 | 0 | 0 | 1 | 93.3% | reconciled |
-| Speech-Language Pathology (MS/MA) | 335 | 319 | 5 | 0 | 11 | 96.7% | under-source-count |
+| Speech-Language Pathology (MS/MA) | 335 | 316 | 5 | 0 | 14 | 95.8% | under-source-count |
 | Veterinary Medicine (DVM) | 32 | 32 | 0 | 0 | 0 | 100% | reconciled |
 
 ## Remaining externally blocked programs
