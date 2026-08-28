@@ -140,3 +140,86 @@ export const NO_PREREQ_ASSERTION = new RegExp(
   ].join("|"),
   "i",
 );
+
+/**
+ * Which programme a URL's path is about, and whether that conflicts with the row's profession.
+ *
+ * Seventy-six verified rows were serving another programme's prerequisites: Duke's medicine row
+ * carried Duke's DPT list, Louisiana State's carried the veterinary school's, and five Tulane
+ * one-year master's rows carried the medical school's MD list. Cleaning those up once was not
+ * enough -- re-running extraction put 39 of them straight back on the same pages, because
+ * nothing in the pipeline treats "this page is about a different profession" as a reason to
+ * refuse a source. This is that reason, applied before a candidate is fetched and again before
+ * an extraction is accepted.
+ */
+const PROFESSION_MARKERS: Array<{ slug: string; re: RegExp }> = (() => {
+  const B = String.raw`(^|[/_.-])`;
+  const E = String.raw`([/_.-]|$)`;
+  return [
+    { slug: "occupational-therapy", re: new RegExp(`${B}(occupational[-_]?therapy|otd|msot|ot)${E}`, "i") },
+    { slug: "physical-therapy", re: new RegExp(`${B}(physical[-_]?therapy|dpt|ptcas|pt)${E}`, "i") },
+    { slug: "speech-language-pathology", re: new RegExp(`${B}(speech[-_]?language[-_]?pathology|speech[-_]?language|communication[-_]?sciences|communication[-_]?disorders|communicative[-_]?disorders|slp|csd)${E}`, "i") },
+    { slug: "nursing", re: new RegExp(`${B}(nursing|bsn|msn|absn|mepn|dnp)${E}`, "i") },
+    { slug: "pharmacy", re: new RegExp(`${B}(pharmacy|pharmd)${E}`, "i") },
+    { slug: "physician-assistant", re: new RegExp(`${B}(physician[-_]?assistant|pa)${E}`, "i") },
+    { slug: "dentistry", re: new RegExp(`${B}(dental[-_]?medicine|dentistry|dental|dmd|dds)${E}`, "i") },
+    { slug: "dietetics", re: new RegExp(`${B}(dietetics|dietetic[-_]?internship|nutrition)${E}`, "i") },
+    { slug: "veterinary", re: new RegExp(`${B}(veterinary|dvm)${E}`, "i") },
+    { slug: "optometry", re: new RegExp(`${B}(optometry|optometric)${E}`, "i") },
+    { slug: "prosthetics-orthotics", re: new RegExp(`${B}(orthotics[-_]?and[-_]?prosthetics|prosthetics[-_]?and[-_]?orthotics|orthotics|prosthetics)${E}`, "i") },
+  ];
+})();
+
+/** The medical school's own MD track, whose prerequisites are a claim about MD applicants. */
+const MD_TRACK_PATH =
+  /(\/md-program\/|\/m-d-program\/|\/md\/admission|\/admissions\/md\/|admission\.med\.|\/medical-student-admissions|\/medicine-md\/|\/allopathic-medicine|\/doctor-of-medicine|\/medicine\/md\/)/i;
+
+/** A path naming a postbaccalaureate programme is a postbac page whatever profession it prepares for. */
+const PATH_NAMES_POSTBAC = /(post-?bacc?alaureate|post-?bacc|postbac)/i;
+
+/** Dentistry is stored under two slugs in this dataset. */
+const EQUIVALENT_SLUG: Record<string, string> = { dentistry: "dental", dental: "dentistry" };
+
+/**
+ * The profession a URL's path is about, or null when the path names none.
+ *
+ * The deepest marker wins, because a URL is hierarchical: college, then department, then
+ * programme. Fairleigh Dickinson's occupational therapy page is at
+ * /colleges-schools/pharmacy/otd/admissions/ because the School of Pharmacy houses the OTD, and
+ * Murray State's is at /nursing-and-health-sciences/ot/. Taking any marker calls both wrong.
+ */
+export function professionOfUrlPath(url: string): string | null {
+  let pathOnly = url;
+  try {
+    const u = new URL(/^https?:\/\//i.test(url) ? url : `https://${url}`);
+    pathOnly = `/${u.hostname.split(".").slice(0, -2).join(".")}${u.pathname}`;
+  } catch { /* compare the raw string */ }
+  let deepest: { slug: string; at: number } | null = null;
+  for (const m of PROFESSION_MARKERS) {
+    const found = m.re.exec(pathOnly);
+    if (found && (deepest === null || found.index > deepest.at)) deepest = { slug: m.slug, at: found.index };
+  }
+  return deepest?.slug ?? null;
+}
+
+/**
+ * Why this URL is the wrong programme for this row, or null when it is not.
+ *
+ * Returns a sentence so the refusal can be recorded rather than being a silent skip.
+ */
+export function sourceProfessionConflicts(url: string, professionSlug: string): string | null {
+  let pathOnly = url;
+  try {
+    const u = new URL(/^https?:\/\//i.test(url) ? url : `https://${url}`);
+    pathOnly = `/${u.hostname.split(".").slice(0, -2).join(".")}${u.pathname}`;
+  } catch { /* compare the raw string */ }
+
+  // A postbac page routinely names the profession it prepares students for; that is not a clash.
+  if (professionSlug === "postbac" && PATH_NAMES_POSTBAC.test(pathOnly)) return null;
+  if (professionSlug === "postbac" && MD_TRACK_PATH.test(pathOnly)) {
+    return "the page is the medical school's own MD admissions track, whose prerequisites describe MD applicants rather than postbaccalaureate ones";
+  }
+  const found = professionOfUrlPath(url);
+  if (!found || found === professionSlug || EQUIVALENT_SLUG[found] === professionSlug) return null;
+  return `the page is a ${found} page, and this row is a ${professionSlug} programme`;
+}

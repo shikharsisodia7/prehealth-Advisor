@@ -43,7 +43,7 @@ import {
   rootDomainOf,
   sitemapCandidates,
 } from "./native-discovery.js";
-import { NO_PREREQ_ASSERTION, entityLabelMatchesInstitution, institutionTokens } from "./extraction-rules.js";
+import { NO_PREREQ_ASSERTION, entityLabelMatchesInstitution, institutionTokens, sourceProfessionConflicts } from "./extraction-rules.js";
 import { SearchBudget } from "./search-budget.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -2355,6 +2355,18 @@ const OTHER_FIELD_IN_QUOTE: Array<[string, RegExp]> = [
 ];
 
 function validExtraction(ex: Extraction, pageText: string, program: ProgramRow, sourceUrl = ""): boolean {
+  // A page about a different programme is refused before anything else is considered. Being
+  // on-topic for the profession is not enough: a school of medicine's DPT prerequisites are
+  // about physical therapy applicants, and reading them onto the medicine row was how 76 rows
+  // came to serve another programme's requirements. Cleaning that up once did not hold -- a
+  // re-run put 39 of them straight back on the same pages, because nothing here refused them.
+  const conflict = sourceUrl ? sourceProfessionConflicts(sourceUrl, program.professionSlug) : null;
+  if (conflict) {
+    if (process.env.COMPLETION_DEBUG_EXTRACTION) {
+      console.log(`[extract] ${program.id} refusing ${sourceUrl}: ${conflict}`);
+    }
+    return false;
+  }
   const pageNorm = normalize(pageText);
   const urlHay = sourceUrl.toLowerCase();
   const onTopic =

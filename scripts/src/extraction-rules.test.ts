@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { NO_PREREQ_ASSERTION, entityLabelMatchesInstitution, institutionTokens } from "./extraction-rules.js";
+import { NO_PREREQ_ASSERTION, entityLabelMatchesInstitution, institutionTokens, sourceProfessionConflicts} from "./extraction-rules.js";
 
 describe("entityLabelMatchesInstitution", () => {
   // Accepting an authoritative official-website claim for these is the only way rows with no
@@ -98,5 +98,57 @@ describe("institutionTokens", () => {
   it("drops generic institution words", () => {
     const t = institutionTokens("The State University Medical Center");
     expect(t).toHaveLength(0);
+  });
+});
+
+describe("sourceProfessionConflicts", () => {
+  it("rejects a medicine row sourced from the physical therapy programme's page", () => {
+    expect(sourceProfessionConflicts("https://medschool.duke.edu/duke-dpt-prerequisite-overview", "medicine"))
+      .toMatch(/physical-therapy/);
+  });
+
+  it("rejects a medicine row sourced from the veterinary school's prerequisites", () => {
+    expect(sourceProfessionConflicts("https://www.lsu.edu/vetmed/dvm_admissions/prerequisites.php", "medicine"))
+      .toMatch(/veterinary/);
+  });
+
+  it("rejects a postbac row sourced from the medical school's MD admissions page", () => {
+    expect(sourceProfessionConflicts("https://medicine.tulane.edu/admissions/md/admissions-process", "postbac"))
+      .toMatch(/MD admissions/);
+  });
+
+  // A URL is hierarchical, so the school that houses a programme appears before the programme.
+  it("accepts an occupational therapy page hosted by a school of pharmacy", () => {
+    expect(sourceProfessionConflicts("https://www.fdu.edu/academics/colleges-schools/pharmacy/otd/admissions/", "occupational-therapy"))
+      .toBeNull();
+  });
+
+  it("accepts an occupational therapy page under a nursing and health sciences college", () => {
+    expect(sourceProfessionConflicts("https://www.murraystate.edu/academics/CollegesDepartments/nursing-and-health-sciences/ot/requirements.aspx", "occupational-therapy"))
+      .toBeNull();
+  });
+
+  // The marker is preceded by "of-", not by a slash.
+  it("accepts a page whose profession marker is mid-segment", () => {
+    expect(sourceProfessionConflicts("https://www.salus.edu/colleges/nursing-health-professions/department-of-occupational-therapy/ms-in-occupational-therapy/", "occupational-therapy"))
+      .toBeNull();
+  });
+
+  it("accepts a postbac page that names the profession it prepares students for", () => {
+    expect(sourceProfessionConflicts("https://www.kgi.edu/degrees-and-programs/pre-health/postbaccalaureate-pre-pa-certificate/", "postbac"))
+      .toBeNull();
+  });
+
+  it("accepts a speech-language pathology page filed under communication disorders", () => {
+    expect(sourceProfessionConflicts("https://www.wtamu.edu/academics/college-nursing-health-sciences/department-communication-disorders/programs/", "speech-language-pathology"))
+      .toBeNull();
+  });
+
+  it("treats dental and dentistry as the same profession", () => {
+    expect(sourceProfessionConflicts("https://dentistry.musc.edu/programs/doctor-dental-medicine", "dental")).toBeNull();
+  });
+
+  it("says nothing about a URL that names no profession", () => {
+    expect(sourceProfessionConflicts("https://www.example.edu/admissions/requirements", "nursing")).toBeNull();
   });
 });

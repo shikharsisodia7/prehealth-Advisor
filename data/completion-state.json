@@ -16,12 +16,13 @@
   "finalStatus": "verified"
  },
  "120": {
-  "stage": "finalized",
-  "lastAttempt": "2026-08-28T10:41:11.437Z",
-  "attempts": 1,
+  "stage": "failed",
+  "lastAttempt": "2026-08-28T11:33:27.974Z",
+  "attempts": 2,
   "pipelineGen": 11,
-  "sourceUrl": "https://www.upike.edu/optometry/admissions/course-requirements/",
-  "finalStatus": "verified"
+  "sourceUrl": "https://www.upike.edu/wp-content/uploads/2026/07/TCDM_Course_Catalog_2026-27.pdf",
+  "finalStatus": "verified",
+  "error": "https://www.upike.edu/optometry/admissions/course-requirements/: HTTP 429 {\n    \"error\": {\n        \"message\": \"You have no credits remaining. Add credits to continue using the API at https://pla || https://www.upike.edu/dental-medicine/program-requirements/: HTTP 429 {\n    \"error\": {\n        \"message\": \"You have no credits remaining. Add credits to continue using the API at https://pla || https://www.upike.edu/dental-medicine/: HTTP 429 {\n    \"error\": {\n        \"message\": \"You have no credits re"
  },
  "124": {
   "stage": "finalized",
@@ -255,12 +256,13 @@
   "finalStatus": "verified"
  },
  "204": {
-  "stage": "finalized",
-  "lastAttempt": "2026-08-28T10:39:50.793Z",
-  "attempts": 1,
+  "stage": "failed",
+  "lastAttempt": "2026-08-28T11:31:35.594Z",
+  "attempts": 2,
   "pipelineGen": 11,
-  "sourceUrl": "https://www.gcu.edu/degree-programs/absn-accelerated-bsn/prerequisites",
-  "finalStatus": "verified"
+  "sourceUrl": "https://www.gcu.edu/admissions/graduate-doctoral",
+  "finalStatus": "verified",
+  "error": "https://www.gcu.edu/degree-programs/absn-accelerated-bsn/prerequisites: HTTP 429 {\n    \"error\": {\n        \"message\": \"You have no credits remaining. Add credits to continue using the API at https://pla || https://www.gcu.edu/admissions: HTTP 429 {\n    \"error\": {\n        \"message\": \"You have no credits remaining. Add credits to continue using the API at https://pla || https://www.gcu.edu/admissions/visit-gcu-campus: HTTP 429 {\n    \"error\": {\n        \"message\": \"You have no credits remaining. Add "
  },
  "210": {
   "stage": "failed",
@@ -383,12 +385,13 @@
   "finalStatus": "verified"
  },
  "265": {
-  "stage": "finalized",
-  "lastAttempt": "2026-08-28T10:38:33.867Z",
-  "attempts": 1,
+  "stage": "failed",
+  "lastAttempt": "2026-08-28T11:32:04.356Z",
+  "attempts": 2,
   "pipelineGen": 11,
-  "sourceUrl": "https://www.ohsu.edu/school-of-medicine/physician-assistant/prerequisite-coursework",
-  "finalStatus": "verified"
+  "sourceUrl": "https://www.ohsu.edu/school-of-medicine/graduate-studies/admissions",
+  "finalStatus": "verified",
+  "error": "https://www.ohsu.edu/school-of-medicine/physician-assistant/prerequisite-coursework: HTTP 429 {\n    \"error\": {\n        \"message\": \"You have no credits remaining. Add credits to continue using the API at https://pla || https://www.ohsu.edu/school-of-medicine/radiation-therapy/academic-prerequisites: HTTP 429 {\n    \"error\": {\n        \"message\": \"You have no credits remaining. Add credits to continue using the API at https://pla || https://www.ohsu.edu/school-of-medicine/human-nutrition-graduate-pr"
  },
  "266": {
   "stage": "finalized",
@@ -1481,11 +1484,11 @@
  },
  "540": {
   "stage": "failed",
-  "lastAttempt": "2026-08-28T11:14:22.073Z",
+  "lastAttempt": "2026-08-28T11:28:10.431Z",
   "attempts": 2,
   "pipelineGen": 11,
-  "sourceUrl": "https://med.und.edu/education-training/physician-assistant/prerequisites.html",
-  "error": "program timeout after 420s",
+  "sourceUrl": "https://med.und.edu/about/policies/_files/docs/5.2-satement-regarding-the-monitoring-of-medical-education-program-accreditation-requirements.pdf",
+  "error": "https://med.und.edu/education-training/physician-assistant/prerequisites.html: HTTP 429 {\n    \"error\": {\n        \"message\": \"You have no credits remaining. Add credits to continue using the API at https://pla || https://med.und.edu/center-for-family-medicine-bismarck/applicant-requirements.html: HTTP 429 {\n    \"error\": {\n        \"message\": \"You have no credits remaining. Add credits to continue using the API at https://pla || https://med.und.edu/education-training/histotechnology/admission-requi",
   "finalStatus": "verified"
  },
  "541": {
@@ -1882,12 +1885,13 @@
   "finalStatus": "verified"
  },
  "600": {
-  "stage": "finalized",
-  "lastAttempt": "2026-08-28T10:40:07.901Z",
-  "attempts": 1,
+  "stage": "failed",
+  "lastAttempt": "2026-08-28T11:32:25.240Z",
+  "attempts": 2,
   "pipelineGen": 11,
-  "sourceUrl": "https://www.astate.edu/colleges/veterinary-medicine/admissions/prerequisites.html",
-  "finalStatus": "verified"
+  "sourceUrl": "https://www.astate.edu/admissions-and-aid/graduate-admissions/graduate-admissions-requirements.html",
+  "finalStatus": "verified",
+  "error": "https://www.astate.edu/colleges/veterinary-medicine/admissions/prerequisites.html: HTTP 429 {\n    \"error\": {\n        \"message\": \"You have no credits remaining. Add credits to continue using the API at https://pla || https://www.astate.edu/colleges/nursing-and-health-professions/school-of-nursing.html?redirect=true: HTTP 429 {\n    \"error\": {\n        \"message\": \"You have no credits remaining. Add credits to continue using the API at https://pla || https://www.astate.edu/colleges/nursing-and-health"
  },
  "604": {
   "stage": "finalized",
@@ -3220,12 +3224,13 @@
   "finalStatus": "verified"
  },
  "1298": {
-  "stage": "finalized",
-  "lastAttempt": "2026-08-28T10:38:09.120Z",
-  "attempts": 1,
+  "stage": "failed",
+  "lastAttempt": "2026-08-28T11:29:54.013Z",
+  "attempts": 2,
   "pipelineGen": 11,
-  "sourceUrl": "https://phhp.ufl.edu/academics/phd-and-professional-programs/physical-therapy-doctorate/admissions/dpt-required-prerequisites/",
-  "finalStatus": "verified"
+  "sourceUrl": "https://phhp.ufl.edu/admissions/why-phhp-student-life/",
+  "finalStatus": "verified",
+  "error": "https://phhp.ufl.edu/academics/phd-and-professional-programs/occupational-therapy-doctorate/admissions/computer-requirements-and-competency/: HTTP 429 {\n    \"error\": {\n        \"message\": \"You have no credits remaining. Add credits to continue using the API at https://pla || https://phhp.ufl.edu/academics/phd-and-professional-programs/physical-therapy-doctorate/admissions/dpt-required-prerequisites/: HTTP 429 {\n    \"error\": {\n        \"message\": \"You have no credits remaining. Add credits to conti"
  },
  "1300": {
   "stage": "finalized",
@@ -3508,11 +3513,11 @@
   "finalStatus": "verified"
  },
  "1420": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-28T11:15:39.119Z",
+  "stage": "finalized",
+  "lastAttempt": "2026-08-28T11:16:24.753Z",
   "attempts": 2,
   "pipelineGen": 11,
-  "sourceUrl": "https://coursecat.isu.edu/",
+  "sourceUrl": "https://www.isu.edu/pharmacy/pre-pharmacy/academic-requirements/",
   "finalStatus": "verified"
  },
  "1421": {
@@ -3772,12 +3777,13 @@
   "finalStatus": "verified"
  },
  "1457": {
-  "stage": "source_discovery",
-  "lastAttempt": "2026-08-28T11:14:22.077Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-28T11:17:03.927Z",
   "attempts": 2,
   "pipelineGen": 11,
-  "sourceUrl": "https://www.southalabama.edu/colleges/alliedhealth/pa/prerequisites.html",
-  "finalStatus": "verified"
+  "sourceUrl": "https://www.southalabama.edu/departments/admissions/applytousa.html",
+  "finalStatus": "verified",
+  "error": "https://www.southalabama.edu/colleges/alliedhealth/pa/prerequisites.html: no usable prereq list || https://www.southalabama.edu/colleges/mcob/mba/prereqmaterial.html: no usable prereq list || https://www.southalabama.edu/departments/pharmacy/admissioncontacts.html: no usable prereq list"
  },
  "1458": {
   "stage": "finalized",
@@ -3788,12 +3794,13 @@
   "finalStatus": "verified"
  },
  "1459": {
-  "stage": "finalized",
-  "lastAttempt": "2026-08-28T10:41:02.128Z",
-  "attempts": 1,
+  "stage": "failed",
+  "lastAttempt": "2026-08-28T11:18:37.616Z",
+  "attempts": 2,
   "pipelineGen": 11,
-  "sourceUrl": "https://www.southalabama.edu/colleges/alliedhealth/pa/prerequisites.html",
-  "finalStatus": "verified"
+  "sourceUrl": "https://www.southalabama.edu/departments/admissions/applytousa.html",
+  "finalStatus": "verified",
+  "error": "https://www.southalabama.edu/colleges/alliedhealth/pa/prerequisites.html: no usable prereq list || https://www.southalabama.edu/colleges/mcob/mba/prereqmaterial.html: no usable prereq list || https://www.southalabama.edu/departments/pharmacy/admissioncontacts.html: no usable prereq list"
  },
  "1460": {
   "stage": "finalized",
@@ -3804,12 +3811,13 @@
   "finalStatus": "verified"
  },
  "1461": {
-  "stage": "source_discovery",
-  "lastAttempt": "2026-08-28T11:15:12.257Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-28T11:17:14.315Z",
   "attempts": 2,
   "pipelineGen": 11,
-  "sourceUrl": "https://www.swccd.edu/locations/higher-education-center-at-national-city/programs/dental-hygiene-program/dental-hygiene-admissions/prerequisites.aspx",
-  "finalStatus": "verified"
+  "sourceUrl": "https://www.swccd.edu/classes-and-registration/catalog/index.aspx",
+  "finalStatus": "verified",
+  "error": "https://catalog.swccd.edu/student-success-support-program/steps-success-applying-registering/step-apply-admission-southwestern-college/residency-requirements/: no usable prereq list || https://www.swccd.edu/locations/higher-education-center-at-national-city/programs/dental-hygiene-program/dental-hygiene-admissions/prerequisites.aspx: no usable prereq list || https://catalog.swccd.edu/associate-degree-certificate-programs/philosophy/: no usable prereq list"
  },
  "1462": {
   "stage": "finalized",
@@ -3933,12 +3941,13 @@
   "finalStatus": "verified"
  },
  "1479": {
-  "stage": "finalized",
-  "lastAttempt": "2026-08-28T10:36:21.027Z",
-  "attempts": 1,
+  "stage": "failed",
+  "lastAttempt": "2026-08-28T11:20:43.881Z",
+  "attempts": 2,
   "pipelineGen": 11,
-  "sourceUrl": "https://www.ucwv.edu/academics/school-of-health-sciences/physician-assistant-program/admissions/prerequisite-courses/",
-  "finalStatus": "verified"
+  "sourceUrl": "https://www.ucwv.edu/admissions/graduate-admissions/",
+  "finalStatus": "verified",
+  "error": "https://www.ucwv.edu/academics/school-of-health-sciences/physician-assistant-program/admissions/prerequisite-courses/: no usable prereq list || https://www.ucwv.edu/academics/school-of-health-sciences/physician-assistant-program/admissions/post-acceptance-requirements/: no usable prereq list || https://www.ucwv.edu/admissions/military/army-cool-credentialing-assistance/: no usable prereq list"
  },
  "1480": {
   "stage": "finalized",
@@ -6463,12 +6472,13 @@
   "finalStatus": "verified"
  },
  "2189": {
-  "stage": "finalized",
-  "lastAttempt": "2026-08-28T10:38:32.152Z",
-  "attempts": 1,
+  "stage": "failed",
+  "lastAttempt": "2026-08-28T11:23:04.032Z",
+  "attempts": 2,
   "pipelineGen": 11,
-  "sourceUrl": "https://sc.edu/study/colleges_schools/public_health/study/areas_of_study/physical_therapy/pt_future_students/prerequisites/index.php",
-  "finalStatus": "verified"
+  "sourceUrl": "https://www.sc.edu/admissions-at-sc/index.php",
+  "finalStatus": "verified",
+  "error": "https://sc.edu/about/offices_and_divisions/pre_professional_advising/premed/currentstudents/medschool_prereqs.php: HTTP 404 || https://sc.edu/study/colleges_schools/artsandsciences/mathematics/study/math_placement/prerequisites/index.php: HTTP 404 || https://sc.edu/study/colleges_schools/artsandsciences/anthropology/my_anthropology/courses_spring_2021/prerequisites.php: HTTP 404 || https://sc.edu/study/colleges_schools/moore/study/accounting/degree_programs/master_of_accountancy/curriculum/prere"
  },
  "2190": {
   "stage": "finalized",
@@ -6487,12 +6497,13 @@
   "finalStatus": "verified"
  },
  "2196": {
-  "stage": "finalized",
-  "lastAttempt": "2026-08-28T10:52:38.772Z",
-  "attempts": 11,
+  "stage": "failed",
+  "lastAttempt": "2026-08-28T11:36:49.972Z",
+  "attempts": 12,
   "pipelineGen": 11,
-  "sourceUrl": "https://health.csuohio.edu/occupational-therapy/admission-and-advising",
-  "finalStatus": "verified"
+  "sourceUrl": "https://live-csu-mainsite.pantheonsite.io/international-admissions/undergraduate-admission-requirements",
+  "finalStatus": "verified",
+  "error": "https://www.csuohio.edu/admissions: HTTP 429 {\n    \"error\": {\n        \"message\": \"You have no credits remaining. Add credits to continue using the API at https://pla || https://www.csuohio.edu/international-admissions: HTTP 429 {\n    \"error\": {\n        \"message\": \"You have no credits remaining. Add credits to continue using the API at https://pla || https://go.csuohio.edu/portal/apply?_gl=1*pb2jdr*_gcl_au*MTExNDkxOTg1NS4xNzQ4ODg0MTIy*_ga*NzY4OTkxOTk1LjE3MjAxOTAxMDA.*_ga_EEYNYG39GR*czE3NTQ2NzgzNj"
  },
  "2197": {
   "stage": "failed",
@@ -6672,12 +6683,13 @@
   "finalStatus": "no_prereqs_published"
  },
  "2220": {
-  "stage": "finalized",
-  "lastAttempt": "2026-08-28T10:03:49.509Z",
-  "attempts": 1,
+  "stage": "failed",
+  "lastAttempt": "2026-08-28T11:23:40.102Z",
+  "attempts": 2,
   "pipelineGen": 11,
-  "sourceUrl": "https://school.wakehealth.edu/education-and-training/md-program/application-requirements-and-technical-standards",
-  "finalStatus": "verified"
+  "sourceUrl": "https://school.wakehealth.edu/education-and-training/graduate-programs/biomedical-science/curriculum-overview",
+  "finalStatus": "verified",
+  "error": "https://school.wakehealth.edu/education-and-training/pa-studies/pa-program/admission-requirements: HTTP 429 {\n    \"error\": {\n        \"message\": \"You have no credits remaining. Add credits to continue using the API at https://pla || https://school.wakehealth.edu/education-and-training/graduate-programs/how-to-apply: HTTP 429 {\n    \"error\": {\n        \"message\": \"You have no credits remaining. Add credits to continue using the API at https://pla || https://school.wakehealth.edu/education-and-traini"
  },
  "2221": {
   "stage": "finalized",
@@ -6712,20 +6724,22 @@
   "finalStatus": "no_prereqs_published"
  },
  "2226": {
-  "stage": "finalized",
-  "lastAttempt": "2026-08-28T10:35:27.925Z",
-  "attempts": 1,
+  "stage": "failed",
+  "lastAttempt": "2026-08-28T11:24:45.639Z",
+  "attempts": 2,
   "pipelineGen": 11,
-  "sourceUrl": "https://www.nymc.edu/shsp/programs/physical-therapy/admissions/",
-  "finalStatus": "verified"
+  "sourceUrl": "https://www.nymc.edu/gsbms/programs/ms-programs/accelerated-interdisciplinary-ms/curriculum/",
+  "finalStatus": "verified",
+  "error": "https://www.nymc.edu/gsbms/programs/phd-programs/phd-degree-requirements/: HTTP 429 {\n    \"error\": {\n        \"message\": \"You have no credits remaining. Add credits to continue using the API at https://pla || https://www.nymc.edu/admissions--aid/: HTTP 429 {\n    \"error\": {\n        \"message\": \"You have no credits remaining. Add credits to continue using the API at https://pla || https://www.nymc.edu/gsbms/admissions--aid/: HTTP 429 {\n    \"error\": {\n        \"message\": \"You have no credits remaining"
  },
  "2227": {
-  "stage": "finalized",
-  "lastAttempt": "2026-08-28T10:11:43.668Z",
-  "attempts": 1,
+  "stage": "failed",
+  "lastAttempt": "2026-08-28T11:26:41.251Z",
+  "attempts": 2,
   "pipelineGen": 11,
-  "sourceUrl": "https://www.nymc.edu/shsp/programs/physical-therapy/admissions/",
-  "finalStatus": "verified"
+  "sourceUrl": "https://www.nymc.edu/gsbms/programs/ms-programs/accelerated-interdisciplinary-ms/curriculum/",
+  "finalStatus": "verified",
+  "error": "https://www.nymc.edu/gsbms/programs/phd-programs/phd-degree-requirements/: HTTP 429 {\n    \"error\": {\n        \"message\": \"You have no credits remaining. Add credits to continue using the API at https://pla || https://www.nymc.edu/admissions--aid/: HTTP 429 {\n    \"error\": {\n        \"message\": \"You have no credits remaining. Add credits to continue using the API at https://pla || https://www.nymc.edu/gsbms/admissions--aid/: HTTP 429 {\n    \"error\": {\n        \"message\": \"You have no credits remaining"
  },
  "2228": {
   "stage": "finalized",
@@ -6945,12 +6959,13 @@
   "finalStatus": "no_prereqs_published"
  },
  "2266": {
-  "stage": "finalized",
-  "lastAttempt": "2026-08-28T10:42:35.135Z",
-  "attempts": 1,
+  "stage": "failed",
+  "lastAttempt": "2026-08-28T11:27:34.141Z",
+  "attempts": 2,
   "pipelineGen": 11,
-  "sourceUrl": "https://dentistry.ucsf.edu/programs/dds",
-  "finalStatus": "verified"
+  "sourceUrl": "https://graduate.ucsf.edu/admission",
+  "finalStatus": "verified",
+  "error": "https://dentistry.ucsf.edu/programs/dds: HTTP 429 {\n    \"error\": {\n        \"message\": \"You have no credits remaining. Add credits to continue using the API at https://pla || https://graduate.ucsf.edu/admission/requirements: HTTP 429 {\n    \"error\": {\n        \"message\": \"You have no credits remaining. Add credits to continue using the API at https://pla || https://graduate.ucsf.edu/admission/intl-admission-requirements: HTTP 429 {\n    \"error\": {\n        \"message\": \"You have no credits remaining. A"
  },
  "2270": {
   "stage": "finalized",
@@ -7201,12 +7216,13 @@
   "finalStatus": "verified"
  },
  "2336": {
-  "stage": "finalized",
-  "lastAttempt": "2026-08-28T10:50:19.135Z",
-  "attempts": 6,
+  "stage": "failed",
+  "lastAttempt": "2026-08-28T11:35:49.159Z",
+  "attempts": 7,
   "pipelineGen": 11,
-  "sourceUrl": "https://hms.harvard.edu/education-admissions/md-program/admissions/preparing-apply/prerequisite-courses",
-  "finalStatus": "verified"
+  "sourceUrl": "https://hms.harvard.edu/education-admissions/md-program/curriculum/pathways",
+  "finalStatus": "verified",
+  "error": "https://hms.harvard.edu/education-admissions/md-program/curriculum/health-sciences-technology-hst: plain fetch returned 0 chars; render failed: Browser render: too little text || https://hms.harvard.edu/education-admissions/md-program/curriculum/pillars-frontiers: plain fetch returned 0 chars; render failed: Browser render: too little text || https://hms.harvard.edu/education-admissions/md-program/curriculum/primary-care-education: plain fetch returned 0 chars; render failed: Browser render: too"
  },
  "2338": {
   "stage": "finalized",
@@ -7289,12 +7305,13 @@
   "finalStatus": "verified"
  },
  "2355": {
-  "stage": "finalized",
-  "lastAttempt": "2026-08-28T10:52:31.999Z",
-  "attempts": 8,
+  "stage": "failed",
+  "lastAttempt": "2026-08-28T11:35:44.010Z",
+  "attempts": 9,
   "pipelineGen": 11,
-  "sourceUrl": "https://health.csuohio.edu/occupational-therapy/admission-and-advising",
-  "finalStatus": "verified"
+  "sourceUrl": "https://live-csu-mainsite.pantheonsite.io/international-admissions/undergraduate-admission-requirements",
+  "finalStatus": "verified",
+  "error": "https://www.csuohio.edu/admissions: HTTP 429 {\n    \"error\": {\n        \"message\": \"You have no credits remaining. Add credits to continue using the API at https://pla || https://www.csuohio.edu/international-admissions: HTTP 429 {\n    \"error\": {\n        \"message\": \"You have no credits remaining. Add credits to continue using the API at https://pla || https://go.csuohio.edu/portal/apply?_gl=1*pb2jdr*_gcl_au*MTExNDkxOTg1NS4xNzQ4ODg0MTIy*_ga*NzY4OTkxOTk1LjE3MjAxOTAxMDA.*_ga_EEYNYG39GR*czE3NTQ2NzgzNj"
  },
  "2357": {
   "stage": "finalized",
@@ -7657,12 +7674,13 @@
   "finalStatus": "verified"
  },
  "2418": {
-  "stage": "finalized",
-  "lastAttempt": "2026-08-28T10:46:33.929Z",
-  "attempts": 1,
+  "stage": "failed",
+  "lastAttempt": "2026-08-28T11:29:50.175Z",
+  "attempts": 2,
   "pipelineGen": 11,
-  "sourceUrl": "https://www.mc.edu/academics/departments/pa/admissions/prerequisites",
-  "finalStatus": "verified"
+  "sourceUrl": "https://www.mc.edu/academics/academic-resources/catalogs",
+  "finalStatus": "verified",
+  "error": "https://www.mc.edu/academics/departments/pa/admissions/prerequisites: HTTP 429 {\n    \"error\": {\n        \"message\": \"You have no credits remaining. Add credits to continue using the API at https://pla || https://www.mc.edu/academics/programs/mhsa/admission-requirements: HTTP 429 {\n    \"error\": {\n        \"message\": \"You have no credits remaining. Add credits to continue using the API at https://pla || https://www.mc.edu/academics/departments/pa/admissions/computer-requirements: HTTP 429 {\n    \"err"
  },
  "2420": {
   "stage": "finalized",
@@ -7825,12 +7843,13 @@
   "error": "https://home.hamptonu.edu/admissions/transfers/: no usable prereq list || https://home.hamptonu.edu/admissions/readmission/: no usable prereq list || https://home.hamptonu.edu/admissions/family-tours/: no usable prereq list"
  },
  "2449": {
-  "stage": "finalized",
-  "lastAttempt": "2026-08-28T10:35:53.947Z",
-  "attempts": 2,
+  "stage": "failed",
+  "lastAttempt": "2026-08-28T11:33:10.149Z",
+  "attempts": 3,
   "pipelineGen": 11,
-  "sourceUrl": "https://www.highpoint.edu/physicianassistant/admission-requirements/",
-  "finalStatus": "verified"
+  "sourceUrl": "https://www.highpoint.edu/physicianassistant/curriculum/",
+  "finalStatus": "verified",
+  "error": "https://www.highpoint.edu/physicianassistant/admission-requirements/: HTTP 429 {\n    \"error\": {\n        \"message\": \"You have no credits remaining. Add credits to continue using the API at https://pla || https://www.highpoint.edu/admissions/: HTTP 429 {\n    \"error\": {\n        \"message\": \"You have no credits remaining. Add credits to continue using the API at https://pla || https://www.highpoint.edu/physicianassistant/admission-faqs/: HTTP 429 {\n    \"error\": {\n        \"message\": \"You have no credi"
  },
  "2451": {
   "stage": "finalized",
@@ -7888,12 +7907,13 @@
   "finalStatus": "verified"
  },
  "2464": {
-  "stage": "finalized",
-  "lastAttempt": "2026-08-28T10:52:25.444Z",
-  "attempts": 9,
+  "stage": "failed",
+  "lastAttempt": "2026-08-28T11:36:49.301Z",
+  "attempts": 10,
   "pipelineGen": 11,
-  "sourceUrl": "https://www.salus.edu/colleges/optometry/health-sciences-track/index.html",
-  "finalStatus": "verified"
+  "sourceUrl": "https://www.salus.edu/colleges/optometry/health-sciences-track/application-process.html",
+  "finalStatus": "verified",
+  "error": "https://www.salus.edu/colleges/nursing-health-professions/department-of-speech-language-pathology/post-baccalaureate-program-in-health-sciences-spee/application-process.html: HTTP 429 {\n    \"error\": {\n        \"message\": \"You have no credits remaining. Add credits to continue using the API at https://pla || https://www.salus.edu/news-stories/2026/08/discovering-her-future-a-prospective-slp-students-visit-to-the-elkins-park-campus.html: HTTP 429 {\n    \"error\": {\n        \"message\": \"You have no cre"
  },
  "2465": {
   "stage": "failed",
@@ -7944,21 +7964,22 @@
   "error": "https://phsu.edu/academics/programs/master-of-science-in-medical-science.php: no usable prereq list || https://catalog.phsu.edu/: no usable prereq list || https://phsu.edu/apply.php: no usable prereq list"
  },
  "2475": {
-  "stage": "finalized",
-  "lastAttempt": "2026-08-28T10:19:00.124Z",
-  "attempts": 1,
+  "stage": "source_fetched",
+  "lastAttempt": "2026-08-28T11:27:54.798Z",
+  "attempts": 2,
   "error": "program timeout after 420s",
   "pipelineGen": 11,
-  "sourceUrl": "https://md.nova.edu/admissions/md/admissions-requirements.html",
+  "sourceUrl": "https://grad.nova.edu/index.html",
   "finalStatus": "verified"
  },
  "2477": {
-  "stage": "finalized",
-  "lastAttempt": "2026-08-28T10:45:45.477Z",
-  "attempts": 4,
+  "stage": "failed",
+  "lastAttempt": "2026-08-28T11:34:11.137Z",
+  "attempts": 5,
   "pipelineGen": 11,
-  "sourceUrl": "https://case.edu/medicine/md/admission/admission-requirements",
-  "finalStatus": "verified"
+  "sourceUrl": "https://case.edu/medicine/md/admission/missions-values",
+  "finalStatus": "verified",
+  "error": "https://case.edu/medicine/md/admission/admission-requirements: HTTP 429 {\n    \"error\": {\n        \"message\": \"You have no credits remaining. Add credits to continue using the API at https://pla || https://case.edu/medicine/md/admission/linkage-programs: HTTP 429 {\n    \"error\": {\n        \"message\": \"You have no credits remaining. Add credits to continue using the API at https://pla || https://case.edu/medicine/md/admission/admission-requirements/mcat: HTTP 429 {\n    \"error\": {\n        \"message\": \""
  },
  "2479": {
   "stage": "failed",
@@ -7994,12 +8015,13 @@
   "error": "https://iowastateonline.iastate.edu/admission-and-aid/military-affiliated-students/: no usable prereq list || https://iowastateonline.iastate.edu/programs-and-courses/analytics/master-of-digital-health/: no usable prereq list || https://apps.admissions.iastate.edu/apply/online/: no usable prereq list"
  },
  "2484": {
-  "stage": "finalized",
-  "lastAttempt": "2026-08-28T10:09:59.660Z",
-  "attempts": 1,
+  "stage": "failed",
+  "lastAttempt": "2026-08-28T11:25:35.646Z",
+  "attempts": 2,
   "pipelineGen": 11,
-  "sourceUrl": "https://medicine.arizona.edu/education/degree-programs/md-program/admissions/pre-medical-admissions-pathway",
-  "finalStatus": "verified"
+  "sourceUrl": "https://www.arizona.edu/admissions",
+  "finalStatus": "verified",
+  "error": "https://medicine.arizona.edu/education/degree-programs/md-program/admissions/pre-medical-admissions-pathway: HTTP 429 {\n    \"error\": {\n        \"message\": \"You have no credits remaining. Add credits to continue using the API at https://pla || https://medicine.arizona.edu/education/degree-programs/md-program/admissions: HTTP 429 {\n    \"error\": {\n        \"message\": \"You have no credits remaining. Add credits to continue using the API at https://pla || https://medicine.arizona.edu/education/degree-p"
  },
  "2486": {
   "stage": "finalized",
@@ -8034,20 +8056,22 @@
   "error": "https://www.bumc.bu.edu/gms/admissions/: no usable prereq list || https://www.bumc.bu.edu/gms/admissions/accepted-students/: no usable prereq list || https://www.bumc.bu.edu/gms/admissions/fall-2025-virtual-fair-pre-registration/: no usable prereq list"
  },
  "2496": {
-  "stage": "finalized",
-  "lastAttempt": "2026-08-28T10:50:59.445Z",
-  "attempts": 1,
+  "stage": "failed",
+  "lastAttempt": "2026-08-28T11:21:17.087Z",
+  "attempts": 2,
   "pipelineGen": 11,
-  "sourceUrl": "https://www.meredith.edu/master-of-science-nutrition/ms-accelerated-dietitian-nutritionist-track/",
-  "finalStatus": "verified"
+  "sourceUrl": "https://www.meredith.edu/applications",
+  "finalStatus": "verified",
+  "error": "https://www.meredith.edu/graduateprograms/graduate-international-admissions/: no usable prereq list || https://www.meredith.edu/master-of-science-nutrition/ms-accelerated-dietitian-nutritionist-track/: no usable prereq list"
  },
  "2497": {
-  "stage": "finalized",
-  "lastAttempt": "2026-08-28T10:48:00.591Z",
-  "attempts": 1,
+  "stage": "failed",
+  "lastAttempt": "2026-08-28T11:25:49.273Z",
+  "attempts": 2,
   "pipelineGen": 11,
-  "sourceUrl": "https://www.bcm.edu/education/school-of-medicine/m-d-program/admissions-process/requirements",
-  "finalStatus": "verified"
+  "sourceUrl": "https://admissions.web.baylor.edu/about-baylor/majors-minors",
+  "finalStatus": "verified",
+  "error": "https://www.bcm.edu/education/school-of-health-professions/physician-assistant-program/admissions/prerequisites: HTTP 429 {\n    \"error\": {\n        \"message\": \"You have no credits remaining. Add credits to continue using the API at https://pla || https://www.bcm.edu/education/school-of-health-professions/orthotics-and-prosthetics-program/admissions/admission-requirements: HTTP 429 {\n    \"error\": {\n        \"message\": \"You have no credits remaining. Add credits to continue using the API at https://"
  },
  "2499": {
   "stage": "finalized",
@@ -8541,12 +8565,13 @@
   "sourceUrl": "https://osuokc.edu/admissions/apply"
  },
  "2679": {
-  "stage": "finalized",
-  "lastAttempt": "2026-08-28T10:43:14.464Z",
-  "attempts": 1,
+  "stage": "failed",
+  "lastAttempt": "2026-08-28T11:29:17.200Z",
+  "attempts": 2,
   "pipelineGen": 11,
-  "sourceUrl": "https://www.pace.edu/college-health-professions/departments/occupational-therapy/admissions/prerequisite-coursework",
-  "finalStatus": "verified"
+  "sourceUrl": "https://www.pace.edu/admission-and-aid/graduate-admission/how-apply/international-graduate-admission",
+  "finalStatus": "verified",
+  "error": "https://www.pace.edu/college-health-professions/departments/occupational-therapy/admissions/prerequisite-coursework: HTTP 429 {\n    \"error\": {\n        \"message\": \"You have no credits remaining. Add credits to continue using the API at https://pla || https://www.pace.edu/college-health-professions/departments/nutrition-and-dietetics/admission-requirements: HTTP 429 {\n    \"error\": {\n        \"message\": \"You have no credits remaining. Add credits to continue using the API at https://pla || https://w"
  },
  "2681": {
   "stage": "finalized",
@@ -9339,12 +9364,13 @@
   "sourceUrl": "https://www.sju.edu/admission/graduate"
  },
  "2885": {
-  "stage": "finalized",
-  "lastAttempt": "2026-08-28T10:36:46.687Z",
-  "attempts": 2,
+  "stage": "failed",
+  "lastAttempt": "2026-08-28T11:33:25.791Z",
+  "attempts": 3,
   "pipelineGen": 11,
-  "sourceUrl": "https://www.wilson.edu/doctor-physical-therapy-application-and-admissions-process",
-  "finalStatus": "verified"
+  "sourceUrl": "https://www.wilson.edu/pre-professional-programs",
+  "finalStatus": "verified",
+  "error": "https://www.wilson.edu/master-science-speech-language-pathology: HTTP 429 {\n    \"error\": {\n        \"message\": \"You have no credits remaining. Add credits to continue using the API at https://pla || https://www.wilson.edu/doctor-physical-therapy-course-requirements: HTTP 429 {\n    \"error\": {\n        \"message\": \"You have no credits remaining. Add credits to continue using the API at https://pla || https://www.wilson.edu/doctor-physical-therapy-application-and-admissions-process: HTTP 429 {\n    \"er"
  },
  "2886": {
   "stage": "finalized",
