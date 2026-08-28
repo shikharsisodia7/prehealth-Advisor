@@ -1,23 +1,22 @@
 # Programmes still unfinished
 
-Generated 2026-08-27 from the live database. 143 active programmes are not yet finalized, each listed below with why.
+Generated 2026-08-28 from the live database. 105 active programmes are not yet finalized, each listed below with why.
 
 None of these is recorded as publishing no prerequisites. That status asserts something about a school and requires the school to say it; not having found a list is not the same claim.
 
 ## Why they are unfinished
 
-- **124** — pages read, but the programme does not publish an enumerable course list
-- **11** — pages could not be read even in a browser
-- **3** — not yet attempted since its source was corrected
+- **90** — pages read, but the programme does not publish an enumerable course list
+- **10** — pages could not be read even in a browser
 - **2** — the stored source no longer resolves
 - **1** — wrong website removed; its own source is unaffected and awaiting extraction
-- **1** — no source URL and none found yet
+- **1** — not yet attempted since its source was corrected
 - **1** — evidence removed as not the school's own; awaiting a correct source
 
 The dominant case is a programme that refers to prerequisites without listing them. Florida International's speech-language pathology page, for example, states that applicants need "10 required prerequisite courses" and never names them, in the rendered page as well as the raw HTML. Those ten course names cannot be supplied without inventing them.
 
 
-## postbac (65)
+## postbac (57)
 
 - **Avila University** (MO) — Avila University Postbaccalaureate Program
   - ID 2216: pages read, but the programme does not publish an enumerable course list
@@ -35,24 +34,12 @@ The dominant case is a programme that refers to prerequisites without listing th
   - Last source tried: https://catalog.cn.edu/admissions
 - **Cedars-Sinai Medical Center** (CA) — Master of Science in Health Systems
   - ID 2446: pages read, but the programme does not publish an enumerable course list
-- **Cleveland State University** (OH) — Military Veteran Individualized Post Baccalaureate Option
-  - ID 2196: not yet attempted since its source was corrected
-  - Last source tried: https://www.csuohio.edu/admissions/post-baccalaureate-students
-- **Cleveland State University** (OH) — Individualized Post Baccalaureate Option
-  - ID 2355: pages read, but the programme does not publish an enumerable course list
-  - Last source tried: https://www.csuohio.edu/admissions/post-baccalaureate-students
-- **Colorado State University** (CO) — Master of Science in Biomedical Sciences (1 year)
-  - ID 2188: pages read, but the programme does not publish an enumerable course list
-  - Last source tried: https://online.colostate.edu/certificates/post-bac-pre-health/
 - **Colorado State University** (CO) — Master of Science in Toxicology
   - ID 2245: pages read, but the programme does not publish an enumerable course list
   - Last source tried: https://admissions.colostate.edu/2018/04/16/pre-health-csu/
 - **Colorado State University** (CO) — Assisted Reproductive Technologies
   - ID 2395: pages read, but the programme does not publish an enumerable course list
   - Last source tried: https://admissions.colostate.edu/2018/04/16/pre-health-csu/
-- **Columbia University Irving Medical Center** (NY) — Institute of Human Nutrition
-  - ID 2204: pages read, but the programme does not publish an enumerable course list
-  - Last source tried: https://sps.columbia.edu/academics/postbaccalaureate-studies/admissions
 - **Creighton University** (NE) — Creighton University Premedical Post baccalaureate
   - ID 2295: pages read, but the programme does not publish an enumerable course list
   - Last source tried: https://www.creighton.edu/medicine/programs/medicine-md/admissions-requirements
@@ -79,9 +66,6 @@ The dominant case is a programme that refers to prerequisites without listing th
 - **Indiana University School of Medicine** (IN) — Pre-Professional MS- Masters in Anatomy, Cell Biology and Physiology
   - ID 2445: pages read, but the programme does not publish an enumerable course list
   - Last source tried: https://science.indianapolis.iu.edu/academics/degrees-and-programs/post-bachelor.html
-- **Iowa State University** (IA) — 1-Year, Non-Thesis Master of Science in Biomedical Sciences
-  - ID 2393: pages read, but the programme does not publish an enumerable course list
-  - Last source tried: https://catalog.iastate.edu/preprofessionalstudy/
 - **IOWA STATE UNIVERSITY** (IA) — MASTER OF DIGITAL HEALTH
   - ID 2483: pages read, but the programme does not publish an enumerable course list
   - Last source tried: https://catalog.iastate.edu/preprofessionalstudy/
@@ -95,7 +79,7 @@ The dominant case is a programme that refers to prerequisites without listing th
   - ID 2878: pages read, but the programme does not publish an enumerable course list
   - Last source tried: https://ddp.cellbio.jhmi.edu/
 - **Johnson & Wales University** (RI) — Pre-Medical & Pre-Health Professions Certificate
-  - ID 2332: pages could not be read even in a browser
+  - ID 2332: pages read, but the programme does not publish an enumerable course list
 - **Lawrence Technological University** (MI) — Post-Baccalaureate Certificate in Premedical Studies
   - ID 2469: pages read, but the programme does not publish an enumerable course list
   - Last source tried: https://ltu.edu/admissions/first-year-students/
@@ -106,14 +90,14 @@ The dominant case is a programme that refers to prerequisites without listing th
   - Last source tried: https://lehman-undergraduate.catalog.cuny.edu/programs/HTHCP-CERT
 - **Louisiana State University Shreveport** (LA) — Master of Science in Biological Sciences with a Health Sciences Concentration
   - ID 2368: pages read, but the programme does not publish an enumerable course list
+- **Manchester University** (IN) — Master of Science in Pharmacogenomics Online Program
+  - ID 2461: pages could not be read even in a browser
+  - Last source tried: https://forms.manchester.edu/postBacc/
 - **Manchester University** (IN) — Master of Science in Pharmacogenomics
   - ID 2423: pages could not be read even in a browser
   - Last source tried: https://forms.manchester.edu/postBacc/
 - **Manchester University** (IN) — Graduate Certificate in Pharmacogenomics
   - ID 2348: pages could not be read even in a browser
-  - Last source tried: https://forms.manchester.edu/postBacc/
-- **Manchester University** (IN) — Master of Science in Pharmacogenomics Online Program
-  - ID 2461: pages could not be read even in a browser
   - Last source tried: https://forms.manchester.edu/postBacc/
 - **Marquette University** (WI) — MS in Biomedical Scienes
   - ID 2465: pages read, but the programme does not publish an enumerable course list
@@ -134,15 +118,10 @@ The dominant case is a programme that refers to prerequisites without listing th
 - **Rosalind Franklin University of Medicine & Science** (IL) — Master of Science in Biomedical Sciences (BMS)
   - ID 2203: pages read, but the programme does not publish an enumerable course list
   - Last source tried: https://www.rosalindfranklin.edu/academics/chicago-medical-school/degree-programs/allopathic-medicine-md/application-requirements/
-- **Salus at Drexel University** (PA) — Post-baccalaureate Program in Health Sciences
-  - ID 2464: pages read, but the programme does not publish an enumerable course list
 - **Salus at Drexel University** (PA) — Post-baccalaureate Program in Speech Langauge Pathology
   - ID 2211: pages read, but the programme does not publish an enumerable course list
 - **South Dakota State University** (SD) — Human Biology
   - ID 2441: pages read, but the programme does not publish an enumerable course list
-- **Southern Illinois University Carbondale** (IL) — Master of Biomedical Science
-  - ID 2451: pages read, but the programme does not publish an enumerable course list
-  - Last source tried: https://catalog.siu.edu/programs/medp/requirements.php
 - **SUNY Upstate Medical University** (NY) — MedPrep Academic Enhancement MS in Medical Technology
   - ID 2374: pages read, but the programme does not publish an enumerable course list
 - **University at Buffalo, State University of New York** (NY) — Masters Program (SMP) in Biological Sciences
@@ -161,20 +140,17 @@ The dominant case is a programme that refers to prerequisites without listing th
   - ID 2179: pages read, but the programme does not publish an enumerable course list
 - **University of Michigan Medical School, Office of Graduate & Postdoctoral Studies (OGPS)** (MI) — Postbac MEDPREP Program: Post-Baccalaureate Premedical Program
   - ID 2358: pages read, but the programme does not publish an enumerable course list
-- **University of Mississippi Medical Center** (MS) — Master of Science in Biomedical Sciences
-  - ID 2241: pages read, but the programme does not publish an enumerable course list
-  - Last source tried: https://umc.edu/som/Departments%20and%20Offices/SOM%20Administrative%20Offices/SOM%20Admissions/Admissions%20Criteria/Course-Requirements/Overview.html
 - **University of Northern Colorado** (CO) — Master's in Biomedical Science
   - ID 2232: pages read, but the programme does not publish an enumerable course list
   - Last source tried: https://www.unco.edu/osteopathic-medicine/admission/requirements/
-- **University of Northern Colorado** (CO) — Master's in Biology, non-thesis
-  - ID 2401: pages read, but the programme does not publish an enumerable course list
+- **University of Northern Colorado** (CO) — Master's in Biomedical Science Online
+  - ID 2377: pages read, but the programme does not publish an enumerable course list
   - Last source tried: https://www.unco.edu/osteopathic-medicine/admission/requirements/
 - **University of Northern Colorado** (CO) — Online Master's in Biology, non-thesis
   - ID 2396: pages read, but the programme does not publish an enumerable course list
   - Last source tried: https://www.unco.edu/osteopathic-medicine/admission/requirements/
-- **University of Northern Colorado** (CO) — Master's in Biomedical Science Online
-  - ID 2377: pages read, but the programme does not publish an enumerable course list
+- **University of Northern Colorado** (CO) — Master's in Biology, non-thesis
+  - ID 2401: pages read, but the programme does not publish an enumerable course list
   - Last source tried: https://www.unco.edu/osteopathic-medicine/admission/requirements/
 - **University of Rochester School of Medicine & Dentistry** (NY) — MS in Medical Humanities [Health Humanities & Bioethics]
   - ID 2447: pages read, but the programme does not publish an enumerable course list
@@ -191,65 +167,34 @@ The dominant case is a programme that refers to prerequisites without listing th
   - ID 2359: pages read, but the programme does not publish an enumerable course list
   - Last source tried: https://medicine.wvu.edu/physician-assistant-studies/admission/prerequisite-courses/
 
-## speech-language-pathology (35)
+## speech-language-pathology (19)
 
 - **Alabama A&M University** (AL) — Master's in Speech-Language Pathology (MS/MA)
   - ID 2528: pages read, but the programme does not publish an enumerable course list
   - Last source tried: https://www.aamu.edu/academics/colleges/education-humanities-behavioral-sciences/departments/health-sciences-human-performance-communicative-disorders/communicative-sciences-disorders/graduate-admission-requirements.html
-- **Ball State University** (IN) — Master's in Speech-Language Pathology (MS/MA)
-  - ID 2538: pages read, but the programme does not publish an enumerable course list
-  - Last source tried: https://www.bsu.edu/admissions/graduate/apply/speech-pathology
-- **Bethel University** (MN) — Master's in Speech-Language Pathology (MS)
-  - ID 2887: pages read, but the programme does not publish an enumerable course list
-  - Last source tried: https://www.bethel.edu/graduate/academics/physician-assistant/prerequisites
-- **Bob Jones University** (SC) — Master's in Speech-Language Pathology (MS)
-  - ID 2889: pages read, but the programme does not publish an enumerable course list
-  - Last source tried: https://www.bju.edu/
-- **Cleveland State University** (OH) — Master's in Speech-Language Pathology (MS/MA)
-  - ID 2569: pages read, but the programme does not publish an enumerable course list
-  - Last source tried: https://health.csuohio.edu/communication-sciences-disorde/program-requirements-communication-sciences-and-disorders
-- **D'Youville University** (NY) — Master's in Speech-Language Pathology (MS)
-  - ID 2891: pages read, but the programme does not publish an enumerable course list
 - **East Carolina University** (NC) — Master's in Speech-Language Pathology (MS/MA)
   - ID 2582: pages read, but the programme does not publish an enumerable course list
-- **East Texas Baptist University** (TX) — Master's in Speech-Language Pathology (MS)
-  - ID 2892: pages read, but the programme does not publish an enumerable course list
-  - Last source tried: https://www.etbu.edu/admissions/apply/graduate-admissions
-- **Eastern Michigan University** (MI) — Master's in Speech-Language Pathology (MS/MA)
-  - ID 2587: pages read, but the programme does not publish an enumerable course list
 - **Florida International University** (FL) — Master's in Speech-Language Pathology (MS/MA)
   - ID 2596: pages read, but the programme does not publish an enumerable course list
   - Last source tried: https://catalog.fiu.edu/programs/SPHPATH:MS/requirements-uz47h
-- **Grand Canyon University** (AZ) — Master's in Speech-Language Pathology (MS)
-  - ID 2893: pages read, but the programme does not publish an enumerable course list
-- **Hampton University** (VA) — Master's in Speech-Language Pathology (MS/MA)
-  - ID 2608: pages read, but the programme does not publish an enumerable course list
-  - Last source tried: https://home.hamptonu.edu/science/communicative-sciences-and-disorders/
 - **LIU Brooklyn** (NY) — Master's in Speech-Language Pathology (MS/MA)
   - ID 2631: pages read, but the programme does not publish an enumerable course list
 - **Louisiana State University - Health Science Center, New Orleans** (LA) — Master's in Speech-Language Pathology (MS/MA)
   - ID 2635: pages could not be read even in a browser
 - **Louisiana Technical University** (LA) — Master's in Speech-Language Pathology (MS/MA)
   - ID 2638: pages could not be read even in a browser
-- **Merrimack College** (MA) — Master's in Speech-Language Pathology (MS)
-  - ID 2897: pages read, but the programme does not publish an enumerable course list
-  - Last source tried: https://www.merrimack.edu/academics/health-sciences/graduate/health-promotion-and-management-old/admission-requirements
 - **Mount Vernon Nazarene University** (OH) — Master's in Speech-Language Pathology (MS)
   - ID 2899: pages read, but the programme does not publish an enumerable course list
+  - Last source tried: https://mvnu.edu/online/graduate/master-of-speech-language-pathology/
 - **Penn State Harrisburg** (PA) — Master's in Speech-Language Pathology (MS)
   - ID 2903: pages read, but the programme does not publish an enumerable course list
-  - Last source tried: https://hhd.psu.edu/csd/graduate/masters-degree-communication-sciences-and-disorders/admission-requirements-masters-degree
-- **Pennsylvania Western University** (PA) — Master's in Speech-Language Pathology (MS/MA)
-  - ID 2682: pages read, but the programme does not publish an enumerable course list
-  - Last source tried: https://online.pennwest.edu/programs/speech-language-pathology-grad/index.php
+  - Last source tried: https://harrisburg.psu.edu/behavioral-sciences-education/speech-language-pathology-ms/program-requirements-admission
 - **Radford University** (VA) — Master's in Speech-Language Pathology (MS/MA)
   - ID 2687: pages read, but the programme does not publish an enumerable course list
   - Last source tried: https://www.radford.edu/admissions/online/licensure-disclosure-statements.html
 - **Saint Joseph's University** (PA) — Master's in Speech-Language Pathology (MS)
   - ID 2884: pages read, but the programme does not publish an enumerable course list
-  - Last source tried: https://www.sju.edu/academics/graduate/health-degree-programs
-- **St. Bonaventure University** (NY) — Master's in Speech-Language Pathology (MS)
-  - ID 2910: pages read, but the programme does not publish an enumerable course list
+  - Last source tried: https://www.sju.edu/degree-programs/speech-language-pathology-ms
 - **St. Cloud State University** (MN) — Master's in Speech-Language Pathology (MS/MA)
   - ID 2711: pages read, but the programme does not publish an enumerable course list
 - **The University of Texas at San Antonio Health Science Center** (TX) — Master's in Speech-Language Pathology (MS/MA)
@@ -266,81 +211,16 @@ The dominant case is a programme that refers to prerequisites without listing th
   - ID 2760: pages read, but the programme does not publish an enumerable course list
 - **University of Mississippi** (MS) — Master's in Speech-Language Pathology (MS/MA)
   - ID 2777: evidence removed as not the school's own; awaiting a correct source
-- **University of New Haven** (CT) — Master's in Speech-Language Pathology (MS)
-  - ID 2882: pages read, but the programme does not publish an enumerable course list
-- **University of North Texas** (TX) — Master's in Speech-Language Pathology (MS/MA)
-  - ID 2790: pages read, but the programme does not publish an enumerable course list
 - **University of Oklahoma - Health Sciences Center** (OK) — Master's in Speech-Language Pathology (MS/MA)
   - ID 2793: pages read, but the programme does not publish an enumerable course list
   - Last source tried: https://ou.edu/tulsa/community_medicine/scm-pa-program/admission/prerequisite_courses
-- **University of Rhode Island** (RI) — Master's in Speech-Language Pathology (MS/MA)
-  - ID 2798: pages read, but the programme does not publish an enumerable course list
-  - Last source tried: https://web.uri.edu/cmd/academics/m-s-program/admission/
 - **University of Tulsa** (OK) — Master's in Speech-Language Pathology (MS/MA)
   - ID 2813: pages read, but the programme does not publish an enumerable course list
-- **Viterbo University** (WI) — Master's in Speech-Language Pathology (MS)
-  - ID 2913: pages read, but the programme does not publish an enumerable course list
 
-## medicine (9)
+## occupational-therapy (7)
 
-- **Alice L. Walton School of Medicine** (AR) — Doctor of Medicine (MD)
-  - ID 440: pages read, but the programme does not publish an enumerable course list
-  - Last source tried: https://www.alwmedschool.org/admissions/requirements
-- **Oklahoma State University Center for Health Sciences College of Osteopathic Medicine** (OK) — Doctor of Osteopathic Medicine (DO)
-  - ID 409: pages could not be read even in a browser
-- **Oklahoma State University Center for Health Sciences College of Osteopathic Medicine-Tahlequah** (OK) — Doctor of Osteopathic Medicine (DO)
-  - ID 410: pages read, but the programme does not publish an enumerable course list
-- **The University of Texas at San Antonio Joe R. and Teresa Lozano Long School of Medicine** (TX) — Doctor of Medicine (MD)
-  - ID 576: pages read, but the programme does not publish an enumerable course list
-- **University of Massachusetts T.H. Chan School of Medicine** (MA) — Doctor of Medicine (MD)
-  - ID 495: pages read, but the programme does not publish an enumerable course list
-- **University of Nevada, Reno School of Medicine** (NV) — Doctor of Medicine (MD)
-  - ID 513: pages read, but the programme does not publish an enumerable course list
-  - Last source tried: https://med.unr.edu/education/medical-education/md-admissions-process/prerequisites-requirements
-- **UNT Health Fort Worth's Texas College of Osteopathic Medicine** (TX) — Doctor of Osteopathic Medicine (DO)
-  - ID 427: pages read, but the programme does not publish an enumerable course list
-- **Vanderbilt University School of Medicine** (TN) — Doctor of Medicine (MD)
-  - ID 568: pages read, but the programme does not publish an enumerable course list
-  - Last source tried: https://medschool.vanderbilt.edu/md/admissions/process/
-- **Washington University in St. Louis School of Medicine** (MO) — Doctor of Medicine (MD)
-  - ID 508: pages read, but the programme does not publish an enumerable course list
-
-## nursing (9)
-
-- **American University of Beirut** (NY) — Accelerated Bachelor of Science in Nursing (ABSN)
-  - ID 596: the stored source no longer resolves
-  - Last source tried: https://www.aub.edu.lb/Registrar/catalogue2025-26/ug/Pages/hson-bsn.aspx
-- **Cleveland State University** (OH) — Accelerated Bachelor of Science in Nursing (ABSN)
-  - ID 641: pages read, but the programme does not publish an enumerable course list
-  - Last source tried: https://health.csuohio.edu/sites/default/files/2024-11/traditional-bsn-applicationpacket.pdf
-- **Denver College of Nursing** (CO) — Accelerated Bachelor of Science in Nursing (ABSN)
-  - ID 653: pages could not be read even in a browser
-- **Marquette University** (WI) — Entry-Level Master's in Nursing (MEPN)
-  - ID 969: pages read, but the programme does not publish an enumerable course list
-- **Metropolitan State University** (MN) — Entry-Level Master's in Nursing (MEPN)
-  - ID 971: pages read, but the programme does not publish an enumerable course list
-  - Last source tried: https://www.metrostate.edu/academics/programs/prelicensure-bsn
-- **University of Central Oklahoma** (OK) — Accelerated Bachelor of Science in Nursing (ABSN)
-  - ID 851: pages read, but the programme does not publish an enumerable course list
-- **University of Pennsylvania** (PA) — Entry-Level Master's in Nursing (MEPN)
-  - ID 1016: pages read, but the programme does not publish an enumerable course list
-  - Last source tried: https://www.nursing.upenn.edu/students/handbooks-forms/bsn-handbook/degree-requirements/
-- **University of San Diego** (CA) — Entry-Level Master's in Nursing (MEPN)
-  - ID 1019: pages read, but the programme does not publish an enumerable course list
-  - Last source tried: https://www.sandiego.edu/nursing/programs/masters/msn/admissions.php
-- **Wilmington University-Georgetown** (DE) — Entry-Level Master's in Nursing (MEPN)
-  - ID 1034: the stored source no longer resolves
-  - Last source tried: https://www.wilmu.edu/admission/nursing_admission.aspx
-
-## occupational-therapy (9)
-
-- **Cleveland State University** (OH) — Entry-Level Occupational Therapy Doctorate (OTD)
-  - ID 1209: not yet attempted since its source was corrected
-  - Last source tried: https://health.csuohio.edu/occupational-therapy/admission-and-advising
 - **Eastern Michigan University** (MI) — Entry-Level Master of Occupational Therapy
   - ID 1070: pages read, but the programme does not publish an enumerable course list
-- **Hofstra University** (NY) — Entry-Level Master of Occupational Therapy
-  - ID 1082: pages read, but the programme does not publish an enumerable course list
 - **Radford University Carilion** (VA) — Entry-Level Master of Occupational Therapy
   - ID 1128: pages read, but the programme does not publish an enumerable course list
   - Last source tried: https://www.radford.edu/admissions/online/index.html
@@ -358,25 +238,43 @@ The dominant case is a programme that refers to prerequisites without listing th
   - ID 1314: pages read, but the programme does not publish an enumerable course list
   - Last source tried: https://www.ou.edu/admissions/academics/allied-health/occupational-therapy.html
 
-## dietetics (5)
+## medicine (6)
 
-- **Appalachian State University** (NC) — Graduate Program in Nutrition and Dietetics
-  - ID 255: not yet attempted since its source was corrected
-  - Last source tried: https://nutrition.appstate.edu/academic-programs/ms-nutrition-public-health-nutrition-dietetics
-- **California Baptist University** (CA) — Graduate Program in Nutrition and Dietetics
-  - ID 210: pages read, but the programme does not publish an enumerable course list
-  - Last source tried: https://calbaptist.edu/academics/programs/online-master-of-science-integrative-nutrition/application-requirements
-- **Pepperdine University** (CA) — Coordinated Program in Dietetics
-  - ID 154: pages read, but the programme does not publish an enumerable course list
-  - Last source tried: https://seaver.pepperdine.edu/natural-science/content/nutrionalscience/nutritional_science_handbook_2018.pdf
-- **Purdue University** (IN) — Coordinated Program in Dietetics
-  - ID 168: pages read, but the programme does not publish an enumerable course list
-  - Last source tried: https://www.purdue.edu/academics/ogsps/admissions/gradrequirements/westlafayette/nutrition-and-dietetics/
-- **The University of Mississippi** (MS) — Coordinated Program in Dietetics
-  - ID 177: pages read, but the programme does not publish an enumerable course list
-  - Last source tried: https://olemiss.edu/programs/applsci/master-science-food-and-nutrition-services/
+- **Alice L. Walton School of Medicine** (AR) — Doctor of Medicine (MD)
+  - ID 440: pages read, but the programme does not publish an enumerable course list
+  - Last source tried: https://www.alwmedschool.org/admissions/requirements
+- **Oklahoma State University Center for Health Sciences College of Osteopathic Medicine** (OK) — Doctor of Osteopathic Medicine (DO)
+  - ID 409: pages could not be read even in a browser
+- **Oklahoma State University Center for Health Sciences College of Osteopathic Medicine-Tahlequah** (OK) — Doctor of Osteopathic Medicine (DO)
+  - ID 410: pages read, but the programme does not publish an enumerable course list
+- **The University of Texas at San Antonio Joe R. and Teresa Lozano Long School of Medicine** (TX) — Doctor of Medicine (MD)
+  - ID 576: pages read, but the programme does not publish an enumerable course list
+- **Vanderbilt University School of Medicine** (TN) — Doctor of Medicine (MD)
+  - ID 568: pages read, but the programme does not publish an enumerable course list
+  - Last source tried: https://medschool.vanderbilt.edu/md/admissions/
+- **Washington University in St. Louis School of Medicine** (MO) — Doctor of Medicine (MD)
+  - ID 508: pages read, but the programme does not publish an enumerable course list
+  - Last source tried: https://medicine.wustl.edu/education/admissions/
 
-## physician-assistant (5)
+## nursing (6)
+
+- **Denver College of Nursing** (CO) — Accelerated Bachelor of Science in Nursing (ABSN)
+  - ID 653: pages could not be read even in a browser
+- **Marquette University** (WI) — Entry-Level Master's in Nursing (MEPN)
+  - ID 969: pages read, but the programme does not publish an enumerable course list
+- **University of Central Oklahoma** (OK) — Accelerated Bachelor of Science in Nursing (ABSN)
+  - ID 851: pages read, but the programme does not publish an enumerable course list
+- **University of Pennsylvania** (PA) — Entry-Level Master's in Nursing (MEPN)
+  - ID 1016: pages read, but the programme does not publish an enumerable course list
+  - Last source tried: https://www.nursing.upenn.edu/students/handbooks-forms/bsn-handbook/degree-requirements/
+- **University of San Diego** (CA) — Entry-Level Master's in Nursing (MEPN)
+  - ID 1019: pages read, but the programme does not publish an enumerable course list
+  - Last source tried: https://www.sandiego.edu/nursing/programs/masters/msn/admissions.php
+- **Wilmington University-Georgetown** (DE) — Entry-Level Master's in Nursing (MEPN)
+  - ID 1034: the stored source no longer resolves
+  - Last source tried: https://www.wilmu.edu/admission/nursing_admission.aspx
+
+## physician-assistant (4)
 
 - **Army Medical Center of Excellence** (TX) — Master of Science in Physician Assistant Studies
   - ID 2126: pages read, but the programme does not publish an enumerable course list
@@ -385,35 +283,35 @@ The dominant case is a programme that refers to prerequisites without listing th
   - Last source tried: https://catalog.k-state.edu/programs/MPAS/program-requirements-TCjHU
 - **Louisiana State University Health Sciences Center Shreveport** (LA) — Master of Science in Physician Assistant Studies
   - ID 1946: pages could not be read even in a browser
-- **Oklahoma State University** (OK) — Master of Science in Physician Assistant Studies
-  - ID 2070: pages read, but the programme does not publish an enumerable course list
-  - Last source tried: https://catalog.okstate.edu/courses/pa/
 - **South College – Asheville** (NC) — Master of Science in Physician Assistant Studies
-  - ID 1999: no source URL and none found yet
+  - ID 1999: not yet attempted since its source was corrected
+  - Last source tried: https://www.south.edu/physician-assistant-studies-asheville/admissions/
 
-## pharmacy (3)
+## dietetics (3)
 
-- **Purdue University College of Pharmacy** (IN) — Doctor of Pharmacy (PharmD)
-  - ID 1448: pages read, but the programme does not publish an enumerable course list
-  - Last source tried: https://pharmacy.purdue.edu/pharmd/pharmd-prerequisites
-- **South Dakota State University College of Pharmacy and Allied Health Professions** (SD) — Doctor of Pharmacy (PharmD)
-  - ID 1458: pages read, but the programme does not publish an enumerable course list
-- **University of New England Westbrook College of Health Professions School of Pharmacy** (ME) — Doctor of Pharmacy (PharmD)
-  - ID 1500: pages read, but the programme does not publish an enumerable course list
+- **California Baptist University** (CA) — Graduate Program in Nutrition and Dietetics
+  - ID 210: pages read, but the programme does not publish an enumerable course list
+  - Last source tried: https://calbaptist.edu/academics/programs/online-master-of-science-integrative-nutrition/application-requirements
+- **Pepperdine University** (CA) — Coordinated Program in Dietetics
+  - ID 154: the stored source no longer resolves
+  - Last source tried: https://seaver.pepperdine.edu/natural-science/graduate/ms-nutrition-and-health-science-supervised-practice-experience/
+- **The University of Mississippi** (MS) — Coordinated Program in Dietetics
+  - ID 177: pages read, but the programme does not publish an enumerable course list
+  - Last source tried: https://olemiss.edu/programs/applsci/master-science-food-and-nutrition-services/
 
 ## dental (1)
 
 - **Universidad Ana G. Mendez - Gurabo, School of Dental Medicine** (PR) — Predoctoral Dental Education Program (DDS/DMD)
   - ID 101: pages could not be read even in a browser
 
-## physical-therapy (1)
+## pharmacy (1)
 
-- **Maryville University of Saint Louis** (MO) — Doctor of Physical Therapy (DPT)
-  - ID 1671: pages read, but the programme does not publish an enumerable course list
-  - Last source tried: https://catalog.slu.edu/colleges-schools/health-sciences/physical-therapy-athletic-training/physical-therapy-program/
+- **Purdue University College of Pharmacy** (IN) — Doctor of Pharmacy (PharmD)
+  - ID 1448: pages read, but the programme does not publish an enumerable course list
+  - Last source tried: https://pharmacy.purdue.edu/pharmd/pharmd-prerequisites
 
 ## prosthetics-orthotics (1)
 
 - **Eastern Michigan University** (MI) — Master of Science in Orthotics & Prosthetics (MSOP)
   - ID 2518: pages read, but the programme does not publish an enumerable course list
-  - Last source tried: https://catalog.emich.edu/pdp/?catalog=61&program=10137
+  - Last source tried: https://www.emich.edu/chhs/hphp/programs/orthotics-prosthetics/index.php

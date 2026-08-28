@@ -2316,6 +2316,28 @@ const META_ADMISSION_NAME =
 const SUBJECT_HINT = /biolog|chem|physic|anatom|physiol|a\s*&\s*p|psych|stat|math|calc|english|writ|composit|sociolog|microbio|genetic|biochem|kinesiol|nutrit|exercise|humanit|social|science|communicat|econom|algebra|literature|history|language|medical terminolog|gpa|gre|degree|bachelor|experience|hours|observ|shadow|cpr|certif|phonetic|audiolog|speech|hearing|aural|linguist|swallow|dysphag|voice|fluency|articulat|disorder|neurolog|csd|patholog|organic|immunolog|pathophys|lifespan|developmental|pharmacol|patient|clinical|statistics|calculus|physics|lab|health assessment|human development|microbiology|organic chem|general chem|nursing|holistic|epidemiolog|research methods|public health|biostat/i;
 const COURSE_SUBJECT_HINT = /biolog|chem|physic|anatom|physiol|a\s*&\s*p|psych|stat(?:istics)?|math|calc|english|writ|composit|sociolog|microbio|genetic|biochem|kinesiol|nutrit|phonetic|audiolog|speech|hearing|linguist|organic|immunolog|pathophys|pharmacol|epidemiolog|biostat|microbiology|physics|algebra|literature|history|economics|communication sciences|medical terminolog/i;
 
+/** Fields a no-prerequisite quote can be about, used to reject one belonging to another. */
+const OWN_FIELD_IN_QUOTE: Record<string, RegExp> = {
+  medicine: /medical school|medicine|premedical|osteopathic/i,
+  postbac: /postbaccalaureate|post-baccalaureate|postbac|premedical|pre-health/i,
+  nursing: /nursing|BSN|ABSN/i,
+  "physician-assistant": /physician assistant|CASPA/i,
+  "occupational-therapy": /occupational therapy/i,
+  "physical-therapy": /physical therapy|DPT/i,
+  "speech-language-pathology": /speech|communication sciences|communicative/i,
+  pharmacy: /pharmacy|PharmD/i,
+  dental: /dental/i,
+  dietetics: /dietetic|nutrition/i,
+  veterinary: /veterinar/i,
+};
+const OTHER_FIELD_IN_QUOTE: Array<[string, RegExp]> = [
+  ["law", /law school|J\.?D\.?/i],
+  ["business", /business school|MBA/i],
+  ["theology", /divinity|seminary/i],
+  ["engineering", /engineering/i],
+  ...Object.entries(OWN_FIELD_IN_QUOTE).map(([k, v]) => [k, v] as [string, RegExp]),
+];
+
 function validExtraction(ex: Extraction, pageText: string, program: ProgramRow, sourceUrl = ""): boolean {
   const pageNorm = normalize(pageText);
   const urlHay = sourceUrl.toLowerCase();
@@ -2333,6 +2355,12 @@ function validExtraction(ex: Extraction, pageText: string, program: ProgramRow, 
         program.professionSlug === "medicine"));
   if (ex.statesNoPrereqs) {
     const quote = ex.noPrereqsEvidenceQuote?.trim() ?? "";
+    // A sentence about another field is not this programme saying it requires no coursework.
+    // Cleveland State's postbaccalaureate row kept resting on "there are no required
+    // prerequisite courses for law school", which is true and irrelevant.
+    const namesAnotherField = OTHER_FIELD_IN_QUOTE.some(([slug, re]) => slug !== program.professionSlug && re.test(quote));
+    const namesOwnField = OWN_FIELD_IN_QUOTE[program.professionSlug]?.test(quote) ?? false;
+    if (namesAnotherField && !namesOwnField) return false;
     return quote.length >= 15 && pageNorm.includes(normalize(quote)) &&
       NO_PREREQ_ASSERTION.test(quote) && onTopic;
   }
