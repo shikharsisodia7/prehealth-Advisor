@@ -633,18 +633,18 @@
  },
  "417": {
   "stage": "finalized",
-  "lastAttempt": "2026-08-28T10:29:36.977Z",
-  "attempts": 1,
+  "lastAttempt": "2026-08-28T11:11:06.818Z",
+  "attempts": 2,
   "pipelineGen": 11,
-  "sourceUrl": "https://som.rowan.edu/physician-assistant/admissions/application-requirements.html",
+  "sourceUrl": "https://som.rowan.edu/education/admissions/apply.html",
   "finalStatus": "verified"
  },
  "418": {
   "stage": "finalized",
-  "lastAttempt": "2026-08-28T10:30:22.137Z",
-  "attempts": 1,
+  "lastAttempt": "2026-08-28T11:12:07.896Z",
+  "attempts": 2,
   "pipelineGen": 11,
-  "sourceUrl": "https://som.rowan.edu/physician-assistant/admissions/application-requirements.html",
+  "sourceUrl": "https://som.rowan.edu/education/admissions/apply.html",
   "finalStatus": "verified"
  },
  "419": {
@@ -689,10 +689,10 @@
  },
  "425": {
   "stage": "finalized",
-  "lastAttempt": "2026-08-28T10:32:16.769Z",
-  "attempts": 1,
+  "lastAttempt": "2026-08-28T11:13:06.997Z",
+  "attempts": 2,
   "pipelineGen": 11,
-  "sourceUrl": "https://www.une.edu/dentalmedicine/admissions",
+  "sourceUrl": "https://www.une.edu/admissions/graduate/how-to-apply",
   "finalStatus": "verified"
  },
  "426": {
@@ -880,12 +880,13 @@
   "finalStatus": "verified"
  },
  "453": {
-  "stage": "finalized",
-  "lastAttempt": "2026-08-28T10:24:20.102Z",
-  "attempts": 1,
+  "stage": "failed",
+  "lastAttempt": "2026-08-28T11:07:51.841Z",
+  "attempts": 2,
   "pipelineGen": 11,
-  "sourceUrl": "https://medschool.ucsd.edu/education/physician-assistant/admissions/requirements.html",
-  "finalStatus": "verified"
+  "sourceUrl": "https://med.ucsd.edu/",
+  "finalStatus": "verified",
+  "error": "https://medschool.ucsd.edu/education/md-combined/curriculum/oess/ctbs/course-requirements.html: no usable prereq list || https://medschool.ucsd.edu/education/physician-assistant/admissions/requirements.html: no usable prereq list || https://medschool.ucsd.edu/education/physician-assistant/admissions/faq.html: no usable prereq list"
  },
  "454": {
   "stage": "finalized",
@@ -945,10 +946,10 @@
  },
  "463": {
   "stage": "finalized",
-  "lastAttempt": "2026-08-28T10:30:16.059Z",
-  "attempts": 1,
+  "lastAttempt": "2026-08-28T11:13:55.202Z",
+  "attempts": 2,
   "pipelineGen": 11,
-  "sourceUrl": "https://med.fsu.edu/pa/prerequisite",
+  "sourceUrl": "https://med.fsu.edu/mdAdmissions/admissionRequirements",
   "finalStatus": "verified"
  },
  "465": {
@@ -978,12 +979,13 @@
   "finalStatus": "verified"
  },
  "469": {
-  "stage": "source_discovery",
-  "lastAttempt": "2026-08-28T10:43:14.468Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-28T10:50:14.470Z",
   "attempts": 1,
   "pipelineGen": 11,
-  "sourceUrl": "https://www.augusta.edu/dentalmedicine/admit/requirementsandprerequisites.php",
-  "finalStatus": "verified"
+  "sourceUrl": "https://www.augusta.edu/",
+  "finalStatus": "verified",
+  "error": "program timeout after 420s"
  },
  "470": {
   "stage": "finalized",
@@ -1107,12 +1109,13 @@
   "finalStatus": "verified"
  },
  "486": {
-  "stage": "finalized",
-  "lastAttempt": "2026-08-28T10:26:50.700Z",
-  "attempts": 1,
+  "stage": "failed",
+  "lastAttempt": "2026-08-28T11:10:00.806Z",
+  "attempts": 2,
   "pipelineGen": 11,
-  "sourceUrl": "https://www.lsu.edu/vetmed/dvm_admissions/prerequisites.php",
-  "finalStatus": "verified"
+  "sourceUrl": "https://www.lsu.edu/graduateschool/admissions/programs.php",
+  "finalStatus": "verified",
+  "error": "https://www.lsu.edu/honors/student-info/ohc-admissions.php: no usable prereq list || https://www.lsu.edu/vetmed/dvm_admissions/index.php: no usable prereq list || https://www.lsu.edu/graduateschool/admissions/requirements-deadlines.php: no usable prereq list"
  },
  "487": {
   "stage": "failed",
@@ -1276,10 +1279,10 @@
  },
  "512": {
   "stage": "finalized",
-  "lastAttempt": "2026-08-28T10:01:02.017Z",
-  "attempts": 1,
+  "lastAttempt": "2026-08-28T11:06:53.490Z",
+  "attempts": 2,
   "pipelineGen": 11,
-  "sourceUrl": "https://www.roseman.edu/academic-programs/college-of-dental-medicine/doctor-of-dental-medicine-dmd/dmd-admissions/",
+  "sourceUrl": "https://www.roseman.edu/academic-programs/college-of-medicine/doctor-of-medicine-md/",
   "finalStatus": "verified"
  },
  "513": {
@@ -1300,10 +1303,10 @@
  },
  "515": {
   "stage": "finalized",
-  "lastAttempt": "2026-08-28T10:22:30.345Z",
-  "attempts": 1,
+  "lastAttempt": "2026-08-28T11:07:22.062Z",
+  "attempts": 2,
   "pipelineGen": 11,
-  "sourceUrl": "https://som.rowan.edu/physician-assistant/admissions/application-requirements.html",
+  "sourceUrl": "https://som.rowan.edu/education/admissions/apply.html",
   "finalStatus": "verified"
  },
  "516": {
@@ -1452,12 +1455,13 @@
   "finalStatus": "no_prereqs_published"
  },
  "537": {
-  "stage": "finalized",
-  "lastAttempt": "2026-08-28T10:28:34.601Z",
-  "attempts": 1,
+  "stage": "failed",
+  "lastAttempt": "2026-08-28T11:11:03.472Z",
+  "attempts": 2,
   "pipelineGen": 11,
-  "sourceUrl": "https://medschool.duke.edu/duke-dpt-prerequisite-overview",
-  "finalStatus": "verified"
+  "sourceUrl": "https://medschool.duke.edu/about-us/duke-durham",
+  "finalStatus": "verified",
+  "error": "https://medschool.duke.edu/duke-dpt-prerequisite-overview: no usable prereq list || https://medschool.duke.edu/education/health-professions-education-programs/master-biomedical-sciences/degree-requirement: no usable prereq list || https://medschool.duke.edu/education/health-professions-education-programs/occupational-therapy-doctorate/apply-duke-otd/requirements: no usable prereq list"
  },
  "538": {
   "stage": "finalized",
@@ -1476,11 +1480,11 @@
   "finalStatus": "verified"
  },
  "540": {
-  "stage": "source_fetched",
-  "lastAttempt": "2026-08-28T10:43:50.609Z",
-  "attempts": 1,
+  "stage": "failed",
+  "lastAttempt": "2026-08-28T11:14:22.073Z",
+  "attempts": 2,
   "pipelineGen": 11,
-  "sourceUrl": "https://med.und.edu/admissions/index.html",
+  "sourceUrl": "https://med.und.edu/education-training/physician-assistant/prerequisites.html",
   "error": "program timeout after 420s",
   "finalStatus": "verified"
  },
@@ -1542,10 +1546,10 @@
  },
  "548": {
   "stage": "finalized",
-  "lastAttempt": "2026-08-28T10:28:52.967Z",
-  "attempts": 1,
+  "lastAttempt": "2026-08-28T11:15:12.253Z",
+  "attempts": 2,
   "pipelineGen": 11,
-  "sourceUrl": "https://www.ohsu.edu/school-of-medicine/physician-assistant/prerequisite-coursework",
+  "sourceUrl": "https://www.ohsu.edu/school-of-medicine/radiation-therapy/academic-prerequisites",
   "finalStatus": "verified"
  },
  "549": {
@@ -3504,11 +3508,11 @@
   "finalStatus": "verified"
  },
  "1420": {
-  "stage": "finalized",
-  "lastAttempt": "2026-08-28T10:33:45.938Z",
-  "attempts": 1,
+  "stage": "extracted",
+  "lastAttempt": "2026-08-28T11:15:39.119Z",
+  "attempts": 2,
   "pipelineGen": 11,
-  "sourceUrl": "https://www.isu.edu/pa/admission/admission-requirements/isu-pre-requisite-courses/",
+  "sourceUrl": "https://coursecat.isu.edu/",
   "finalStatus": "verified"
  },
  "1421": {
@@ -3768,9 +3772,9 @@
   "finalStatus": "verified"
  },
  "1457": {
-  "stage": "finalized",
-  "lastAttempt": "2026-08-28T10:34:02.147Z",
-  "attempts": 1,
+  "stage": "source_discovery",
+  "lastAttempt": "2026-08-28T11:14:22.077Z",
+  "attempts": 2,
   "pipelineGen": 11,
   "sourceUrl": "https://www.southalabama.edu/colleges/alliedhealth/pa/prerequisites.html",
   "finalStatus": "verified"
@@ -3800,9 +3804,9 @@
   "finalStatus": "verified"
  },
  "1461": {
-  "stage": "finalized",
-  "lastAttempt": "2026-08-28T10:34:42.846Z",
-  "attempts": 1,
+  "stage": "source_discovery",
+  "lastAttempt": "2026-08-28T11:15:12.257Z",
+  "attempts": 2,
   "pipelineGen": 11,
   "sourceUrl": "https://www.swccd.edu/locations/higher-education-center-at-national-city/programs/dental-hygiene-program/dental-hygiene-admissions/prerequisites.aspx",
   "finalStatus": "verified"
@@ -6484,11 +6488,11 @@
  },
  "2196": {
   "stage": "finalized",
-  "lastAttempt": "2026-08-28T00:28:36.839Z",
-  "attempts": 10,
+  "lastAttempt": "2026-08-28T10:52:38.772Z",
+  "attempts": 11,
   "pipelineGen": 11,
-  "sourceUrl": "https://artsandsciences.csuohio.edu/node/4561",
-  "finalStatus": "no_prereqs_published"
+  "sourceUrl": "https://health.csuohio.edu/occupational-therapy/admission-and-advising",
+  "finalStatus": "verified"
  },
  "2197": {
   "stage": "failed",
@@ -7198,8 +7202,8 @@
  },
  "2336": {
   "stage": "finalized",
-  "lastAttempt": "2026-08-27T09:26:21.915Z",
-  "attempts": 5,
+  "lastAttempt": "2026-08-28T10:50:19.135Z",
+  "attempts": 6,
   "pipelineGen": 11,
   "sourceUrl": "https://hms.harvard.edu/education-admissions/md-program/admissions/preparing-apply/prerequisite-courses",
   "finalStatus": "verified"
@@ -7286,8 +7290,8 @@
  },
  "2355": {
   "stage": "finalized",
-  "lastAttempt": "2026-08-27T22:48:27.609Z",
-  "attempts": 7,
+  "lastAttempt": "2026-08-28T10:52:31.999Z",
+  "attempts": 8,
   "pipelineGen": 11,
   "sourceUrl": "https://health.csuohio.edu/occupational-therapy/admission-and-advising",
   "finalStatus": "verified"
@@ -7653,8 +7657,8 @@
   "finalStatus": "verified"
  },
  "2418": {
-  "stage": "source_discovery",
-  "lastAttempt": "2026-08-28T10:43:44.269Z",
+  "stage": "finalized",
+  "lastAttempt": "2026-08-28T10:46:33.929Z",
   "attempts": 1,
   "pipelineGen": 11,
   "sourceUrl": "https://www.mc.edu/academics/departments/pa/admissions/prerequisites",
@@ -7884,12 +7888,12 @@
   "finalStatus": "verified"
  },
  "2464": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-27T23:47:16.203Z",
-  "attempts": 8,
+  "stage": "finalized",
+  "lastAttempt": "2026-08-28T10:52:25.444Z",
+  "attempts": 9,
   "pipelineGen": 11,
-  "sourceUrl": "https://www.salus.edu/colleges/optometry/health-sciences-track/application-process.html",
-  "error": "https://www.salus.edu/colleges/nursing-health-professions/department-of-speech-language-pathology/post-baccalaureate-program-in-health-sciences-spee/application-process.html: no usable prereq list || https://www.salus.edu/news-stories/2026/08/discovering-her-future-a-prospective-slp-students-visit-to-the-elkins-park-campus.html: no usable prereq list || https://www.salus.edu/colleges/optometry/health-sciences-track/index.html: no usable prereq list"
+  "sourceUrl": "https://www.salus.edu/colleges/optometry/health-sciences-track/index.html",
+  "finalStatus": "verified"
  },
  "2465": {
   "stage": "failed",
@@ -7949,19 +7953,21 @@
   "finalStatus": "verified"
  },
  "2477": {
-  "stage": "source_discovery",
-  "lastAttempt": "2026-08-28T10:45:21.126Z",
+  "stage": "finalized",
+  "lastAttempt": "2026-08-28T10:45:45.477Z",
   "attempts": 4,
   "pipelineGen": 11,
-  "sourceUrl": "https://case.edu/admission/apply/deadlines-and-requirements"
- },
- "2479": {
-  "stage": "finalized",
-  "lastAttempt": "2026-08-25T07:39:51.917Z",
-  "attempts": 4,
-  "pipelineGen": 10,
   "sourceUrl": "https://case.edu/medicine/md/admission/admission-requirements",
   "finalStatus": "verified"
+ },
+ "2479": {
+  "stage": "failed",
+  "lastAttempt": "2026-08-28T10:47:58.261Z",
+  "attempts": 1,
+  "pipelineGen": 11,
+  "sourceUrl": "https://case.edu/admission/apply/deadlines-and-requirements",
+  "finalStatus": "verified",
+  "error": "https://case.edu/admission/academics: no usable prereq list || https://case.edu/admission/academics/areas-study/performing-arts: no usable prereq list || https://case.edu/admission/: no usable prereq list"
  },
  "2481": {
   "stage": "finalized",
@@ -8029,17 +8035,17 @@
  },
  "2496": {
   "stage": "finalized",
-  "lastAttempt": "2026-08-23T21:14:21.113Z",
-  "attempts": 4,
-  "pipelineGen": 7,
+  "lastAttempt": "2026-08-28T10:50:59.445Z",
+  "attempts": 1,
+  "pipelineGen": 11,
   "sourceUrl": "https://www.meredith.edu/master-of-science-nutrition/ms-accelerated-dietitian-nutritionist-track/",
   "finalStatus": "verified"
  },
  "2497": {
   "stage": "finalized",
-  "lastAttempt": "2026-08-24T19:11:11.094Z",
-  "attempts": 4,
-  "pipelineGen": 9,
+  "lastAttempt": "2026-08-28T10:48:00.591Z",
+  "attempts": 1,
+  "pipelineGen": 11,
   "sourceUrl": "https://www.bcm.edu/education/school-of-medicine/m-d-program/admissions-process/requirements",
   "finalStatus": "verified"
  },
