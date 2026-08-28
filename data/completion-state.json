@@ -2709,12 +2709,11 @@
   "finalStatus": "verified"
  },
  "1128": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-28T00:31:04.987Z",
-  "attempts": 10,
+  "stage": "source_discovery",
+  "lastAttempt": "2026-08-28T03:42:44.630Z",
+  "attempts": 11,
   "pipelineGen": 11,
-  "sourceUrl": "https://www.radford.edu/admissions/international/index.html",
-  "error": "https://www.radford.edu/admissions/online/index.html: no usable prereq list || https://www.radford.edu/admissions/graduate/application-guidelines.html: no usable prereq list || https://www.radford.edu/admissions/graduate/enroll.html: no usable prereq list"
+  "sourceUrl": "https://www.radford.edu/admissions/international/index.html"
  },
  "1140": {
   "stage": "finalized",
@@ -2805,12 +2804,11 @@
   "finalStatus": "verified"
  },
  "1166": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-28T00:29:24.732Z",
-  "attempts": 10,
+  "stage": "source_discovery",
+  "lastAttempt": "2026-08-28T03:42:56.451Z",
+  "attempts": 11,
   "pipelineGen": 11,
-  "sourceUrl": "https://www.umary.edu/admission-aid/graduate-admissions",
-  "error": "https://online.umary.edu/admissions-aid/requirements-deadlines: no usable prereq list || https://www.umary.edu/academics/graduate-programs/occupational-therapy: no usable prereq list || https://www.umary.edu/admission-aid/undergraduate-admissions/admission-requirements/early-assurance-and-priority-admission: no usable prereq list"
+  "sourceUrl": "https://www.umary.edu/admission-aid/graduate-admissions"
  },
  "1167": {
   "stage": "finalized",
@@ -3149,12 +3147,11 @@
   "finalStatus": "verified"
  },
  "1302": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-28T00:10:27.873Z",
-  "attempts": 8,
+  "stage": "source_discovery",
+  "lastAttempt": "2026-08-28T03:41:52.473Z",
+  "attempts": 9,
   "pipelineGen": 11,
-  "sourceUrl": "https://www.umary.edu/admission-aid/graduate-admissions",
-  "error": "https://online.umary.edu/admissions-aid/requirements-deadlines: no usable prereq list || https://www.umary.edu/academics/graduate-programs/occupational-therapy: no usable prereq list || https://www.umary.edu/admission-aid/undergraduate-admissions/admission-requirements/early-assurance-and-priority-admission: no usable prereq list"
+  "sourceUrl": "https://www.umary.edu/admission-aid/graduate-admissions"
  },
  "1304": {
   "stage": "finalized",
@@ -3173,12 +3170,12 @@
   "error": "https://twin-cities.umn.edu/academics-admissions/majors-programs: no usable prereq list || https://twin-cities.umn.edu/: no usable prereq list"
  },
  "1308": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-28T00:08:45.956Z",
-  "attempts": 8,
+  "stage": "finalized",
+  "lastAttempt": "2026-08-28T03:42:44.627Z",
+  "attempts": 9,
   "pipelineGen": 11,
-  "sourceUrl": "https://www.unmc.edu/alliedhealth/academics/programs/ot/admission/apply.html",
-  "error": "https://www.unmc.edu/alliedhealth/academics/programs/ot/admission/index.html: no usable prereq list || https://www.unmc.edu/alliedhealth/academics/programs/ot/admission/technical-standards-fx.html: no usable prereq list || https://www.unmc.edu/alliedhealth/academics/programs/ot/admission/certification.html: no usable prereq list"
+  "sourceUrl": "https://www.unmc.edu/alliedhealth/academics/programs/ot/admission/index.html",
+  "finalStatus": "verified"
  },
  "1312": {
   "stage": "finalized",
@@ -3198,8 +3195,8 @@
  },
  "1314": {
   "stage": "failed",
-  "lastAttempt": "2026-08-28T00:09:51.247Z",
-  "attempts": 8,
+  "lastAttempt": "2026-08-28T03:42:56.377Z",
+  "attempts": 9,
   "pipelineGen": 11,
   "sourceUrl": "https://www.ou.edu/admissions/apply/nondegree",
   "error": "https://www.ou.edu/admissions/academics/allied-health/occupational-therapy: no usable prereq list || https://www.ou.edu/admissions/academics/allied-health/occupational-therapy: no usable prereq list || https://www.ou.edu/admissions/apply/uwc: no usable prereq list"
