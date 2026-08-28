@@ -497,15 +497,26 @@ async function fetchRenderedInner(url: string): Promise<Fetched> {
       if (soFar.length >= 200) break;
       await page.waitForTimeout(1000);
     }
-    // Expand common accordion/tab admissions widgets so hidden prerequisite text becomes visible text.
+    // Expand common accordion/tab admissions widgets so hidden prerequisite text becomes visible
+    // text. The selector list is widened with [data-toggle] and .collapsible because Denver
+    // College of Nursing puts its entire prerequisite table behind headers carrying neither
+    // aria-expanded nor a Bootstrap accordion class; a plain read of that page returned the
+    // section headings and nothing else.
     try {
       await page.evaluate(`
         (function () {
-          var clickable = document.querySelectorAll('[aria-expanded="false"], .accordion-button, .accordion-header, [role="tab"], summary');
+          var clickable = document.querySelectorAll('[aria-expanded="false"], .accordion-button, .accordion-header, .accordion-title, [data-toggle], [data-bs-toggle], .collapsible, [role="tab"], summary');
           for (var i = 0; i < clickable.length; i++) { try { clickable[i].click(); } catch (e) {} }
         })()
       `);
       await page.waitForTimeout(500);
+      // Clicking is not enough when a panel is hidden by CSS rather than by a widget's own
+      // state, so anything still collapsed is forced visible. This only reveals text the page
+      // already contains; it cannot introduce text the school did not publish.
+      await page.addStyleTag({
+        content: ".collapse,.accordion-collapse,.panel-collapse,[hidden]{display:block !important;visibility:visible !important;height:auto !important;max-height:none !important;opacity:1 !important}",
+      });
+      await page.waitForTimeout(400);
     } catch { /* best effort */ }
     const html = await page.content();
     // A bot challenge leaves its one-time token on the URL. Citing that as the official source
@@ -2640,6 +2651,23 @@ async function processProgramInner(program: ProgramRow): Promise<string> {
   });
 
   // Fix scheme-less directory URLs in Neon so crawl/search can use them.
+  //
+  // The row is re-read first, and the write is conditional on the stored value still being the
+  // one this run loaded. A run holds its queue snapshot for hours, so without that guard it
+  // writes a stale URL back over a seed curated in the meantime: John Carroll was researched by
+  // hand and set to jcu.edu/academics/..., and a worker that had started earlier normalized its
+  // snapshot copy of the dead AAMC URL from http to https, saw a difference, and reverted the
+  // row. Losing hand research to a background job is worse than leaving a URL unnormalized.
+  const fresh = (await db.execute(sql.raw(
+    `select coalesce(website_url,'') w, coalesce(source_url,'') s from program_schools where id = ${program.id}`,
+  ))).rows[0] as { w: string; s: string } | undefined;
+  const storedWeb = fresh?.w || null;
+  const storedSrc = fresh?.s || null;
+  if (storedWeb !== program.websiteUrl || storedSrc !== program.sourceUrl) {
+    // Someone changed the row since this run queued it. Their value wins, and this run uses it.
+    program.websiteUrl = storedWeb;
+    program.sourceUrl = storedSrc;
+  }
   const normWeb = program.websiteUrl ? normalizeCandidateUrl(program.websiteUrl) : null;
   const normSrc = program.sourceUrl ? normalizeCandidateUrl(program.sourceUrl) : null;
   if (normWeb !== program.websiteUrl || normSrc !== program.sourceUrl) {
@@ -2649,7 +2677,10 @@ async function processProgramInner(program: ProgramRow): Promise<string> {
       await db.update(programSchoolsTable).set({
         websiteUrl: normWeb,
         sourceUrl: normSrc,
-      }).where(eq(programSchoolsTable.id, program.id));
+      }).where(and(
+        eq(programSchoolsTable.id, program.id),
+        sql`coalesce(source_url, '') = ${storedSrc ?? ""}`,
+      ));
     } catch { /* non-fatal */ }
   }
   if (program.websiteUrl && (websiteConflictsWithInstitution(program.websiteUrl, program.name) || isGarbageDiscoveredUrl(program.websiteUrl))) {
