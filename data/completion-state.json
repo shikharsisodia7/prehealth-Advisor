@@ -17,9 +17,9 @@
  },
  "120": {
   "stage": "finalized",
-  "lastAttempt": "2026-08-24T08:53:49.712Z",
+  "lastAttempt": "2026-08-28T10:41:11.437Z",
   "attempts": 1,
-  "pipelineGen": 9,
+  "pipelineGen": 11,
   "sourceUrl": "https://www.upike.edu/optometry/admissions/course-requirements/",
   "finalStatus": "verified"
  },
@@ -199,10 +199,12 @@
   "finalStatus": "verified"
  },
  "188": {
-  "stage": "source_discovery",
-  "lastAttempt": "2026-08-28T10:15:17.809Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-28T10:19:10.377Z",
   "attempts": 1,
-  "pipelineGen": 11
+  "error": "https://uagm.edu/es/bachelor-science-nutrition-and-dietetics-coordinated-program: HTTP 403 || https://uagm.edu/es/estudiante-consumidor/academia/catalogo: no usable prereq list",
+  "pipelineGen": 11,
+  "sourceUrl": "https://uagm.edu/es/estudiante-consumidor/academia/catalogo"
  },
  "189": {
   "stage": "finalized",
@@ -237,10 +239,12 @@
   "finalStatus": "verified"
  },
  "201": {
-  "stage": "source_discovery",
-  "lastAttempt": "2026-08-28T10:14:59.073Z",
+  "stage": "finalized",
+  "lastAttempt": "2026-08-28T10:16:12.442Z",
   "attempts": 1,
-  "pipelineGen": 11
+  "pipelineGen": 11,
+  "sourceUrl": "https://www.samford.edu/publichealth/master-of-science-in-nutrition",
+  "finalStatus": "verified"
  },
  "203": {
   "stage": "finalized",
@@ -252,9 +256,9 @@
  },
  "204": {
   "stage": "finalized",
-  "lastAttempt": "2026-08-24T18:22:30.516Z",
+  "lastAttempt": "2026-08-28T10:39:50.793Z",
   "attempts": 1,
-  "pipelineGen": 9,
+  "pipelineGen": 11,
   "sourceUrl": "https://www.gcu.edu/degree-programs/absn-accelerated-bsn/prerequisites",
   "finalStatus": "verified"
  },
@@ -380,9 +384,9 @@
  },
  "265": {
   "stage": "finalized",
-  "lastAttempt": "2026-08-24T18:18:04.153Z",
+  "lastAttempt": "2026-08-28T10:38:33.867Z",
   "attempts": 1,
-  "pipelineGen": 9,
+  "pipelineGen": 11,
   "sourceUrl": "https://www.ohsu.edu/school-of-medicine/physician-assistant/prerequisite-coursework",
   "finalStatus": "verified"
  },
@@ -467,12 +471,13 @@
   "finalStatus": "verified"
  },
  "356": {
-  "stage": "finalized",
-  "lastAttempt": "2026-08-25T15:30:40.519Z",
-  "attempts": 2,
+  "stage": "failed",
+  "lastAttempt": "2026-08-28T10:44:53.396Z",
+  "attempts": 3,
   "pipelineGen": 11,
-  "sourceUrl": "https://catalog.jefferson.edu/colleges-schools/college-humanities-sciences-jchs/psychology-bs-ms-otd/",
-  "finalStatus": "verified"
+  "sourceUrl": "https://www.jefferson.edu/admissions/undergraduate/transfer/apply.html",
+  "finalStatus": "verified",
+  "error": "https://www.jefferson.edu/academics/colleges-schools-institutes/health-professions/departments-programs/health-science-clinical-practice/degrees-programs/graduate/doctor-health-science/apply/admissions-prerequisites.html: no usable prereq list || https://www.jefferson.edu/academics/colleges-schools-institutes/life-sciences/degrees-programs/master-programs/applying/prerequisites.html: no usable prereq list || https://www.jefferson.edu/academics/colleges-schools-institutes/life-sciences/degrees-pr"
  },
  "391": {
   "stage": "finalized",
@@ -628,17 +633,17 @@
  },
  "417": {
   "stage": "finalized",
-  "lastAttempt": "2026-08-21T03:58:09.404Z",
+  "lastAttempt": "2026-08-28T10:29:36.977Z",
   "attempts": 1,
-  "pipelineGen": 5,
+  "pipelineGen": 11,
   "sourceUrl": "https://som.rowan.edu/physician-assistant/admissions/application-requirements.html",
   "finalStatus": "verified"
  },
  "418": {
   "stage": "finalized",
-  "lastAttempt": "2026-08-21T03:58:37.021Z",
+  "lastAttempt": "2026-08-28T10:30:22.137Z",
   "attempts": 1,
-  "pipelineGen": 5,
+  "pipelineGen": 11,
   "sourceUrl": "https://som.rowan.edu/physician-assistant/admissions/application-requirements.html",
   "finalStatus": "verified"
  },
@@ -684,9 +689,9 @@
  },
  "425": {
   "stage": "finalized",
-  "lastAttempt": "2026-08-21T04:02:02.474Z",
+  "lastAttempt": "2026-08-28T10:32:16.769Z",
   "attempts": 1,
-  "pipelineGen": 5,
+  "pipelineGen": 11,
   "sourceUrl": "https://www.une.edu/dentalmedicine/admissions",
   "finalStatus": "verified"
  },
@@ -876,9 +881,9 @@
  },
  "453": {
   "stage": "finalized",
-  "lastAttempt": "2026-08-24T09:26:12.191Z",
+  "lastAttempt": "2026-08-28T10:24:20.102Z",
   "attempts": 1,
-  "pipelineGen": 9,
+  "pipelineGen": 11,
   "sourceUrl": "https://medschool.ucsd.edu/education/physician-assistant/admissions/requirements.html",
   "finalStatus": "verified"
  },
@@ -940,9 +945,9 @@
  },
  "463": {
   "stage": "finalized",
-  "lastAttempt": "2026-08-24T20:52:26.260Z",
+  "lastAttempt": "2026-08-28T10:30:16.059Z",
   "attempts": 1,
-  "pipelineGen": 9,
+  "pipelineGen": 11,
   "sourceUrl": "https://med.fsu.edu/pa/prerequisite",
   "finalStatus": "verified"
  },
@@ -955,12 +960,13 @@
   "finalStatus": "verified"
  },
  "466": {
-  "stage": "finalized",
-  "lastAttempt": "2026-08-25T09:27:48.879Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-28T10:25:05.908Z",
   "attempts": 1,
-  "pipelineGen": 10,
-  "sourceUrl": "https://pa.med.ufl.edu/admissions/requirements/prerequisites-and-other-courses/",
-  "finalStatus": "verified"
+  "pipelineGen": 11,
+  "sourceUrl": "https://med.ufl.edu/",
+  "finalStatus": "verified",
+  "error": "https://www.ufl.edu/prospective-students/: no usable prereq list"
  },
  "468": {
   "stage": "finalized",
@@ -972,10 +978,10 @@
   "finalStatus": "verified"
  },
  "469": {
-  "stage": "finalized",
-  "lastAttempt": "2026-08-24T10:34:47.093Z",
-  "attempts": 3,
-  "pipelineGen": 9,
+  "stage": "source_discovery",
+  "lastAttempt": "2026-08-28T10:43:14.468Z",
+  "attempts": 1,
+  "pipelineGen": 11,
   "sourceUrl": "https://www.augusta.edu/dentalmedicine/admit/requirementsandprerequisites.php",
   "finalStatus": "verified"
  },
@@ -1102,9 +1108,9 @@
  },
  "486": {
   "stage": "finalized",
-  "lastAttempt": "2026-08-22T08:05:11.365Z",
+  "lastAttempt": "2026-08-28T10:26:50.700Z",
   "attempts": 1,
-  "pipelineGen": 7,
+  "pipelineGen": 11,
   "sourceUrl": "https://www.lsu.edu/vetmed/dvm_admissions/prerequisites.php",
   "finalStatus": "verified"
  },
@@ -1294,9 +1300,9 @@
  },
  "515": {
   "stage": "finalized",
-  "lastAttempt": "2026-08-24T09:32:02.720Z",
+  "lastAttempt": "2026-08-28T10:22:30.345Z",
   "attempts": 1,
-  "pipelineGen": 9,
+  "pipelineGen": 11,
   "sourceUrl": "https://som.rowan.edu/physician-assistant/admissions/application-requirements.html",
   "finalStatus": "verified"
  },
@@ -1317,12 +1323,13 @@
   "finalStatus": "verified"
  },
  "518": {
-  "stage": "finalized",
-  "lastAttempt": "2026-08-22T21:13:51.112Z",
-  "attempts": 2,
-  "pipelineGen": 7,
-  "sourceUrl": "https://pharmacy.rutgers.edu/pharmd-preprofessional-requirements/",
-  "finalStatus": "verified"
+  "stage": "failed",
+  "lastAttempt": "2026-08-28T10:41:28.789Z",
+  "attempts": 1,
+  "pipelineGen": 11,
+  "sourceUrl": "https://admissions.rutgers.edu/apply/international-applicants",
+  "finalStatus": "verified",
+  "error": "https://admissions.camden.rutgers.edu/camden-graduate-admissions: no usable prereq list || https://nursing.rutgers.edu/academics-admissions/bachelors/rntobs/: no usable prereq list || https://admissions.rutgers.edu/apply: no usable prereq list"
  },
  "519": {
   "stage": "finalized",
@@ -1446,9 +1453,9 @@
  },
  "537": {
   "stage": "finalized",
-  "lastAttempt": "2026-08-24T20:38:47.189Z",
+  "lastAttempt": "2026-08-28T10:28:34.601Z",
   "attempts": 1,
-  "pipelineGen": 9,
+  "pipelineGen": 11,
   "sourceUrl": "https://medschool.duke.edu/duke-dpt-prerequisite-overview",
   "finalStatus": "verified"
  },
@@ -1469,11 +1476,11 @@
   "finalStatus": "verified"
  },
  "540": {
-  "stage": "finalized",
-  "lastAttempt": "2026-08-24T21:01:46.891Z",
+  "stage": "source_fetched",
+  "lastAttempt": "2026-08-28T10:43:50.609Z",
   "attempts": 1,
-  "pipelineGen": 9,
-  "sourceUrl": "https://med.und.edu/education-training/physician-assistant/prerequisites.html",
+  "pipelineGen": 11,
+  "sourceUrl": "https://med.und.edu/admissions/index.html",
   "error": "program timeout after 420s",
   "finalStatus": "verified"
  },
@@ -1535,9 +1542,9 @@
  },
  "548": {
   "stage": "finalized",
-  "lastAttempt": "2026-08-24T20:43:23.799Z",
+  "lastAttempt": "2026-08-28T10:28:52.967Z",
   "attempts": 1,
-  "pipelineGen": 9,
+  "pipelineGen": 11,
   "sourceUrl": "https://www.ohsu.edu/school-of-medicine/physician-assistant/prerequisite-coursework",
   "finalStatus": "verified"
  },
@@ -1566,12 +1573,13 @@
   "finalStatus": "verified"
  },
  "552": {
-  "stage": "finalized",
-  "lastAttempt": "2026-08-21T04:07:08.226Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-28T10:26:32.631Z",
   "attempts": 1,
-  "pipelineGen": 5,
-  "sourceUrl": "https://www.dental.upenn.edu/admissions-academics/dmd-program/admissions/",
-  "finalStatus": "verified"
+  "pipelineGen": 11,
+  "sourceUrl": "https://www.med.upenn.edu/",
+  "finalStatus": "verified",
+  "error": "https://www.upenn.edu/: no usable prereq list || https://www.med.upenn.edu/: no usable prereq list"
  },
  "553": {
   "stage": "finalized",
@@ -1631,10 +1639,10 @@
  },
  "560": {
   "stage": "finalized",
-  "lastAttempt": "2026-08-21T05:35:07.638Z",
+  "lastAttempt": "2026-08-28T10:33:09.239Z",
   "attempts": 1,
-  "pipelineGen": 6,
-  "sourceUrl": "https://dentistry.musc.edu/programs/doctor-dental-medicine",
+  "pipelineGen": 11,
+  "sourceUrl": "https://medicine.musc.edu/programs/doctor-medicine/admissions",
   "finalStatus": "verified"
  },
  "561": {
@@ -1871,10 +1879,10 @@
  },
  "600": {
   "stage": "finalized",
-  "lastAttempt": "2026-08-20T18:34:52.559Z",
+  "lastAttempt": "2026-08-28T10:40:07.901Z",
   "attempts": 1,
-  "pipelineGen": 2,
-  "sourceUrl": "https://www.astate.edu/colleges/nursing-and-health-professions/occupational-therapy.html",
+  "pipelineGen": 11,
+  "sourceUrl": "https://www.astate.edu/colleges/veterinary-medicine/admissions/prerequisites.html",
   "finalStatus": "verified"
  },
  "604": {
@@ -1917,6 +1925,14 @@
   "sourceUrl": "https://nursing.baylor.edu/admissions/undergraduate-admissions/second-degree-post-baccalaureate/fastbaccr",
   "finalStatus": "verified"
  },
+ "614": {
+  "stage": "finalized",
+  "lastAttempt": "2026-08-28T10:18:33.729Z",
+  "attempts": 1,
+  "pipelineGen": 11,
+  "sourceUrl": "https://www.binghamton.edu/admissions/undergraduate/apply/transfer/",
+  "finalStatus": "verified"
+ },
  "624": {
   "stage": "finalized",
   "lastAttempt": "2026-08-25T10:34:18.293Z",
@@ -1940,6 +1956,14 @@
   "pipelineGen": 11,
   "sourceUrl": "https://opendata-geospatialdenver.hub.arcgis.com/",
   "error": "https://www.denvergov.org/: plain fetch returned 127 chars; render failed: Browser render: too little text"
+ },
+ "671": {
+  "stage": "finalized",
+  "lastAttempt": "2026-08-28T10:20:30.888Z",
+  "attempts": 1,
+  "pipelineGen": 11,
+  "sourceUrl": "https://www.endicott.edu/academics/schools/nursing/undergraduate-programs/nursing-program",
+  "finalStatus": "verified"
  },
  "673": {
   "stage": "finalized",
@@ -2087,10 +2111,10 @@
  },
  "784": {
   "stage": "finalized",
-  "lastAttempt": "2026-08-20T21:57:26.197Z",
+  "lastAttempt": "2026-08-28T10:40:27.774Z",
   "attempts": 1,
-  "pipelineGen": 4,
-  "sourceUrl": "https://absn.org/states/pennsylvania/absn-programs-pa/",
+  "pipelineGen": 11,
+  "sourceUrl": "https://bulletins.psu.edu/graduate/programs/majors/nursing/",
   "finalStatus": "verified"
  },
  "785": {
@@ -2179,6 +2203,14 @@
   "attempts": 1,
   "pipelineGen": 4,
   "sourceUrl": "https://programs.tcnj.edu/graduate/absn",
+  "finalStatus": "verified"
+ },
+ "835": {
+  "stage": "finalized",
+  "lastAttempt": "2026-08-28T10:18:10.627Z",
+  "attempts": 1,
+  "pipelineGen": 11,
+  "sourceUrl": "https://www.css.edu/academics/programs/undergraduate/post-baccalaureate-nursing/",
   "finalStatus": "verified"
  },
  "836": {
@@ -2309,6 +2341,14 @@
   "attempts": 1,
   "pipelineGen": 11,
   "sourceUrl": "https://nursing.jhu.edu/",
+  "finalStatus": "verified"
+ },
+ "968": {
+  "stage": "finalized",
+  "lastAttempt": "2026-08-28T10:19:55.271Z",
+  "attempts": 1,
+  "pipelineGen": 11,
+  "sourceUrl": "https://nursing.llu.edu/undergraduate-programs/bs-nursing/rn-bs-nursing/rn-bs-prerequisite-courses",
   "finalStatus": "verified"
  },
  "969": {
@@ -2816,6 +2856,13 @@
   "sourceUrl": "https://stockton.edu/graduate/occupational-therapy.html",
   "finalStatus": "verified"
  },
+ "1159": {
+  "stage": "failed",
+  "lastAttempt": "2026-08-28T10:20:42.730Z",
+  "attempts": 1,
+  "error": "no official candidate URLs",
+  "pipelineGen": 11
+ },
  "1160": {
   "stage": "finalized",
   "lastAttempt": "2026-08-22T00:14:58.757Z",
@@ -2890,10 +2937,10 @@
  },
  "1180": {
   "stage": "finalized",
-  "lastAttempt": "2026-08-22T22:15:20.205Z",
-  "attempts": 2,
-  "pipelineGen": 7,
-  "sourceUrl": "https://www.usa.edu/college-of-rehabilitative-sciences/master-science-speech-language-pathology-ms-slp/leveling-courses/",
+  "lastAttempt": "2026-08-28T10:43:16.130Z",
+  "attempts": 1,
+  "pipelineGen": 11,
+  "sourceUrl": "https://www.usa.edu/college-of-rehabilitative-sciences/master-of-occupational-therapy-mot/mot-admission-requirements/",
   "finalStatus": "verified"
  },
  "1183": {
@@ -3170,9 +3217,9 @@
  },
  "1298": {
   "stage": "finalized",
-  "lastAttempt": "2026-08-22T00:19:21.991Z",
+  "lastAttempt": "2026-08-28T10:38:09.120Z",
   "attempts": 1,
-  "pipelineGen": 7,
+  "pipelineGen": 11,
   "sourceUrl": "https://phhp.ufl.edu/academics/phd-and-professional-programs/physical-therapy-doctorate/admissions/dpt-required-prerequisites/",
   "finalStatus": "verified"
  },
@@ -3458,9 +3505,9 @@
  },
  "1420": {
   "stage": "finalized",
-  "lastAttempt": "2026-08-25T05:37:03.182Z",
+  "lastAttempt": "2026-08-28T10:33:45.938Z",
   "attempts": 1,
-  "pipelineGen": 10,
+  "pipelineGen": 11,
   "sourceUrl": "https://www.isu.edu/pa/admission/admission-requirements/isu-pre-requisite-courses/",
   "finalStatus": "verified"
  },
@@ -3722,9 +3769,9 @@
  },
  "1457": {
   "stage": "finalized",
-  "lastAttempt": "2026-08-24T11:10:55.988Z",
+  "lastAttempt": "2026-08-28T10:34:02.147Z",
   "attempts": 1,
-  "pipelineGen": 9,
+  "pipelineGen": 11,
   "sourceUrl": "https://www.southalabama.edu/colleges/alliedhealth/pa/prerequisites.html",
   "finalStatus": "verified"
  },
@@ -3738,9 +3785,9 @@
  },
  "1459": {
   "stage": "finalized",
-  "lastAttempt": "2026-08-24T11:23:46.014Z",
-  "attempts": 2,
-  "pipelineGen": 9,
+  "lastAttempt": "2026-08-28T10:41:02.128Z",
+  "attempts": 1,
+  "pipelineGen": 11,
   "sourceUrl": "https://www.southalabama.edu/colleges/alliedhealth/pa/prerequisites.html",
   "finalStatus": "verified"
  },
@@ -3754,9 +3801,9 @@
  },
  "1461": {
   "stage": "finalized",
-  "lastAttempt": "2026-08-24T20:54:35.919Z",
+  "lastAttempt": "2026-08-28T10:34:42.846Z",
   "attempts": 1,
-  "pipelineGen": 9,
+  "pipelineGen": 11,
   "sourceUrl": "https://www.swccd.edu/locations/higher-education-center-at-national-city/programs/dental-hygiene-program/dental-hygiene-admissions/prerequisites.aspx",
   "finalStatus": "verified"
  },
@@ -3883,9 +3930,9 @@
  },
  "1479": {
   "stage": "finalized",
-  "lastAttempt": "2026-08-24T20:57:26.258Z",
+  "lastAttempt": "2026-08-28T10:36:21.027Z",
   "attempts": 1,
-  "pipelineGen": 9,
+  "pipelineGen": 11,
   "sourceUrl": "https://www.ucwv.edu/academics/school-of-health-sciences/physician-assistant-program/admissions/prerequisite-courses/",
   "finalStatus": "verified"
  },
@@ -5008,6 +5055,14 @@
   "attempts": 1,
   "pipelineGen": 2,
   "sourceUrl": "https://www.pba.edu/academics/schools/school-of-health-professions/admissions/",
+  "finalStatus": "verified"
+ },
+ "1898": {
+  "stage": "finalized",
+  "lastAttempt": "2026-08-28T10:21:06.916Z",
+  "attempts": 1,
+  "pipelineGen": 11,
+  "sourceUrl": "https://www.south.edu/admission-requirements-to-the-indianapolis-mhs-in-physician-assistant-studies-program/",
   "finalStatus": "verified"
  },
  "1899": {
@@ -6405,9 +6460,9 @@
  },
  "2189": {
   "stage": "finalized",
-  "lastAttempt": "2026-08-24T21:03:05.933Z",
+  "lastAttempt": "2026-08-28T10:38:32.152Z",
   "attempts": 1,
-  "pipelineGen": 9,
+  "pipelineGen": 11,
   "sourceUrl": "https://sc.edu/study/colleges_schools/public_health/study/areas_of_study/physical_therapy/pt_future_students/prerequisites/index.php",
   "finalStatus": "verified"
  },
@@ -6621,12 +6676,12 @@
   "finalStatus": "verified"
  },
  "2221": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-25T15:43:10.173Z",
-  "attempts": 3,
+  "stage": "finalized",
+  "lastAttempt": "2026-08-28T10:43:44.265Z",
+  "attempts": 4,
   "pipelineGen": 11,
-  "sourceUrl": "https://sopa.tulane.edu/",
-  "error": "https://www.som.tulane.edu/: too little text || https://sopa.tulane.edu/: no usable prereq list"
+  "sourceUrl": "https://medicine.tulane.edu/admissions/md",
+  "finalStatus": "verified"
  },
  "2223": {
   "stage": "finalized",
@@ -6654,9 +6709,9 @@
  },
  "2226": {
   "stage": "finalized",
-  "lastAttempt": "2026-08-21T20:17:16.179Z",
+  "lastAttempt": "2026-08-28T10:35:27.925Z",
   "attempts": 1,
-  "pipelineGen": 6,
+  "pipelineGen": 11,
   "sourceUrl": "https://www.nymc.edu/shsp/programs/physical-therapy/admissions/",
   "finalStatus": "verified"
  },
@@ -6887,11 +6942,10 @@
  },
  "2266": {
   "stage": "finalized",
-  "lastAttempt": "2026-08-24T11:54:14.923Z",
-  "attempts": 2,
-  "pipelineGen": 9,
+  "lastAttempt": "2026-08-28T10:42:35.135Z",
+  "attempts": 1,
+  "pipelineGen": 11,
   "sourceUrl": "https://dentistry.ucsf.edu/programs/dds",
-  "error": "program timeout after 240s",
   "finalStatus": "verified"
  },
  "2270": {
@@ -7311,12 +7365,13 @@
   "finalStatus": "verified"
  },
  "2367": {
-  "stage": "finalized",
-  "lastAttempt": "2026-08-25T06:26:26.933Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-28T10:36:17.159Z",
   "attempts": 1,
-  "pipelineGen": 10,
-  "sourceUrl": "https://case.edu/medicine/md/admission/admission-requirements",
-  "finalStatus": "verified"
+  "pipelineGen": 11,
+  "sourceUrl": "https://case.edu/admission/apply/deadlines-and-requirements",
+  "finalStatus": "verified",
+  "error": "https://case.edu/admission/academics: no usable prereq list || https://case.edu/admission/academics/areas-study/performing-arts: no usable prereq list || https://case.edu/admission/: no usable prereq list"
  },
  "2368": {
   "stage": "failed",
@@ -7534,12 +7589,12 @@
   "finalStatus": "verified"
  },
  "2408": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-25T15:51:17.962Z",
-  "attempts": 3,
+  "stage": "finalized",
+  "lastAttempt": "2026-08-28T10:45:21.123Z",
+  "attempts": 4,
   "pipelineGen": 11,
-  "sourceUrl": "https://sopa.tulane.edu/",
-  "error": "https://www.som.tulane.edu/: too little text || https://sopa.tulane.edu/admissions: no usable prereq list || https://sopa.tulane.edu/admissions/8-week-terms: no usable prereq list || https://sopa.tulane.edu/admissions/academic-credit-life-work-experience-clep-dsst: no usable prereq list"
+  "sourceUrl": "https://medicine.tulane.edu/admissions/md",
+  "finalStatus": "verified"
  },
  "2410": {
   "stage": "finalized",
@@ -7598,10 +7653,10 @@
   "finalStatus": "verified"
  },
  "2418": {
-  "stage": "finalized",
-  "lastAttempt": "2026-08-24T13:54:33.120Z",
-  "attempts": 3,
-  "pipelineGen": 9,
+  "stage": "source_discovery",
+  "lastAttempt": "2026-08-28T10:43:44.269Z",
+  "attempts": 1,
+  "pipelineGen": 11,
   "sourceUrl": "https://www.mc.edu/academics/departments/pa/admissions/prerequisites",
   "finalStatus": "verified"
  },
@@ -7653,12 +7708,20 @@
   "sourceUrl": "https://emu.edu/ms-biomed/admissions",
   "finalStatus": "verified"
  },
+ "2428": {
+  "stage": "failed",
+  "lastAttempt": "2026-08-28T10:22:47.521Z",
+  "attempts": 1,
+  "error": "https://www.vet.k-state.edu/admissions/requirements/prerequisites.html: no usable prereq list || https://www.vet.k-state.edu/admissions/early-admit/index.html: no usable prereq list || https://www.vet.k-state.edu/: no usable prereq list",
+  "pipelineGen": 11,
+  "sourceUrl": "https://www.vet.k-state.edu/admissions/apply/index.html"
+ },
  "2430": {
   "stage": "finalized",
-  "lastAttempt": "2026-08-25T19:21:14.242Z",
-  "attempts": 1,
+  "lastAttempt": "2026-08-28T10:36:26.255Z",
+  "attempts": 2,
   "pipelineGen": 11,
-  "sourceUrl": "https://medicine.tulane.edu/admissions/md/admissions-process",
+  "sourceUrl": "https://medicine.tulane.edu/admissions/md",
   "finalStatus": "verified"
  },
  "2432": {
@@ -7759,8 +7822,8 @@
  },
  "2449": {
   "stage": "finalized",
-  "lastAttempt": "2026-08-25T19:25:08.944Z",
-  "attempts": 1,
+  "lastAttempt": "2026-08-28T10:35:53.947Z",
+  "attempts": 2,
   "pipelineGen": 11,
   "sourceUrl": "https://www.highpoint.edu/physicianassistant/admission-requirements/",
   "finalStatus": "verified"
@@ -7877,19 +7940,20 @@
   "error": "https://phsu.edu/academics/programs/master-of-science-in-medical-science.php: no usable prereq list || https://catalog.phsu.edu/: no usable prereq list || https://phsu.edu/apply.php: no usable prereq list"
  },
  "2475": {
-  "stage": "source_fetched",
-  "lastAttempt": "2026-08-28T10:13:59.750Z",
+  "stage": "finalized",
+  "lastAttempt": "2026-08-28T10:19:00.124Z",
   "attempts": 1,
+  "error": "program timeout after 420s",
   "pipelineGen": 11,
-  "sourceUrl": "https://md.nova.edu/"
+  "sourceUrl": "https://md.nova.edu/admissions/md/admissions-requirements.html",
+  "finalStatus": "verified"
  },
  "2477": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-25T15:46:30.700Z",
-  "attempts": 3,
+  "stage": "source_discovery",
+  "lastAttempt": "2026-08-28T10:45:21.126Z",
+  "attempts": 4,
   "pipelineGen": 11,
-  "sourceUrl": "https://case.edu/admission/apply/deadlines-and-requirements",
-  "error": "https://case.edu/admission/academics: no usable prereq list || https://case.edu/admission/academics/areas-study/performing-arts: no usable prereq list || https://case.edu/admission/: no usable prereq list"
+  "sourceUrl": "https://case.edu/admission/apply/deadlines-and-requirements"
  },
  "2479": {
   "stage": "finalized",
@@ -8472,9 +8536,9 @@
  },
  "2679": {
   "stage": "finalized",
-  "lastAttempt": "2026-08-24T16:09:08.655Z",
-  "attempts": 2,
-  "pipelineGen": 9,
+  "lastAttempt": "2026-08-28T10:43:14.464Z",
+  "attempts": 1,
+  "pipelineGen": 11,
   "sourceUrl": "https://www.pace.edu/college-health-professions/departments/occupational-therapy/admissions/prerequisite-coursework",
   "finalStatus": "verified"
  },
@@ -9270,8 +9334,8 @@
  },
  "2885": {
   "stage": "finalized",
-  "lastAttempt": "2026-08-27T13:34:55.981Z",
-  "attempts": 1,
+  "lastAttempt": "2026-08-28T10:36:46.687Z",
+  "attempts": 2,
   "pipelineGen": 11,
   "sourceUrl": "https://www.wilson.edu/doctor-physical-therapy-application-and-admissions-process",
   "finalStatus": "verified"
