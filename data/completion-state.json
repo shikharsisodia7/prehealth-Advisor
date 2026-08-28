@@ -96,11 +96,12 @@
   "finalStatus": "verified"
  },
  "154": {
-  "stage": "extracted",
-  "lastAttempt": "2026-08-28T08:14:39.205Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-28T08:15:25.163Z",
   "attempts": 9,
   "pipelineGen": 11,
-  "sourceUrl": "https://admission.pepperdine.edu/apply/undergraduate/requirements/english-proficiency.htm"
+  "sourceUrl": "https://admission.pepperdine.edu/apply/undergraduate/requirements/english-proficiency.htm",
+  "error": "https://seaver.pepperdine.edu/admission/application/undergraduate/requirements/: HTTP 404 || https://seaver.pepperdine.edu/graduate/admission/process.htm: no usable prereq list || https://seaver.pepperdine.edu/graduate/admission/: no usable prereq list || https://seaver.pepperdine.edu/graduate/admission/resources.htm: no usable prereq list"
  },
  "158": {
   "stage": "finalized",
@@ -151,8 +152,8 @@
  },
  "177": {
   "stage": "failed",
-  "lastAttempt": "2026-08-28T00:26:17.829Z",
-  "attempts": 9,
+  "lastAttempt": "2026-08-28T08:26:03.800Z",
+  "attempts": 10,
   "pipelineGen": 11,
   "sourceUrl": "https://olemiss.edu/admissions/graduate-admissions/",
   "error": "refusing mismatched institution URL https://olemiss.edu/programs/applsci/master-science-food-and-nutrition-services/"
@@ -1626,11 +1627,11 @@
  },
  "568": {
   "stage": "failed",
-  "lastAttempt": "2026-08-28T00:28:45.026Z",
-  "attempts": 10,
+  "lastAttempt": "2026-08-28T08:29:19.217Z",
+  "attempts": 11,
   "pipelineGen": 11,
-  "sourceUrl": "https://admissions.vanderbilt.edu/",
-  "error": "https://medschool.vanderbilt.edu/medical-physics/admissions/: no usable prereq list || https://medschool.vanderbilt.edu/medical-physics/msmp/: no usable prereq list || https://medschool.vanderbilt.edu/md/visiting-students/: no usable prereq list"
+  "sourceUrl": "https://medschool.vanderbilt.edu/md/",
+  "error": "https://medschool.vanderbilt.edu/medical-physics/admissions/: no usable prereq list || https://medschool.vanderbilt.edu/medical-physics/msmp/: no usable prereq list || https://medschool.vanderbilt.edu/md/admissions/process/: no usable prereq list"
  },
  "569": {
   "stage": "finalized",
@@ -1690,10 +1691,10 @@
  },
  "576": {
   "stage": "failed",
-  "lastAttempt": "2026-08-28T04:12:32.948Z",
-  "attempts": 10,
+  "lastAttempt": "2026-08-28T08:29:53.460Z",
+  "attempts": 11,
   "pipelineGen": 11,
-  "sourceUrl": "https://www.admin.cam.ac.uk/univ/so/pdfs/2024/ordinance02.pdf",
+  "sourceUrl": "https://som.uthscsa.edu/medicine/education/ume",
   "error": "refusing mismatched institution URL https://som.uthscsa.edu/medicine/education/ume/admissions/requirements"
  },
  "577": {
@@ -2170,12 +2171,12 @@
   "sourceUrl": "https://nursing.utexas.edu/academics/undergraduate/bsn"
  },
  "851": {
-  "stage": "failed",
-  "lastAttempt": "2026-08-28T03:58:04.196Z",
-  "attempts": 9,
+  "stage": "finalized",
+  "lastAttempt": "2026-08-28T08:22:19.206Z",
+  "attempts": 10,
   "pipelineGen": 11,
-  "sourceUrl": "https://www.uco.edu/admissions/onestop/",
-  "error": "https://www.uco.edu/programs/cms/nursing/nursing: no usable prereq list || https://www.uco.edu/admissions/enroll/guide: no usable prereq list || https://www.uco.edu/admissions/aid/: no usable prereq list"
+  "sourceUrl": "https://www.uco.edu/programs/cms/nursing/nursing",
+  "finalStatus": "verified"
  },
  "853": {
   "stage": "finalized",
@@ -2437,8 +2438,8 @@
  },
  "1016": {
   "stage": "failed",
-  "lastAttempt": "2026-08-28T03:54:03.649Z",
-  "attempts": 9,
+  "lastAttempt": "2026-08-28T08:23:05.328Z",
+  "attempts": 10,
   "error": "https://www.nursing.upenn.edu/students/handbooks-forms/bsn-handbook/degree-requirements/: no usable prereq list || https://www.nursing.upenn.edu/admissions/how-to-apply/: no usable prereq list || https://www.nursing.upenn.edu/admissions/how-to-apply/general-faqs/: no usable prereq list",
   "pipelineGen": 11,
   "sourceUrl": "https://www.nursing.upenn.edu/admissions/admitted-students/msn-dnp-students/"
@@ -2573,8 +2574,8 @@
  },
  "1070": {
   "stage": "failed",
-  "lastAttempt": "2026-08-28T04:10:22.352Z",
-  "attempts": 9,
+  "lastAttempt": "2026-08-28T08:20:53.614Z",
+  "attempts": 10,
   "pipelineGen": 11,
   "sourceUrl": "https://www.emich.edu/chhs/health-sciences/programs/occupational-therapy/about/students.php",
   "error": "https://www.emich.edu/chhs/health-sciences/programs/occupational-therapy/admissions/index.php: no usable prereq list"
@@ -2709,10 +2710,10 @@
  },
  "1128": {
   "stage": "failed",
-  "lastAttempt": "2026-08-28T03:46:53.579Z",
-  "attempts": 11,
+  "lastAttempt": "2026-08-28T08:34:04.954Z",
+  "attempts": 12,
   "pipelineGen": 11,
-  "sourceUrl": "https://www.radford.edu/admissions/international/application-requirements.html",
+  "sourceUrl": "https://catalog.radford.edu/",
   "error": "https://www.radford.edu/waldron-college-health-human-services/physician-assistant-studies-department/admission-requirements.html: no usable prereq list || https://www.radford.edu/admissions/online/index.html: no usable prereq list || https://www.radford.edu/admissions/freshmen/application-guidelines.html: no usable prereq list"
  },
  "1140": {
@@ -2805,11 +2806,11 @@
  },
  "1166": {
   "stage": "failed",
-  "lastAttempt": "2026-08-28T03:45:00.425Z",
-  "attempts": 11,
+  "lastAttempt": "2026-08-28T08:31:33.576Z",
+  "attempts": 12,
   "pipelineGen": 11,
-  "sourceUrl": "https://mtmary.edu/majors-programs/graduate/occupational-therapy/index.html",
-  "error": "https://online.umary.edu/admissions-aid/requirements-deadlines: no usable prereq list || https://www.umary.edu/academics/graduate-programs/occupational-therapy: no usable prereq list || https://www.umary.edu/academics/pre-professional-programs/pre-occupational-therapy-concentration: no usable prereq list"
+  "sourceUrl": "https://www.umary.edu/admission-aid/graduate-admissions",
+  "error": "https://online.umary.edu/admissions-aid/requirements-deadlines: no usable prereq list || https://www.umary.edu/academics/graduate-programs/occupational-therapy: no usable prereq list || https://www.umary.edu/admission-aid/undergraduate-admissions/admission-requirements/early-assurance-and-priority-admission: no usable prereq list"
  },
  "1167": {
   "stage": "finalized",
@@ -3149,8 +3150,8 @@
  },
  "1302": {
   "stage": "failed",
-  "lastAttempt": "2026-08-28T03:45:02.784Z",
-  "attempts": 9,
+  "lastAttempt": "2026-08-28T08:21:58.631Z",
+  "attempts": 10,
   "pipelineGen": 11,
   "sourceUrl": "https://www.umary.edu/admission-aid/graduate-admissions",
   "error": "https://online.umary.edu/admissions-aid/requirements-deadlines: no usable prereq list || https://www.umary.edu/academics/graduate-programs/occupational-therapy: no usable prereq list || https://www.umary.edu/admission-aid/undergraduate-admissions/admission-requirements/early-assurance-and-priority-admission: no usable prereq list"
@@ -3197,8 +3198,8 @@
  },
  "1314": {
   "stage": "failed",
-  "lastAttempt": "2026-08-28T03:42:56.377Z",
-  "attempts": 9,
+  "lastAttempt": "2026-08-28T08:20:57.615Z",
+  "attempts": 10,
   "pipelineGen": 11,
   "sourceUrl": "https://www.ou.edu/admissions/apply/nondegree",
   "error": "https://www.ou.edu/admissions/academics/allied-health/occupational-therapy: no usable prereq list || https://www.ou.edu/admissions/academics/allied-health/occupational-therapy: no usable prereq list || https://www.ou.edu/admissions/apply/uwc: no usable prereq list"
@@ -3253,8 +3254,8 @@
  },
  "1330": {
   "stage": "failed",
-  "lastAttempt": "2026-08-28T04:12:15.118Z",
-  "attempts": 10,
+  "lastAttempt": "2026-08-28T08:30:12.480Z",
+  "attempts": 11,
   "pipelineGen": 11,
   "sourceUrl": "https://uthscsa.edu/health-professions/sites/health-professions/files/2026-05/OTD%20Documentation%20of%20Experience.pdf",
   "error": "refusing mismatched institution URL https://uthscsa.edu/health-professions/programs/doctor-occupational-therapy/admissions"
@@ -5175,11 +5176,11 @@
  },
  "1936": {
   "stage": "failed",
-  "lastAttempt": "2026-08-28T04:03:22.185Z",
-  "attempts": 9,
+  "lastAttempt": "2026-08-28T08:31:23.742Z",
+  "attempts": 10,
   "pipelineGen": 11,
-  "sourceUrl": "https://www.k-state.edu/admissions/",
-  "error": "https://catalog.k-state.edu/preview_program.php?catoid=48&poid=16470&print: HTTP 403 || https://catalog.k-state.edu/preview_program.php?catoid=66&poid=26908&print: HTTP 403 || https://catalog.k-state.edu/programs/MPAS/program-requirements-TCjHU: no usable prereq list || https://www.k-state.edu/ksis/faqs/faqCourseClassPrerequisites.html: no usable prereq list"
+  "sourceUrl": "https://www.vet.k-state.edu/academics/student-faculty-handbook/",
+  "error": "https://www.vet.k-state.edu/academics/student-faculty-handbook/: no usable prereq list"
  },
  "1937": {
   "stage": "finalized",
@@ -5512,8 +5513,8 @@
  },
  "1999": {
   "stage": "failed",
-  "lastAttempt": "2026-08-28T00:29:14.608Z",
-  "attempts": 10,
+  "lastAttempt": "2026-08-28T08:29:54.268Z",
+  "attempts": 11,
   "error": "refusing mismatched institution URL https://www.south.edu/physician-assistant-studies-asheville/admissions/",
   "pipelineGen": 11,
   "sourceUrl": "https://www.south.edu/program/master-of-health-science-physician-assistant-studies-indianapolis/"
@@ -6128,8 +6129,8 @@
  },
  "2126": {
   "stage": "failed",
-  "lastAttempt": "2026-08-28T06:58:46.852Z",
-  "attempts": 9,
+  "lastAttempt": "2026-08-28T08:28:59.183Z",
+  "attempts": 10,
   "pipelineGen": 11,
   "sourceUrl": "https://medcoe.army.mil/ipap/",
   "error": "program timeout after 420s"
@@ -7856,11 +7857,12 @@
   "finalStatus": "verified"
  },
  "2518": {
-  "stage": "source_fetched",
-  "lastAttempt": "2026-08-28T08:14:45.762Z",
+  "stage": "failed",
+  "lastAttempt": "2026-08-28T08:16:19.284Z",
   "attempts": 9,
   "pipelineGen": 11,
-  "sourceUrl": "https://www.emich.edu/chhs/hphp/programs/orthotics-prosthetics/about.php"
+  "sourceUrl": "https://www.emich.edu/admissions/graduate/index.php",
+  "error": "https://www.emich.edu/admissions/international/index.php: HTTP 403 || https://www.emich.edu/chhs/hphp/programs/orthotics-prosthetics/index.php: no usable prereq list || https://www.emich.edu/chhs/hphp/programs/orthotics-prosthetics/faq.php: no usable prereq list || https://www.emich.edu/admissions/index.php: no usable prereq list"
  },
  "2528": {
   "stage": "failed",
@@ -8091,11 +8093,11 @@
  },
  "2596": {
   "stage": "failed",
-  "lastAttempt": "2026-08-28T00:22:37.512Z",
-  "attempts": 9,
+  "lastAttempt": "2026-08-28T08:19:06.329Z",
+  "attempts": 10,
   "pipelineGen": 11,
   "sourceUrl": "https://admissions.fiu.edu/how-to-apply/apply/",
-  "error": "https://catalog.fiu.edu/programs/SPHPATH:MS/requirements-uz47h: no usable prereq list || https://catalog.fiu.edu/programs/SPHPATH%3AMS/requirements-uz47h: no usable prereq list || https://admissions.fiu.edu/how-to-apply/apply/: no usable prereq list"
+  "error": "https://catalog.fiu.edu/programs/SPHPATH:MS/requirements-uz47h: no usable prereq list || https://catalog.fiu.edu/programs/SPHPATH%3AMS/requirements-uz47h: no usable prereq list || https://catalog.fiu.edu/programs/SPHPATH:MS: no usable prereq list"
  },
  "2597": {
   "stage": "finalized",
@@ -8234,11 +8236,12 @@
   "finalStatus": "verified"
  },
  "2638": {
-  "stage": "source_discovery",
-  "lastAttempt": "2026-08-28T08:14:41.790Z",
+  "stage": "finalized",
+  "lastAttempt": "2026-08-28T08:16:40.557Z",
   "attempts": 10,
   "pipelineGen": 11,
-  "sourceUrl": "https://www.latech.edu/admissions/apply/"
+  "sourceUrl": "https://communicativedisorders.louisiana.edu/programs/masters-speech-language-pathology/requirements",
+  "finalStatus": "verified"
  },
  "2648": {
   "stage": "finalized",
@@ -8409,8 +8412,8 @@
  },
  "2711": {
   "stage": "failed",
-  "lastAttempt": "2026-08-28T04:46:39.616Z",
-  "attempts": 9,
+  "lastAttempt": "2026-08-28T08:18:52.715Z",
+  "attempts": 10,
   "pipelineGen": 11,
   "sourceUrl": "https://www.stcloudstate.edu/gradadmissions/program/default.aspx",
   "error": "https://www.stcloudstate.edu/graduate/csd/default.aspx: no usable prereq list || https://www.stcloudstate.edu/csd/: no usable prereq list || https://www.stcloudstate.edu/gradadmissions/?utm_source=website-homepage&utm_medium=Graduate: no usable prereq list"
@@ -8483,11 +8486,11 @@
  },
  "2735": {
   "stage": "failed",
-  "lastAttempt": "2026-08-28T04:46:32.648Z",
-  "attempts": 9,
+  "lastAttempt": "2026-08-28T08:17:45.146Z",
+  "attempts": 10,
   "pipelineGen": 11,
-  "sourceUrl": "https://www.utrgv.edu/admissions/international/index.htm",
-  "error": "https://www.utrgv.edu/programs/ms-communication-sciences-and-disorders.htm: no usable prereq list || https://www.utrgv.edu/admissions/info/apply/index.htm: no usable prereq list || https://www.utrgv.edu/admissions/transfer/index.htm: no usable prereq list"
+  "sourceUrl": "https://www.utrgv.edu/admissions/graduate/how-to-apply/international/index.htm",
+  "error": "https://www.utrgv.edu/programs/ms-communication-sciences-and-disorders.htm: no usable prereq list || https://www.utrgv.edu/cohp/schools-and-departments/department-of-communication-disorders/: no usable prereq list || https://www.utrgv.edu/admissions/info/apply/index.htm: no usable prereq list"
  },
  "2740": {
   "stage": "failed",
@@ -8845,11 +8848,11 @@
  },
  "2813": {
   "stage": "failed",
-  "lastAttempt": "2026-08-28T04:44:02.883Z",
-  "attempts": 9,
+  "lastAttempt": "2026-08-28T08:19:58.020Z",
+  "attempts": 10,
   "pipelineGen": 11,
-  "sourceUrl": "https://utulsa.edu/admissions/undergraduate-admission/",
-  "error": "https://bulletin.utulsa.edu/preview_program.php?catoid=37&poid=5405#: no usable prereq list || https://utulsa.edu/admissions/apply/other-students/concurrent-enrollment-application-requirements/: no usable prereq list || https://utulsa.edu/admissions/undergraduate-admission/prospective-parents/: no usable prereq list"
+  "sourceUrl": "https://utulsa.edu/admissions/undergraduate-admission/special-programs/early-careers-in-medicine/",
+  "error": "https://utulsa.edu/programs/speech-language-pathology/: no usable prereq list || https://utulsa.edu/academics/health-natural-sciences/academics/departments/communication-sciences-disorders/communication-sciences-disorders-grad/: no usable prereq list || https://bulletin.utulsa.edu/preview_program.php?catoid=37&poid=5405#: no usable prereq list"
  },
  "2816": {
   "stage": "finalized",
