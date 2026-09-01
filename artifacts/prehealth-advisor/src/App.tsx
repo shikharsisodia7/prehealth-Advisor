@@ -9,6 +9,7 @@ import ProfessionDetail from '@/pages/professions/detail';
 import TargetSchools from '@/pages/schools/index';
 import Prerequisites from '@/pages/prerequisites/index';
 import ProgramPlanner from '@/pages/planner/index';
+import ManualSearch from '@/pages/manual-search/index';
 import NotFound from '@/pages/not-found';
 
 const queryClient = new QueryClient({
@@ -24,8 +25,9 @@ function Router() {
   return (
     <AppShell>
       <Switch>
-        {/* Primary student-facing route */}
+        {/* Primary student-facing routes */}
         <Route path="/" component={ProgramPlanner} />
+        <Route path="/manual-search" component={ManualSearch} />
         {/* Internal/admin routes — not linked from student nav */}
         <Route path="/dashboard" component={Dashboard} />
         <Route path="/professions" component={ProfessionsList} />

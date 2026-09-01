@@ -12,7 +12,10 @@ import {
   AlertCircle,
   AlertTriangle,
   Info,
+  Compass,
+  MapPin,
 } from "lucide-react";
+import { Link } from "wouter";
 import { toast } from "sonner";
 
 import {
@@ -33,6 +36,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { Badge } from "@/components/ui/badge";
 import { Label } from "@/components/ui/label";
 import { cn } from "@/lib/utils";
+import { APP_NAME } from "@/lib/site-config";
 import {
   EXPORT_HEADERS,
   PROGRAMS_EXPORT_HEADERS,
@@ -41,11 +45,14 @@ import {
   buildSelectionExportRows,
   buildProgramsSheetRow,
   buildPrereqsSheetRows,
+  displaySources,
   filterByDegreeTypes,
   filterSchools,
   formatSelectionForCopy,
   isPositiveStatus,
+  requirementsDisplayKind,
   sanitizeSpreadsheetValue,
+  splitCourseNameForDisplay,
   verificationStatusMessage,
   rowToTsv,
   rowToCsv,
@@ -364,33 +371,119 @@ function SchoolMultiSelect({
 // ─── Results section ──────────────────────────────────────────────────────────
 
 /**
- * Shown for statuses where we have NO course data at all (draft, rejected,
- * needs_review without a specific blocker message, outdated).
+ * Small text link to the manual-search backup, reused inside the fallback
+ * panel and near the top of the workflow. Never styled as a button so it
+ * never competes with the automated planner, which stays the default path.
  */
-function VerificationMessage({
-  status,
+function ManualSearchLink({
+  professionSlug,
+  className,
+}: {
+  professionSlug?: string;
+  className?: string;
+}) {
+  const href = professionSlug
+    ? `/manual-search?profession=${encodeURIComponent(professionSlug)}`
+    : "/manual-search";
+  return (
+    <Link
+      href={href}
+      className={cn(
+        "inline-flex items-center gap-1 text-primary hover:underline focus:outline-none focus:underline",
+        className,
+      )}
+    >
+      <Compass className="w-3.5 h-3.5" />
+      Search this profession manually
+    </Link>
+  );
+}
+
+/**
+ * Shown when a program has no verified (or pending-review) course list to
+ * display. Distinguishes three genuinely different situations rather than
+ * flattening them into one "still being verified" message:
+ *
+ *   - the school has explicitly published that it requires no specific
+ *     prerequisite courses (a positive, sourced fact — not a gap)
+ *   - the official source could not be read, is temporarily blocked, or is
+ *     flagged for re-review (a research gap with a next step)
+ *   - the program was only just identified and nothing has been collected
+ *     yet (draft)
+ *
+ * `no_prereqs_published` must never render through the manual-review copy,
+ * and the manual-review copy must never claim "no prerequisites" — that
+ * distinction is the entire point of this component.
+ */
+function RequirementsFallback({
+  school,
   blockerNote,
 }: {
-  status: string;
+  school: ProgramSchool;
   blockerNote?: string | null;
 }) {
-  const defaultMessage =
-    status === "needs_review" && blockerNote
-      ? blockerNote
-      : status === "needs_review"
-        ? "Prerequisite information for this program could not be retrieved from the official website. Check the official program source or consult a health professions advisor."
-        : status === "outdated"
-          ? "This information requires re-verification. Review the official program source or consult a health professions advisor."
-          : status === "draft"
-            ? "This program has been identified, but its prerequisite information is still being collected."
-            : status === "rejected"
-              ? "Prerequisite information for this program is still being verified. Review the official program page or consult a health professions advisor."
-              : "Prerequisite information for this program is still being verified. Review the official program page or consult a health professions advisor.";
+  const kind = requirementsDisplayKind(school.verificationStatus);
+  const sources = displaySources(school);
+  const primarySource = sources[0];
+
+  if (kind === "no_prereqs_published") {
+    return (
+      <div className="flex items-start gap-2 p-3 rounded-md bg-emerald-50 border border-emerald-200 text-emerald-900 text-sm">
+        <Info className="w-4 h-4 shrink-0 mt-0.5" />
+        <span>
+          The official program source states that this program does not
+          require specific prerequisite courses.
+          {school.verificationNote ? ` ${school.verificationNote}` : ""}
+        </span>
+      </div>
+    );
+  }
+
+  if (school.verificationStatus === "draft") {
+    return (
+      <div className="flex items-start gap-2 p-3 rounded-md bg-amber-50 border border-amber-200 text-amber-800 text-sm">
+        <AlertCircle className="w-4 h-4 shrink-0 mt-0.5" />
+        <span>
+          This program has been identified, but its prerequisite information
+          is still being collected.
+        </span>
+      </div>
+    );
+  }
+
+  // Manual-review bucket: needs_review, source_blocked, unavailable,
+  // not_published, outdated, rejected.
+  const explanation =
+    blockerNote ??
+    "We could not verify an enumerable prerequisite-course list from this program's public official materials.";
 
   return (
-    <div className="flex items-start gap-2 p-3 rounded-md bg-amber-50 border border-amber-200 text-amber-800 text-sm">
-      <AlertCircle className="w-4 h-4 shrink-0 mt-0.5" />
-      <span>{defaultMessage}</span>
+    <div className="p-3 rounded-md bg-amber-50 border border-amber-200 text-amber-900 text-sm space-y-2">
+      <div className="flex items-start gap-2">
+        <AlertTriangle className="w-4 h-4 shrink-0 mt-0.5" />
+        <div className="space-y-1">
+          <p className="font-medium">Prerequisite course list not publicly available</p>
+          <p>
+            {explanation} Review the official admissions information directly
+            and confirm requirements with your pre-health advisor before
+            planning coursework.
+          </p>
+        </div>
+      </div>
+      <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 pl-6 text-sm">
+        {primarySource && (
+          <a
+            href={primarySource.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1 font-medium text-primary hover:underline focus:outline-none focus:underline"
+          >
+            <ExternalLink className="w-3.5 h-3.5" />
+            View official program source
+          </a>
+        )}
+        <ManualSearchLink professionSlug={school.professionSlug} />
+      </div>
     </div>
   );
 }
@@ -473,22 +566,31 @@ function SchoolResult({ school }: { school: ProgramSchool }) {
                   Required prerequisites:
                 </p>
                 <ul className="space-y-1 mb-3">
-                  {requiredPrereqs.map((prereq, i) => (
-                    <li key={i} className="flex items-start gap-2 text-sm">
-                      <span className="text-primary mt-1 shrink-0" aria-hidden="true">•</span>
-                      <span>
-                        <span className="font-medium">{prereq.name}</span>
-                        {prereq.details && (
-                          <span className="text-muted-foreground"> — {prereq.details}</span>
-                        )}
-                        {prereq.otherConditions && (
-                          <span className="text-muted-foreground italic">
-                            {" "}({prereq.otherConditions})
-                          </span>
-                        )}
-                      </span>
-                    </li>
-                  ))}
+  {requiredPrereqs.map((prereq, i) => {
+                    const { title, code } = splitCourseNameForDisplay(prereq.name);
+                    return (
+                      <li key={i} className="flex items-start gap-2 text-sm">
+                        <span className="text-primary mt-1 shrink-0" aria-hidden="true">•</span>
+                        <span>
+                          <span className="font-medium">{title ?? code}</span>
+                          {title && code && (
+                            <span className="text-muted-foreground text-xs">
+                              {" "}
+                              · Institution course: {code}
+                            </span>
+                          )}
+                          {prereq.details && (
+                            <span className="text-muted-foreground"> — {prereq.details}</span>
+                          )}
+                          {prereq.otherConditions && (
+                            <span className="text-muted-foreground italic">
+                              {" "}({prereq.otherConditions})
+                            </span>
+                          )}
+                        </span>
+                      </li>
+                    );
+                  })}
                 </ul>
               </>
             )}
@@ -498,17 +600,26 @@ function SchoolResult({ school }: { school: ProgramSchool }) {
                   Recommended:
                 </p>
                 <ul className="space-y-1 mb-3">
-                  {recommendedPrereqs.map((prereq, i) => (
-                    <li key={i} className="flex items-start gap-2 text-sm">
-                      <span className="text-muted-foreground mt-1 shrink-0" aria-hidden="true">◦</span>
-                      <span>
-                        <span className="font-medium">{prereq.name}</span>
-                        {prereq.details && (
-                          <span className="text-muted-foreground"> — {prereq.details}</span>
-                        )}
-                      </span>
-                    </li>
-                  ))}
+                  {recommendedPrereqs.map((prereq, i) => {
+                    const { title, code } = splitCourseNameForDisplay(prereq.name);
+                    return (
+                      <li key={i} className="flex items-start gap-2 text-sm">
+                        <span className="text-muted-foreground mt-1 shrink-0" aria-hidden="true">◦</span>
+                        <span>
+                          <span className="font-medium">{title ?? code}</span>
+                          {title && code && (
+                            <span className="text-muted-foreground text-xs">
+                              {" "}
+                              · Institution course: {code}
+                            </span>
+                          )}
+                          {prereq.details && (
+                            <span className="text-muted-foreground"> — {prereq.details}</span>
+                          )}
+                        </span>
+                      </li>
+                    );
+                  })}
                 </ul>
               </>
             )}
@@ -540,36 +651,26 @@ function SchoolResult({ school }: { school: ProgramSchool }) {
         )
       ) : (
         <div className="mb-3">
-          <VerificationMessage
-            status={school.verificationStatus}
-            blockerNote={blockerNote}
-          />
+          <RequirementsFallback school={school} blockerNote={blockerNote} />
         </div>
       )}
 
-      {/* Source + verification date */}
+      {/* Source(s) + verification date — every official document used for this
+          program's record, not just the first one, and rendered with a
+          human-readable label rather than a raw URL. */}
       <div className="flex flex-wrap items-center gap-3 text-xs text-muted-foreground">
-        {school.sourceUrl ? (
+        {displaySources(school).map((source) => (
           <a
-            href={school.sourceUrl}
+            key={source.url}
+            href={source.url}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-1 text-primary hover:underline focus:outline-none focus:underline"
           >
             <ExternalLink className="w-3 h-3" />
-            Official prerequisite source
+            {source.label}
           </a>
-        ) : school.websiteUrl ? (
-          <a
-            href={school.websiteUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-1 text-primary hover:underline focus:outline-none focus:underline"
-          >
-            <ExternalLink className="w-3 h-3" />
-            Official program website
-          </a>
-        ) : null}
+        ))}
         {school.lastVerified && (
           <span>Last verified {school.lastVerified}</span>
         )}
@@ -858,18 +959,43 @@ export default function ProgramPlanner() {
         {/* Page header */}
         <div className="pt-2">
           <h1 className="font-serif text-2xl md:text-3xl font-bold text-foreground mb-2 leading-tight">
-            Health Professions Program Planner
+            {APP_NAME}
           </h1>
           <p className="text-muted-foreground text-sm max-w-2xl leading-relaxed">
-            Compare the required prerequisite coursework for the health
-            professional programs you are considering.
+            Prerequisite requirements vary by professional school — a general,
+            profession-wide course list cannot capture every program. Use this
+            planner to compare school-specific requirements side by side and
+            build a target list of programs worth applying to.
           </p>
           <p className="text-muted-foreground text-xs max-w-2xl mt-1.5 leading-relaxed">
-            This planner is designed to support early academic planning. It does
-            not rank programs, predict admission, or recommend where you should
-            apply.
+            This planner supports early academic planning; it does not rank
+            programs, predict admission, or recommend where you should apply.
+            Requirements can change — always confirm final coursework with the
+            program's official admissions materials and your pre-health
+            advisor.
           </p>
+          <div className="mt-2.5">
+            <ManualSearchLink className="text-xs" />
+          </div>
         </div>
+
+        {/* Building a shortlist of programs to apply to */}
+        <Card className="no-print bg-muted/30 border-border/60">
+          <CardContent className="pt-4 pb-4">
+            <div className="flex items-start gap-2.5">
+              <MapPin className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+              <div className="text-sm text-muted-foreground leading-relaxed">
+                <span className="font-medium text-foreground">
+                  Build your list of programs to apply to:{" "}
+                </span>
+                Start with programs in your state of legal residence, then
+                narrow to about 5–10 programs you're seriously considering.
+                Compare their school-specific prerequisites here, and revisit
+                the list as your interests change.
+              </div>
+            </div>
+          </CardContent>
+        </Card>
 
         {/* Step 1 — Select profession */}
         <Card className="no-print">
@@ -1028,11 +1154,17 @@ export default function ProgramPlanner() {
                   We could not load the program information. Please try again.
                 </div>
               ) : noSchoolsForProfession ? (
-                <p className="text-sm text-muted-foreground py-4 text-center">
-                  The program directory for this profession and degree type has
-                  not been populated yet. This does not mean no programs exist
-                  — check back soon or consult a health professions advisor.
-                </p>
+                <div className="py-4 text-center space-y-2">
+                  <p className="text-sm text-muted-foreground">
+                    The program directory for this profession and degree type has
+                    not been populated yet. This does not mean no programs exist
+                    — check back soon or consult a health professions advisor.
+                  </p>
+                  <ManualSearchLink
+                    professionSlug={selectedProfessionSlug}
+                    className="text-sm justify-center"
+                  />
+                </div>
               ) : (
                 <SchoolMultiSelect
                   schools={browseSchools}

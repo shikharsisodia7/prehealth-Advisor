@@ -25,6 +25,10 @@ import {
   verificationStatusMessage,
   formatProgramForCopy,
   formatSelectionForCopy,
+  displaySources,
+  prereqSourceLabel,
+  splitCourseNameForDisplay,
+  requirementsDisplayKind,
   EXPORT_HEADERS,
   PROGRAMS_EXPORT_HEADERS,
   PREREQS_EXPORT_HEADERS,
@@ -1085,6 +1089,7 @@ describe("prohibited language absence", () => {
   const studentFacingFiles = [
     path.resolve(__dirname, "../pages/planner/index.tsx"),
     path.resolve(__dirname, "../components/layout/AppShell.tsx"),
+    path.resolve(__dirname, "../pages/manual-search/index.tsx"),
   ];
 
   const prohibited = [
@@ -1111,4 +1116,115 @@ describe("prohibited language absence", () => {
       }
     });
   }
+});
+
+// ── Spec: missing-prerequisite fallback classification ────────────────────────
+
+describe("requirementsDisplayKind", () => {
+  it("groups verified and imported as has_courses", () => {
+    expect(requirementsDisplayKind("verified")).toBe("has_courses");
+    expect(requirementsDisplayKind("imported")).toBe("has_courses");
+  });
+
+  it("keeps no_prereqs_published in its own bucket, never manual_review", () => {
+    expect(requirementsDisplayKind("no_prereqs_published")).toBe("no_prereqs_published");
+  });
+
+  it("groups research-gap statuses as manual_review", () => {
+    for (const status of [
+      "needs_review",
+      "source_blocked",
+      "unavailable",
+      "not_published",
+      "outdated",
+      "rejected",
+      "draft",
+    ]) {
+      expect(requirementsDisplayKind(status)).toBe("manual_review");
+    }
+  });
+});
+
+// ── Spec: course title vs. institutional course code ──────────────────────────
+
+describe("splitCourseNameForDisplay", () => {
+  it("splits 'CODE - Title' into title and code", () => {
+    expect(splitCourseNameForDisplay("STA 1380 - Elementary Statistics")).toEqual({
+      title: "Elementary Statistics",
+      code: "STA 1380",
+    });
+  });
+
+  it("splits 'CODE: Title' into title and code", () => {
+    expect(splitCourseNameForDisplay("CSD 204: Phonetics")).toEqual({
+      title: "Phonetics",
+      code: "CSD 204",
+    });
+  });
+
+  it("splits 'Title (CODE)' into title and code", () => {
+    expect(splitCourseNameForDisplay("Human Anatomy (BIOL 2215)")).toEqual({
+      title: "Human Anatomy",
+      code: "BIOL 2215",
+    });
+  });
+
+  it("shows a bare course code as-is, never inventing a title", () => {
+    expect(splitCourseNameForDisplay("BSC 2010C")).toEqual({
+      title: null,
+      code: "BSC 2010C",
+    });
+  });
+
+  it("treats a plain subject name as a title with no code", () => {
+    expect(splitCourseNameForDisplay("Human Anatomy")).toEqual({
+      title: "Human Anatomy",
+      code: null,
+    });
+  });
+});
+
+// ── Spec: multi-source provenance display ──────────────────────────────────────
+
+describe("displaySources / prereqSourceLabel", () => {
+  it("prefers the structured prereqSources list, deduplicated by URL", () => {
+    const school = makeSchool({
+      sourceUrl: "https://example.edu/legacy",
+      prereqCourses: [],
+      prereqSources: [
+        { url: "https://example.edu/admissions", title: null, sourceType: "admissions_page" },
+        { url: "https://example.edu/admissions", title: null, sourceType: "admissions_page" },
+        { url: "https://example.edu/handbook.pdf", title: "2026 Handbook", sourceType: "handbook_pdf" },
+      ],
+    });
+    const sources = displaySources(school);
+    expect(sources).toHaveLength(2);
+    expect(sources[0]).toEqual({ url: "https://example.edu/admissions", label: "Official admissions page" });
+    expect(sources[1]).toEqual({ url: "https://example.edu/handbook.pdf", label: "2026 Handbook" });
+  });
+
+  it("falls back to sourceUrl when there is no structured source list", () => {
+    const school = makeSchool({ sourceUrl: "https://example.edu/prereqs", prereqCourses: [] });
+    expect(displaySources(school)).toEqual([
+      { url: "https://example.edu/prereqs", label: "Official prerequisite source" },
+    ]);
+  });
+
+  it("falls back to websiteUrl when neither sourceUrl nor prereqSources exist", () => {
+    const school = makeSchool({ sourceUrl: null, websiteUrl: "https://example.edu", prereqCourses: [] });
+    expect(displaySources(school)).toEqual([
+      { url: "https://example.edu", label: "Official program website" },
+    ]);
+  });
+
+  it("returns an empty list when no source is on file", () => {
+    const school = makeSchool({ sourceUrl: null, websiteUrl: null, prereqCourses: [] });
+    expect(displaySources(school)).toEqual([]);
+  });
+
+  it("labels an untitled source by its type, never a raw URL", () => {
+    expect(prereqSourceLabel({ url: "https://x.edu/a", title: null, sourceType: "catalog" })).toBe(
+      "Official course catalog",
+    );
+  });
 });

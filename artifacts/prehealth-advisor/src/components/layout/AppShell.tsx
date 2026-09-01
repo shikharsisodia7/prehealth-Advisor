@@ -1,5 +1,6 @@
 import * as React from "react"
 import { ClipboardList } from "lucide-react"
+import { APP_NAME } from "@/lib/site-config"
 
 interface AppShellProps {
   children: React.ReactNode
@@ -13,7 +14,7 @@ export function AppShell({ children }: AppShellProps) {
         <div className="max-w-4xl mx-auto px-4 py-3 flex items-center gap-2">
           <ClipboardList className="w-5 h-5 text-primary shrink-0" aria-hidden="true" />
           <span className="font-serif font-bold text-lg text-primary tracking-tight leading-tight">
-            Health Professions Program Planner
+            {APP_NAME}
           </span>
         </div>
       </header>

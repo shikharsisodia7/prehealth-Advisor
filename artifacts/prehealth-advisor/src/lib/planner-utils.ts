@@ -5,6 +5,118 @@
 
 import type { PrereqItem } from "@workspace/api-client-react";
 
+// ── Prerequisite source (multi-source provenance) ────────────────────────────
+
+export interface PrereqSourceLike {
+  url: string;
+  title?: string | null;
+  sourceType: string;
+}
+
+const SOURCE_TYPE_LABELS: Record<string, string> = {
+  admissions_page: "Official admissions page",
+  program_page: "Official program page",
+  catalog: "Official course catalog",
+  handbook_pdf: "Official program handbook (PDF)",
+  centralized_service: "Centralized application service listing",
+  accreditor: "Accreditor program record",
+  other_official: "Official program source",
+};
+
+/** Human-friendly label for a single provenance record — never a raw URL. */
+export function prereqSourceLabel(source: PrereqSourceLike): string {
+  if (source.title && source.title.trim()) return source.title.trim();
+  return SOURCE_TYPE_LABELS[source.sourceType] ?? "Official program source";
+}
+
+/**
+ * The list of sources to show in the UI for a program: prefers the full
+ * `prereqSources` provenance list (deduplicated by URL), and falls back to
+ * the single legacy `sourceUrl`/`websiteUrl` when no structured list exists
+ * yet, so a source link is never lost for older records.
+ */
+export function displaySources(school: {
+  sourceUrl?: string | null;
+  websiteUrl?: string | null;
+  prereqSources?: PrereqSourceLike[];
+}): Array<{ url: string; label: string }> {
+  const structured = school.prereqSources ?? [];
+  if (structured.length > 0) {
+    const seen = new Set<string>();
+    const out: Array<{ url: string; label: string }> = [];
+    for (const s of structured) {
+      if (!s.url || seen.has(s.url)) continue;
+      seen.add(s.url);
+      out.push({ url: s.url, label: prereqSourceLabel(s) });
+    }
+    if (out.length > 0) return out;
+  }
+  if (school.sourceUrl) {
+    return [{ url: school.sourceUrl, label: "Official prerequisite source" }];
+  }
+  if (school.websiteUrl) {
+    return [{ url: school.websiteUrl, label: "Official program website" }];
+  }
+  return [];
+}
+
+// ── Course name / institutional course code presentation ─────────────────────
+
+export interface CourseNameDisplay {
+  /** The human-readable course title, when one is available. */
+  title: string | null;
+  /** The institution's own course code, when one is available. */
+  code: string | null;
+}
+
+const BARE_COURSE_CODE = /^[A-Z]{2,6}\s?-?\s?\d{2,4}[A-Z]?$/;
+const CODE_THEN_TITLE = /^([A-Z]{2,6}\s?-?\s?\d{2,4}[A-Z]?)\s*[-:–—]\s*(.+)$/;
+const TITLE_THEN_CODE = /^(.+?)\s*\(([A-Z]{2,6}\s?-?\s?\d{2,4}[A-Z]?)\)\s*$/;
+
+/**
+ * Splits a published prerequisite name into a human title and an
+ * institutional course code, when the underlying string carries both (e.g.
+ * "CSD 204: Phonetics" or "Human Anatomy (BIOL 2215)"). Never invents a
+ * title for a bare code — "BSC 2010C" is shown exactly as published,
+ * because guessing what a code means is exactly the kind of fabrication
+ * this dataset has been burned by before.
+ */
+export function splitCourseNameForDisplay(name: string): CourseNameDisplay {
+  const trimmed = name.trim();
+  const codeThenTitle = trimmed.match(CODE_THEN_TITLE);
+  if (codeThenTitle) {
+    return { title: codeThenTitle[2].trim(), code: codeThenTitle[1].trim() };
+  }
+  const titleThenCode = trimmed.match(TITLE_THEN_CODE);
+  if (titleThenCode) {
+    return { title: titleThenCode[1].trim(), code: titleThenCode[2].trim() };
+  }
+  if (BARE_COURSE_CODE.test(trimmed)) {
+    return { title: null, code: trimmed };
+  }
+  return { title: trimmed, code: null };
+}
+
+// ── Fallback classification for missing/unavailable prerequisite data ────────
+
+export type RequirementsDisplayKind =
+  | "has_courses"
+  | "no_prereqs_published"
+  | "manual_review";
+
+/**
+ * Categorizes a verification status into the three ways the planner presents
+ * missing-or-unavailable prerequisite information (see VerificationMessage /
+ * RequirementsFallback in the planner page). `no_prereqs_published` is never
+ * grouped with the manual-review bucket — it is a positive, sourced claim
+ * from the school, not a research gap, and must not read like one.
+ */
+export function requirementsDisplayKind(status: string): RequirementsDisplayKind {
+  if (status === "verified" || status === "imported") return "has_courses";
+  if (status === "no_prereqs_published") return "no_prereqs_published";
+  return "manual_review";
+}
+
 // ── Types mirrored from planner (no API import needed in tests) ──────────────
 
 export interface ProgramSchoolLike {
@@ -23,6 +135,7 @@ export interface ProgramSchoolLike {
   directoryStatus?: string;
   aliases?: string[];
   prereqCourses: PrereqItem[];
+  prereqSources?: PrereqSourceLike[];
 }
 
 // ── Verification status vocabulary ───────────────────────────────────────────
@@ -495,9 +608,15 @@ export function formatProgramForCopy(
     lines.push(`Prerequisites: ${verificationStatusMessage(school.verificationStatus)}`);
   }
 
-  // Source and date
-  const url = school.sourceUrl ?? school.websiteUrl;
-  if (url) lines.push(`Source: ${url}`);
+  // Source(s) and date — every official document behind this record, not
+  // just the first one.
+  const sources = displaySources(school);
+  if (sources.length === 1) {
+    lines.push(`Source: ${sources[0].url}`);
+  } else if (sources.length > 1) {
+    lines.push("Sources:");
+    for (const s of sources) lines.push(`  • ${s.label}: ${s.url}`);
+  }
   if (school.lastVerified) lines.push(`Last verified: ${school.lastVerified}`);
 
   return lines.join("\n");
