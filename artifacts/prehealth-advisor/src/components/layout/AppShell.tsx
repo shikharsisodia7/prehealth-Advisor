@@ -1,7 +1,7 @@
 import * as React from "react"
 import { ClipboardList } from "lucide-react"
 import { UserButton } from "@clerk/react"
-import { APP_NAME } from "@/lib/site-config"
+import { APP_NAME, APP_LOGO, APP_LOGO_ALT } from "@/lib/site-config"
 
 interface AppShellProps {
   children: React.ReactNode
@@ -14,8 +14,16 @@ export function AppShell({ children }: AppShellProps) {
       <header className="sticky top-0 z-10 bg-card border-b border-border shadow-sm">
         <div className="max-w-4xl mx-auto px-4 py-3 flex items-center justify-between gap-2">
           <div className="flex items-center gap-2 min-w-0">
-            <ClipboardList className="w-5 h-5 text-primary shrink-0" aria-hidden="true" />
-            <span className="font-serif font-bold text-lg text-primary tracking-tight leading-tight truncate">
+            {APP_LOGO ? (
+              <img
+                src={APP_LOGO}
+                alt={APP_LOGO_ALT}
+                className="h-7 w-auto shrink-0"
+              />
+            ) : (
+              <ClipboardList className="w-5 h-5 text-primary shrink-0" aria-hidden="true" />
+            )}
+            <span className="font-serif font-bold text-sm sm:text-lg text-primary tracking-tight leading-tight truncate">
               {APP_NAME}
             </span>
           </div>

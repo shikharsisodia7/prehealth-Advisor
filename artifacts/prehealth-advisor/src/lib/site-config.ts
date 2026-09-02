@@ -1,28 +1,30 @@
 /**
- * Single source of truth for the product name and a couple of links whose
- * final value is pending outside information. Change here, not per-page —
- * the professor reviewing this tool has said the name may change once a
- * replacement is chosen, and centralizing it makes that a one-line edit.
+ * Single source of truth for the product name, mark and a couple of links.
+ * Change here, not per-page — every place that reads these picks up the
+ * change automatically.
  */
 
-export const APP_NAME = "Health Professions Program Planner";
+export const APP_NAME = "SCU Health Professions – Prerequisite Course Planner";
 
 /**
- * One-line description shown under the app name on the sign-in page.
- * Pending the professor's replacement application copy — see APP_NAME.
+ * One-line description shown on the sign-in page and above the planner.
+ * Professor-provided (Version 2 of "SCU Health Professions Advising -
+ * Program Planner.docx").
  */
 export const APP_DESCRIPTION =
-  "Sign in to search prerequisite requirements across pre-health programs.";
+  "Use this tool to quickly find prerequisite courses for your target health professions programs.";
 
 /**
- * The app's visual mark. `null` means "use the current icon-based mark"
- * (AppShell's ClipboardList icon + APP_NAME wordmark) rather than an image.
- * The professor has said he will send a logo for both the sign-in page and
- * the application header — once provided, set this to its path (e.g. an
- * asset under `public/`) and every place that reads APP_LOGO picks it up.
- * Do not fabricate one in the meantime.
+ * The app's visual mark: a cleaned, transparent PNG derived from the
+ * professor-supplied "HPA updated logo rectangle transparent background.jpeg"
+ * (that file is an opaque RGB JPEG with a checkerboard baked into the
+ * pixels, not real transparency — the background was removed deterministically
+ * by keying on saturation, since the checkerboard is achromatic gray and the
+ * logo is a single saturated maroon). Used on the sign-in page (large) and
+ * in AppShell's header (small) — both read this one path.
  */
-export const APP_LOGO: string | null = null;
+export const APP_LOGO: string | null = "/branding/scu-health-professions-advising.png";
+export const APP_LOGO_ALT = "SCU Health Professions Advising";
 
 /**
  * The Camino pre-health page this tool should eventually link back to.

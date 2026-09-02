@@ -13,7 +13,6 @@ import {
   AlertTriangle,
   Info,
   Compass,
-  MapPin,
 } from "lucide-react";
 import { Link } from "wouter";
 import { toast } from "sonner";
@@ -36,7 +35,8 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { Badge } from "@/components/ui/badge";
 import { Label } from "@/components/ui/label";
 import { cn } from "@/lib/utils";
-import { APP_NAME } from "@/lib/site-config";
+import { APP_NAME, APP_DESCRIPTION } from "@/lib/site-config";
+import { PLANNER_GUIDANCE, PLANNER_DISCLAIMER, PLANNER_ATTRIBUTION } from "@/lib/planner-copy";
 import {
   EXPORT_HEADERS,
   PROGRAMS_EXPORT_HEADERS,
@@ -378,9 +378,11 @@ function SchoolMultiSelect({
 function ManualSearchLink({
   professionSlug,
   className,
+  label = "Search this profession manually",
 }: {
   professionSlug?: string;
   className?: string;
+  label?: string;
 }) {
   const href = professionSlug
     ? `/manual-search?profession=${encodeURIComponent(professionSlug)}`
@@ -394,7 +396,7 @@ function ManualSearchLink({
       )}
     >
       <Compass className="w-3.5 h-3.5" />
-      Search this profession manually
+      {label}
     </Link>
   );
 }
@@ -956,46 +958,35 @@ export default function ProgramPlanner() {
       `}</style>
 
       <div className="space-y-6 pb-16">
-        {/* Page header */}
+        {/* Page header — Version 2 professor copy (site-config.ts) */}
         <div className="pt-2">
           <h1 className="font-serif text-2xl md:text-3xl font-bold text-foreground mb-2 leading-tight">
             {APP_NAME}
           </h1>
           <p className="text-muted-foreground text-sm max-w-2xl leading-relaxed">
-            Prerequisite requirements vary by professional school — a general,
-            profession-wide course list cannot capture every program. Use this
-            planner to compare school-specific requirements side by side and
-            build a target list of programs worth applying to.
+            {APP_DESCRIPTION}
           </p>
-          <p className="text-muted-foreground text-xs max-w-2xl mt-1.5 leading-relaxed">
-            This planner supports early academic planning; it does not rank
-            programs, predict admission, or recommend where you should apply.
-            Requirements can change — always confirm final coursework with the
-            program's official admissions materials and your pre-health
-            advisor.
+          <ul className="list-disc pl-5 mt-3 space-y-2 text-sm text-muted-foreground max-w-2xl leading-relaxed">
+            {PLANNER_GUIDANCE.map((item) => (
+              <li key={item.title}>
+                <span className="font-semibold text-foreground">{item.title}:</span>{" "}
+                {item.body}
+                {item.title === "Verify Missing Data" && (
+                  <>
+                    {" "}
+                    <ManualSearchLink className="text-xs" label="Search Programs Manually" />
+                  </>
+                )}
+              </li>
+            ))}
+          </ul>
+          <p className="text-muted-foreground text-xs max-w-2xl mt-3 leading-relaxed italic">
+            {PLANNER_DISCLAIMER}
           </p>
-          <div className="mt-2.5">
-            <ManualSearchLink className="text-xs" />
-          </div>
+          <p className="text-muted-foreground text-xs max-w-2xl mt-1 leading-relaxed">
+            {PLANNER_ATTRIBUTION}
+          </p>
         </div>
-
-        {/* Building a shortlist of programs to apply to */}
-        <Card className="no-print bg-muted/30 border-border/60">
-          <CardContent className="pt-4 pb-4">
-            <div className="flex items-start gap-2.5">
-              <MapPin className="w-4 h-4 text-primary shrink-0 mt-0.5" />
-              <div className="text-sm text-muted-foreground leading-relaxed">
-                <span className="font-medium text-foreground">
-                  Build your list of programs to apply to:{" "}
-                </span>
-                Start with programs in your state of legal residence, then
-                narrow to about 5–10 programs you're seriously considering.
-                Compare their school-specific prerequisites here, and revisit
-                the list as your interests change.
-              </div>
-            </div>
-          </CardContent>
-        </Card>
 
         {/* Step 1 — Select profession */}
         <Card className="no-print">

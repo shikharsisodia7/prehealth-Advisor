@@ -1,21 +1,24 @@
 import { SignIn, SignUp } from "@clerk/react";
 import { ClipboardList } from "lucide-react";
-import { APP_NAME, APP_DESCRIPTION, APP_LOGO } from "@/lib/site-config";
+import { APP_NAME, APP_DESCRIPTION, APP_LOGO, APP_LOGO_ALT } from "@/lib/site-config";
 import { getSafeRedirectPath } from "@/lib/redirect";
 
 const basePath = import.meta.env.BASE_URL.replace(/\/$/, "");
 
 /**
  * Shared header above the Clerk widget. Reads APP_LOGO / APP_NAME /
- * APP_DESCRIPTION from site-config.ts so the professor's eventual logo and
- * copy replace both this page and the app header in one edit — see
- * site-config.ts.
+ * APP_DESCRIPTION from site-config.ts so replacing any of them updates both
+ * this page and the app header in one edit — see site-config.ts.
  */
 function AuthHeader() {
   return (
-    <div className="flex flex-col items-center gap-2 mb-6 text-center">
+    <div className="flex flex-col items-center gap-3 mb-6 text-center">
       {APP_LOGO ? (
-        <img src={APP_LOGO} alt={`${APP_NAME} logo`} className="w-12 h-12" />
+        <img
+          src={APP_LOGO}
+          alt={APP_LOGO_ALT}
+          className="w-full max-w-[280px] h-auto"
+        />
       ) : (
         <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
           <ClipboardList className="w-6 h-6 text-primary" aria-hidden="true" />
