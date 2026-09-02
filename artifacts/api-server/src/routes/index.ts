@@ -5,10 +5,15 @@ import targetSchoolsRouter from "./target-schools";
 import prereqCoursesRouter from "./prereq-courses";
 import dashboardRouter from "./dashboard";
 import programSchoolsRouter from "./program-schools";
+import { requireAuth } from "../middlewares/requireAuth";
 
 const router: IRouter = Router();
 
+// Public: health checks must stay reachable without a session.
 router.use(healthRouter);
+
+// Everything else is planner data — gated behind sign-in.
+router.use(requireAuth);
 router.use(professionsRouter);
 router.use(targetSchoolsRouter);
 router.use(prereqCoursesRouter);

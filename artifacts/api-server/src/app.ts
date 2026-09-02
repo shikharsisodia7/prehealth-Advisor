@@ -1,6 +1,7 @@
 import express, { type Express } from "express";
 import cors from "cors";
 import pinoHttp from "pino-http";
+import { clerkMiddleware } from "@clerk/express";
 import router from "./routes";
 import { logger } from "./lib/logger";
 
@@ -28,6 +29,11 @@ app.use(
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+// Reads CLERK_PUBLISHABLE_KEY / CLERK_SECRET_KEY from the environment.
+// Frontend and API are same-origin on Vercel, so the session cookie Clerk's
+// client sets is sent automatically — no proxy or extra CORS config needed.
+app.use(clerkMiddleware());
 
 app.use("/api", router);
 
