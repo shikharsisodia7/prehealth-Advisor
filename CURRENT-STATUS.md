@@ -1,7 +1,62 @@
 # Current status
 
-Last updated 2026-08-28. Regenerate the numbers with
+Last updated 2026-09-02. Regenerate the numbers with
 `cd scripts && . ./envload.sh && pnpm exec tsx src/coverage-snapshot.ts` before trusting them.
+
+## Final product state (2026-09-02)
+
+The product is feature-complete for this professor round. Git SHA `6006297` (origin/main).
+Production: https://prehealth-advisor.vercel.app — health endpoint 200 at `/api/healthz`.
+
+**Authentication (Clerk).** Every route except `/sign-in`, `/sign-up`, and `/api/healthz`
+requires sign-in, mirroring CampusVal's pattern with its own dedicated Clerk application
+(not sharing CampusVal's user pool). Google + email sign-in, session persistence, logout,
+and protected-deep-link redirect (`?redirect_url=`, validated as an internal path only —
+see `src/lib/redirect.ts`) are all live-verified in production. No admin role, no advisor
+dashboard, no APR/grade/plan-viewing access exists — the professor explicitly deferred all
+of that pending further discussion. `artifacts/api-server/src/middlewares/requireAuth.ts`
+gates the API side; `/api/healthz` is intentionally mounted before that gate.
+
+**Branding.** The professor's own "SCU Health Professions Advising" logo replaced the
+placeholder. His supplied file (`HPA updated logo rectangle transparent background.jpeg`)
+was an opaque RGB JPEG with a gray checkerboard baked into the pixels, not real
+transparency — cleaned deterministically (alpha keyed on HSV saturation, since the
+checkerboard is achromatic and the logo is a single saturated maroon) into
+`artifacts/prehealth-advisor/public/branding/scu-health-professions-advising.png`. One
+config (`src/lib/site-config.ts`: `APP_LOGO`, `APP_LOGO_ALT`, `APP_NAME`, `APP_DESCRIPTION`)
+drives both the large sign-in-page logo and the small `AppShell` header logo.
+
+**Professor copy.** The planner header renders Version 2 of "SCU Health Professions
+Advising - Program Planner.docx" verbatim — title, intro sentence, the five guidance
+bullets (Research Early / Start In-State / Verify Missing Data / Export Your List / Seek
+Advising Support), the disclaimer, and the "— Dr. McNelis" attribution. The copy lives in
+`src/lib/planner-copy.ts` as a single source of truth the planner renders and tests assert
+against; Version 1's wording is confirmed absent. "Verify Missing Data" links to
+`/manual-search`.
+
+**Regression coverage.** All 8 of the professor's named test programs (Ohio University PA,
+Emory University PT, Vanderbilt University School of Nursing MEPN, Samuel Merritt
+University ABSN, Samuel Merritt University MEPN, George Fox University PT, Georgia
+Southern University PT, University of South Alabama PT) were individually verified live in
+production — correct institution, correct distinct prerequisites, correct source, no
+cross-program leakage. Samuel Merritt's ABSN and MEPN pathways were specifically confirmed
+not to leak into each other (the planner enforces this structurally: nursing requires an
+explicit ABSN/MEPN program-type selection before schools are shown). Copy Results and XLSX
+export (Programs + Prerequisites sheets, single- and multi-program) were both live-tested
+post-deploy with no auth data leaking into the export.
+
+**Authenticated mobile QA.** The Chrome-extension-based browser tool used earlier in this
+project could not actually resize its controlled window (`window.innerWidth` never changed
+despite the resize call reporting success — a tooling limitation, not a product defect),
+and driving a second local browser risked resizing the user's own unrelated Chrome window.
+Resolved instead with a disposable Playwright script: a throwaway Clerk test user, a real
+sign-in via Clerk's `sign_in_tokens` ticket strategy, genuine `390x844` and `768x1024`
+viewports, then the user deleted afterward. All 22 checks passed at both sizes — zero
+horizontal overflow, header logo intact within the viewport, account control, title, all
+five guidance bullets, the "Search Programs Manually" link, and the profession selector all
+visible; `/manual-search` likewise overflow-free with all 17 profession cards, including
+Pathologists' Assistant and CAA, stacking cleanly. No engineering defect was found, so
+nothing needed fixing.
 
 ## Where the data stands
 
@@ -15,7 +70,9 @@ All checks currently pass:
 | Whole-dataset integrity | `pnpm exec tsx src/db-integrity.ts` | `INTEGRITY_FAILING_CHECKS=0 of 12` |
 | Source describes this programme | `pnpm exec tsx src/audit-source-profession.ts` | `WRONG_SOURCE=0` |
 | No-prerequisite claims are evidenced | `pnpm exec tsx src/audit-no-prereq-claims.ts` | `SUSPECT=0` |
-| Unit tests | `pnpm --filter @workspace/scripts exec vitest run` | 71 passing |
+| Scripts tests | `pnpm --filter @workspace/scripts exec vitest run` | 71 passing |
+| Frontend tests | `pnpm --filter @workspace/prehealth-advisor run test` | 107 passing |
+| API tests | `pnpm --filter @workspace/api-server run test` | 5 passing |
 | Types | `pnpm -r exec tsc --noEmit` | clean |
 | Production build | `pnpm --filter prehealth-advisor build` | succeeds |
 
@@ -30,9 +87,12 @@ Coverage was 97.0% earlier and is deliberately lower now. See "The correction" b
   silently reads the wrong one: `. ./envload.sh && pnpm exec tsx src/<script>.ts`.
 - **Production reads the database directly.** Data changes appear on
   prehealth-advisor.vercel.app without a redeploy. A redeploy is only needed for frontend code.
-- **A background PowerShell loop commits a coverage checkpoint every 30 minutes.** The
-  `Checkpoint live coverage` commits on `main` come from `scripts/hourly-checkpoint.ps1`, not
-  from a person. Stop it by closing its PowerShell window if the noise is unwanted.
+- **`scripts/hourly-checkpoint.ps1` is a background PowerShell loop that commits a coverage
+  checkpoint every 30 minutes** (the historical `Checkpoint live coverage` commits on `main`
+  came from it, not from a person). As of 2026-09-02 it is **not running** — no matching
+  process or scheduled task was found — so no `Checkpoint live coverage` commits should
+  appear until someone deliberately starts it again. It is retained as maintenance tooling,
+  not deleted; if the noise starts again, find and close its PowerShell window.
 - **Never fabricate prerequisite data.** No inferring profession-standard requirements, no
   copying between schools, no invented courses, credits, GPAs or test scores.
   `no_prereqs_published` requires an explicit statement from the school that it publishes none;
