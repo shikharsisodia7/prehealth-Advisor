@@ -11,6 +11,8 @@
   },
   "rewrites": [
     { "source": "/api/(.*)", "destination": "/api" },
-    { "source": "/((?!api/).*)", "destination": "/index.html" }
+    { "source": "/__clerk", "destination": "/api" },
+    { "source": "/__clerk/(.*)", "destination": "/api" },
+    { "source": "/((?!api/|__clerk).*)", "destination": "/index.html" }
   ]
 }

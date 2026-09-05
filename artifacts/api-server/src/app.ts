@@ -31,9 +31,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Reads CLERK_PUBLISHABLE_KEY / CLERK_SECRET_KEY from the environment.
-// Frontend and API are same-origin on Vercel, so the session cookie Clerk's
-// client sets is sent automatically — no proxy or extra CORS config needed.
-app.use(clerkMiddleware());
+// Production runs on a Vercel-assigned domain (no custom domain configured in
+// Clerk), so the Frontend API is reverse-proxied through this app's own
+// /__clerk path — frontendApiProxy handles those requests directly and never
+// calls next(), so it's safe to mount ahead of the /api router.
+app.use(clerkMiddleware({ frontendApiProxy: { enabled: true } }));
 
 app.use("/api", router);
 

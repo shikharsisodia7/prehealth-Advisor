@@ -113,6 +113,7 @@ function ClerkRouterBridge() {
   return (
     <ClerkProvider
       publishableKey={clerkPubKey}
+      proxyUrl="/__clerk"
       appearance={clerkAppearance}
       signInUrl={`${basePath}/sign-in`}
       signUpUrl={`${basePath}/sign-up`}
