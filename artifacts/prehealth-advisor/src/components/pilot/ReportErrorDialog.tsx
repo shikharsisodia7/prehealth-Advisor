@@ -95,7 +95,11 @@ export function ReportErrorDialog({ trigger, prefill }: ReportErrorDialogProps) 
           <div className="rounded-md border bg-muted/40 p-3 text-sm space-y-0.5">
             <p className="font-medium text-foreground">
               {prefill.institution} — {prefill.programName}
-              {prefill.programDegree ? ` (${prefill.programDegree})` : ""}
+              {/* programName conventionally already ends "... (MD)"/"(DO)" etc.; only
+                  append the degree separately when it is not already part of the name. */}
+              {prefill.programDegree && !prefill.programName.includes(prefill.programDegree)
+                ? ` (${prefill.programDegree})`
+                : ""}
             </p>
             <p className="text-muted-foreground">Profession: {prefill.profession}</p>
             {prefill.reportedSourceUrl && (
