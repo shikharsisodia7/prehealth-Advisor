@@ -2,6 +2,7 @@ import { SignIn, SignUp } from "@clerk/react";
 import { ClipboardList } from "lucide-react";
 import { APP_NAME, APP_DESCRIPTION, APP_LOGO, APP_LOGO_ALT } from "@/lib/site-config";
 import { getSafeRedirectPath } from "@/lib/redirect";
+import { PilotNotice } from "@/components/pilot/PilotNotice";
 
 const basePath = import.meta.env.BASE_URL.replace(/\/$/, "");
 
@@ -43,6 +44,8 @@ export function SignInPage() {
     <div className="flex min-h-[100dvh] items-center justify-center bg-background px-4 py-10">
       <div className="w-full max-w-[440px]">
         <AuthHeader />
+        {/* Testers read the no-sharing instruction before they ever sign in. */}
+        <PilotNotice className="mb-5" />
         <SignIn
           routing="path"
           path={`${basePath}/sign-in`}

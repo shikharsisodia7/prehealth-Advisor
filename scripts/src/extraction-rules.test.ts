@@ -1,5 +1,11 @@
 import { describe, expect, it } from "vitest";
-import { NO_PREREQ_ASSERTION, entityLabelMatchesInstitution, institutionTokens, sourceProfessionConflicts} from "./extraction-rules.js";
+import {
+  NO_PREREQ_ASSERTION,
+  entityLabelMatchesInstitution,
+  institutionTokens,
+  sourceProfessionConflicts,
+  contentIdentityConflicts,
+} from "./extraction-rules.js";
 
 describe("entityLabelMatchesInstitution", () => {
   // Accepting an authoritative official-website claim for these is the only way rows with no
@@ -150,5 +156,134 @@ describe("sourceProfessionConflicts", () => {
 
   it("says nothing about a URL that names no profession", () => {
     expect(sourceProfessionConflicts("https://www.example.edu/admissions/requirements", "nursing")).toBeNull();
+  });
+
+  // --- University of Oklahoma MD (peer-advisor report, 2026-09-04) -----------------------
+  describe("University of Oklahoma MD", () => {
+    it("rejects the OU Physician Associate program page for a medicine row", () => {
+      expect(sourceProfessionConflicts(
+        "https://medicine.ouhsc.edu/prospective-students/degree-programs/physician-associate-program-information/prospective-applicants/prerequisite-requirements",
+        "medicine",
+      )).toMatch(/physician-assistant/);
+    });
+
+    it("accepts the OU Doctor of Medicine (MD) page for a medicine row", () => {
+      expect(sourceProfessionConflicts(
+        "https://medicine.ouhsc.edu/prospective-students/degree-programs/doctor-of-medicine-md",
+        "medicine",
+      )).toBeNull();
+    });
+
+    it("accepts the same Physician Associate page for a physician-assistant row", () => {
+      expect(sourceProfessionConflicts(
+        "https://medicine.ouhsc.edu/prospective-students/degree-programs/physician-associate-program-information/prospective-applicants/prerequisite-requirements",
+        "physician-assistant",
+      )).toBeNull();
+    });
+  });
+
+  // --- OHSU MD (peer-advisor report, 2026-09-04) ------------------------------------------
+  describe("OHSU MD", () => {
+    it("rejects OHSU's Physician Assistant prerequisite page for a medicine row", () => {
+      expect(sourceProfessionConflicts(
+        "https://www.ohsu.edu/school-of-medicine/physician-assistant/prerequisite-coursework",
+        "medicine",
+      )).toMatch(/physician-assistant/);
+    });
+
+    it("rejects OHSU's Radiation Therapy prerequisite page for a medicine row", () => {
+      expect(sourceProfessionConflicts(
+        "https://www.ohsu.edu/school-of-medicine/radiation-therapy/academic-prerequisites",
+        "medicine",
+      )).toMatch(/radiation-therapy/);
+    });
+
+    it("accepts OHSU's MD program admissions page for a medicine row", () => {
+      expect(sourceProfessionConflicts(
+        "https://www.ohsu.edu/school-of-medicine/md-program/admissions",
+        "medicine",
+      )).toBeNull();
+    });
+  });
+
+  // --- UC Riverside MD (peer-advisor report, 2026-09-04) ----------------------------------
+  describe("UC Riverside MD", () => {
+    it("rejects the UC system-wide Bioengineering transfer-pathway page for a medicine row", () => {
+      expect(sourceProfessionConflicts(
+        "https://admission.universityofcalifornia.edu/admission-requirements/transfer-requirements/uc-transfer-programs/transfer-pathways/bioengineering.html",
+        "medicine",
+      )).toMatch(/bioengineering/);
+    });
+
+    it("accepts UC Riverside School of Medicine's own program-prerequisites page for a medicine row", () => {
+      expect(sourceProfessionConflicts("https://somsa.ucr.edu/program-prerequisites", "medicine")).toBeNull();
+    });
+  });
+
+  // --- Systemic audit false positives found and fixed while auditing every finalized row --
+  describe("postbac linkage/pathway programs that legitimately mention medicine", () => {
+    it("accepts Drexel's own Pathway to Medical School page for a postbac row", () => {
+      expect(sourceProfessionConflicts(
+        "https://drexel.edu/medicine/academics/graduate-programs/drexel-pathway-to-medical-school/how-to-apply/",
+        "postbac",
+      )).toBeNull();
+    });
+
+    it("accepts George Washington's own GCATS linkage MD-program page for a postbac row", () => {
+      expect(sourceProfessionConflicts("https://anatomy.smhs.gwu.edu/gcats-linkage-gw-md-program", "postbac")).toBeNull();
+    });
+
+    it("accepts Des Moines University's own MSA/MSBS linkage program pages for a postbac row", () => {
+      expect(sourceProfessionConflicts("https://catalog.dmu.edu/osteopathic-medicine/anatomy-msa/", "postbac")).toBeNull();
+      expect(sourceProfessionConflicts("https://catalog.dmu.edu/osteopathic-medicine/biomedical-sciences-msbs/", "postbac")).toBeNull();
+    });
+
+    it("still rejects a postbac row baldly citing the plain MD program admissions page", () => {
+      expect(sourceProfessionConflicts("https://icahn.mssm.edu/education/admissions/md-program", "postbac"))
+        .toMatch(/medicine/);
+    });
+  });
+
+  it("accepts a speech-language pathology program filed under a school-of-medicine catalog department", () => {
+    // WVU's own SLP master's program catalog page: catalog.wvu.edu/graduate/schoolofmedicine/slpa/
+    expect(sourceProfessionConflicts("https://catalog.wvu.edu/graduate/schoolofmedicine/slpa/", "speech-language-pathology"))
+      .toBeNull();
+  });
+
+  it("does not confuse Speech-Language Pathology Assistant (SLPA) with Pathologists' Assistant", () => {
+    expect(sourceProfessionConflicts(
+      "https://delval.edu/speech-language-pathology-assistant-slpa-graduate-certificate",
+      "speech-language-pathology",
+    )).toBeNull();
+  });
+});
+
+describe("contentIdentityConflicts", () => {
+  // A source being on the right university domain does not make it the right programme --
+  // these test the fallback for a page whose URL itself is uninformative but whose own
+  // title/H1/breadcrumb still names the wrong profession.
+  it("rejects a medicine row whose page heading names the Physician Associate program", () => {
+    expect(contentIdentityConflicts("Physician Associate Program Prerequisite Requirements", "medicine"))
+      .toMatch(/physician-assistant/);
+  });
+
+  it("rejects a medicine row whose page heading is Radiation Therapy admissions", () => {
+    expect(contentIdentityConflicts("Radiation Therapy Admissions", "medicine")).toMatch(/radiation-therapy/);
+  });
+
+  it("rejects a medicine row whose page heading is a Bioengineering transfer pathway", () => {
+    expect(contentIdentityConflicts("Bioengineering Transfer Pathway", "medicine")).toMatch(/bioengineering/);
+  });
+
+  it("accepts a medicine row whose page heading is M.D. Program Admissions", () => {
+    expect(contentIdentityConflicts("M.D. Program Admissions", "medicine")).toBeNull();
+  });
+
+  it("accepts a physician-assistant row whose page heading is Physician Associate Program", () => {
+    expect(contentIdentityConflicts("Physician Associate Program", "physician-assistant")).toBeNull();
+  });
+
+  it("says nothing about heading text that names no profession", () => {
+    expect(contentIdentityConflicts("Admissions Requirements", "medicine")).toBeNull();
   });
 });

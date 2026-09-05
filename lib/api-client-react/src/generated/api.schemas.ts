@@ -419,6 +419,103 @@ export interface DashboardSummary {
   professionCounts: ProfessionCount[];
 }
 
+export type ErrorReportInputIssueType = typeof ErrorReportInputIssueType[keyof typeof ErrorReportInputIssueType];
+
+
+export const ErrorReportInputIssueType = {
+  wrong_program_page: 'wrong_program_page',
+  wrong_prerequisite_courses: 'wrong_prerequisite_courses',
+  broken_official_link: 'broken_official_link',
+  missing_prerequisite_information: 'missing_prerequisite_information',
+  program_missing: 'program_missing',
+  incorrect_program_name_or_degree: 'incorrect_program_name_or_degree',
+  outdated_information: 'outdated_information',
+  other: 'other',
+} as const;
+
+export interface ErrorReportInput {
+  /**
+     * DB id of the program this report is about, when reported from a program card
+     * @nullable
+     */
+  programId?: number | null;
+  /** @maxLength 120 */
+  profession?: string;
+  /** @maxLength 300 */
+  institution?: string;
+  /** @maxLength 300 */
+  programName?: string;
+  /** @maxLength 120 */
+  programDegree?: string;
+  /**
+     * The Official Program Page URL currently displayed, prefilled from the card
+     * @maxLength 2000
+     */
+  reportedSourceUrl?: string;
+  /**
+     * Optional corrected official page URL the tester found
+     * @maxLength 2000
+     */
+  suggestedSourceUrl?: string;
+  issueType: ErrorReportInputIssueType;
+  /**
+     * Required for issueType "wrong_prerequisite_courses" and "other"
+     * @maxLength 2000
+     */
+  description?: string;
+  /**
+     * Optional — never required
+     * @maxLength 320
+     */
+  contactEmail?: string;
+}
+
+export type ErrorReportIssueType = typeof ErrorReportIssueType[keyof typeof ErrorReportIssueType];
+
+
+export const ErrorReportIssueType = {
+  wrong_program_page: 'wrong_program_page',
+  wrong_prerequisite_courses: 'wrong_prerequisite_courses',
+  broken_official_link: 'broken_official_link',
+  missing_prerequisite_information: 'missing_prerequisite_information',
+  program_missing: 'program_missing',
+  incorrect_program_name_or_degree: 'incorrect_program_name_or_degree',
+  outdated_information: 'outdated_information',
+  other: 'other',
+} as const;
+
+export type ErrorReportStatus = typeof ErrorReportStatus[keyof typeof ErrorReportStatus];
+
+
+export const ErrorReportStatus = {
+  open: 'open',
+  resolved: 'resolved',
+  dismissed: 'dismissed',
+} as const;
+
+export interface ErrorReport {
+  id: number;
+  /** @nullable */
+  programId?: number | null;
+  /** @nullable */
+  profession?: string | null;
+  /** @nullable */
+  institution?: string | null;
+  /** @nullable */
+  programName?: string | null;
+  /** @nullable */
+  programDegree?: string | null;
+  /** @nullable */
+  reportedSourceUrl?: string | null;
+  /** @nullable */
+  suggestedSourceUrl?: string | null;
+  issueType: ErrorReportIssueType;
+  /** @nullable */
+  description?: string | null;
+  status: ErrorReportStatus;
+  createdAt: string;
+}
+
 export type ListTargetSchoolsParams = {
 professionSlug?: string;
 status?: string;

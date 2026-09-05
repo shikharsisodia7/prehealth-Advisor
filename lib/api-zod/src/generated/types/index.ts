@@ -8,6 +8,11 @@
 
 export * from './dashboardSummary';
 export * from './error';
+export * from './errorReport';
+export * from './errorReportInput';
+export * from './errorReportInputIssueType';
+export * from './errorReportIssueType';
+export * from './errorReportStatus';
 export * from './healthStatus';
 export * from './listPrereqCoursesParams';
 export * from './listProgramSchoolsParams';

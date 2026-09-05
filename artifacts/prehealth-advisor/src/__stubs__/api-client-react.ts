@@ -28,3 +28,18 @@ export type ProgramSchool = {
   verificationStatus: string;
   prereqCourses: PrereqItem[];
 };
+
+// Runtime value (not just a type) — report-error.ts uses these as enum members,
+// mirroring the real generated ErrorReportInputIssueType exactly.
+export const ErrorReportInputIssueType = {
+  wrong_program_page: "wrong_program_page",
+  wrong_prerequisite_courses: "wrong_prerequisite_courses",
+  broken_official_link: "broken_official_link",
+  missing_prerequisite_information: "missing_prerequisite_information",
+  program_missing: "program_missing",
+  incorrect_program_name_or_degree: "incorrect_program_name_or_degree",
+  outdated_information: "outdated_information",
+  other: "other",
+} as const;
+export type ErrorReportInputIssueType =
+  (typeof ErrorReportInputIssueType)[keyof typeof ErrorReportInputIssueType];

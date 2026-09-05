@@ -3,6 +3,92 @@
 Last updated 2026-09-02. Regenerate the numbers with
 `cd scripts && . ./envload.sh && pnpm exec tsx src/coverage-snapshot.ts` before trusting them.
 
+## Peer-advisor correctness round (2026-09-05)
+
+Three Health Professions Peer Advisors reported wrong-program prerequisite sources during
+pilot testing, all Medicine (MD) rows:
+
+- **University of Oklahoma College of Medicine** (id 547) — sourced from OU's Physician
+  Associate program prerequisite page, not the MD program.
+- **OHSU School of Medicine** (id 548) — sourced from OHSU's Physician Assistant and
+  Radiation Therapy prerequisite pages, not the MD program.
+- **UC Riverside School of Medicine** (id 452) — sourced from a UC system-wide undergraduate
+  Bioengineering transfer-pathway page, unrelated to UCR's medical school.
+
+**Root cause.** `scripts/src/extraction-rules.ts`'s `PROFESSION_MARKERS` had no "medicine"
+entry at all, so a medicine row's source was never checked against any other profession's
+marker in the first place, and its physician-assistant marker did not recognise
+"physician-associate" (ARC-PA's current name for the profession, used on OU's own site) as
+the same profession as "physician-assistant". `audit-source-profession.ts` also carried its
+own duplicate copy of the marker list, which is exactly how both gaps went unnoticed by the
+existing audit: fixing one copy without the other would have left it reporting
+`WRONG_SOURCE=0` regardless. That audit now imports `sourceProfessionConflicts` directly from
+`extraction-rules.ts` instead of duplicating it, so there is exactly one profession-marker
+list from here on.
+
+**Fixes to `extraction-rules.ts`:**
+- Added "physician-associate" as a physician-assistant alias.
+- Added profession markers for medicine, radiation-therapy, bioengineering, podiatry,
+  genetic-counseling, pathologists-assistant, and anesthesiologist-assistant (previously
+  absent from the marker list entirely).
+- Added an "slpa" alias to the speech-language-pathology marker (WVU's own catalog
+  abbreviation for its SLP master's program, previously indistinguishable from the parent
+  "schoolofmedicine" catalog department it sits under) and narrowed the pathologists-assistant
+  marker to require "-ist-"/"-ists-" so it no longer collides with the unrelated
+  "speech-language-pathology-assistant" (SLPA) credential.
+- Extended `PATH_NAMES_POSTBAC` with "linkage", "pathway-to-medical-school", and
+  "biomedical-sciences"/"msbs"/"msa", after the new medicine marker initially flagged four
+  postbac rows' own correct linkage-program pages (Drexel's "Pathway to Medical School",
+  George Washington's "GCATS Linkage...MD Program", and two Des Moines University MSA/MSBS
+  pages) as wrong sources, purely because a named postbac linkage program legitimately
+  mentions the medical school it feeds into.
+- Added `professionOfText`/`contentIdentityConflicts`: a second, word-boundary check against
+  a page's own title/H1/breadcrumb text, for when a URL path is uninformative but the page's
+  own heading still names the wrong profession.
+- 20 new regression tests in `extraction-rules.test.ts` cover all of the above, including the
+  systemic false positives found and fixed while auditing (not just the three reported bugs).
+
+**Systemic audit.** Running the (now-shared) `audit-source-profession.ts` across all 2,742
+finalized rows with a source URL found 14 confirmed wrong-program-source rows total (the 3
+reported plus 11 more, all Medicine sources baldly citing a generic/other-program admissions
+page: Icahn School of Medicine x3 postbac rows, Medical College of Wisconsin, Rocky Vista
+University, Rush University, UCSF, University of Louisville x2 postbac + 1
+speech-language-pathology row, University of the Incarnate Word). All 14 were reset to
+`needs_review` with their wrong source and prerequisites cleared; the 11 beyond OU/OHSU/UCR
+were not independently re-researched (out of scope for this round) and now correctly show as
+unfinished rather than carrying wrong data. `WRONG_SOURCE=0` after the reset. Coverage moved
+from 95.5% to 95.1% as a direct, expected, and accepted result — wrong data is worse than
+missing data.
+
+**OU MD**: now sources `medicine.ouhsc.edu/.../doctor-of-medicine-md`, with its actual
+published required (C-or-better) and recommended coursework; the PA-only requirements
+previously carried on this row (Microbiology, Human Anatomy, Human Physiology, Statistics)
+are gone.
+
+**OHSU MD**: now sources `ohsu.edu/school-of-medicine/md-program/admissions` and is
+represented as `no_prereqs_published`, with the verification note quoting OHSU's own
+affirmative policy statement ("these recommended competencies have fully replaced all
+prerequisite coursework") plus its stated GPA/MCAT minimums — a positive claim, not "we
+couldn't find it".
+
+**UC Riverside MD**: now sources `somsa.ucr.edu/program-prerequisites` (School of Medicine
+Student Affairs' own page) with its actual published required science core and recommended
+humanities core.
+
+**Report an Error (Dr. McNelis's pilot-testing request).** A native in-app workflow, not a
+Google Form: `program_error_reports` table (Neon, pushed via `drizzle-kit push` — this
+project has no migration files, see `lib/db/drizzle.config.ts`), one authenticated endpoint
+(`POST /api/error-reports`), and a `ReportErrorDialog` reachable both from a prominent bar on
+the first planner page (with the pilot-testing "check the Official Program Page" instruction
+text) and a smaller action on every program result card, prefilled with that program's
+profession/institution/program/degree/displayed source so a tester never retypes it. Reports
+store the Clerk user id for anti-abuse only — never a session token — and contact email is
+optional. Triage is CLI-only (`scripts/src/list-error-reports.ts`,
+`scripts/src/resolve-error-report.ts`) — deliberately no admin dashboard. Verified end-to-end
+in production: submission via both entry points, validation (issue type, conditional
+description, URL/email format, programId existence), and `list-error-reports`/
+`resolve-error-report` round-trip.
+
 ## Final product state (2026-09-02)
 
 The product is feature-complete for this professor round. Git SHA `6006297` (origin/main).
@@ -60,8 +146,8 @@ nothing needed fixing.
 
 ## Where the data stands
 
-**95.5% finalized — 2,683 verified, 59 publish no specific prerequisites, 1 source-blocked,
-129 unfinished, of 2,872 active programmes.**
+**95.1% finalized — 2,671 verified, 60 publish no specific prerequisites, 1 source-blocked,
+140 unfinished, of 2,872 active programmes.**
 
 All checks currently pass:
 
@@ -70,13 +156,14 @@ All checks currently pass:
 | Whole-dataset integrity | `pnpm exec tsx src/db-integrity.ts` | `INTEGRITY_FAILING_CHECKS=0 of 12` |
 | Source describes this programme | `pnpm exec tsx src/audit-source-profession.ts` | `WRONG_SOURCE=0` |
 | No-prerequisite claims are evidenced | `pnpm exec tsx src/audit-no-prereq-claims.ts` | `SUSPECT=0` |
-| Scripts tests | `pnpm --filter @workspace/scripts exec vitest run` | 71 passing |
-| Frontend tests | `pnpm --filter @workspace/prehealth-advisor run test` | 107 passing |
-| API tests | `pnpm --filter @workspace/api-server run test` | 5 passing |
+| Scripts tests | `pnpm --filter @workspace/scripts exec vitest run` | 91 passing |
+| Frontend tests | `pnpm --filter @workspace/prehealth-advisor run test` | 127 passing |
+| API tests | `pnpm --filter @workspace/api-server run test` | 20 passing |
 | Types | `pnpm -r exec tsc --noEmit` | clean |
 | Production build | `pnpm --filter prehealth-advisor build` | succeeds |
 
-Coverage was 97.0% earlier and is deliberately lower now. See "The correction" below.
+Coverage was 97.0% before the original correction and is deliberately lower again after the
+2026-09-05 peer-advisor round — see that section above and "The correction" below.
 
 ## Working rules that are easy to get wrong
 

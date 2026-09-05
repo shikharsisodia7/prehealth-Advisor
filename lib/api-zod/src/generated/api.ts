@@ -387,3 +387,53 @@ export const ListProgramSchoolsResponseItem = zod.object({
 export const ListProgramSchoolsResponse = zod.array(ListProgramSchoolsResponseItem)
 
 
+/**
+ * @summary Submit a pilot-testing data-quality report (wrong program page, wrong prerequisites, broken link, etc.)
+ */
+export const createErrorReportBodyProfessionMax = 120;
+
+export const createErrorReportBodyInstitutionMax = 300;
+
+export const createErrorReportBodyProgramNameMax = 300;
+
+export const createErrorReportBodyProgramDegreeMax = 120;
+
+export const createErrorReportBodyReportedSourceUrlMax = 2000;
+
+export const createErrorReportBodySuggestedSourceUrlMax = 2000;
+
+export const createErrorReportBodyDescriptionMax = 2000;
+
+export const createErrorReportBodyContactEmailMax = 320;
+
+
+
+export const CreateErrorReportBody = zod.object({
+  "programId": zod.number().nullish().describe('DB id of the program this report is about, when reported from a program card'),
+  "profession": zod.string().max(createErrorReportBodyProfessionMax).optional(),
+  "institution": zod.string().max(createErrorReportBodyInstitutionMax).optional(),
+  "programName": zod.string().max(createErrorReportBodyProgramNameMax).optional(),
+  "programDegree": zod.string().max(createErrorReportBodyProgramDegreeMax).optional(),
+  "reportedSourceUrl": zod.string().max(createErrorReportBodyReportedSourceUrlMax).optional().describe('The Official Program Page URL currently displayed, prefilled from the card'),
+  "suggestedSourceUrl": zod.string().max(createErrorReportBodySuggestedSourceUrlMax).optional().describe('Optional corrected official page URL the tester found'),
+  "issueType": zod.enum(['wrong_program_page', 'wrong_prerequisite_courses', 'broken_official_link', 'missing_prerequisite_information', 'program_missing', 'incorrect_program_name_or_degree', 'outdated_information', 'other']),
+  "description": zod.string().max(createErrorReportBodyDescriptionMax).optional().describe('Required for issueType \"wrong_prerequisite_courses\" and \"other\"'),
+  "contactEmail": zod.string().max(createErrorReportBodyContactEmailMax).optional().describe('Optional — never required')
+})
+
+export const CreateErrorReportResponse = zod.object({
+  "id": zod.number(),
+  "programId": zod.number().nullish(),
+  "profession": zod.string().nullish(),
+  "institution": zod.string().nullish(),
+  "programName": zod.string().nullish(),
+  "programDegree": zod.string().nullish(),
+  "reportedSourceUrl": zod.string().nullish(),
+  "suggestedSourceUrl": zod.string().nullish(),
+  "issueType": zod.enum(['wrong_program_page', 'wrong_prerequisite_courses', 'broken_official_link', 'missing_prerequisite_information', 'program_missing', 'incorrect_program_name_or_degree', 'outdated_information', 'other']),
+  "description": zod.string().nullish(),
+  "status": zod.enum(['open', 'resolved', 'dismissed']),
+  "createdAt": zod.coerce.date()
+})
+
+

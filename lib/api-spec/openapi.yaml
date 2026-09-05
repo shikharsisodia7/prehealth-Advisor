@@ -20,6 +20,8 @@ tags:
     description: Aggregated overview data
   - name: programSchools
     description: Program Planner — reference schools with verified prerequisite lists
+  - name: errorReports
+    description: Pilot-testing "Report an Error" submissions for the Program Planner
 paths:
   /healthz:
     get:
@@ -353,6 +355,37 @@ paths:
                 type: array
                 items:
                   $ref: "#/components/schemas/ProgramSchool"
+
+  /error-reports:
+    post:
+      operationId: createErrorReport
+      tags: [errorReports]
+      summary: Submit a pilot-testing data-quality report (wrong program page, wrong prerequisites, broken link, etc.)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ErrorReportInput"
+      responses:
+        "201":
+          description: Report recorded
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorReport"
+        "400":
+          description: Invalid input
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "401":
+          description: Sign in required
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
 
 components:
   schemas:
@@ -776,3 +809,95 @@ components:
           type: array
           items:
             $ref: "#/components/schemas/ProfessionCount"
+
+    ErrorReportInput:
+      type: object
+      required:
+        - issueType
+      properties:
+        programId:
+          type: ["integer", "null"]
+          description: DB id of the program this report is about, when reported from a program card
+        profession:
+          type: string
+          maxLength: 120
+        institution:
+          type: string
+          maxLength: 300
+        programName:
+          type: string
+          maxLength: 300
+        programDegree:
+          type: string
+          maxLength: 120
+        reportedSourceUrl:
+          type: string
+          maxLength: 2000
+          description: The Official Program Page URL currently displayed, prefilled from the card
+        suggestedSourceUrl:
+          type: string
+          maxLength: 2000
+          description: Optional corrected official page URL the tester found
+        issueType:
+          type: string
+          enum:
+            - wrong_program_page
+            - wrong_prerequisite_courses
+            - broken_official_link
+            - missing_prerequisite_information
+            - program_missing
+            - incorrect_program_name_or_degree
+            - outdated_information
+            - other
+        description:
+          type: string
+          maxLength: 2000
+          description: Required for issueType "wrong_prerequisite_courses" and "other"
+        contactEmail:
+          type: string
+          maxLength: 320
+          description: Optional — never required
+
+    ErrorReport:
+      type: object
+      required:
+        - id
+        - issueType
+        - status
+        - createdAt
+      properties:
+        id:
+          type: integer
+        programId:
+          type: ["integer", "null"]
+        profession:
+          type: ["string", "null"]
+        institution:
+          type: ["string", "null"]
+        programName:
+          type: ["string", "null"]
+        programDegree:
+          type: ["string", "null"]
+        reportedSourceUrl:
+          type: ["string", "null"]
+        suggestedSourceUrl:
+          type: ["string", "null"]
+        issueType:
+          type: string
+          enum:
+            - wrong_program_page
+            - wrong_prerequisite_courses
+            - broken_official_link
+            - missing_prerequisite_information
+            - program_missing
+            - incorrect_program_name_or_degree
+            - outdated_information
+            - other
+        description:
+          type: ["string", "null"]
+        status:
+          type: string
+          enum: [open, resolved, dismissed]
+        createdAt:
+          type: string
+          format: date-time

@@ -2,6 +2,7 @@ import * as React from "react"
 import { ClipboardList } from "lucide-react"
 import { UserButton } from "@clerk/react"
 import { APP_NAME, APP_LOGO, APP_LOGO_ALT } from "@/lib/site-config"
+import { PilotBadge } from "@/components/pilot/PilotNotice"
 
 interface AppShellProps {
   children: React.ReactNode
@@ -27,7 +28,10 @@ export function AppShell({ children }: AppShellProps) {
               {APP_NAME}
             </span>
           </div>
-          <UserButton />
+          <div className="flex items-center gap-2 shrink-0">
+            <PilotBadge />
+            <UserButton />
+          </div>
         </div>
       </header>
 

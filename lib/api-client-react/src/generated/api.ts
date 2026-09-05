@@ -22,6 +22,8 @@ import type {
 import type {
   DashboardSummary,
   Error,
+  ErrorReport,
+  ErrorReportInput,
   HealthStatus,
   ListPrereqCoursesParams,
   ListProgramSchoolsParams,
@@ -1213,4 +1215,75 @@ export function useListProgramSchools<TData = Awaited<ReturnType<typeof listProg
 
 
 
+
+export const getCreateErrorReportUrl = () => {
+
+
+
+
+  return `/api/error-reports`
+}
+
+/**
+ * @summary Submit a pilot-testing data-quality report (wrong program page, wrong prerequisites, broken link, etc.)
+ */
+export const createErrorReport = async (errorReportInput: ErrorReportInput, options?: RequestInit): Promise<ErrorReport> => {
+
+  return customFetch<ErrorReport>(getCreateErrorReportUrl(),
+  {
+    ...options,
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', ...options?.headers },
+    body: JSON.stringify(errorReportInput)
+  }
+);}
+
+
+
+
+
+export const getCreateErrorReportMutationOptions = <TError = ErrorType<Error>,
+    TContext = unknown>(options?: { mutation?:UseMutationOptions<Awaited<ReturnType<typeof createErrorReport>>, TError,{data: BodyType<ErrorReportInput>}, TContext>, request?: SecondParameter<typeof customFetch>}
+): UseMutationOptions<Awaited<ReturnType<typeof createErrorReport>>, TError,{data: BodyType<ErrorReportInput>}, TContext> => {
+
+const mutationKey = ['createErrorReport'];
+const {mutation: mutationOptions, request: requestOptions} = options ?
+      options.mutation && 'mutationKey' in options.mutation && options.mutation.mutationKey ?
+      options
+      : {...options, mutation: {...options.mutation, mutationKey}}
+      : {mutation: { mutationKey, }, request: undefined};
+
+
+
+
+      const mutationFn: MutationFunction<Awaited<ReturnType<typeof createErrorReport>>, {data: BodyType<ErrorReportInput>}> = (props) => {
+          const {data} = props ?? {};
+
+          return  createErrorReport(data,requestOptions)
+        }
+
+
+
+
+
+
+  return  { mutationFn, ...mutationOptions }}
+
+    export type CreateErrorReportMutationResult = NonNullable<Awaited<ReturnType<typeof createErrorReport>>>
+    export type CreateErrorReportMutationBody = BodyType<ErrorReportInput>
+    export type CreateErrorReportMutationError = ErrorType<Error>
+
+    /**
+ * @summary Submit a pilot-testing data-quality report (wrong program page, wrong prerequisites, broken link, etc.)
+ */
+export const useCreateErrorReport = <TError = ErrorType<Error>,
+    TContext = unknown>(options?: { mutation?:UseMutationOptions<Awaited<ReturnType<typeof createErrorReport>>, TError,{data: BodyType<ErrorReportInput>}, TContext>, request?: SecondParameter<typeof customFetch>}
+ ): UseMutationResult<
+        Awaited<ReturnType<typeof createErrorReport>>,
+        TError,
+        {data: BodyType<ErrorReportInput>},
+        TContext
+      > => {
+      return useMutation(getCreateErrorReportMutationOptions(options));
+    }
 

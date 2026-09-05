@@ -5,6 +5,7 @@ import targetSchoolsRouter from "./target-schools";
 import prereqCoursesRouter from "./prereq-courses";
 import dashboardRouter from "./dashboard";
 import programSchoolsRouter from "./program-schools";
+import errorReportsRouter from "./error-reports";
 import { requireAuth } from "../middlewares/requireAuth";
 
 const router: IRouter = Router();
@@ -19,5 +20,6 @@ router.use(targetSchoolsRouter);
 router.use(prereqCoursesRouter);
 router.use(dashboardRouter);
 router.use(programSchoolsRouter);
+router.use(errorReportsRouter);
 
 export default router;

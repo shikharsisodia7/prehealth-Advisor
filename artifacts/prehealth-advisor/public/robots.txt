@@ -1,2 +1,5 @@
+# Pilot rollout: the peer-advisor testing group has been asked not to share
+# the link, so this app should not be indexed either. Revert alongside
+# PILOT_MODE in src/lib/pilot-config.ts when the pilot ends.
 User-agent: *
-Allow: /
+Disallow: /

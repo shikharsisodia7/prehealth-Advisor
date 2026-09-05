@@ -13,6 +13,7 @@ import {
   AlertTriangle,
   Info,
   Compass,
+  Flag,
 } from "lucide-react";
 import { Link } from "wouter";
 import { toast } from "sonner";
@@ -36,7 +37,21 @@ import { Badge } from "@/components/ui/badge";
 import { Label } from "@/components/ui/label";
 import { cn } from "@/lib/utils";
 import { APP_NAME, APP_DESCRIPTION } from "@/lib/site-config";
-import { PLANNER_GUIDANCE, PLANNER_DISCLAIMER, PLANNER_ATTRIBUTION } from "@/lib/planner-copy";
+import {
+  PLANNER_GUIDANCE,
+  PLANNER_DISCLAIMER,
+  PLANNER_ATTRIBUTION,
+  SCHEDULE_WARNING_TITLE,
+  SCHEDULE_WARNING_BODY,
+  SCHEDULE_WARNING_STEPS,
+  RESULTS_ADVISING_TITLE,
+  RESULTS_ADVISING_BODY,
+  TARGET_LIST_HINT,
+  PILOT_TESTING_INSTRUCTIONS_TITLE,
+  PILOT_TESTING_INSTRUCTIONS_BODY,
+} from "@/lib/planner-copy";
+import { PilotNotice } from "@/components/pilot/PilotNotice";
+import { ReportErrorDialog } from "@/components/pilot/ReportErrorDialog";
 import {
   EXPORT_HEADERS,
   PROGRAMS_EXPORT_HEADERS,
@@ -676,6 +691,26 @@ function SchoolResult({ school }: { school: ProgramSchool }) {
         {school.lastVerified && (
           <span>Last verified {school.lastVerified}</span>
         )}
+        <ReportErrorDialog
+          trigger={
+            <button
+              type="button"
+              className="inline-flex items-center gap-1 text-muted-foreground hover:text-foreground hover:underline focus:outline-none focus:underline"
+            >
+              <Flag className="w-3 h-3" />
+              Report an Error
+            </button>
+          }
+          prefill={{
+            programId: school.id,
+            profession: school.professionSlug,
+            institution: school.name,
+            programName: school.programName,
+            programDegree: school.degreeType,
+            reportedSourceUrl: displaySources(school)[0]?.url ?? null,
+            lastVerified: school.lastVerified,
+          }}
+        />
       </div>
     </div>
   );
@@ -958,6 +993,32 @@ export default function ProgramPlanner() {
       `}</style>
 
       <div className="space-y-6 pb-16">
+        {/* Pilot notice — one per screen, centrally switchable (pilot-config.ts) */}
+        <PilotNotice className="mt-2 no-print" />
+
+        {/*
+          Pilot-testing instructions + the general "Report an Error" entry point.
+          Prominent but unobtrusive: sits with the other pilot-only affordances,
+          not inline with every result, and reachable before a tester ever
+          selects a program. Per-program reports are a separate, smaller action
+          on each result card (see SchoolResult) so a specific wrong page or
+          wrong prerequisite list can be reported with its context prefilled.
+        */}
+        <div className="flex flex-col sm:flex-row sm:items-center gap-3 justify-between rounded-md border border-dashed border-muted-foreground/30 bg-muted/20 p-3 no-print">
+          <p className="text-xs text-muted-foreground leading-relaxed max-w-2xl">
+            <span className="font-semibold text-foreground">{PILOT_TESTING_INSTRUCTIONS_TITLE}:</span>{" "}
+            {PILOT_TESTING_INSTRUCTIONS_BODY}
+          </p>
+          <ReportErrorDialog
+            trigger={
+              <Button variant="outline" size="sm" className="shrink-0 gap-1.5">
+                <Flag className="w-3.5 h-3.5" />
+                Report an Error
+              </Button>
+            }
+          />
+        </div>
+
         {/* Page header — Version 2 professor copy (site-config.ts) */}
         <div className="pt-2">
           <h1 className="font-serif text-2xl md:text-3xl font-bold text-foreground mb-2 leading-tight">
@@ -987,6 +1048,36 @@ export default function ProgramPlanner() {
             {PLANNER_ATTRIBUTION}
           </p>
         </div>
+
+        {/*
+          Advising callout. Sits between the professor's guidance and the
+          planner controls, so a student meets it on the way in rather than
+          after they have already read a course list and drawn a conclusion
+          from it. Additional to Version 2, not a replacement for it.
+        */}
+        <section
+          aria-labelledby="schedule-warning-heading"
+          className="rounded-md border border-primary/30 bg-primary/5 p-4 no-print"
+        >
+          <h2
+            id="schedule-warning-heading"
+            className="flex items-center gap-2 text-base font-semibold text-foreground"
+          >
+            <AlertTriangle className="w-4 h-4 text-primary shrink-0" aria-hidden="true" />
+            {SCHEDULE_WARNING_TITLE}
+          </h2>
+          <p className="mt-2 text-sm text-foreground/90 leading-relaxed max-w-2xl">
+            {SCHEDULE_WARNING_BODY}
+          </p>
+          <ol className="mt-3 space-y-2 text-sm text-foreground/90 max-w-2xl leading-relaxed list-decimal pl-5 marker:font-semibold marker:text-primary">
+            {SCHEDULE_WARNING_STEPS.map((step) => (
+              <li key={step}>{step}</li>
+            ))}
+          </ol>
+          <p className="mt-3 text-sm">
+            <ManualSearchLink label="Search Programs Manually" />
+          </p>
+        </section>
 
         {/* Step 1 — Select profession */}
         <Card className="no-print">
@@ -1122,10 +1213,7 @@ export default function ProgramPlanner() {
                 Select schools of interest
               </CardTitle>
               <CardDescription className="text-sm leading-relaxed pt-1 space-y-1">
-                <span className="block">
-                  Select approximately 10–15 programs so your results reflect a
-                  useful range of prerequisite requirements.
-                </span>
+                <span className="block">{TARGET_LIST_HINT}</span>
                 <span className="block text-xs">
                   Consider including programs in your state of legal residence
                   along with other programs that genuinely interest you.
@@ -1255,15 +1343,24 @@ export default function ProgramPlanner() {
               </h2>
             </div>
 
-            {/* Disclaimer */}
-            <div className="flex items-start gap-2 p-3 rounded-md bg-blue-50 border border-blue-200 text-blue-800 text-xs mb-4 no-print">
-              <Info className="w-4 h-4 shrink-0 mt-0.5" />
-              <span>
-                Professional program requirements can change. Confirm current
-                requirements with the program and consult a health professions
-                advisor before finalizing your academic plan.
-              </span>
-            </div>
+            {/*
+              Results-side advising reminder. Shorter than the callout above the
+              planner on purpose: the student has read the long version, and this
+              one exists so the instruction is on screen at the moment a course
+              list actually appears.
+            */}
+            <section
+              aria-labelledby="results-advising-heading"
+              className="flex items-start gap-2 p-3 rounded-md bg-primary/5 border border-primary/30 text-sm text-foreground/90 mb-4 no-print"
+            >
+              <Info className="w-4 h-4 shrink-0 mt-0.5 text-primary" aria-hidden="true" />
+              <p className="leading-relaxed">
+                <span id="results-advising-heading" className="font-semibold text-foreground">
+                  {RESULTS_ADVISING_TITLE}:
+                </span>{" "}
+                {RESULTS_ADVISING_BODY}
+              </p>
+            </section>
 
             {/* Export buttons */}
             <div className="flex flex-wrap gap-2 mb-4 no-print" role="group" aria-label="Export options">
