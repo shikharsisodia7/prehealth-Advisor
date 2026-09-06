@@ -14,6 +14,7 @@ import ProgramPlanner from '@/pages/planner/index';
 import ManualSearch from '@/pages/manual-search/index';
 import NotFound from '@/pages/not-found';
 import { SignInPage, SignUpPage } from '@/pages/auth';
+import { PrivacyPage } from '@/pages/privacy';
 import { buildSignInUrl } from '@/lib/redirect';
 
 const queryClient = new QueryClient({
@@ -68,6 +69,7 @@ function AppRoutes() {
     <Switch>
       <Route path="/sign-in/*?" component={SignInPage} />
       <Route path="/sign-up/*?" component={SignUpPage} />
+      <Route path="/privacy" component={PrivacyPage} />
       <Route path="/">
         <Protected>
           <ProgramPlanner />

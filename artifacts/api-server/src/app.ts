@@ -27,15 +27,23 @@ app.use(
   }),
 );
 app.use(cors());
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
 
-// Reads CLERK_PUBLISHABLE_KEY / CLERK_SECRET_KEY from the environment.
+// Must run before the body parsers below: frontendApiProxy forwards the raw
+// request body (as a stream) straight through to Clerk's real API for any
+// /__clerk/* request. express.json()/urlencoded() read (and drain) that same
+// stream into req.body, so if they ran first the proxied request would reach
+// Clerk with an empty body — which is exactly what caused a content-length:0
+// "Redirect url mismatch" 400 on every OAuth sign-in attempt. frontendApiProxy
+// never calls next() for a matching path, so this ordering costs nothing for
+// /api/* routes, which still reach the parsers below as before.
+//
 // Production runs on a Vercel-assigned domain (no custom domain configured in
 // Clerk), so the Frontend API is reverse-proxied through this app's own
-// /__clerk path — frontendApiProxy handles those requests directly and never
-// calls next(), so it's safe to mount ahead of the /api router.
+// /__clerk path.
 app.use(clerkMiddleware({ frontendApiProxy: { enabled: true } }));
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 app.use("/api", router);
 
