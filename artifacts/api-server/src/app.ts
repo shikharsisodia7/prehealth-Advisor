@@ -32,10 +32,10 @@ app.use(express.urlencoded({ extended: true }));
 
 // Reads CLERK_PUBLISHABLE_KEY / CLERK_SECRET_KEY from the environment. This
 // deployment intentionally runs Clerk's Development instance (see
-// docs/auth-deployment-mode.md) — no Frontend API proxy, no custom domain.
-// Clerk's Development instances don't support/need frontendApiProxy, so
-// Frontend/UI assets and API calls go straight to Clerk's own accounts.dev
-// domain from the browser.
+// CURRENT-STATUS.md) — no Frontend API proxy, no custom domain. Clerk's
+// Development instances don't support/need frontendApiProxy, so Frontend/UI
+// assets and API calls go straight to Clerk's own accounts.dev domain from
+// the browser.
 app.use(clerkMiddleware());
 
 app.use("/api", router);
