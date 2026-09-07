@@ -3,6 +3,42 @@
 Last updated 2026-09-02. Regenerate the numbers with
 `cd scripts && . ./envload.sh && pnpm exec tsx src/coverage-snapshot.ts` before trusting them.
 
+## Auth deployment mode: Clerk Development, intentionally (2026-09-06)
+
+**This deployment runs Clerk's Development instance, not Production — on purpose. Do not
+"upgrade" this back to Clerk Production keys without reading this first.**
+
+The app is only reachable at `prehealth-advisor.vercel.app` (a Vercel-owned domain — no
+domain we control exists yet for this pilot). Clerk Production instances require a domain
+the owner controls (for the Frontend API, cookies, and OAuth callback trust); a Frontend-API
+reverse proxy was built to work around that (`/__clerk`, `frontendApiProxy`, `proxyUrl`), and
+it got real Google sign-ins as far as Google's consent screen, but sessions never actually
+stuck after the callback — a proxied Production instance on a bare `*.vercel.app` host isn't
+a configuration Clerk actually supports end-to-end. That entire proxy architecture has been
+removed (see git history around 2026-09-06 for the reverted `/__clerk` rewrites, `app.ts`
+middleware, and `ClerkProvider proxyUrl`).
+
+Instead: Vercel's `CLERK_PUBLISHABLE_KEY` / `CLERK_SECRET_KEY` / `VITE_CLERK_PUBLISHABLE_KEY`
+point at the PreHealth Advisor **Development** Clerk instance (`pk_test_.../sk_test_...`),
+which Clerk fully supports on any domain, no proxy required. Limitations this accepts:
+
+- **100-user cap** (Clerk Development instance limit). Fine for a peer-advisor pilot; report
+  it if the pilot group approaches that size.
+- **Email delivery limits** on Development instances. Google sign-in is the primary path for
+  this reason; email/password remains a working fallback.
+- Clerk Development user accounts do not migrate automatically to a Production instance.
+  Users will need to re-register when this eventually moves to a real Production setup.
+
+**The Clerk Production instance and its dedicated Google Cloud OAuth project still exist** —
+neither was deleted. They're simply inactive for this deployment. When a domain this project
+controls exists:
+1. Point that domain (or a subdomain) at this Vercel project.
+2. Configure it as the Clerk Production instance's primary domain (normal CNAME setup —
+   prefer that over reviving the proxy).
+3. Point Google's OAuth client's authorized origins/redirect URI at the new domain.
+4. Swap Vercel's three Clerk env vars back to the Production `pk_live_.../sk_live_...` pair.
+5. Re-run the full auth E2E pass before calling it done.
+
 ## Peer-advisor correctness round (2026-09-05)
 
 Three Health Professions Peer Advisors reported wrong-program prerequisite sources during

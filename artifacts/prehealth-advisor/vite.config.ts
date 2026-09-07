@@ -64,7 +64,6 @@ export default defineConfig({
     },
     proxy: {
       '/api': 'http://localhost:8080',
-      '/__clerk': 'http://localhost:8080',
     },
   },
   preview: {
