@@ -1,7 +1,50 @@
 # Current status
 
-Last updated 2026-09-02. Regenerate the numbers with
+Last updated 2026-09-07. Regenerate the numbers with
 `cd scripts && . ./envload.sh && pnpm exec tsx src/coverage-snapshot.ts` before trusting them.
+
+## Generic transfer-gateway sourcing round (2026-09-07)
+
+A full-codebase audit (typecheck, all three test suites, both builds, and every data-integrity
+script) turned up no functional bug, but a targeted check for wrong-source data (prompted by a
+report that UC Irvine's rows looked off) found a bug the existing `sourceProfessionConflicts`
+guard could not see: 12 rows across 6 institutions carried an institution-wide **undergraduate
+transfer-admissions gateway** as their prerequisite source, rather than the actual professional
+or graduate programme's own admissions page. All four UC Irvine professional-program rows in
+this dataset (School of Medicine MD, the nursing MEPN, School of Pharmacy PharmD, and the
+postbaccalaureate programme) pointed at the exact same `admissions.uci.edu/apply/transfer-students/...`
+URL — UCI's general undergraduate transfer-admissions page, unrelated to any of the four. The
+same shape recurred at Toledo (a "transfer adult student" guest-registration page, wrongly
+marked `no_prereqs_published` off a quote about guest-student course registration, not MD/PharmD
+admissions), Georgetown (an undergraduate transfer-applicants page, cited for its MEPN and two
+graduate programmes), Indiana University of Pennsylvania (dietetics), South Alabama (a "Pathway
+USA" undergraduate-to-BS transfer articulation plan cited for its MD row), and Oregon (a general
+transfer-requirements page cited for its Postbac Premed Program).
+
+**Root cause.** `sourceProfessionConflicts` in `scripts/src/extraction-rules.ts` only flags a URL
+that names a *different* profession; a generic institutional transfer gateway names no profession
+at all, so it passed as "no conflict" even though it is unambiguously the wrong kind of page —
+the same blind spot class as the OU/OHSU/UCR bug (2026-09-05), just on the opposite side (too
+little signal instead of the wrong signal). Added `genericTransferGatewayConflict`, which flags a
+URL matching a generic `/transfer-students/`, `/transfer-applicants/`, `/transfer-adult-student/`,
+etc. path when `professionOfUrlPath` finds no profession/programme signal in it at all.
+Second-degree/accelerated nursing (ABSN) is exempted, since it genuinely is a second bachelor's
+degree some students reach through a university's ordinary undergraduate transfer process — and
+several legitimate ABSN rows cite exactly this kind of page for exactly that reason. 12 new
+regression tests in `extraction-rules.test.ts` cover the confirmed cases plus the ABSN and
+program-specific-transfer-page exemptions. A new permanent audit,
+`scripts/src/audit-source-transfer-gateway.ts`, runs this check read-only across every finalized
+row (report-only, by the same convention as `audit-source-institution.ts`).
+
+All 12 confirmed rows were reset to `needs_review` via `scripts/src/fix-transfer-gateway-sources.ts`
+(dry-run by default, `--apply` to write): `sourceUrl`, `prereqCourses`, and `prereqSources`
+cleared, `verificationNote` recording what was wrong. `websiteUrl` was left untouched on all 12 —
+it is a separate field (the institution/programme's own website) and was already correct on
+every row, e.g. Georgetown's Systems Medicine row already carried
+`systemsmedicine.georgetown.edu` there. `WRONG_SOURCE=0` and the new audit's `FLAGGED=0` after the
+reset. Coverage moved from 95.1% to 94.7%, an accepted result of removing wrong data — wrong data
+is worse than missing data. None of the 12 were independently re-researched in this round (out of
+scope); they now correctly show as unfinished rather than carrying wrong data.
 
 ## Auth deployment mode: Clerk Development, intentionally (2026-09-06)
 
@@ -182,8 +225,10 @@ nothing needed fixing.
 
 ## Where the data stands
 
-**95.1% finalized — 2,671 verified, 60 publish no specific prerequisites, 1 source-blocked,
-140 unfinished, of 2,872 active programmes.**
+**94.7% finalized — 2,663 verified, 56 publish no specific prerequisites, 1 source-blocked,
+152 unfinished, of 2,872 active programmes.** (Lower than the prior 95.1% snapshot only because
+the 2026-09-07 generic-transfer-gateway round above correctly reset 12 wrong-source rows to
+unfinished.)
 
 All checks currently pass:
 
@@ -191,8 +236,9 @@ All checks currently pass:
 |---|---|---|
 | Whole-dataset integrity | `pnpm exec tsx src/db-integrity.ts` | `INTEGRITY_FAILING_CHECKS=0 of 12` |
 | Source describes this programme | `pnpm exec tsx src/audit-source-profession.ts` | `WRONG_SOURCE=0` |
+| Source isn't a generic transfer gateway | `pnpm exec tsx src/audit-source-transfer-gateway.ts` | `FLAGGED=0` |
 | No-prerequisite claims are evidenced | `pnpm exec tsx src/audit-no-prereq-claims.ts` | `SUSPECT=0` |
-| Scripts tests | `pnpm --filter @workspace/scripts exec vitest run` | 91 passing |
+| Scripts tests | `pnpm --filter @workspace/scripts exec vitest run` | 102 passing |
 | Frontend tests | `pnpm --filter @workspace/prehealth-advisor run test` | 127 passing |
 | API tests | `pnpm --filter @workspace/api-server run test` | 20 passing |
 | Types | `pnpm -r exec tsc --noEmit` | clean |

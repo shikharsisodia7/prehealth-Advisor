@@ -282,6 +282,58 @@ export function sourceProfessionConflicts(url: string, professionSlug: string): 
 }
 
 /**
+ * A generic institution-wide "transfer student" admissions gateway, cited as the prerequisite
+ * source for a programme that does not admit undergraduate transfer students at all.
+ *
+ * Found on the University of California-Irvine's MD, MEPN, PharmD and postbaccalaureate rows --
+ * all four pointing at the same admissions.uci.edu undergraduate transfer-admissions page, which
+ * has nothing to do with UCI's School of Medicine, nursing programme, School of Pharmacy or
+ * postbac programme. The same shape recurred at Toledo (a "transfer adult student" guest-
+ * registration page cited for its MD and PharmD rows, both then wrongly marked
+ * no_prereqs_published off a quote about guest-student registration) and Georgetown (an
+ * undergraduate transfer-applicants page cited for its MEPN and two graduate programmes).
+ *
+ * sourceProfessionConflicts only fires when a URL names a DIFFERENT profession; a page like this
+ * names none at all, so it passed as "no conflict" even though it is unambiguously the wrong
+ * kind of page. Second-degree/accelerated nursing (ABSN) is exempted: unlike every other tracked
+ * profession, it genuinely is a second bachelor's degree some students reach through a
+ * university's ordinary undergraduate transfer process, and several legitimate ABSN rows cite
+ * exactly this kind of page for exactly that reason.
+ */
+// Segment boundaries here are deliberately just "/" (and start/end), not the hyphen/underscore
+// PROFESSION_MARKERS uses -- a hyphen inside a path segment usually joins compound words
+// ("transfer-of-credit-policy"), and treating it as a boundary too let that slip through as a
+// bare "transfer" segment. "plans?" has no leading hyphen because the one real case (South
+// Alabama's "transferplans") concatenates it directly onto "transfer".
+const GENERIC_TRANSFER_GATEWAY =
+  /(^|\/)transfer(-students?|-applicants?|-admissions?|-eligibility|-adult[-_]?student|plans?)?(\/|$)/i;
+
+/**
+ * Why this URL is a generic undergraduate transfer gateway rather than this programme's own
+ * admissions/prerequisites page, or null when it is not.
+ *
+ * A page nested under a "/transfer-students/" section can still legitimately be this programme's
+ * own page -- Simmons' "nursing-program-transfer-students" page is a direct-entry nursing
+ * admissions page, not a general undergraduate gateway -- which is why this only fires when
+ * professionOfUrlPath finds no profession signal in the path at all.
+ */
+export function genericTransferGatewayConflict(
+  url: string,
+  professionSlug: string,
+  degreeType: string | null | undefined,
+): string | null {
+  if (professionSlug === "nursing" && degreeType === "ABSN") return null;
+  let pathOnly = url;
+  try {
+    const u = new URL(/^https?:\/\//i.test(url) ? url : `https://${url}`);
+    pathOnly = `/${u.hostname.split(".").slice(0, -2).join(".")}${u.pathname}`;
+  } catch { /* compare the raw string */ }
+  if (!GENERIC_TRANSFER_GATEWAY.test(pathOnly)) return null;
+  if (professionOfUrlPath(url)) return null;
+  return "the page is a general undergraduate transfer-admissions gateway, not this programme's own admissions or prerequisites page";
+}
+
+/**
  * Word-boundary phrases for recognising a profession from a page's own title, H1, or
  * breadcrumb, rather than its URL path. This is the "a source being on the right domain does
  * not make it the right programme" check: OHSU's radiation-therapy page and UC Riverside's

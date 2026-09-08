@@ -5,6 +5,7 @@ import {
   institutionTokens,
   sourceProfessionConflicts,
   contentIdentityConflicts,
+  genericTransferGatewayConflict,
 } from "./extraction-rules.js";
 
 describe("entityLabelMatchesInstitution", () => {
@@ -285,5 +286,44 @@ describe("contentIdentityConflicts", () => {
 
   it("says nothing about heading text that names no profession", () => {
     expect(contentIdentityConflicts("Admissions Requirements", "medicine")).toBeNull();
+  });
+});
+
+describe("genericTransferGatewayConflict", () => {
+  // The actual wrong pages found behind 12 rows: an institution-wide undergraduate transfer
+  // gateway, unrelated to the professional/graduate programme that cited it.
+  it.each([
+    ["https://www.admissions.uci.edu/apply/transfer-students/index.php", "medicine"],
+    ["https://www.admissions.uci.edu/apply/transfer-students/requirements.php", "nursing"],
+    ["https://www.admissions.uci.edu/apply/transfer-students/requirements.php", "pharmacy"],
+    ["https://www.admissions.uci.edu/apply/transfer-students/requirements.php", "postbac"],
+    ["https://www.utoledo.edu/admission/transfer-adult-student/", "medicine"],
+    ["https://uadmissions.georgetown.edu/apply/transfer-applicants/preparing-for-georgetown-transfer/", "nursing"],
+    ["https://admissions.uoregon.edu/transfer/requirements", "postbac"],
+    ["https://www.southalabama.edu/departments/admissions/pathwayusa/transferplans/biomedicalal-bs.html", "medicine"],
+  ])("rejects a generic transfer gateway: %s (%s)", (url, slug) => {
+    expect(genericTransferGatewayConflict(url, slug, null)).toMatch(/general undergraduate transfer/);
+  });
+
+  it("does not flag a direct-entry ABSN row that legitimately routes through undergraduate transfer", () => {
+    expect(genericTransferGatewayConflict(
+      "https://www.binghamton.edu/admissions/undergraduate/apply/transfer/",
+      "nursing",
+      "ABSN",
+    )).toBeNull();
+  });
+
+  it("does not flag a transfer-gateway page whose own path also names the programme", () => {
+    // Simmons' own direct-entry nursing admissions page, not a general undergraduate gateway.
+    expect(genericTransferGatewayConflict(
+      "https://www.simmons.edu/admission-aid/application-process/transfer-applicants/nursing-program-transfer-students",
+      "nursing",
+      "MEPN",
+    )).toBeNull();
+  });
+
+  it("says nothing about a page with no transfer-gateway shape at all", () => {
+    expect(genericTransferGatewayConflict("https://medicine.ouhsc.edu/admissions/doctor-of-medicine-md", "medicine", null))
+      .toBeNull();
   });
 });
