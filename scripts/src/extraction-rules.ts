@@ -380,3 +380,64 @@ export function contentIdentityConflicts(text: string, professionSlug: string): 
   if (!found || found === professionSlug || EQUIVALENT_SLUG[found] === professionSlug) return null;
   return `the page's title/heading names ${found}, and this row is a ${professionSlug} programme`;
 }
+
+/** Fields a "no prerequisites" quote can be about that are not this programme at all. */
+const NO_PREREQ_OTHER_FIELD: Array<{ re: RegExp; label: string }> = [
+  { re: /\blaw school\b|\bJ\.?D\.?\b|\blegal education\b/i, label: "law" },
+  { re: /\bbusiness school\b|\bMBA\b/i, label: "business" },
+  { re: /\bdivinity\b|\bseminary\b|\btheolog/i, label: "theology" },
+  { re: /\beducation degree\b|\bteacher certification\b|\bteaching licens/i, label: "teacher education" },
+  { re: /\bengineering\b/i, label: "engineering" },
+];
+
+/** Words that show a "no prerequisites" quote is about the programme's own field. */
+const NO_PREREQ_OWN_FIELD: Record<string, RegExp> = {
+  medicine: /medical school|medicine|premedical|osteopathic|\bMD\b|\bDO\b/i,
+  postbac: /postbaccalaureate|post-baccalaureate|postbac|premedical|pre-?health|health profession/i,
+  nursing: /nursing|\bBSN\b|\bABSN\b|\bMEPN\b/i,
+  "physician-assistant": /physician assistant|\bPA\b|CASPA/i,
+  "occupational-therapy": /occupational therapy|\bOTD?\b/i,
+  "physical-therapy": /physical therapy|\bDPT\b/i,
+  "speech-language-pathology": /speech|communication sciences|communicative|\bSLP\b/i,
+  pharmacy: /pharmacy|PharmD/i,
+  dentistry: /dental|\bDDS\b|\bDMD\b/i,
+  dental: /dental|\bDDS\b|\bDMD\b/i,
+  dietetics: /dietetic|nutrition/i,
+  veterinary: /veterinar|\bDVM\b/i,
+  optometry: /optometr/i,
+  podiatry: /podiatr/i,
+  "genetic-counseling": /genetic counsel/i,
+  "prosthetics-orthotics": /prosthetic|orthotic/i,
+  "anesthesiologist-assistant": /anesthesiolog/i,
+  "pathologists-assistant": /patholog/i,
+};
+
+/**
+ * Why a "publishes no prerequisites" quote is not evidence for this programme, or null when it
+ * is. Complements NO_PREREQ_ASSERTION: that regex confirms a sentence denies prerequisites at
+ * all; this confirms the sentence is denying THIS row's prerequisites, not some other field's --
+ * Cleveland State's postbaccalaureate row once rested on "there are no required prerequisite
+ * courses for law school", the right institution but an unrelated field.
+ *
+ * A premedical postbac/gateway row is exempted from a "medicine" conflict: a postbaccalaureate
+ * or record-enhancer program that feeds into medical school legitimately quotes its own page
+ * saying prerequisites vary "for the specific medical schools you are applying to" -- Brown's
+ * Gateways ScM in Medical Sciences program says exactly this on its own FAQ. That is the
+ * programme naming its students' eventual destination, not a quote about a different field's
+ * page, so it must not be flagged the same way a law-school or MBA quote would be. This mirrors
+ * PATH_NAMES_POSTBAC's existing postbac/medicine exemption in sourceProfessionConflicts above.
+ */
+export function noPrereqQuoteFieldConflict(quote: string, professionSlug: string): string | null {
+  const own = NO_PREREQ_OWN_FIELD[professionSlug];
+  const ownMatches = !!own && own.test(quote);
+  const otherField = NO_PREREQ_OTHER_FIELD.find((f) => f.re.test(quote));
+  if (otherField) return `quote is about ${otherField.label}`;
+  if (professionSlug === "postbac" && NO_PREREQ_OWN_FIELD.medicine!.test(quote) && !ownMatches) {
+    return null;
+  }
+  const otherProfession = Object.entries(NO_PREREQ_OWN_FIELD).find(
+    ([slug, re]) => slug !== professionSlug && re.test(quote) && !ownMatches,
+  );
+  if (!otherProfession) return null;
+  return `quote is about ${otherProfession[0]}, not this programme`;
+}

@@ -6,6 +6,7 @@ import {
   sourceProfessionConflicts,
   contentIdentityConflicts,
   genericTransferGatewayConflict,
+  noPrereqQuoteFieldConflict,
 } from "./extraction-rules.js";
 
 describe("entityLabelMatchesInstitution", () => {
@@ -325,5 +326,53 @@ describe("genericTransferGatewayConflict", () => {
   it("says nothing about a page with no transfer-gateway shape at all", () => {
     expect(genericTransferGatewayConflict("https://medicine.ouhsc.edu/admissions/doctor-of-medicine-md", "medicine", null))
       .toBeNull();
+  });
+});
+
+describe("noPrereqQuoteFieldConflict", () => {
+  // The confirmed bug class: a "publishes no prerequisites" quote that is genuinely about a
+  // different field entirely, not this row's own programme.
+  it("flags a postbac claim resting on a law-school quote", () => {
+    expect(noPrereqQuoteFieldConflict(
+      "there are no required prerequisite courses for law school",
+      "postbac",
+    )).toMatch(/quote is about law/);
+  });
+
+  it("flags a dietetics claim resting on a quote about the nursing programme", () => {
+    expect(noPrereqQuoteFieldConflict(
+      "the MEPN nursing programme does not require specific prerequisite courses",
+      "dietetics",
+    )).toMatch(/quote is about nursing/);
+  });
+
+  // 2026-09-10 regression: Brown's Gateways ScM in Medical Sciences program (profession_slug
+  // "postbac") legitimately quotes its own FAQ saying prerequisites vary "for the specific
+  // medical schools you are applying to" -- this is the programme naming its students'
+  // eventual destination, not a quote about a different field's page, and must not be flagged
+  // the same way the law-school and nursing counterexamples above are.
+  it("does not flag a premedical postbac claim that names medical schools as its students' destination", () => {
+    expect(noPrereqQuoteFieldConflict(
+      "have completed all prehealth course requirements (please note: if you are applying to " +
+        "medical school, you will need to check the prerequisite course requirements for the " +
+        "specific medical schools you are applying to, since these do vary from school to school)",
+      "postbac",
+    )).toBeNull();
+  });
+
+  // The exemption is scoped to postbac rows citing medicine specifically -- it must not mask a
+  // genuine cross-field conflict for a non-postbac profession that happens to mention medicine.
+  it("still flags a non-postbac profession's claim resting on a medicine quote", () => {
+    expect(noPrereqQuoteFieldConflict(
+      "this medical school does not require specific prerequisite coursework",
+      "nursing",
+    )).toMatch(/quote is about medicine/);
+  });
+
+  it("says nothing about a quote that is silent on field but genuinely about this programme", () => {
+    expect(noPrereqQuoteFieldConflict(
+      "we have no fixed list of required courses; competencies replace prerequisite coursework",
+      "postbac",
+    )).toBeNull();
   });
 });

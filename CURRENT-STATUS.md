@@ -1,7 +1,93 @@
 # Current status
 
-Last updated 2026-09-07. Regenerate the numbers with
+Last updated 2026-09-10. Regenerate the numbers with
 `cd scripts && . ./envload.sh && pnpm exec tsx src/coverage-snapshot.ts` before trusting them.
+
+## Generic transfer-gateway re-research round (2026-09-10)
+
+The 12 rows the 2026-09-07 round reset to `needs_review` (see below) were independently
+re-researched against each programme's own official source, not the generic transfer gateway
+that was removed. 10 of the 12 were recovered with a real, program-specific source and a
+structured prerequisite list or an evidenced "no fixed prerequisites" statement: both UC Irvine
+School of Medicine (MD) and Sue & Bill Gross School of Nursing (MEPN) pages, UC Irvine School of
+Pharmacy (PharmD), UC Irvine School of Medicine's own Postbaccalaureate Program page (live access
+returned "Access denied" during verification; content was confirmed via a Wayback Machine
+snapshot and cross-checked against independent search-index extracts of the same URL), University
+of Toledo's College of Medicine (MD) and College of Pharmacy (Pre-Pharmacy) pages, Georgetown's MS
+Entry to Nursing page (Georgetown's current name for what this dataset still calls MEPN) and its
+Post-Baccalaureate Pre-Medical Certificate Program page, Indiana University of Pennsylvania's
+Dietitian-Nutritionist MS page, and University of South Alabama's College of Medicine Bulletin.
+2 of the 12 -- Georgetown's Master's in Systems Medicine and University of Oregon's Postbac Premed
+Program -- turned out to genuinely publish no fixed prerequisite list (both explicitly state this
+on their own official pages) and are now `no_prereqs_published` with the exact quoted evidence,
+not `needs_review`.
+
+**Broader audit sweep.** Running all five permanent audits (`audit-source-profession`,
+`audit-source-transfer-gateway`, `audit-source-institution`, `audit-postbac-wrong-programme`,
+`audit-no-prereq-claims`) plus `db-integrity` surfaced a manageable set of report-only candidates
+from `audit-source-institution` (61, unchanged in shape from 2026-09-07) and 2 confirmed
+`WRONG_PROGRAMME` rows from `audit-postbac-wrong-programme`. Only the candidates where the source
+domain clearly belonged to a *different, unrelated* institution were investigated and fixed --
+most of the 61 are the heuristic not recognising a legitimate same-institution abbreviation or
+shared health-science-center domain (`unthealth.edu`, `achehealth.edu`, `csuohio.edu`,
+`cuanschutz.edu` for genuine University of Colorado rows, `smartcatalogiq.com` catalog hosting,
+etc.) and were left untouched as false positives, not "fixed" to make the count look cleaner:
+
+- **UC San Diego Skaggs School of Pharmacy** (id 1477) -- `sourceUrl` was
+  `pharmacy.cuanschutz.edu`, University of Colorado's PharmD admissions page, while `websiteUrl`
+  already correctly pointed at `pharmacy.ucsd.edu`. Replaced with UCSD's own admissions
+  requirements page.
+- **University of Missouri-Kansas City School of Pharmacy** (id 1497) -- `sourceUrl` was
+  `pharmacy.umaryland.edu`, University of Maryland's PharmD admissions page. Replaced with UMKC's
+  own official pre-pharmacy course transfer sheet.
+- **Lyon College School of Dental Medicine** (id 119) -- BOTH `websiteUrl` and `sourceUrl` pointed
+  at `dental.umaryland.edu`, University of Maryland's dental school, entirely unrelated to Lyon
+  College (Batesville, Arkansas). Replaced both with Lyon College's own dental-medicine pages.
+- **Illinois College of Osteopathic Medicine** (id 381) -- `websiteUrl` contained a literal
+  embedded space (`thechicago school.edu`), a data-entry corruption. The institution/source
+  pairing itself was independently confirmed correct (IllinoisCOM is a real, newly
+  COCA-pre-accredited DO program at The Chicago School, inaugural class Fall 2026) -- only the
+  malformed URL was fixed; `sourceUrl` and `prereqCourses` were already correct and untouched.
+- **Albright College "ADVANCE"** (id 2434, from `audit-postbac-wrong-programme`) -- the stored
+  source and prerequisites were Albright's *undergraduate* pre-med major course sequence, not a
+  postbac program's entrance requirements. Could not find a current official page for a distinct
+  "ADVANCE" postbac program (the AAMC-listed URL now 404s, an albright.edu site search for
+  "ADVANCE" returns nothing, and Albright's current pre-med page lists only articulation
+  agreements with other institutions). No explicit discontinuation statement was found either, so
+  this was reset to `needs_review` rather than retired or guessed.
+- **Brown University ScM in Medical Sciences ("Gateways")** (id 2383, from
+  `audit-postbac-wrong-programme`) -- `sourceUrl` was Brown's MD-program course-requirements page,
+  whose prerequisites describe MD applicants, not this program's own applicants. Replaced with
+  Brown's own Gateways admission page, which explicitly states it does not itemize a fixed
+  prerequisite list and directs applicants to check their target medical schools instead -- now
+  `no_prereqs_published` with that quote as evidence.
+
+**A confirmed validator gap, fixed with a regression test.** Marking Georgetown's Systems Medicine,
+Oregon's Postbac, and Brown's Gateways rows `no_prereqs_published` initially tripped
+`audit-no-prereq-claims` as `SUSPECT`/`NOQUOTE`: two needed their evidence written under the
+`Source statement: "..."` convention the audit parses (a formatting gap, now fixed in the notes),
+and Brown's own FAQ legitimately says prerequisites vary "for the specific medical schools you are
+applying to" -- a premedical postbac program naming its students' eventual destination, not a
+quote about an unrelated field the way Cleveland State's old law-school quote was. Extracted the
+audit's OWN_FIELD/OTHER_FIELD conflict logic into a shared, tested `noPrereqQuoteFieldConflict`
+function in `extraction-rules.ts` (the same consolidation `audit-source-profession.ts` already
+went through in the 2026-09-05 round, for the same reason: two copies of a marker list is how a
+gap goes unnoticed), added a postbac/medicine exemption mirroring the existing
+`PATH_NAMES_POSTBAC` precedent, and covered it with 5 regression tests in
+`extraction-rules.test.ts` -- the Brown counterexample, the original Cleveland State
+law-school/Emory nursing-vs-dietetics cases (must still flag), a non-postbac profession citing
+medicine (must still flag, the exemption is postbac-scoped only), and a field-silent quote
+(must not flag). `audit-no-prereq-claims` now reports `SUSPECT=0` again.
+
+All checks pass after this round: `INTEGRITY_FAILING_CHECKS=0`, `WRONG_SOURCE=0`,
+`FLAGGED=0` (transfer gateway), `WRONG_PROGRAMME=0`, `SUSPECT=0`. Scripts tests grew from 102 to
+107 (5 new regression tests); frontend (127) and API (20) tests, full-repo typecheck, and the
+production build are all unaffected and still pass. Coverage moved from 94.7% to **95.1%**
+(2,671 verified, 59 publish no specific prerequisites, 1 source-blocked, 141 unfinished, of 2,872
+active programmes) -- net positive even though two previously-"verified" rows (Albright, Brown)
+were correctly demoted after their data turned out to be wrong-programme, because 10 of the 12
+reset rows and 3 of the 6 additional audit candidates were successfully recovered with real
+evidence.
 
 ## Generic transfer-gateway sourcing round (2026-09-07)
 
@@ -225,10 +311,10 @@ nothing needed fixing.
 
 ## Where the data stands
 
-**94.7% finalized — 2,663 verified, 56 publish no specific prerequisites, 1 source-blocked,
-152 unfinished, of 2,872 active programmes.** (Lower than the prior 95.1% snapshot only because
-the 2026-09-07 generic-transfer-gateway round above correctly reset 12 wrong-source rows to
-unfinished.)
+**95.1% finalized — 2,671 verified, 59 publish no specific prerequisites, 1 source-blocked,
+141 unfinished, of 2,872 active programmes.** (Up from 94.7% because the 2026-09-10 re-research
+round above recovered 10 of the 12 generic-transfer-gateway rows and 3 of 6 additional
+audit-flagged rows with real, evidenced sources — see that section for exactly which.)
 
 All checks currently pass:
 
@@ -238,7 +324,7 @@ All checks currently pass:
 | Source describes this programme | `pnpm exec tsx src/audit-source-profession.ts` | `WRONG_SOURCE=0` |
 | Source isn't a generic transfer gateway | `pnpm exec tsx src/audit-source-transfer-gateway.ts` | `FLAGGED=0` |
 | No-prerequisite claims are evidenced | `pnpm exec tsx src/audit-no-prereq-claims.ts` | `SUSPECT=0` |
-| Scripts tests | `pnpm --filter @workspace/scripts exec vitest run` | 102 passing |
+| Scripts tests | `pnpm --filter @workspace/scripts exec vitest run` | 107 passing |
 | Frontend tests | `pnpm --filter @workspace/prehealth-advisor run test` | 127 passing |
 | API tests | `pnpm --filter @workspace/api-server run test` | 20 passing |
 | Types | `pnpm -r exec tsc --noEmit` | clean |
@@ -249,8 +335,9 @@ Coverage was 97.0% before the original correction and is deliberately lower agai
 
 ## Working rules that are easy to get wrong
 
-- **The checked-out branch is `cursor/completion-checkpoint`, not `main`.** Local `main` is
-  hundreds of commits behind. Push with `git push origin HEAD:main`.
+- **As of 2026-09-10 the checked-out branch is `main` itself, up to date with `origin/main`.**
+  Push with `git push origin HEAD:main`; re-verify with `git status` before assuming this still
+  holds, since it has flipped before.
 - **Source `envload.sh` in the same shell command as any database script.** Without it the
   shell profile's `DATABASE_URL` points at a different project's database and the script
   silently reads the wrong one: `. ./envload.sh && pnpm exec tsx src/<script>.ts`.
@@ -290,19 +377,22 @@ wrong ones.
 
 ## What is left, and what is actually achievable
 
-129 unfinished rows. Bucket them with `pnpm exec tsx src/show-failure-notes.ts`; the written
-account per programme is in `data/unresolved-programs.md`.
+141 unfinished rows (regenerated 2026-09-10). Bucket them with
+`pnpm exec tsx src/show-failure-notes.ts`; the written account per programme is in
+`data/unresolved-programs.md`.
 
 | Count | Situation | Achievable? |
 |---|---|---|
 | 99 | Page was read successfully and names no prerequisite courses | **No.** Not without inventing data |
 | 22 | Stored source returns an error status | Possibly — needs a URL found by hand |
-| 5 | Reset, awaiting re-extraction | Yes — re-run the worker |
-| 3 | One never attempted, one unreadable, one other | Possibly |
+| 17 | Reset, awaiting re-extraction | Yes — re-run the worker |
+| 1 | Never attempted | Possibly |
+| 1 | Page could not be read | Possibly |
+| 1 | Other | Possibly |
 
-By profession: postbac 76, speech-language pathology 14, medicine 12, occupational therapy 8,
+By profession: postbac 87, speech-language pathology 15, medicine 12, occupational therapy 8,
 dietetics 6, pharmacy 4, physician assistant 3, nursing 3, and one each in
-prosthetics-orthotics, genetic counselling and dental.
+genetic counselling, prosthetics-orthotics, and dental.
 
 **The postbac block is mostly structurally unfinishable.** A postbaccalaureate programme is
 where a student *takes* prerequisites, so most publish none. Effort spent there will not pay off.
