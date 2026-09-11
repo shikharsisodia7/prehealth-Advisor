@@ -41,7 +41,11 @@ if (AS_JSON) {
   for (const r of list) {
     console.log(`#${String(r.id).padStart(4)} [${r.status}] ${r.issue_type}  ${r.created_at}`);
     if (r.program_id) console.log(`      program_id=${r.program_id}`);
-    if (r.institution || r.profession) console.log(`      ${r.profession}${r.profession && r.institution ? " — " : ""}${r.institution} ${r.program_name}${r.program_degree ? ` (${r.program_degree})` : ""}`);
+    // program_name conventionally already ends "... (MD)"/"(DO)" etc.; only append the
+    // degree separately when it is not already part of the name (mirrors the same fix in
+    // ReportErrorDialog.tsx, which prefills this same summary in the submitting UI).
+    const degreeSuffix = r.program_degree && !r.program_name.includes(r.program_degree) ? ` (${r.program_degree})` : "";
+    if (r.institution || r.profession) console.log(`      ${r.profession}${r.profession && r.institution ? " — " : ""}${r.institution} ${r.program_name}${degreeSuffix}`);
     if (r.reported_source_url) console.log(`      current:   ${r.reported_source_url}`);
     if (r.suggested_source_url) console.log(`      suggested: ${r.suggested_source_url}`);
     if (r.description) console.log(`      note: ${r.description}`);
